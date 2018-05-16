@@ -1,0 +1,38 @@
+{
+	"name": "guac-web",
+	"description": "My classy project with Next.js",
+	"repository": "datagutt/guac-web",
+	"author": {
+		"name": "datagutt",
+		"email": "datagutt@lekanger.no"
+	},
+	"scripts": {
+		"dev": "next",
+		"build": "next build",
+		"start": "next start"
+	},
+	"dependencies": {
+		"@videojs/http-streaming": "^1.0.1",
+		"@zeit/next-css": "^0.2.0",
+		"classnames": "^2.2.5",
+		"cross-fetch": "^2.1.1",
+		"file-loader": "^1.1.11",
+		"next": "6.0.3-canary.1",
+		"next-redux-wrapper": "^2.0.0-beta.6",
+		"react": "^16.2.0",
+		"react-dom": "^16.2.0",
+		"react-redux": "^5.0.7",
+		"react-slick": "^0.23.1",
+		"redux": "^4.0.0",
+		"redux-logger": "^3.0.6",
+		"redux-thunk": "^2.2.0",
+		"slick-carousel": "^1.8.1",
+		"tachyons": "^4.9.1",
+		"video.js": "^6.7.3",
+		"videojs-contrib-hls": "^5.14.1"
+	},
+	"devDependencies": {
+		"postcss-css-variables": "^0.8.1",
+		"postcss-import": "^11.1.0"
+	}
+}

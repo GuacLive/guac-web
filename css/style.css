@@ -1,0 +1,48 @@
+@import 'tachyons';
+@import 'videojs-skin.css';
+
+/* Custom properties */
+* {
+	box-sizing: border-box;
+}
+
+html, .sans-serif {	
+	font-family:
+	-apple-system,
+	BlinkMacSystemFont,
+	'Segoe UI',
+	'Roboto',
+	'Helvetica Neue',
+	Helvetica,
+	sans-serif;
+}
+
+body {
+	line-height: 1.5;
+	margin: 0;
+	background: #f4f5f7;
+}
+
+.front {
+	background: blue;
+}
+
+.hover-b--blue:hover {
+	border-color: var(--blue);
+}
+
+.hover-b--green:hover {
+	border-color: var(--blue);
+}
+
+:root {
+
+}
+
+.site-component-spotlight .slick-dots li button:before {
+	color: black;
+}
+
+.site-component-spotlight button.slick-arrow:before {
+	color: black;
+}
