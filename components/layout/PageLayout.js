@@ -18,8 +18,8 @@ const PageLayout = ({ children, title = '' }) => (
 			<header className="z-5 w-100 ph3 pv2 bg-near-black flex flex-row justify-center items-center">
 				<div className="w-100 ph5-l flex flex-row justify-between items-center flex-wrap flex-nowrap-ns">
 					<div className="flex flex-row justify-center justify-start-l">
-						<a className="f2 b link dim ba b--transparent db pa1 br-100 fl-l content-box w-20" href="/">
-							<img className="dib" src="/static/img/header-logo.png" alt="guac.live" />
+						<a className="f2 b link dim ba b--transparent db pa1 br-100 fl-l content-box" href="/">
+							<img className="dib h2" src="/static/img/header-logo.png" alt="guac.live" />
 						</a>
 					</div>
 					<form className="w-30 db db-m flex-ns flex-row-ns self-center-ns overflow-x-visible-ns">
