@@ -1,13 +1,19 @@
 import videojs from 'video.js'
 import '@videojs/http-streaming'
 import 'video.js/dist/video-js.css'
+import '@silvermine/videojs-chromecast/dist/silvermine-videojs-chromecast.css'
 
 export default class VideoPlayer extends React.Component {
 	componentDidMount() {
+		require('@silvermine/videojs-chromecast')(videojs, {
+			reloadWebComponents: true
+		});
+		require('videojs-persistvolume');
 		// instantiate Video.js
 		this.player = videojs(this.videoNode, this.props, function onPlayerReady() {
 			console.log('onPlayerReady', this)
 		});
+		this.player.chromecast();
 	}
 
 	// destroy player on unmount

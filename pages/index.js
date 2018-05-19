@@ -29,6 +29,11 @@ class IndexPage extends Component {
 		const videoJsOptions = {
 			autoplay: true,
 			controls: true,
+			plugins: {
+				persistvolume: {
+					namespace: 'guac-live'
+				}
+			},
 			sources: [{
 				src: stream.url,
 				type: 'application/x-mpegURL'
@@ -37,7 +42,9 @@ class IndexPage extends Component {
 
     	return (
     		<div key={stream.user.id}>
-    			<h3 className="f4 b ma0"><span className="i tracked blue">{stream.name}</span> is live</h3>
+    			<a href={"/c/" + stream.user.name} className="link f4 b ma0">
+    				<span className="i tracked blue">{stream.name}</span> is live
+    			</a>
 				<VideoPlayer { ...videoJsOptions }></VideoPlayer>
     		</div>
     	);

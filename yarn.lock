@@ -591,6 +591,14 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
+"@silvermine/videojs-chromecast@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@silvermine/videojs-chromecast/-/videojs-chromecast-1.0.1.tgz#20204b306dde74f1b6adbd7e9220b862cf0ca8c5"
+  dependencies:
+    class.extend "0.9.2"
+    underscore "1.8.3"
+    webcomponents.js "git+https://git@github.com/webcomponents/webcomponentsjs.git#v0.7.24"
+
 "@videojs/http-streaming@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@videojs/http-streaming/-/http-streaming-1.0.1.tgz#c75d394f9c9c554be465a68db9dae33955d089ea"
@@ -1170,6 +1178,10 @@ class-utils@^0.3.5:
     define-property "^0.2.5"
     isobject "^3.0.0"
     static-extend "^0.1.1"
+
+class.extend@0.9.2:
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/class.extend/-/class.extend-0.9.2.tgz#e1cbda3697cb31d3cdab1c001d269075c9031f78"
 
 classnames@^2.2.5:
   version "2.2.5"
@@ -4747,6 +4759,10 @@ uglifyjs-webpack-plugin@^0.4.6:
     uglify-js "^2.8.29"
     webpack-sources "^1.0.1"
 
+underscore@1.8.3:
+  version "1.8.3"
+  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.8.3.tgz#4f3fb53b106e6097fcf9cb4109f2a5e9bdfa5022"
+
 unfetch@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/unfetch/-/unfetch-3.0.0.tgz#8d1e0513a4ecd0e5ff2d41a6ba77771aae8b6482"
@@ -4920,6 +4936,10 @@ videojs-ie8@1.1.2:
   dependencies:
     es5-shim "^4.5.1"
 
+videojs-persistvolume@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/videojs-persistvolume/-/videojs-persistvolume-0.2.0.tgz#f6fc9bf7ba90b486c3c979190dcd071b78548038"
+
 videojs-vtt.js@0.12.6:
   version "0.12.6"
   resolved "https://registry.yarnpkg.com/videojs-vtt.js/-/videojs-vtt.js-0.12.6.tgz#e078600bda899eaa6f9c3307134cd0c811947b8e"
@@ -4945,6 +4965,10 @@ watchpack@^1.4.0:
     chokidar "^2.0.2"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
+
+"webcomponents.js@git+https://git@github.com/webcomponents/webcomponentsjs.git#v0.7.24":
+  version "0.7.24"
+  resolved "git+https://git@github.com/webcomponents/webcomponentsjs.git#8a2e40557b177e2cca0def2553f84c8269c8f93e"
 
 webpack-dev-middleware@1.12.0:
   version "1.12.0"
