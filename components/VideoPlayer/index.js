@@ -10,7 +10,14 @@ export default class VideoPlayer extends React.Component {
 		});
 		require('videojs-persistvolume');
 		// instantiate Video.js
-		this.player = videojs(this.videoNode, this.props, function onPlayerReady() {
+		this.player = videojs(this.videoNode, {
+			plugins: {
+				persistvolume: {
+					namespace: 'guac-live'
+				}
+			},
+			...this.props
+		}, function onPlayerReady() {
 			console.log('onPlayerReady', this)
 		});
 		this.player.chromecast();

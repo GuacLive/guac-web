@@ -29,11 +29,6 @@ class IndexPage extends Component {
 		const videoJsOptions = {
 			autoplay: true,
 			controls: true,
-			plugins: {
-				persistvolume: {
-					namespace: 'guac-live'
-				}
-			},
 			sources: [{
 				src: stream.url,
 				type: 'application/x-mpegURL'
@@ -43,44 +38,39 @@ class IndexPage extends Component {
     	return (
     		<div key={stream.user.id}>
     			<a href={"/c/" + stream.user.name} className="link f4 b ma0">
-    				<span className="i tracked blue">{stream.name}</span> is live
+    				<span className="i tracked b">{stream.name}</span> is live
     			</a>
 				<VideoPlayer { ...videoJsOptions }></VideoPlayer>
     		</div>
     	);
     }
     renderStreams = () => {
-    	let streams = [];
     	if(this.props.featured.statusCode == 200 
 			&& this.props.featured.data
 			&& this.props.featured.data.length > 0){
-    		streams = this.props.featured.data;
+    		 return this.props.featured.data.map(this.renderStream);
     	}
-    	return streams.map(this.renderStream);
+    	return (
+    		<p>no streams are online</p>
+    	);
     }
 
 	render() {
 		console.log(this.props);
-		if(!this.props.featured.data || this.props.featured.data.length == 0) {
-			return (
-				<Fragment>
-					<h2 className='f2 tracked mb0'>Welcome to guac.live</h2>
-					<p>no streams online</p>
-					<GuacButton>nice button</GuacButton>
-				</Fragment>
-			);
-		}
 		return (
 			<Fragment>
+				<div className="site-component--spotlight w-100 center bg-light-green">
+					<h3 className="f4 b ma0 ttu tracked">Live streams</h3>
+					<Slider
+						autoplay={false}
+						dots={true}
+	      				adaptiveHeight={true}
+	      				className="w-100"
+					>
+					{this.renderStreams()}
+					</Slider>
+				</div>
 				<h2 className='f2 tracked mb0'>Welcome to guac.live</h2>
-				<Slider
-					autoplay={false}
-					dots={true}
-      				adaptiveHeight={true}
-      				className="w-75 site-component-spotlight"
-				>
-				{this.renderStreams()}
-				</Slider>
 				<GuacButton>nice button</GuacButton>
 			</Fragment>
 		)

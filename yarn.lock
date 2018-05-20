@@ -640,12 +640,6 @@ acorn@^5.0.0:
   version "5.5.3"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.5.3.tgz#f473dd47e0277a08e28e9bec5aeeb04751f0b8c9"
 
-aes-decrypter@1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/aes-decrypter/-/aes-decrypter-1.0.3.tgz#9c06b8a5435a5ad09db933f8a014afcf184cc34e"
-  dependencies:
-    pkcs7 "^0.2.3"
-
 aes-decrypter@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/aes-decrypter/-/aes-decrypter-3.0.0.tgz#7848a1c145b9fdbf57ae3e2b5b1bc7cf0644a8fb"
@@ -2763,10 +2757,6 @@ lru-cache@^4.0.1, lru-cache@^4.1.1:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
-m3u8-parser@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/m3u8-parser/-/m3u8-parser-2.1.0.tgz#c8170329ec1cd515d0d58bb8b762da9896cb0368"
-
 m3u8-parser@4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/m3u8-parser/-/m3u8-parser-4.2.0.tgz#c8e0785fd17f741f4408b49466889274a9e36447"
@@ -2984,10 +2974,6 @@ mpd-parser@0.6.0:
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
-
-mux.js@4.3.2:
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/mux.js/-/mux.js-4.3.2.tgz#576d537df037dc5ec35ec1316b948d815d35c210"
 
 mux.js@4.4.1:
   version "4.4.1"
@@ -3443,10 +3429,6 @@ pinkie-promise@^2.0.0:
 pinkie@^2.0.0:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
-
-pkcs7@^0.2.3:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/pkcs7/-/pkcs7-0.2.3.tgz#22d60666d01065c5f24439098e4a4830452273be"
 
 pkcs7@^1.0.2:
   version "1.0.2"
@@ -4891,7 +4873,7 @@ vendors@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/vendors/-/vendors-1.0.2.tgz#7fcb5eef9f5623b156bcea89ec37d63676f21801"
 
-"video.js@^5.17.0 || ^6.2.0", "video.js@^5.19.1 || ^6.2.0", video.js@^6.7.3, video.js@^6.8.0:
+video.js@^6.7.3, video.js@^6.8.0:
   version "6.9.0"
   resolved "https://registry.yarnpkg.com/video.js/-/video.js-6.9.0.tgz#8ad4fbc8d7380b60c703f0a780bc21796a5666cf"
   dependencies:
@@ -4903,28 +4885,6 @@ vendors@^1.0.0:
     videojs-ie8 "1.1.2"
     videojs-vtt.js "0.12.6"
     xhr "2.4.0"
-
-videojs-contrib-hls@^5.14.1:
-  version "5.14.1"
-  resolved "https://registry.yarnpkg.com/videojs-contrib-hls/-/videojs-contrib-hls-5.14.1.tgz#eba4f4f6772a74a68ee7a213536ed7d2738972bd"
-  dependencies:
-    aes-decrypter "1.0.3"
-    global "^4.3.0"
-    m3u8-parser "2.1.0"
-    mux.js "4.3.2"
-    url-toolkit "^2.1.3"
-    video.js "^5.19.1 || ^6.2.0"
-    videojs-contrib-media-sources "4.7.2"
-    webwackify "0.1.6"
-
-videojs-contrib-media-sources@4.7.2:
-  version "4.7.2"
-  resolved "https://registry.yarnpkg.com/videojs-contrib-media-sources/-/videojs-contrib-media-sources-4.7.2.tgz#0adf929107d5b74cf2c8abb2824c82177e43858e"
-  dependencies:
-    global "^4.3.0"
-    mux.js "4.3.2"
-    video.js "^5.17.0 || ^6.2.0"
-    webwackify "0.1.6"
 
 videojs-font@2.1.0:
   version "2.1.0"
@@ -5022,10 +4982,6 @@ webpack@3.10.0:
     watchpack "^1.4.0"
     webpack-sources "^1.0.1"
     yargs "^8.0.2"
-
-webwackify@0.1.6:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/webwackify/-/webwackify-0.1.6.tgz#1d42a12ac61823d7e345abde084eaaa62a4a95eb"
 
 whatwg-fetch@2.0.4, whatwg-fetch@>=0.10.0:
   version "2.0.4"
