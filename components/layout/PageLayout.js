@@ -32,11 +32,11 @@ const PageLayout = ({ children, title = '' }) => (
 				</div>
 			</header>
 
-			<div className="w-100 flex flex-column items-start mw9-l pa4 pt3">
+			<div className="w-100 flex flex-column items-start mw9-l pa3">
 				{ children }
 			</div>
 
-			<footer className="absolute left-0 right-0 bottom-0 bg-near-black white pv4 pv5-l ph4">
+			<footer className="bg-near-black white pv4 pv5-l ph4">
 				<p className="f6">
 					<span className="dib mr4 mr5-ns ttu tracked">© {(new Date()).getFullYear()} guac.live</span>
 					<a className="link white-80 hover-light-purple" href="/terms">Terms</a> /

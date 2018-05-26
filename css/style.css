@@ -32,11 +32,12 @@ body {
 }
 
 .hover-b--green:hover {
-	border-color: var(--blue);
+	border-color: var(--green);
 }
 
 :root {
-
+	--blue: blue;
+	--green: green;
 }
 
 .site-component-spotlight .slick-dots li button:before {

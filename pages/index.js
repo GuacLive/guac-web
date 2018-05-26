@@ -44,6 +44,7 @@ class IndexPage extends Component {
     		</div>
     	);
     }
+    
     renderStreams = () => {
     	if(this.props.featured.statusCode == 200 
 			&& this.props.featured.data
@@ -59,7 +60,7 @@ class IndexPage extends Component {
 		console.log(this.props);
 		return (
 			<Fragment>
-				<div className="site-component--spotlight w-100 center bg-light-green">
+				<div className="site-component-spotlight w-100 center bg-light-green">
 					<h3 className="f4 b ma0 ttu tracked">Live streams</h3>
 					<Slider
 						autoplay={false}
