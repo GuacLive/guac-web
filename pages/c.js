@@ -38,7 +38,9 @@ class ChannelPage extends Component {
     	return (
     		<div key={stream.user.id}>
 				<div className="site-component-channel__info dib w-100 bg-light-green">
-					<h2 className='f2 tracked mb0 dib'>{stream.user.name}</h2>
+					<h2 className='f2 tracked mb0 dib'>
+					{stream.user.name}{stream.category ? ' is playing '+stream.category : ''}
+					</h2>
 					<GuacButton color="white">Follow</GuacButton>
 					<GuacButton color="green">Subscribe</GuacButton>
 				</div>
