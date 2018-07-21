@@ -1,4 +1,7 @@
 import fetch from 'cross-fetch';
+import lscache from 'lscache';
+
+const TTL_MINUTES = 5;
 
 import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
@@ -11,15 +14,22 @@ export function callApi(endpoint, options = {}) {
 	const fullUrl = (endpoint.indexOf(API_URL) === -1) ? API_URL + endpoint : endpoint;
 
 	const accessToken = null;
+	let cachedResponse = null;
 	const defaultHeaders = {
 		Accept: 'application/json',
 		'Content-Type': 'application/json'
 	};
 	if (accessToken) {
 		defaultHeaders.Authorization = 'Bearer ' + accessToken;
+	} else if(opt.method == 'GET') {
+		cachedResponse = lscache.get(fullUrl);
 	}
 	opt.headers = Object.assign(opt.headers, defaultHeaders);
-	return fetch(fullUrl, opt);
+	if (cachedResponse === null) {
+		cachedResponse = fetch(fullUrl, opt);
+		lscache.set(fullUrl, cachedResponse, TTL_MINUTES);
+	}
+	return cachedResponse;
 }
 
 export function callDeleteApi(endpoint, options = {}) {
