@@ -56,7 +56,7 @@ class ChannelPage extends Component {
 		console.log(this.props);
 		if(!channel.data) return (<p>Channel not found</p>);
 		return (
-			<div class="w-100 flex flex-row">
+			<div className="w-100 flex flex-row">
 				<div className="site-component-channel w-100 w-80-l">
 				{this.renderStream(channel.data)}
 				</div>

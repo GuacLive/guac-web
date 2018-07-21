@@ -6,16 +6,16 @@ export default class MyDocument extends Document {
 		const {css} = buildManifest
 		return (
 		<html data-cast-api-enabled="true">
-			<Head>
+			<Head nonce="potato">
 			{css.map((file) => {
 				return <link rel="stylesheet" href={`/_next/${file}`} key={file} />
 			})}
 			<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
-			<script type="text/javascript" src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
+			<script type="text/javascript" src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1" nonce="potato"></script>
 			</Head>
 			<body className="sans-serif h-100 w-100">
 				<Main />
-				<NextScript />
+				<NextScript nonce="potato" />
 			</body>
 		</html>
 		)
