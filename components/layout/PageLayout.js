@@ -18,16 +18,22 @@ const PageLayout = ({ children, title = '' }) => (
 			<header className="z-5 w-100 ph3 pv2 bg-near-black flex flex-row justify-center items-center">
 				<div className="w-100 ph5-l flex flex-row justify-between items-center flex-wrap flex-nowrap-ns">
 					<div className="flex flex-row justify-center justify-start-l">
-						<a className="f2 b link dim ba b--transparent db pa1 br-100 fl-l content-box" href="/">
-							<img className="dib h2" src="/static/img/header-logo.png" alt="guac.live" />
-						</a>
+						<Link href="/">
+							<a className="f2 b link dim ba b--transparent db pa1 br-100 fl-l content-box">
+								<img className="dib h2" src="/static/img/header-logo.png" alt="guac.live" />
+							</a>
+						</Link>
 					</div>
 					<form className="w-30 db db-m flex-ns flex-row-ns self-center-ns overflow-x-visible-ns">
 						<input type="text" className="input-reset bn pa3 w-100 bg-white br2" placeholder="Search..." />
 					</form>
 					<nav className="db db-m flex-ns flex-row-ns self-center-ns overflow-x-visible-ns">
-						<a className="b link white hover-light-green ml3" href="/channels">Channels</a>
-						<a className="b link white hover-light-green ml3" href="/games">Games</a>
+						<Link href="/channels">
+							<a className="b link white hover-light-green ml3">Channels</a>
+						</Link>
+						<Link href="/games">
+							<a className="b link white hover-light-green ml3">Games</a>
+						</Link>
 					</nav>
 				</div>
 			</header>
@@ -39,9 +45,15 @@ const PageLayout = ({ children, title = '' }) => (
 			<footer className="bg-near-black white pv4 pv5-l ph4">
 				<p className="f6">
 					<span className="dib mr4 mr5-ns ttu tracked">© {(new Date()).getFullYear()} guac.live</span>
-					<a className="link white-80 hover-light-purple" href="/terms">Terms</a> /
-					<a className="link white-80 hover-gold" href="/privacy"> Privacy </a> /
-					<a className="link white-80 hover-green" href="#"> contact@guac.live </a>
+					<Link href="/terms">
+						<a className="link white-80 hover-light-purple">Terms</a>
+					</Link> /
+					<Link href="/privacy">
+						<a className="link white-80 hover-gold"> Privacy </a>
+					</Link> /
+					<Link href="#">
+						<a className="link white-80 hover-green"> contact@guac.live </a>
+					</Link>
 				</p>
 			</footer>
 		</main>
