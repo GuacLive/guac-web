@@ -8,13 +8,13 @@ export default class VideoPlayer extends React.Component {
 		require('@silvermine/videojs-chromecast')(videojs, {
 			reloadWebComponents: true
 		});
-		require('videojs-persistvolume');
+		//require('videojs-persistvolume');
 		// instantiate Video.js
 		this.player = videojs(this.videoNode, {
 			plugins: {
-				persistvolume: {
-					namespace: 'guac-live'
-				}
+				//persistvolume: {
+				//	namespace: 'guac-live'
+				//}
 			},
 			...this.props
 		}, function onPlayerReady() {

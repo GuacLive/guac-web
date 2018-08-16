@@ -22,7 +22,7 @@ app.prepare()
 	})
 
 	server.get('/c/:name', (req, res) => {
-		return app.render(req, res, '/c', req.query)
+		return app.render(req, res, '/c', req.params)
 	})
 
     server.get('*', (req, res) => {
