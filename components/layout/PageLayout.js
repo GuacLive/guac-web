@@ -7,6 +7,8 @@ import {connect} from 'react-redux';
 
 import css from '../../css/style.css'
 
+import GuacButton from '../GuacButton'
+
 const PageLayout = ({ children, title = '' }) => (
 	<Fragment>
 		<Head>
@@ -24,16 +26,26 @@ const PageLayout = ({ children, title = '' }) => (
 							</a>
 						</Link>
 					</div>
+					<nav className="w-25 db db-m flex-ns flex-row-ns self-center-ns overflow-x-visible-ns">
+						<ul className="list pl0">
+							<li className="dib">
+								<Link href="/channels">
+									<a className="b link white hover-light-green ml3">Channels</a>
+								</Link>
+							</li>
+							<li className="dib">
+								<Link href="/games">
+									<a className="b link white hover-light-green ml3">Games</a>
+								</Link>
+							</li>
+						</ul>
+					</nav>
 					<form className="w-30 db db-m flex-ns flex-row-ns self-center-ns overflow-x-visible-ns">
 						<input type="text" className="input-reset bn pa3 w-100 bg-white br2" placeholder="Search..." />
 					</form>
-					<nav className="db db-m flex-ns flex-row-ns self-center-ns overflow-x-visible-ns">
-						<Link href="/channels">
-							<a className="b link white hover-light-green ml3">Channels</a>
-						</Link>
-						<Link href="/games">
-							<a className="b link white hover-light-green ml3">Games</a>
-						</Link>
+					<nav className="ml3 mt2 mt0-ns pv2-ns flex-auto tr nowrap relative pointer fw6 order-1 order-2-ns white">
+						<GuacButton url="/auth/login">Log in</GuacButton>
+						<GuacButton url="/auth/signup" color="green">Sign up</GuacButton>
 					</nav>
 				</div>
 			</header>

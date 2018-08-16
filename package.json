@@ -32,7 +32,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "slick-carousel": "^1.8.1",
-    "tachyons": "^7.0.1-4",
+    "tachyons": "4.11.1",
     "video.js": "^7.0.5",
     "videojs-persistvolume": "^0.2.0"
   },
