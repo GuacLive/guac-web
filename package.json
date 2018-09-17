@@ -18,7 +18,7 @@
     "classnames": "^2.2.5",
     "cross-fetch": "^2.1.1",
     "express": "^5.0.0-alpha.6",
-    "file-loader": "^1.1.11",
+    "file-loader": "^2.0.0",
     "lscache": "^1.2.0",
     "next": "^7.0.0-canary.0",
     "next-redux-wrapper": "^2.0.0-beta.6",
@@ -32,11 +32,11 @@
     "redux-thunk": "^2.2.0",
     "slick-carousel": "^1.8.1",
     "tachyons": "4.11.1",
-    "video.js": "7.2.2",
+    "video.js": "^7.2.3",
     "videojs-persistvolume": "^0.2.0"
   },
   "devDependencies": {
-    "babel-plugin-add-module-exports": "^0.3.3",
+    "babel-plugin-add-module-exports": "^1.0.0",
     "postcss-css-variables": "^0.9.0",
     "postcss-import": "^12.0.0"
   }

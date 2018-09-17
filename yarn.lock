@@ -614,7 +614,19 @@
     url-toolkit "^2.1.3"
     video.js "^6.8.0 || ^7.0.0"
 
-"@videojs/http-streaming@1.2.4", "@videojs/http-streaming@^1.0.1":
+"@videojs/http-streaming@1.2.5":
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/@videojs/http-streaming/-/http-streaming-1.2.5.tgz#08e1af247e66f0513c0d0dc3eae1a2002d452c7d"
+  dependencies:
+    aes-decrypter "3.0.0"
+    global "^4.3.0"
+    m3u8-parser "4.2.0"
+    mpd-parser "0.6.1"
+    mux.js "4.5.1"
+    url-toolkit "^2.1.3"
+    video.js "^6.8.0 || ^7.0.0"
+
+"@videojs/http-streaming@^1.0.1":
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/@videojs/http-streaming/-/http-streaming-1.2.4.tgz#6245524b76203db5e6750153d4896d007cc7f7cd"
   dependencies:
@@ -812,6 +824,10 @@ aes-decrypter@3.0.0:
     commander "^2.9.0"
     global "^4.3.2"
     pkcs7 "^1.0.2"
+
+ajv-errors@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ajv-errors/-/ajv-errors-1.0.0.tgz#ecf021fa108fd17dfb5e6b383f2dd233e31ffc59"
 
 ajv-keywords@^3.0.0, ajv-keywords@^3.1.0:
   version "3.2.0"
@@ -1012,9 +1028,9 @@ babel-loader@8.0.0-beta.3:
     mkdirp "^0.5.1"
     util.promisify "^1.0.0"
 
-babel-plugin-add-module-exports@^0.3.3:
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/babel-plugin-add-module-exports/-/babel-plugin-add-module-exports-0.3.3.tgz#b9f7c0a93b989170dce07c3e97071a905a13fc29"
+babel-plugin-add-module-exports@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-add-module-exports/-/babel-plugin-add-module-exports-1.0.0.tgz#72b5424d941a336c6a35357f373d8b8366263031"
   optionalDependencies:
     chokidar "^2.0.4"
 
@@ -2095,12 +2111,12 @@ figures@^2.0.0:
   dependencies:
     escape-string-regexp "^1.0.5"
 
-file-loader@^1.1.11:
-  version "1.1.11"
-  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-1.1.11.tgz#6fe886449b0f2a936e43cabaac0cdbfb369506f8"
+file-loader@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-2.0.0.tgz#39749c82f020b9e85901dcff98e8004e6401cfde"
   dependencies:
     loader-utils "^1.0.2"
-    schema-utils "^0.4.5"
+    schema-utils "^1.0.0"
 
 filesize@^3.6.1:
   version "3.6.1"
@@ -3172,10 +3188,6 @@ next-redux-wrapper@^2.0.0-beta.6:
 next-tick@1:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
-
-next.js@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/next.js/-/next.js-1.0.3.tgz#b7d5a4c6e241c3d914c94007aa4f31d108799fa8"
 
 next@^7.0.0-canary.0:
   version "7.0.0-canary.0"
@@ -4372,6 +4384,14 @@ schema-utils@^0.4.4, schema-utils@^0.4.5:
     ajv "^6.1.0"
     ajv-keywords "^3.1.0"
 
+schema-utils@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-1.0.0.tgz#0b79a93204d7b600d4b2850d1f66c2a34951c770"
+  dependencies:
+    ajv "^6.1.0"
+    ajv-errors "^1.0.0"
+    ajv-keywords "^3.1.0"
+
 "semver@2 || 3 || 4 || 5", semver@^5.3.0, semver@^5.4.1:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
@@ -5049,11 +5069,11 @@ vendors@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/vendors/-/vendors-1.0.2.tgz#7fcb5eef9f5623b156bcea89ec37d63676f21801"
 
-video.js@7.2.2:
-  version "7.2.2"
-  resolved "https://registry.yarnpkg.com/video.js/-/video.js-7.2.2.tgz#4a1197b2f0c265a1e50d5cd4ff41cd030e22a423"
+"video.js@^6.8.0 || ^7.0.0":
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/video.js/-/video.js-7.1.0.tgz#93de7ec3396d3edb3fab0ffd4e9d3237e7e068ec"
   dependencies:
-    "@videojs/http-streaming" "1.2.4"
+    "@videojs/http-streaming" "1.1.0"
     babel-runtime "^6.9.2"
     global "4.3.2"
     safe-json-parse "4.0.0"
@@ -5062,11 +5082,11 @@ video.js@7.2.2:
     videojs-vtt.js "0.14.1"
     xhr "2.4.0"
 
-"video.js@^6.8.0 || ^7.0.0":
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/video.js/-/video.js-7.1.0.tgz#93de7ec3396d3edb3fab0ffd4e9d3237e7e068ec"
+video.js@^7.2.3:
+  version "7.2.3"
+  resolved "https://registry.yarnpkg.com/video.js/-/video.js-7.2.3.tgz#26dffee2abcc89e40cfdb5497392edbd424099f2"
   dependencies:
-    "@videojs/http-streaming" "1.1.0"
+    "@videojs/http-streaming" "1.2.5"
     babel-runtime "^6.9.2"
     global "4.3.2"
     safe-json-parse "4.0.0"

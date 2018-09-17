@@ -71,8 +71,8 @@ class IndexPage extends Component {
 					{this.renderStreams()}
 					</Slider>
 				</div>
-				<h2 className='f2 tracked mb0'>Welcome to guac.live</h2>
-				<GuacButton>nice button</GuacButton>
+				<h2 className="f2 tracked mb0">Welcome to guac.live</h2>
+				<GuacButton color="light-green">nice button</GuacButton>
 			</Fragment>
 		)
 	}
