@@ -8,9 +8,9 @@
   },
   "scripts": {
     "dev": "node server.js",
-    "build": "next build",
+    "b": "next build",
     "start": "NODE_ENV=production node server.js",
-    "export": "npm run build && next export"
+    "export": "npm run b && next export"
   },
   "dependencies": {
     "@silvermine/videojs-chromecast": "^1.0.1",
