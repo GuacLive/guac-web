@@ -10,7 +10,7 @@
     "dev": "node server.js",
     "b": "next build",
     "start": "NODE_ENV=production node server.js",
-    "export": "npm run b && next export"
+    "export": "npm run b && ./node_modules/next/.bin/next export"
   },
   "dependencies": {
     "@silvermine/videojs-chromecast": "^1.0.1",
