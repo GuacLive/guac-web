@@ -1,13 +1,6 @@
 import { callApi } from '../services/api';
 
-import { arrayToQueryString } from '../utils';
-
-export function setFeatured(args) {
-	return {
-		type: 'SET_FEATURED',
-		...args
-	};
-}
+import { arrayToQueryString, isObjEmpty } from '../utils';
 
 export function resetFeatured() {
 	return {
@@ -17,15 +10,28 @@ export function resetFeatured() {
 
 
 export const fetchFeatured = () => async (dispatch) => {
+	dispatch({
+		type: 'FETCH_FEATURED_REQUEST'
+	});
 	return callApi('/featured')
 	.then(response => response.json())
 	.then((json) => {
-		if (!('statusCode' in json)) {
-			return Promise.reject(json);
+		if (json.statusCode == 200) {
+			dispatch({
+				type: 'FETCH_FEATURED_SUCCESS',
+				json
+			});
+		} else {
+			dispatch({
+				type: 'FETCH_FEATURED_FAILURE',
+				error: new Error('Invalid status code in featured json: ' + JSON.stringify(json))
+			});
 		}
-		dispatch(setFeatured(json));
 	})
 	.catch(error => {
-		throw error;
+        dispatch({
+          type: 'FETCH_FEATURED_FAILURE',
+          error
+        });
 	});
 };

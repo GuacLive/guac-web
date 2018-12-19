@@ -16,7 +16,7 @@ class ChannelPage extends Component {
 	static async getInitialProps({store, isServer, pathname, query}) {
 		const { channel } = store.getState()
 		console.log(query.name);
-		if(!channel || !channel.data || channel.data.length == 0){
+		if(channel.loading){
 			await store.dispatch(actions.fetchChannel(query.name));
 		}
     }
@@ -52,9 +52,13 @@ class ChannelPage extends Component {
     }
 
 	render() {
-		const { channel } = this.props;
+		const {
+			channel
+		} = this.props;
 		console.log(this.props);
-		if(!channel.data) return (<p>Channel not found</p>);
+		if(channel.loading) return (<p>Loading...</p>);
+		if(channel.error) throw channel.error;
+		if(!channel.data || channel.data.length === 0) return (<p>Channel not found</p>);
 		return (
 			<div className="w-100 flex flex-row">
 				<div className="site-component-channel w-100 w-80-l">

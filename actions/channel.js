@@ -1,13 +1,6 @@
 import { callApi } from '../services/api';
 
-import { arrayToQueryString } from '../utils';
-
-export function setChannel(args) {
-	return {
-		type: 'SET_CHANNEL',
-		...args
-	};
-}
+import { arrayToQueryString, isObjEmpty } from '../utils';
 
 export function resetChannel() {
 	return {
@@ -17,15 +10,28 @@ export function resetChannel() {
 
 
 export const fetchChannel = (name) => async (dispatch) => {
+	dispatch({
+		type: 'FETCH_CHANNEL_REQUEST'
+	});
 	return callApi('/watch/' + name)
 	.then(response => response.json())
 	.then((json) => {
-		if (!('statusCode' in json)) {
-			return Promise.reject(json);
+		if (json.statusCode == 200) {
+			dispatch({
+				type: 'FETCH_CHANNEL_SUCCESS',
+				json
+			});
+		} else {
+			dispatch({
+				type: 'FETCH_CHANNEL_FAILURE',
+				error: new Error('Invalid status code in watch json: ' + JSON.stringify(json))
+			});
 		}
-		dispatch(setChannel(json));
 	})
 	.catch(error => {
-		throw error;
+        dispatch({
+          type: 'FETCH_CHANNEL_FAILURE',
+          error
+        });
 	});
 };

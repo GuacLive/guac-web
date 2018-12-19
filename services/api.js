@@ -26,7 +26,14 @@ export function callApi(endpoint, options = {}) {
 	}
 	opt.headers = Object.assign(opt.headers, defaultHeaders);
 	if (cachedResponse === null) {
-		cachedResponse = fetch(fullUrl, opt);
+		cachedResponse = fetch(fullUrl, opt)
+			.then((res) => {
+				if (res.status === 401) {
+			        return Promise.reject(res);
+			    }
+		    	return res;
+			}
+		);
 		lscache.set(fullUrl, cachedResponse, TTL_MINUTES);
 	}
 	return cachedResponse;

@@ -7,3 +7,6 @@ export function arrayToQueryString(array_in) {
 
 	return out.join('&');
 }
+export function isObjEmpty(obj) {
+	return obj && typeof obj == 'object' && Object.keys(obj).length === 0 && obj.constructor === Object;
+}
