@@ -35,6 +35,7 @@
     "tachyons": "4.11.1",
     "url-loader": "^1.1.2",
     "video.js": "^7.2.3",
+    "videojs-flvjs": "^0.2.0",
     "videojs-persistvolume": "^0.2.0"
   },
   "devDependencies": {

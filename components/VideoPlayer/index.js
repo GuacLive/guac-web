@@ -2,6 +2,7 @@ import videojs from 'video.js'
 import '@videojs/http-streaming'
 import 'video.js/dist/video-js.css'
 import '@silvermine/videojs-chromecast/dist/silvermine-videojs-chromecast.css'
+import 'videojs-flvjs'
 
 export default class VideoPlayer extends React.Component {
 	componentDidMount() {
@@ -16,6 +17,14 @@ export default class VideoPlayer extends React.Component {
 				//	namespace: 'guac-live'
 				//}
 			},
+			techOrder: ['flvjs', 'hls', 'html5']
+			flvjs: {
+				mediaDataSource: {
+					isLive: true,
+					cors: true,
+					withCredentials: false,
+				},
+  			},
 			...this.props
 		}, function onPlayerReady() {
 			console.log('onPlayerReady', this)

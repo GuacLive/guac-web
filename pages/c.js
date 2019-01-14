@@ -12,6 +12,7 @@ import {connect} from 'react-redux';
 
 import * as actions from '../actions';
 
+const STREAMING_SERVER = 'eu';
 class ChannelPage extends Component {
 	static async getInitialProps({store, isServer, pathname, query}) {
 		const { channel } = store.getState()
@@ -28,11 +29,19 @@ class ChannelPage extends Component {
 			sources: []
 		};
 
-		if(stream.live && stream.url){
-			videoJsOptions.sources.push({
-				src: stream.url,
-				type: 'application/x-mpegURL'
-			})
+		if(stream.live && stream.urls){
+			if(stream.urls.hls){
+				videoJsOptions.sources.push({
+					src: stream.domains[STREAMING_SERVER] + stream.urls.hls,
+					type: 'application/x-mpegURL'
+				});
+			}
+			if(stream.urls.flv){
+				videoJsOptions.sources.push({
+					src: stream.domains[STREAMING_SERVER] + stream.urls.flv,
+					type: 'video/x-flv'
+				});
+			}
 		}
 
     	return (

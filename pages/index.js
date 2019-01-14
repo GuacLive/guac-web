@@ -26,14 +26,26 @@ class IndexPage extends Component {
     }
 
     renderStream = stream => {
-		const videoJsOptions = {
+		let videoJsOptions = {
 			autoplay: true,
 			controls: true,
-			sources: [{
-				src: stream.url,
-				type: 'application/x-mpegURL'
-			}]
+			sources: []
 		};
+
+		if(stream.live && stream.urls){
+			if(stream.urls.hls){
+				videoJsOptions.sources.push({
+					src: stream.domains[STREAMING_SERVER] + stream.urls.hls,
+					type: 'application/x-mpegURL'
+				});
+			}
+			if(stream.urls.flv){
+				videoJsOptions.sources.push({
+					src: stream.domains[STREAMING_SERVER] + stream.urls.flv,
+					type: 'video/x-flv'
+				});
+			}
+		}
 
     	return (
     		<div key={stream.user.id}>
