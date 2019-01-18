@@ -22,6 +22,7 @@ module.exports = withCSS({
 	},
 	publicRuntimeConfig: { // Will be available on both server and client
 		API_URL: process.env.API_URL || 'http://api.local.guac.live',
+		CHAT_URL: process.env.CHAT_URL || 'http://chat.local.guac.live',
 		OIL_CONFIG: {
 			"theme": "dark",
 			"cpc_type": "standard",
