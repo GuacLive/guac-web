@@ -17,10 +17,9 @@ export const fetchChannel = (name) => async (dispatch) => {
 	.then(response => response.json())
 	.then((json) => {
 		if (json.statusCode == 200) {
-			dispatch({
-				type: 'FETCH_CHANNEL_SUCCESS',
-				json
-			});
+			dispatch(Object.assign({
+				type: 'FETCH_CHANNEL_SUCCESS'
+			}, json));
 		} else {
 			dispatch({
 				type: 'FETCH_CHANNEL_FAILURE',

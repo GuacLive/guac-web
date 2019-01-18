@@ -17,10 +17,9 @@ export const fetchFeatured = () => async (dispatch) => {
 	.then(response => response.json())
 	.then((json) => {
 		if (json.statusCode == 200) {
-			dispatch({
+			dispatch(Object.assign({
 				type: 'FETCH_FEATURED_SUCCESS',
-				json
-			});
+			}, json));
 		} else {
 			dispatch({
 				type: 'FETCH_FEATURED_FAILURE',

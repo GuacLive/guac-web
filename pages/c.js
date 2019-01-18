@@ -32,13 +32,13 @@ class ChannelPage extends Component {
 		if(stream.live && stream.urls){
 			if(stream.urls.hls){
 				videoJsOptions.sources.push({
-					src: stream.domains[STREAMING_SERVER] + stream.urls.hls,
+					src: stream.servers[STREAMING_SERVER] + stream.urls.hls,
 					type: 'application/x-mpegURL'
 				});
 			}
 			if(stream.urls.flv){
 				videoJsOptions.sources.push({
-					src: stream.domains[STREAMING_SERVER] + stream.urls.flv,
+					src: stream.servers[STREAMING_SERVER] + stream.urls.flv,
 					type: 'video/x-flv'
 				});
 			}
