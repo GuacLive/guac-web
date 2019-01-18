@@ -2,7 +2,7 @@ import React from 'react';
 
 import classNames from 'classnames'
 
-import ChatMessage from '../ChatMessage';
+import io from 'socket.io-client';
 
 import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
@@ -10,22 +10,22 @@ const { CHAT_URL } = publicRuntimeConfig;
 export default class Chat extends React.Component {
 	constructor(props){
 		super(props);
-		this.props = {
-			channel: props.channel,
-			message: props.message
+		this.state = {
+			message: ''
 		};
-		this.props.messages = [];
+		this.messages = [];
 		this.users = {};
 
 		this.writeMessage = this.writeMessage.bind(this);
 	}
 	componentDidMount() {
-		const socket = socketIOClient(CHAT_URL + `/${this.props.channel}`);
+		const socket = io(CHAT_URL);
 		socket.on('connection', (socket) => {
 			socket.on('join', this.userJoin);
 			socket.on('leave', this.userLeave);
 			socket.on('msgs', this.handleMessage);
 		});
+		socket.emit('join');
 	}
 	userJoin(user){
 		if(!user.id) return;
@@ -71,22 +71,26 @@ export default class Chat extends React.Component {
 	}
 	render() {
 		return (
-			<div className="chat-messages">
-				{
-					this.props.messages
-					.sort((a,b) => {
-						return a.time > b.time;
-					})
-					.forEach((msg) => {
-						return (
-							<div className="chat-message">{msg}</div>
-						);
-					})
-				}
-			</div>
-			<div className="chat-input">
-				<textarea value={this.state.message} onChange={writeMessage} />
-			</div>
+			<>
+				<div className="chat-messages">
+					{
+						this.messages
+						&&
+						this.messages
+						.sort((a,b) => {
+							return a.time > b.time;
+						})
+						.forEach((msg) => {
+							return (
+								<div className="chat-message">{msg}</div>
+							);
+						})
+					}
+				</div>
+				<div className="chat-input">
+					<textarea value={this.state.message} onChange={this.writeMessage} />
+				</div>
+			</>
 		);
 	}
 }

@@ -4,6 +4,8 @@ import {createStore} from 'redux'
 
 import Head from 'next/head'
 
+import Chat from '../components/Chat'
+
 import GuacButton from '../components/GuacButton'
 
 import VideoPlayer from '../components/VideoPlayer'
@@ -74,7 +76,7 @@ class ChannelPage extends Component {
 				{this.renderStream(channel.data)}
 				</div>
 				<aside className="site-component-chat w-100 w-20-l">
-				this is chat
+					<Chat channel={channel.name} />
 				</aside>
 			</div>
 		)
