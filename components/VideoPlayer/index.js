@@ -1,23 +1,27 @@
-import videojs from 'video.js'
+const videojs = require('video.js').default;
 import '@videojs/http-streaming'
 import 'video.js/dist/video-js.css'
 import '@silvermine/videojs-chromecast/dist/silvermine-videojs-chromecast.css'
-import 'videojs-flvjs'
 
 export default class VideoPlayer extends React.Component {
 	componentDidMount() {
+		if(window) window.flvjs = require('flv.js').default;
+		if(window) window.videojs = videojs;
+
+		require('../../videojs-flvjs.js');
 		require('@silvermine/videojs-chromecast')(videojs, {
 			reloadWebComponents: true
 		});
 		//require('videojs-persistvolume');
 		// instantiate Video.js
 		this.player = videojs(this.videoNode, {
+			liveui: true,
 			plugins: {
 				//persistvolume: {
 				//	namespace: 'guac-live'
 				//}
 			},
-			techOrder: ['flvjs', 'hls', 'html5']
+			techOrder: ['flvjs', 'html5'],
 			flvjs: {
 				mediaDataSource: {
 					isLive: true,
