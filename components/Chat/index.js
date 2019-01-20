@@ -59,7 +59,7 @@ export default class Chat extends React.Component {
 				break;
 			}
 		});
-		this.props.messages.push({
+		this.messages.push({
 			user,
 			messages: output
 		});
