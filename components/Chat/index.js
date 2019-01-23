@@ -45,16 +45,26 @@ export default class Chat extends React.Component {
 			switch(msg.type){
 				case 'emote':
 					return (
-						<span className="chat-message-line">
-							<img src="/emotes/{msg.content}" alt={msg.content} />
-						</span>
+						<>
+							<span className="chat-message-user">
+								<span>{user.name}: </span>
+							</span>
+							<span className="chat-message-content">
+								<img src="/emotes/{msg.content}" alt={msg.content} />
+							</span>
+						</>
 					);
 				break;
 				case 'text':
 					return (
-						<span className="chat-message-line">
-						{msg.content}
-						</span>
+						<>
+							<span className="chat-message-user">
+								<span>{user.name}: </span>
+							</span>
+							<span className="chat-message-content">
+							{msg.content}
+							</span>
+						</>
 					);
 				break;
 			}
