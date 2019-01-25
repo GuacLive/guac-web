@@ -62,7 +62,7 @@ export default class Chat extends React.Component {
 					<span>{user.name}: </span>
 				</span>
 				<span className="chat-message-content">
-					{messages.join('')}
+					{output.join('')}
 				</span>
 			)
 		});
