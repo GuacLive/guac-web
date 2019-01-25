@@ -19,7 +19,7 @@ export default class Chat extends React.Component {
 		this.writeMessage = this.writeMessage.bind(this);
 	}
 	componentDidMount() {
-		const socket = io(CHAT_URL);
+		const socket = io(CHAT_URL + '/' + this.props.channel);
 		socket.on('connection', (socket) => {
 			socket.on('join', this.userJoin);
 			socket.on('leave', this.userLeave);
