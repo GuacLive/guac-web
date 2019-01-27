@@ -15,12 +15,14 @@ export default class Chat extends React.Component {
 			messages: []
 		};
 		this.users = {};
+		this.socket = null;
 
-		this.writeMessage = this.writeMessage.bind(this);
+		this.sendMessage  = this.sendMessage.bind(this);
 		this.handleSys = this.handleSys.bind(this);
+		this.writeMessage = this.writeMessage.bind(this);
 	}
 	componentDidMount() {
-		const socket = io(CHAT_URL);
+		const socket = this.socket = io(CHAT_URL);
 		socket.on('connect', () => {
 			socket.on('join', this.userJoin);
 			socket.on('leave', this.userLeave);
@@ -89,10 +91,13 @@ export default class Chat extends React.Component {
 		};
 		this.setState({ messages: this.state.messages.concat(entry) });
 	}
-	writeMessage(message){
+	writeMessage(event){
 		this.setState({
-			message
+			message: event.target.value
 		});
+	}
+	sendMessage(){
+		this.socket.emit('message', this.state.message);
 	}
 	render() {
 		return (
@@ -114,6 +119,7 @@ export default class Chat extends React.Component {
 				</div>
 				<div className="chat-input">
 					<textarea value={this.state.message} onChange={this.writeMessage} />
+					<input type="button" value="Chat" onClick={this.sendMessage} />
 				</div>
 			</>
 		);
