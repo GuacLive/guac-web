@@ -76,7 +76,7 @@ class ChannelPage extends Component {
 				{this.renderStream(channel.data)}
 				</div>
 				<aside className="site-component-chat w-100 w-20-l">
-					<Chat channel={channel.name} />
+					<Chat channel={channel.data.name} />
 				</aside>
 			</div>
 		)
