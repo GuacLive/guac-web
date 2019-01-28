@@ -20,7 +20,8 @@ html, .sans-serif {
 body {
 	line-height: 1.5;
 	margin: 0;
-	background: #f4f5f7;
+	background: var(--site-background);
+	color: var(--site-text);
 }
 
 .front {
@@ -36,14 +37,21 @@ body {
 }
 
 :root {
+	--site-background: #f4f5f7;
+	--site-text: inherit;
+
 	--blue: blue;
 	--green: green;
+
 	--slick-dot-color: black;
 	--chat-message-background: var(--white-20);
 	--chat-message-text: var(--black);
 }
 
-.guac-skin-dark :root {
+.guac-skin-dark:root {
+	--site-background: #111111;
+	--site-text: #fff;
+
 	--slick-dot-color: white;
 	--chat-message-background: var(--black-20);
 	--chat-message-text: var(--white);
