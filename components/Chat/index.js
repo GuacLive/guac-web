@@ -4,6 +4,9 @@ import classNames from 'classnames'
 
 import io from 'socket.io-client';
 
+import SimpleBar from 'simplebar-react';
+import 'simplebar/dist/simplebar.css';
+
 import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
 const { CHAT_URL } = publicRuntimeConfig;
@@ -21,7 +24,7 @@ export default class Chat extends React.Component {
 		this.handleSys = this.handleSys.bind(this);
 		this.writeMessage = this.writeMessage.bind(this);
 	}
-	componentDidMount() {
+	componentDidMount(){
 		const socket = this.socket = io(CHAT_URL);
 		socket.on('connect', () => {
 			socket.on('join', this.userJoin);
@@ -30,6 +33,14 @@ export default class Chat extends React.Component {
 			socket.on('sys', this.handleSys);
 			socket.emit('join');
 		});
+	}
+	componentDidUpdate(){
+		if(typeof document !== 'undefined'){
+			let el = document.getElementsByClassName('chat-messages')[0];
+			if(el && el.SimpleBar){
+				el.SimpleBar.getScrollElement().scrollTop = el.SimpleBar.getScrollElement().scrollHeight;
+			}
+		}
 	}
 	userJoin(user){
 		if(!user.id) return;
@@ -102,21 +113,21 @@ export default class Chat extends React.Component {
 	render() {
 		return (
 			<>
-				<div className="chat-messages">
-					{
-						this.state.messages
-						&&
-						this.state.messages
-						.sort((a,b) => {
-							return a.time > b.time;
-						})
-						.map((data, i) => {
-							return (
-								<div className="chat-message" key={'chat-message' + i}>{data.message}</div>
-							);
-						})
-					}
-				</div>
+				<SimpleBar className="chat-messages" style={{ height: '560px' }}>
+				{
+					this.state.messages
+					&&
+					this.state.messages
+					.sort((a,b) => {
+						return a.time > b.time;
+					})
+					.map((data, i) => {
+						return (
+							<div className="chat-message" key={'chat-message' + i}>{data.message}</div>
+						);
+					})
+				}
+				</SimpleBar>
 				<div className="chat-input">
 					<textarea value={this.state.message} onChange={this.writeMessage} />
 					<input type="button" value="Chat" onClick={this.sendMessage} />

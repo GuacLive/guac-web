@@ -32,6 +32,7 @@
     "redux": "^4.0.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
+    "simplebar-react": "^0.1.4",
     "slick-carousel": "^1.8.1",
     "socket.io-client": "^2.2.0",
     "tachyons": "4.11.1",
