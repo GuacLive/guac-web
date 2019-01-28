@@ -72,10 +72,10 @@ class ChannelPage extends Component {
 		if(!channel.data) return (<p>Channel not found</p>);
 		return (
 			<div className="w-100 flex flex-row">
-				<div className="site-component-channel w-100 w-80-l">
+				<div className="site-component-channel w-100" style={{flex: 3}}>
 				{this.renderStream(channel.data)}
 				</div>
-				<aside className="site-component-chat w-100 w-20-l">
+				<aside className="site-component-chat w-100 w-20-l" style={{flex: 1}}>
 					<Chat channel={channel.data.name} />
 				</aside>
 			</div>
