@@ -1,4 +1,4 @@
-@import 'tachyons';
+@import 'tachyons/src/tachyons';
 @import 'videojs-skin.css';
 
 /* Custom properties */
@@ -48,9 +48,9 @@ body {
 	--chat-message-text: var(--black);
 }
 
-.guac-skin-dark:root {
-	--site-background: #111111;
-	--site-text: #fff;
+.guac-skin-dark {
+	--site-background: #2a2a2a;
+	/*--site-text: #fff;*/
 
 	--slick-dot-color: white;
 	--chat-message-background: var(--black-20);

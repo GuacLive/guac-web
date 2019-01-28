@@ -1,6 +1,8 @@
 module.exports = {
 	plugins: {
     	'postcss-import': {},
-    	'postcss-css-variables': {}
+    	'postcss-css-variables': {
+    		'preserve': true
+    	}
 	}
 }
