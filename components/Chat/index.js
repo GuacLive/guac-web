@@ -48,10 +48,10 @@ export default class Chat extends React.Component {
 			user: null,
 			message: (
 				<>
-					<span className="chat-message-user red">
+					<span className="chat-message-user red b">
 						<span>SYSTEM MESSAGE: </span>
 					</span>
-					<span className="chat-message-content">
+					<span className="chat-message-content red">
 						{msg}
 					</span>
 				</>
@@ -80,7 +80,7 @@ export default class Chat extends React.Component {
 			user,
 			message: (
 				<>
-					<span className="chat-message-user">
+					<span className="chat-message-user b">
 						<span>{user.name}: </span>
 					</span>
 					<span className="chat-message-content">

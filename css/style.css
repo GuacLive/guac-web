@@ -38,12 +38,26 @@ body {
 :root {
 	--blue: blue;
 	--green: green;
+	--slick-dot-color: black;
+	--chat-message-background: var(--white-20);
+	--chat-message-text: var(--black);
 }
 
+.guac-skin-dark :root {
+	--slick-dot-color: white;
+	--chat-message-background: var(--black-20);
+	--chat-message-text: var(--white);
+} 
+
+.chat-message {
+	background: var(--chat-message-background);
+	color: var(--chat-message-text);
+} 
+
 .site-component-spotlight .slick-dots li button:before {
-	color: black;
+	color: var(--slick-dot-color);
 }
 
 .site-component-spotlight button.slick-arrow:before {
-	color: black;
+	color: var(--slick-dot-color);
 }
