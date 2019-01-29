@@ -19,6 +19,7 @@ export default class Chat extends React.Component {
 		};
 		this.users = {};
 		this.socket = null;
+		this.maxlines = 250;
 
 		this.sendMessage  = this.sendMessage.bind(this);
 		this.handleSys = this.handleSys.bind(this);
@@ -69,6 +70,7 @@ export default class Chat extends React.Component {
 			)
 		};
 		this.setState({ messages: this.state.messages.concat(entry) });
+		this.cleanup();
 	}
 	handleMessage(user, messages) {
 		let entry;
@@ -101,6 +103,7 @@ export default class Chat extends React.Component {
 			)
 		};
 		this.setState({ messages: this.state.messages.concat(entry) });
+		this.cleanup();
 	}
 	writeMessage(event){
 		this.setState({
@@ -110,6 +113,16 @@ export default class Chat extends React.Component {
 	sendMessage(){
 		this.socket.emit('message', this.state.message);
 	}
+
+	cleanup(){
+		const lines = this.state.messages;
+		if(lines.length >= this.maxlines){
+            this.setState({
+            	messages: lines.slice(-this.maxlines)
+            });
+		}
+	}
+
 	render() {
 		return (
 			<>
