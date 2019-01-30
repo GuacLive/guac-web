@@ -55,12 +55,17 @@ body {
 	--slick-dot-color: white;
 	--chat-message-background: var(--black-20);
 	--chat-message-text: var(--white);
-} 
+}
 
 .chat-message {
 	background: var(--chat-message-background);
 	color: var(--chat-message-text);
-} 
+}
+
+.chat-message-content__emote {
+	vertical-align: middle;
+	margin: -.5rem 0;
+}
 
 .site-component-spotlight .slick-dots li button:before {
 	color: var(--slick-dot-color);

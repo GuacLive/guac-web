@@ -52,11 +52,23 @@ class Chat extends React.Component {
 	}
 	async fetchEmotes(){
 		let emotes = this.emotes;
+		await fetch('/static/emotes/twitch.json')
+		.then(async response => {
+			const data = await response.json();
+			for(const emote of Object.values(data)){
+				emotes[emote.code] = {
+					provider: 'twitch',
+					url: `http://static-cdn.jtvnw.net/emoticons/v1/${emote.id}/1.0`,
+				};
+			}
+		})
+		.catch(() => {});
+
 		await fetch('//api.betterttv.net/2/emotes')
 		.then(async response => {
 			const data = await response.json();
 
-			for (const emote of data.emotes) {
+			for(const emote of data.emotes){
 				emotes[emote.code] = {
 					provider: 'betterttv',
 					url: `//cdn.betterttv.net/emote/${emote.id}/1x`,
@@ -69,8 +81,8 @@ class Chat extends React.Component {
 		.then(async response => {
 			const data = await response.json();
 
-			for (const set of Object.values(data.sets)) {
-				for (const emote of set.emoticons) {
+			for(const set of Object.values(data.sets)){
+				for(const emote of set.emoticons){
 					emotes[emote.name] = {
 						provider: 'frankerfacez',
 						url: `${emote.urls['1']}`,
@@ -79,6 +91,8 @@ class Chat extends React.Component {
 			}
 		})
 		.catch(() => {});
+
+		//twitchemotes.com/api_cache/v3/global.json
 		self.emotes = emotes;
 		console.log('EMOTES', self.emotes);
 	}
@@ -122,7 +136,7 @@ class Chat extends React.Component {
 					if(Object.keys(self.emotes).indexOf(msg.content) == -1) return null;
 					let emote = self.emotes[msg.content];
 					return (
-						<span key={'c'+(new Date).getTime()}><img src={emote.url} alt={msg.content + ' by ' + emote.provider} /></span>
+						<span key={'c'+(new Date).getTime()}><img className="chat-message-content__emote" src={emote.url} alt={msg.content + ' by ' + emote.provider} /></span>
 					);
 				break;
 				case 'text':

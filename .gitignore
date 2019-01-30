@@ -61,3 +61,4 @@ typings/
 config/
 .next/
 yarn-error.log
+static/emotes/twitch.json
