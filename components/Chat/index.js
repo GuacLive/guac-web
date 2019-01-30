@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {connect} from 'react-redux';
+
 import classNames from 'classnames'
 
 import io from 'socket.io-client';
@@ -7,32 +9,37 @@ import io from 'socket.io-client';
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.css';
 
+import fetch from 'cross-fetch';
+
 import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
 const { CHAT_URL } = publicRuntimeConfig;
-export default class Chat extends React.Component {
+class Chat extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
 			message: '',
 			messages: []
 		};
-		this.users = {};
+		this.users = new Map();
 		this.socket = null;
 		this.maxlines = 250;
 
-		this.sendMessage  = this.sendMessage.bind(this);
+		this.emotes = [];
+
+		this.sendMessage = this.sendMessage.bind(this);
 		this.handleSys = this.handleSys.bind(this);
 		this.writeMessage = this.writeMessage.bind(this);
 	}
 	componentDidMount(){
 		const socket = this.socket = io(CHAT_URL);
+		this.fetchEmotes();
 		socket.on('connect', () => {
-			socket.on('join', this.userJoin);
-			socket.on('leave', this.userLeave);
-			socket.on('msgs', this.handleMessage);
-			socket.on('sys', this.handleSys);
-			socket.emit('join');
+			socket.on('join', this.userJoin.bind(this));
+			socket.on('leave', this.userLeave.bind(this));
+			socket.on('msgs', this.handleMessage.bind(this));
+			socket.on('sys', this.handleSys.bind(this));
+			socket.emit('join', this.props.authentication.token || null);
 		});
 	}
 	componentDidUpdate(){
@@ -43,16 +50,48 @@ export default class Chat extends React.Component {
 			}
 		}
 	}
+	async fetchEmotes(){
+		let emotes = this.emotes;
+		await fetch('//api.betterttv.net/2/emotes')
+		.then(async response => {
+			const data = await response.json();
+
+			for (const emote of data.emotes) {
+				emotes[emote.code] = {
+					provider: 'betterttv',
+					url: `//cdn.betterttv.net/emote/${emote.id}/1x`,
+				};
+			}
+		})
+		.catch(() => {});
+
+		await fetch('//api.frankerfacez.com/v1/set/global')
+		.then(async response => {
+			const data = await response.json();
+
+			for (const set of Object.values(data.sets)) {
+				for (const emote of set.emoticons) {
+					emotes[emote.name] = {
+						provider: 'frankerfacez',
+						url: `${emote.urls['1']}`,
+					};
+				}
+			}
+		})
+		.catch(() => {});
+		self.emotes = emotes;
+		console.log('EMOTES', self.emotes);
+	}
 	userJoin(user){
 		if(!user.id) return;
 		if(!user.anon){
-			this.users[user.id] = user;
+			this.users.set(user.name, user);
 		}
 	}
 	userLeave(user){
 		if(!user.id) return;
 		if(!user.anon){
-			delete this.users[user.id];
+			this.users.delete(user.name);
 		}
 	}
 	handleSys(msg){
@@ -60,7 +99,7 @@ export default class Chat extends React.Component {
 			user: null,
 			message: (
 				<>
-					<span className="chat-message-user red b">
+					<span className="chat-message-user orange b">
 						<span>SYSTEM MESSAGE: </span>
 					</span>
 					<span className="chat-message-content red">
@@ -73,19 +112,26 @@ export default class Chat extends React.Component {
 		this.cleanup();
 	}
 	handleMessage(user, messages) {
+		let self = this;
 		let entry;
-		let output = messages.forEach((msg) => {
-			if(!msg.type) return;
+		if(!user || !messages) return;
+		let output = messages.map((msg) => {
+			if(!msg.type) return null;
 			switch(msg.type){
 				case 'emote':
+					if(Object.keys(self.emotes).indexOf(msg.content) == -1) return null;
+					let emote = self.emotes[msg.content];
 					return (
-						<span><img src="/emotes/{msg.content}" alt={msg.content} /></span>
+						<span key={'c'+(new Date).getTime()}><img src={emote.url} alt={msg.content + ' by ' + emote.provider} /></span>
 					);
 				break;
 				case 'text':
 					return (
-						<span>{msg.content}</span>
+						<span key={'c'+(new Date).getTime()}>{msg.content}</span>
 					);
+				break;
+				default:
+					return false;
 				break;
 			}
 		});
@@ -94,10 +140,10 @@ export default class Chat extends React.Component {
 			message: (
 				<>
 					<span className="chat-message-user b">
-						<span>{user.name}: </span>
+						<span><a href={'/c/' + user.name} className="link color-inherit">{user.name}</a>: </span>
 					</span>
 					<span className="chat-message-content">
-						{output.join('')}
+						{output}
 					</span>
 				</>
 			)
@@ -111,7 +157,21 @@ export default class Chat extends React.Component {
 		});
 	}
 	sendMessage(){
-		this.socket.emit('message', this.state.message);
+		let self = this;
+		let msg = this.state.message;
+		let msgs = msg && msg.split(' ');
+		if(!msg) return;
+		msgs = msgs.map((msg) => {
+			return {
+				type: Object.keys(self.emotes).indexOf(msg) > -1 ? 'emote' : 'text',
+				content: msg
+			};
+		});
+		this.socket.emit('message', msgs);
+		// empty the message box
+		this.setState({
+			message: ''
+		})
 	}
 
 	cleanup(){
@@ -149,3 +209,4 @@ export default class Chat extends React.Component {
 		);
 	}
 }
+export default connect(state => state)(Chat);

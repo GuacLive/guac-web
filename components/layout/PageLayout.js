@@ -7,9 +7,11 @@ import {connect} from 'react-redux';
 
 import css from '../../css/style.css'
 
+import * as actions from '../../actions';
+
 import GuacButton from '../GuacButton'
 
-const PageLayout = ({ children, title = '' }) => (
+const PageLayout = ({ children, title = '', isAuthenticated, deauthenticate}) => (
 	<Fragment>
 		<Head>
 			<title>{ title }{ title.length > 0 ? ' | guac.live' : 'guac.live'}</title>
@@ -44,8 +46,14 @@ const PageLayout = ({ children, title = '' }) => (
 						<input type="text" className="input-reset bn pa3 w-100 bg-white br2" placeholder="Search..." />
 					</form>
 					<nav className="ml3 mt2 mt0-ns pv2-ns flex-auto tr nowrap relative pointer fw6 order-1 order-2-ns white">
-						<GuacButton url="/auth/login">Log in</GuacButton>
-						<GuacButton url="/auth/signup" color="green">Sign up</GuacButton>
+						{
+							!isAuthenticated && 
+							<GuacButton url="/auth/login">Log in</GuacButton>
+						}
+						{
+							!isAuthenticated && 
+							<GuacButton url="/auth/signup" color="green">Sign up</GuacButton>
+						}
 					</nav>
 				</div>
 			</header>
@@ -71,4 +79,11 @@ const PageLayout = ({ children, title = '' }) => (
 		</main>
 	</Fragment>
 );
-export default connect(state => state)(PageLayout);
+
+const mapStateToProps = (state) => (
+	{
+		isAuthenticated: !!state.authentication.token
+	}
+);
+
+export default connect(mapStateToProps, actions)(PageLayout);
