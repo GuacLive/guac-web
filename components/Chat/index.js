@@ -125,7 +125,7 @@ class Chat extends React.Component {
 					<span className="chat-message-user orange b">
 						SYSTEM MESSAGE:{'\u00A0'}
 					</span>
-					<span className="chat-message-content red">
+					<span className="chat-message-content orange">
 						{msg}
 					</span>
 				</>
