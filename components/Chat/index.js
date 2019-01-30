@@ -41,6 +41,15 @@ class Chat extends React.Component {
 			socket.on('sys', this.handleSys.bind(this));
 			socket.emit('join', this.props.authentication.token || null);
 		});
+		socket.on('disconnect', () => {
+			socket.emit('join', this.props.authentication.token || null);
+		});
+	}
+	componentWillUnmount(){
+		this.socket.off('connect');
+		this.socket.off('disconnect');
+		this.socket.emit('disconnect');
+		this.socket.disconnect();
 	}
 	componentDidUpdate(){
 		if(typeof document !== 'undefined'){
@@ -114,7 +123,7 @@ class Chat extends React.Component {
 			message: (
 				<>
 					<span className="chat-message-user orange b">
-						<span>SYSTEM MESSAGE: </span>
+						SYSTEM MESSAGE:{'\u00A0'}
 					</span>
 					<span className="chat-message-content red">
 						{msg}
@@ -129,19 +138,19 @@ class Chat extends React.Component {
 		let self = this;
 		let entry;
 		if(!user || !messages) return;
-		let output = messages.map((msg) => {
+		let output = messages.map((msg, i) => {
 			if(!msg.type) return null;
 			switch(msg.type){
 				case 'emote':
 					if(Object.keys(self.emotes).indexOf(msg.content) == -1) return null;
 					let emote = self.emotes[msg.content];
 					return (
-						<span key={'c'+(new Date).getTime()}><img className="chat-message-content__emote" src={emote.url} alt={msg.content + ' by ' + emote.provider} /></span>
+						<React.Fragment key={'c-' + i + '-' + (new Date).getTime()}><img className="chat-message-content__emote dib" src={emote.url} alt={msg.content + ' by ' + emote.provider} />{'\u00A0'}</React.Fragment>
 					);
 				break;
 				case 'text':
 					return (
-						<span key={'c'+(new Date).getTime()}>{msg.content}</span>
+						<React.Fragment key={'u-' + i + '-'  + (new Date).getTime()}>{msg.content}{'\u00A0'}</React.Fragment>
 					);
 				break;
 				default:
@@ -154,7 +163,7 @@ class Chat extends React.Component {
 			message: (
 				<>
 					<span className="chat-message-user b">
-						<span><a href={'/c/' + user.name} className="link color-inherit">{user.name}</a>: </span>
+						<a href={'/c/' + user.name} className="link color-inherit">{user.name}</a>:{'\u00A0'}
 					</span>
 					<span className="chat-message-content">
 						{output}

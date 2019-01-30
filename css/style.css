@@ -60,6 +60,17 @@ body {
 .chat-message {
 	background: var(--chat-message-background);
 	color: var(--chat-message-text);
+	padding: .5rem 1rem !important;
+}
+
+.chat-message-user {
+	cursor: pointer;
+	outline: none;
+	word-break: break-all;
+}
+
+.chat-message-content {
+	word-wrap: break-word;
 }
 
 .chat-message-content__emote {

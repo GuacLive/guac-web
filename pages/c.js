@@ -78,7 +78,7 @@ class ChannelPage extends Component {
 				<div className="site-component-channel w-100" style={{flex: 3}}>
 				{this.renderStream(channel.data)}
 				</div>
-				<aside className="site-component-chat w-100 w-20-l" style={{flex: 1}}>
+				<aside className="site-component-chat w-100 w-20-l flex-grow-1" style={{flex: 1}}>
 					<Chat channel={channel.data.name} />
 				</aside>
 			</div>
