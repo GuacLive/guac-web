@@ -162,6 +162,9 @@ class Chat extends React.Component {
 			user,
 			message: (
 				<>
+					<span className="chat-message-time">
+						{new Date(user.lastMessage).toLocaleTimeString()}{'\u00A0'}
+					</span>
 					<span className="chat-message-user b">
 						<a href={'/c/' + user.name} className="link color-inherit">{user.name}</a>:{'\u00A0'}
 					</span>
