@@ -2,7 +2,8 @@ const initialState = {
 	loading: true,
 	error: false,
 	statusCode: 0,
-	token: null
+	token: null,
+	user: {}
 };
 
 export default function(state = initialState, action) {
@@ -23,6 +24,7 @@ export default function(state = initialState, action) {
 				...state,
 				statusCode: action.statusCode,
 				token: action.jwtToken,
+				user: action.user,
 				loading: false,
 				error: false
 			};

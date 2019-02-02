@@ -54,6 +54,10 @@ const PageLayout = ({ children, title = '', isAuthenticated, deauthenticate}) =>
 							!isAuthenticated && 
 							<GuacButton url="/auth/signup" color="green">Sign up</GuacButton>
 						}
+						{
+							isAuthenticated &&
+							<span>{this.props.user && this.props.user.name}</span>
+						}
 					</nav>
 				</div>
 			</header>
@@ -82,7 +86,8 @@ const PageLayout = ({ children, title = '', isAuthenticated, deauthenticate}) =>
 
 const mapStateToProps = (state) => (
 	{
-		isAuthenticated: !!state.authentication.token
+		isAuthenticated: !!state.authentication.token,
+		user: state.authentication && state.authentication.user
 	}
 );
 
