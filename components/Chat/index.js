@@ -185,15 +185,37 @@ class Chat extends React.Component {
 	sendMessage(){
 		let self = this;
 		let msg = this.state.message;
-		let msgs = msg && msg.split(' ');
-		if(!msg) return;
-		msgs = msgs.map((msg) => {
-			return {
-				type: Object.keys(self.emotes).indexOf(msg) > -1 ? 'emote' : 'text',
-				content: msg
-			};
-		});
-		this.socket.emit('message', msgs);
+
+		// If this is a command
+		if(message.slice(0,1) === '/'){
+			let args = message.split(' ');
+			let command = args.shift();
+			switch(command){
+				case 'ban':
+					if(args && args[0]){
+						this.socket.emit('ban', args[0]);
+					}
+				break;
+				case 'unban':
+					if(args && args[0]){
+						this.socket.emit('unban', args[0]);
+					}
+				break;
+				default:
+				break;
+			}
+		}else{
+			let msgs = msg && msg.split(' ');
+			if(!msg) return;
+			msgs = msgs.map((msg) => {
+				return {
+					type: Object.keys(self.emotes).indexOf(msg) > -1 ? 'emote' : 'text',
+					content: msg
+				};
+			});
+			this.socket.emit('message', msgs);
+		}
+		
 		// empty the message box
 		this.setState({
 			message: ''
