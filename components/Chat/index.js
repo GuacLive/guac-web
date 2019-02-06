@@ -193,12 +193,12 @@ class Chat extends React.Component {
 			switch(command){
 				case 'ban':
 					if(args && args[0]){
-						this.socket.emit('ban', args[0]);
+						this.socket.emit('ban', this.props.channel, args[0]);
 					}
 				break;
 				case 'unban':
 					if(args && args[0]){
-						this.socket.emit('unban', args[0]);
+						this.socket.emit('unban', this.props.channel, args[0]);
 					}
 				break;
 				default:
