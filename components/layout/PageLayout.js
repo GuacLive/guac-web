@@ -58,6 +58,10 @@ const PageLayout = ({ children, title = '', isAuthenticated, deauthenticate}) =>
 							isAuthenticated &&
 							<span>{this.props.user && this.props.user.name}</span>
 						}
+						{
+							isAuthenticated && 
+							<GuacButton url="/auth/logout" color="red">Log out</GuacButton>
+						}
 					</nav>
 				</div>
 			</header>
