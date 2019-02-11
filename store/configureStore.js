@@ -5,6 +5,11 @@ import rootReducer from '../reducers';
 
 import logger from 'redux-logger';
 
+import {
+	createFlopFlipEnhancer,
+} from '@flopflip/react-redux';
+import adapter from '@flopflip/localstorage-adapter';
+
 const middlewares = [thunk];
 
 const storeEnhancers = [];
@@ -15,6 +20,13 @@ if (process.env.NODE_ENV === 'development') {
 
 const middlewareEnhancer = applyMiddleware(...middlewares);
 storeEnhancers.unshift(middlewareEnhancer);
+
+storeEnhancers.push(createFlopFlipEnhancer(
+	adapter,
+	{
+		user: rootReducer.authentication.user
+	}
+));
 
 /* eslint-disable */
 export default function configureStore(initialState) {

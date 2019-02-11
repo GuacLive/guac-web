@@ -13,6 +13,8 @@
     "export": "npm run b && ./node_modules/next/.bin/next export"
   },
   "dependencies": {
+    "@flopflip/localstorage-adapter": "^1.1.1",
+    "@flopflip/react-redux": "^7.1.10",
     "@silvermine/videojs-chromecast": "^1.0.1",
     "@videojs/http-streaming": "^1.0.1",
     "@zeit/next-css": "^1.0.2-canary.2",
