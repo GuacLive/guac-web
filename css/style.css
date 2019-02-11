@@ -63,6 +63,10 @@ body {
 	padding: .5rem 1rem !important;
 }
 
+.chat-message-time {
+    margin-right: .5rem;
+}
+
 .chat-message-user {
 	cursor: pointer;
 	outline: none;

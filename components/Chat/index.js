@@ -106,13 +106,13 @@ class Chat extends React.Component {
 		console.log('EMOTES', self.emotes);
 	}
 	userJoin(user){
-		if(!user.id) return;
+		if(!user.name) return;
 		if(!user.anon){
 			this.users.set(user.name, user);
 		}
 	}
 	userLeave(user){
-		if(!user.id) return;
+		if(!user.name) return;
 		if(!user.anon){
 			this.users.delete(user.name);
 		}
@@ -165,7 +165,7 @@ class Chat extends React.Component {
 					<span className="chat-message-time">
 						{new Date(user.lastMessage).toLocaleTimeString()}{'\u00A0'}
 					</span>
-					<span className="chat-message-user b">
+					<span className="chat-message-user b dib">
 						<a href={'/c/' + user.name} className="link color-inherit">{user.name}</a>:{'\u00A0'}
 					</span>
 					<span className="chat-message-content">
@@ -187,23 +187,23 @@ class Chat extends React.Component {
 		let msg = this.state.message;
 
 		// If this is a command
-		if(message.slice(0,1) === '/'){
-			let args = message.split(' ');
+		if(msg.slice(0,1) === '/'){
+			let args = msg.split(' ');
 			let command = args.shift();
+			console.log(args, command);
 			switch(command){
-				case 'ban':
+				case '/ban':
 					if(args && args[0]){
 						let user = this.users.get(args[0]);
-						this.socket.emit('ban', this.props.channel, user && user.id);
+						console.log('nei', user);
+						this.socket.emit('ban', user && user.id);
 					}
 				break;
-				case 'unban':
+				case '/unban':
 					if(args && args[0]){
 						let user = this.users.get(args[0]);
-						this.socket.emit('unban', this.props.channel, user && user.id);
+						this.socket.emit('unban', user && user.id);
 					}
-				break;
-				default:
 				break;
 			}
 		}else{
