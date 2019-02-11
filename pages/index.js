@@ -4,6 +4,8 @@ import {createStore} from 'redux'
 
 import Head from 'next/head'
 
+import { ToggleFeature } from '@flopflip/react-redux';
+
 import GuacButton from '../components/GuacButton'
 
 import VideoPlayer from '../components/VideoPlayer'
@@ -73,7 +75,6 @@ class IndexPage extends Component {
     }
 
 	render() {
-		console.log(this.props);
 		return (
 			<Fragment>
 				<div className="site-component-spotlight w-100 center bg-light-green">
@@ -87,8 +88,27 @@ class IndexPage extends Component {
 					{this.renderStreams()}
 					</Slider>
 				</div>
-				<h2 className="f2 tracked mb0">Welcome to guac.live</h2>
-				<GuacButton color="light-green">nice button</GuacButton>
+				<ToggleFeature
+					flag='guacWelcome'
+				>
+					<section className="ph3 ph5-ns pv5">
+						<article className="mw8 center br2 ba b--transparent">
+							<div className="dt-ns dt--fixed-ns w-100">
+								<div className="pa3 pa4-ns dtc-ns v-mid">
+									<div>
+										<h2 className="f2 tracked mt0 mb3">Welcome to guac.live</h2>
+										<p className="black-70 measure lh-copy mv0">
+										hello
+										</p>
+									</div>
+								</div>
+								<div className="pa3 pa4-ns dtc-ns v-mid">
+									<GuacButton color="light-green">Join</GuacButton>
+								</div>
+							</div>
+						</article>
+					</section>
+				</ToggleFeature>
 			</Fragment>
 		)
 	}

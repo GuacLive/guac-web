@@ -21,12 +21,17 @@ if (process.env.NODE_ENV === 'development') {
 const middlewareEnhancer = applyMiddleware(...middlewares);
 storeEnhancers.unshift(middlewareEnhancer);
 
-storeEnhancers.push(createFlopFlipEnhancer(
-	adapter,
-	{
-		user: rootReducer.authentication.user
-	}
-));
+if(typeof localStorage === 'object'){
+  console.log('createFlopFlipEnhancer');
+  storeEnhancers.push(createFlopFlipEnhancer(
+    adapter,
+    {
+      user: {
+        key: 'user'
+      }
+    }
+  ));
+}
 
 /* eslint-disable */
 export default function configureStore(initialState) {
