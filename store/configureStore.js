@@ -15,41 +15,43 @@ const middlewares = [thunk];
 const storeEnhancers = [];
 console.log('NODE_ENV: ', process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'development') {
-  middlewares.push(logger);
+	middlewares.push(logger);
 }
 
 const middlewareEnhancer = applyMiddleware(...middlewares);
 storeEnhancers.unshift(middlewareEnhancer);
 
 if(typeof localStorage === 'object'){
-  console.log('createFlopFlipEnhancer');
-  storeEnhancers.push(createFlopFlipEnhancer(
-    adapter,
-    {
-      user: {
-        key: 'user'
-      }
-    }
-  ));
+	console.log('createFlopFlipEnhancer', adapter);
+	adapter.configure({
+		user: {
+			key: 'user'
+		},
+		onFlagsStateChange: () => {console.log('onFlagsStateChange')},
+		onStatusStateChange: () => {}
+	});
+	storeEnhancers.push(createFlopFlipEnhancer(
+		adapter
+	));
 }
 
 /* eslint-disable */
 export default function configureStore(initialState) {
-  const composeEnhancers = typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-  const store = createStore(
-    rootReducer,
-    initialState,
-    composeEnhancers(...storeEnhancers)
-  );
+	const composeEnhancers = typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+	const store = createStore(
+		rootReducer,
+		initialState,
+		composeEnhancers(...storeEnhancers)
+	);
 
-  if (process.env.NODE_ENV === 'development') {
-    // Hot reload reducers (requires Webpack or Browserify HMR to be enabled)
-    if (module.hot) {
-      module.hot.accept('../reducers', () => {
-        store.replaceReducer(rootReducer)
-      });
-    }
-  }
+	if (process.env.NODE_ENV === 'development') {
+		// Hot reload reducers (requires Webpack or Browserify HMR to be enabled)
+		if (module.hot) {
+			module.hot.accept('../reducers', () => {
+				store.replaceReducer(rootReducer)
+			});
+		}
+	}
 
-  return store;
+	return store;
 }

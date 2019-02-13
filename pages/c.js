@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react'
 
 import {createStore} from 'redux'
 
+import Link from 'next/link'
 import Head from 'next/head'
 
 import Chat from '../components/Chat'
@@ -53,12 +54,19 @@ class ChannelPage extends Component {
     		<div key={stream.user.id}>
 				<div className="site-component-channel__info dib w-100 bg-light-green">
 					<h2 className='f2 tracked mb0 dib'>
-					{stream.user.name}{stream.category ? ' is playing '+stream.category : ''}
+					{stream.user.name}
 					&nbsp;
-					{stream.live && <svg fill="red" id="icon_live" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6,0 C-1.7,0, -1.7,12, 6,12 C13.7,12, 13.7,0, 6,0"></path></svg>}
+					{stream.live ? <svg fill="red" id="icon_live" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6,0 C-1.7,0, -1.7,12, 6,12 C13.7,12, 13.7,0, 6,0"></path></svg> : ''}
 					</h2>
+
 					<GuacButton color="white">Follow</GuacButton>
 					<GuacButton color="green">Subscribe</GuacButton>
+					<div>
+						<span className="b f4">{stream.title}
+						<br />
+						playing <Link href={'/category/' + stream.category_id}><a>{stream.category_name}</a></Link>
+						</span>
+					</div>
 				</div>
 				<div className="site-component-channel__player">
 					<VideoPlayer { ...videoJsOptions }></VideoPlayer>
