@@ -38,8 +38,8 @@ class DashboardPage extends Component {
 						<li>
 							<p>First, choose the streaming server closest to you:</p>
 							<ul className="list">
-								<li><b>London, Oslo:</b> osl1-rtmp.stream.guac.live</li>
-								<li><b>London, Europe:</b> lon1-rtmp.stream.guac.live</li>
+								<li><b>London, Oslo:</b> rtmp://osl1.stream.guac.live:1935/app</li>
+								<li><b>London, Europe:</b> rtmp://lon1.stream.guac.live:1935/app</li>
 							</ul>
 						</li>
 						<li>
