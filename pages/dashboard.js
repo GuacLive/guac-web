@@ -38,12 +38,12 @@ class DashboardPage extends Component {
 						<li>
 							<p>First, choose the streaming server closest to you:</p>
 							<ul className="list">
-								<li><b>London, Oslo:</b> rtmp://osl1.stream.guac.live:1935/app</li>
+								<li><b>Oslo, Europe:</b> rtmp://osl1.stream.guac.live:1935/app</li>
 								<li><b>London, Europe:</b> rtmp://lon1.stream.guac.live:1935/app</li>
 							</ul>
 						</li>
 						<li>
-							<p>Now, use the following stream key: <b>{streaming.key}</b></p>
+							{streaming && streaming.key ? <p>Now, use the following stream key: <b>{streaming.key}</b></p> : <p style={{color: 'red'}}>No streaming key found, please contact an admin.</p>}
 						</li>
 						<li>
 							<p>At last, make sure keyframe interval is set to <b>2</b>.</p>
