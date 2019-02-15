@@ -13,7 +13,7 @@ export function callApi(endpoint, options = {}) {
 	opt.headers = opt.headers || {};
 	const fullUrl = (endpoint.indexOf(API_URL) === -1) ? API_URL + endpoint : endpoint;
 
-	const accessToken = null;
+	const accessToken = options.accessToken;
 	let cachedResponse = null;
 	const defaultHeaders = {
 		Accept: 'application/json',

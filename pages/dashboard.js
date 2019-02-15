@@ -4,8 +4,8 @@ import {connect} from 'react-redux';
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 
-import initialize from '../../utils/requireAuth';
-import * as actions from '../../actions';
+import initialize from '../utils/requireAuth';
+import * as actions from '../actions';
 
 class DashboardPage extends Component {
 	constructor(props){
@@ -14,9 +14,9 @@ class DashboardPage extends Component {
 
 	static async getInitialProps({store, isServer, pathname, query, req}){
 		initialize({store, isServer, pathname, query, req});
-		const { streaming } = store.getState()
+		const { streaming, authentication } = store.getState()
 		if(streaming.loading){
-			await store.dispatch(actions.fetchStreaming());
+			await store.dispatch(actions.fetchStreaming(authentication.token));
 		}
     }
 
@@ -32,12 +32,12 @@ class DashboardPage extends Component {
 		if(auth && auth.user && !auth.user.can_stream) return <p>You do not have permission to stream</p>;
 		return (
 			<>
-				<div className="w-100 flex flex-row">
+				<div className="w-100">
 					<h2 className="f2 tracked mt0 mb3">Get started with streaming</h2>
 					<ol>
 						<li>
 							<p>First, choose the streaming server closest to you:</p>
-							<ul class="list">
+							<ul className="list">
 								<li><b>London, Oslo:</b> osl1-rtmp.stream.guac.live</li>
 								<li><b>London, Europe:</b> lon1-rtmp.stream.guac.live</li>
 							</ul>
@@ -46,7 +46,7 @@ class DashboardPage extends Component {
 							<p>Now, use the following stream key: <b>{streaming.key}</b></p>
 						</li>
 						<li>
-							<p>At last, make sure keyframe interval is set to <b>2</b>.
+							<p>At last, make sure keyframe interval is set to <b>2</b>.</p>
 						</li>
 					</ol>
 				</div>

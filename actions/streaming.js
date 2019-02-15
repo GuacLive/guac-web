@@ -8,12 +8,13 @@ export function resetStreaming() {
 	};
 }
 
-
-export const fetchStreaming = () => async (dispatch) => {
+export const fetchStreaming = (accessToken) => async (dispatch) => {
 	dispatch({
 		type: 'FETCH_STREAMING_REQUEST'
 	});
-	return callApi('/streaming')
+	return callApi('/streaming', {
+		accessToken
+	})
 	.then(response => response.json())
 	.then((json) => {
 		if (json.statusCode == 200) {
