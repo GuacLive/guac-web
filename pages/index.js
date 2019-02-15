@@ -97,7 +97,7 @@ class IndexPage extends Component {
 								<div className="pa3 pa4-ns dtc-ns v-mid">
 									<div>
 										<h2 className="f2 tracked mt0 mb3">Welcome to guac.live</h2>
-										<p className="black-70 measure lh-copy mv0">
+										<p className="measure lh-copy mv0">
 										hello
 										</p>
 									</div>
