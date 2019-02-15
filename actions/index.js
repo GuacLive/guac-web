@@ -3,6 +3,8 @@ import { authenticate, reauthenticate, deauthenticate } from './auth';
 import { fetchChannel, resetChannel } from './channel';
 
 import { fetchFeatured, resetFeatured } from './featured';
+
+import { fetchStreaming, resetStreaming } from './streaming';
 export {
 	authenticate,
 	reauthenticate,
@@ -10,5 +12,7 @@ export {
 	fetchChannel, 
 	resetChannel,
 	fetchFeatured,
-	resetFeatured
+	resetFeatured,
+	fetchStreaming,
+	resetStreaming
 }

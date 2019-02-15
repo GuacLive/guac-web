@@ -13,12 +13,12 @@ import EXPERIMENTS from '!../experiments.json'; // eslint-disable-line no-unused
 import auth from './auth';
 import channel from './channel';
 import featured from './featured';
+import streaming from './streaming';
 
-const blank = () => { return null; };
 export default combineReducers({
-	blank,
 	[FLOPFLIP_STATE_SLICE]: createFlopflipReducer(EXPERIMENTS),
 	authentication: auth,
 	channel,
 	featured,
+	streaming,
 });
