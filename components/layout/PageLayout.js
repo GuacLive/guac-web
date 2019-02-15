@@ -68,7 +68,7 @@ class PageLayout extends Component {
 								}
 								{
 									isAuthenticated && 
-									<Link href="/"><a className="b link white hover-light-green mr3">Dashboard</a></Link>
+									<Link href="/dashboard"><a className="b link white hover-light-green mr3">Dashboard</a></Link>
 								}
 								{
 									isAuthenticated && 
