@@ -6568,7 +6568,7 @@ video.js@^5.10.1:
     videojs-vtt.js "0.12.6"
     xhr "2.2.2"
 
-"video.js@^6.8.0 || ^7.0.0", video.js@^7.2.3:
+"video.js@^6 || ^7", "video.js@^6.8.0 || ^7.0.0", video.js@^7.2.3:
   version "7.4.1"
   resolved "https://registry.yarnpkg.com/video.js/-/video.js-7.4.1.tgz#41349d3b0ca40fa281c6f906381a0a41b75bd04e"
   integrity sha512-UmTHiJWcil8YN65M1t/d63X6ofLtQwnvJoYEN4VKzkECYIHbgzvMRgOmrf5bNtVeDC6JsFKLZQXJ7s6Au2jgcQ==
@@ -6606,6 +6606,14 @@ videojs-ie8@1.1.2:
   integrity sha1-oj09hgitcZK2nGB3/E64SJmNNdk=
   dependencies:
     es5-shim "^4.5.1"
+
+videojs-overlay@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/videojs-overlay/-/videojs-overlay-2.1.4.tgz#5a103b25374dbb753eb87960d8360c2e8f39cc05"
+  integrity sha512-eonf+la2WHZJUvaZXtX1UtpwNRe8Zq5HUkBXgDX9zKOFQ9ppMio7LbYMBVKpei6BcqOOgdNVit1h7NGe6ySe3w==
+  dependencies:
+    global "^4.3.2"
+    video.js "^6 || ^7"
 
 videojs-persistvolume@^0.2.0:
   version "0.2.0"

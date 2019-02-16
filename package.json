@@ -42,6 +42,7 @@
     "url-loader": "^1.1.2",
     "video.js": "^7.2.3",
     "videojs-flvjs": "^0.2.0",
+    "videojs-overlay": "^2.1.4",
     "videojs-persistvolume": "^0.2.0"
   },
   "devDependencies": {

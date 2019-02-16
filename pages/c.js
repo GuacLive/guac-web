@@ -32,7 +32,10 @@ class ChannelPage extends Component {
 		let videoJsOptions = {
 			autoplay: true,
 			controls: true,
-			sources: []
+			sources: [],
+			streamInfo: {
+				username: stream.user.name
+			}
 		};
 
 		if(stream.live && stream.urls){

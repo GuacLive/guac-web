@@ -2,8 +2,14 @@ const videojs = require('video.js').default;
 import '@videojs/http-streaming'
 import 'video.js/dist/video-js.css'
 import '@silvermine/videojs-chromecast/dist/silvermine-videojs-chromecast.css'
+import 'videojs-overlay/dist/videojs-overlay.js';
+import 'videojs-overlay/dist/videojs-overlay.css';
 
-export default class VideoPlayer extends React.Component {
+import {connect} from 'react-redux';
+
+import {selectFeatureFlag} from '@flopflip/react-redux';
+
+class VideoPlayer extends React.Component {
 	componentDidMount() {
 		if(window) window.flvjs = require('flv.js').default;
 		if(window) window.videojs = videojs;
@@ -34,6 +40,16 @@ export default class VideoPlayer extends React.Component {
 			console.log('onPlayerReady', this)
 		});
 		this.player.chromecast();
+		if(this.props.streamInfo && this.props.isFeatureOn){
+			this.player.overlay({
+				overlays: [{
+					align: 'top',
+					content: this.props.streamInfo.username,
+					start: 'loadedmetadata',
+					end: 'play'
+				}]
+			});
+		}
 	}
 
 	// destroy player on unmount
@@ -56,3 +72,8 @@ export default class VideoPlayer extends React.Component {
 		)
 	}
 }
+const mapStateToProps = state => ({
+  isFeatureOn: selectFeatureFlag('streamOverlay')(state),
+});
+
+export default connect(mapStateToProps)(VideoPlayer);
