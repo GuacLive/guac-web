@@ -38,6 +38,7 @@ class Chat extends React.Component {
 			socket.on('join', this.userJoin.bind(this));
 			socket.on('leave', this.userLeave.bind(this));
 			socket.on('msgs', this.handleMessage.bind(this));
+			socket.on('users', this.handleUsers.bind(this));
 			socket.on('sys', this.handleSys.bind(this));
 			socket.emit('join', this.props.authentication.token || null);
 		});
@@ -104,6 +105,14 @@ class Chat extends React.Component {
 		//twitchemotes.com/api_cache/v3/global.json
 		self.emotes = emotes;
 		console.log('EMOTES', self.emotes);
+	}
+	handleUsers(args){
+		let users = args[0];
+		console.log('helllooo', users);
+		users.forEach((user) => {
+			console.log(user, user.name);
+			if(user && user.name) this.userJoin(user);
+		});
 	}
 	userJoin(user){
 		if(!user.name) return;
@@ -192,6 +201,15 @@ class Chat extends React.Component {
 			let command = args.shift();
 			console.log(args, command);
 			switch(command){
+				case '/users':
+					let nicks = [];
+					[...this.users].forEach((args) => {
+						let user = args[1];
+						console.log('æddabædda', user);
+						if(user && user.name) nicks.push(user.name);
+					});
+					this.handleSys('User list: ' + nicks.join(' '));
+				break;
 				case '/ban':
 					if(args && args[0]){
 						let user = this.users.get(args[0]);
