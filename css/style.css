@@ -89,6 +89,12 @@ body {
 	margin: -.5rem 0;
 }
 
+.chat-input textarea {
+	resize: vertical;
+	max-height: 160px;
+	min-height: 40px;
+}
+
 .site-component-spotlight .slick-dots li button:before {
 	color: var(--slick-dot-color);
 }

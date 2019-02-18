@@ -236,24 +236,35 @@ class Chat extends React.Component {
 	render() {
 		return (
 			<>
-				<SimpleBar className="chat-messages" style={{ height: '560px' }}>
-				{
-					this.state.messages
-					&&
-					this.state.messages
-					.sort((a,b) => {
-						return a.time > b.time;
-					})
-					.map((data, i) => {
-						return (
-							<div className="chat-message" key={'chat-message' + i}>{data.message}</div>
-						);
-					})
-				}
-				</SimpleBar>
-				<div className="chat-input">
-					<textarea value={this.state.message} onChange={this.writeMessage} />
-					<input type="button" value="Chat" onClick={this.sendMessage} />
+				<div className="flex flex-column flex-grow-1 flex-nowrap overflow-hidden">
+					<SimpleBar className="chat-messages flex-grow-1" style={{ height: '80vh' }}>
+					{
+						this.state.messages
+						&&
+						this.state.messages
+						.sort((a,b) => {
+							return a.time > b.time;
+						})
+						.map((data, i) => {
+							return (
+								<div className="chat-message" key={'chat-message' + i}>{data.message}</div>
+							);
+						})
+					}
+					</SimpleBar>
+				</div>
+				<div className="chat-input pr4 pl4 pb4">
+					<div className="db relative">
+						<textarea value={this.state.message} onChange={this.writeMessage} className="w-100 pa2 br2 input-reset ba db" style={{'paddingRight': '6rem'}} />
+					</div>
+					<div className="chat-input__buttons flex justify-between mt1">
+						<div className="flex flex-row">
+							<div className="relative">dab</div>
+						</div>
+						<div className="content-center items-center flex flex-row">
+							<input type="button" value="Chat" onClick={this.sendMessage} className="white dib pv2 ph3 nowrap lh-solid pointer br2 ba b--transparent bg-green" />
+						</div>
+					</div>
 				</div>
 			</>
 		);

@@ -54,9 +54,12 @@ class ChannelPage extends Component {
 		}
 
     	return (
-    		<div key={stream.user.id}>
+    		<Fragment key={stream.user.id}>
+				<div className="site-component-channel__player">
+					<VideoPlayer { ...videoJsOptions }></VideoPlayer>
+				</div>
 				<div className="site-component-channel__info dib w-100 bg-light-green">
-					<h2 className='f2 tracked mb0 dib'>
+					<h2 className='f2 tracked ma0 dib'>
 					{stream.user.name}
 					&nbsp;
 					{stream.live ? <svg fill="red" id="icon_live" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6,0 C-1.7,0, -1.7,12, 6,12 C13.7,12, 13.7,0, 6,0"></path></svg> : ''}
@@ -71,10 +74,7 @@ class ChannelPage extends Component {
 						</span>
 					</div>
 				</div>
-				<div className="site-component-channel__player">
-					<VideoPlayer { ...videoJsOptions }></VideoPlayer>
-				</div>
-    		</div>
+    		</Fragment>
     	);
     }
 
@@ -87,11 +87,11 @@ class ChannelPage extends Component {
 		if(channel.error) throw channel.error;
 		if(!channel.data) return (<p>Channel not found</p>);
 		return (
-			<div className="w-100 flex flex-row">
-				<div className="site-component-channel w-100" style={{flex: 3}}>
+			<div className="w-100 h-100 flex flex-nowrap">
+				<div className="site-component-channel w-100 h-100 flex flex-column flex-grow-1 overflow-hidden relative">
 				{this.renderStream(channel.data)}
 				</div>
-				<aside className="site-component-chat w-100 w-20-l flex-grow-1" style={{flex: 1}}>
+				<aside className="site-component-chat w-third h-100 flex flex-column flex-grow-1 flex-shrink-1 flex-nowrap w-100-ns">
 					<Chat channel={channel.data.name} />
 				</aside>
 			</div>
