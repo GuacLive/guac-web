@@ -18,14 +18,18 @@ class VideoPlayer extends React.Component {
 		require('@silvermine/videojs-chromecast')(videojs, {
 			reloadWebComponents: true
 		});
-		//require('videojs-persistvolume');
+		require('@dlive/videojs-resolution-switcher');
 		// instantiate Video.js
 		this.player = videojs(this.videoNode, {
 			liveui: true,
 			plugins: {
-				//persistvolume: {
-				//	namespace: 'guac-live'
-				//}
+				videoJsResolutionSwitcher: {
+					default: 'high',
+					dynamicLabel: true
+				},
+				/*persistvolume: {
+					namespace: 'guac-live'
+				}*/
 			},
 			techOrder: ['flvjs', 'html5'],
 			flvjs: {

@@ -725,6 +725,11 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@dlive/videojs-resolution-switcher@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@dlive/videojs-resolution-switcher/-/videojs-resolution-switcher-0.6.0.tgz#03131acefafedea5bd4dd69112d51ceca91f0715"
+  integrity sha512-HCzvG4SPS+NxZK5a7xjxeqTcmrLHjOVpNMIC5Iq/oMdLeiXzfzzVloPAIWzfymPVbSnxOH72IX0xk+0Q7ETl2w==
+
 "@flopflip/localstorage-adapter@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@flopflip/localstorage-adapter/-/localstorage-adapter-1.1.1.tgz#717ed8269265dc3f20ee0c710382ed7146ed2e3e"
@@ -6615,10 +6620,9 @@ videojs-overlay@^2.1.4:
     global "^4.3.2"
     video.js "^6 || ^7"
 
-videojs-persistvolume@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/videojs-persistvolume/-/videojs-persistvolume-0.2.0.tgz#f6fc9bf7ba90b486c3c979190dcd071b78548038"
-  integrity sha512-4/GZwk2taw7vahmEbRLut3W5otzFxM1WZUikirqvwEEDGg7zJnQ/5KhiJqyGEl/7lawdiSQnvhmf2SBzvhruFQ==
+"videojs-persistvolume@https://github.com/GuacLive/videojs-persistvolume":
+  version "0.0.0"
+  resolved "https://github.com/GuacLive/videojs-persistvolume#2eb8cdade4711425e2fec0236b1959951673a73c"
 
 videojs-swf@5.4.1:
   version "5.4.1"

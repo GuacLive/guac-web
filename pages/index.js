@@ -38,18 +38,28 @@ class IndexPage extends Component {
 			sources: []
 		};
 
-		if(stream.live && stream.urls){
-			if(stream.urls.hls){
-				videoJsOptions.sources.push({
-					src: stream.servers[STREAMING_SERVER] + stream.urls.hls,
-					type: 'application/x-mpegURL'
+		if(stream.live){
+			if(stream.urls){
+				Object.keys(stream.qualities).forEach((key) => {
+					let urlKey = stream.qualities[key];
+					videoJsOptions.sources.push({
+						src: stream.servers[STREAMING_SERVER] + `/${stream.user.name}_${urlKey}'/index.m3u8`,
+						type: 'application/x-mpegURL',
+						label: STREAMING_SERVER + `(${key}p)`
+					});
 				});
-			}
-			if(stream.urls.flv){
-				videoJsOptions.sources.push({
-					src: stream.servers[STREAMING_SERVER] + stream.urls.flv,
-					type: 'video/x-flv'
-				});
+				/*if(stream.urls.hls){
+					videoJsOptions.sources.push({
+						src: stream.servers[STREAMING_SERVER] + stream.urls.hls,
+						type: 'application/x-mpegURL'
+					});
+				}
+				if(stream.urls.flv){
+					videoJsOptions.sources.push({
+						src: stream.servers[STREAMING_SERVER] + stream.urls.flv,
+						type: 'video/x-flv'
+					});
+				}*/
 			}
 		}
 

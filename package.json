@@ -13,6 +13,7 @@
     "export": "npm run b && ./node_modules/next/.bin/next export"
   },
   "dependencies": {
+    "@dlive/videojs-resolution-switcher": "^0.6.0",
     "@flopflip/localstorage-adapter": "^1.1.1",
     "@flopflip/react-redux": "^7.1.10",
     "@silvermine/videojs-chromecast": "^1.0.1",
@@ -43,7 +44,7 @@
     "video.js": "^7.2.3",
     "videojs-flvjs": "^0.2.0",
     "videojs-overlay": "^2.1.4",
-    "videojs-persistvolume": "^0.2.0"
+    "videojs-persistvolume": "https://github.com/GuacLive/videojs-persistvolume"
   },
   "devDependencies": {
     "babel-plugin-add-module-exports": "^1.0.0",
