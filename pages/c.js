@@ -43,7 +43,7 @@ class ChannelPage extends Component {
 				Object.keys(stream.qualities).forEach((key) => {
 					let urlKey = stream.qualities[key];
 					videoJsOptions.sources.push({
-						src: stream.servers[STREAMING_SERVER] + `/${stream.user.name}_${urlKey}'/index.m3u8`,
+						src: stream.servers[STREAMING_SERVER] + `/${stream.user.name}${urlKey}/index.m3u8`,
 						type: 'application/x-mpegURL',
 						label: STREAMING_SERVER + `(${key}p)`
 					});
