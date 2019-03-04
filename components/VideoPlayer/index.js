@@ -14,8 +14,8 @@ class VideoPlayer extends React.Component {
 	componentDidMount() {
 		if(window) window.flvjs = require('flv.js').default;
 		if(window) window.videojs = videojs;
-
 		require('../../videojs-flvjs.js');
+		require('../../videojs-persistvolume.js');
 		require('@silvermine/videojs-chromecast')(videojs, {
 			reloadWebComponents: true
 		});
@@ -28,9 +28,9 @@ class VideoPlayer extends React.Component {
 					default: 'high',
 					dynamicLabel: true
 				},
-				/*persistvolume: {
+				persistvolume: {
 					namespace: 'guac-live'
-				}*/
+				}
 			},
 			techOrder: ['flvjs', 'html5'],
 			flvjs: {
