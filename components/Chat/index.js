@@ -224,10 +224,11 @@ class Chat extends React.Component {
 					}
 				break;
 				case '/timeout':
-					if(args && args[0] && args[1]){
+					if(args && args[0]){
 						let user = this.users.get(args[0]);
+						let time = args[1] || 600;
 						console.log('nei', user);
-						this.socket.emit('ban', user && user.id, args[1]);
+						this.socket.emit('timeout', user && user.id, time);
 					}
 				break;
 			}
