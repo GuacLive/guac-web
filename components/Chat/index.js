@@ -9,11 +9,20 @@ import io from 'socket.io-client';
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.css';
 
+import ReactTextareaAutocomplete from '@webscopeio/react-textarea-autocomplete';
+import '@webscopeio/react-textarea-autocomplete/style.css';
+
 import fetch from 'cross-fetch';
 
 import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
 const { CHAT_URL } = publicRuntimeConfig;
+
+function createEmoteMarkup(name, img){
+	return {
+		__html: `${name}: ${img}`
+	};
+}
 class Chat extends React.Component {
 	constructor(props){
 		super(props);
@@ -281,7 +290,65 @@ class Chat extends React.Component {
 				</div>
 				<div className="chat-input pr4 pl4 pb4">
 					<div className="db relative">
-						<textarea value={this.state.message} onChange={this.writeMessage} className="w-100 pa2 br2 input-reset ba db" style={{'paddingRight': '6rem'}} />
+
+					<ReactTextareaAutocomplete
+						value={this.state.message}
+						onChange={this.writeMessage}
+						className="w-100 pa2 br2 input-reset ba db"
+						loadingComponent={() => <span>Loading</span>}
+						style={{
+							'paddingRight': '6rem'
+						}}
+						ref={rta => {
+							this.rta = rta;
+						}}
+						innerRef={textarea => {
+							this.textarea = textarea;
+						}}
+						minChar={2}
+						rows={1}
+						trigger={{
+							':': {
+								dataProvider: token => {
+									if(!token || !token.length){
+										return Object.keys(this.emotes)
+										.map((name) => {
+											return {
+												name,
+												char: name,
+												img: `<img src='${this.emotes[name].url}'/>`
+											}
+										});
+									}
+									return Object.keys(this.emotes)
+									.filter(name => {
+										if(name.search(new RegExp(token, "i")) !== -1){
+											return name;
+										}
+										return null;
+									})
+									.map(name => {
+										return {
+											name,
+											char: name,
+											img: `<img src='${this.emotes[name].url}'/>`
+										};
+									});
+								},
+								component: ({ entity: {name, img} }) => <div dangerouslySetInnerHTML={createEmoteMarkup(name, img)}></div>,
+								output: (item) => {
+									if(item && item.name){
+										return {
+											key: item.name,
+											text: `${item.char}`,
+											caretPosition: 'next',
+										};
+									}
+									return null;
+								}
+							}
+						}}
+					/>
 					</div>
 					<div className="chat-input__buttons flex justify-between mt1">
 						<div className="flex flex-row">
