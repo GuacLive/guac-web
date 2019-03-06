@@ -235,7 +235,7 @@ class Chat extends React.Component {
 				case '/timeout':
 					if(args && args[0]){
 						let user = this.users.get(args[0]);
-						let time = args[1] || 600;
+						let time = typeof args[1] === 'number' ? args[1] : 600;
 						console.log('nei', user);
 						this.socket.emit('timeout', user && user.id, time);
 					}
