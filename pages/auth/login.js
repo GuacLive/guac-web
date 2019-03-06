@@ -30,7 +30,7 @@ class LoginPage extends Component {
 	render(){
 		return (
 			<>
-				<main className="pa4 black-80">
+				<main className="pa4 primary-80">
 					<form className="measure center" onSubmit={this.handleSubmit}>
 						<fieldset id="login" className="ba b--transparent ph0 mh0">
 							<legend className="f4 fw6 ph0 mh0">Sign In</legend>
@@ -39,20 +39,20 @@ class LoginPage extends Component {
 							}
 							<div className="mt3">
 								<label className="db fw6 lh-copy f6" htmlFor="username">Username</label>
-								<input ref="username" className="pa2 input-reset ba bg-transparent hover-bg-green hover-white w-100" type="text" name="username"  id="username" />
+								<input ref="username" className="pa2 input-reset ba b--inherit bg-transparent hover-bg-green hover-white w-100" type="text" name="username"  id="username" />
 							</div>
 							<div className="mv3">
 								<label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
-								<input ref="password" className="b pa2 input-reset ba bg-transparent hover-bg-green hover-white w-100" type="password" name="password"  id="password" />
+								<input ref="password" className="b pa2 input-reset ba b--inherit bg-transparent hover-bg-green hover-white w-100" type="password" name="password"  id="password" />
 							</div>
 							<label className="pa0 ma0 lh-copy f6 pointer"><input type="checkbox" /> Remember me</label>
 						</fieldset>
 						<div className="">
-							<input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Sign in" />
+							<input className="b ph3 pv2 input-reset color-inherit ba b--inherit bg-transparent grow pointer f6 dib" type="submit" value="Sign in" />
 						</div>
 						<div className="lh-copy mt3">
-							<Link prefetch href=""><a href="" className="f6 link dim black db">Sign up</a></Link>
-							<Link prefetch href=""><a href="" className="f6 link dim black db">Forgot your password?</a></Link>
+							<Link prefetch href=""><a href="" className="f6 link dim primary db">Sign up</a></Link>
+							<Link prefetch href=""><a href="" className="f6 link dim primary db">Forgot your password?</a></Link>
 						</div>
 					</form>
 				</main>

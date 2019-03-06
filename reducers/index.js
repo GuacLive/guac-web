@@ -14,6 +14,7 @@ import auth from './auth';
 import channel from './channel';
 import featured from './featured';
 import streaming from './streaming';
+import site from './site';
 
 export default combineReducers({
 	[FLOPFLIP_STATE_SLICE]: createFlopflipReducer(EXPERIMENTS),
@@ -21,4 +22,5 @@ export default combineReducers({
 	channel,
 	featured,
 	streaming,
+	site,
 });

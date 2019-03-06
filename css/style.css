@@ -22,6 +22,9 @@ body {
 	margin: 0;
 	background: var(--site-background);
 	color: var(--site-text);
+
+	transition: color var(--animation-duration) var(--animation-timing),
+		background var(--animation-duration) var(--animation-timing);
 }
 
 .front {
@@ -38,7 +41,7 @@ body {
 
 :root {
 	--site-background: #f4f5f7;
-	--site-text: inherit;
+	--site-text: var(--black);
 
 	--blue: blue;
 	--green: green;
@@ -46,11 +49,14 @@ body {
 	--slick-dot-color: black;
 	--chat-message-background: var(--white-20);
 	--chat-message-text: var(--black);
+	
+	--animation-duration: 1.0s;
+	--animiation-timing: ease-in-out;
 }
 
 .guac-skin-dark {
 	--site-background: #2a2a2a;
-	/*--site-text: #fff;*/
+	--site-text: var(--white);
 
 	--slick-dot-color: white;
 	--chat-message-background: var(--black-20);
@@ -62,6 +68,16 @@ body {
 	padding-right: .2em;
 	padding-top: .1em;
 	width: 1.2em;
+}
+
+.primary {
+	color: var(--site-text);
+}
+.primary-80 {
+	color: var(--black-80);
+}
+.guac-skin-dark .primary-80 {
+	color: var(--white-80);
 }
 
 .chat-message {

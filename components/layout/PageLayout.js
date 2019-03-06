@@ -5,7 +5,7 @@ import { Fragment, Component } from 'react';
 
 import {connect} from 'react-redux';
 
-import css from '../../css/style.css'
+import '../../css/style.css'
 
 import * as actions from '../../actions';
 
@@ -16,6 +16,15 @@ class PageLayout extends Component {
 		super(props);
 	}
 
+	componentDidMount(){
+		if(document){
+			document.documentElement.className = `guac-skin-${this.props.mode}`;
+		}
+	}
+	
+	componentWillUnmount(){
+	}
+	
 	render(){
 		let { children, isAuthenticated, authenticate, deauthenticate, nonce } = this.props;
 		let title = this.props.title ? this.props.title : '';
@@ -105,6 +114,7 @@ class PageLayout extends Component {
 const mapStateToProps = (state) => (
 	{
 		isAuthenticated: !!state.authentication.token,
+		mode: state.site.mode,
 		user: state.authentication && state.authentication.user
 	}
 );

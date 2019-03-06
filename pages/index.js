@@ -1,8 +1,4 @@
-import React, {Component, Fragment} from 'react'
-
-import {createStore} from 'redux'
-
-import Head from 'next/head'
+import React, {Component, Fragment} from 'react';
 
 import { ToggleFeature } from '@flopflip/react-redux';
 
@@ -22,13 +18,13 @@ import 'slick-carousel/slick/slick.css';
 const STREAMING_SERVER = 'eu';
 class IndexPage extends Component {
 	static async getInitialProps({store, isServer, pathname, query, req}){
-   		// we can dispatch from here too
-		//store.dispatch({type: 'SET_FEATURED'});
-		initialize({store, isServer, pathname, query, req});
-		const { featured } = store.getState()
-		if(featured.loading){
-			await store.dispatch(actions.fetchFeatured());
-		}
+			// we can dispatch from here too
+			//store.dispatch({type: 'SET_FEATURED'});
+			initialize({store, isServer, pathname, query, req});
+			const { featured } = store.getState()
+			if(featured.loading){
+				await store.dispatch(actions.fetchFeatured());
+			}
     }
 
     renderStream = stream => {
@@ -87,13 +83,13 @@ class IndexPage extends Component {
 	render() {
 		return (
 			<Fragment>
-				<div className="site-component-spotlight w-100 center bg-light-green">
+				<div className="site-component-spotlight w-100 center bg-light-green black">
 					<h3 className="f4 b ma0 ttu tracked">Live streams</h3>
 					<Slider
 						autoplay={false}
 						dots={true}
-	      				adaptiveHeight={true}
-	      				className="w-100"
+	      		adaptiveHeight={true}
+	      		className="w-100"
 					>
 					{this.renderStreams()}
 					</Slider>

@@ -5,6 +5,8 @@ import { fetchChannel, resetChannel } from './channel';
 import { fetchFeatured, resetFeatured } from './featured';
 
 import { fetchStreaming, resetStreaming } from './streaming';
+
+import { setDarkMode, setLightMode, resetSite } from './site';
 export {
 	authenticate,
 	reauthenticate,
