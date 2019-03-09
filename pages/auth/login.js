@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
 
-import dynamic from 'next/dynamic'
+import Router from 'next/router';
 import Link from 'next/link'
 
 import initialize from '../../utils/initialize';
@@ -24,7 +24,12 @@ class LoginPage extends Component {
 		console.log(this.props);
 		e.preventDefault();
 		// yay uncontrolled forms!
-		this.props.dispatch(actions.authenticate(this.refs.username.value, this.refs.password.value));
+		this.props.dispatch(
+			actions.authenticate(this.refs.username.value, this.refs.password.value)
+		)
+		.then(() => {
+			Router.push('/');
+		});
 	}
 
 	render(){

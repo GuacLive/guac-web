@@ -1,6 +1,5 @@
 import { callApi } from '../services/api';
 
-import Router from 'next/router';
 import { setCookie, removeCookie } from '../utils/cookie';
 
 // gets token from the api and stores it in the redux store and in cookie
@@ -22,7 +21,6 @@ export const authenticate = (username, password) => async (dispatch) => {
 				type: 'AUTHENTICATE_SUCCESS'
 			}, json));
 			setCookie('token', json.jwtToken);
-			Router.push('/');
 		} else {
 			dispatch({
 				type: 'AUTHENTICATE_FAILURE',
@@ -37,19 +35,50 @@ export const authenticate = (username, password) => async (dispatch) => {
         });
 	});
 };
-// gets the token from the cookie and saves it in the store
+// gets the token from the cookie, request user data, and save it in the store
 export const reauthenticate = (token) => async (dispatch) => {
 	dispatch({
-		type: 'AUTHENTICATE_SUCCESS',
-		statusCode: 200,
-		jwtToken: token
+		type: 'AUTHENTICATE_REQUEST'
+	});
+	return callApi('/tokenAuth', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		accessToken: token
+	})
+	.then(response => response.json())
+	.then((json) => {
+		console.log('obababababa' ,json);
+		if (json.statusCode == 200) {
+			dispatch({
+				type: 'AUTHENTICATE_SUCCESS',
+				statusCode: 200,
+				jwtToken: token,
+				user: {
+					id: json.id,
+					name: json.name
+				}
+			});
+			setCookie('token', token);
+		} else {
+			dispatch({
+				type: 'AUTHENTICATE_FAILURE',
+				error: new Error('Invalid reauthenticate json result: ' + JSON.stringify(json))
+			});
+		}
+	})
+	.catch(error => {
+        dispatch({
+          type: 'AUTHENTICATE_FAILURE',
+          error
+        });
 	});
 };
 
 // removing the token
 export const deauthenticate = () => async (dispatch) => {
 	removeCookie('token');
-	Router.push('/');
 	dispatch({
 		type: 'DEAUTHENTICATE'
 	});

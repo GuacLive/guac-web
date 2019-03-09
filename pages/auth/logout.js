@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
 
+import Router from 'next/router';
+
 import * as actions from '../../actions';
 
 class LogoutPage extends Component {
@@ -10,7 +12,12 @@ class LogoutPage extends Component {
 
 
 	componentDidMount(){
-		this.props.dispatch(actions.deauthenticate());
+		this.props.dispatch(
+			actions.deauthenticate()
+		)
+		.then(() => {
+			Router.push('/');
+		});
 	}
 
 	render(){

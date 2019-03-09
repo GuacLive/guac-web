@@ -1,9 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
 
-import dynamic from 'next/dynamic'
-import Link from 'next/link'
-
 import initialize from '../utils/requireAuth';
 import * as actions from '../actions';
 

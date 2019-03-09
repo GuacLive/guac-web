@@ -26,7 +26,7 @@ class PageLayout extends Component {
 	}
 	
 	render(){
-		let { children, isAuthenticated, authenticate, deauthenticate, nonce } = this.props;
+		let { children, isAuthenticated, authenticate, deauthenticate, nonce, user } = this.props;
 		let title = this.props.title ? this.props.title : '';
 		return (
 			<Fragment>
@@ -72,8 +72,8 @@ class PageLayout extends Component {
 									<GuacButton url="/auth/signup" color="green">Sign up</GuacButton>
 								}
 								{
-									isAuthenticated &&
-									<span>{this.props.user && this.props.user.name}</span>
+									isAuthenticated && 
+									<Link href={`/c/${user.name}`}><a className="b link white hover-light-green mr3 ml3">{user.name}</a></Link>
 								}
 								{
 									isAuthenticated && 
