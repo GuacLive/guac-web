@@ -49,7 +49,6 @@ export const reauthenticate = (token) => async (dispatch) => {
 	})
 	.then(response => response.json())
 	.then((json) => {
-		console.log('obababababa' ,json);
 		if (json.statusCode == 200) {
 			dispatch({
 				type: 'AUTHENTICATE_SUCCESS',
@@ -57,7 +56,8 @@ export const reauthenticate = (token) => async (dispatch) => {
 				jwtToken: token,
 				user: {
 					id: json.id,
-					name: json.name
+					name: json.name,
+					can_stream: json.can_stream
 				}
 			});
 			setCookie('token', token);
