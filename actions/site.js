@@ -1,6 +1,6 @@
 export function resetSite() {
 	return {
-		type: 'SET_STREAMING'
+		type: 'RESET_SITE'
 	};
 };
 

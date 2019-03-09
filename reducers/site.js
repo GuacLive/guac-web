@@ -1,5 +1,5 @@
 const initialState = {
-	mode: 'dark'
+	mode: null
 };
 
 export default function(state = initialState, action) {
