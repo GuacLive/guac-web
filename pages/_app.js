@@ -9,8 +9,13 @@ import configureStore from '../store/configureStore';
 
 import PageLayout from '../components/layout/PageLayout';
 
+import { getCookie } from '../utils/cookie';
 export default withRedux(configureStore)(class MyApp extends App {
 	static async getInitialProps({Component, ctx}) {
+		let mode = getCookie('site-mode', ctx.req) === 'dark' ? 'SET_DARK_MODE' : 'SET_LIGHT_MODE';
+		ctx.store.dispatch({
+			type: mode
+		});
 		return {
 			pageProps: {
 				// Call page-level getInitialProps

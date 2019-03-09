@@ -11,17 +11,9 @@ import * as actions from '../../actions';
 
 import GuacButton from '../GuacButton'
 
-import { getCookie } from '../../utils/cookie';
 class PageLayout extends Component {
 	constructor(props){
 		super(props);
-	}
-
-	static async getInitialProps({req}) {
-		let mode = getCookie('site-mode', req) === 'dark' ? 'SET_DARK_MODE' : 'SET_LIGHT_MODE';
-		this.props.dispatch({
-			type: mode
-		});
 	}
 
 	componentDidMount(){
