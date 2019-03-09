@@ -54,11 +54,7 @@ export const reauthenticate = (token) => async (dispatch) => {
 				type: 'AUTHENTICATE_SUCCESS',
 				statusCode: 200,
 				jwtToken: token,
-				user: {
-					id: json.id,
-					name: json.name,
-					can_stream: json.can_stream
-				}
+				user: json.user
 			});
 			setCookie('token', token);
 		} else {
