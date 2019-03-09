@@ -28,7 +28,7 @@ class LoginPage extends Component {
 			actions.authenticate(this.refs.username.value, this.refs.password.value)
 		)
 		.then(() => {
-			Router.push('/');
+			if(!this.props.authentication.error) Router.push('/');
 		});
 	}
 
