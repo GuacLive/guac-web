@@ -8,12 +8,16 @@ export function resetStreaming() {
 	};
 }
 
-export const fetchStreaming = (accessToken) => async (dispatch) => {
+export const fetchStreaming = (token) => async (dispatch) => {
 	dispatch({
 		type: 'FETCH_STREAMING_REQUEST'
 	});
+	console.log('BLAAAAAAAAAAAH', token);
 	return callApi('/streaming', {
-		accessToken
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		accessToken: token
 	})
 	.then(response => response.json())
 	.then((json) => {

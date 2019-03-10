@@ -5,10 +5,6 @@ import initialize from '../utils/requireAuth';
 import * as actions from '../actions';
 
 class DashboardPage extends Component {
-	constructor(props){
-		super(props);
-	}
-
 	static async getInitialProps({store, isServer, pathname, query, req}){
 		initialize({store, isServer, pathname, query, req});
 		const { streaming, authentication } = store.getState()
@@ -24,8 +20,10 @@ class DashboardPage extends Component {
 	render(){
 		const auth = this.props.authentication;
 		const streaming = this.props.streaming;
-		if(!auth || auth.loading) return null;
-		if(!streaming || streaming.loading) return null;
+		if(auth.loading) return null;
+		if(auth.error) throw auth.error;
+		if(streaming.loading) return null;
+		if(streaming.error) throw streaming.error;
 		if(auth && auth.user && !auth.user.can_stream) return <p>You do not have permission to stream</p>;
 		return (
 			<>

@@ -37,6 +37,12 @@ export const authenticate = (username, password) => async (dispatch) => {
 };
 // gets the token from the cookie, request user data, and save it in the store
 export const reauthenticate = (token) => async (dispatch) => {
+	/* TODO: Find out why this is required to make initialize work in dashboard */
+	dispatch({
+		type: 'AUTHENTICATE_SUCCESS',
+		statusCode: 200,
+		jwtToken: token
+	});
 	dispatch({
 		type: 'AUTHENTICATE_REQUEST'
 	});
@@ -53,10 +59,10 @@ export const reauthenticate = (token) => async (dispatch) => {
 			dispatch({
 				type: 'AUTHENTICATE_SUCCESS',
 				statusCode: 200,
-				jwtToken: token,
+				jwtToken: json.token,
 				user: json.user
 			});
-			setCookie('token', token);
+			setCookie('token', json.token);
 		} else {
 			dispatch({
 				type: 'AUTHENTICATE_FAILURE',
