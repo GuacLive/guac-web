@@ -71,13 +71,25 @@ class Chat extends React.Component {
 	}
 	async fetchEmotes(){
 		let emotes = this.emotes;
+		await fetch('/static/emotes/global.json')
+		.then(async response => {
+			const data = await response.json();
+			for(const emote of Object.values(data)){
+				emotes[emote.code] = {
+					provider: 'guac',
+					url: `/static/emotes/global/${emote.id}.png`,
+				};
+			}
+		})
+		.catch(() => {});
+
 		await fetch('/static/emotes/twitch.json')
 		.then(async response => {
 			const data = await response.json();
 			for(const emote of Object.values(data)){
 				emotes[emote.code] = {
 					provider: 'twitch',
-					url: `http://static-cdn.jtvnw.net/emoticons/v1/${emote.id}/1.0`,
+					url: `//static-cdn.jtvnw.net/emoticons/v1/${emote.id}/1.0`,
 				};
 			}
 		})
