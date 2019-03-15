@@ -144,7 +144,9 @@ class Chat extends React.Component {
 			this.users.set(user.name, user);
 			if(this.props.authentication.user && user.name === this.props.authentication.user.name){
 				this.me = this.props.authentication.user;
-				this.hasPrivilege = this.props.authentication.user.privileges.length > 0;
+				this.hasPrivilege = this.users.get(this.me.name) 
+					&& this.users.get(this.me.name).privileges
+					&& this.users.get(this.me.name).privileges.length > 0;
 			}
 		}
 	}
