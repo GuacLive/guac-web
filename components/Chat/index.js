@@ -2,8 +2,6 @@ import React from 'react';
 
 import {connect} from 'react-redux';
 
-import classNames from 'classnames'
-
 import io from 'socket.io-client';
 
 import SimpleBar from 'simplebar-react';
@@ -11,6 +9,9 @@ import 'simplebar/dist/simplebar.css';
 
 import ReactTextareaAutocomplete from '@webscopeio/react-textarea-autocomplete';
 import '@webscopeio/react-textarea-autocomplete/style.css';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBan, faCheck, faHourGlass } from '@fortawesome/free-solid-svg-icons'
 
 import fetch from 'cross-fetch';
 
@@ -208,19 +209,31 @@ class Chat extends React.Component {
 							this.isPrivileged &&
 							(this.me && this.me.name !== user.name) &&
 							!this.users.get(user.name).banned &&
-							<span class=""><a href="#" class="link color-inherit" onclick={writeMessage(`/ban ${user.name}`)}>Ban</a></span>
+							<span class="">
+								<a href="#" class="link color-inherit" onclick={writeMessage(`/ban ${user.name}`)}>
+									<FontAwesomeIcon icon={faBan} />
+								</a>
+							</span>
 						}
 						{
 							this.isPrivileged &&
 							(this.me && this.me.name !== user.name) &&
 							this.users.get(user.name).banned &&
-							<span class=""><a href="#" class="link color-inherit" onclick={writeMessage(`/unban ${user.name}`)}>Unban</a></span>
+							<span class="">
+								<a href="#" class="link color-inherit" onclick={writeMessage(`/unban ${user.name}`)}>
+									<FontAwesomeIcon icon={faCheck} />
+								</a>
+							</span>
 						}
 						{
 							this.isPrivileged &&
 							(this.me && this.me.name !== user.name) &&
 							!this.users.get(user.name).banned &&
-							<span class=""><a href="#" class="link color-inherit" onclick={writeMessage(`/timeout ${user.name} 600`)}>Timeout</a></span>
+							<span class="">
+								<a href="#" class="link color-inherit" onclick={writeMessage(`/timeout ${user.name} 600`)}>
+									<FontAwesomeIcon icon={faHourGlass} />
+								</a>
+							</span>
 						}
 					</span>
 					<span className="chat-message-time">
