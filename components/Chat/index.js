@@ -173,6 +173,11 @@ class Chat extends React.Component {
 	handleMessage(user, messages) {
 		let self = this;
 		let entry;
+		let writeMessage = ((message) => {
+			this.setState({
+				message
+			});
+		}).bind(this);
 		if(!user || !messages) return;
 		let output = messages.map((msg, i) => {
 			if(!msg.type) return null;
@@ -199,6 +204,24 @@ class Chat extends React.Component {
 			message: (
 				<>
 					<span className="chat-message-mod">
+						{
+							this.isPrivileged &&
+							(this.me && this.me.name !== user.name) &&
+							!this.users.get(user.name).banned &&
+							<span class=""><a href="#" class="link color-inherit" onclick={writeMessage(`/ban ${user.name}`)}>Ban</a></span>
+						}
+						{
+							this.isPrivileged &&
+							(this.me && this.me.name !== user.name) &&
+							this.users.get(user.name).banned &&
+							<span class=""><a href="#" class="link color-inherit" onclick={writeMessage(`/unban ${user.name}`)}>Unban</a></span>
+						}
+						{
+							this.isPrivileged &&
+							(this.me && this.me.name !== user.name) &&
+							!this.users.get(user.name).banned &&
+							<span class=""><a href="#" class="link color-inherit" onclick={writeMessage(`/timeout ${user.name} 600`)}>Timeout</a></span>
+						}
 					</span>
 					<span className="chat-message-time">
 						{new Date(user.lastMessage).toLocaleTimeString()}{'\u00A0'}
