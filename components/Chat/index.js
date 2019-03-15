@@ -35,6 +35,8 @@ class Chat extends React.Component {
 		this.maxlines = 250;
 
 		this.emotes = [];
+		this.me = null;
+		this.hasPrivilege = false;
 
 		this.sendMessage = this.sendMessage.bind(this);
 		this.handleSys = this.handleSys.bind(this);
@@ -139,6 +141,10 @@ class Chat extends React.Component {
 		if(!user.name) return;
 		if(!user.anon){
 			this.users.set(user.name, user);
+			if(this.props.authentication.user && user.name === this.props.authentication.user.name){
+				this.me = this.props.authentication.user;
+				this.hasPrivilege = this.props.authentication.user.privileges.length > 0;
+			}
 		}
 	}
 	userLeave(user){
@@ -192,6 +198,8 @@ class Chat extends React.Component {
 			user,
 			message: (
 				<>
+					<span className="chat-message-mod">
+					</span>
 					<span className="chat-message-time">
 						{new Date(user.lastMessage).toLocaleTimeString()}{'\u00A0'}
 					</span>
