@@ -11,7 +11,7 @@ import ReactTextareaAutocomplete from '@webscopeio/react-textarea-autocomplete';
 import '@webscopeio/react-textarea-autocomplete/style.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBan, faCheck, faHourGlass } from '@fortawesome/free-solid-svg-icons'
+import { faBan, faCheck, faHourglass } from '@fortawesome/free-solid-svg-icons'
 
 import fetch from 'cross-fetch';
 
@@ -144,9 +144,7 @@ class Chat extends React.Component {
 			this.users.set(user.name, user);
 			if(this.props.authentication.user && user.name === this.props.authentication.user.name){
 				this.me = this.props.authentication.user;
-				this.hasPrivilege = this.users.get(this.me.name) 
-					&& this.users.get(this.me.name).privileges
-					&& this.users.get(this.me.name).privileges.length > 0;
+				if(this.props.channel.data.user.name === this.me.name) this.hasPrivilege = true;
 			}
 		}
 	}
@@ -208,32 +206,32 @@ class Chat extends React.Component {
 				<>
 					<span className="chat-message-mod">
 						{
-							this.isPrivileged &&
+							this.hasPrivilege &&
 							(this.me && this.me.name !== user.name) &&
-							!this.users.get(user.name).banned &&
-							<span class="">
-								<a href="#" class="link color-inherit" onclick={writeMessage(`/ban ${user.name}`)}>
+							(this.users.get(user.name) && !this.users.get(user.name).banned) &&
+							<span className="mr2">
+								<a href="#" className="link color-inherit" onClick={() => {writeMessage(`/ban ${user.name}`)}}>
 									<FontAwesomeIcon icon={faBan} />
 								</a>
 							</span>
 						}
 						{
-							this.isPrivileged &&
+							this.hasPrivilege &&
 							(this.me && this.me.name !== user.name) &&
-							this.users.get(user.name).banned &&
-							<span class="">
-								<a href="#" class="link color-inherit" onclick={writeMessage(`/unban ${user.name}`)}>
+							(this.users.get(user.name) && this.users.get(user.name).banned) &&
+							<span className="mr2">
+								<a href="#" className="link color-inherit" onClick={() => {writeMessage(`/unban ${user.name}`)}}>
 									<FontAwesomeIcon icon={faCheck} />
 								</a>
 							</span>
 						}
 						{
-							this.isPrivileged &&
+							this.hasPrivilege &&
 							(this.me && this.me.name !== user.name) &&
-							!this.users.get(user.name).banned &&
-							<span class="">
-								<a href="#" class="link color-inherit" onclick={writeMessage(`/timeout ${user.name} 600`)}>
-									<FontAwesomeIcon icon={faHourGlass} />
+							(this.users.get(user.name) && !this.users.get(user.name).banned) &&
+							<span className="mr2">
+								<a href="#" className="link color-inherit" onClick={() => {writeMessage(`/timeout ${user.name} 600`)}}>
+									<FontAwesomeIcon icon={faHourglass} />
 								</a>
 							</span>
 						}
@@ -272,7 +270,6 @@ class Chat extends React.Component {
 					let nicks = [];
 					[...this.users].forEach((args) => {
 						let user = args[1];
-						console.log('æddabædda', user);
 						if(user && user.name) nicks.push(user.name);
 					});
 					this.handleSys('User list: ' + nicks.join(' '));
@@ -294,7 +291,6 @@ class Chat extends React.Component {
 					if(args && args[0]){
 						let user = this.users.get(args[0]);
 						let time = typeof args[1] === 'number' ? args[1] : 600;
-						console.log('nei', user);
 						this.socket.emit('timeout', user && user.id, time);
 					}
 				break;
