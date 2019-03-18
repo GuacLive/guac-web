@@ -37,7 +37,7 @@ class Chat extends React.Component {
 
 		this.emotes = [];
 		this.me = null;
-		this.privileges = [];
+		this.privileged = [];
 		this.hasPrivilege = false;
 
 		this.sendMessage = this.sendMessage.bind(this);
@@ -53,7 +53,7 @@ class Chat extends React.Component {
 			socket.on('msgs', this.handleMessage.bind(this));
 			socket.on('users', this.handleUsers.bind(this));
 			socket.on('sys', this.handleSys.bind(this));
-			socket.on('privileges', this.handlePriv.bind(this));
+			socket.on('privileged', this.handlePriv.bind(this));
 			socket.emit('join', this.props.authentication.token || null);
 		});
 		socket.on('disconnect', () => {
@@ -142,7 +142,7 @@ class Chat extends React.Component {
 	}
 	handlePriv(args){
 		let privileges = args[0];
-		this.privileges = privileges;
+		this.privileged = privileged;
 	}
 	userJoin(user){
 		if(!user.name) return;
@@ -152,7 +152,7 @@ class Chat extends React.Component {
 				this.me = this.props.authentication.user;
 				if(
 					this.props.channel.data.user.name === this.me.name
-					|| this.privileges.indexOf(this.me.id) > -1
+					|| this.privileged.indexOf(this.me.id) > -1
 				){
 					this.hasPrivilege = true;
 				}
