@@ -141,7 +141,7 @@ class Chat extends React.Component {
 		});
 	}
 	handlePriv(args){
-		let privileges = args[0];
+		let privileged = args[0];
 		this.privileged = privileged;
 	}
 	userJoin(user){
