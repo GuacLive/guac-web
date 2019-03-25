@@ -47,7 +47,8 @@ body {
 	--green: green;
 
 	--slick-dot-color: black;
-	--chat-message-background: var(--white-20);
+	--chat-message-background: var(--site-background);
+	--chat-message-background-odd: var(--black-20);
 	--chat-message-text: var(--black);
 	
 	--animation-duration: 1.0s;
@@ -60,6 +61,7 @@ body {
 
 	--slick-dot-color: white;
 	--chat-message-background: var(--black-20);
+	--chat-message-background-odd: var(--black-40);
 	--chat-message-text: var(--white);
 }
 
@@ -84,6 +86,10 @@ body {
 	background: var(--chat-message-background);
 	color: var(--chat-message-text);
 	padding: .5rem 1rem !important;
+}
+
+.chat-message:nth-child(odd) {
+	background: var(--chat-message-background-odd);
 }
 
 .chat-message-time {

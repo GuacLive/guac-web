@@ -415,7 +415,7 @@ class Chat extends React.Component {
 						}}
 					/>
 					</div>
-					<div className="chat-input__buttons flex justify-between mt1">
+					<div className="chat-input__buttons primary flex justify-between mt1">
 						<div className="flex flex-row">
 							<div className="relative">dab</div>
 						</div>
