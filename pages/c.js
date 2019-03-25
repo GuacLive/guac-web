@@ -72,7 +72,7 @@ class ChannelPage extends Component {
 					<h2 className='f2 tracked ma0 dib'>
 					{stream.user.name}
 					&nbsp;
-					{stream.live ? <svg fill="red" id="icon_live" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M6,0 C-1.7,0, -1.7,12, 6,12 C13.7,12, 13.7,0, 6,0"></path></svg> : ''}
+					{stream.live ? <span id="icon_live" className="red">&middot;</span> : ''}
 					</h2>
 
 					<GuacButton color="white">Follow</GuacButton>
