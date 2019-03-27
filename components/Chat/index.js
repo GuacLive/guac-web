@@ -274,7 +274,7 @@ class Chat extends React.Component {
 									href="#" 
 									className="link color-inherit"
 									title="Timeout user"
-									onClick={() => {writeMessage(`/timeout ${user.name} 600`)}
+									onClick={() => {writeMessage(`/timeout ${user.name} 600`)}}
 								>
 									<FontAwesomeIcon icon={faHourglass} />
 								</a>
