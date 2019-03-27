@@ -111,6 +111,16 @@ body {
 	margin: -.5rem 0;
 }
 
+.chat-message-badges__badge {
+	display: inline-block;
+	min-width: 1.8rem;
+	height: 1.8rem;
+	margin: 0 .3rem .2rem 0;
+	background-position: center;
+	vertical-align: middle;
+	border-radius: 0.2rem;
+}
+
 .chat-input textarea {
 	resize: vertical;
 	max-height: 160px;

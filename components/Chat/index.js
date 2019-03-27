@@ -142,7 +142,7 @@ class Chat extends React.Component {
 	}
 	handlePriv(args){
 		let privileged = args[0];
-		this.privileged = privileged;
+		this.privileged.push(privileged);
 	}
 	userJoin(user){
 		if(!user.name) return;
@@ -215,13 +215,37 @@ class Chat extends React.Component {
 			user,
 			message: (
 				<>
+					<span className="chat-message-time">
+						{new Date(user.lastMessage).toLocaleTimeString()}{'\u00A0'}
+					</span>
+					<span className="chat-message-badges">
+						{
+							user.badges &&
+							user.badges.map((badge) => {
+								return (
+									<span 
+										className="chat-message-badges__badge"
+										data-badge={badge.id}
+										title={badge.name}
+										key={'b-' + user.id + '-' + badge.id + (new Date).getTime()}
+									>
+									</span>
+								);
+							})
+						}
+					</span>
 					<span className="chat-message-mod">
 						{
 							this.hasPrivilege &&
 							(this.me && this.me.name !== user.name) &&
 							(this.users.get(user.name) && !this.users.get(user.name).banned) &&
 							<span className="mr2">
-								<a href="#" className="link color-inherit" onClick={() => {writeMessage(`/ban ${user.name}`)}}>
+								<a 
+									href="#" 
+									className="link color-inherit" 
+									title="Ban user"
+									onClick={() => {writeMessage(`/ban ${user.name}`)}}
+								>
 									<FontAwesomeIcon icon={faBan} />
 								</a>
 							</span>
@@ -231,7 +255,12 @@ class Chat extends React.Component {
 							(this.me && this.me.name !== user.name) &&
 							(this.users.get(user.name) && this.users.get(user.name).banned) &&
 							<span className="mr2">
-								<a href="#" className="link color-inherit" onClick={() => {writeMessage(`/unban ${user.name}`)}}>
+								<a 
+									href="#" 
+									className="link color-inherit" 
+									title="Unban user"
+									onClick={() => {writeMessage(`/unban ${user.name}`)}}
+								>
 									<FontAwesomeIcon icon={faCheck} />
 								</a>
 							</span>
@@ -241,14 +270,16 @@ class Chat extends React.Component {
 							(this.me && this.me.name !== user.name) &&
 							(this.users.get(user.name) && !this.users.get(user.name).banned) &&
 							<span className="mr2">
-								<a href="#" className="link color-inherit" onClick={() => {writeMessage(`/timeout ${user.name} 600`)}}>
+								<a
+									href="#" 
+									className="link color-inherit"
+									title="Timeout user"
+									onClick={() => {writeMessage(`/timeout ${user.name} 600`)}
+								>
 									<FontAwesomeIcon icon={faHourglass} />
 								</a>
 							</span>
 						}
-					</span>
-					<span className="chat-message-time">
-						{new Date(user.lastMessage).toLocaleTimeString()}{'\u00A0'}
 					</span>
 					<span className="chat-message-user b dib">
 						<a href={'/c/' + user.name} className="link color-inherit">{user.name}</a>:{'\u00A0'}
