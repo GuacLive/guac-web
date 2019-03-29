@@ -36,6 +36,13 @@ class IndexPage extends Component {
 
 		if(stream.live){
 			if(stream.urls){
+				if(stream.urls.flv){
+					videoJsOptions.sources.push({
+						src: stream.servers[STREAMING_SERVER] + stream.urls.flv,
+						type: 'video/x-flv',
+						label: STREAMING_SERVER + `(FLV)`
+					});
+				}
 				Object.keys(stream.qualities).forEach((key) => {
 					let urlKey = stream.qualities[key];
 					videoJsOptions.sources.push({
@@ -48,12 +55,6 @@ class IndexPage extends Component {
 					videoJsOptions.sources.push({
 						src: stream.servers[STREAMING_SERVER] + stream.urls.hls,
 						type: 'application/x-mpegURL'
-					});
-				}
-				if(stream.urls.flv){
-					videoJsOptions.sources.push({
-						src: stream.servers[STREAMING_SERVER] + stream.urls.flv,
-						type: 'video/x-flv'
 					});
 				}*/
 			}
