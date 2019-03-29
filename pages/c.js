@@ -98,7 +98,7 @@ class ChannelPage extends Component {
 		if(channel.error) throw channel.error;
 		if(!channel.data) return (<p>Channel not found</p>);
 		return (
-			<div className="w-100 h-100 flex flex-nowrap black">
+			<div className="w-100 min-vh-100 flex flex-nowrap black">
 				<div className="site-component-channel w-100 h-100 flex flex-column flex-grow-1 overflow-hidden relative">
 				{this.renderStream(channel.data)}
 				</div>

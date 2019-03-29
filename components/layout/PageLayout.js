@@ -70,7 +70,7 @@ class PageLayout extends Component {
 						</footer>
 					</aside>
 
-					<div className="w-100 vh-100 flex flex-column items-start">
+					<div className="w-100 min-vh-100 flex flex-column items-start">
 						<header className="z-5 w-100 ph3 pv2 bg-near-black flex flex-row justify-center items-center ml-auto">
 							<div className="w-100 ph5-l flex flex-row justify-between items-center flex-wrap flex-nowrap-ns">
 								<nav className="w-25 db db-m flex-ns flex-row-ns self-center-ns overflow-x-visible-ns">
