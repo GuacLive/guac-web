@@ -84,7 +84,7 @@ class IndexPage extends Component {
 	render() {
 		return (
 			<Fragment>
-				<div className="site-component-spotlight w-100 min-vh-100 center bg-light-green black">
+				<div className="site-component-spotlight w-100 center bg-light-green black">
 					<h3 className="f4 b ma0 ttu tracked">Live streams</h3>
 					<Slider
 						autoplay={false}
