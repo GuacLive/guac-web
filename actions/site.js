@@ -1,3 +1,5 @@
+import { callApi } from '../services/api';
+
 export function resetSite() {
 	return {
 		type: 'RESET_SITE'
@@ -16,7 +18,7 @@ export function setLightMode() {
 	};
 }
 
-export const fetchMyFollowed = (from_id) => async (dispatch) => {
+export const fetchMyFollowed = (token) => async (dispatch) => {
 	dispatch({
 		type: 'FETCH_MY_FOLLOWED_REQUEST'
 	});
@@ -26,9 +28,8 @@ export const fetchMyFollowed = (from_id) => async (dispatch) => {
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify({
-				from_id,
-			})
+			accessToken: token,
+			body: JSON.stringify({})
 		}
 	)
 	.then(response => response.json())

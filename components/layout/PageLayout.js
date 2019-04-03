@@ -15,13 +15,6 @@ class PageLayout extends Component {
 	constructor(props){
 		super(props);
 	}
-
-	static async getInitialProps({store, isServer, pathname, query, req}){
-		const { site, authentication } = store.getState()
-		if(site.loading && authentication.user){
-			await store.dispatch(actions.fetchMyFollowed(authentication.user.id));
-		}
-	}
 	
 	componentDidMount(){
 		if(this.props.mode){
@@ -57,7 +50,7 @@ class PageLayout extends Component {
 							</Link>
 						</div>
 
-						<nav className="flex flex-row flex-grow-1">
+						<nav className="flex flex-column flex-grow-1">
 							{
 								followed &&
 								followed
@@ -71,10 +64,17 @@ class PageLayout extends Component {
 									}
 								})
 								.map((u) => {
-									<div className="site-component-fUser">
-										<div className="site-component-fUser__name"><span>{u.name}</span>{u.live ? ' LIVE' : ''}</div>
-										<div className="site-component-fUser__category">???</div>
-									</div>
+									return (
+										<div className="site-component-fUser tw-align-center flex flex-column relative ph4 pv2">
+											<div className="site-component-fUser__name">
+											<span>
+												{u.username}
+												{u.live ? <span className="ph2 bg-red f6 tc inline-flex white mh3">LIVE</span> : ''}
+											</span>
+											</div>
+											<div className="site-component-fUser__category"><small>{u.title}</small></div>
+										</div>
+									)
 								})
 							}
 						</nav>

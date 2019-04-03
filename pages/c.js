@@ -26,6 +26,12 @@ class ChannelPage extends Component {
 		if(channel.loading){
 			await store.dispatch(actions.fetchChannel(query.name));
 		}
+		const { site, authentication } = store.getState()
+		if(site.loading && authentication.token){
+			await store.dispatch(actions.fetchMyFollowed(
+				authentication.token
+			));
+		}
     }
 
     renderStream = stream => {

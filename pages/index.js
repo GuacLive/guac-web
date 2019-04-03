@@ -25,6 +25,12 @@ class IndexPage extends Component {
 		if(featured.loading){
 			await store.dispatch(actions.fetchFeatured());
 		}
+		const { site, authentication } = store.getState()
+		if(site.loading && authentication.token){
+			await store.dispatch(actions.fetchMyFollowed(
+				authentication.token
+			));
+		}
     }
 
     renderStream = stream => {
@@ -89,8 +95,8 @@ class IndexPage extends Component {
 					<Slider
 						autoplay={false}
 						dots={true}
-	      		adaptiveHeight={true}
-	      		className="w-100"
+			      		adaptiveHeight={true}
+			      		className="w-100"
 					>
 					{this.renderStreams()}
 					</Slider>
