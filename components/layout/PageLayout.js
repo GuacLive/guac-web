@@ -48,7 +48,7 @@ class PageLayout extends Component {
 					<meta name='viewport' content='initial-scale=1.0, width=device-width' />
 				</Head>
 				<main className="w-100 h-100 flex flex-nowrap justify-between items-start page-wrapper">
-					<aside className="flex flex-column vh-100 w-20 bg-black-80">
+					<aside className="flex flex-column vh-100 w-20 bg-near-black">
 						<div className="flex flex-column items-center mb1 mt2 pa2 pointer">
 							<Link href="/">
 								<a className="f2 b link dim ba b--transparent db pa1 br-100 fl-l content-box">
@@ -126,6 +126,7 @@ class PageLayout extends Component {
 									}
 									{
 										isAuthenticated && 
+										user &&
 										<Link href={user.can_stream ? `/c/${user.name}` : '/'}><a className="b link white hover-light-green mr3 ml3">{user.name}</a></Link>
 									}
 									{

@@ -18,13 +18,13 @@ import 'slick-carousel/slick/slick.css';
 const STREAMING_SERVER = 'eu';
 class IndexPage extends Component {
 	static async getInitialProps({store, isServer, pathname, query, req}){
-			// we can dispatch from here too
-			//store.dispatch({type: 'SET_FEATURED'});
-			initialize({store, isServer, pathname, query, req});
-			const { featured } = store.getState()
-			if(featured.loading){
-				await store.dispatch(actions.fetchFeatured());
-			}
+		// we can dispatch from here too
+		//store.dispatch({type: 'SET_FEATURED'});
+		initialize({store, isServer, pathname, query, req});
+		const { featured } = store.getState()
+		if(featured.loading){
+			await store.dispatch(actions.fetchFeatured());
+		}
     }
 
     renderStream = stream => {

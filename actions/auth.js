@@ -37,6 +37,7 @@ export const authenticate = (username, password) => async (dispatch) => {
 };
 // gets the token from the cookie, request user data, and save it in the store
 export const reauthenticate = (token) => async (dispatch) => {
+	if(!token) throw new Error('reauthenticate: no token provided')
 	/* TODO: Find out why this is required to make initialize work in dashboard */
 	dispatch({
 		type: 'AUTHENTICATE_SUCCESS',

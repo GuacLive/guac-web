@@ -12,12 +12,22 @@ class LoginPage extends Component {
 		super(props);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
-
-	static async getInitialProps(ctx){
-		initialize(ctx);
+	static async getInitialProps({store, isServer, pathname, query, req}){
+		initialize({store, isServer, pathname, query, req});
+		const { authentication } = store.getState()
+		return {redirect: (authentication.token !== null)}
     }
 
-	componentDidMount(){
+	componentDidMount() {
+		if(this.props.redirect){
+			window.location.href = '/';
+		}
+	}
+
+	componentDidUpdate(prevProps) {
+		if(this.props.redirect){
+			window.location.href = '/';
+		}
 	}
 
 	handleSubmit(e){
@@ -28,7 +38,7 @@ class LoginPage extends Component {
 			actions.authenticate(this.refs.username.value, this.refs.password.value)
 		)
 		.then(() => {
-			if(!this.props.authentication.error) Router.push('/');
+			if(!this.props.authentication.error) window.location.href = '/';
 		});
 	}
 

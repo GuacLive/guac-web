@@ -6,7 +6,8 @@ import { getCookie } from '../utils/cookie';
 export default function({store, isServer, pathname, query, req}) {
 	if(isServer){
 		if(req.headers.cookie){
-			store.dispatch(actions.reauthenticate(getCookie('token', req)));
+			const token = getCookie('token', req);
+			if(token) store.dispatch(actions.reauthenticate(token));
 		}
 	}else{
 		const token = store.getState().authentication.token;
