@@ -72,8 +72,7 @@ class ChannelPage extends Component {
 				<div className="site-component-channel__info dib w-100 bg-light-green">
 					<h2 className='f2 tracked ma0 dib'>
 					{stream.user.name}
-					&nbsp;
-					{stream.live ? <span id="icon_live" className="red">&middot;</span> : ''}
+					{stream.live ? <span className="ph2 bg-red f6 tc inline-flex white mh3">LIVE</span> : ''}
 					</h2>
 
 					<GuacButton color="white">Follow</GuacButton>
@@ -93,7 +92,6 @@ class ChannelPage extends Component {
 		const {
 			channel
 		} = this.props;
-		console.log(this.props);
 		if(channel.loading) return (<p>Loading...</p>);
 		if(channel.error) throw channel.error;
 		if(!channel.data) return (<p>Channel not found</p>);
