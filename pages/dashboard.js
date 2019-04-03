@@ -11,7 +11,7 @@ class DashboardPage extends Component {
 		if(streaming.loading){
 			await store.dispatch(actions.fetchStreaming(authentication.token));
 		}
-		const { site, authentication } = store.getState()
+		const { site } = store.getState()
 		if(site.loading && authentication.token){
 			await store.dispatch(actions.fetchMyFollowed(
 				authentication.token
