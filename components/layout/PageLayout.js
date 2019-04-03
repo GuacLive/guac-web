@@ -16,6 +16,13 @@ class PageLayout extends Component {
 		super(props);
 	}
 
+	static async getInitialProps({store, isServer, pathname, query, req}){
+		const { site, authentication } = store.getState()
+		if(site.loading && authentication.user){
+			await store.dispatch(actions.fetchMyFollowed(authentication.user.id));
+		}
+	}
+	
 	componentDidMount(){
 		if(this.props.mode){
 			if(document) document.documentElement.className = `guac-skin-${this.props.mode}`;
@@ -31,7 +38,7 @@ class PageLayout extends Component {
 	}
 	
 	render(){
-		let { children, isAuthenticated, authenticate, deauthenticate, nonce, user } = this.props;
+		let { children, isAuthenticated, user, followed } = this.props;
 		let title = this.props.title ? this.props.title : '';
 		return (
 			<Fragment>
@@ -51,7 +58,25 @@ class PageLayout extends Component {
 						</div>
 
 						<nav className="flex flex-row flex-grow-1">
-							
+							{
+								followed &&
+								followed
+								.sort((a,b) => {
+									if(a.live === b.live){
+										return 0;
+									}else if(a.live){
+										return -1;
+									}else{
+										return 1;
+									}
+								})
+								.map((u) => {
+									<div className="site-component-fUser">
+										<div className="site-component-fUser__name"><span>{u.name}</span>{u.live ? ' LIVE' : ''}</div>
+										<div className="site-component-fUser__category">???</div>
+									</div>
+								})
+							}
 						</nav>
 						
 						<footer className="flex bg-near-black white pv4 pv5-l ph4">
@@ -129,6 +154,7 @@ const mapStateToProps = (state) => (
 	{
 		isAuthenticated: !!state.authentication.token,
 		mode: state.site.mode,
+		followed: state.site.myFollowed,
 		user: state.authentication && state.authentication.user
 	}
 );

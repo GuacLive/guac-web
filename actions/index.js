@@ -6,7 +6,7 @@ import { fetchFeatured, resetFeatured } from './featured';
 
 import { fetchStreaming, resetStreaming } from './streaming';
 
-import { setDarkMode, setLightMode, resetSite } from './site';
+import { setDarkMode, setLightMode, fetchMyFollowed, resetSite } from './site';
 export {
 	authenticate,
 	reauthenticate,
@@ -16,5 +16,9 @@ export {
 	fetchFeatured,
 	resetFeatured,
 	fetchStreaming,
-	resetStreaming
+	resetStreaming,
+	setDarkMode,
+	setLightMode,
+	fetchMyFollowed,
+	resetSite
 }
