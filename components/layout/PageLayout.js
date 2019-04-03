@@ -65,11 +65,11 @@ class PageLayout extends Component {
 								})
 								.map((u) => {
 									return (
-										<div className="site-component-fUser tw-align-center flex flex-column relative ph4 pv2">
+										<div key={'followed-'+u.username} className="site-component-fUser tw-align-center flex flex-column relative ph4 pv2">
 											<div className="site-component-fUser__name">
 											<span>
 												{u.username}
-												{u.live ? <span className="ph2 bg-red f6 tc inline-flex white mh3">LIVE</span> : ''}
+												{+u.live ? <span className="ph2 bg-red f6 tc inline-flex white mh3">LIVE</span> : ''}
 											</span>
 											</div>
 											<div className="site-component-fUser__category"><small>{u.title}</small></div>
