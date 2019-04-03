@@ -17,6 +17,7 @@
   }
 
 })(function(window, document, vjs) {
+  if(vjs && vjs.default) vjs = vjs.default;
   //cookie functions from https://developer.mozilla.org/en-US/docs/DOM/document.cookie
   var
   getCookieItem = function(sKey) {
