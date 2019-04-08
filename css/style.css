@@ -65,13 +65,6 @@ body {
 	--chat-message-text: var(--white);
 }
 
-#icon_live {
-	height: 1.2em;
-	padding-right: .2em;
-	padding-top: .1em;
-	width: 1.2em;
-}
-
 .primary {
 	color: var(--site-text);
 }
@@ -111,19 +104,22 @@ body {
 	margin: -.5rem 0;
 }
 
+.chat-message-badges {
+	display: inline-flex;
+	vertical-align: text-top;
+	align-items: center;
+	margin-left: -.2em;
+}
 .chat-message-badges__badge {
 	display: inline-block;
+	margin-left: .2em;
+	margin-right: .2em;
 	min-width: 1.8rem;
 	height: 1.8rem;
-	margin: 0 .3rem .2rem 0;
-	background-position: center;
-	vertical-align: text-top;
 	border-radius: 0.2rem;
 }
 
 .chat-message-badges__badge[data-badge='broadcaster'] {
-	width: 1.8rem;
-	height: 1.8rem;
 	background-size: 1.8rem;
 }
 
