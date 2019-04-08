@@ -115,7 +115,7 @@ class IndexPage extends Component {
 										</p>
 									</div>
 								</div>
-								<div className="pa3 pa4-ns dtc-ns v-mid">
+								<div className="pa3 pa4-ns dtc-ns v-mid black">
 									<GuacButton color="light-green">Join</GuacButton>
 								</div>
 							</div>
