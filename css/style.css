@@ -24,7 +24,7 @@ body {
 	color: var(--site-text);
 
 	transition: color var(--animation-duration) var(--animation-timing),
-		background var(--animation-duration) var(--animation-timing);
+	background var(--animation-duration) var(--animation-timing);
 }
 
 .front {
@@ -93,7 +93,7 @@ body {
 }
 
 .chat-message-time {
-    margin-right: .5rem;
+	margin-right: .5rem;
 }
 
 .chat-message-user {
@@ -117,8 +117,14 @@ body {
 	height: 1.8rem;
 	margin: 0 .3rem .2rem 0;
 	background-position: center;
-	vertical-align: middle;
+	vertical-align: text-top;
 	border-radius: 0.2rem;
+}
+
+.chat-message-badges__badge[data-badge='broadcaster'] {
+	width: 1.8rem;
+	height: 1.8rem;
+	background-size: 1.8rem;
 }
 
 .chat-input textarea {
