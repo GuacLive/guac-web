@@ -68,7 +68,7 @@ class PageLayout extends Component {
 								})
 								.map((u) => {
 									return (
-										<div key={'followed-'+u.username} className="site-component-fUser tw-align-center flex flex-column relative ph4 pv2">
+										<div key={'followed-'+u.username} className="site-component-fUser align-center flex flex-column relative ph4 pv2 white">
 											<div className="site-component-fUser__name">
 											<span>
 												{u.username}
