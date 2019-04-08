@@ -122,8 +122,27 @@ body {
 	border-radius: 0.2rem;
 }
 
-.chat-message-badges__badge[data-badge='broadcaster'] {
-	background-size: 1.8rem;
+.chat-message-badges__badge::before {
+	display: none;
+	display: inline-block;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+}
+
+.chat-message-badges__badge[data-badge='broadcaster']::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 400;
+	/* Video */
+	content: "\f03d";
+}
+
+.chat-message-badges__badge[data-badge='moderator']::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 400;
+	/* Sword */
+	content: "\f71c";
 }
 
 .chat-input textarea {

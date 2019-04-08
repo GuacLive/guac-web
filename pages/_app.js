@@ -10,6 +10,12 @@ import configureStore from '../store/configureStore';
 import PageLayout from '../components/layout/PageLayout';
 
 import { getCookie } from '../utils/cookie';
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+
+import { faBan, faCheck, faHourglass, faVideo } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faBan, faCheck, faHourglass, faVideo);
 export default withRedux(configureStore)(class MyApp extends App {
 	static async getInitialProps({Component, ctx}) {
 		let mode = getCookie('site-mode', ctx.req) === 'dark' ? 'SET_DARK_MODE' : 'SET_LIGHT_MODE';

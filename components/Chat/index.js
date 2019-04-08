@@ -10,12 +10,11 @@ import 'simplebar/dist/simplebar.css';
 import ReactTextareaAutocomplete from '@webscopeio/react-textarea-autocomplete';
 import '@webscopeio/react-textarea-autocomplete/style.css';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBan, faCheck, faHourglass } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import fetch from 'cross-fetch';
 
-import getConfig from 'next/config'
+import getConfig from 'next/config';;
 const { publicRuntimeConfig } = getConfig()
 const { CHAT_URL } = publicRuntimeConfig;
 
@@ -226,7 +225,7 @@ class Chat extends React.Component {
 									<span 
 										className="chat-message-badges__badge"
 										data-badge={badge.id}
-										title={badge.name}
+										title={badge.label}
 										key={'b-' + user.id + '-' + badge.id + (new Date).getTime()}
 									>
 									</span>
@@ -246,7 +245,7 @@ class Chat extends React.Component {
 									title="Ban user"
 									onClick={() => {writeMessage(`/ban ${user.name}`)}}
 								>
-									<FontAwesomeIcon icon={faBan} />
+									<FontAwesomeIcon icon='ban' />
 								</a>
 							</span>
 						}
@@ -261,7 +260,7 @@ class Chat extends React.Component {
 									title="Unban user"
 									onClick={() => {writeMessage(`/unban ${user.name}`)}}
 								>
-									<FontAwesomeIcon icon={faCheck} />
+									<FontAwesomeIcon icon='check' />
 								</a>
 							</span>
 						}
@@ -276,7 +275,7 @@ class Chat extends React.Component {
 									title="Timeout user"
 									onClick={() => {writeMessage(`/timeout ${user.name} 600`)}}
 								>
-									<FontAwesomeIcon icon={faHourglass} />
+									<FontAwesomeIcon icon='unban' />
 								</a>
 							</span>
 						}
