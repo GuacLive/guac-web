@@ -51,6 +51,9 @@ class PageLayout extends Component {
 						</div>
 
 						<nav className="flex flex-column flex-grow-1">
+							<span className="f5 b inline-flex ph3 light-gray">
+							Followed Channels
+							</span>
 							{
 								followed &&
 								followed
