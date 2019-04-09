@@ -81,7 +81,8 @@ class ChannelPage extends Component {
 					{stream.live ? <span className="ph2 bg-red f6 tc inline-flex white mh3">LIVE</span> : ''}
 					</h2>
 
-					<GuacButton color="white">Follow</GuacButton>
+					{stream.isFollowed && <GuacButton color="white">Unfollow</GuacButton>}
+					{!stream.isFollowed && <GuacButton color="white">Follow</GuacButton>}
 					<GuacButton color="green">Subscribe</GuacButton>
 					<div>
 						<span className="b f4">{stream.title}
@@ -96,11 +97,19 @@ class ChannelPage extends Component {
 
 	render() {
 		const {
-			channel
+			channel,
+			site
 		} = this.props;
 		if(channel.loading) return (<p>Loading...</p>);
 		if(channel.error) throw channel.error;
 		if(!channel.data) return (<p>Channel not found</p>);
+
+		let followed = site.myFollowed && site.myFollowed.find((u) => {
+			return u && u.from_id === channel.data.id;
+		});
+		let isFollowed = followed && followed.from_id === channel.data.id;
+		channel.data.isFollowed = isFollowed;
+
 		return (
 			<div className="w-100 min-vh-100 flex flex-nowrap black">
 				<div className="site-component-channel w-100 h-100 flex flex-column flex-grow-1 overflow-hidden relative">
