@@ -316,6 +316,7 @@ class Chat extends React.Component {
 					this.handleSys('User list: ' + nicks.join(' '));
 				break;
 				case '/ban':
+					if(!this.hasPrivilege) return;
 					if(args && args[0]){
 						let user = this.users.get(args[0]);
 						console.log('nei', user);
@@ -323,9 +324,35 @@ class Chat extends React.Component {
 					}
 				break;
 				case '/unban':
+					if(!this.hasPrivilege) return;
 					if(args && args[0]){
 						let user = this.users.get(args[0]);
 						this.socket.emit('unban', user && user.id);
+					}
+				break;
+				case '/mod':
+					if(
+						this.me
+						&& this.props.channel.data.user.name !== this.me.name
+					){
+						return;
+					}
+					if(args && args[0]){
+						let user = this.users.get(args[0]);
+						console.log('nei', user);
+						this.socket.emit('mod', user && user.id);
+					}
+				break;
+				case '/unmod':
+					if(
+						this.me
+						&& this.props.channel.data.user.name !== this.me.name
+					){
+						return;
+					}
+					if(args && args[0]){
+						let user = this.users.get(args[0]);
+						this.socket.emit('unmod', user && user.id);
 					}
 				break;
 				case '/timeout':
