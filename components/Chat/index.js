@@ -9,6 +9,7 @@ import 'simplebar/dist/simplebar.css';
 
 import ReactTextareaAutocomplete from '@webscopeio/react-textarea-autocomplete';
 import '@webscopeio/react-textarea-autocomplete/style.css';
+import AutoTextarea from "react-autosize-textarea";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -427,6 +428,7 @@ class Chat extends React.Component {
 						innerRef={textarea => {
 							this.textarea = textarea;
 						}}
+						textAreaComponent={{ component: AutoTextarea, ref: "innerRef" }}
 						minChar={2}
 						rows={1}
 						trigger={{
