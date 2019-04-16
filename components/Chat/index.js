@@ -332,6 +332,7 @@ class Chat extends React.Component {
 					}
 				break;
 				case '/mod':
+					if(!this.hasPrivilege) return;
 					if(
 						this.me
 						&& this.props.channel.data.user.name !== this.me.name
@@ -345,6 +346,7 @@ class Chat extends React.Component {
 					}
 				break;
 				case '/unmod':
+					if(!this.hasPrivilege) return;
 					if(
 						this.me
 						&& this.props.channel.data.user.name !== this.me.name
@@ -357,6 +359,7 @@ class Chat extends React.Component {
 					}
 				break;
 				case '/timeout':
+					if(!this.hasPrivilege) return;
 					if(args && args[0]){
 						let user = this.users.get(args[0]);
 						let time = typeof args[1] === 'number' ? args[1] : 600;
