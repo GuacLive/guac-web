@@ -9,6 +9,7 @@ import 'simplebar/dist/simplebar.css';
 
 import ReactTextareaAutocomplete from '@webscopeio/react-textarea-autocomplete';
 import '@webscopeio/react-textarea-autocomplete/style.css';
+import AutoTextarea from "react-autosize-textarea";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -197,12 +198,12 @@ class Chat extends React.Component {
 					if(Object.keys(self.emotes).indexOf(msg.content) == -1) return null;
 					let emote = self.emotes[msg.content];
 					return (
-						<React.Fragment key={'c-' + i + '-' + (new Date).getTime()}><img className="chat-message-content__emote dib" src={emote.url} alt={'Emote: ' + msg.content} title={msg.content + ' by ' + emote.provider} />{'\u00A0'}</React.Fragment>
+						<React.Fragment key={'c-' + i + '-' + (new Date).getTime()}><img className="chat-message-content__emote dib" src={emote.url} alt={'Emote: ' + msg.content} title={msg.content + ' by ' + emote.provider} />{i !== messages.length -1 && '\u00A0'}</React.Fragment>
 					);
 				break;
 				case 'text':
 					return (
-						<React.Fragment key={'u-' + i + '-'  + (new Date).getTime()}>{msg.content}{'\u00A0'}</React.Fragment>
+						<React.Fragment key={'u-' + i + '-'  + (new Date).getTime()}>{msg.content}{i !== messages.length -1 && '\u00A0'}</React.Fragment>
 					);
 				break;
 				default:
@@ -331,6 +332,7 @@ class Chat extends React.Component {
 					}
 				break;
 				case '/mod':
+					if(!this.hasPrivilege) return;
 					if(
 						this.me
 						&& this.props.channel.data.user.name !== this.me.name
@@ -344,6 +346,7 @@ class Chat extends React.Component {
 					}
 				break;
 				case '/unmod':
+					if(!this.hasPrivilege) return;
 					if(
 						this.me
 						&& this.props.channel.data.user.name !== this.me.name
@@ -356,6 +359,7 @@ class Chat extends React.Component {
 					}
 				break;
 				case '/timeout':
+					if(!this.hasPrivilege) return;
 					if(args && args[0]){
 						let user = this.users.get(args[0]);
 						let time = typeof args[1] === 'number' ? args[1] : 600;
@@ -427,6 +431,7 @@ class Chat extends React.Component {
 						innerRef={textarea => {
 							this.textarea = textarea;
 						}}
+						textAreaComponent={{ component: AutoTextarea, ref: "innerRef" }}
 						minChar={2}
 						rows={1}
 						trigger={{
