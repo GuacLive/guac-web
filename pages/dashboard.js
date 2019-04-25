@@ -24,8 +24,7 @@ class DashboardPage extends Component {
 	}
 
 	render(){
-		const auth = this.props.authentication;
-		const streaming = this.props.streaming;
+		const {auth, streaming} = this.props;
 		if(auth.loading) return null;
 		if(auth.error) throw auth.error;
 		if(streaming.loading) return null;
@@ -39,12 +38,12 @@ class DashboardPage extends Component {
 						<li>
 							<p>First, choose the streaming server closest to you:</p>
 							<ul className="list">
-								<li><b>Oslo, Europe:</b> rtmp://osl1.stream.guac.live:1935/app</li>
-								<li><b>London, Europe:</b> rtmp://lon1.stream.guac.live:1935/app</li>
+								<li><b>Oslo, Europe:</b> rtmp://osl1.stream.guac.live:1935/live</li>
+								<li><b>London, Europe:</b> rtmp://lon1.stream.guac.live:1935/live</li>
 							</ul>
 						</li>
 						<li>
-							{streaming && streaming.key ? <p>Now, use the following stream key: <b>{streaming.key}</b></p> : <p style={{color: 'red'}}>No streaming key found, please contact an admin.</p>}
+							{streaming && streaming.key ? <p>Now, use the following stream key: <b>{auth.user}?token={streaming.key}</b></p> : <p style={{color: 'red'}}>No streaming key found, please contact an admin.</p>}
 						</li>
 						<li>
 							<p>At last, make sure keyframe interval is set to <b>2</b>.</p>
