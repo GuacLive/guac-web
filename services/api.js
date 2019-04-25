@@ -14,19 +14,21 @@ export function callApi(endpoint, options = {}) {
 	const fullUrl = (endpoint.indexOf(API_URL) === -1) ? API_URL + endpoint : endpoint;
 
 	const accessToken = options.accessToken;
-	let cachedResponse = null;
+	let shouldCache = opt.method === 'GET' && !accessToken;
+	let response = null;
 	const defaultHeaders = {
 		Accept: 'application/json',
 		'Content-Type': 'application/json'
 	};
 	if (accessToken) {
 		defaultHeaders.Authorization = 'Bearer ' + accessToken;
-	} else if(opt.method == 'GET') {
-		cachedResponse = lscache.get(fullUrl);
+	}
+	if (shouldCache) {
+		response = lscache.get(fullUrl);
 	}
 	opt.headers = Object.assign(opt.headers, defaultHeaders);
-	if (cachedResponse === null) {
-		cachedResponse = fetch(fullUrl, opt)
+	if (response === null) {
+		response = fetch(fullUrl, opt)
 			.then((res) => {
 				if (res.status === 401) {
 			        return Promise.reject(res);
@@ -34,9 +36,9 @@ export function callApi(endpoint, options = {}) {
 		    	return res;
 			}
 		);
-		lscache.set(fullUrl, cachedResponse, TTL_MINUTES);
+		if (shouldCache) lscache.set(fullUrl, response, TTL_MINUTES);
 	}
-	return cachedResponse;
+	return response;
 }
 
 export function callDeleteApi(endpoint, options = {}) {
