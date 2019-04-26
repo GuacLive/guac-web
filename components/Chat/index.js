@@ -283,7 +283,7 @@ class Chat extends React.Component {
 									title="Timeout user"
 									onClick={() => {writeMessage(`/timeout ${user.name} 600`)}}
 								>
-									<FontAwesomeIcon icon='check' />
+									<FontAwesomeIcon icon='timeglass' />
 								</a>
 							</span>
 						}
