@@ -67,11 +67,11 @@ class IndexPage extends Component {
 		}
 
     	return (
-    		<div key={stream.user.id}>
+    		<div key={stream.user.id} style={{'height': '960px', 'width': '600px'}}>
     			<a href={"/c/" + stream.user.name} className="link f4 b ma0">
     				<span className="i tracked b">{stream.name}</span> is live
     			</a>
-				<VideoPlayer { ...videoJsOptions }></VideoPlayer>
+					<VideoPlayer { ...videoJsOptions }></VideoPlayer>
     		</div>
     	);
     }
@@ -95,7 +95,8 @@ class IndexPage extends Component {
 					<Slider
 						autoplay={false}
 						dots={true}
-			      		adaptiveHeight={true}
+						adaptiveHeight={true}
+						variableWidth={true}
 			      		className="w-100"
 					>
 					{this.renderStreams()}
