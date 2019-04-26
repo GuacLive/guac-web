@@ -218,6 +218,9 @@ class Chat extends React.Component {
 				break;
 			}
 		});
+		let showModTools = this.hasPrivilege &&
+			(this.me && this.me.name !== user.name) &&
+			(this.privileged && this.privileged.indexOf(user.id) === -1);
 		entry = {
 			user,
 			message: (
@@ -243,8 +246,7 @@ class Chat extends React.Component {
 					</span>
 					<span className="chat-message-mod">
 						{
-							this.hasPrivilege &&
-							(this.me && this.me.name !== user.name) &&
+							showModTools &&
 							(this.users.get(user.name) && !this.users.get(user.name).banned) &&
 							<span className="mr2">
 								<a 
@@ -258,8 +260,7 @@ class Chat extends React.Component {
 							</span>
 						}
 						{
-							this.hasPrivilege &&
-							(this.me && this.me.name !== user.name) &&
+							showModTools &&
 							(this.users.get(user.name) && this.users.get(user.name).banned) &&
 							<span className="mr2">
 								<a 
@@ -273,8 +274,7 @@ class Chat extends React.Component {
 							</span>
 						}
 						{
-							this.hasPrivilege &&
-							(this.me && this.me.name !== user.name) &&
+							showModTools &&
 							(this.users.get(user.name) && !this.users.get(user.name).banned) &&
 							<span className="mr2">
 								<a
