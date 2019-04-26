@@ -142,7 +142,14 @@ class Chat extends React.Component {
 	}
 	handlePriv(args){
 		let privileged = args[0];
-		this.privileged.push(privileged);
+		if(typeof privileged !== 'array') return;
+		this.privileged = privileged;
+		// In case privilege has been added or removed for your user
+		if(
+			this.privileged.indexOf(this.me.id) > -1
+		){
+			this.hasPrivilege = true;
+		}
 	}
 	userJoin(user){
 		if(!user.name) return;
