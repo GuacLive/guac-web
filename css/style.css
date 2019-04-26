@@ -141,8 +141,8 @@ body {
 .chat-message-badges__badge[data-badge='moderator']::before {
 	font-family: "Font Awesome 5 Free";
 	font-weight: 400;
-	/* Sword */
-	content: "\f71c";
+	/* Shield-alt */
+	content: "\f3ed";
 }
 
 .chat-input textarea {
