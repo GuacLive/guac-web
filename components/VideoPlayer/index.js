@@ -12,16 +12,7 @@ import {selectFeatureFlag} from '@flopflip/react-redux';
 
 class VideoPlayer extends React.Component {
 	componentDidMount() {
-		if(window) window.flvjs = require('flv.js').default;
-		if(window) window.videojs = videojs;
-		require('../../videojs-flvjs.js');
-		require('../../videojs-persistvolume.js');
-		require('@silvermine/videojs-chromecast')(videojs, {
-			reloadWebComponents: true
-		});
-		require('@dlive/videojs-resolution-switcher');
-		// instantiate Video.js
-		this.player = videojs(this.videoNode, {
+		const videoJsOptions = {
 			liveui: true,
 			plugins: {
 				videoJsResolutionSwitcher: {
@@ -41,7 +32,29 @@ class VideoPlayer extends React.Component {
 				},
   			},
 			...this.props
-		}, function onPlayerReady() {
+		};
+		
+		if(window && typeof window.MediaSource === 'undefined'){
+			videoJsOptions.html5 = {
+				hls: {
+					overrideNative: false
+				},
+				nativeVideoTracks: true,
+				nativeAudioTracks: true,
+				nativeTextTracks: true
+			};
+		}
+
+		if(window) window.flvjs = require('flv.js').default;
+		if(window) window.videojs = videojs;
+		require('../../videojs-flvjs.js');
+		require('../../videojs-persistvolume.js');
+		require('@silvermine/videojs-chromecast')(videojs, {
+			reloadWebComponents: true
+		});
+		require('@dlive/videojs-resolution-switcher');
+		// instantiate Video.js
+		this.player = videojs(this.videoNode, videoJsOptions, function onPlayerReady() {
 			console.log('onPlayerReady', this)
 		});
 		this.player.chromecast();
