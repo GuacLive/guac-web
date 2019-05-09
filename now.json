@@ -2,6 +2,7 @@
     "version": 2,
     "public": false,
     "name": "guac-web",
+    "alias": "guac.live",
     "routes": [
       { "src": "/c/(?<name>[^/]+)$", "dest": "/c?name=$name" }
     ],
