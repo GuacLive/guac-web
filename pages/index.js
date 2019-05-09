@@ -118,7 +118,7 @@ class IndexPage extends Component {
 										<span className="measure lh-copy mv0">
 											<p>
 											Hi,<br/>
-											Welcome to Guac.live &mdash; live streaming platform. We are currently in beta.</p>
+											Welcome to guac.live &mdash; live streaming platform. We are currently in beta.</p>
 											<p>
 											While we are in beta, streaming privileges will be given on a invite-only basis.
 											<br />
