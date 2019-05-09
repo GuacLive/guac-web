@@ -3,10 +3,7 @@ import lscache from 'lscache';
 
 const TTL_MINUTES = 5;
 
-import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig()
-
-const { API_URL } = publicRuntimeConfig
+const API_URL = process.env.API_URL;
 
 export function callApi(endpoint, options = {}) {
 	const opt = options;

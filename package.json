@@ -1,16 +1,15 @@
 {
   "name": "guac-web",
-  "description": "My classy project with Next.js",
-  "repository": "datagutt/guac-web",
+  "description": "Main web ui for the Guac livestreaming platform",
+  "repository": "GuacLive/guac-web",
   "author": {
     "name": "datagutt",
     "email": "datagutt@lekanger.no"
   },
   "scripts": {
-    "dev": "node server.js",
-    "b": "next build",
-    "start": "NODE_ENV=production node server.js",
-    "export": "npm run b && ./node_modules/next/.bin/next export"
+    "now-build": "next build",
+    "dev": "now dev -d",
+    "deploy": "now"
   },
   "dependencies": {
     "@dlive/videojs-resolution-switcher": "^0.6.0",
@@ -26,14 +25,17 @@
     "@zeit/next-css": "^1.0.2-canary.2",
     "classnames": "^2.2.5",
     "cross-fetch": "^3.0.0",
-    "express": "^5.0.0-alpha.6",
+    "dotenv": "^8.0.0",
     "file-loader": "^3.0.1",
     "flv.js": "^1.5.0",
     "js-cookie": "^2.2.0",
     "lscache": "^1.2.0",
     "next": "^8.1.1-canary.24",
     "next-redux-wrapper": "3.0.0-alpha.2",
+    "now": "^15.1.0",
     "path-match": "^1.2.4",
+    "postcss-css-variables": "^0.12.0",
+    "postcss-import": "^12.0.1",
     "react": "^16.9.0-alpha.0",
     "react-autosize-textarea": "^7.0.0",
     "react-dom": "^16.9.0-alpha.0",
@@ -54,8 +56,6 @@
     "videojs-persistvolume": "https://github.com/GuacLive/videojs-persistvolume"
   },
   "devDependencies": {
-    "babel-plugin-add-module-exports": "^1.0.0",
-    "postcss-css-variables": "^0.12.0",
-    "postcss-import": "^12.0.0"
+    "babel-plugin-add-module-exports": "^1.0.0"
   }
 }

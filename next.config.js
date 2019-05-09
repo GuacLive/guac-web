@@ -1,6 +1,5 @@
 const withCSS = require('@zeit/next-css')
-const webpack = require('webpack');
-const path = require('path');
+const { parsed: localEnv } = require("dotenv").config();
 module.exports = withCSS({
 	webpack (config) {
 		config.module.rules.push({
@@ -15,14 +14,12 @@ module.exports = withCSS({
 				}
 			}
 		});
-
+	
 		return config
 	},
+	target: true  ? 'serverless' : 'server',
 	poweredByHeader: false,
-	serverRuntimeConfig: { // Will only be available on the server side
-		mySecret: 'secret'
-	},
-	publicRuntimeConfig: { // Will be available on both server and client
+	env: {
 		API_URL: process.env.API_URL || 'http://api.local.guac.live',
 		CHAT_URL: process.env.CHAT_URL || 'http://chat.local.guac.live',
 		OIL_CONFIG: {

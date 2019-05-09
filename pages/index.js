@@ -12,6 +12,8 @@ import * as actions from '../actions';
 
 import initialize from '../utils/initialize';
 
+import Link from 'next/link';
+
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 
@@ -68,10 +70,12 @@ class IndexPage extends Component {
 
     	return (
     		<div key={stream.user.id} style={{'height': '960px', 'width': '600px'}}>
-    			<a href={"/c/" + stream.user.name} className="link f4 b ma0">
-    				<span className="i tracked b">{stream.name}</span> is live
-    			</a>
-					<VideoPlayer { ...videoJsOptions }></VideoPlayer>
+    			<Link href={"/c?name=" + stream.user.name} as={"/c/" + stream.user.name}>
+    				<a className="link f4 b ma0">
+						<span className="i tracked b">{stream.name}</span> is live
+					</a>
+    			</Link>
+				<VideoPlayer { ...videoJsOptions }></VideoPlayer>
     		</div>
     	);
     }

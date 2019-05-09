@@ -130,7 +130,7 @@ class PageLayout extends Component {
 									{
 										isAuthenticated && 
 										user &&
-										<Link href={user.can_stream ? `/c/${user.name}` : '/'}><a className="b link white hover-light-green mr3 ml3">{user.name}</a></Link>
+										<Link href={user.can_stream ? `/c?name=${user.name}` : '/'} as={user.can_stream ? `/c/${user.name}` : '/'}><a className="b link white hover-light-green mr3 ml3">{user.name}</a></Link>
 									}
 									{
 										isAuthenticated && 

@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "public": false,
+    "name": "guac-web",
+    "routes": [
+      { "src": "/c/(?<name>[^/]+)$", "dest": "/c?name=$name" }
+    ],
+    "build": {
+      "env": {
+        "API_URL": "@guac-api-url",
+        "CHAT_URL": "@guac-chat-url"
+      }
+    },
+    "builds": [{ "src": "package.json", "use": "@now/next@canary", "config": {"maxLambdaSize": "10mb"} }]
+}  

@@ -1,9 +1,5 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 
-import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig()
-const { OIL_CONFIG } = publicRuntimeConfig
-
 import { getCookie } from '../utils/cookie';
 export default class MyDocument extends Document {
 	static getInitialProps({req, renderPage}) {
@@ -20,9 +16,9 @@ export default class MyDocument extends Document {
 			<Head nonce={nonce}>
 				<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
 				<script type="text/javascript" src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1" nonce={this.props.nonce}></script>
-				<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/solid.css" integrity="sha384-QokYePQSOwpBDuhlHOsX0ymF6R/vLk/UQVz3WHa6wygxI5oGTmDTv8wahFOSspdm" crossorigin="anonymous" />
-				<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/fontawesome.css" integrity="sha384-vd1e11sR28tEK9YANUtpIOdjGW14pS87bUBuOIoBILVWLFnS+MCX9T6MMf0VdPGq" crossorigin="anonymous" />
-				<script type="application/configuration" id="oil-configuration" dangerouslySetInnerHTML={{__html: JSON.stringify(OIL_CONFIG)}}></script>
+				<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/solid.css" integrity="sha384-QokYePQSOwpBDuhlHOsX0ymF6R/vLk/UQVz3WHa6wygxI5oGTmDTv8wahFOSspdm" crossOrigin="anonymous" />
+				<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/fontawesome.css" integrity="sha384-vd1e11sR28tEK9YANUtpIOdjGW14pS87bUBuOIoBILVWLFnS+MCX9T6MMf0VdPGq" crossOrigin="anonymous" />
+				<script type="application/configuration" id="oil-configuration" dangerouslySetInnerHTML={{__html: JSON.stringify(process.env.OIL_CONFIG)}}></script>
 				<script type="text/javascript" dangerouslySetInnerHTML={{__html: oil}} nonce={nonce}></script>
 				<script type="text/javascript" src="//privacy.guac.live/scripts/oil.1.2.5-RELEASE.min.js" nonce={nonce}></script>
 			</Head>

@@ -7,20 +7,19 @@ Source code for the web ui [guac.live](https://guac.live/)
 yarn
 ```
 
+#### Copy the .env.build-example file to .env.build
+
+```cp .env.build-example .env.build
+```
+
 #### You can now execute the project.
 
 ```bash
-# For development
+# Run in development mode
 npm run dev
 
-# For production
-npm run start
-```
-
-#### Build
-
-```bash
-npm run b
+# Deploy to production
+npm run deploy
 ```
 
 ## License

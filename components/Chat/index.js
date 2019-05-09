@@ -15,9 +15,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import fetch from 'cross-fetch';
 
-import getConfig from 'next/config';;
-const { publicRuntimeConfig } = getConfig()
-const { CHAT_URL } = publicRuntimeConfig;
+const CHAT_URL = process.env.CHAT_URL;
 
 function createEmoteMarkup(name, img){
 	return {
