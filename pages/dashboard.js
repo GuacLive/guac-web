@@ -24,7 +24,8 @@ class DashboardPage extends Component {
 	}
 
 	render(){
-		const {auth, streaming} = this.props;
+		const {streaming} = this.props;
+		const auth = this.props.authentication;
 		if(auth.loading) return null;
 		if(auth.error) throw auth.error;
 		if(streaming.loading) return null;
@@ -43,7 +44,7 @@ class DashboardPage extends Component {
 							</ul>
 						</li>
 						<li>
-							{streaming && streaming.key ? <p>Now, use the following stream key: <b>{auth.user}?token={streaming.key}</b></p> : <p style={{color: 'red'}}>No streaming key found, please contact an admin.</p>}
+							{streaming && streaming.key ? <p>Now, use the following stream key: <b>{auth.user.name}?token={streaming.key}</b></p> : <p style={{color: 'red'}}>No streaming key found, please contact an admin.</p>}
 						</li>
 						<li>
 							<p>At last, make sure keyframe interval is set to <b>2</b>.</p>
