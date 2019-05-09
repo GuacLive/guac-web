@@ -9,7 +9,8 @@ yarn
 
 #### Copy the .env.build-example file to .env.build
 
-```cp .env.build-example .env.build
+```bash
+cp .env.build-example .env.build
 ```
 
 #### You can now execute the project.
