@@ -9,7 +9,8 @@ import '../../css/style.css'
 
 import * as actions from '../../actions';
 
-import GuacButton from '../GuacButton'
+import GuacButton from '../GuacButton';
+import DarkModeToggle from '../DarkModeToggle';
 
 class PageLayout extends Component {
 	constructor(props){
@@ -119,6 +120,7 @@ class PageLayout extends Component {
 									<input type="text" className="input-reset bn pa3 w-100 bg-white br2" placeholder="Search..." />
 								</form>
 								<nav className="ml3 mt2 mt0-ns pv2-ns flex-auto tr nowrap relative pointer fw6 order-1 order-2-ns white">
+									<DarkModeToggle />
 									{
 										!isAuthenticated && 
 										<GuacButton url="/auth/login">Log in</GuacButton>
