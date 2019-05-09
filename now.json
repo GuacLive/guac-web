@@ -4,7 +4,9 @@
     "name": "guac-web",
     "alias": "guac.live",
     "routes": [
-      { "src": "/c/(?<name>[^/]+)$", "dest": "/c?name=$name" }
+      { "src": "/c/(?<name>[^/]+)$", "dest": "/c?name=$name" },
+      { "handle": "filesystem" },
+      { "src": "/.*", "status": 404, "dest": "/static/404.html" }  
     ],
     "build": {
       "env": {
