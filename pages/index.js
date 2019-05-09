@@ -115,13 +115,20 @@ class IndexPage extends Component {
 								<div className="pa3 pa4-ns dtc-ns v-mid">
 									<div>
 										<h2 className="f2 tracked mt0 mb3">Welcome to guac.live</h2>
-										<p className="measure lh-copy mv0">
-										hello
-										</p>
+										<span className="measure lh-copy mv0">
+											<p>
+											Hi,<br/>
+											Welcome to Guac.live &mdash; live streaming platform. We are currently in beta.</p>
+											<p>
+											While we are in beta, streaming privileges will be given on a invite-only basis.
+											<br />
+											But, feel free to make an account and participate in the chat and general community!
+											</p>
+										</span>
 									</div>
 								</div>
 								<div className="pa3 pa4-ns dtc-ns v-mid black">
-									<GuacButton color="light-green">Join</GuacButton>
+									<GuacButton color="light-green" url="/auth/login">Join</GuacButton>
 								</div>
 							</div>
 						</article>
