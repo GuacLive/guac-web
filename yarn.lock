@@ -3610,10 +3610,10 @@ next-redux-wrapper@3.0.0-alpha.2:
   resolved "https://registry.yarnpkg.com/next-redux-wrapper/-/next-redux-wrapper-3.0.0-alpha.2.tgz#ccbcd362e9998a9f582abcc8bfad665686d09cc4"
   integrity sha512-mObX94qAq/1Wno2RF5pHGaH9ZnZ6+1nvjyC7KRRCfrD4AE1KtbavVAHZS48UkPXf25VwTZq98XjVC1qP1CYLTA==
 
-next-server@8.1.1-canary.25:
-  version "8.1.1-canary.25"
-  resolved "https://registry.yarnpkg.com/next-server/-/next-server-8.1.1-canary.25.tgz#a8c3c1bb7a3e927f19dd2a272f39263a6e640c1a"
-  integrity sha512-lcJW4vIXC8ZDsQvyiPexbNocRfnNoFDFW7gImkcZeM5qtB1I5/5/tJ2hr0FUEkHMVV/XOOrufnj6SofCZn8ANg==
+next-server@8.1.1-canary.26:
+  version "8.1.1-canary.26"
+  resolved "https://registry.yarnpkg.com/next-server/-/next-server-8.1.1-canary.26.tgz#9b53ef714b968d5f6e62e15ee8070c49a7b31e25"
+  integrity sha512-YYWFy7zKQkHFzC85mXCm9f4NkFWJTE+LKUMiJJPYtc3HF79dyPSAZbK0is8Lg0N7j7guqaaZysHdSU/jdoHrhw==
   dependencies:
     amp-toolbox-optimizer "0.5.3"
     etag "1.8.1"
@@ -3626,10 +3626,10 @@ next-server@8.1.1-canary.25:
     send "0.16.1"
     url "0.11.0"
 
-next@^8.1.1-canary.24:
-  version "8.1.1-canary.25"
-  resolved "https://registry.yarnpkg.com/next/-/next-8.1.1-canary.25.tgz#27934f54d5bad20ce7d707f8749845d2b50dff3d"
-  integrity sha512-+AOQEibbdEP30SeQcGPoDeKxMOGIvWUTXAcWAabvZw4dWAa3Wsc/PouL9Lkd1Y/Wp4i0qqf6yB5EBUd2zDnWAg==
+next@^8.1.1-canary.26:
+  version "8.1.1-canary.26"
+  resolved "https://registry.yarnpkg.com/next/-/next-8.1.1-canary.26.tgz#809eb00a6ec4076f3cb33f770adf2c47929491c0"
+  integrity sha512-1d66a0tmMtpWx1H8eeS2a5LyLz0/0r9JKdHfzS+i7aHA28YzeJinchx9l0VrxVjjtwutx9dyC4cVaf0kkk3vIQ==
   dependencies:
     "@babel/core" "7.1.2"
     "@babel/plugin-proposal-class-properties" "7.1.0"
@@ -3657,7 +3657,7 @@ next@^8.1.1-canary.24:
     launch-editor "2.2.1"
     loader-utils "1.1.0"
     mkdirp "0.5.1"
-    next-server "8.1.1-canary.25"
+    next-server "8.1.1-canary.26"
     prop-types "15.6.2"
     prop-types-exact "1.2.0"
     react-error-overlay "5.1.4"
