@@ -3,6 +3,7 @@
     "public": false,
     "name": "guac-web",
     "alias": "guac.live",
+    "regions": ["arn", "hel", "cdg", "lhr", "zrh"],
     "routes": [
       { "src": "/c/(?<name>[^/]+)$", "dest": "/c?name=$name" },
       { "handle": "filesystem" },
