@@ -25,9 +25,8 @@ module.exports = withCSS({
 		OIL_CONFIG: {
 			"theme": "dark",
 			"cpc_type": "standard",
-			"publicPath": "//privacy.guac.live/scripts/",
 			"poi_activate_poi": true,
-			"poi_hub_origin": "//privacy.guac.live",
+			"poi_hub_origin": "//privacy.guac.live/release/current",
 			"poi_hub_path": "/hub.html",
 			"poi_subscriber_set_cookie": true,
 			"poi_group_name": "guac.live",
