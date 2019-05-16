@@ -59,9 +59,10 @@ class Chat extends React.Component {
 		});
 	}
 	componentWillUnmount(){
+		this.socket.removeAllListeners();
 		this.socket.off('connect');
 		this.socket.off('disconnect');
-		this.socket.emit('disconnect');
+		this.socket.leave();
 		this.socket.disconnect();
 	}
 	componentDidUpdate(){
