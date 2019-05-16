@@ -131,7 +131,7 @@ class PageLayout extends Component {
 								}
 							</nav>
 							
-							<footer className="flex bg-near-black white pv4 pv5-l ph4">
+							<footer className="flex bg-near-black white pv4 pv5-l ph4 h-25">
 								<div className="f6 flex flex-column flex-grow-1">
 									<span className="dib mr4 mr5-ns ttu tracked">© {(new Date()).getFullYear()} guac.live</span>
 									<Link href="/terms">
