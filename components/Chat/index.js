@@ -43,19 +43,26 @@ class Chat extends React.Component {
 		this.writeMessage = this.writeMessage.bind(this);
 	}
 	componentDidMount(){
-		const socket = this.socket = io(CHAT_URL);
+		const socket = this.socket = io(CHAT_URL, {
+			'reconnection': true,
+			'reconnectionDelay': 1000,
+			'reconnectionDelayMax': 5000,
+			'reconnectionAttempts': 5,
+			'forceNew': true
+		});
 		this.fetchEmotes();
+		socket.on('join', this.userJoin.bind(this));
+		socket.on('leave', this.userLeave.bind(this));
+		socket.on('msgs', this.handleMessage.bind(this));
+		socket.on('users', this.handleUsers.bind(this));
+		socket.on('sys', this.handleSys.bind(this));
+		socket.on('privileged', this.handlePriv.bind(this));
 		socket.on('connect', () => {
-			socket.on('join', this.userJoin.bind(this));
-			socket.on('leave', this.userLeave.bind(this));
-			socket.on('msgs', this.handleMessage.bind(this));
-			socket.on('users', this.handleUsers.bind(this));
-			socket.on('sys', this.handleSys.bind(this));
-			socket.on('privileged', this.handlePriv.bind(this));
 			socket.emit('join', this.props.authentication.token || null);
 		});
-		socket.on('disconnect', () => {
-			socket.emit('join', this.props.authentication.token || null);
+		socket.on('reconnect', () => {
+			console.log('reconnect');
+			//socket.emit('join', this.props.authentication.token || null);
 		});
 	}
 	componentWillUnmount(){
