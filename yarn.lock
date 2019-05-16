@@ -3267,6 +3267,7 @@ normalize-url@^3.0.0, normalize-url@^3.3.0:
 now@^15.2.1-canary.0:
   version "15.2.1-canary.0"
   resolved "https://registry.yarnpkg.com/now/-/now-15.2.1-canary.0.tgz#7bec53ee5cc0a60aa4ce0b1dc1c925e4fd3a0535"
+  integrity sha512-gUrsrxudp6gBmayeuC++ow5ExV5VI3DK8F+6Wn/BOWfK0wjx/XvSgvKdOTqCOxaSe48NUN9/GjwWiVBQhvRGzg==
 
 npm-bundled@^1.0.1:
   version "1.0.6"
