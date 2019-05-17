@@ -150,6 +150,9 @@ body {
 	max-height: 160px;
 	min-height: 40px;
 }
+.emoji-mart-emoji-custom span {
+	background-repeat: no-repeat;
+}
 
 .site-component-spotlight .slick-dots li button:before {
 	color: var(--slick-dot-color);

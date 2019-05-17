@@ -14,6 +14,7 @@ import AutoTextarea from "react-autosize-textarea";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import fetch from 'cross-fetch';
+import EmojiSelector from './EmojiSelector';
 
 const CHAT_URL = process.env.CHAT_URL;
 
@@ -27,13 +28,14 @@ class Chat extends React.Component {
 		super(props);
 		this.state = {
 			message: '',
-			messages: []
+			messages: [],
+			emotes: [],
+			customPickerEmotes: false
 		};
 		this.users = new Map();
 		this.socket = null;
 		this.maxlines = 250;
 
-		this.emotes = [];
 		this.me = null;
 		this.privileged = [];
 		this.hasPrivilege = false;
@@ -42,7 +44,7 @@ class Chat extends React.Component {
 		this.handleSys = this.handleSys.bind(this);
 		this.writeMessage = this.writeMessage.bind(this);
 	}
-	componentDidMount(){
+	async componentDidMount(){
 		const socket = this.socket = io(CHAT_URL, {
 			'reconnection': true,
 			'reconnectionDelay': 1000,
@@ -50,7 +52,6 @@ class Chat extends React.Component {
 			'reconnectionAttempts': 5,
 			'forceNew': true
 		});
-		this.fetchEmotes();
 		socket.on('join', this.userJoin.bind(this));
 		socket.on('leave', this.userLeave.bind(this));
 		socket.on('msgs', this.handleMessage.bind(this));
@@ -63,6 +64,22 @@ class Chat extends React.Component {
 		socket.on('reconnect', () => {
 			console.log('reconnect');
 			//socket.emit('join', this.props.authentication.token || null);
+		});
+		await this.fetchEmotes().then((emotes) => {
+			const customPickerEmotes = Object.keys(emotes).map(
+				(name) => ({
+					key: name,
+					name,
+					imageUrl: emotes[name].url,
+					text: name,
+					short_names: [name],
+					keywords: [name]
+				})
+			);
+			this.setState({
+				emotes,
+				customPickerEmotes
+			})
 		});
 	}
 	componentWillUnmount(){
@@ -83,7 +100,7 @@ class Chat extends React.Component {
 		}
 	}
 	async fetchEmotes(){
-		let emotes = this.emotes;
+		let emotes = [];
 		await fetch('/static/emotes/global.json')
 		.then(async response => {
 			const data = await response.json();
@@ -137,8 +154,8 @@ class Chat extends React.Component {
 		.catch(() => {});
 
 		//twitchemotes.com/api_cache/v3/global.json
-		self.emotes = emotes;
-		console.log('EMOTES', self.emotes);
+		return emotes;
+		console.log('EMOTES', emotes);
 	}
 	handleUsers(args){
 		let users = args[0];
@@ -210,8 +227,8 @@ class Chat extends React.Component {
 			if(!msg.type) return null;
 			switch(msg.type){
 				case 'emote':
-					if(Object.keys(self.emotes).indexOf(msg.content) == -1) return null;
-					let emote = self.emotes[msg.content];
+					if(Object.keys(self.state.emotes).indexOf(msg.content) == -1) return null;
+					let emote = self.state.emotes[msg.content];
 					return (
 						<React.Fragment key={'c-' + i + '-' + (new Date).getTime()}><img className="chat-message-content__emote dib" src={emote.url} alt={'Emote: ' + msg.content} title={msg.content + ' by ' + emote.provider} />{i !== messages.length -1 && '\u00A0'}</React.Fragment>
 					);
@@ -387,7 +404,7 @@ class Chat extends React.Component {
 			if(!msg) return;
 			msgs = msgs.map((msg) => {
 				return {
-					type: Object.keys(self.emotes).indexOf(msg) > -1 ? 'emote' : 'text',
+					type: Object.keys(self.state.emotes).indexOf(msg) > -1 ? 'emote' : 'text',
 					content: msg
 				};
 			});
@@ -410,6 +427,7 @@ class Chat extends React.Component {
 	}
 
 	render() {
+		const { emotes, customPickerEmotes } = this.state;
 		return (
 			<>
 				<div className="flex flex-column flex-grow-1 flex-nowrap overflow-hidden">
@@ -431,70 +449,84 @@ class Chat extends React.Component {
 				</div>
 				<div className="chat-input pr4 pl4 pb4">
 					<div className="db relative">
-
-					<ReactTextareaAutocomplete
-						value={this.state.message}
-						onChange={this.writeMessage}
-						className="w-100 pa2 br2 input-reset ba db"
-						loadingComponent={() => <span>Loading</span>}
-						style={{
-							'paddingRight': '6rem'
-						}}
-						ref={rta => {
-							this.rta = rta;
-						}}
-						innerRef={textarea => {
-							this.textarea = textarea;
-						}}
-						textAreaComponent={{ component: AutoTextarea, ref: "innerRef" }}
-						minChar={2}
-						rows={1}
-						trigger={{
-							':': {
-								dataProvider: token => {
-									if(!token || !token.length){
-										return Object.keys(this.emotes)
-										.map((name) => {
+						<ReactTextareaAutocomplete
+							value={this.state.message}
+							onChange={this.writeMessage}
+							className="w-100 pa2 br2 input-reset ba db"
+							loadingComponent={() => <span>Loading</span>}
+							style={{
+								'paddingRight': '6rem'
+							}}
+							ref={rta => {
+								this.rta = rta;
+							}}
+							innerRef={textarea => {
+								this.textarea = textarea;
+							}}
+							textAreaComponent={{ component: AutoTextarea, ref: "innerRef" }}
+							minChar={2}
+							rows={1}
+							trigger={{
+								':': {
+									dataProvider: token => {
+										if(!token || !token.length){
+											return Object.keys(emotes)
+											.map((name) => {
+												return {
+													name,
+													char: name,
+													img: `<img src='${emotes[name].url}'/>`
+												}
+											});
+										}
+										return Object.keys(emotes)
+										.filter(name => {
+											if(name.search(new RegExp(token, "i")) !== -1){
+												return name;
+											}
+											return null;
+										})
+										.map(name => {
 											return {
 												name,
 												char: name,
-												img: `<img src='${this.emotes[name].url}'/>`
-											}
+												img: `<img src='${emotes[name].url}'/>`
+											};
 										});
-									}
-									return Object.keys(this.emotes)
-									.filter(name => {
-										if(name.search(new RegExp(token, "i")) !== -1){
-											return name;
+									},
+									component: ({ entity: {name, img} }) => <div dangerouslySetInnerHTML={createEmoteMarkup(name, img)}></div>,
+									output: (item) => {
+										if(item && item.name){
+											return {
+												key: item.name,
+												text: `${item.char}`,
+												caretPosition: 'next',
+											};
 										}
 										return null;
-									})
-									.map(name => {
-										return {
-											name,
-											char: name,
-											img: `<img src='${this.emotes[name].url}'/>`
-										};
-									});
-								},
-								component: ({ entity: {name, img} }) => <div dangerouslySetInnerHTML={createEmoteMarkup(name, img)}></div>,
-								output: (item) => {
-									if(item && item.name){
-										return {
-											key: item.name,
-											text: `${item.char}`,
-											caretPosition: 'next',
-										};
 									}
-									return null;
 								}
-							}
-						}}
-					/>
+							}}
+						/>
 					</div>
 					<div className="chat-input__buttons primary flex justify-between mt1">
 						<div className="flex flex-row">
-							<div className="relative">dab</div>
+							<div className="relative">
+								{
+									customPickerEmotes &&
+									<EmojiSelector
+										emotes={customPickerEmotes} 
+										onSelect={emoji => {
+											// Select text to type - if it is custom type the id, otherwise type emoji.
+											const text = emoji.custom ? emoji.id : emoji.native;
+									
+											this.setState({
+												message: `${this.state.message} ${text}`
+											});
+										}}
+									/>
+								}
+							</div>
 						</div>
 						<div className="content-center items-center flex flex-row">
 							<input type="button" value="Chat" onClick={this.sendMessage} className="white dib pv2 ph3 nowrap lh-solid pointer br2 ba b--transparent bg-green" />
