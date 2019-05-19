@@ -43,7 +43,7 @@ class GifSelector extends React.Component {
 				<span className="absolute left-0 right-0 fr bottom-2 pv5">
 					{isOpen &&
                         <GiphySelect 
-                            entryKey={process.env.GIPHY_API_KEY}
+							requestKey={process.env.GIPHY_API_KEY}
                         />
 					}
 				</span>
