@@ -38,11 +38,13 @@ class GifSelector extends React.Component {
 	render() {
 		const { isOpen, emotes } = this.state;
 		return (
-			<div className="chat-input__buttons__gif">
+			<div className="chat-input__buttons__gif inline-flex items-center justify-center mv2">
 				<FontAwesomeIcon icon='video' onClick={this.handleToggleClick} />
 				<span className="absolute left-0 right-0 fr bottom-2 pv5">
 					{isOpen &&
-                        <GiphySelect />
+                        <GiphySelect 
+                            entryKey={process.env.GIPHY_API_KEY}
+                        />
 					}
 				</span>
 			</div>
