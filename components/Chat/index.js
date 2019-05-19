@@ -15,6 +15,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import fetch from 'cross-fetch';
 import EmojiSelector from './EmojiSelector';
+import GifSelector from './GifSelector';
 
 const CHAT_URL = process.env.CHAT_URL;
 
@@ -522,6 +523,16 @@ class Chat extends React.Component {
 									
 											this.setState({
 												message: `${this.state.message} ${text}`
+											});
+										}}
+									/>
+								}
+								{
+									<GifSelector
+										onEntrySelect={entry => {
+											console.log('GifSelector entry', entry);
+											this.setState({
+												message: `${entry.images.fixed_width_small.url}`
 											});
 										}}
 									/>
