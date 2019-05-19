@@ -12,7 +12,8 @@
     "build": {
       "env": {
         "API_URL": "@guac-api-url",
-        "CHAT_URL": "@guac-chat-url"
+        "CHAT_URL": "@guac-chat-url",
+        "GIPHY_API_KEY": "@guac-giphy-api-key"
       }
     },
     "builds": [{ "src": "package.json", "use": "@now/next@canary", "config": {"maxLambdaSize": "10mb"} }]
