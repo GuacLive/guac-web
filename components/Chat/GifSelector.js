@@ -8,15 +8,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class GifSelector extends React.Component {
 	state = {
-		isOpen: false,
-		emotes: []
+		isOpen: false
 	};
 
 	static propTypes = {
 		/**
 		 * Callback to be called on icon select
 		 */
-		onSelect: PropTypes.func.isRequired
+		onEntrySelect: PropTypes.func.isRequired
 	};
   
 	constructor(props){
@@ -38,12 +37,13 @@ class GifSelector extends React.Component {
 	render() {
 		const { isOpen, emotes } = this.state;
 		return (
-			<div className="chat-input__buttons__gif inline-flex items-center justify-center mv2">
+			<div className="chat-input__buttons__gif inline-flex items-center justify-center mr2">
 				<FontAwesomeIcon icon='video' onClick={this.handleToggleClick} />
 				<span className="absolute left-0 right-0 fr bottom-2 pv5">
 					{isOpen &&
                         <GiphySelect 
 							requestKey={process.env.GIPHY_API_KEY}
+							onEntrySelect={this.props.onEntrySelect}
                         />
 					}
 				</span>
