@@ -17,6 +17,8 @@ import fetch from 'cross-fetch';
 import EmojiSelector from './EmojiSelector';
 import GifSelector from './GifSelector';
 
+import { ToggleFeature } from '@flopflip/react-redux';
+
 const CHAT_URL = process.env.CHAT_URL;
 
 function createEmoteMarkup(name, img){
@@ -527,6 +529,9 @@ class Chat extends React.Component {
 										}}
 									/>
 								}
+								<ToggleFeature
+									flag='gifSelector'
+								>
 								{
 									<GifSelector
 										onEntrySelect={entry => {
@@ -537,6 +542,7 @@ class Chat extends React.Component {
 										}}
 									/>
 								}
+								</ToggleFeature>
 							</div>
 						</div>
 						<div className="content-center items-center flex flex-row">
