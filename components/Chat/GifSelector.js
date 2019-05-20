@@ -39,9 +39,12 @@ class GifSelector extends React.Component {
 		return (
 			<div className="chat-input__buttons__gif inline-flex items-center justify-center mr2">
 				<FontAwesomeIcon icon='video' onClick={this.handleToggleClick} />
-				<span className="absolute left-0 right-0 fr bottom-2 pv5">
+				<span className="absolute right-0 fr bottom-2 pv5">
 					{isOpen &&
-                        <GiphySelect 
+                        <GiphySelect
+                        	theme={{
+                        		select: `pa1 ba b--gray br2 bg-white near-black`
+                        	}}
 							requestKey={process.env.GIPHY_API_KEY}
 							onEntrySelect={this.props.onEntrySelect}
                         />

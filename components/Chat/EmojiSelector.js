@@ -42,7 +42,7 @@ class EmojiSelector extends React.Component {
 		return (
 			<div className="chat-input__buttons__emote inline-flex items-center justify-center mr2">
 				<FontAwesomeIcon icon='smile-wink' onClick={this.handleToggleClick} />
-				<span className="absolute left-0 right-0 fr bottom-2 pv5">
+				<span className="absolute right-0 fr bottom-2 pv5">
 					{isOpen &&
 						<NimblePicker
 							perLine={8}
