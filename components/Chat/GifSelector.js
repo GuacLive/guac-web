@@ -6,7 +6,7 @@ import 'react-giphy-select/lib/styles.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-class GifSelector extends React.Component {
+class GifSelector extends React.PureComponent {
 	state = {
 		isOpen: false
 	};

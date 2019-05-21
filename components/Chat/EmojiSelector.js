@@ -7,7 +7,7 @@ import twitterData from 'emoji-mart/data/twitter.json';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-class EmojiSelector extends React.Component {
+class EmojiSelector extends React.PureComponent {
 	state = {
 		isOpen: false,
 		emotes: []
