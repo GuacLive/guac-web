@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -427,7 +427,7 @@ function ChatComponent(props){
 	}, []);
 
 	// Handle simplebar calculation
-	useEffect(() => {
+	useLayoutEffect(() => {
 		if(typeof document !== 'undefined'){
 			let el = document.getElementsByClassName('chat-messages')[0];
 			if(el && el.SimpleBar){
@@ -528,7 +528,7 @@ function ChatComponent(props){
 										// Select text to type - if it is custom type the id, otherwise type emoji.
 										const text = emoji.custom ? emoji.id : emoji.native;
 								
-										setMessage(`${state.message} ${text}`);
+										setMessage(`${message} ${text}`);
 									}}
 								/>
 							}
