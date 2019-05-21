@@ -165,7 +165,7 @@ function ChatComponent(props){
 				</>
 			)
 		};
-		setMessages(messages.concat(entry));
+		setMessages(messages => messages.concat(entry));
 		cleanup();
 	}
 
@@ -275,7 +275,7 @@ function ChatComponent(props){
 				</>
 			)
 		};
-		setMessages(messages.concat(entry));
+		setMessages(messages => messages.concat(entry));
 		cleanup();
 	}
 
