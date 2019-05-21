@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-import {connect} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import io from 'socket.io-client';
 
@@ -19,90 +19,36 @@ import GifSelector from './GifSelector';
 
 import { ToggleFeature } from '@flopflip/react-redux';
 
-const CHAT_URL = process.env.CHAT_URL;
+var socket = null;
+function ChatComponent(props){
+	const [message, setMessage] = useState('');
+	const [messages, setMessages] = useState([]);
+	const [emotes, setEmotes] = useState([]);
+	const [customPickerEmotes, setCustomPickerEmotes] = useState(false);
 
-function createEmoteMarkup(name, img){
-	return {
-		__html: `${name}: ${img}`
-	};
-}
-class Chat extends React.Component {
-	constructor(props){
-		super(props);
-		this.state = {
-			message: '',
-			messages: [],
-			emotes: [],
-			customPickerEmotes: false
+	// Redux
+	const authentication = useSelector(state => state.authentication);
+	const channel = useSelector(state => state.channel);
+
+	let users = new Map();
+	let maxlines = 250;
+
+	let me = null;
+	let privileged = [];
+	let hasPrivilege = false;
+
+	let rta;
+	let textarea;
+
+	const CHAT_URL = process.env.CHAT_URL;
+
+	function createEmoteMarkup(name, img){
+		return {
+			__html: `${name}: ${img}`
 		};
-		this.users = new Map();
-		this.socket = null;
-		this.maxlines = 250;
+	}
 
-		this.me = null;
-		this.privileged = [];
-		this.hasPrivilege = false;
-
-		this.sendMessage = this.sendMessage.bind(this);
-		this.handleSys = this.handleSys.bind(this);
-		this.writeMessage = this.writeMessage.bind(this);
-	}
-	async componentDidMount(){
-		const socket = this.socket = io(CHAT_URL, {
-			'reconnection': true,
-			'reconnectionDelay': 1000,
-			'reconnectionDelayMax': 5000,
-			'reconnectionAttempts': 5,
-			'forceNew': true
-		});
-		socket.on('join', this.userJoin.bind(this));
-		socket.on('leave', this.userLeave.bind(this));
-		socket.on('msgs', this.handleMessage.bind(this));
-		socket.on('users', this.handleUsers.bind(this));
-		socket.on('sys', this.handleSys.bind(this));
-		socket.on('privileged', this.handlePriv.bind(this));
-		socket.on('connect', () => {
-			socket.emit('join', this.props.authentication.token || null);
-		});
-		socket.on('reconnect', () => {
-			console.log('reconnect');
-			//socket.emit('join', this.props.authentication.token || null);
-		});
-		await this.fetchEmotes().then((emotes) => {
-			const customPickerEmotes = Object.keys(emotes).map(
-				(name) => ({
-					key: name,
-					name,
-					imageUrl: emotes[name].url,
-					text: name,
-					short_names: [name],
-					keywords: [name]
-				})
-			);
-			this.setState({
-				emotes,
-				customPickerEmotes
-			})
-		});
-	}
-	componentWillUnmount(){
-		if(this.socket){
-			this.socket.removeAllListeners();
-			this.socket.off('connect');
-			this.socket.off('disconnect');
-			//this.socket.leave();
-			this.socket.disconnect();
-		}
-	}
-	componentDidUpdate(){
-		if(typeof document !== 'undefined'){
-			let el = document.getElementsByClassName('chat-messages')[0];
-			if(el && el.SimpleBar){
-				el.SimpleBar.getScrollElement().scrollTop = el.SimpleBar.getScrollElement().scrollHeight;
-			}
-		}
-	}
-	async fetchEmotes(){
+	async function fetchEmotes(){
 		let emotes = [];
 		await fetch('/static/emotes/global.json')
 		.then(async response => {
@@ -156,51 +102,56 @@ class Chat extends React.Component {
 		})
 		.catch(() => {});
 
+		console.log('EMOTES', emotes);
 		//twitchemotes.com/api_cache/v3/global.json
 		return emotes;
-		console.log('EMOTES', emotes);
 	}
-	handleUsers(args){
+
+	const handleUsers = (args) => {
 		let users = args[0];
 		console.log('helllooo', users);
 		users.forEach((user) => {
 			console.log(user, user.name);
-			if(user && user.name) this.userJoin(user);
+			if(user && user.name) userJoin(user);
 		});
 	}
-	handlePriv(args){
+
+	const handlePriv = (args) => {
 		let privileged = args[0];
 		if(typeof privileged !== 'array') return;
-		this.privileged = privileged;
+		privileged = privileged;
 		// In case privilege has been added or removed for your user
 		if(
-			this.privileged.indexOf(this.me.id) > -1
+			privileged.indexOf(me.id) > -1
 		){
-			this.hasPrivilege = true;
+			hasPrivilege = true;
 		}
 	}
-	userJoin(user){
+
+	const userJoin = (user) => {
 		if(!user.name) return;
 		if(!user.anon){
-			this.users.set(user.name, user);
-			if(this.props.authentication.user && user.name === this.props.authentication.user.name){
-				this.me = this.props.authentication.user;
+			users.set(user.name, user);
+			if(authentication.user && user.name === authentication.user.name){
+				me = authentication.user;
 				if(
-					this.props.channel.data.user.name === this.me.name
-					|| this.privileged.indexOf(this.me.id) > -1
+					channel.data.user.name === me.name
+					|| privileged.indexOf(me.id) > -1
 				){
-					this.hasPrivilege = true;
+					hasPrivilege = true;
 				}
 			}
 		}
 	}
-	userLeave(user){
+
+	const userLeave = (user) => {
 		if(!user.name) return;
 		if(!user.anon){
-			this.users.delete(user.name);
+			users.delete(user.name);
 		}
 	}
-	handleSys(msg){
+
+	const handleSys = (msg) => {
 		let entry = {
 			user: null,
 			message: (
@@ -214,24 +165,23 @@ class Chat extends React.Component {
 				</>
 			)
 		};
-		this.setState({ messages: this.state.messages.concat(entry) });
-		this.cleanup();
+		setMessages(messages.concat(entry));
+		cleanup();
 	}
-	handleMessage(user, messages) {
+
+	const handleMessage = (user, messages) => {
 		let self = this;
 		let entry;
 		let writeMessage = ((message) => {
-			this.setState({
-				message
-			});
+			setMessage(message);
 		}).bind(this);
 		if(!user || !messages) return;
 		let output = messages.map((msg, i) => {
 			if(!msg.type) return null;
 			switch(msg.type){
 				case 'emote':
-					if(Object.keys(self.state.emotes).indexOf(msg.content) == -1) return null;
-					let emote = self.state.emotes[msg.content];
+					if(Object.keys(emotes).indexOf(msg.content) == -1) return null;
+					let emote = emotes[msg.content];
 					return (
 						<React.Fragment key={'c-' + i + '-' + (new Date).getTime()}><img className="chat-message-content__emote dib" src={emote.url} alt={'Emote: ' + msg.content} title={msg.content + ' by ' + emote.provider} />{i !== messages.length -1 && '\u00A0'}</React.Fragment>
 					);
@@ -246,9 +196,9 @@ class Chat extends React.Component {
 				break;
 			}
 		});
-		let showModTools = this.hasPrivilege &&
-			(this.me && this.me.name !== user.name) &&
-			(this.privileged && this.privileged.indexOf(user.id) === -1);
+		let showModTools = hasPrivilege &&
+			(me && me.name !== user.name) &&
+			(privileged && privileged.indexOf(user.id) === -1);
 		entry = {
 			user,
 			message: (
@@ -275,7 +225,7 @@ class Chat extends React.Component {
 					<span className="chat-message-mod">
 						{
 							showModTools &&
-							(this.users.get(user.name) && !this.users.get(user.name).banned) &&
+							(users.get(user.name) && !users.get(user.name).banned) &&
 							<span className="mr2">
 								<a 
 									href="#" 
@@ -289,7 +239,7 @@ class Chat extends React.Component {
 						}
 						{
 							showModTools &&
-							(this.users.get(user.name) && this.users.get(user.name).banned) &&
+							(users.get(user.name) && users.get(user.name).banned) &&
 							<span className="mr2">
 								<a 
 									href="#" 
@@ -303,7 +253,7 @@ class Chat extends React.Component {
 						}
 						{
 							showModTools &&
-							(this.users.get(user.name) && !this.users.get(user.name).banned) &&
+							(users.get(user.name) && !users.get(user.name).banned) &&
 							<span className="mr2">
 								<a
 									href="#" 
@@ -325,17 +275,17 @@ class Chat extends React.Component {
 				</>
 			)
 		};
-		this.setState({ messages: this.state.messages.concat(entry) });
-		this.cleanup();
+		setMessages(messages.concat(entry));
+		cleanup();
 	}
-	writeMessage(event){
-		this.setState({
-			message: event.target.value
-		});
+
+	const writeMessage = (event) => {
+		setMessage(event.target.value);
 	}
-	sendMessage(){
+
+	const sendMessage = () => {
 		let self = this;
-		let msg = this.state.message;
+		let msg = message;
 
 		// If this is a command
 		if(msg.slice(0,1) === '/'){
@@ -345,60 +295,60 @@ class Chat extends React.Component {
 			switch(command){
 				case '/users':
 					let nicks = [];
-					[...this.users].forEach((args) => {
+					[...users].forEach((args) => {
 						let user = args[1];
 						if(user && user.name) nicks.push(user.name);
 					});
-					this.handleSys('User list: ' + nicks.join(' '));
+					handleSys('User list: ' + nicks.join(' '));
 				break;
 				case '/ban':
-					if(!this.hasPrivilege) return;
+					if(!hasPrivilege) return;
 					if(args && args[0]){
-						let user = this.users.get(args[0]);
+						let user = users.get(args[0]);
 						console.log('nei', user);
-						this.socket.emit('ban', user && user.id);
+						socket.emit('ban', user && user.id);
 					}
 				break;
 				case '/unban':
-					if(!this.hasPrivilege) return;
+					if(!hasPrivilege) return;
 					if(args && args[0]){
-						let user = this.users.get(args[0]);
-						this.socket.emit('unban', user && user.id);
+						let user = users.get(args[0]);
+						socket.emit('unban', user && user.id);
 					}
 				break;
 				case '/mod':
-					if(!this.hasPrivilege) return;
+					if(!hasPrivilege) return;
 					if(
-						this.me
-						&& this.props.channel.data.user.name !== this.me.name
+						me
+						&& channel.data.user.name !== me.name
 					){
 						return;
 					}
 					if(args && args[0]){
-						let user = this.users.get(args[0]);
+						let user = users.get(args[0]);
 						console.log('nei', user);
-						this.socket.emit('mod', user && user.id);
+						socket.emit('mod', user && user.id);
 					}
 				break;
 				case '/unmod':
-					if(!this.hasPrivilege) return;
+					if(!hasPrivilege) return;
 					if(
-						this.me
-						&& this.props.channel.data.user.name !== this.me.name
+						me
+						&& channel.data.user.name !== me.name
 					){
 						return;
 					}
 					if(args && args[0]){
-						let user = this.users.get(args[0]);
-						this.socket.emit('unmod', user && user.id);
+						let user = users.get(args[0]);
+						socket.emit('unmod', user && user.id);
 					}
 				break;
 				case '/timeout':
-					if(!this.hasPrivilege) return;
+					if(!hasPrivilege) return;
 					if(args && args[0]){
-						let user = this.users.get(args[0]);
+						let user = users.get(args[0]);
 						let time = typeof args[1] === 'number' ? args[1] : 600;
-						this.socket.emit('timeout', user && user.id, time);
+						socket.emit('timeout', user && user.id, time);
 					}
 				break;
 			}
@@ -407,151 +357,201 @@ class Chat extends React.Component {
 			if(!msg) return;
 			msgs = msgs.map((msg) => {
 				return {
-					type: Object.keys(self.state.emotes).indexOf(msg) > -1 ? 'emote' : 'text',
+					type: Object.keys(emotes).indexOf(msg) > -1 ? 'emote' : 'text',
 					content: msg
 				};
 			});
-			this.socket.emit('message', msgs);
+			socket.emit('message', msgs);
 		}
 		
 		// empty the message box
-		this.setState({
-			message: ''
-		})
+		setMessage('');
 	}
 
-	cleanup(){
-		const lines = this.state.messages;
-		if(lines.length >= this.maxlines){
-            this.setState({
-            	messages: lines.slice(-this.maxlines)
-            });
+	const cleanup = () => {
+		const lines = messages;
+		if(lines.length >= maxlines){
+            setMessages(lines.slice(-maxlines));
 		}
 	}
 
-	render() {
-		const { emotes, customPickerEmotes } = this.state;
-		return (
-			<>
-				<div className="flex flex-column flex-grow-1 flex-nowrap overflow-hidden">
-					<SimpleBar className="chat-messages flex-grow-1" style={{ height: '80vh' }}>
-					{
-						this.state.messages
-						&&
-						this.state.messages
-						.sort((a,b) => {
-							return a.time > b.time;
-						})
-						.map((data, i) => {
-							return (
-								<div className="chat-message" key={'chat-message' + i}>{data.message}</div>
-							);
-						})
-					}
-					</SimpleBar>
-				</div>
-				<div className="chat-input pr4 pl4 pb4">
-					<div className="db relative">
-						<ReactTextareaAutocomplete
-							value={this.state.message}
-							onChange={this.writeMessage}
-							className="w-100 pa2 br2 input-reset ba db"
-							loadingComponent={() => <span>Loading</span>}
-							style={{
-								'paddingRight': '6rem'
-							}}
-							ref={rta => {
-								this.rta = rta;
-							}}
-							innerRef={textarea => {
-								this.textarea = textarea;
-							}}
-							textAreaComponent={{ component: AutoTextarea, ref: "innerRef" }}
-							minChar={2}
-							rows={1}
-							trigger={{
-								':': {
-									dataProvider: token => {
-										if(!token || !token.length){
-											return Object.keys(emotes)
-											.map((name) => {
-												return {
-													name,
-													char: name,
-													img: `<img src='${emotes[name].url}'/>`
-												}
-											});
-										}
+	useEffect(() => {
+		fetchEmotes().then((emotes) => {
+			setCustomPickerEmotes(Object.keys(emotes).map(
+				(name) => ({
+					key: name,
+					name,
+					imageUrl: emotes[name].url,
+					text: name,
+					short_names: [name],
+					keywords: [name]
+				})
+			));
+			setEmotes(emotes);
+		});
+	}, []);
+
+	// Handle chat connection
+	useEffect(() => {
+		socket = io(CHAT_URL, {
+			'reconnection': true,
+			'reconnectionDelay': 1000,
+			'reconnectionDelayMax': 5000,
+			'reconnectionAttempts': 5,
+			'forceNew': true
+		});
+		socket.on('join', userJoin);
+		socket.on('leave', userLeave);
+		socket.on('msgs', handleMessage);
+		socket.on('users', handleUsers);
+		socket.on('sys', handleSys);
+		socket.on('privileged', handlePriv);
+		socket.on('connect', () => {
+			socket.emit('join', authentication.token || null);
+		});
+		socket.on('reconnect', () => {
+			console.log('reconnect');
+			//socket.emit('join', props.authentication.token || null);
+		});
+		
+		// Cleanup
+		return function cleanup(){
+			if(socket){
+				socket.removeAllListeners();
+				socket.off('connect');
+				socket.off('disconnect');
+				//socket.leave();
+				socket.disconnect();
+			}
+		};
+	}, []);
+
+	// Handle simplebar calculation
+	useEffect(() => {
+		if(typeof document !== 'undefined'){
+			let el = document.getElementsByClassName('chat-messages')[0];
+			if(el && el.SimpleBar){
+				el.SimpleBar.getScrollElement().scrollTop = el.SimpleBar.getScrollElement().scrollHeight;
+			}
+		}
+	});
+
+	return (
+		<>
+			<div className="flex flex-column flex-grow-1 flex-nowrap overflow-hidden">
+				<SimpleBar className="chat-messages flex-grow-1" style={{ height: '80vh' }}>
+				{
+					messages
+					&&
+					messages
+					.sort((a,b) => {
+						return a.time > b.time;
+					})
+					.map((data, i) => {
+						return (
+							<div className="chat-message" key={'chat-message' + i}>{data.message}</div>
+						);
+					})
+				}
+				</SimpleBar>
+			</div>
+			<div className="chat-input pr4 pl4 pb4">
+				<div className="db relative">
+					<ReactTextareaAutocomplete
+						value={message}
+						onChange={writeMessage}
+						className="w-100 pa2 br2 input-reset ba db"
+						loadingComponent={() => <span>Loading</span>}
+						style={{
+							'paddingRight': '6rem'
+						}}
+						ref={rta => {
+							rta = rta;
+						}}
+						innerRef={textarea => {
+							textarea = textarea;
+						}}
+						textAreaComponent={{ component: AutoTextarea, ref: "innerRef" }}
+						minChar={2}
+						rows={1}
+						trigger={{
+							':': {
+								dataProvider: token => {
+									if(!token || !token.length){
 										return Object.keys(emotes)
-										.filter(name => {
-											if(name.search(new RegExp(token, "i")) !== -1){
-												return name;
-											}
-											return null;
-										})
-										.map(name => {
+										.map((name) => {
 											return {
 												name,
 												char: name,
 												img: `<img src='${emotes[name].url}'/>`
-											};
+											}
 										});
-									},
-									component: ({ entity: {name, img} }) => <div dangerouslySetInnerHTML={createEmoteMarkup(name, img)}></div>,
-									output: (item) => {
-										if(item && item.name){
-											return {
-												key: item.name,
-												text: `${item.char}`,
-												caretPosition: 'next',
-											};
+									}
+									return Object.keys(emotes)
+									.filter(name => {
+										if(name.search(new RegExp(token, "i")) !== -1){
+											return name;
 										}
 										return null;
+									})
+									.map(name => {
+										return {
+											name,
+											char: name,
+											img: `<img src='${emotes[name].url}'/>`
+										};
+									});
+								},
+								component: ({ entity: {name, img} }) => <div dangerouslySetInnerHTML={createEmoteMarkup(name, img)}></div>,
+								output: (item) => {
+									if(item && item.name){
+										return {
+											key: item.name,
+											text: `${item.char}`,
+											caretPosition: 'next',
+										};
 									}
+									return null;
 								}
-							}}
-						/>
-					</div>
-					<div className="chat-input__buttons primary flex justify-between mt1">
-						<div className="flex flex-row">
-							<div className="relative">
-								{
-									customPickerEmotes &&
-									<EmojiSelector
-										emotes={customPickerEmotes} 
-										onSelect={emoji => {
-											// Select text to type - if it is custom type the id, otherwise type emoji.
-											const text = emoji.custom ? emoji.id : emoji.native;
-									
-											this.setState({
-												message: `${this.state.message} ${text}`
-											});
-										}}
-									/>
-								}
-								<ToggleFeature
-									flag='gifSelector'
-								>
-								{
-									<GifSelector
-										onEntrySelect={entry => {
+							}
+						}}
+					/>
+				</div>
+				<div className="chat-input__buttons primary flex justify-between mt1">
+					<div className="flex flex-row">
+						<div className="relative">
+							{
+								customPickerEmotes &&
+								<EmojiSelector
+									emotes={customPickerEmotes} 
+									onSelect={emoji => {
+										// Select text to type - if it is custom type the id, otherwise type emoji.
+										const text = emoji.custom ? emoji.id : emoji.native;
+								
+										setMessage(`${state.message} ${text}`);
+									}}
+								/>
+							}
+							<ToggleFeature
+								flag='gifSelector'
+							>
+							{
+								<GifSelector
+									onEntrySelect={entry => {
 											console.log('GifSelector entry', entry);
-											this.setState({
-												message: `${entry.images.fixed_width_small.url}`
-											});
+											setMessage(`${entry.images.fixed_width_small.url}`);
 										}}
-									/>
-								}
-								</ToggleFeature>
-							</div>
+								/>
+							}
+							</ToggleFeature>
 						</div>
-						<div className="content-center items-center flex flex-row">
-							<input type="button" value="Chat" onClick={this.sendMessage} className="white dib pv2 ph3 nowrap lh-solid pointer br2 ba b--transparent bg-green" />
-						</div>
+					</div>
+					<div className="content-center items-center flex flex-row">
+						<input type="button" value="Chat" onClick={sendMessage} className="white dib pv2 ph3 nowrap lh-solid pointer br2 ba b--transparent bg-green" />
 					</div>
 				</div>
-			</>
-		);
-	}
+			</div>
+		</>
+	);
 }
-export default connect(state => state)(Chat);
+export default ChatComponent;
