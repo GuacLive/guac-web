@@ -5,6 +5,9 @@ import { Fragment, Component } from 'react';
 
 import {connect} from 'react-redux';
 
+import SimpleBar from 'simplebar-react';
+import 'simplebar/dist/simplebar.css';
+
 import '../../css/style.css'
 
 import * as actions from '../../actions';
@@ -103,6 +106,7 @@ class PageLayout extends Component {
 								<span className="f5 b inline-flex ph3 light-gray">
 								Followed Channels
 								</span>
+								<SimpleBar className="flex-grow-0" style={{ height: '80vh' }}>
 								{
 									followed &&
 									followed
@@ -129,6 +133,7 @@ class PageLayout extends Component {
 										)
 									})
 								}
+								</SimpleBar>
 							</nav>
 							
 							<footer className="flex bg-near-black white pv4 pv5-l ph4 h-25">
