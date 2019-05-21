@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
+import useUpdateEffect from 'react-use/lib/useUpdateEffect';
 
 import io from 'socket.io-client';
 
@@ -13,22 +14,24 @@ import AutoTextarea from "react-autosize-textarea";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import fetch from 'cross-fetch';
 import EmojiSelector from './EmojiSelector';
 import GifSelector from './GifSelector';
 
 import { ToggleFeature } from '@flopflip/react-redux';
 
+import * as actions from '../../actions';
 var socket = null;
 function ChatComponent(props){
+	const dispatch = useDispatch();
+	const [connectedStatus, setConnectedStatus] = useState(false);
 	const [message, setMessage] = useState('');
 	const [messages, setMessages] = useState([]);
-	const [emotes, setEmotes] = useState([]);
 	const [customPickerEmotes, setCustomPickerEmotes] = useState(false);
 
 	// Redux
 	const authentication = useSelector(state => state.authentication);
 	const channel = useSelector(state => state.channel);
+	const emotes = useSelector(state => state.emotes.data);
 
 	let users = new Map();
 	let maxlines = 250;
@@ -46,65 +49,6 @@ function ChatComponent(props){
 		return {
 			__html: `${name}: ${img}`
 		};
-	}
-
-	async function fetchEmotes(){
-		let emotes = [];
-		await fetch('/static/emotes/global.json')
-		.then(async response => {
-			const data = await response.json();
-			for(const emote of Object.values(data)){
-				emotes[emote.code] = {
-					provider: 'guac',
-					url: `/static/emotes/global/${emote.id}.png`,
-				};
-			}
-		})
-		.catch(() => {});
-
-		await fetch('/static/emotes/twitch.json')
-		.then(async response => {
-			const data = await response.json();
-			for(const emote of Object.values(data)){
-				emotes[emote.code] = {
-					provider: 'twitch',
-					url: `//static-cdn.jtvnw.net/emoticons/v1/${emote.id}/1.0`,
-				};
-			}
-		})
-		.catch(() => {});
-
-		await fetch('//api.betterttv.net/2/emotes')
-		.then(async response => {
-			const data = await response.json();
-
-			for(const emote of data.emotes){
-				emotes[emote.code] = {
-					provider: 'betterttv',
-					url: `//cdn.betterttv.net/emote/${emote.id}/1x`,
-				};
-			}
-		})
-		.catch(() => {});
-
-		await fetch('https://api.frankerfacez.com/v1/set/global')
-		.then(async response => {
-			const data = await response.json();
-
-			for(const set of Object.values(data.sets)){
-				for(const emote of set.emoticons){
-					emotes[emote.name] = {
-						provider: 'frankerfacez',
-						url: `${emote.urls['1']}`,
-					};
-				}
-			}
-		})
-		.catch(() => {});
-
-		console.log('EMOTES', emotes);
-		//twitchemotes.com/api_cache/v3/global.json
-		return emotes;
 	}
 
 	const handleUsers = (args) => {
@@ -176,8 +120,11 @@ function ChatComponent(props){
 			setMessage(message);
 		}).bind(this);
 		if(!user || !messages) return;
+		console.log('hello', emotes, customPickerEmotes);
 		let output = messages.map((msg, i) => {
+			console.log(msg,i,emotes);
 			if(!msg.type) return null;
+			if(!msg.content.trim()) return null;
 			switch(msg.type){
 				case 'emote':
 					if(Object.keys(emotes).indexOf(msg.content) == -1) return null;
@@ -188,7 +135,7 @@ function ChatComponent(props){
 				break;
 				case 'text':
 					return (
-						<React.Fragment key={'u-' + i + '-'  + (new Date).getTime()}>{msg.content}{i !== messages.length -1 && '\u00A0'}</React.Fragment>
+						<span key={'u-' + i + '-'  + (new Date).getTime()} dangerouslySetInnerHTML={{__html: `${msg.content}${i !== messages.length -1 ? '\u00A0' : ''}`}}></span>
 					);
 				break;
 				default:
@@ -376,55 +323,61 @@ function ChatComponent(props){
 	}
 
 	useEffect(() => {
-		fetchEmotes().then((emotes) => {
-			setCustomPickerEmotes(Object.keys(emotes).map(
-				(name) => ({
-					key: name,
-					name,
-					imageUrl: emotes[name].url,
-					text: name,
-					short_names: [name],
-					keywords: [name]
-				})
-			));
-			setEmotes(emotes);
-		});
+		dispatch(actions.fetchEmotes());
 	}, []);
 
-	// Handle chat connection
 	useEffect(() => {
-		socket = io(CHAT_URL, {
-			'reconnection': true,
-			'reconnectionDelay': 1000,
-			'reconnectionDelayMax': 5000,
-			'reconnectionAttempts': 5,
-			'forceNew': true
-		});
-		socket.on('join', userJoin);
-		socket.on('leave', userLeave);
-		socket.on('msgs', handleMessage);
-		socket.on('users', handleUsers);
-		socket.on('sys', handleSys);
-		socket.on('privileged', handlePriv);
-		socket.on('connect', () => {
-			socket.emit('join', authentication.token || null);
-		});
-		socket.on('reconnect', () => {
-			console.log('reconnect');
-			//socket.emit('join', props.authentication.token || null);
-		});
-		
+		setCustomPickerEmotes(Object.keys(emotes).map(
+			(name) => ({
+				key: name,
+				name,
+				imageUrl: emotes[name].url,
+				text: name,
+				short_names: [name],
+				keywords: [name]
+			})
+		));
+	}, [emotes]);
+	// Handle chat connection
+	useUpdateEffect(() => {
+		let didCancel = false;
+		if(!didCancel){
+			socket = io(CHAT_URL, {
+				'reconnection': true,
+				'reconnectionDelay': 1000,
+				'reconnectionDelayMax': 5000,
+				'reconnectionAttempts': 5,
+				'forceNew': true
+			});
+			socket.on('join', userJoin);
+			socket.on('leave', userLeave);
+			socket.on('msgs', handleMessage);
+			socket.on('users', handleUsers);
+			socket.on('sys', handleSys);
+			socket.on('privileged', handlePriv);
+			socket.on('connect', () => {
+				setConnectedStatus(true);
+				socket.emit('join', authentication.token || null);
+			});
+			socket.on('reconnect', () => {
+				console.log('reconnect');
+				//socket.emit('join', props.authentication.token || null);
+			});
+		}
+			
 		// Cleanup
 		return function cleanup(){
+      		didCancel = true;
 			if(socket){
 				socket.removeAllListeners();
 				socket.off('connect');
 				socket.off('disconnect');
 				//socket.leave();
 				socket.disconnect();
+				setConnectedStatus(false);
 			}
 		};
-	}, []);
+	}, [emotes]);
 
 	// Handle simplebar calculation
 	useLayoutEffect(() => {
@@ -522,6 +475,7 @@ function ChatComponent(props){
 						<div className="relative">
 							{
 								customPickerEmotes &&
+								customPickerEmotes.length > 0 &&
 								<EmojiSelector
 									emotes={customPickerEmotes} 
 									onSelect={emoji => {
