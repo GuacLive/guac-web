@@ -14,6 +14,7 @@ import * as actions from '../../actions';
 
 import GuacButton from '../GuacButton'
 import DarkModeToggle from '../DarkModeToggle';
+import AccountMenu from './AccountMenu';
 
 class PageLayout extends Component {
 	constructor(props){
@@ -45,58 +46,51 @@ class PageLayout extends Component {
 					<meta name='viewport' content='initial-scale=1.0, width=device-width' />
 				</Head>
 				<main className="w-100 h-100 flex flex-column flex-nowrap justify-between items-start page-wrapper">
-					<header className="z-5 w-100 ph3 pv2 bg-near-black flex flex-row justify-center items-center ml-auto">
-						<div className="w-100 ph5-l flex flex-row justify-between items-center flex-wrap flex-nowrap-ns">
-							<div className="flex flex-column items-center pointer">
+					<header className="z-5 w-100 h-100 ph3 pv2 bg-near-black ml-auto flex-shrink-0">
+						<div className="h-100 flex items-stretch flex-nowrap">
+							<div className="inline-flex flex-shrink-0 items-center pointer">
 								<Link href="/">
-									<a className="f2 b link dim ba b--transparent db pa1 br-100 fl-l content-box">
+									<a className="inline-flex pa2 content-box">
 										<img className="dib h2" src="/static/img/header-logo.png" alt="guac.live" />
 									</a>
 								</Link>
 							</div>
 
-							<nav className="w-25 db db-m flex-ns flex-row-ns self-center-ns overflow-x-visible-ns">
-								<ul className="list pl0">
-									<li className="dib">
-										<Link href="/channels">
-											<a className="b link white hover-light-green ml3">Channels</a>
-										</Link>
-									</li>
-									<li className="dib">
-										<Link href="/games">
-											<a className="b link white hover-light-green ml3">Games</a>
-										</Link>
-									</li>
-								</ul>
+							<nav className="items-stretch flex flex-grow-1 flex-nowrap flex-shrink-0">
+								<div className="items-stretch flex flex-nowrap flex-shrink-0">
+									<Link href="/channels">
+										<a className="flex pa3 center nowrap items-center b link white hover-light-green">Channels</a>
+									</Link>
+									<Link href="/games">
+										<a className="flex pa3 center nowrap items-center b link white hover-light-green">Games</a>
+									</Link>
+								</div>
+								<div className="w-100 self-center db flex-grow-1">
+									<form className="mw6 relative ml3">
+										<input type="text" className="input-reset bn pa3 w-100 bg-white br2" placeholder="Search..." />
+									</form>
+								</div>
 							</nav>
 
-							<form className="w-30 db db-m flex-ns flex-row-ns self-center-ns overflow-x-visible-ns">
-								<input type="text" className="input-reset bn pa3 w-100 bg-white br2" placeholder="Search..." />
-							</form>
-
-							<nav className="ml3 mt2 mt0-ns pv2-ns flex-auto tr nowrap relative fw6 order-1 order-2-ns white">
-								<DarkModeToggle />
-								{
-									!isAuthenticated && 
-									<GuacButton url="/auth/login">Log in</GuacButton>
-								}
-								{
-									!isAuthenticated && 
-									<GuacButton url="/auth/signup" color="green">Sign up</GuacButton>
-								}
-								{
-									isAuthenticated && 
-									user &&
-									<Link href={user.can_stream ? `/c/${user.name}` : '/'}><a className="b link white hover-light-green mr3 ml3">{user.name}</a></Link>
-								}
-								{
-									isAuthenticated && 
-									<Link href="/dashboard"><a className="b link white hover-light-green mr3">Dashboard</a></Link>
-								}
-								{
-									isAuthenticated && 
-									<GuacButton url="/auth/logout" color="red">Log out</GuacButton>
-								}
+							<nav className="relative fw6 order-1 order-2-ns white">
+								<div id="account-menu" className="flex flex-nowrap h-100 items-stretch flex-grow-1" style={{webkitAppRegion: 'no-drag'}}>
+									<div className="flex flex-row self-center overflow-x-visible">
+										<DarkModeToggle />
+										{
+											!isAuthenticated && 
+											<GuacButton url="/auth/login">Log in</GuacButton>
+										}
+										{
+											!isAuthenticated && 
+											<GuacButton url="/auth/signup" color="green">Sign up</GuacButton>
+										}
+										{
+											isAuthenticated &&
+											user &&
+											<AccountMenu user={user} />
+										}
+									</div>
+								</div>
 							</nav>
 						</div>
 					</header>

@@ -54,6 +54,8 @@ body {
 	--chat-message-background-odd: var(--black-20);
 	--chat-message-text: var(--black);
 	
+	--dropdown-background: #fff;
+
 	--animation-duration: 1.0s;
 	--animiation-timing: ease-in-out;
 }
@@ -66,6 +68,8 @@ body {
 	--chat-message-background: var(--black-20);
 	--chat-message-background-odd: var(--black-40);
 	--chat-message-text: var(--white);
+
+	--dropdown-background: #111111;
 }
 
 .primary {
@@ -76,6 +80,10 @@ body {
 }
 .guac-skin-dark .primary-80 {
 	color: var(--white-80);
+}
+
+.dropdown-menu {
+	background: var(--dropdown-background);
 }
 
 .chat-message {
