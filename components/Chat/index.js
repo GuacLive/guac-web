@@ -380,14 +380,16 @@ function ChatComponent(props){
 	}, [emotes]);
 
 	// Handle simplebar calculation
-	useLayoutEffect(() => {
-		if(typeof document !== 'undefined'){
-			let el = document.getElementsByClassName('chat-messages')[0];
-			if(el && el.SimpleBar){
-				el.SimpleBar.getScrollElement().scrollTop = el.SimpleBar.getScrollElement().scrollHeight;
+	if(process.browser){
+		useLayoutEffect(() => {
+			if(typeof document !== 'undefined'){
+				let el = document.getElementsByClassName('chat-messages')[0];
+				if(el && el.SimpleBar){
+					el.SimpleBar.getScrollElement().scrollTop = el.SimpleBar.getScrollElement().scrollHeight;
+				}
 			}
-		}
-	});
+		});
+	}
 
 	return (
 		<>
