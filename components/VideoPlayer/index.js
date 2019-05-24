@@ -14,7 +14,8 @@ class VideoPlayer extends React.Component {
 	componentDidMount() {
 		const canAutoplay = require('can-autoplay').default;
 		const videoJsOptions = {
-			liveui: true,
+			liveui: false,
+			poster: '/static/img/offline-poster.png',
 			plugins: {
 				videoJsResolutionSwitcher: {
 					default: 'high',
@@ -96,7 +97,7 @@ class VideoPlayer extends React.Component {
 		return (
 		<div>	
 			<div data-vjs-player>
-				<video ref={ node => this.videoNode = node } className="video-js vjs-default-skin vjs-big-play-centered vjs-16-9" controls playsInline preload="auto"></video>
+				<video ref={ node => this.videoNode = node } className="video-js vjs-default-skin vjs-big-play-centered vjs-16-9" poster="/static/img/offline-poster.png" controls playsInline preload="auto"></video>
 			</div>
 		</div>
 		)

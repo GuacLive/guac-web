@@ -143,8 +143,8 @@ video-js.vjs-ended .vjs-big-play-button {
 }
 .video-js ul {
     position: absolute;
-    top: 2em;
-    left: 2em;
+    /*top: 2em;
+    left: 2em;*/
     background: rgba(0, 0, 0, .8);
     padding: 30px 10px 10px;
     margin: 0;
@@ -162,4 +162,11 @@ video-js.vjs-ended .vjs-big-play-button {
 :not(svg),
 :not(foreignObject) > svg {
     transform-origin: 0px 0px;
+}
+video[poster]{
+    object-fit: cover;
+}
+.vjs-poster {
+    background-size: cover;
+    background-position: inherit;
 }
