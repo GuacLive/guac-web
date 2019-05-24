@@ -23,6 +23,7 @@
     "@videojs/http-streaming": "^1.0.1",
     "@webscopeio/react-textarea-autocomplete": "^4.3.2",
     "@zeit/next-css": "^1.0.2-canary.2",
+    "can-autoplay": "^3.0.0",
     "classnames": "^2.2.5",
     "cross-fetch": "^3.0.0",
     "dotenv": "^8.0.0",

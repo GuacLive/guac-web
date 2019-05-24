@@ -12,6 +12,7 @@ import {selectFeatureFlag} from '@flopflip/react-redux';
 
 class VideoPlayer extends React.Component {
 	componentDidMount() {
+		const canAutoplay = require('can-autoplay').default;
 		const videoJsOptions = {
 			liveui: true,
 			plugins: {
@@ -28,8 +29,12 @@ class VideoPlayer extends React.Component {
 				mediaDataSource: {
 					isLive: true,
 					cors: true,
-					withCredentials: false,
+					withCredentials: false
 				},
+				enableStashBuffer: false,
+				stashInitialSize: 1024 * 64, // 64KB
+				enableWorker: true,
+				autoCleanupSourceBuffer: true
   			},
 			...this.props
 		};
@@ -57,6 +62,13 @@ class VideoPlayer extends React.Component {
 		this.player = videojs(this.videoNode, videoJsOptions, function onPlayerReady() {
 			console.log('onPlayerReady', this)
 		});
+		
+        canAutoplay.video().then((obj) => {
+            if (obj.result === false) {
+                this.player.muted(true);
+            }
+        });
+
 		this.player.chromecast();
 		if(this.props.streamInfo && this.props.isFeatureOn){
 			this.player.overlay({
