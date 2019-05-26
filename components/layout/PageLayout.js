@@ -102,6 +102,14 @@ class PageLayout extends Component {
 								</span>
 								<SimpleBar className="flex-grow-0" style={{ height: '80vh' }}>
 								{
+									(!followed ||
+									!followed.length)
+									&&
+									<div className="align-center flex flex-column relative ph4 pv2 white">
+										<p>Start following your favorite streamers to find them quickly!</p>
+									</div>
+								}
+								{
 									followed &&
 									followed
 									.sort((a,b) => {
