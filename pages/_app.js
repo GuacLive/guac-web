@@ -29,6 +29,7 @@ export default withRedux(configureStore)(class MyApp extends App {
 			if(ctx.res.setHeader){
 				ctx.res.setHeader('content-security-policy', csp);
 				ctx.res.setHeader('Cache-Control', 's-maxage=1, stale-while-revalidate');
+				ctx.res.setHeader('X-Powered-By', 'tacos');
 			}
 		}
 		let mode = getCookie('site-mode', ctx.req) === 'dark' ? 'SET_DARK_MODE' : 'SET_LIGHT_MODE';

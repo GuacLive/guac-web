@@ -17,7 +17,7 @@ module.exports = withCSS({
 	
 		return config
 	},
-	target: true  ? 'serverless' : 'server',
+	target: 'serverless',
 	poweredByHeader: false,
 	env: {
 		API_URL: process.env.API_URL || 'http://api.local.guac.live',
@@ -46,5 +46,9 @@ module.exports = withCSS({
 			}
 		}
 	},
-	postcssLoaderOptions: {}
+	postcssLoaderOptions: {},
+	experimental: {
+		autoExport: true,
+		flyingShuttle: true
+	}
 })
