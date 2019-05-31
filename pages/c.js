@@ -15,22 +15,13 @@ import {connect} from 'react-redux';
 
 import * as actions from '../actions';
 
-import initialize from '../utils/initialize';
-
 const STREAMING_SERVER = 'eu';
 class ChannelPage extends Component {
 	static async getInitialProps({store, isServer, pathname, query, req}){
-		initialize({store, isServer, pathname, query, req});
 		const { channel } = store.getState()
 		console.log(query.name);
 		if(channel.loading){
 			await store.dispatch(actions.fetchChannel(query.name));
-		}
-		const { site, authentication } = store.getState()
-		if(site.loading && authentication.token){
-			await store.dispatch(actions.fetchMyFollowed(
-				authentication.token
-			));
 		}
     }
 
@@ -112,10 +103,10 @@ class ChannelPage extends Component {
 
 		return (
 			<div className="w-100 min-vh-100 flex flex-nowrap black">
-				<div className="site-component-channel w-100 h-100 flex flex-column flex-grow-1 overflow-hidden relative">
+				<div className="site-component-channel w-70 w-100-ns h-100 flex flex-column flex-grow-1 overflow-hidden relative">
 				{this.renderStream(channel.data)}
 				</div>
-				<aside className="site-component-chat w-third h-100 flex flex-column flex-grow-1 flex-shrink-1 flex-nowrap w-100-ns">
+				<aside className="site-component-chat w-30 h-100 flex flex-column flex-grow-1 flex-shrink-1 flex-nowrap w-100-ns">
 					<Chat channel={channel.data.name} />
 				</aside>
 			</div>

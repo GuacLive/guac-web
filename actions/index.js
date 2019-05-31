@@ -6,6 +6,8 @@ import { fetchFeatured, resetFeatured } from './featured';
 
 import { fetchStreaming, resetStreaming } from './streaming';
 
+import { fetchEmotes } from './emotes';
+
 import { setDarkMode, setLightMode, fetchMyFollowed, resetSite } from './site';
 export {
 	authenticate,
@@ -17,6 +19,7 @@ export {
 	resetFeatured,
 	fetchStreaming,
 	resetStreaming,
+	fetchEmotes,
 	setDarkMode,
 	setLightMode,
 	fetchMyFollowed,

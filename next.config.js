@@ -17,11 +17,12 @@ module.exports = withCSS({
 	
 		return config
 	},
-	target: true  ? 'serverless' : 'server',
+	target: 'serverless',
 	poweredByHeader: false,
 	env: {
 		API_URL: process.env.API_URL || 'http://api.local.guac.live',
 		CHAT_URL: process.env.CHAT_URL || 'http://chat.local.guac.live',
+		GIPHY_API_KEY: process.env.GIPHY_API_KEY,
 		OIL_CONFIG: {
 			"theme": "dark",
 			"cpc_type": "standard",
@@ -45,5 +46,8 @@ module.exports = withCSS({
 			}
 		}
 	},
-	postcssLoaderOptions: {}
+	postcssLoaderOptions: {},
+	experimental: {
+		autoExport: true
+	}
 })

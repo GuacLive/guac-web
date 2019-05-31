@@ -9,5 +9,13 @@ export default function({store, isServer, pathname, query, req}) {
 			const token = getCookie('token', req);
 			if(token) store.dispatch(actions.reauthenticate(token));
 		}
+	}else{
+		const token = store.getState().authentication.token;
+
+		if(token && (pathname === '/auth/login' || pathname === '/auth/register')){
+			setTimeout(function() {
+				Router.push('/');
+			}, 0);
+		}
 	}
 }

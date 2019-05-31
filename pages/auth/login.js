@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import Router from 'next/router';
 import Link from 'next/link'
 
-import initialize from '../../utils/initialize';
 import * as actions from '../../actions';
 
 class LoginPage extends Component {
@@ -12,8 +11,7 @@ class LoginPage extends Component {
 		super(props);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
-	static async getInitialProps({store, isServer, pathname, query, req}){
-		initialize({store, isServer, pathname, query, req});
+	static async getInitialProps({store}){
 		const { authentication } = store.getState()
 		return {redirect: (authentication.token !== null)}
     }

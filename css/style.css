@@ -53,7 +53,10 @@ body {
 	--chat-message-background: var(--site-background);
 	--chat-message-background-odd: var(--black-20);
 	--chat-message-text: var(--black);
+	--chat-message-link: var(--green);
 	
+	--dropdown-background: #fff;
+
 	--animation-duration: 1.0s;
 	--animiation-timing: ease-in-out;
 }
@@ -66,6 +69,9 @@ body {
 	--chat-message-background: var(--black-20);
 	--chat-message-background-odd: var(--black-40);
 	--chat-message-text: var(--white);
+	--chat-message-link: var(--light-green);
+
+	--dropdown-background: #111111;
 }
 
 .primary {
@@ -76,6 +82,10 @@ body {
 }
 .guac-skin-dark .primary-80 {
 	color: var(--white-80);
+}
+
+.dropdown-menu {
+	background: var(--dropdown-background);
 }
 
 .chat-message {
@@ -100,6 +110,16 @@ body {
 
 .chat-message-content {
 	word-wrap: break-word;
+}
+
+.chat-message-content a {
+	color: var(--chat-message-link);
+    transition: color .15s ease-in;
+    text-decoration: none;
+}
+
+.chat-message-content a:hover {
+    text-decoration: underline;
 }
 
 .chat-message-content__emote {
@@ -149,6 +169,9 @@ body {
 	resize: vertical;
 	max-height: 160px;
 	min-height: 40px;
+}
+.emoji-mart-emoji-custom span {
+	background-repeat: no-repeat;
 }
 
 .site-component-spotlight .slick-dots li button:before {

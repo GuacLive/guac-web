@@ -1,24 +1,16 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
 
-import initialize from '../utils/requireAuth';
+import withAuth from '../utils/withAuth';
 import * as actions from '../actions';
 
 class DashboardPage extends Component {
 	static async getInitialProps({store, isServer, pathname, query, req}){
-		initialize({store, isServer, pathname, query, req});
 		const { streaming, authentication } = store.getState()
 		if(streaming.loading){
 			await store.dispatch(actions.fetchStreaming(authentication.token));
 		}
-		const { site } = store.getState()
-		if(site.loading && authentication.token){
-			await store.dispatch(actions.fetchMyFollowed(
-				authentication.token
-			));
-		}
     }
-
 
 	componentDidMount(){
 	}
@@ -56,4 +48,4 @@ class DashboardPage extends Component {
 	}
 }
 
-export default connect(state => state)(DashboardPage)
+export default connect(state => state)(withAuth(DashboardPage))
