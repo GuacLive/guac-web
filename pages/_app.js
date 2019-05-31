@@ -13,6 +13,8 @@ import { getCookie } from '../utils/cookie';
 
 import initialize from '../utils/initialize';
 
+import log from '../utils/log';
+
 import * as actions from '../actions';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -73,7 +75,7 @@ export default withRedux(configureStore)(class MyApp extends App {
 			<Container>
 				<Provider store={store}>
 					<PageLayout>
-						<Component {...pageProps} />
+						<Component {...pageProps} {...{'log': log}} />
 					</PageLayout>
 				</Provider>
 			</Container>

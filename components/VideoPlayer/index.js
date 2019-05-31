@@ -10,6 +10,8 @@ import {useFeatureToggle} from '@flopflip/react-broadcast';
 
 import {useEffect} from 'react';
 
+import log from '../../utils/log';
+
 function VideoPlayer(props) {
 	let player;
 	let videoNode;
@@ -64,7 +66,7 @@ function VideoPlayer(props) {
 		require('@dlive/videojs-resolution-switcher');
 		// instantiate Video.js
 		player = videojs(videoNode, videoJsOptions, function onPlayerReady() {
-			console.log('onPlayerReady', this)
+			log('info', null, 'onPlayerReady', this);
 		});
 		
         canAutoplay.video().then((obj) => {

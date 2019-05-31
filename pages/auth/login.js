@@ -29,7 +29,6 @@ class LoginPage extends Component {
 	}
 
 	handleSubmit(e){
-		console.log(this.props);
 		e.preventDefault();
 		// yay uncontrolled forms!
 		this.props.dispatch(

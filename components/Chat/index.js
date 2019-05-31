@@ -20,6 +20,8 @@ import UrlEmbedder from '../../utils/UrlEmbedder';
 
 import { ToggleFeature } from '@flopflip/react-redux';
 
+import log from '../../utils/log';
+
 import * as actions from '../../actions';
 var socket = null;
 function ChatComponent(props){
@@ -54,9 +56,9 @@ function ChatComponent(props){
 
 	const handleUsers = (args) => {
 		let users = args[0];
-		console.log('helllooo', users);
+		log('info', 'Chat', 'We got users', users);
 		users.forEach((user) => {
-			console.log(user, user.name);
+			log('info', 'Chat', 'user', user, user.name);
 			if(user && user.name) userJoin(user);
 		});
 	}
@@ -121,10 +123,9 @@ function ChatComponent(props){
 			setMessage(message);
 		}).bind(this);
 		if(!user || !messages) return;
-		console.log('hello', emotes, customPickerEmotes);
+		log('info', 'Chat', 'We got emotes', emotes, customPickerEmotes);
 		const embed = new UrlEmbedder;
 		let output = messages.map((msg, i) => {
-			console.log(msg,i,emotes);
 			if(!msg.type) return null;
 			if(!msg.content.trim()) return null;
 			switch(msg.type){
@@ -240,7 +241,7 @@ function ChatComponent(props){
 		if(msg.slice(0,1) === '/'){
 			let args = msg.split(' ');
 			let command = args.shift();
-			console.log(args, command);
+			log('info', 'Chat', 'We got a command', args, command);
 			switch(command){
 				case '/users':
 					let nicks = [];
@@ -254,7 +255,6 @@ function ChatComponent(props){
 					if(!hasPrivilege) return;
 					if(args && args[0]){
 						let user = users.get(args[0]);
-						console.log('nei', user);
 						socket.emit('ban', user && user.id);
 					}
 				break;
@@ -275,7 +275,6 @@ function ChatComponent(props){
 					}
 					if(args && args[0]){
 						let user = users.get(args[0]);
-						console.log('nei', user);
 						socket.emit('mod', user && user.id);
 					}
 				break;
@@ -362,7 +361,7 @@ function ChatComponent(props){
 				socket.emit('join', authentication.token || null);
 			});
 			socket.on('reconnect', () => {
-				console.log('reconnect');
+				log('info', 'Chat', 'reconnect');
 				//socket.emit('join', props.authentication.token || null);
 			});
 		}
@@ -496,7 +495,7 @@ function ChatComponent(props){
 							{
 								<GifSelector
 									onEntrySelect={entry => {
-											console.log('GifSelector entry', entry);
+											log('info', 'Chat', 'GifSelector entry', entry);
 											setMessage(`${entry.images.original.url}`);
 										}}
 								/>

@@ -1,9 +1,6 @@
 import React, {Component, Fragment} from 'react'
 
-import {createStore} from 'redux'
-
 import Link from 'next/link'
-import Head from 'next/head'
 
 import Chat from '../components/Chat'
 
@@ -15,11 +12,13 @@ import {connect} from 'react-redux';
 
 import * as actions from '../actions';
 
+import log from '../utils/log';
+
 const STREAMING_SERVER = 'eu';
 class ChannelPage extends Component {
 	static async getInitialProps({store, isServer, pathname, query, req}){
 		const { channel } = store.getState()
-		console.log(query.name);
+		log('info', 'Channel', query.name);
 		if(channel.loading){
 			await store.dispatch(actions.fetchChannel(query.name));
 		}
