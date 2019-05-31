@@ -32,16 +32,20 @@ export default withRedux(configureStore)(class MyApp extends App {
 				ctx.res.setHeader('X-Powered-By', 'tacos');
 			}
 		}
-		let mode = getCookie('site-mode', ctx.req) === 'dark' ? 'SET_DARK_MODE' : 'SET_LIGHT_MODE';
-		ctx.store.dispatch({
-			type: mode
-		});
+		let mode = getCookie('site-mode', ctx.req) === 'dark' ? 'dark' : 'light';
+		let type = mode === 'dark' ? 'SET_DARK_MODE' : 'SET_LIGHT_MODE';
+		if(mode !== ctx.store.getState().site.mode){
+			ctx.store.dispatch({
+				type
+			});
+		}
 		return {
 			pageProps: {
 				// Call page-level getInitialProps
 				...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {}),
 				// Some custom thing for all pages
-				pathname: ctx.pathname
+				pathname: ctx.pathname,
+				mode
 			}
 		};
 	}

@@ -73,7 +73,7 @@ class PageLayout extends Component {
 							</nav>
 
 							<nav className="relative fw6 order-1 order-2-ns white">
-								<div id="account-menu" className="flex flex-nowrap h-100 items-stretch flex-grow-1" style={{webkitAppRegion: 'no-drag'}}>
+								<div id="account-menu" className="flex flex-nowrap h-100 items-stretch flex-grow-1" style={{WebkitAppRegion: 'no-drag'}}>
 									<div className="flex flex-row self-center overflow-x-visible">
 										<DarkModeToggle />
 										{
