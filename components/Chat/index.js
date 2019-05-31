@@ -16,6 +16,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import EmojiSelector from './EmojiSelector';
 import GifSelector from './GifSelector';
+import UrlEmbedder from '../../utils/UrlEmbedder';
 
 import { ToggleFeature } from '@flopflip/react-redux';
 
@@ -121,6 +122,7 @@ function ChatComponent(props){
 		}).bind(this);
 		if(!user || !messages) return;
 		console.log('hello', emotes, customPickerEmotes);
+		const embed = new UrlEmbedder;
 		let output = messages.map((msg, i) => {
 			console.log(msg,i,emotes);
 			if(!msg.type) return null;
@@ -135,7 +137,7 @@ function ChatComponent(props){
 				break;
 				case 'text':
 					return (
-						<span key={'u-' + i + '-'  + (new Date).getTime()} dangerouslySetInnerHTML={{__html: `${msg.content}${i !== messages.length -1 ? '\u00A0' : ''}`}}></span>
+						<span key={'u-' + i + '-'  + (new Date).getTime()} dangerouslySetInnerHTML={{__html: `${embed.format(msg.content)}${i !== messages.length -1 ? '\u00A0' : ''}`}}></span>
 					);
 				break;
 				default:
@@ -495,7 +497,7 @@ function ChatComponent(props){
 								<GifSelector
 									onEntrySelect={entry => {
 											console.log('GifSelector entry', entry);
-											setMessage(`${entry.images.fixed_width_small.url}`);
+											setMessage(`${entry.images.original.url}`);
 										}}
 								/>
 							}
