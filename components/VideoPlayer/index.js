@@ -6,12 +6,15 @@ import '@dlive/videojs-resolution-switcher/lib/videojs-resolution-switcher.css';
 import 'videojs-overlay/dist/videojs-overlay.js';
 import 'videojs-overlay/dist/videojs-overlay.css';
 
-import {connect} from 'react-redux';
+import {useFeatureToggle} from '@flopflip/react-broadcast';
 
-import {selectFeatureFlag} from '@flopflip/react-redux';
+import {useEffect} from 'react';
 
-class VideoPlayer extends React.Component {
-	componentDidMount() {
+function VideoPlayer(props) {
+	let player;
+	let videoNode;
+	const isFeatureEnabled = useFeatureToggle('streamOverlay');
+	useEffect(() => {
 		const canAutoplay = require('can-autoplay').default;
 		const videoJsOptions = {
 			liveui: false,
@@ -37,7 +40,7 @@ class VideoPlayer extends React.Component {
 				enableWorker: true,
 				autoCleanupSourceBuffer: true
   			},
-			...this.props
+			...props
 		};
 		
 		if(window && typeof window.MediaSource === 'undefined'){
@@ -60,51 +63,47 @@ class VideoPlayer extends React.Component {
 		});
 		require('@dlive/videojs-resolution-switcher');
 		// instantiate Video.js
-		this.player = videojs(this.videoNode, videoJsOptions, function onPlayerReady() {
+		player = videojs(videoNode, videoJsOptions, function onPlayerReady() {
 			console.log('onPlayerReady', this)
 		});
 		
         canAutoplay.video().then((obj) => {
             if (obj.result === false) {
-                this.player.muted(true);
+                player.muted(true);
             }
         });
 
-		this.player.chromecast();
-		if(this.props.streamInfo && this.props.isFeatureOn){
-			this.player.overlay({
+		player.chromecast();
+		if(props.streamInfo && isFeatureEnabled){
+			player.overlay({
 				overlays: [{
 					align: 'top',
-					content: this.props.streamInfo.username,
+					content: props.streamInfo.username,
 					start: 'loadedmetadata',
 					end: 'play'
 				}]
 			});
 		}
-	}
+		// Specify how to clean up after this effect:
+		return function cleanup() {
+			if(player){
+				player.dispose();
+			}
+		};
+	  }, []);
+	
 
-	// destroy player on unmount
-	componentWillUnmount() {
-		if(this.player){
-			this.player.dispose()
-		}
-	}
 
 	// wrap the player in a div with a `data-vjs-player` attribute
 	// so videojs won't create additional wrapper in the DOM
 	// see https://github.com/videojs/video.js/pull/3856
-	render() {
-		return (
+	return (
 		<div>	
 			<div data-vjs-player>
-				<video ref={ node => this.videoNode = node } className="video-js vjs-default-skin vjs-big-play-centered vjs-16-9" poster="/static/img/offline-poster.png" controls playsInline preload="auto"></video>
+				<video ref={ node => videoNode = node } className="video-js vjs-default-skin vjs-big-play-centered vjs-16-9" poster="/static/img/offline-poster.png" controls playsInline preload="auto"></video>
 			</div>
 		</div>
-		)
-	}
+	);
 }
-const mapStateToProps = state => ({
-  isFeatureOn: selectFeatureFlag('streamOverlay')(state),
-});
 
-export default connect(mapStateToProps)(VideoPlayer);
+export default VideoPlayer;

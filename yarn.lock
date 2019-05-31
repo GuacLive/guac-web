@@ -765,7 +765,18 @@
     invariant "2.2.4"
     mitt "1.1.3"
 
-"@flopflip/react-redux@^8.1.1-next.0":
+"@flopflip/react-broadcast@^8.2.2":
+  version "8.2.2"
+  resolved "https://registry.yarnpkg.com/@flopflip/react-broadcast/-/react-broadcast-8.2.2.tgz#aac022655b10ab00ed78057b1d5df2e6b0dcf431"
+  integrity sha512-rzEI4JLdcdiqmQ3Jmh7CevegViBY7byH/ZLW/MpqOrl486J9sn9MeAoyB4ZBsh7F4kyiPZr3CnQgDGlqD5JAow==
+  dependencies:
+    "@babel/runtime" "7.4.4"
+    "@flopflip/react" "^7.2.2"
+    "@flopflip/types" "^2.1.0"
+    create-react-context "0.2.3"
+    lodash "4.17.11"
+
+"@flopflip/react-redux@^8.1.3":
   version "8.1.3"
   resolved "https://registry.yarnpkg.com/@flopflip/react-redux/-/react-redux-8.1.3.tgz#d1b7ed0ed4c2114fa68eefb65322a8615045c1bf"
   integrity sha512-ftbtnnDDWxopjBGdKTROqfpiiETzFpxItjM9WNKwvq3GllvVGww8Ip/rezcdpqX3QGSEFXCPDkb8p8CqjNbNdQ==
