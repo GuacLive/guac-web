@@ -2,21 +2,7 @@ import React, {Component} from 'react';
 
 import {connect} from 'react-redux';
 
-import * as actions from '../actions';
-
-import initialize from '../utils/initialize';
-
 class PrivacyPage extends Component {
-	static async getInitialProps({store, isServer, pathname, query, req}){
-		initialize({store, isServer, pathname, query, req});
-		const { site, authentication } = store.getState()
-		if(site.loading && authentication.token){
-			await store.dispatch(actions.fetchMyFollowed(
-				authentication.token
-			));
-		}
-    }
-
 	render() {
 		return (
 				<div className="mw8 lh-copy mv0">

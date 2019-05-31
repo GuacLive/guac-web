@@ -11,6 +11,10 @@ import PageLayout from '../components/layout/PageLayout';
 
 import { getCookie } from '../utils/cookie';
 
+import initialize from '../utils/initialize';
+
+import * as actions from '../actions';
+
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 import { faBan, faCheck, faHourglass, faVideo, faSmileWink } from '@fortawesome/free-solid-svg-icons';
@@ -20,6 +24,9 @@ export default withRedux(configureStore)(class MyApp extends App {
 	static async getInitialProps({Component, ctx}) {
 		const uuidv4 = require('uuid/v4');
 		const nonce = uuidv4();
+
+		// Handle authenticaiton
+		initialize(ctx);
 
 		// In dev we allow 'unsafe-eval', so HMR doesn't trigger the CSP
 		let devCsp = process.env.NODE_ENV !== 'production' ? "'unsafe-eval'" : '';
@@ -32,6 +39,8 @@ export default withRedux(configureStore)(class MyApp extends App {
 				ctx.res.setHeader('X-Powered-By', 'tacos');
 			}
 		}
+
+		// Handle site mode (dark/light mode)
 		let mode = getCookie('site-mode', ctx.req) === 'dark' ? 'dark' : 'light';
 		let type = mode === 'dark' ? 'SET_DARK_MODE' : 'SET_LIGHT_MODE';
 		if(mode !== ctx.store.getState().site.mode){
@@ -39,6 +48,14 @@ export default withRedux(configureStore)(class MyApp extends App {
 				type
 			});
 		}
+		// Fetch my followed
+		const { site, authentication } = ctx.store.getState()
+		if(site.loading && authentication.token){
+			await ctx.store.dispatch(actions.fetchMyFollowed(
+				authentication.token
+			));
+		}
+		// Return some pageProps
 		return {
 			pageProps: {
 				// Call page-level getInitialProps

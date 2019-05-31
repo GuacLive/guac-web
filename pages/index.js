@@ -10,8 +10,6 @@ import {connect} from 'react-redux';
 
 import * as actions from '../actions';
 
-import initialize from '../utils/initialize';
-
 import Link from 'next/link';
 
 import Slider from 'react-slick';
@@ -19,19 +17,12 @@ import 'slick-carousel/slick/slick.css';
 
 const STREAMING_SERVER = 'eu';
 class IndexPage extends Component {
-	static async getInitialProps({store, isServer, pathname, query, req}){
+	static async getInitialProps({store}){
 		// we can dispatch from here too
 		//store.dispatch({type: 'SET_FEATURED'});
-		initialize({store, isServer, pathname, query, req});
 		const { featured } = store.getState()
 		if(featured.loading){
 			await store.dispatch(actions.fetchFeatured());
-		}
-		const { site, authentication } = store.getState()
-		if(site.loading && authentication.token){
-			await store.dispatch(actions.fetchMyFollowed(
-				authentication.token
-			));
 		}
     }
 

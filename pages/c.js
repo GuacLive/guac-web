@@ -15,22 +15,13 @@ import {connect} from 'react-redux';
 
 import * as actions from '../actions';
 
-import initialize from '../utils/initialize';
-
 const STREAMING_SERVER = 'eu';
 class ChannelPage extends Component {
 	static async getInitialProps({store, isServer, pathname, query, req}){
-		initialize({store, isServer, pathname, query, req});
 		const { channel } = store.getState()
 		console.log(query.name);
 		if(channel.loading){
 			await store.dispatch(actions.fetchChannel(query.name));
-		}
-		const { site, authentication } = store.getState()
-		if(site.loading && authentication.token){
-			await store.dispatch(actions.fetchMyFollowed(
-				authentication.token
-			));
 		}
     }
 
