@@ -91,7 +91,7 @@ class ChannelPage extends Component {
 			site
 		} = this.props;
 		if(channel.loading) return (<p>Loading...</p>);
-		if(channel.error) throw channel.error;
+		//if(channel.error) throw channel.error;
 		if(!channel.data) return (<p>Channel not found</p>);
 
 		let followed = site.myFollowed && site.myFollowed.find((u) => {
