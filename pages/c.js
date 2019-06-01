@@ -95,9 +95,10 @@ class ChannelPage extends Component {
 		if(!channel.data) return (<p>Channel not found</p>);
 
 		let followed = site.myFollowed && site.myFollowed.find((u) => {
-			return u && u.from_id === channel.data.id;
+			return u && u.to_id === channel.data.user.id;
 		});
-		let isFollowed = followed && followed.from_id === channel.data.id;
+
+		let isFollowed = followed && followed.to_id === channel.data.user.id;
 		channel.data.isFollowed = isFollowed;
 
 		return (
