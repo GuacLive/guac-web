@@ -54,8 +54,7 @@ function ChatComponent(props){
 		};
 	}
 
-	const handleUsers = (args) => {
-		let users = args[0];
+	const handleUsers = (users) => {
 		log('info', 'Chat', 'We got users', users);
 		users.forEach((user) => {
 			log('info', 'Chat', 'user', user, user.name);
