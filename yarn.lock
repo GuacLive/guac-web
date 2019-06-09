@@ -879,6 +879,23 @@
     humps "^2.0.1"
     prop-types "^15.5.10"
 
+"@guaclive/react-giphy-select@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@guaclive/react-giphy-select/-/react-giphy-select-1.0.5.tgz#ec074f7449aa4db6f4a72cfba624b23c58667dba"
+  integrity sha512-f5oGO9lzVi3JKcbJOsGxJ879a3UNdVaO/kSJA1ZolepdMqpms8OmxctQYl4i8El84D5qS8BW6BeEbaMhT3mTbg==
+  dependencies:
+    "@babel/plugin-proposal-class-properties" "^7.4.4"
+    "@babel/plugin-proposal-decorators" "^7.4.4"
+    "@babel/plugin-proposal-export-default-from" "^7.2.0"
+    "@babel/polyfill" "^7.4.4"
+    autoprefixer "^9.6.0"
+    babel-loader "^8.0.6"
+    core-js "^3.1.3"
+    isomorphic-fetch "^2.2.1"
+    prop-types "^15.5.8"
+    react-custom-scrollbars "^4.1.1"
+    react-masonry-component "^6.2.1"
+
 "@silvermine/videojs-chromecast@^1.0.1":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@silvermine/videojs-chromecast/-/videojs-chromecast-1.1.2.tgz#4b25c24d11c531ac0c7404817861445c2fb19afc"
@@ -4971,22 +4988,6 @@ react-fast-compare@2.0.4, react-fast-compare@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
   integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
-
-"react-giphy-select@github:GuacLive/react-giphy-select":
-  version "1.0.5"
-  resolved "https://codeload.github.com/GuacLive/react-giphy-select/tar.gz/695899b3d3193fa60c8382394eee8b74763bfc71"
-  dependencies:
-    "@babel/plugin-proposal-class-properties" "^7.4.4"
-    "@babel/plugin-proposal-decorators" "^7.4.4"
-    "@babel/plugin-proposal-export-default-from" "^7.2.0"
-    "@babel/polyfill" "^7.4.4"
-    autoprefixer "^9.6.0"
-    babel-loader "^8.0.6"
-    core-js "^3.1.3"
-    isomorphic-fetch "^2.2.1"
-    prop-types "^15.5.8"
-    react-custom-scrollbars "^4.1.1"
-    react-masonry-component "^6.2.1"
 
 react-is@16.8.6, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.6:
   version "16.8.6"

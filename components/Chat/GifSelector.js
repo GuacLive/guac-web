@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import GiphySelect from 'react-giphy-select';
-import 'react-giphy-select/lib/styles.css';
+import GiphySelect from '@guaclive/react-giphy-select';
+import '@guaclive/react-giphy-select/lib/styles.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
