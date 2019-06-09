@@ -115,6 +115,14 @@ function ChatComponent(props){
 		cleanup();
 	}
 
+	const handleViewers = (viewers) => {
+		log('info', 'Chat', 'Viewers: ' + viewers);
+		dispatch({
+			type: 'SET_CHANNEL_VIEWERS',
+			viewers
+		});
+	}
+
 	const handleMessage = (user, messages) => {
 		let self = this;
 		let entry;
@@ -355,6 +363,7 @@ function ChatComponent(props){
 			socket.on('users', handleUsers);
 			socket.on('sys', handleSys);
 			socket.on('privileged', handlePriv);
+			socket.on('viewers', handleViewers);
 			socket.on('connect', () => {
 				setConnectedStatus(true);
 				socket.emit('join', authentication.token || null);

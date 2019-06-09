@@ -2,7 +2,8 @@ const initialState = {
 	loading: true,
 	error: false,
 	statusCode: 0,
-	data: null
+	data: null,
+	viewers: null
 };
 
 export default function(state = initialState, action) {
@@ -21,6 +22,9 @@ export default function(state = initialState, action) {
 		case 'FETCH_CHANNEL_SUCCESS':
 			return setChannel(state, action.statusCode, action.data);
 		break;
+		case 'SET_CHANNEL_VIEWERS':
+			return setChannelViewers(state, action.viewers);
+		break;
 		case 'RESET_CHANNEL':
 			return initialState;
 		break;
@@ -34,5 +38,12 @@ function setChannel(state, statusCode, data) {
 		statusCode,
 		data,
 		loading: false
+	};
+}
+
+function setChannelViewers(state, viewers) {
+	return {
+		...state,
+		viewers
 	};
 }

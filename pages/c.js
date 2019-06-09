@@ -10,6 +10,8 @@ import VideoPlayer from '../components/VideoPlayer'
 
 import {connect} from 'react-redux';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import * as actions from '../actions';
 
 import log from '../utils/log';
@@ -36,6 +38,7 @@ class ChannelPage extends Component {
 
 		if(stream.live){
 			if(stream.urls){
+				// Prefer FLV if available, it has lower latency
 				if(stream.urls.flv){
 					videoJsOptions.sources.push({
 						src: stream.servers[STREAMING_SERVER] + stream.urls.flv,
@@ -43,6 +46,7 @@ class ChannelPage extends Component {
 						label: STREAMING_SERVER + `(FLV)`
 					});
 				}
+				// Only HLS has quality options
 				Object.keys(stream.qualities).forEach((key) => {
 					let urlKey = stream.qualities[key];
 					videoJsOptions.sources.push({
@@ -70,6 +74,16 @@ class ChannelPage extends Component {
 					{stream.user.name}
 					{stream.live ? <span className="ph2 bg-red f6 tc inline-flex white mh3">LIVE</span> : ''}
 					</h2>
+					{stream.live && this.props.channel.viewers !== null
+						? <div className="inline-flex align-items-center ph2 red f6">
+							<span className="">
+								<FontAwesomeIcon icon='user' />
+							</span>
+							&nbsp;
+							{this.props.channel.viewers}
+						</div>
+						: ''
+					}
 
 					{stream.isFollowed && <GuacButton color="white">Unfollow</GuacButton>}
 					{!stream.isFollowed && <GuacButton color="white">Follow</GuacButton>}
