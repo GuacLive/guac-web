@@ -5,8 +5,8 @@ export default class MyDocument extends Document {
 	static getInitialProps({req, renderPage}) {
 		const { html, head, errorHtml, chunks } = renderPage()
 		let mode = getCookie('site-mode', req) === 'dark' ? 'dark' : 'light';
+		
 		return { html, head, errorHtml, chunks, 'nonce': req.nonce, mode }
-
 	}
 	render() {
 		const {nonce} = this.props;

@@ -22,6 +22,17 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faBan, faCheck, faHourglass, faVideo, faSmileWink, faUser } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faBan, faCheck, faHourglass, faVideo, faSmileWink, faUser);
+
+import { I18nProvider } from '@lingui/react'
+import { setupI18n } from '@lingui/core'
+
+import en from '@lingui/loader!../locales/en.po';
+import nb from '@lingui/loader!../locales/nb.po';
+
+const i18n = setupI18n()
+i18n.load('en', en)
+i18n.load('nb', nb)
+
 export default withRedux(configureStore)(class MyApp extends App {
 	static async getInitialProps({Component, ctx}) {
 		const uuidv4 = require('uuid/v4');
@@ -29,6 +40,16 @@ export default withRedux(configureStore)(class MyApp extends App {
 
 		// Handle authenticaiton
 		initialize(ctx);
+
+		let locale = 'en';
+		if(ctx.req){
+			locale = ctx.req.headers['accept-language'].indexOf('nb') >= 0 ? 'nb' : 'en';
+		} else {
+			locale = navigator.languages.indexOf('nb') > 0 ? 'nb' : 'en';
+		}
+		console.log('locale', locale)
+
+		i18n.activate(locale) // loads ./locales/${locale}.po
 
 		// In dev we allow 'unsafe-eval', so HMR doesn't trigger the CSP
 		let devCsp = process.env.NODE_ENV !== 'production' ? "'unsafe-eval'" : '';
@@ -64,9 +85,15 @@ export default withRedux(configureStore)(class MyApp extends App {
 				...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {}),
 				// Some custom thing for all pages
 				pathname: ctx.pathname,
-				mode
+				mode,
+				locale
 			}
 		};
+	}
+
+	componentDidMount(){
+		console.log(i18n);
+		if(i18n._locale !== this.props.pageProps.locale) i18n.activate(this.props.pageProps.locale);
 	}
 
 	render() {
@@ -74,9 +101,11 @@ export default withRedux(configureStore)(class MyApp extends App {
 		return (
 			<Container>
 				<Provider store={store}>
-					<PageLayout>
-						<Component {...pageProps} {...{'log': log}} />
-					</PageLayout>
+					<I18nProvider i18n={i18n}>
+						<PageLayout>
+							<Component {...pageProps} {...{'log': log}} />
+						</PageLayout>
+					</I18nProvider>
 				</Provider>
 			</Container>
 		);

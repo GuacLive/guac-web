@@ -15,6 +15,8 @@ import Link from 'next/link';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 
+import { t, Trans } from "@lingui/macro" 
+
 const STREAMING_SERVER = 'eu';
 class IndexPage extends Component {
 	static async getInitialProps({store}){
@@ -63,7 +65,7 @@ class IndexPage extends Component {
     		<div key={stream.user.id} style={{'height': '960px', 'width': '600px'}}>
     			<Link href={"/c?name=" + stream.user.name} as={"/c/" + stream.user.name}>
     				<a className="link f4 b ma0">
-						<span className="i tracked b">{stream.name}</span> is live
+						<Trans><span className="i tracked b">{stream.name}</span> is live</Trans>
 					</a>
     			</Link>
 				<VideoPlayer { ...videoJsOptions }></VideoPlayer>
@@ -78,7 +80,7 @@ class IndexPage extends Component {
     		 return this.props.featured.data.map(this.renderStream);
     	}
     	return (
-    		<p>no streams are online</p>
+    		<Trans>no streams are online</Trans>
     	);
     }
 
@@ -86,7 +88,7 @@ class IndexPage extends Component {
 		return (
 			<Fragment>
 				<div className="site-component-spotlight w-100 center bg-light-green black">
-					<h3 className="f4 b ma0 ttu tracked">Live streams</h3>
+					<h3 className="f4 b ma0 ttu tracked"><Trans>Live streams</Trans></h3>
 					<Slider
 						autoplay={false}
 						dots={true}
@@ -105,8 +107,9 @@ class IndexPage extends Component {
 							<div className="dt-ns dt--fixed-ns w-100">
 								<div className="pa3 pa4-ns dtc-ns v-mid">
 									<div>
-										<h2 className="f2 tracked mt0 mb3">Welcome to guac.live</h2>
+										<h2 className="f2 tracked mt0 mb3"><Trans>Welcome to guac.live</Trans></h2>
 										<span className="measure lh-copy mv0">
+											<Trans>
 											<p>
 											Hi,<br/>
 											Welcome to guac.live &mdash; live streaming platform. We are currently in beta.</p>
@@ -115,11 +118,12 @@ class IndexPage extends Component {
 											<br />
 											But, feel free to make an account and participate in the chat and general community!
 											</p>
+											</Trans>
 										</span>
 									</div>
 								</div>
 								<div className="pa3 pa4-ns dtc-ns v-mid black">
-									<GuacButton color="light-green" url="/auth/login">Join</GuacButton>
+									<GuacButton color="light-green" url="/auth/login"><Trans>Join</Trans></GuacButton>
 								</div>
 							</div>
 						</article>

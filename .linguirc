@@ -1,0 +1,15 @@
+{
+	locales: ["en", "nb"],
+	sourceLocale: "en",
+	format: "po",
+	catalogs: [
+	  {
+		path: "./locales/{locale}",
+		include: ["./pages"]
+	  },
+	  {
+		path: "./locales/{locale}",
+		include: ["./components"]
+	  }
+	]
+  }
