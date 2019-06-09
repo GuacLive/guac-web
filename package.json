@@ -43,7 +43,7 @@
     "react": "^16.9.0-alpha.0",
     "react-autosize-textarea": "^6",
     "react-dom": "^16.9.0-alpha.0",
-    "react-giphy-select": "^1.0.3",
+    "react-giphy-select": "https://github.com/GuacLive/react-giphy-select",
     "react-redux": "^7.1.0-alpha.4",
     "react-slick": "^0.24.0",
     "react-switch": "^5.0.0",
