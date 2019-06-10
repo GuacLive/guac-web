@@ -66,7 +66,7 @@ class IndexPage extends Component {
 						<span className="i tracked b">{stream.name}</span> is live
 					</a>
     			</Link>
-				<VideoPlayer { ...videoJsOptions }></VideoPlayer>
+				<VideoPlayer { ...videoJsOptions } live={stream.live}></VideoPlayer>
     		</div>
     	);
     }

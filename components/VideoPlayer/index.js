@@ -20,7 +20,7 @@ function VideoPlayer(props) {
 		const canAutoplay = require('can-autoplay').default;
 		const videoJsOptions = {
 			liveui: false,
-			poster: '/static/img/offline-poster.png',
+			poster: !props.live ? '/static/img/offline-poster.png' : '',
 			plugins: {
 				videoJsResolutionSwitcher: {
 					default: 'high',
@@ -102,7 +102,7 @@ function VideoPlayer(props) {
 	return (
 		<div>	
 			<div data-vjs-player>
-				<video ref={ node => videoNode = node } className="video-js vjs-default-skin vjs-big-play-centered vjs-16-9" poster="/static/img/offline-poster.png" controls playsInline preload="auto"></video>
+				<video ref={ node => videoNode = node } className="video-js vjs-default-skin vjs-big-play-centered vjs-16-9" poster={!props.live ? "/static/img/offline-poster.png" : ""} controls playsInline preload="auto"></video>
 			</div>
 		</div>
 	);

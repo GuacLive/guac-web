@@ -67,7 +67,7 @@ class ChannelPage extends Component {
     	return (
     		<Fragment key={stream.user.id}>
 				<div className="site-component-channel__player">
-					<VideoPlayer { ...videoJsOptions }></VideoPlayer>
+					<VideoPlayer { ...videoJsOptions } live={stream.live}></VideoPlayer>
 				</div>
 				<div className="site-component-channel__info dib w-100 bg-light-green">
 					<h2 className='f2 tracked ma0 dib'>
