@@ -39,9 +39,12 @@ class ChannelPage extends Component {
 		if(stream.live){
 			if(stream.urls){
 				// Prefer FLV if available, it has lower latency
+				let flvUrl = stream.servers[STREAMING_SERVER] + stream.urls.flv;
 				if(stream.urls.flv){
 					videoJsOptions.sources.push({
-						src: stream.servers[STREAMING_SERVER] + stream.urls.flv,
+						src: typeof window === 'object' && 'WebSocket' in window
+							? `${window.location.protocol === 'https:' ? 'wss' : 'ws'}:${flvUrl}`
+							: flvUrl,
 						type: 'video/x-flv',
 						label: STREAMING_SERVER + `(FLV)`
 					});
