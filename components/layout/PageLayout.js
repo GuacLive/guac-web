@@ -123,14 +123,19 @@ class PageLayout extends Component {
 									})
 									.map((u) => {
 										return (
-											<div key={'followed-'+u.username} className="site-component-fUser align-center flex flex-column relative ph4 pv2 white">
-												<div className="site-component-fUser__name">
-													<a className="link white" href={'/c/' + u.username}>
-														{u.username}
-														{+u.live ? <span className="ph2 bg-red f6 tc inline-flex white mh3">LIVE</span> : ''}
-													</a>
+											<div key={'followed-'+u.username} className="site-component-fUser items-center flex relative ph4 pv2 white">
+												<div className="inline-flex v-mid mr2 w2 h2">
+													<img alt={u.name} className="dim ba b--transparent inline-flex br-100 w-100 h-100" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII" />
 												</div>
-												<div className="site-component-fUser__category"><small>{u.title}</small></div>
+												<div className="overflow-hidden">
+													<div className="site-component-fUser__name inline-flex items-center v-bottom">
+														<a className="link white" href={'/c/' + u.username}>
+															{u.username}
+															{+u.live ? <span className="ph2 bg-red f6 tc inline-flex white mh3">LIVE</span> : ''}
+														</a>
+													</div>
+													<div className="site-component-fUser__category truncate"><small>{u.title}</small></div>
+												</div>
 											</div>
 										)
 									})
