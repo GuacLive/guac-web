@@ -17,6 +17,10 @@ import log from '../utils/log';
 
 import * as actions from '../actions';
 
+import { getLangs } from '../utils/lang';
+
+import { I18nProvider } from "@lingui/react";
+
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 import { faBan, faCheck, faHourglass, faVideo, faSmileWink, faUser } from '@fortawesome/free-solid-svg-icons';
@@ -26,6 +30,16 @@ export default withRedux(configureStore)(class MyApp extends App {
 	static async getInitialProps({Component, ctx}) {
 		const uuidv4 = require('uuid/v4');
 		const nonce = uuidv4();
+
+		// Locale
+		const locales = getLangs(ctx, 'languageOnly');
+		const locale = getCookie('lang', ctx.req) || locales[0];
+		
+		let languageData = [];
+		languageData['en'] = await import(`../locale/en/messages.po`);
+		languageData['nb'] = await import(`../locale/nb/messages.po`);
+
+		const catalog = languageData[locale];
 
 		// Handle authenticaiton
 		initialize(ctx);
@@ -64,19 +78,24 @@ export default withRedux(configureStore)(class MyApp extends App {
 				...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {}),
 				// Some custom thing for all pages
 				pathname: ctx.pathname,
-				mode
+				mode,
+				locale,
+				catalog
 			}
 		};
 	}
 
 	render() {
 		const {Component, pageProps, store} = this.props;
+		const {locale, catalog} = pageProps;
 		return (
 			<Container>
 				<Provider store={store}>
-					<PageLayout>
-						<Component {...pageProps} {...{'log': log}} />
-					</PageLayout>
+        			<I18nProvider language={locale} catalogs={{ [locale]: catalog }}>
+						<PageLayout>
+							<Component {...pageProps} {...{'log': log}} />
+						</PageLayout>
+					</I18nProvider>
 				</Provider>
 			</Container>
 		);

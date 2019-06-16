@@ -1,7 +1,7 @@
 const withCSS = require('@zeit/next-css')
-const { parsed: localEnv } = require("dotenv").config();
+const {parsed: localEnv} = require("dotenv").config();
 module.exports = withCSS({
-	webpack (config) {
+	webpack(config) {
 		config.module.rules.push({
 			test: /\.(png|svg|eot|otf|ttf|woff|woff2)$/,
 			use: {
@@ -14,8 +14,17 @@ module.exports = withCSS({
 				}
 			}
 		});
-	
-		return config
+
+		config.module.rules.push({
+			test: /\.po/,
+			use: [
+				{
+					loader: '@lingui/loader'
+				}
+			]
+		});
+
+		return config;
 	},
 	target: 'serverless',
 	poweredByHeader: false,

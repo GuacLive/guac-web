@@ -8,11 +8,14 @@ import {connect} from 'react-redux';
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.css';
 
-import '../../css/style.css'
+import '../../css/style.css';
 
 import * as actions from '../../actions';
 
-import GuacButton from '../GuacButton'
+import { Trans } from '@lingui/macro';
+import LangSwitcher from '../LangSwitcher';
+
+import GuacButton from '../GuacButton';
 import DarkModeToggle from '../DarkModeToggle';
 import AccountMenu from './AccountMenu';
 
@@ -98,7 +101,7 @@ class PageLayout extends Component {
 						<aside className="flex flex-column vh-100 w-20 bg-near-black">
 							<nav className="flex flex-column flex-grow-1">
 								<span className="f5 b inline-flex ph3 light-gray">
-								Followed Channels
+								<Trans>Followed Channels</Trans>
 								</span>
 								<SimpleBar className="flex-grow-0" style={{ height: '80vh' }}>
 								{
@@ -106,7 +109,7 @@ class PageLayout extends Component {
 									!followed.length)
 									&&
 									<div className="align-center flex flex-column relative ph4 pv2 white">
-										<p>Start following your favorite streamers to find them quickly!</p>
+										<Trans>Start following your favorite streamers to find them quickly!</Trans>
 									</div>
 								}
 								{
@@ -147,14 +150,15 @@ class PageLayout extends Component {
 								<div className="f6 flex flex-column flex-grow-1">
 									<span className="dib mr4 mr5-ns ttu tracked">© {(new Date()).getFullYear()} guac.live</span>
 									<Link href="/terms">
-										<a className="link white-80 hover-light-purple">Terms</a>
+										<a className="link white-80 hover-light-purple"><Trans>Terms</Trans></a>
 									</Link>
 									<Link href="/privacy">
-										<a className="link white-80 hover-gold"> Privacy </a>
+										<a className="link white-80 hover-gold"> <Trans>Privacy</Trans> </a>
 									</Link>
 									<Link href="#">
 										<a className="link white-80 hover-green"> contact@guac.live </a>
 									</Link>
+									<LangSwitcher />
 								</div>
 							</footer>
 						</aside>

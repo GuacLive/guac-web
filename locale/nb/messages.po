@@ -1,0 +1,62 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2019-06-16 03:00+0200\n"
+"Mime-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: nb\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: pages/index.js:116
+msgid "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
+msgstr "<0>Hei,<1/>Velkommen til guac.live — direktestrømming-platformen. Vi er for tiden i beta.</0><2>Mens vi er i beta, så strømmeprivilegier vil bli gitt på invitasjonsbasis.<3/>Men, gjerne lage en konto og delta i chat og det generelle fellesskapet!</2>"
+
+#: pages/index.js:72
+msgid "<0>{0}</0> is live"
+msgstr "<0>{0}</0> sender direkte"
+
+#: components/LangSwitcher.js:6
+msgid "English"
+msgstr "Engelsk"
+
+#: components/layout/PageLayout.js:105
+msgid "Followed Channels"
+msgstr "Fulgte kanaler"
+
+#: pages/index.js:130
+msgid "Join"
+msgstr "Bli med"
+
+#: components/layout/PageLayout.js:157
+msgid "Privacy"
+msgstr "Personvern"
+
+#: components/layout/PageLayout.js:113
+msgid "Start following your favorite streamers to find them quickly!"
+msgstr "Begynn å følge dine favoritt-strømmere for å finne dem raskt!"
+
+#: components/LangSwitcher.js:7
+msgid "Norwegian"
+msgstr "Norsk"
+
+#: components/LangSwitcher.js:38
+msgid "Switch language"
+msgstr "Bytt språk"
+
+#: components/layout/PageLayout.js:154
+msgid "Terms"
+msgstr "Vilkår"
+
+#: pages/index.js:114
+msgid "Welcome to guac.live"
+msgstr "Velkommen til guac.live"
+
+#: pages/index.js:87
+msgid "no streams are online"
+msgstr "ingen aktive direktesendinger"
