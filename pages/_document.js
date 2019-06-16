@@ -16,8 +16,28 @@ export default class MyDocument extends Document {
 			<Head nonce={nonce}>
 				<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
 				<script type="text/javascript" src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1" nonce={this.props.nonce}></script>
-				<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/solid.css" integrity="sha384-QokYePQSOwpBDuhlHOsX0ymF6R/vLk/UQVz3WHa6wygxI5oGTmDTv8wahFOSspdm" crossOrigin="anonymous" />
-				<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/fontawesome.css" integrity="sha384-vd1e11sR28tEK9YANUtpIOdjGW14pS87bUBuOIoBILVWLFnS+MCX9T6MMf0VdPGq" crossOrigin="anonymous" />
+				<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.9.0/css/solid.css" integrity="sha384-KyLwW4NRDhAz4RVatBCvFATniD3ze5rJvP1usxUFectdGgG8n+7OTcZug8s4bj5H" crossOrigin="anonymous" />
+				<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.9.0/css/fontawesome.css" integrity="sha384-QSCxeayZXa6bvOhHReoQRGN7utvnOnY3JoBHGxM61JQQ1EXA7AT3m7dnlHXLhnCj" crossOrigin="anonymous" />
+				<link rel="manifest" href="/static/manifest.json" />
+				<meta 
+					name="viewport" 
+					content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover"
+				/>
+				<meta name="apple-mobile-web-app-capable" content="yes" />
+				<meta name="apple-touch-fullscreen" content="yes" />
+				<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+				<meta property="og:type" content="website" />
+				<meta property="og:url" content="https://guac.live/" />
+				<meta property="og:title" content="guac.live — live streaming platform" />
+				<meta property="og:description" content="guac is a live streaming platform." />
+				<meta property="og:image" content="https://guac.live/static/img/header-logo.png" />
+				<meta property="twitter:card" content="summary_large_image" />
+				<meta property="twitter:url" content="https://guac.live" />
+				<meta property="twitter:title" content="guac.live — live streaming platform" />
+				<meta property="twitter:site" content="" />
+				<meta property="twitter:creator" content="@datagutt" />
+				<meta property="twitter:description" content="guac is a live streaming platform." />
+				<meta property="twitter:image" content="https://guac.live/static/img/header-logo.png" />
 				<script type="application/configuration" id="oil-configuration" dangerouslySetInnerHTML={{__html: JSON.stringify(process.env.OIL_CONFIG)}}></script>
 				<script type="text/javascript" dangerouslySetInnerHTML={{__html: oil}} nonce={nonce}></script>
 				<script type="text/javascript" src="//privacy.guac.live/release/current/oil.1.3.0-RELEASE.min.js" nonce={nonce}></script>
