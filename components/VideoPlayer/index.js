@@ -63,7 +63,7 @@ function VideoPlayer(props) {
 		require('@silvermine/videojs-chromecast')(videojs, {
 			reloadWebComponents: true
 		});
-		require('@dlive/videojs-resolution-switcher');
+		require('@guaclive/videojs-resolution-switcher');
 		// instantiate Video.js
 		player = videojs(videoNode, videoJsOptions, function onPlayerReady() {
 			log('info', null, 'onPlayerReady', this);

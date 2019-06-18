@@ -33,6 +33,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.7.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@guaclive/react-giphy-select": "^1.0.5",
+    "@guaclive/videojs-resolution-switcher": "https://github.com/GuacLive/videojs-resolution-switcher.git",
     "@lingui/cli": "^2.8.3",
     "@lingui/loader": "^2.8.3",
     "@lingui/macro": "^2.8.3",
