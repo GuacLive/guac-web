@@ -7,7 +7,7 @@
     "email": "datagutt@lekanger.no"
   },
   "scripts": {
-    "now-build": "next build",
+    "now-build": "NODE_OPTIONS=\"--max_old_space_size=8096\" next build",
     "dev": "now dev -d",
     "deploy": "now"
   },
@@ -19,6 +19,9 @@
       "./components/"
     ],
     "format": "po"
+  },
+  "engines": {
+    "node": ">= 10.5.0"
   },
   "dependencies": {
     "@dlive/videojs-resolution-switcher": "^0.6.0",

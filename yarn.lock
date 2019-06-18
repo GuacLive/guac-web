@@ -2593,7 +2593,7 @@ blob@0.0.5:
   resolved "https://registry.yarnpkg.com/blob/-/blob-0.0.5.tgz#d680eeef25f8cd91ad533f5b01eed48e64caf683"
   integrity sha512-gaqbzQPqOoamawKg0LGVd7SzLgXS+JH61oWprSLH+P+abTczqJbhTR8CmJ2u9/bUYNmHTGJx/UEmn6doAvvuig==
 
-bluebird@^3.5.0, bluebird@^3.5.3:
+bluebird@^3.5.0, bluebird@^3.5.5:
   version "3.5.5"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.5.tgz#a8d0afd73251effbbd5fe384a77d73003c17a71f"
   integrity sha512-5am6HnnfN+urzt4yfg7IgTbotDjIT/u8AJpEt0sIU9FtXfVeezXAPKswrG+xKUCOYAINpSdgZVDU6QFh+cuH3w==
@@ -2814,21 +2814,21 @@ bytes@3.1.0:
   integrity sha512-zauLjrfCG+xvoyaqLoV8bLVXXNGC4JqlxFCutSDWA6fJrTo2ZuvLYTqZ7aHBLZSMOopbzwv8f+wZcVzfVTI2Dg==
 
 cacache@^11.0.2, cacache@^11.3.2:
-  version "11.3.2"
-  resolved "https://registry.yarnpkg.com/cacache/-/cacache-11.3.2.tgz#2d81e308e3d258ca38125b676b98b2ac9ce69bfa"
-  integrity sha512-E0zP4EPGDOaT2chM08Als91eYnf8Z+eH1awwwVsngUmgppfM5jjJ8l3z5vO5p5w/I3LsiXawb1sW0VY65pQABg==
+  version "11.3.3"
+  resolved "https://registry.yarnpkg.com/cacache/-/cacache-11.3.3.tgz#8bd29df8c6a718a6ebd2d010da4d7972ae3bbadc"
+  integrity sha512-p8WcneCytvzPxhDvYp31PD039vi77I12W+/KfR9S8AZbaiARFBCpsPJS+9uhWfeBfeAtW7o/4vt3MUqLkbY6nA==
   dependencies:
-    bluebird "^3.5.3"
+    bluebird "^3.5.5"
     chownr "^1.1.1"
     figgy-pudding "^3.5.1"
-    glob "^7.1.3"
+    glob "^7.1.4"
     graceful-fs "^4.1.15"
     lru-cache "^5.1.1"
     mississippi "^3.0.0"
     mkdirp "^0.5.1"
     move-concurrently "^1.0.1"
     promise-inflight "^1.0.1"
-    rimraf "^2.6.2"
+    rimraf "^2.6.3"
     ssri "^6.0.1"
     unique-filename "^1.1.1"
     y18n "^4.0.0"
@@ -4201,9 +4201,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.122, electron-to-chromium@^1.3.150:
-  version "1.3.161"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.161.tgz#48cb3de7a53d07c1ce654e8bc6e3f6b602f1ee3c"
-  integrity sha512-i8cuS1zf7TW2t/NrfiaF8amTggCH4yLRe7Pirdf6gVDESP146jXO9NXttM8bJk1aupwA1NVMoaikBSbnTHgZGA==
+  version "1.3.164"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.164.tgz#8680b875577882c1572c42218d53fa9ba5f71d5d"
+  integrity sha512-VLlalqUeduN4+fayVtRZvGP2Hl1WrRxlwzh2XVVMJym3IFrQUS29BFQ1GP/BxOJXJI1OFCrJ5BnFEsAe8NHtOg==
 
 element-resize-detector@^1.1.9:
   version "1.1.15"
@@ -9784,9 +9784,9 @@ react-switch@^5.0.0:
     prop-types "^15.6.2"
 
 react-use@^9.0.0:
-  version "9.4.1"
-  resolved "https://registry.yarnpkg.com/react-use/-/react-use-9.4.1.tgz#876f96811b177d305a8db14e59fc31e17e5b11b2"
-  integrity sha512-6rI4zOQSoRuWgXkv2Aaj9+YPjnYn/aS+n6NcJGqQdqROe2MOEcsgfFS6euf1y6pfhvhmtyvWX8mPe7H+S9GFmw==
+  version "9.5.0"
+  resolved "https://registry.yarnpkg.com/react-use/-/react-use-9.5.0.tgz#a59f15ee502301626facd541e17e38db8365fb2a"
+  integrity sha512-IJQClj8UPddUC32A9nVdZfE+823v3BhLRD68ElxRsP/puy4T25ApdFYldi+3GBVaanurDT4JazPzUH2wtI3Jew==
   dependencies:
     copy-to-clipboard "^3.1.0"
     nano-css "^5.1.0"
@@ -10233,7 +10233,7 @@ rgba-regex@^1.0.0:
   resolved "https://registry.yarnpkg.com/rgba-regex/-/rgba-regex-1.0.0.tgz#43374e2e2ca0968b0ef1523460b7d730ff22eeb3"
   integrity sha1-QzdOLiyglosO8VI0YLfXMP8i7rM=
 
-rimraf@2.6.3, rimraf@^2.2.8, rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.2, rimraf@^2.6.3:
+rimraf@2.6.3, rimraf@^2.2.8, rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.3:
   version "2.6.3"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.3.tgz#b2d104fe0d8fb27cf9e0a1cda8262dd3833c6cab"
   integrity sha512-mwqeW5XsA2qAejG46gYdENaxXjx9onRNCfn7L0duuP4hCuTIi/QO7PDK07KJfp1d+izWPrzEJDcSqBa0OZQriA==
@@ -11180,9 +11180,9 @@ symbol-tree@^3.2.2:
   integrity sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==
 
 table@^5.2.3:
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/table/-/table-5.4.0.tgz#d772a3216e68829920a41a32c18eda286c95d780"
-  integrity sha512-nHFDrxmbrkU7JAFKqKbDJXfzrX2UBsWmrieXFTGxiI5e4ncg3VqsZeI4EzNmX0ncp4XNGVeoxIWJXfCIXwrsvw==
+  version "5.4.1"
+  resolved "https://registry.yarnpkg.com/table/-/table-5.4.1.tgz#0691ae2ebe8259858efb63e550b6d5f9300171e8"
+  integrity sha512-E6CK1/pZe2N75rGZQotFOdmzWQ1AILtgYbMAbAjvms0S1l5IDB47zG3nCnFGB/w+7nB3vKofbLXCH7HPBo864w==
   dependencies:
     ajv "^6.9.1"
     lodash "^4.17.11"

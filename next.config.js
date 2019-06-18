@@ -57,6 +57,7 @@ module.exports = withCSS({
 	},
 	postcssLoaderOptions: {},
 	experimental: {
+		flyingShuttle: true,
 		autoExport: true
 	}
 })
