@@ -20,9 +20,6 @@
     ],
     "format": "po"
   },
-  "engines": {
-    "node": ">= 10.5.0"
-  },
   "resolutions": {
     "browserslist": "4.6.2",
     "caniuse-lite": "1.0.30000974"
@@ -60,7 +57,7 @@
     "lscache": "^1.2.0",
     "next": "8.1.1-canary.41",
     "next-redux-wrapper": "3.0.0-alpha.2",
-    "now": "^15.2.1-canary.0",
+    "now": "^15.4.0-canary.9",
     "path-match": "^1.2.4",
     "postcss-css-variables": "^0.12.0",
     "postcss-import": "^12.0.1",
