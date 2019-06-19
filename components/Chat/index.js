@@ -218,7 +218,7 @@ function ChatComponent(props){
 									title="Timeout user"
 									onClick={() => {writeMessage(`/timeout ${user.name} 600`)}}
 								>
-									<FontAwesomeIcon icon='timeglass' />
+									<FontAwesomeIcon icon='hourglass' />
 								</a>
 							</span>
 						}
