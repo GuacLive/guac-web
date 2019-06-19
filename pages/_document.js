@@ -16,8 +16,8 @@ export default class MyDocument extends Document {
 			<Head nonce={nonce}>
 				<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
 				<script type="text/javascript" src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1" nonce={this.props.nonce}></script>
-				<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.9.0/css/solid.css" integrity="sha384-KyLwW4NRDhAz4RVatBCvFATniD3ze5rJvP1usxUFectdGgG8n+7OTcZug8s4bj5H" crossOrigin="anonymous" />
-				<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.9.0/css/fontawesome.css" integrity="sha384-QSCxeayZXa6bvOhHReoQRGN7utvnOnY3JoBHGxM61JQQ1EXA7AT3m7dnlHXLhnCj" crossOrigin="anonymous" />
+				<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.9.0/css/solid.css" integrity="sha384-ypqxM+6jj5ropInEPawU1UEhbuOuBkkz59KyIbbsTu4Sw62PfV3KUnQadMbIoAzq" crossOrigin="anonymous" />
+				<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.9.0/css/fontawesome.css" integrity="sha384-NnhYAEceBbm5rQuNvCv6o4iIoPZlkaWfvuXVh4XkRNvHWKgu/Mk2nEjFZpPQdwiz" crossOrigin="anonymous" />
 				<link rel="manifest" href="/static/manifest.json" />
 				<meta 
 					name="viewport" 
