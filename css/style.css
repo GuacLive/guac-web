@@ -88,6 +88,16 @@ body {
 	background: var(--dropdown-background);
 }
 
+.site-component-sidebar {
+	width: 24rem;
+}
+
+
+@media (--breakpoint-medium) {
+	.site-component-sidebar {
+		width: 8rem;
+	}	
+}
 .chat-message {
 	background: var(--chat-message-background);
 	color: var(--chat-message-text);

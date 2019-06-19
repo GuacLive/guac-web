@@ -105,10 +105,10 @@ class IndexPage extends Component {
 				<ToggleFeature
 					flag='guacWelcome'
 				>
-					<section className="ph3 ph5-ns pv5">
-						<article className="mw8 center br2 ba b--transparent">
-							<div className="dt-ns dt--fixed-ns w-100">
-								<div className="pa3 pa4-ns dtc-ns v-mid">
+					<section className="ph3 ph5-l pv5">
+						<article className="mw8 center-l br2 ba b--transparent">
+							<div className="db dt-l dt--fixed-ns w-100">
+								<div className="pa3 pa4-l db dtc-l v-mid">
 									<div>
 										<h2 className="f2 tracked mt0 mb3"><Trans>Welcome to guac.live</Trans></h2>
 										<span className="measure lh-copy mv0">
@@ -125,7 +125,7 @@ class IndexPage extends Component {
 										</span>
 									</div>
 								</div>
-								<div className="pa3 pa4-ns dtc-ns v-mid black">
+								<div className="pa3 pa4-l db dtc-l v-mid black">
 									<GuacButton color="light-green" url="/auth/login"><Trans>Join</Trans></GuacButton>
 								</div>
 							</div>

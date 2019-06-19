@@ -23,9 +23,9 @@ import { I18nProvider } from "@lingui/react";
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 
-import { faBan, faCheck, faHourglass, faVideo, faSmileWink, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faBan, faCheck, faHourglass, faVideo, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faBan, faCheck, faHourglass, faVideo, faSmileWink, faUser);
+library.add(faBan, faCheck, faHourglass, faVideo, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad);
 export default withRedux(configureStore)(class MyApp extends App {
 	static async getInitialProps({Component, ctx}) {
 		const uuidv4 = require('uuid/v4');

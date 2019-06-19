@@ -30,6 +30,7 @@ export default () => {
 						defaultValue={availableLanguages.find(
 							lang => lang !== i18n.language
 						)}
+						className="pv1 ph1"
 					>
 						{availableLanguages.map(lang => (
 							<option key={lang} value={lang} disabled={i18n.language === lang}>
@@ -37,7 +38,7 @@ export default () => {
 							</option>
 						))}
 					</select>
-					<button className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green">
+					<button className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1">
 						<Trans>Switch language</Trans>
 					</button>
 				</form>

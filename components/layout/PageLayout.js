@@ -18,6 +18,7 @@ import LangSwitcher from '../LangSwitcher';
 import GuacButton from '../GuacButton';
 import DarkModeToggle from '../DarkModeToggle';
 import AccountMenu from './AccountMenu';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 class PageLayout extends Component {
 	constructor(props){
@@ -62,13 +63,19 @@ class PageLayout extends Component {
 							<nav className="items-stretch flex flex-grow-1 flex-nowrap flex-shrink-0">
 								<div className="items-stretch flex flex-nowrap flex-shrink-0">
 									<Link href="/channels">
-										<a className="flex pa3 center nowrap items-center b link white hover-light-green">Channels</a>
+										<a className="flex pa3 center nowrap items-center b link white hover-light-green">
+											<span className="dn-m" title="Channels">Channels</span>
+											<span className="dn-l" title="Channels"><FontAwesomeIcon icon="search" /></span>
+										</a>
 									</Link>
 									<Link href="/games">
-										<a className="flex pa3 center nowrap items-center b link white hover-light-green">Games</a>
+										<a className="flex pa3 center nowrap items-center b link white hover-light-green">
+											<span className="dn-m" title="Games">Games</span>
+											<span className="dn-l" title="Games"><FontAwesomeIcon icon="gamepad" /></span>
+										</a>
 									</Link>
 								</div>
-								<div className="w-100 self-center db flex-grow-1">
+								<div className="w-100 self-center db dn-m flex-grow-1">
 									<form className="mw6 relative ml3">
 										<input type="text" className="input-reset bn pa3 w-100 bg-white br2" placeholder="Search..." />
 									</form>
@@ -81,11 +88,17 @@ class PageLayout extends Component {
 										<DarkModeToggle />
 										{
 											!isAuthenticated && 
-											<GuacButton url="/auth/login">Log in</GuacButton>
+											<GuacButton url="/auth/login">
+												<span className="dn-m" title="Log in">Log in</span>
+												<span className="dn-l" title="Log in"><FontAwesomeIcon icon="sign-in-alt" /></span>
+											</GuacButton>
 										}
 										{
 											!isAuthenticated && 
-											<GuacButton url="/auth/signup" color="green">Sign up</GuacButton>
+											<GuacButton url="/auth/signup" color="green">
+												<span className="dn-m" title="Sign up">Sign up</span>
+												<span className="dn-l" title="Sign up"><FontAwesomeIcon icon="user-plus" /></span>
+											</GuacButton>
 										}
 										{
 											isAuthenticated &&
@@ -98,7 +111,7 @@ class PageLayout extends Component {
 						</div>
 					</header>
 					<div className="w-100 min-vh-100 flex flex-row items-start">
-						<aside className="flex flex-column vh-100 w-20 bg-near-black">
+						<aside className="flex flex-column vh-100 site-component-sidebar bg-near-black">
 							<nav className="flex flex-column flex-grow-1">
 								<span className="f5 b inline-flex ph3 light-gray">
 								<Trans>Followed Channels</Trans>
@@ -108,7 +121,7 @@ class PageLayout extends Component {
 									(!followed ||
 									!followed.length)
 									&&
-									<div className="align-center flex flex-column relative ph4 pv2 white">
+									<div className="align-center flex-l dn-m flex-column relative ph4 pv2 white">
 										<Trans>Start following your favorite streamers to find them quickly!</Trans>
 									</div>
 								}
@@ -128,9 +141,9 @@ class PageLayout extends Component {
 										return (
 											<div key={'followed-'+u.username} className="site-component-fUser items-center flex relative ph4 pv2 white">
 												<div className="inline-flex v-mid mr2 w2 h2">
-													<img alt={u.name} className="dim ba b--transparent inline-flex br-100 w-100 h-100" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII" />
+													<img alt={u.name} className={`dim ba ${+u.live ? 'b--red' : 'b--transparent'} inline-flex br-100 w-100 h-100`} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII" />
 												</div>
-												<div className="overflow-hidden">
+												<div className="overflow-hidden dn-m">
 													<div className="site-component-fUser__name inline-flex items-center v-bottom">
 														<a className="link white" href={'/c/' + u.username}>
 															{u.username}
@@ -146,7 +159,7 @@ class PageLayout extends Component {
 								</SimpleBar>
 							</nav>
 							
-							<footer className="flex bg-near-black white ph4 h-25">
+							<footer className="flex bg-near-black white ph4 ph2-m h-25">
 								<div className="f6 flex flex-column flex-grow-1">
 									<span className="dib mr4 mr5-ns ttu tracked">© {(new Date()).getFullYear()} guac.live</span>
 									<Link href="/terms">
@@ -162,7 +175,7 @@ class PageLayout extends Component {
 								</div>
 							</footer>
 						</aside>
-						<div className="w-100 flex flex-column items-start mw9-l pa3">
+						<div className="w-100 flex flex-column items-start pa3">
 							{ children }
 						</div>
 					</div>
