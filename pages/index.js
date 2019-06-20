@@ -90,7 +90,7 @@ class IndexPage extends Component {
 	render() {
 		return (
 			<Fragment>
-				<div className="site-component-spotlight w-100 center bg-light-green black">
+				<div className="site-component-spotlight w-100 mw9-l bg-light-green black">
 					<h3 className="f4 b ma0 ttu tracked">Live streams</h3>
 					<Slider
 						autoplay={false}
@@ -106,9 +106,9 @@ class IndexPage extends Component {
 					flag='guacWelcome'
 				>
 					<section className="ph3 ph5-l pv5">
-						<article className="mw8 center-l br2 ba b--transparent">
-							<div className="db dt-l dt--fixed-ns w-100">
-								<div className="pa3 pa4-l db dtc-l v-mid">
+						<article className="center-l br2 ba b--transparent">
+							<div className="db w-100">
+								<div className="pa3 pa4-ns db v-mid">
 									<div>
 										<h2 className="f2 tracked mt0 mb3"><Trans>Welcome to guac.live</Trans></h2>
 										<span className="measure lh-copy mv0">
@@ -125,7 +125,7 @@ class IndexPage extends Component {
 										</span>
 									</div>
 								</div>
-								<div className="pa3 pa4-l db dtc-l v-mid black">
+								<div className="pa3 pa4-l db v-mid black">
 									<GuacButton color="light-green" url="/auth/login"><Trans>Join</Trans></GuacButton>
 								</div>
 							</div>

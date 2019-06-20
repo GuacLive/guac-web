@@ -15,7 +15,7 @@ msgstr ""
 
 #: pages/index.js:116
 msgid "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
-msgstr "<0>Hei,<1/>Velkommen til guac.live — direktestrømming-platformen. Vi er for tiden i beta.</0><2>Mens vi er i beta, så strømmeprivilegier vil bli gitt på invitasjonsbasis.<3/>Men, gjerne lage en konto og delta i chat og det generelle fellesskapet!</2>"
+msgstr "<0>Hei,<1/>Velkommen til guac.live — direktestrømming-platformen. Vi er for tiden i beta.</0><2>Mens vi er i beta, så vil strømmeprivilegier bli gitt på invitasjonsbasis.<3/>Men, lag gjerne en konto og delta i chatten og det generelle fellesskapet!</2>"
 
 #: pages/index.js:72
 msgid "<0>{0}</0> is live"
