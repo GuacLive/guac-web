@@ -164,9 +164,9 @@ video-js.vjs-ended .vjs-big-play-button {
     transform-origin: 0px 0px;
 }
 video[poster]{
-    object-fit: cover;
+    object-fit: cover !important;
 }
 .vjs-poster {
-    background-size: cover;
-    background-position: inherit;
+    background-size: cover !important;
+    background-position: inherit !important;
 }
