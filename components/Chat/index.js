@@ -102,10 +102,10 @@ function ChatComponent(props){
 			user: null,
 			message: (
 				<>
-					<span className="chat-message-user orange b">
+					<span className="chat-message-user light-green b">
 						SYSTEM MESSAGE:{'\u00A0'}
 					</span>
-					<span className="chat-message-content orange">
+					<span className="chat-message-content light-green">
 						{msg}
 					</span>
 				</>
