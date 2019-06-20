@@ -64,18 +64,18 @@ class PageLayout extends Component {
 								<div className="items-stretch flex flex-nowrap flex-shrink-0">
 									<Link href="/channels">
 										<a className="flex pa3 center nowrap items-center b link white hover-light-green">
-											<span className="dn-m" title="Channels">Channels</span>
+											<span className="dn db-l" title="Channels">Channels</span>
 											<span className="dn-l" title="Channels"><FontAwesomeIcon icon="search" /></span>
 										</a>
 									</Link>
 									<Link href="/games">
 										<a className="flex pa3 center nowrap items-center b link white hover-light-green">
-											<span className="dn-m" title="Games">Games</span>
+											<span className="dn db-l" title="Games">Games</span>
 											<span className="dn-l" title="Games"><FontAwesomeIcon icon="gamepad" /></span>
 										</a>
 									</Link>
 								</div>
-								<div className="w-100 self-center db dn-m flex-grow-1">
+								<div className="w-100 self-center dn db-l flex-grow-1">
 									<form className="mw6 relative ml3">
 										<input type="text" className="input-reset bn pa3 w-100 bg-white br2" placeholder="Search..." />
 									</form>
@@ -89,14 +89,14 @@ class PageLayout extends Component {
 										{
 											!isAuthenticated && 
 											<GuacButton url="/auth/login">
-												<span className="dn-m" title="Log in">Log in</span>
+												<span className="dn db-l" title="Log in">Log in</span>
 												<span className="dn-l" title="Log in"><FontAwesomeIcon icon="sign-in-alt" /></span>
 											</GuacButton>
 										}
 										{
 											!isAuthenticated && 
 											<GuacButton url="/auth/signup" color="green">
-												<span className="dn-m" title="Sign up">Sign up</span>
+												<span className="dn db-l" title="Sign up">Sign up</span>
 												<span className="dn-l" title="Sign up"><FontAwesomeIcon icon="user-plus" /></span>
 											</GuacButton>
 										}
@@ -121,7 +121,7 @@ class PageLayout extends Component {
 									(!followed ||
 									!followed.length)
 									&&
-									<div className="align-center flex-l dn-m flex-column relative ph4 pv2 white">
+									<div className="align-center flex-l dn flex-column relative ph4 pv2 white">
 										<Trans>Start following your favorite streamers to find them quickly!</Trans>
 									</div>
 								}
@@ -143,7 +143,7 @@ class PageLayout extends Component {
 												<div className="inline-flex v-mid mr2 w2 h2">
 													<img alt={u.name} className={`dim ba ${+u.live ? 'b--red' : 'b--transparent'} inline-flex br-100 w-100 h-100`} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII" />
 												</div>
-												<div className="overflow-hidden dn-m">
+												<div className="overflow-hidden dn db-l">
 													<div className="site-component-fUser__name inline-flex items-center v-bottom">
 														<a className="link white" href={'/c/' + u.username}>
 															{u.username}
