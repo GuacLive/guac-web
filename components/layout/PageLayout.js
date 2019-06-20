@@ -45,7 +45,7 @@ class PageLayout extends Component {
 		return (
 			<Fragment>
 				<Head>
-					<title>{ title }{ title.length > 0 ? ' | guac.live' : 'guac.live'}</title>
+					<title>{ title }{ title.length > 0 ? ' &middot; guac.live' : 'guac.live'}</title>
 					<meta charSet='utf-8' />
 					<meta name='viewport' content='initial-scale=1.0, width=device-width' />
 				</Head>

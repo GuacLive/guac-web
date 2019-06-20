@@ -2,6 +2,8 @@ import React, {Component, Fragment} from 'react'
 
 import Link from 'next/link'
 
+import NextHead from 'next/head'
+
 import Chat from '../components/Chat'
 
 import GuacButton from '../components/GuacButton'
@@ -119,14 +121,19 @@ class ChannelPage extends Component {
 		channel.data.isFollowed = isFollowed;
 
 		return (
-			<div className="w-100 min-vh-100 flex flex-nowrap black">
-				<div className="site-component-channel w-70 w-100-m h-100 flex flex-column flex-grow-1 overflow-hidden relative">
-				{this.renderStream(channel.data)}
+			<Fragment>
+				<NextHead>
+					<title>{channel.data.name} &middot; guac.live</title>
+				</NextHead>
+				<div className="w-100 min-vh-100 flex flex-nowrap black">
+					<div className="site-component-channel w-70 w-100-m h-100 flex flex-column flex-grow-1 overflow-hidden relative">
+					{this.renderStream(channel.data)}
+					</div>
+					<aside className="site-component-chat w-30 w-100-m h-100 flex-l dn-m flex-column flex-grow-1 flex-shrink-1 flex-nowrap">
+						<Chat channel={channel.data.name} />
+					</aside>
 				</div>
-				<aside className="site-component-chat w-30 w-100-m h-100 flex-l dn-m flex-column flex-grow-1 flex-shrink-1 flex-nowrap">
-					<Chat channel={channel.data.name} />
-				</aside>
-			</div>
+			</Fragment>
 		)
 	}
 }
