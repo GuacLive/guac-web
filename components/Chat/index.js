@@ -24,6 +24,10 @@ import log from '../../utils/log';
 
 import * as actions from '../../actions';
 var socket = null;
+var users = new Map();
+var me = null;
+var privileged = [];
+var hasPrivilege = false;
 function ChatComponent(props){
 	const dispatch = useDispatch();
 	const [connectedStatus, setConnectedStatus] = useState(false);
@@ -36,12 +40,8 @@ function ChatComponent(props){
 	const channel = useSelector(state => state.channel);
 	const emotes = useSelector(state => state.emotes.data);
 
-	let users = new Map();
 	let maxlines = 250;
 
-	let me = null;
-	let privileged = [];
-	let hasPrivilege = false;
 
 	let rta;
 	let textarea;
