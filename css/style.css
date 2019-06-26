@@ -30,9 +30,6 @@ body {
 	background var(--animation-duration) var(--animation-timing);
 }
 
-.front {
-	background: blue;
-}
 
 .hover-b--blue:hover {
 	border-color: var(--blue);
@@ -45,9 +42,6 @@ body {
 :root {
 	--site-background: #f4f5f7;
 	--site-text: var(--black);
-
-	--blue: blue;
-	--green: green;
 
 	--slick-dot-color: black;
 	--chat-message-background: var(--site-background);

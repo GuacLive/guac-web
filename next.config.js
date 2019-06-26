@@ -55,7 +55,6 @@ module.exports = withCSS({
 			}
 		}
 	},
-	postcssLoaderOptions: {},
 	experimental: {
 		autoExport: true
 	}
