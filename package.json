@@ -20,7 +20,9 @@
     ],
     "format": "po"
   },
-  "engines": { "node": ">=10" },
+  "engines": {
+    "node": ">=10"
+  },
   "resolutions": {
     "browserslist": "4.6.2",
     "caniuse-lite": "1.0.30000974"
