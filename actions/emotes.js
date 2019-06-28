@@ -7,7 +7,7 @@ export const fetchEmotes = () => async (dispatch) => {
 		const data = await response.json();
 		for(const emote of Object.values(data)){
 			result[emote.code] = {
-				provider: 'guac',
+				provider: 'Global',
 				url: `/static/emotes/global/${emote.id}.png`,
 			};
 		}
@@ -19,7 +19,7 @@ export const fetchEmotes = () => async (dispatch) => {
 		const data = await response.json();
 		for(const emote of Object.values(data)){
 			result[emote.code] = {
-				provider: 'twitch',
+				provider: 'Twitch',
 				url: `//static-cdn.jtvnw.net/emoticons/v1/${emote.id}/1.0`,
 			};
 		}
@@ -32,7 +32,7 @@ export const fetchEmotes = () => async (dispatch) => {
 
 		for(const emote of data.emotes){
 			result[emote.code] = {
-				provider: 'betterttv',
+				provider: 'BetterTTV',
 				url: `//cdn.betterttv.net/emote/${emote.id}/1x`,
 			};
 		}
@@ -46,7 +46,7 @@ export const fetchEmotes = () => async (dispatch) => {
 		for(const set of Object.values(data.sets)){
 			for(const emote of set.emoticons){
 				result[emote.name] = {
-					provider: 'frankerfacez',
+					provider: 'FrankerfaceZ',
 					url: `${emote.urls['1']}`,
 				};
 			}

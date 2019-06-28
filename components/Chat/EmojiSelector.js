@@ -29,7 +29,10 @@ function EmojiSelector(props){
 						data={twitterData}
 						include={[
 							'recent',
-							'custom',
+							'custom-Global',
+							'custom-Twitch',
+							'custom-BetterTTV',
+							'custom-FrankerfaceZ',
 							'people',
 							'nature',
 							'foods',

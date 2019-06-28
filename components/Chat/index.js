@@ -42,7 +42,6 @@ function ChatComponent(props){
 
 	let maxlines = 250;
 
-
 	let rta;
 	let textarea;
 
@@ -342,7 +341,8 @@ function ChatComponent(props){
 				imageUrl: emotes[name].url,
 				text: name,
 				short_names: [name],
-				keywords: [name]
+				keywords: [name],
+				customCategory: emotes[name].provider
 			})
 		));
 	}, [emotes]);
