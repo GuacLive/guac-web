@@ -134,6 +134,7 @@ video-js.vjs-ended .vjs-big-play-button {
 .video-js .vjs-button,
 .video-js .vjs-volume-level {
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    height: auto !important;
 }
 .video-js .vjs-control {
     outline: none;

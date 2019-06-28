@@ -28,7 +28,6 @@
     "caniuse-lite": "1.0.30000974"
   },
   "dependencies": {
-    "@dlive/videojs-resolution-switcher": "^0.6.0",
     "@flopflip/localstorage-adapter": "^1.1.1",
     "@flopflip/react-broadcast": "^8.3.1-next.22",
     "@flopflip/react-redux": "^8.2.1-next.22",
@@ -37,7 +36,6 @@
     "@fortawesome/free-solid-svg-icons": "^5.10.0-11",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@guaclive/react-giphy-select": "^1.0.5",
-    "@guaclive/videojs-resolution-switcher": "https://github.com/GuacLive/videojs-resolution-switcher.git",
     "@lingui/cli": "^2.8.3",
     "@lingui/loader": "^2.8.3",
     "@lingui/macro": "^2.8.3",
@@ -86,7 +84,8 @@
     "video.js": "^7.2.3",
     "videojs-flvjs": "^0.2.0",
     "videojs-overlay": "^2.1.4",
-    "videojs-persistvolume": "https://github.com/GuacLive/videojs-persistvolume"
+    "videojs-persistvolume": "https://github.com/GuacLive/videojs-persistvolume",
+    "videojs-resolution-switcher": "github:BaNru/videojs-resolution-switcher"
   },
   "devDependencies": {
     "babel-plugin-add-module-exports": "^1.0.0"

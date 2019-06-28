@@ -968,11 +968,6 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-9.0.1.tgz#c27b391d8457d1e893f1eddeaf5e5412d12ffbb5"
   integrity sha512-6It2EVfGskxZCQhuykrfnALg7oVeiI6KclWSmGDqB0AiInVrTGB9Jp9i4/Ad21u9Jde/voVQz6eFX/eSg/UsPA==
 
-"@dlive/videojs-resolution-switcher@^0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@dlive/videojs-resolution-switcher/-/videojs-resolution-switcher-0.6.0.tgz#03131acefafedea5bd4dd69112d51ceca91f0715"
-  integrity sha512-HCzvG4SPS+NxZK5a7xjxeqTcmrLHjOVpNMIC5Iq/oMdLeiXzfzzVloPAIWzfymPVbSnxOH72IX0xk+0Q7ETl2w==
-
 "@flopflip/localstorage-adapter@^1.1.1":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@flopflip/localstorage-adapter/-/localstorage-adapter-1.2.0.tgz#80027585985aac9751cf31d7fb70afd467dc2260"
@@ -1073,10 +1068,6 @@
     prop-types "^15.5.8"
     react-custom-scrollbars "^4.1.1"
     react-masonry-component "^6.2.1"
-
-"@guaclive/videojs-resolution-switcher@https://github.com/GuacLive/videojs-resolution-switcher.git":
-  version "0.6.0"
-  resolved "https://github.com/GuacLive/videojs-resolution-switcher.git#d12c194eb8ad243dd418cdb9f024805abfcdce9a"
 
 "@hapi/address@2.x.x":
   version "2.0.0"
@@ -11915,6 +11906,10 @@ videojs-overlay@^2.1.4:
 "videojs-persistvolume@https://github.com/GuacLive/videojs-persistvolume":
   version "0.0.0"
   resolved "https://github.com/GuacLive/videojs-persistvolume#2eb8cdade4711425e2fec0236b1959951673a73c"
+
+"videojs-resolution-switcher@github:BaNru/videojs-resolution-switcher":
+  version "0.4.2"
+  resolved "https://codeload.github.com/BaNru/videojs-resolution-switcher/tar.gz/398a047a0f516c2dcdbe741290d9836757a12929"
 
 videojs-swf@5.4.1:
   version "5.4.1"
