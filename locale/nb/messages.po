@@ -13,50 +13,90 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: pages/index.js:116
+#: pages/index.js:115
 msgid "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 msgstr "<0>Hei,<1/>Velkommen til guac.live — direktestrømming-platformen. Vi er for tiden i beta.</0><2>Mens vi er i beta, så vil strømmeprivilegier bli gitt på invitasjonsbasis.<3/>Men, lag gjerne en konto og delta i chatten og det generelle fellesskapet!</2>"
 
-#: pages/index.js:72
+#: pages/index.js:71
 msgid "<0>{0}</0> is live"
 msgstr "<0>{0}</0> sender direkte"
 
-#: components/LangSwitcher.js:6
+#: components/layout/PageLayout.js:67
+#: components/layout/PageLayout.js:67
+#: components/layout/PageLayout.js:68
+msgid "Channels"
+msgstr "Kanaler"
+
+#: components/layout/AccountMenu.js:15
+msgid "Dashboard"
+msgstr "Kontrollpanel"
+
+#: components/LangSwitcher.js:8
 msgid "English"
 msgstr "Engelsk"
 
-#: components/layout/PageLayout.js:105
+#: components/layout/PageLayout.js:117
 msgid "Followed Channels"
 msgstr "Fulgte kanaler"
 
-#: pages/index.js:130
+#: components/layout/PageLayout.js:73
+#: components/layout/PageLayout.js:73
+#: components/layout/PageLayout.js:74
+msgid "Games"
+msgstr "Spill"
+
+#: pages/index.js:129
 msgid "Join"
 msgstr "Bli med"
 
-#: components/layout/PageLayout.js:157
-msgid "Privacy"
-msgstr "Personvern"
+#: components/layout/PageLayout.js:92
+#: components/layout/PageLayout.js:92
+#: components/layout/PageLayout.js:93
+msgid "Log in"
+msgstr "Logg inn"
 
-#: components/layout/PageLayout.js:113
-msgid "Start following your favorite streamers to find them quickly!"
-msgstr "Begynn å følge dine favoritt-strømmere for å finne dem raskt!"
+#: components/layout/AccountMenu.js:16
+msgid "Log out"
+msgstr "Logg ut"
 
-#: components/LangSwitcher.js:7
+#: components/LangSwitcher.js:9
 msgid "Norwegian"
 msgstr "Norsk"
 
-#: components/LangSwitcher.js:38
+#: components/layout/PageLayout.js:169
+msgid "Privacy"
+msgstr "Personvern"
+
+#: components/layout/PageLayout.js:80
+msgid "Search..."
+msgstr "Søk..."
+
+#: components/layout/PageLayout.js:99
+#: components/layout/PageLayout.js:99
+#: components/layout/PageLayout.js:100
+msgid "Sign up"
+msgstr "Registrer"
+
+#: components/layout/PageLayout.js:125
+msgid "Start following your favorite streamers to find them quickly!"
+msgstr "Begynn å følge dine favoritt-strømmere for å finne dem raskt!"
+
+#: components/LangSwitcher.js:42
 msgid "Switch language"
 msgstr "Bytt språk"
 
-#: components/layout/PageLayout.js:154
+#: components/layout/PageLayout.js:166
 msgid "Terms"
 msgstr "Vilkår"
 
-#: pages/index.js:114
+#: utils/withAuth.js:32
+msgid "This page requires you to be logged in."
+msgstr "Denne siden krever at du er logget inn."
+
+#: pages/index.js:113
 msgid "Welcome to guac.live"
 msgstr "Velkommen til guac.live"
 
-#: pages/index.js:87
+#: pages/index.js:86
 msgid "no streams are online"
 msgstr "ingen aktive direktesendinger"

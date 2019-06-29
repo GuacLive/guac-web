@@ -16,7 +16,8 @@
     "localeDir": "./locale",
     "srcPathDirs": [
       "./pages/",
-      "./components/"
+      "./components/",
+      "./utils"
     ],
     "format": "po"
   },

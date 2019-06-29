@@ -13,50 +13,94 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: pages/index.js:116
+#: pages/index.js:115
 msgid "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 msgstr "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 
-#: pages/index.js:72
+#: pages/index.js:71
 msgid "<0>{0}</0> is live"
 msgstr "<0>{0}</0> is live"
 
-#: components/LangSwitcher.js:6
+#: components/layout/PageLayout.js:67
+#: components/layout/PageLayout.js:67
+#: components/layout/PageLayout.js:68
+msgid "Channels"
+msgstr "Channels"
+
+#: components/layout/AccountMenu.js:15
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: components/LangSwitcher.js:8
 msgid "English"
 msgstr "English"
 
-#: components/layout/PageLayout.js:105
+#: components/layout/PageLayout.js:117
 msgid "Followed Channels"
 msgstr "Followed Channels"
 
-#: pages/index.js:130
+#: components/layout/PageLayout.js:73
+#: components/layout/PageLayout.js:73
+#: components/layout/PageLayout.js:74
+msgid "Games"
+msgstr "Games"
+
+#: pages/index.js:129
 msgid "Join"
 msgstr "Join"
 
-#: components/layout/PageLayout.js:157
+#: components/layout/PageLayout.js:92
+#: components/layout/PageLayout.js:92
+#: components/layout/PageLayout.js:93
+msgid "Log in"
+msgstr "Log in"
+
+#: components/layout/AccountMenu.js:16
+msgid "Log out"
+msgstr "Log out"
+
+#: components/LangSwitcher.js:9
+msgid "Norwegian"
+msgstr "Norwegian"
+
+#: components/layout/PageLayout.js:169
 msgid "Privacy"
 msgstr "Privacy"
 
-#: components/layout/PageLayout.js:113
+#: components/layout/PageLayout.js:80
+msgid "Search..."
+msgstr "Search..."
+
+#: components/layout/PageLayout.js:99
+#: components/layout/PageLayout.js:99
+#: components/layout/PageLayout.js:100
+msgid "Sign up"
+msgstr "Sign up"
+
+#: components/layout/PageLayout.js:125
 msgid "Start following your favorite streamers to find them quickly!"
 msgstr "Start following your favorite streamers to find them quickly!"
 
 #: components/LangSwitcher.js:7
-msgid "Swedish"
-msgstr "Swedish"
+#~ msgid "Swedish"
+#~ msgstr "Swedish"
 
-#: components/LangSwitcher.js:38
+#: components/LangSwitcher.js:42
 msgid "Switch language"
 msgstr "Switch language"
 
-#: components/layout/PageLayout.js:154
+#: components/layout/PageLayout.js:166
 msgid "Terms"
 msgstr "Terms"
 
-#: pages/index.js:114
+#: utils/withAuth.js:32
+msgid "This page requires you to be logged in."
+msgstr "This page requires you to be logged in."
+
+#: pages/index.js:113
 msgid "Welcome to guac.live"
 msgstr "Welcome to guac.live"
 
-#: pages/index.js:87
+#: pages/index.js:86
 msgid "no streams are online"
 msgstr "no streams are online"
