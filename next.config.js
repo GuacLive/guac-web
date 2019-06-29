@@ -56,6 +56,6 @@ module.exports = withCSS({
 		}
 	},
 	experimental: {
-		autoExport: true
+		terserLoader: true
 	}
 })

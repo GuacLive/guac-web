@@ -3741,7 +3741,7 @@ cssnano-util-same-parent@^4.0.0:
   resolved "https://registry.yarnpkg.com/cssnano-util-same-parent/-/cssnano-util-same-parent-4.0.1.tgz#574082fb2859d2db433855835d9a8456ea18bbf3"
   integrity sha512-WcKx5OY+KoSIAxBW6UBBRay1U6vkYheCdjyVNDm85zt5K9mHoGOfsOsqIszfAqrQQFIIKgjh2+FDgIj/zsl21Q==
 
-cssnano@^4.1.0:
+cssnano@^4.1.0, cssnano@^4.1.10:
   version "4.1.10"
   resolved "https://registry.yarnpkg.com/cssnano/-/cssnano-4.1.10.tgz#0ac41f0b13d13d465487e111b778d42da631b8b2"
   integrity sha512-5wny+F6H4/8RgNlaqab4ktc3e0/blKutmq8yNlBFXA//nSFFAqAngjNVRzUvCgYROULmZZUoosL/KSoZo5aUaQ==
@@ -7710,10 +7710,10 @@ next-redux-wrapper@^3.0.0-alpha.3:
   resolved "https://registry.yarnpkg.com/next-redux-wrapper/-/next-redux-wrapper-3.0.0-alpha.3.tgz#3db44012e2e36e12977816cc8726a9e2d24a9c40"
   integrity sha512-qFYQbba8u3kb71FYxOyyAg0cQ5fe9GAJVy52wuXPDEU6irGz7jOrj/8JYhFa9WJh5sSpEdnFK6vFyvihLltemw==
 
-next-server@8.1.1-canary.61:
-  version "8.1.1-canary.61"
-  resolved "https://registry.yarnpkg.com/next-server/-/next-server-8.1.1-canary.61.tgz#ac1de869de53f68a54d92e4dc5ba2a84721dd8e3"
-  integrity sha512-oGVfM8ohBybE73X6+7uYHtEyVG/xKsqsIQxhoR6uGKFCxn9fUSCHmaLjQV3jHb4l4I+lJT3t0DpBsFYrP6Jayg==
+next-server@8.1.1-canary.63:
+  version "8.1.1-canary.63"
+  resolved "https://registry.yarnpkg.com/next-server/-/next-server-8.1.1-canary.63.tgz#5cf255247c80679fb2fd62391ad31693681d5b51"
+  integrity sha512-4/eylkUKl6OH/LueBRipgaaBqgmiulWISg7a/znmWEtRJLsSKG/P2U4AOSaKwDf+Ze37vyXuEwVbKhzau1OhEA==
   dependencies:
     amp-toolbox-optimizer "1.2.0-alpha.1"
     content-type "1.0.4"
@@ -7729,9 +7729,9 @@ next-server@8.1.1-canary.61:
     url "0.11.0"
 
 next@^8.1.1-canary.58:
-  version "8.1.1-canary.61"
-  resolved "https://registry.yarnpkg.com/next/-/next-8.1.1-canary.61.tgz#12a182a798901d56b91bfcf813b944404b7af966"
-  integrity sha512-ONNLUMMouUtYJkJCK1H1BILcVm2EaYEaGBNa0OKnmA2NDwQay7sDzLOIWLrEnPby9odhGiQLw1nwLW7nxPvl8g==
+  version "8.1.1-canary.63"
+  resolved "https://registry.yarnpkg.com/next/-/next-8.1.1-canary.63.tgz#3729f848918d0229be4c75a5cc7c8a487cfe8fa2"
+  integrity sha512-DxeNMry9gBQYAmASHDpDrrm6a8bIwj2CgyNOYfA4fUu0gs8ysCFugS7aalZss27Zw3FhkBmaExXr27XuT/Vtow==
   dependencies:
     "@babel/core" "7.4.5"
     "@babel/plugin-proposal-class-properties" "7.4.4"
@@ -7759,7 +7759,7 @@ next@^8.1.1-canary.58:
     launch-editor "2.2.1"
     loader-utils "1.2.3"
     mkdirp "0.5.1"
-    next-server "8.1.1-canary.61"
+    next-server "8.1.1-canary.63"
     prop-types "15.7.2"
     prop-types-exact "1.2.0"
     react-error-overlay "5.1.6"
@@ -7942,9 +7942,9 @@ npm-bundled@^1.0.1:
   integrity sha512-8/JCaftHwbd//k6y2rEWp6k1wxVfpFzB6t1p825+cUb7Ym2XQfhwIC5KwhrvzZRJu+LtDE585zVaS32+CGtf0g==
 
 npm-packlist@^1.1.6:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/npm-packlist/-/npm-packlist-1.4.2.tgz#a9d63153d4fb0547e6d4342e4102ba6c3bd2b2c7"
-  integrity sha512-pyJclkNoBBckB6K/XPcMp8fP60MaqSZBPQVsNY7Yyc9VP1TUnPMYwck5YaBejf0L7xYr8f4l16+IENeZ0by+yw==
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/npm-packlist/-/npm-packlist-1.4.3.tgz#44baf075a36ec9217b307eb77a3f4eb3db0ec1ff"
+  integrity sha512-YABl09v5EoSw3uea9/gUfmqPUSbhhv7Qht8f7VKQWzTEEeUr5q+9w3jOvjIZ31v8qmR4UrkwpPvIk43MDevvsg==
   dependencies:
     ignore-walk "^3.0.1"
     npm-bundled "^1.0.1"
@@ -8147,12 +8147,20 @@ optimist@^0.6.1:
     minimist "~0.0.1"
     wordwrap "~0.0.2"
 
-optimize-css-assets-webpack-plugin@5.0.1, optimize-css-assets-webpack-plugin@^5.0.1:
+optimize-css-assets-webpack-plugin@5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/optimize-css-assets-webpack-plugin/-/optimize-css-assets-webpack-plugin-5.0.1.tgz#9eb500711d35165b45e7fd60ba2df40cb3eb9159"
   integrity sha512-Rqm6sSjWtx9FchdP0uzTQDc7GXDKnwVEGoSxjezPkzMewx7gEWE9IMUYKmigTRC4U3RaNSwYVnUDLuIdtTpm0A==
   dependencies:
     cssnano "^4.1.0"
+    last-call-webpack-plugin "^3.0.0"
+
+optimize-css-assets-webpack-plugin@^5.0.1:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/optimize-css-assets-webpack-plugin/-/optimize-css-assets-webpack-plugin-5.0.3.tgz#e2f1d4d94ad8c0af8967ebd7cf138dcb1ef14572"
+  integrity sha512-q9fbvCRS6EYtUKKSwI87qm2IxlyJK5b4dygW1rKUBT6mMDhdG5e5bZT63v6tnJR9F9FB/H5a0HTmtw+laUBxKA==
+  dependencies:
+    cssnano "^4.1.10"
     last-call-webpack-plugin "^3.0.0"
 
 optionator@^0.8.1, optionator@^0.8.2:
