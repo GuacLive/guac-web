@@ -12,6 +12,7 @@ import '../../css/style.css';
 
 import * as actions from '../../actions';
 
+import { withI18n } from '@lingui/react';
 import { Trans, t } from '@lingui/macro';
 import LangSwitcher from '../LangSwitcher';
 
@@ -40,7 +41,7 @@ class PageLayout extends Component {
 	}
 	
 	render(){
-		let { children, isAuthenticated, user, followed } = this.props;
+		let { children, isAuthenticated, user, followed, i18n } = this.props;
 		let title = this.props.title ? this.props.title : '';
 		return (
 			<Fragment>
@@ -64,20 +65,20 @@ class PageLayout extends Component {
 								<div className="items-stretch flex flex-nowrap flex-shrink-0">
 									<Link href="/channels">
 										<a className="flex pa3 center nowrap items-center b link white hover-light-green">
-											<span className="dn db-l" title={t`Channels`}><Trans>Channels</Trans></span>
-											<span className="dn-l" title={t`Channels`}><FontAwesomeIcon icon="search" /></span>
+											<span className="dn db-l" title={i18n._(t`Channels`)}><Trans>Channels</Trans></span>
+											<span className="dn-l" title={i18n._(t`Channels`)}><FontAwesomeIcon icon="search" /></span>
 										</a>
 									</Link>
 									<Link href="/games">
 										<a className="flex pa3 center nowrap items-center b link white hover-light-green">
-											<span className="dn db-l" title={t`Games`}><Trans>Games</Trans></span>
-											<span className="dn-l" title={t`Games`}><FontAwesomeIcon icon="gamepad" /></span>
+											<span className="dn db-l" title={i18n._(t`Games`)}><Trans>Games</Trans></span>
+											<span className="dn-l" title={i18n._(t`Games`)}><FontAwesomeIcon icon="gamepad" /></span>
 										</a>
 									</Link>
 								</div>
 								<div className="w-100 self-center dn db-l flex-grow-1">
 									<form className="mw6 relative ml3">
-										<input type="text" className="input-reset bn pa3 w-100 bg-white br2" placeholder={t`Search...`} />
+										<input type="text" className="input-reset bn pa3 w-100 bg-white br2" placeholder={i18n._(t`Search...`)} />
 									</form>
 								</div>
 							</nav>
@@ -89,15 +90,15 @@ class PageLayout extends Component {
 										{
 											!isAuthenticated && 
 											<GuacButton url="/auth/login">
-												<span className="dn db-l" title={t`Log in`}><Trans>Log in</Trans></span>
-												<span className="dn-l" title={t`Log in`}><FontAwesomeIcon icon="sign-in-alt" /></span>
+												<span className="dn db-l" title={i18n._(t`Log in`)}><Trans>Log in</Trans></span>
+												<span className="dn-l" title={i18n._(t`Log in`)}><FontAwesomeIcon icon="sign-in-alt" /></span>
 											</GuacButton>
 										}
 										{
 											!isAuthenticated && 
 											<GuacButton url="/auth/signup" color="green">
-												<span className="dn db-l" title={t`Sign up`}><Trans>Sign up</Trans></span>
-												<span className="dn-l" title={t`Sign up`}><FontAwesomeIcon icon="user-plus" /></span>
+												<span className="dn db-l" title={i18n._(t`Sign up`)}><Trans>Sign up</Trans></span>
+												<span className="dn-l" title={i18n._(t`Sign up`)}><FontAwesomeIcon icon="user-plus" /></span>
 											</GuacButton>
 										}
 										{
@@ -194,4 +195,4 @@ const mapStateToProps = (state) => (
 	}
 );
 
-export default connect(mapStateToProps, actions)(PageLayout);
+export default withI18n()(connect(mapStateToProps, actions)(PageLayout));
