@@ -92,10 +92,12 @@ export default withRedux(configureStore)(class MyApp extends App {
 		const state = this.props.store.getState();
 		// Initialize firebase messaging for current user
 		if(typeof window !== 'undefined'){
-			initializeFirebase()
-			.then(() => {
-				initializePush(state.authentication.token);
-			});
+			let f = initializeFirebase();
+			if(f){
+				f.then(() => {
+					initializePush(state.authentication.token);
+				});
+			}
 		}
 	}
 
