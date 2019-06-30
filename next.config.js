@@ -1,5 +1,6 @@
 const withCSS = require('@zeit/next-css')
-const {parsed: localEnv} = require("dotenv").config();
+const path = require('path');
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 module.exports = withCSS({
 	webpack(config) {
 		config.module.rules.push({
