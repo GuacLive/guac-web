@@ -5,6 +5,11 @@ import withAuth from '../utils/withAuth';
 import * as actions from '../actions';
 
 class DashboardPage extends Component {
+	constructor(props){
+		super(props);
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+
 	static async getInitialProps({store, isServer, pathname, query, req}){
 		const { streaming, authentication } = store.getState()
 		if(streaming.loading){
@@ -13,6 +18,16 @@ class DashboardPage extends Component {
     }
 
 	componentDidMount(){
+	}
+
+
+	handleSubmit(e){
+		e.preventDefault();
+		// yay uncontrolled forms!
+		console.log(this.refs);
+		this.props.dispatch(
+			actions.setTitle(this.props.authentication.token, this.refs.title.value)
+		);
 	}
 
 	render(){
@@ -26,6 +41,11 @@ class DashboardPage extends Component {
 		return (
 			<>
 				<div className="w-100">
+					<h2 className="f2 tracked mt0 mb3">Set stream title</h2>
+					<form className="measure" onSubmit={this.handleSubmit}>
+						<input type="text" className="input-reset bn pa3 w-100 bg-white br2" ref="title" placeholder={streaming.title} />
+						<input type="submit" value="Edit title" className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" />
+					</form>
 					<h2 className="f2 tracked mt0 mb3">Get started with streaming</h2>
 					<ol>
 						<li>

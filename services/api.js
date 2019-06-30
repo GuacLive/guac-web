@@ -23,7 +23,7 @@ export function callApi(endpoint, options = {}) {
 	if (shouldCache) {
 		response = lscache.get(fullUrl);
 	}
-	opt.headers = Object.assign(opt.headers, defaultHeaders);
+	opt.headers = Object.assign(defaultHeaders, opt.headers);
 	if (response === null) {
 		response = fetch(fullUrl, opt)
 			.then((res) => {

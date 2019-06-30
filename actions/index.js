@@ -4,7 +4,7 @@ import { fetchChannel, resetChannel } from './channel';
 
 import { fetchFeatured, resetFeatured } from './featured';
 
-import { fetchStreaming, resetStreaming } from './streaming';
+import { setTitle, fetchStreaming, resetStreaming } from './streaming';
 
 import { fetchEmotes } from './emotes';
 
@@ -17,6 +17,7 @@ export {
 	resetChannel,
 	fetchFeatured,
 	resetFeatured,
+	setTitle,
 	fetchStreaming,
 	resetStreaming,
 	fetchEmotes,
