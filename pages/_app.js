@@ -21,6 +21,8 @@ import { getLangs } from '../utils/lang';
 
 import { I18nProvider } from "@lingui/react";
 
+import { initializeFirebase, initializePush } from '../utils/push-notification';
+
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 import { faBan, faCheck, faHourglass, faVideo, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad } from '@fortawesome/free-solid-svg-icons';
@@ -46,7 +48,7 @@ export default withRedux(configureStore)(class MyApp extends App {
 
 		// In dev we allow 'unsafe-eval', so HMR doesn't trigger the CSP
 		let devCsp = process.env.NODE_ENV !== 'production' ? "'unsafe-eval'" : '';
-		let csp = `default-src 'self' guac.live *.guac.live privacy.guac.live localhost:*; base-uri 'self'; script-src 'self' ${devCsp} 'nonce-${nonce}' 'strict-dynamic' 'unsafe-inline' 'unsafe-eval' www.google.com www.googletagmanager.com www.google-analytics.com www.gstatic.com *.googleapis.com guac.live *.guac.live privacy.guac.live localhost:* wss://chat.guac.live ajax.cloudflare.com; child-src www.google.com guac.live *.guac.live privacy.guac.live localhost:* wss://chat.guac.live blob:; style-src 'self' 'unsafe-inline' *.googleapis.com use.fontawesome.com pro.fontawesome.com guac.live *.guac.live privacy.guac.live localhost:* cdnjs.cloudflare.com; img-src 'self' data: guac.live *.guac.live privacy.guac.live chat.guac.live *.googleapis.com *.gstatic.com www.google-analytics.com *.giphy.com http: https:; media-src 'self' blob: guac.live *.guac.live privacy.guac.live localhost:* wss://chat.guac.live; connect-src 'self' guac.live *.guac.live privacy.guac.live localhost:* ws://chat.local.guac.live ws://chat.guac.live wss://guac.live wss://chat.guac.live ws://localhost:* wss://localhost:* ws://local.guac.live wss://local.guac.live ws://stream.local.guac.live wss://stream.local.guac.live ws://stream.guac.live wss://stream.guac.live ws://*.stream.guac.live wss://*.stream.guac.live www.google-analytics.com vendorlist.consensu.org api.betterttv.net api.frankerfacez.com twitchemotes.com *.giphy.com; font-src 'self' use.fontawesome.com pro.fontawesome.com guac.live *.guac.live *.gstatic.com data: cdnjs.cloudflare.com; object-src 'none';`;
+		let csp = `default-src 'self' guac.live *.guac.live privacy.guac.live localhost:*; base-uri 'self'; script-src 'self' ${devCsp} 'nonce-${nonce}' 'strict-dynamic' 'unsafe-inline' 'unsafe-eval' www.google.com www.googletagmanager.com www.google-analytics.com www.gstatic.com *.googleapis.com guac.live *.guac.live privacy.guac.live localhost:* wss://chat.guac.live ajax.cloudflare.com; child-src www.google.com guac.live *.guac.live privacy.guac.live localhost:* wss://chat.guac.live blob:; style-src 'self' 'unsafe-inline' *.googleapis.com use.fontawesome.com pro.fontawesome.com guac.live *.guac.live privacy.guac.live localhost:* cdnjs.cloudflare.com; img-src 'self' data: guac.live *.guac.live privacy.guac.live chat.guac.live *.googleapis.com *.gstatic.com www.google-analytics.com *.giphy.com http: https:; media-src 'self' blob: guac.live *.guac.live privacy.guac.live localhost:* wss://chat.guac.live; connect-src 'self' guac.live *.guac.live privacy.guac.live localhost:* ws://chat.local.guac.live ws://chat.guac.live wss://guac.live wss://chat.guac.live ws://localhost:* wss://localhost:* ws://local.guac.live wss://local.guac.live ws://stream.local.guac.live wss://stream.local.guac.live ws://stream.guac.live wss://stream.guac.live ws://*.stream.guac.live wss://*.stream.guac.live www.google-analytics.com vendorlist.consensu.org api.betterttv.net api.frankerfacez.com twitchemotes.com *.giphy.com fcm.googleapis.com; font-src 'self' use.fontawesome.com pro.fontawesome.com guac.live *.guac.live *.gstatic.com data: cdnjs.cloudflare.com; object-src 'none';`;
 		if(ctx && ctx.req) ctx.req.nonce = nonce;
 		if(ctx.res){
 			if(ctx.res.setHeader){
@@ -67,6 +69,7 @@ export default withRedux(configureStore)(class MyApp extends App {
 		// Fetch my followed
 		const { site, authentication } = ctx.store.getState()
 		if(site.loading && authentication.token){
+			// Fetch followed
 			await ctx.store.dispatch(actions.fetchMyFollowed(
 				authentication.token
 			));
@@ -85,6 +88,17 @@ export default withRedux(configureStore)(class MyApp extends App {
 		};
 	}
 
+	componentDidMount(){
+		const state = this.props.store.getState();
+		// Initialize firebase messaging for current user
+		if(typeof window !== 'undefined'){
+			initializeFirebase()
+			.then(() => {
+				initializePush(state.authentication.token);
+			});
+		}
+	}
+
 	render() {
 		const {Component, pageProps, store} = this.props;
 		const {locale, catalog} = pageProps;
@@ -100,5 +114,4 @@ export default withRedux(configureStore)(class MyApp extends App {
 			</Container>
 		);
 	}
-
 });
