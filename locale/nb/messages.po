@@ -18,12 +18,12 @@ msgid "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are curren
 msgstr "<0>Hei,<1/>Velkommen til guac.live — direktestrømming-platformen. Vi er for tiden i beta.</0><2>Mens vi er i beta, så vil strømmeprivilegier bli gitt på invitasjonsbasis.<3/>Men, lag gjerne en konto og delta i chatten og det generelle fellesskapet!</2>"
 
 #: pages/index.js:71
-msgid "<0>{0}</0> is live"
-msgstr "<0>{0}</0> sender direkte"
+#~ msgid "<0>{0}</0> is live"
+#~ msgstr "<0>{0}</0> sender direkte"
 
-#: components/layout/PageLayout.js:67
-#: components/layout/PageLayout.js:67
 #: components/layout/PageLayout.js:68
+#: components/layout/PageLayout.js:68
+#: components/layout/PageLayout.js:69
 msgid "Channels"
 msgstr "Kanaler"
 
@@ -35,13 +35,13 @@ msgstr "Kontrollpanel"
 msgid "English"
 msgstr "Engelsk"
 
-#: components/layout/PageLayout.js:117
+#: components/layout/PageLayout.js:118
 msgid "Followed Channels"
 msgstr "Fulgte kanaler"
 
-#: components/layout/PageLayout.js:73
-#: components/layout/PageLayout.js:73
 #: components/layout/PageLayout.js:74
+#: components/layout/PageLayout.js:74
+#: components/layout/PageLayout.js:75
 msgid "Games"
 msgstr "Spill"
 
@@ -49,9 +49,13 @@ msgstr "Spill"
 msgid "Join"
 msgstr "Bli med"
 
-#: components/layout/PageLayout.js:92
-#: components/layout/PageLayout.js:92
+#: pages/index.js:94
+msgid "Live streams"
+msgstr "Direktesendinger"
+
 #: components/layout/PageLayout.js:93
+#: components/layout/PageLayout.js:93
+#: components/layout/PageLayout.js:94
 msgid "Log in"
 msgstr "Logg inn"
 
@@ -63,21 +67,21 @@ msgstr "Logg ut"
 msgid "Norwegian"
 msgstr "Norsk"
 
-#: components/layout/PageLayout.js:169
+#: components/layout/PageLayout.js:170
 msgid "Privacy"
 msgstr "Personvern"
 
-#: components/layout/PageLayout.js:80
+#: components/layout/PageLayout.js:81
 msgid "Search..."
 msgstr "Søk..."
 
-#: components/layout/PageLayout.js:99
-#: components/layout/PageLayout.js:99
 #: components/layout/PageLayout.js:100
+#: components/layout/PageLayout.js:100
+#: components/layout/PageLayout.js:101
 msgid "Sign up"
 msgstr "Registrer"
 
-#: components/layout/PageLayout.js:125
+#: components/layout/PageLayout.js:126
 msgid "Start following your favorite streamers to find them quickly!"
 msgstr "Begynn å følge dine favoritt-strømmere for å finne dem raskt!"
 
@@ -85,7 +89,7 @@ msgstr "Begynn å følge dine favoritt-strømmere for å finne dem raskt!"
 msgid "Switch language"
 msgstr "Bytt språk"
 
-#: components/layout/PageLayout.js:166
+#: components/layout/PageLayout.js:167
 msgid "Terms"
 msgstr "Vilkår"
 
@@ -96,6 +100,10 @@ msgstr "Denne siden krever at du er logget inn."
 #: pages/index.js:113
 msgid "Welcome to guac.live"
 msgstr "Velkommen til guac.live"
+
+#: pages/index.js:71
+msgid "is live"
+msgstr "sender direkte"
 
 #: pages/index.js:86
 msgid "no streams are online"

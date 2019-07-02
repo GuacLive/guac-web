@@ -68,7 +68,7 @@ class IndexPage extends Component {
     		<div key={stream.user.id} style={{'height': '960px', 'width': '600px'}}>
     			<Link href={"/c?name=" + stream.user.name} as={"/c/" + stream.user.name}>
     				<a className="link f4 b ma0">
-						<Trans><span className="i tracked b">{stream.name}</span> is live</Trans>
+						<span className="i tracked b">{stream.name}</span> <Trans>is live</Trans>
 					</a>
     			</Link>
 				<VideoPlayer { ...videoJsOptions } live={stream.live}></VideoPlayer>
@@ -91,7 +91,7 @@ class IndexPage extends Component {
 		return (
 			<Fragment>
 				<div className="site-component-spotlight w-100 mw9-l bg-light-green black">
-					<h3 className="f4 b ma0 ttu tracked">Live streams</h3>
+					<h3 className="f4 b ma0 ttu tracked"><Trans>Live streams</Trans></h3>
 					<Slider
 						autoplay={false}
 						dots={true}
