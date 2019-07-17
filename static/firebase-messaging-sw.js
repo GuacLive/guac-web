@@ -1,5 +1,5 @@
-importScripts('https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js');
-importScripts('https://www.gstatic.com/firebasejs/6.1.0/firebase-messaging.js');
+importScripts('https://www.gstatic.com/firebasejs/6.3.0/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/6.3.0/firebase-messaging.js');
 
 // Initialize the Firebase app in the service worker by passing in the
 // messagingSenderId.
@@ -26,25 +26,32 @@ messaging.setBackgroundMessageHandler(payload => {
 
 	// eslint-disable-next-line no-console
     console.log(
-        '%c guac.live %c Firebase notification ',
+        '%c guac.live %c Firebase notification received',
         'background: #0FABE9; color: #e8e8e8; border-radius: 3px 0 0 3px;',
         'background: #105777; color: #e8e8e8; border-radius: 0 3px 3px 0;',
         payload
     );
 
-    // Customize notification here
-    const title = payload.data.title;
-    const options = {
-        body: payload.data.body,
-        icon: payload.data.icon
+    let title = payload.notification.title;
+    let options = {
+        body: payload.notification.body,
+        icon: payload.data.icon,
+        data: payload,
     };
 
+    // Customize notification here
     notification = self.registration.showNotification(title, options);
     return notification;
 });
 
 self.addEventListener('notificationclick', function(event) {
-    console.dir(event);
+    console.log(
+        '%c guac.live %c Firebase notification clicked',
+        'background: #0FABE9; color: #e8e8e8; border-radius: 3px 0 0 3px;',
+        'background: #105777; color: #e8e8e8; border-radius: 0 3px 3px 0;',
+        payload
+    );
+
     event.waitUntil(
         clients.matchAll({
             type: 'window'

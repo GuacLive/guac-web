@@ -9,7 +9,7 @@ export const initializeFirebase = (callback) => {
 	});
 	if(navigator.serviceWorker){
 		return navigator.serviceWorker
-		.register('/firebase-messaging-sw.js')
+		.register('/static/firebase-messaging-sw.js')
 		.then((registration) => {
 			firebase.messaging().useServiceWorker(registration);
 		})
@@ -36,7 +36,11 @@ const sendTokenToServer = (fcmToken, jwtToken) => {
 			if(json.statusCode == 200){
 				log('info', 'Firebase', 'FCM Token registered on server');
 			}else{
-				log('info', 'Firebase', 'Error registering FCM token');
+				if(json.statusMessage === 'FCM token already exists'){
+					log('info', 'Firebase', 'FCM token already exists, setting it in localStorage.');
+					return localStorage.setItem('fcmToken', fcmToken);
+				}
+				log('info', 'Firebase', 'Error registering FCM token', json.statusMessage);
 			}
 		})
 		.catch(error => {
@@ -55,11 +59,12 @@ export const initializePush = (jwtToken) => {
 			return messaging.getToken();
 		})
 		.then(fcmToken => {
-			// Token already exists
+			// Token already sent
 			if(
 				typeof localStorage !== 'undefined'
 				&& localStorage.getItem
 				&& localStorage.getItem('fcmToken')
+				&& localStorage.getItem('fcmToken') === fcmToken
 			){
 				log('success', 'Firebase', 'Token already sent to server, no need to resend');
 				return;
