@@ -104,11 +104,11 @@ function VideoPlayer(props) {
 	// so videojs won't create additional wrapper in the DOM
 	// see https://github.com/videojs/video.js/pull/3856
 	return (
-		<div>	
-			<div data-vjs-player>
-				<video ref={ node => videoNode = node } className="video-js vjs-default-skin vjs-big-play-centered vjs-16-9" poster={!props.live ? "/static/img/offline-poster.png" : ""} controls playsInline preload="auto"></video>
+		<>	
+			<div className="player" data-vjs-player>
+				<video ref={ node => videoNode = node } className="player-video video-js vjs-default-skin vjs-big-play-centered vjs-16-9" poster={!props.live ? "/static/img/offline-poster.png" : ""} controls playsInline preload="auto"></video>
 			</div>
-		</div>
+		</>
 	);
 }
 
