@@ -141,9 +141,11 @@ class PageLayout extends Component {
 									.map((u) => {
 										return (
 											<div key={'followed-'+u.username} className="site-component-fUser items-center flex relative ph4 pv2 white">
-												<div className="inline-flex v-mid mr2 w2 h2">
-													<img alt={u.name} className={`dim ba ${+u.live ? 'b--red' : 'b--transparent'} inline-flex br-100 w-100 h-100`} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII" />
-												</div>
+												<Link href={`/c/${u.username}`}>
+													<a className="inline-flex v-mid mr2 w2 h2">
+														<img alt={u.username} className={`dim ba ${+u.live ? 'b--red' : 'b--transparent'} inline-flex br-100 w-100 h-100`} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII" />
+													</a>
+												</Link>
 												<div className="overflow-hidden dn db-l">
 													<div className="site-component-fUser__name inline-flex items-center v-bottom">
 														<a className="link white" href={'/c/' + u.username}>
