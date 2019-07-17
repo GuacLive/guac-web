@@ -4,10 +4,30 @@ const initialState = {
 	statusCode: 0,
 	key: null,
 	title: null,
+	category: null
 };
 
 export default function(state = initialState, action) {
 	switch (action.type) {
+		case 'SET_CATEGORY_REQUEST':
+			return Object.assign({}, state, {
+			});
+		break;
+		case 'SET_CATEGORY_FAILURE':
+			return Object.assign({}, state, {
+				loading: false,
+				error: action.error
+			});
+		break;
+		case 'SET_CATEGORY_SUCCESS':
+			return {
+				...state,
+				statusCode: action.statusCode,
+				category: action.category,
+				loading: false,
+				error: false
+			};
+		break;
 		case 'SET_TITLE_REQUEST':
 			return Object.assign({}, state, {
 			});
@@ -44,6 +64,7 @@ export default function(state = initialState, action) {
 				statusCode: action.statusCode,
 				key: action.key,
 				title: action.title,
+				category: action.category,
 				loading: false,
 				error: false
 			};
