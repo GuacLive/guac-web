@@ -95,7 +95,9 @@ export default withRedux(configureStore)(class MyApp extends App {
 			let f = initializeFirebase();
 			if(f){
 				f.then(() => {
-					initializePush(state.authentication.token);
+					if(state.authentication && state.authentication.token){
+						initializePush(state.authentication.token);
+					}
 				});
 			}
 		}
