@@ -2,7 +2,7 @@ const withCSS = require('@zeit/next-css')
 const path = require('path');
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 module.exports = withCSS({
-	webpack(config) {
+	webpack(config, { isServer }) {
 		config.module.rules.push({
 			test: /\.(png|svg|eot|otf|ttf|woff|woff2)$/,
 			use: {
@@ -24,6 +24,12 @@ module.exports = withCSS({
 				}
 			]
 		});
+
+		if (!isServer) {
+			config.node = {
+				fs: 'empty'
+			}
+		}
 
 		return config;
 	},
@@ -57,6 +63,7 @@ module.exports = withCSS({
 		}
 	},
 	experimental: {
-		terserLoader: true
+		terserLoader: true,
+		modern: true
 	}
 })

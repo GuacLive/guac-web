@@ -52,7 +52,7 @@
     "firebase": "^6.2.4",
     "flv.js": "^1.5.0",
     "js-cookie": "^2.2.0",
-    "linkify-urls": "^3.1.0",
+    "linkify-urls": "2.2.0",
     "lscache": "^1.2.0",
     "next": "^9.0.3-canary.2",
     "next-redux-wrapper": "^3.0.0-alpha.3",
