@@ -20,26 +20,26 @@ export const fetchEmotes = () => async (dispatch) => {
 		for(const emote of Object.values(data)){
 			result[emote.code] = {
 				provider: 'Twitch',
-				url: `//static-cdn.jtvnw.net/emoticons/v1/${emote.id}/1.0`,
+				url: `//static-cdn.jtvnw.net/emoticons/v1/${emote.id}/3.0`,
 			};
 		}
 	})
 	.catch(() => {});
 
-	await fetch('//api.betterttv.net/2/emotes')
+	await fetch('//api.betterttv.net/3/cached/emotes/global')
 	.then(async response => {
 		const data = await response.json();
 
-		for(const emote of data.emotes){
+		for(const emote of data){
 			result[emote.code] = {
 				provider: 'BetterTTV',
-				url: `//cdn.betterttv.net/emote/${emote.id}/1x`,
+				url: `//cdn.betterttv.net/emote/${emote.id}/3x`,
 			};
 		}
 	})
 	.catch(() => {});
 
-	await fetch('https://api.frankerfacez.com/v1/set/global')
+	await fetch('https://api-test.frankerfacez.com/v1/set/global')
 	.then(async response => {
 		const data = await response.json();
 
