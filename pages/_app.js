@@ -2,7 +2,7 @@
 import React from 'react';
 
 import {Provider} from 'react-redux';
-import App, {Container} from 'next/app';
+import App from 'next/app';
 import withRedux from 'next-redux-wrapper';
 
 import configureStore from '../store/configureStore';
@@ -29,7 +29,8 @@ import { faBan, faCheck, faHourglass, faVideo, faSmileWink, faUser, faUserPlus, 
 
 library.add(faBan, faCheck, faHourglass, faVideo, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad);
 export default withRedux(configureStore)(class MyApp extends App {
-	static async getInitialProps({Component, ctx}) {
+	static async getInitialProps(appContext) {
+		const { ctx } = appContext;
 		const uuidv4 = require('uuid/v4');
 		const nonce = uuidv4();
 
@@ -77,8 +78,8 @@ export default withRedux(configureStore)(class MyApp extends App {
 		// Return some pageProps
 		return {
 			pageProps: {
-				// Call page-level getInitialProps
-				...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {}),
+				// Call App getInitialProps
+				...(App.getInitialProps ? await App.getInitialProps(appContext) : {}),
 				// Some custom thing for all pages
 				pathname: ctx.pathname,
 				mode,
@@ -107,7 +108,7 @@ export default withRedux(configureStore)(class MyApp extends App {
 		const {Component, pageProps, store} = this.props;
 		const {locale, catalog} = pageProps;
 		return (
-			<Container>
+			<>
 				<Provider store={store}>
         			<I18nProvider language={locale} catalogs={{ [locale]: catalog }}>
 						<PageLayout>
@@ -115,7 +116,7 @@ export default withRedux(configureStore)(class MyApp extends App {
 						</PageLayout>
 					</I18nProvider>
 				</Provider>
-			</Container>
+			</>
 		);
 	}
 });
