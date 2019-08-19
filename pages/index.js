@@ -2,9 +2,9 @@ import React, {Component, Fragment} from 'react';
 
 import { ToggleFeature } from '@flopflip/react-redux';
 
-import GuacButton from '../components/GuacButton'
+import dynamic from 'next/dynamic'
 
-import VideoPlayer from '../components/VideoPlayer'
+import GuacButton from '../components/GuacButton'
 
 import {connect} from 'react-redux';
 
@@ -17,6 +17,14 @@ import Link from 'next/link';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 
+let VideoPlayer = dynamic(
+	() => import('../../components/VideoPlayer'),
+	{
+		ssr: false,
+		loading: () => <div className="w-100 h-100 bg-black white content-box" style={{'paddingTop': '56.25%'}} />
+	}
+);
+
 const STREAMING_SERVER = 'eu';
 class IndexPage extends Component {
 	static async getInitialProps({store}){
@@ -26,6 +34,7 @@ class IndexPage extends Component {
 		if(featured.loading){
 			await store.dispatch(actions.fetchFeatured());
 		}
+		return {};
     }
 
     renderStream = stream => {
@@ -66,7 +75,7 @@ class IndexPage extends Component {
 
     	return (
     		<div key={stream.user.id} style={{'height': '960px', 'width': '600px'}}>
-    			<Link href={"/c?name=" + stream.user.name} as={"/c/" + stream.user.name}>
+    			<Link href="/c/[name]" as={`/c/${stream.user.name}`}>
     				<a className="link f4 b ma0">
 						<span className="i tracked b">{stream.name}</span> <Trans>is live</Trans>
 					</a>
@@ -88,6 +97,8 @@ class IndexPage extends Component {
     }
 
 	render() {
+		const { featured } = this.props;
+		if(featured.loading) return null;
 		return (
 			<Fragment>
 				<div className="site-component-spotlight w-100 mw9-l bg-light-green black">

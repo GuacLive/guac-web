@@ -4,28 +4,37 @@ import Link from 'next/link'
 
 import NextHead from 'next/head'
 
-import Chat from '../components/Chat'
+import dynamic from 'next/dynamic'
 
-import GuacButton from '../components/GuacButton'
+import Chat from '../../components/Chat'
 
-import VideoPlayer from '../components/VideoPlayer'
+import GuacButton from '../../components/GuacButton'
+
+let VideoPlayer = dynamic(
+	() => import('../../components/VideoPlayer'),
+	{
+		ssr: false,
+		loading: () => <div className="w-100 h-100 bg-black white content-box" style={{'paddingTop': '56.25%'}} />
+	}
+);
 
 import {connect} from 'react-redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import * as actions from '../actions';
+import * as actions from '../../actions';
 
-import log from '../utils/log';
+import log from '../../utils/log';
 
 const STREAMING_SERVER = 'eu';
 class ChannelPage extends Component {
 	static async getInitialProps({store, isServer, pathname, query, req}){
-		const { channel } = store.getState()
+		const { channel, site } = store.getState()
 		log('info', 'Channel', query.name);
 		if(channel.loading){
 			await store.dispatch(actions.fetchChannel(query.name));
 		}
+		return {};
     }
 
     renderStream = stream => {
@@ -79,16 +88,19 @@ class ChannelPage extends Component {
 					{stream.user.name}
 					{stream.live ? <span className="ph2 bg-red f6 tc inline-flex white mh3">LIVE</span> : ''}
 					</h2>
+					<div className="inline-flex align-items-center ph2 red f6">
 					{stream.live && this.props.channel.viewers !== null
-						? <div className="inline-flex align-items-center ph2 red f6">
+						?
+							<>
 							<span className="">
 								<FontAwesomeIcon icon='user' />
 							</span>
 							&nbsp;
 							{this.props.channel.viewers}
-						</div>
+							</>
 						: ''
 					}
+					</div>
 
 					{stream.isFollowed && <GuacButton color="white">Unfollow</GuacButton>}
 					{!stream.isFollowed && <GuacButton color="white">Follow</GuacButton>}

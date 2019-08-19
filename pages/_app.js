@@ -75,17 +75,16 @@ export default withRedux(configureStore)(class MyApp extends App {
 				authentication.token
 			));
 		}
+	
 		// Return some pageProps
 		return {
-			pageProps: {
-				// Call App getInitialProps
-				...(App.getInitialProps ? await App.getInitialProps(appContext) : {}),
-				// Some custom thing for all pages
-				pathname: ctx.pathname,
-				mode,
-				locale,
-				catalog
-			}
+			// Call App getInitialProps
+			...(App.getInitialProps ? await App.getInitialProps(appContext) : {}),
+			// Some custom thing for all pages
+			pathname: ctx.pathname,
+			mode,
+			locale,
+			catalog
 		};
 	}
 
