@@ -89,14 +89,14 @@ class ChannelPage extends Component {
 					{stream.live ? <span className="ph2 bg-red f6 tc inline-flex white mh3">LIVE</span> : ''}
 					</h2>
 					<div className="inline-flex align-items-center ph2 red f6">
-					{stream.live && this.props.channel.viewers !== null
+					{stream.live
 						?
 							<>
 							<span className="">
 								<FontAwesomeIcon icon='user' />
 							</span>
 							&nbsp;
-							{this.props.channel.viewers}
+							{this.props.channel.viewers !== null ? this.props.channel.viewers : '?'}
 							</>
 						: ''
 					}

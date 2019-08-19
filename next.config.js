@@ -63,7 +63,7 @@ module.exports = withCSS({
 		}
 	},
 	experimental: {
-		terserLoader: true,
+		//terserLoader: true,
 		modern: true
 	}
 })
