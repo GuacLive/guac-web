@@ -102,8 +102,8 @@ class ChannelPage extends Component {
 					}
 					</div>
 
-					{stream.isFollowed && <GuacButton color="white">Unfollow</GuacButton>}
-					{!stream.isFollowed && <GuacButton color="white">Follow</GuacButton>}
+					{stream.isFollowed && !stream.isMe && <GuacButton color="white">Unfollow</GuacButton>}
+					{!stream.isFollowed && && !stream.isMe && <GuacButton color="white">Follow</GuacButton>}
 					<GuacButton color="green">Subscribe</GuacButton>
 					<div>
 						<span className="b f4">{stream.title}
@@ -119,7 +119,8 @@ class ChannelPage extends Component {
 	render() {
 		const {
 			channel,
-			site
+			site,
+			authentication
 		} = this.props;
 		if(channel.loading) return (<p>Loading...</p>);
 		//if(channel.error) throw channel.error;
@@ -129,8 +130,10 @@ class ChannelPage extends Component {
 			return u && u.to_id === channel.data.user.id;
 		});
 
-		let isFollowed = followed && followed.to_id === channel.data.user.id;
+		let isFollowed = followed && followed.to_id === channel.data.user.id
+		let isMe = authentication.user.id && channel.data.user.id === authentication.user.id;
 		channel.data.isFollowed = isFollowed;
+		channel.data.isMe = isMe;
 
 		return (
 			<Fragment>
