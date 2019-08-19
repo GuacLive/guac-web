@@ -76,6 +76,41 @@ export const setTitle = (token, title = '') => async (dispatch) => {
 	});
 };
 
+export const setPrivate = (token, private = false) => async (dispatch) => {
+	dispatch({
+		type: 'SET_PRIVATE_REQUEST'
+	});
+	return callApi('/channel/setPrivate', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		accessToken: token,
+		body: JSON.stringify({
+			private
+		})
+	})
+	.then(response => response.json())
+	.then((json) => {
+		if (json.statusCode == 200) {
+			dispatch(Object.assign({
+				type: 'SET_PRIVATE_SUCCESS'
+			}, json));
+		} else {
+			dispatch({
+				type: 'SET_PRIVATE_FAILURE',
+				error: new Error('Invalid status code in setPrivate json: ' + JSON.stringify(json))
+			});
+		}
+	})
+	.catch(error => {
+        dispatch({
+          type: 'SET_PRIVATE_FAILURE',
+          error
+        });
+	});
+};
+
 export const fetchStreaming = (token) => async (dispatch) => {
 	dispatch({
 		type: 'FETCH_STREAMING_REQUEST'

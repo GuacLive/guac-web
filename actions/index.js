@@ -22,6 +22,7 @@ export {
 	fetchFeatured,
 	resetFeatured,
 	setTitle,
+	setPrivate,
 	setCategory,
 	fetchStreaming,
 	resetStreaming,

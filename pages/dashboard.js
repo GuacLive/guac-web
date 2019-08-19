@@ -37,6 +37,11 @@ class DashboardPage extends Component {
 				actions.setTitle(this.props.authentication.token, this.refs.title.value)
 			);
 		}
+		if(streaming.private !== this.refs.private.value){
+			this.props.dispatch(
+				actions.setPrivate(this.props.authentication.token, this.refs.private.value)
+			);
+		}
 	}
 
 	render(){
@@ -81,6 +86,15 @@ class DashboardPage extends Component {
 								</select>
 							</>
 						}
+						<label htmlFor="private">Private (don't show in categories, frontpage or search):</label>
+						<input  
+							name="private"
+							type="checkbox"
+							className="input-reset bn pa3 w-100 bg-white br2" 
+							ref="private"
+							checked={streaming.private ? true : false}
+						>
+						</input>
 						<input type="submit" value="Edit stream" className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" />
 					</form>
 					<h2 className="f2 tracked mt0 mb3">Get started with streaming</h2>

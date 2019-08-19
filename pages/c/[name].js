@@ -103,7 +103,7 @@ class ChannelPage extends Component {
 					</div>
 
 					{stream.isFollowed && !stream.isMe && <GuacButton color="white">Unfollow</GuacButton>}
-					{!stream.isFollowed && && !stream.isMe && <GuacButton color="white">Follow</GuacButton>}
+					{!stream.isFollowed && !stream.isMe && <GuacButton color="white">Follow</GuacButton>}
 					<GuacButton color="green">Subscribe</GuacButton>
 					<div>
 						<span className="b f4">{stream.title}

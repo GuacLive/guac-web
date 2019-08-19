@@ -4,7 +4,8 @@ const initialState = {
 	statusCode: 0,
 	key: null,
 	title: null,
-	category: null
+	category: null,
+	private: false
 };
 
 export default function(state = initialState, action) {
@@ -43,6 +44,25 @@ export default function(state = initialState, action) {
 				...state,
 				statusCode: action.statusCode,
 				title: action.title,
+				loading: false,
+				error: false
+			};
+		break;
+		case 'SET_PRIVATE_REQUEST':
+			return Object.assign({}, state, {
+			});
+		break;
+		case 'SET_PRIVATE_FAILURE':
+			return Object.assign({}, state, {
+				loading: false,
+				error: action.error
+			});
+		break;
+		case 'SET_PRIVATE_SUCCESS':
+			return {
+				...state,
+				statusCode: action.statusCode,
+				private: action.private,
 				loading: false,
 				error: false
 			};
