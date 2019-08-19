@@ -117,7 +117,7 @@ class PageLayout extends Component {
 								<span className="f5 b inline-flex ph3 light-gray">
 								<Trans>Followed Channels</Trans>
 								</span>
-								<SimpleBar className="flex-grow-0" style={{ height: '80vh' }}>
+								<SimpleBar className="flex-grow-0">
 								{
 									(!followed ||
 									!followed.length)
