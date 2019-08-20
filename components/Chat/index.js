@@ -62,9 +62,8 @@ function ChatComponent(props){
 	}
 
 	const handlePriv = (args) => {
-		let privileged = args[0];
+		privileged = args[0];
 		if(typeof privileged !== 'array') return;
-		privileged = privileged;
 		// In case privilege has been added or removed for your user
 		if(
 			privileged.indexOf(me.id) > -1
@@ -127,7 +126,7 @@ function ChatComponent(props){
 		let entry;
 		let writeMessage = ((message) => {
 			setMessage(message);
-		}).bind(this);
+		}).bind(self);
 		if(!user || !messages) return;
 		log('info', 'Chat', 'We got emotes', emotes, customPickerEmotes);
 		const embed = new UrlEmbedder;

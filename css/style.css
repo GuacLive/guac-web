@@ -169,6 +169,21 @@ body {
 	content: "\f3ed";
 }
 
+.chat-message-badges__badge[data-badge='staff']::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 400;
+	/* Wrench */
+	content: "\f0ad";
+}
+
+/* Currently same as staff icon */
+.chat-message-badges__badge[data-badge='admin']::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 400;
+	/* Wrench */
+	content: "\f0ad";
+}
+
 .chat-input textarea {
 	resize: vertical;
 	max-height: 160px;
