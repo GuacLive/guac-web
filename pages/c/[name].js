@@ -130,7 +130,7 @@ class ChannelPage extends Component {
 			return u && u.to_id === channel.data.user.id;
 		});
 
-		let isFollowed = followed && followed.to_id === channel.data.user.idM
+		let isFollowed = followed && followed.to_id === channel.data.user.id;
 		let isMe = authentication.user.id && channel.data.user.id === authentication.user.id;
 		channel.data.isFollowed = isFollowed;
 		channel.data.isMe = isMe;
