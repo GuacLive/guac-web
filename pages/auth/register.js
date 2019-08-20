@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 import * as actions from '../../actions';
 
-class LoginPage extends Component {
+class RegisterPage extends Component {
 	constructor(props){
 		super(props);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,7 +32,7 @@ class LoginPage extends Component {
 		e.preventDefault();
 		// yay uncontrolled forms!
 		this.props.dispatch(
-			actions.authenticate(this.refs.username.value, this.refs.password.value)
+			actions.register(this.refs.username.value, this.refs.password.value)
 		)
 		.then(() => {
 			if(!this.props.authentication.error) window.location.href = '/';
@@ -45,7 +45,7 @@ class LoginPage extends Component {
 				<main className="pa4 primary-80">
 					<form className="measure center" onSubmit={this.handleSubmit}>
 						<fieldset id="login" className="ba b--transparent ph0 mh0">
-							<legend className="f4 fw6 ph0 mh0">Sign In</legend>
+							<legend className="f4 fw6 ph0 mh0">Sign Up</legend>
 							{this.props.authentication.error && 
 								<div className="red">Error: {this.props.authentication.error.statusText}</div>
 							}
@@ -57,13 +57,12 @@ class LoginPage extends Component {
 								<label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
 								<input ref="password" className="b pa2 input-reset ba b--inherit bg-transparent hover-bg-green hover-white w-100" type="password" name="password"  id="password" />
 							</div>
-							<label className="pa0 ma0 lh-copy f6 pointer"><input type="checkbox" /> Remember me</label>
 						</fieldset>
 						<div className="">
-							<input className="b ph3 pv2 input-reset color-inherit ba b--inherit bg-transparent grow pointer f6 dib" type="submit" value="Sign in" />
+							<input className="b ph3 pv2 input-reset color-inherit ba b--inherit bg-transparent grow pointer f6 dib" type="submit" value="Register" />
 						</div>
 						<div className="lh-copy mt3">
-							<Link prefetch href="/auth/register"><a className="f6 link dim primary db">Sign up</a></Link>
+							<Link prefetch href="/auth/login"><a className="f6 link dim primary db">Sign In</a></Link>
 							<Link prefetch href=""><a href="" className="f6 link dim primary db">Forgot your password?</a></Link>
 						</div>
 					</form>
@@ -73,4 +72,4 @@ class LoginPage extends Component {
 	}
 }
 
-export default connect(state => state)(LoginPage)
+export default connect(state => state)(RegisterPage)

@@ -1,4 +1,4 @@
-import { authenticate, reauthenticate, deauthenticate } from './auth';
+import { authenticate, register, reauthenticate, deauthenticate } from './auth';
 
 import { fetchCategories, resetCategories } from './categories';
 
@@ -13,6 +13,7 @@ import { fetchEmotes } from './emotes';
 import { setDarkMode, setLightMode, fetchMyFollowed, resetSite } from './site';
 export {
 	authenticate,
+	register,
 	reauthenticate,
 	deauthenticate,
 	fetchCategories,

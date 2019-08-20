@@ -35,6 +35,40 @@ export const authenticate = (username, password) => async (dispatch) => {
         });
 	});
 };
+
+export const register = (username, password) => async (dispatch) => {
+	dispatch({
+		type: 'AUTHENTICATE_REQUEST'
+	})
+	return callApi('/auth/register', {
+		method: 'POST',
+		body: JSON.stringify({
+			username,
+			password
+		})
+	})
+	.then(response => response.json())
+	.then((json) => {
+		if (json.statusCode == 200) {
+			dispatch(Object.assign({
+				type: 'AUTHENTICATE_SUCCESS'
+			}, json));
+			setCookie('token', json.jwtToken);
+		} else {
+			dispatch({
+				type: 'AUTHENTICATE_FAILURE',
+				error: new Error('Invalid authenticate json result: ' + JSON.stringify(json))
+			});
+		}
+	})
+	.catch(error => {
+        dispatch({
+          type: 'AUTHENTICATE_FAILURE',
+          error
+        });
+	});
+};
+
 // gets the token from the cookie, request user data, and save it in the store
 export const reauthenticate = (token) => async (dispatch) => {
 	if(!token) throw new Error('reauthenticate: no token provided')
