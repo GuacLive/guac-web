@@ -6,7 +6,7 @@ import { fetchChannel, resetChannel } from './channel';
 
 import { fetchFeatured, resetFeatured } from './featured';
 
-import { setTitle, setCategory, fetchStreaming, resetStreaming } from './streaming';
+import { setTitle, setPrivate, setCategory, fetchStreaming, resetStreaming } from './streaming';
 
 import { fetchEmotes } from './emotes';
 
