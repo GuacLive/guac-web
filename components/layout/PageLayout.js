@@ -96,7 +96,7 @@ class PageLayout extends Component {
 										}
 										{
 											!isAuthenticated && 
-											<GuacButton url="/auth/signup" color="green">
+											<GuacButton url="/auth/register" color="green">
 												<span className="dn db-l" title={i18n._(t`Sign up`)}><Trans>Sign up</Trans></span>
 												<span className="dn-l" title={i18n._(t`Sign up`)}><FontAwesomeIcon icon="user-plus" /></span>
 											</GuacButton>

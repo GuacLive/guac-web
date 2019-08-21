@@ -45,7 +45,7 @@ class RegisterPage extends Component {
 				<main className="pa4 primary-80">
 					<form className="measure center" onSubmit={this.handleSubmit}>
 						<fieldset id="login" className="ba b--transparent ph0 mh0">
-							<legend className="f4 fw6 ph0 mh0">Sign Up</legend>
+							<legend className="f4 fw6 ph0 mh0">Sign up</legend>
 							{this.props.authentication.error && 
 								<div className="red">Error: {this.props.authentication.error.statusText}</div>
 							}
@@ -62,7 +62,7 @@ class RegisterPage extends Component {
 							<input className="b ph3 pv2 input-reset color-inherit ba b--inherit bg-transparent grow pointer f6 dib" type="submit" value="Register" />
 						</div>
 						<div className="lh-copy mt3">
-							<Link prefetch href="/auth/login"><a className="f6 link dim primary db">Sign In</a></Link>
+							<Link prefetch href="/auth/login"><a className="f6 link dim primary db">Log in</a></Link>
 							<Link prefetch href=""><a href="" className="f6 link dim primary db">Forgot your password?</a></Link>
 						</div>
 					</form>

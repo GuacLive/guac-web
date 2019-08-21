@@ -45,7 +45,7 @@ class LoginPage extends Component {
 				<main className="pa4 primary-80">
 					<form className="measure center" onSubmit={this.handleSubmit}>
 						<fieldset id="login" className="ba b--transparent ph0 mh0">
-							<legend className="f4 fw6 ph0 mh0">Sign In</legend>
+							<legend className="f4 fw6 ph0 mh0">Log in</legend>
 							{this.props.authentication.error && 
 								<div className="red">Error: {this.props.authentication.error.statusText}</div>
 							}
