@@ -76,7 +76,7 @@ export const setTitle = (token, title = '') => async (dispatch) => {
 	});
 };
 
-export const setPrivate = (token, private = false) => async (dispatch) => {
+export const setPrivate = (token, bool = false) => async (dispatch) => {
 	dispatch({
 		type: 'SET_PRIVATE_REQUEST'
 	});
@@ -87,7 +87,7 @@ export const setPrivate = (token, private = false) => async (dispatch) => {
 		},
 		accessToken: token,
 		body: JSON.stringify({
-			private
+			'private': bool
 		})
 	})
 	.then(response => response.json())
