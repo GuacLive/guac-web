@@ -26,18 +26,6 @@ export default class MyDocument extends Document {
 				<meta name="apple-mobile-web-app-capable" content="yes" />
 				<meta name="apple-touch-fullscreen" content="yes" />
 				<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-				<meta property="og:type" content="website" />
-				<meta property="og:url" content="https://guac.live/" />
-				<meta property="og:title" content="guac.live — live streaming platform" />
-				<meta property="og:description" content="guac is a live streaming platform." />
-				<meta property="og:image" content="https://guac.live/static/img/header-logo.png" />
-				<meta property="twitter:card" content="summary_large_image" />
-				<meta property="twitter:url" content="https://guac.live" />
-				<meta property="twitter:title" content="guac.live — live streaming platform" />
-				<meta property="twitter:site" content="" />
-				<meta property="twitter:creator" content="@datagutt" />
-				<meta property="twitter:description" content="guac is a live streaming platform." />
-				<meta property="twitter:image" content="https://guac.live/static/img/header-logo.png" />
 				<script type="application/configuration" id="oil-configuration" dangerouslySetInnerHTML={{__html: JSON.stringify(process.env.OIL_CONFIG)}}></script>
 				<script type="text/javascript" dangerouslySetInnerHTML={{__html: oil}} nonce={nonce}></script>
 				<script type="text/javascript" src="//privacy.guac.live/release/current/oil.1.3.1-alpha-RELEASE.min.js" nonce={nonce}></script>

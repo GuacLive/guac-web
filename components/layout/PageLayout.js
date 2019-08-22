@@ -48,7 +48,19 @@ class PageLayout extends Component {
 				<Head>
 					<title>{ title }{ title.length > 0 ? ' &middot; guac.live' : 'guac.live'}</title>
 					<meta charSet='utf-8' />
-					<meta name='viewport' content='initial-scale=1.0, width=device-width' />
+
+					<meta property="og:type" content="website" key="og:type" />
+					<meta property="og:url" content="https://guac.live/" key="og:url" />
+					<meta property="og:title" content="guac.live — live streaming platform" key="og:title" />
+					<meta property="og:description" content="guac is a live streaming platform." key="og:description" />
+					<meta property="og:image" content="https://guac.live/static/img/header-logo.png" key="og:image" />
+					<meta property="twitter:card" content="summary_large_image" key="twitter:card" />
+					<meta property="twitter:url" content="https://guac.live" key="twitter:url" />
+					<meta property="twitter:title" content="guac.live — live streaming platform" key="twitter:title" />
+					<meta property="twitter:site" content="@GuacLive" key="twitter:site" />
+					<meta property="twitter:creator" content="@datagutt" key="twitter:creator" />
+					<meta property="twitter:description" content="guac is a live streaming platform." key="twitter:description" />
+					<meta property="twitter:image" content="https://guac.live/static/img/header-logo.png" key="twitter:image" />
 				</Head>
 				<main className="w-100 h-100 flex flex-column flex-nowrap justify-between items-start page-wrapper">
 					<header className="z-5 w-100 h-100 ph3 pv2 bg-near-black ml-auto flex-shrink-0">

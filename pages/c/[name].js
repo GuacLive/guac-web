@@ -153,7 +153,9 @@ class ChannelPage extends Component {
 				<NextHead>
 					<title>{channel.data.name} &middot; guac.live</title>
 					{ meta && meta.map((m) => {
-						<meta name={m.name} content={m.content} key={m.name} />
+						return (
+							<meta name={m.name} content={m.content} key={m.name} />
+						)
 					})}
 				</NextHead>
 				<div className="w-100 min-vh-100 flex flex-nowrap black">
