@@ -64,6 +64,10 @@ module.exports = withCSS({
 	},
 	experimental: {
 		//terserLoader: true,
-		modern: true
-	}
+		modern: true,
+		granularChunks: true,
+	},
+	future: {
+		excludeDefaultMomentLocales: true,
+	},
 })
