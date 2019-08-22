@@ -122,6 +122,19 @@ class ChannelPage extends Component {
 			site,
 			authentication
 		} = this.props;
+		const meta = [
+			{name: 'og:title', hid: 'og:title', content: `${channel.data.name} &middot; guac.live`},
+			{name: 'og:description', hid: 'og:description', content: (channel.data.name || '').substring(0, 200)},
+			{name: 'og:image', hid: 'og:image', content: '//guac.live/static/img/header-logo.png'},
+			{name: 'author', content: channel.data.name},
+			{name: 'description', hid: 'description', content: (channel.data.name || '').substring(0, 200)},
+			{name: 'profile:username', content: channel.data.name},
+			{name: 'twitter:card', content: 'summary_large_image'},
+			{name: 'twitter:site', content: '@GuacLive'},
+			{name: 'twitter:title', content: (channel.data.title || '').substring(0, 70)},
+			{name: 'twitter:description', content: (channel.data.name || '').substring(0, 200)},
+			{name: 'twitter:image', content: '//guac.live/static/img/header-logo.png'},  
+		];
 		if(channel.loading) return (<p>Loading...</p>);
 		//if(channel.error) throw channel.error;
 		if(!channel.data) return (<p>Channel not found</p>);
@@ -139,6 +152,9 @@ class ChannelPage extends Component {
 			<Fragment>
 				<NextHead>
 					<title>{channel.data.name} &middot; guac.live</title>
+					{ meta && meta.map((m) => {
+						<meta name={m.name} content={m.content} key={m.name} />
+					})}
 				</NextHead>
 				<div className="w-100 min-vh-100 flex flex-nowrap black">
 					<div className="site-component-channel w-70 w-100-m h-100 flex flex-column flex-grow-1 overflow-hidden relative">
