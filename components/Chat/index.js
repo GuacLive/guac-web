@@ -11,6 +11,7 @@ import 'simplebar/dist/simplebar.css';
 import ReactTextareaAutocomplete from '@webscopeio/react-textarea-autocomplete';
 import '@webscopeio/react-textarea-autocomplete/style.css';
 import AutoTextarea from "react-autosize-textarea";
+import moment from 'moment';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -159,7 +160,7 @@ function ChatComponent(props){
 			message: (
 				<>
 					<span className="chat-message-time">
-						{new Date(user.lastMessage).toLocaleTimeString()}{'\u00A0'}
+						{moment(new Date(user.lastMessage)).format( 'HH:mm:ss' )}
 					</span>
 					<span className="chat-message-badges">
 						{
