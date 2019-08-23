@@ -32,6 +32,7 @@ var hasPrivilege = false;
 function ChatComponent(props){
 	const dispatch = useDispatch();
 	const [connectedStatus, setConnectedStatus] = useState(false);
+	const [lastMessage, setLastMessage] = useState('');
 	const [message, setMessage] = useState('');
 	const [messages, setMessages] = useState([]);
 	const [customPickerEmotes, setCustomPickerEmotes] = useState(false);
@@ -93,6 +94,24 @@ function ChatComponent(props){
 		if(!user.name) return;
 		if(!user.anon){
 			users.delete(user.name);
+		}
+	}
+
+	const lastMessageHandler = (event) => {
+		if(!event) return;
+		if(event.target && !event.target.value){
+			if(event.keyCode == 38){
+				setMessage(lastMessage);
+			}else{
+				setMessage('');
+			}
+		}
+		if(event.type === 'cut'){
+			setTimeout(() => {
+				if(!event.srcElement.value){
+					setMessage('');
+				}
+			}, 20);
 		}
 	}
 
@@ -237,6 +256,7 @@ function ChatComponent(props){
 
 	const writeMessage = (event) => {
 		setMessage(event.target.value);
+		if(event.target.value) setLastMessage(event.target.value);
 	}
 
 	const sendMessage = () => {
@@ -435,6 +455,8 @@ function ChatComponent(props){
 						innerRef={textarea => {
 							textarea = textarea;
 						}}
+						onKeyUp={event => lastMessageHandler(event)}
+						onCut={event => lastMessageHandler(event)}
 						textAreaComponent={{ component: AutoTextarea, ref: "innerRef" }}
 						minChar={2}
 						rows={1}
@@ -494,6 +516,7 @@ function ChatComponent(props){
 										const text = emoji.custom ? emoji.id : emoji.native;
 								
 										setMessage(`${message} ${text}`);
+										setLastMessage(`${message} ${text}`);
 									}}
 								/>
 							}
@@ -505,6 +528,7 @@ function ChatComponent(props){
 									onEntrySelect={entry => {
 											log('info', 'Chat', 'GifSelector entry', entry);
 											setMessage(`${entry.images.original.url}`);
+											setLastMessage(`${entry.images.original.url}`);
 										}}
 								/>
 							}
