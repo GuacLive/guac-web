@@ -16,6 +16,8 @@ import { withI18n } from '@lingui/react';
 import { Trans, t } from '@lingui/macro';
 import LangSwitcher from '../LangSwitcher';
 
+import Image from '../Image';
+
 import GuacButton from '../GuacButton';
 import DarkModeToggle from '../DarkModeToggle';
 import AccountMenu from './AccountMenu';
@@ -68,7 +70,7 @@ class PageLayout extends Component {
 							<div className="inline-flex flex-shrink-0 items-center pointer">
 								<Link href="/">
 									<a className="inline-flex pa2 content-box">
-										<img className="dib h2" src="/static/img/header-logo.png" alt="guac.live" />
+										<Image className="h2" src="/static/img/header-logo.png" alt="guac.live" />
 									</a>
 								</Link>
 							</div>
@@ -155,7 +157,7 @@ class PageLayout extends Component {
 											<div key={'followed-'+u.username} className="site-component-fUser items-center flex relative ph4 pv2 white">
 												<Link href={`/c/${u.username}`}>
 													<a className="inline-flex v-mid mr2 w2 h2">
-														<img alt={u.username} className={`dim ba ${+u.live ? 'b--red' : 'b--transparent'} inline-flex br-100 w-100 h-100`} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII" />
+														<Image alt={u.username} className={`dim ba ${+u.live ? 'b--red' : 'b--transparent'} inline-flex br-100 w-100 h-100`} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII" />
 													</a>
 												</Link>
 												<div className="overflow-hidden dn db-l">

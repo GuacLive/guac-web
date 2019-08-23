@@ -78,6 +78,42 @@ body {
 	color: var(--white-80);
 }
 
+.GuacImage {
+    display: inline-block;
+    overflow: hidden;
+    max-width: 100%;
+    vertical-align: middle
+}
+
+.GuacImage.-rounded {
+    border-radius: 3px
+}
+
+.GuacImage.-circle {
+    border-radius: 50%
+}
+
+.GuacImage.is-error {
+    background: #111
+}
+
+.GuacImage.-flexible {
+    position: relative;
+    width: 100%
+}
+
+.GuacImage.-flexible:before {
+    display: block;
+    padding-bottom: 56.25%;
+    content: ""
+}
+
+.GuacImage.-flexible div,.GuacImage.-flexible img {
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
 .dropdown-menu {
 	background: var(--dropdown-background);
 }
@@ -85,7 +121,6 @@ body {
 .site-component-sidebar {
 	width: 24rem;
 }
-
 
 @media (--breakpoint-medium) {
 	.site-component-sidebar {

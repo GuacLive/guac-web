@@ -51,6 +51,7 @@
     "file-loader": "^4.0.0",
     "firebase": "^6.2.4",
     "flv.js": "^1.5.0",
+    "intersection-observer": "^0.7.0",
     "js-cookie": "^2.2.0",
     "linkify-urls": "2.2.0",
     "lscache": "^1.2.0",
@@ -80,13 +81,15 @@
     "simplebar-react": "^1.0.0-alpha.9",
     "slick-carousel": "^1.8.1",
     "socket.io-client": "^2.2.0",
+    "super-image": "^2.4.0",
     "tachyons": "^4",
     "url-loader": "^2.0.1",
     "video.js": "7.5.6",
     "videojs-flvjs": "^0.2.0",
     "videojs-overlay": "^2.1.4",
     "videojs-persistvolume": "https://github.com/GuacLive/videojs-persistvolume",
-    "videojs-resolution-switcher": "github:BaNru/videojs-resolution-switcher"
+    "videojs-resolution-switcher": "github:BaNru/videojs-resolution-switcher",
+    "viewport-observer": "^2.3.0"
   },
   "devDependencies": {
     "babel-plugin-add-module-exports": "^1.0.0",

@@ -19,6 +19,8 @@ import EmojiSelector from './EmojiSelector';
 import GifSelector from './GifSelector';
 import UrlEmbedder from '../../utils/UrlEmbedder';
 
+import Image from '../Image';
+
 import { ToggleFeature } from '@flopflip/react-redux';
 
 import log from '../../utils/log';
@@ -158,7 +160,7 @@ function ChatComponent(props){
 					if(Object.keys(emotes).indexOf(msg.content) == -1) return null;
 					let emote = emotes[msg.content];
 					return (
-						<React.Fragment key={'c-' + i + '-' + (new Date).getTime()}><img className="chat-message-content__emote dib" src={emote.url} alt={'Emote: ' + msg.content} title={msg.content + ' by ' + emote.provider} />{i !== messages.length -1 && '\u00A0'}</React.Fragment>
+						<React.Fragment key={'c-' + i + '-' + (new Date).getTime()}><Image className="chat-message-content__emote dib" src={emote.url} alt={'Emote: ' + msg.content} title={msg.content + ' by ' + emote.provider} />{i !== messages.length -1 && '\u00A0'}</React.Fragment>
 					);
 				break;
 				case 'text':
@@ -469,7 +471,7 @@ function ChatComponent(props){
 											return {
 												name,
 												char: name,
-												img: `<img src='${emotes[name].url}'/>`
+												img: <Image src={emotes[name].url} />
 											}
 										});
 									}
@@ -484,7 +486,7 @@ function ChatComponent(props){
 										return {
 											name,
 											char: name,
-											img: `<img src='${emotes[name].url}'/>`
+											img: <Image src={emotes[name].url} />
 										};
 									});
 								},
