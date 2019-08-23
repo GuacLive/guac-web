@@ -34,7 +34,7 @@ class ChannelPage extends Component {
 		if(channel.loading){
 			await store.dispatch(actions.fetchChannel(query.name));
 		}
-		return {};
+		return {...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})};
     }
 
     renderStream = stream => {

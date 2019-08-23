@@ -34,7 +34,7 @@ class IndexPage extends Component {
 		if(featured.loading){
 			await store.dispatch(actions.fetchFeatured());
 		}
-		return {};
+		return {...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})};
     }
 
     renderStream = stream => {
