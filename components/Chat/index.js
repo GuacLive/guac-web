@@ -440,7 +440,7 @@ function ChatComponent(props){
 				</SimpleBar>
 			</div>
 			<div className="chat-input pr4 pl4 pb4">
-				<div className="db relative">
+				<div className="relative">
 					<ReactTextareaAutocomplete
 						value={message}
 						onChange={writeMessage}
@@ -502,40 +502,43 @@ function ChatComponent(props){
 							}
 						}}
 					/>
-				</div>
-				<div className="chat-input__buttons primary flex justify-between mt1">
-					<div className="flex flex-row">
-						<div className="relative">
-							{
-								customPickerEmotes &&
-								customPickerEmotes.length > 0 &&
-								<EmojiSelector
-									emotes={customPickerEmotes} 
-									onSelect={emoji => {
-										// Select text to type - if it is custom type the id, otherwise type emoji.
-										const text = emoji.custom ? emoji.id : emoji.native;
-								
-										setMessage(`${message} ${text}`);
-										setLastMessage(`${message} ${text}`);
-									}}
-								/>
-							}
-							<ToggleFeature
-								flag='gifSelector'
-							>
-							{
-								<GifSelector
-									onEntrySelect={entry => {
-											log('info', 'Chat', 'GifSelector entry', entry);
-											setMessage(`${entry.images.original.url}`);
-											setLastMessage(`${entry.images.original.url}`);
+					<div className="chat-input__buttons absolute bottom-0 right-0">
+						<div className="flex flex-row pr2 pb2">
+							<div className="relative">
+								{
+									customPickerEmotes &&
+									customPickerEmotes.length > 0 &&
+									<EmojiSelector
+										emotes={customPickerEmotes} 
+										onSelect={emoji => {
+											// Select text to type - if it is custom type the id, otherwise type emoji.
+											const text = emoji.custom ? emoji.id : emoji.native;
+									
+											setMessage(`${message} ${text}`);
+											setLastMessage(`${message} ${text}`);
 										}}
-								/>
-							}
-							</ToggleFeature>
+									/>
+								}
+								<ToggleFeature
+									flag='gifSelector'
+								>
+								{
+									<GifSelector
+										onEntrySelect={entry => {
+												log('info', 'Chat', 'GifSelector entry', entry);
+												setMessage(`${entry.images.original.url}`);
+												setLastMessage(`${entry.images.original.url}`);
+											}}
+									/>
+								}
+								</ToggleFeature>
+							</div>
 						</div>
 					</div>
-					<div className="content-center items-center flex flex-row">
+				</div>
+				<div className="flex justify-between">
+					<div className="flex flex-row">test</div>
+					<div className="flex flex-row content-center items-center">
 						<input type="button" value="Chat" onClick={sendMessage} className="white dib pv2 ph3 nowrap lh-solid pointer br2 ba b--transparent bg-green" />
 					</div>
 				</div>

@@ -15,7 +15,7 @@ function GifSelector(props){
 	return (
 		<div className="chat-input__buttons__gif inline-flex items-center justify-center mr2">
 			<FontAwesomeIcon icon='video' onClick={handleToggleClick} />
-			<span className="absolute right-0 fr bottom-2 pv5">
+			<span className="absolute right-0 fr bottom-2 pv2">
 				{isOpen &&
 					<GiphySelect
 					theme={{

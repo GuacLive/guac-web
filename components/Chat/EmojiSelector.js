@@ -17,7 +17,7 @@ function EmojiSelector(props){
 	return (
 		<div className="chat-input__buttons__emote inline-flex items-center justify-center mr2">
 			<FontAwesomeIcon icon='smile-wink' onClick={handleToggleClick} />
-			<span className="absolute right-0 fr bottom-2 pv5">
+			<span className="absolute right-0 fr bottom-2 pv2">
 				{isOpen &&
 					<NimblePicker
 						perLine={8}
