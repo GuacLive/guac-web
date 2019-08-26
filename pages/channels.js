@@ -33,7 +33,6 @@ class ChannelsPage extends Component {
                                       <article className="hide-child relative ba b--black-20 mw5 center">
                                         <Image src={channel.thumbnail} shape="rounded" fit="contain"></Image>
                                         <div className="pa2">
-                                            {channel.user.name}
                                             <a className="f6 db link dark-green hover-green">
                                                 <Link href={`/c/${channel.user.name}`}>
                                                     <a className="link inherit">{channel.title}</a>
