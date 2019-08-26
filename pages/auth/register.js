@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
 
-import Router from 'next/router';
 import Link from 'next/link'
+
+import { Trans } from '@lingui/macro';
 
 import * as actions from '../../actions';
 
@@ -45,16 +46,16 @@ class RegisterPage extends Component {
 				<main className="pa4 primary-80">
 					<form className="measure center" onSubmit={this.handleSubmit}>
 						<fieldset id="login" className="ba b--transparent ph0 mh0">
-							<legend className="f4 fw6 ph0 mh0">Sign up</legend>
+							<legend className="f4 fw6 ph0 mh0"><Trans>Sign up</Trans></legend>
 							{this.props.authentication.error && 
-								<div className="red">Error: {this.props.authentication.error.statusText}</div>
+								<div className="red"><Trans>Error</Trans>: {this.props.authentication.error.statusText}</div>
 							}
 							<div className="mt3">
-								<label className="db fw6 lh-copy f6" htmlFor="username">Username</label>
+								<label className="db fw6 lh-copy f6" htmlFor="username"><Trans>Username</Trans></label>
 								<input ref="username" className="pa2 input-reset ba b--inherit bg-transparent hover-bg-green hover-white w-100" type="text" name="username"  id="username" />
 							</div>
 							<div className="mv3">
-								<label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
+								<label className="db fw6 lh-copy f6" htmlFor="password"><Trans>Password</Trans></label>
 								<input ref="password" className="b pa2 input-reset ba b--inherit bg-transparent hover-bg-green hover-white w-100" type="password" name="password"  id="password" />
 							</div>
 						</fieldset>
@@ -62,8 +63,8 @@ class RegisterPage extends Component {
 							<input className="b ph3 pv2 input-reset color-inherit ba b--inherit bg-transparent grow pointer f6 dib" type="submit" value="Register" />
 						</div>
 						<div className="lh-copy mt3">
-							<Link prefetch href="/auth/login"><a className="f6 link dim primary db">Log in</a></Link>
-							<Link prefetch href=""><a href="" className="f6 link dim primary db">Forgot your password?</a></Link>
+							<Link prefetch href="/auth/login"><a className="f6 link dim primary db"><Trans>Log in</Trans></a></Link>
+							<Link prefetch href=""><a href="" className="f6 link dim primary db"><Trans>Forgot your password?</Trans></a></Link>
 						</div>
 					</form>
 				</main>
