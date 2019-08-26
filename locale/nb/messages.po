@@ -42,7 +42,7 @@ msgstr "Kontrollpanel"
 
 #: pages/terms.js:25
 msgid "Do not engage in hate speech."
-msgstr "Ikke delta i hateprat""
+msgstr "Ikke delta i hatprat"
 
 #: pages/terms.js:21
 msgid "Do not engage, or encourage others to engage, in any targeted abuse or harassment against any other user."
@@ -188,7 +188,7 @@ msgstr "Du kan ikke streamer opphavsrettsbeskyttet innhold, slik som filmer og T
 
 #: pages/terms.js:27
 msgid "You must respect all applicable local, national, and international laws while using our services. Any content or activity featuring, encouraging, offering, or soliciting illegal activity is prohibited."
-msgstr Du må respektere alle gjeldende lokale, nasjonale og internasjonale lover mens du bruker våre tjenester. Alt innhold eller aktivitet som inneholder, oppmuntrer, tilbyr eller oppfordrer til ulovlig aktivitet er forbudt."
+msgstr "Du må respektere alle gjeldende lokale, nasjonale og internasjonale lover mens du bruker våre tjenester. Alt innhold eller aktivitet som inneholder, oppmuntrer, tilbyr eller oppfordrer til ulovlig aktivitet er forbudt."
 
 #: pages/index.js:80
 msgid "is live"
