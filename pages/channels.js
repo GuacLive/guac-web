@@ -10,6 +10,8 @@ import { Trans } from '@lingui/macro';
 
 import Link from 'next/link';
 
+import Image from '../components/Image';
+
 class ChannelsPage extends Component {
 	static async getInitialProps({store}){
 		const { channels } = store.getState()
