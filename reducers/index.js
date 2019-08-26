@@ -13,6 +13,7 @@ import EXPERIMENTS from '!../experiments.json'; // eslint-disable-line no-unused
 import auth from './auth';
 import categories from './categories';
 import channel from './channel';
+import channels from './channels';
 import emotes from './emotes';
 import featured from './featured';
 import streaming from './streaming';
@@ -23,6 +24,7 @@ export default combineReducers({
 	authentication: auth,
 	categories,
 	channel,
+	channels,
 	emotes,
 	featured,
 	streaming,

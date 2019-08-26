@@ -4,6 +4,8 @@ import { fetchCategories, resetCategories } from './categories';
 
 import { fetchChannel, resetChannel } from './channel';
 
+import { fetchChannels, resetChannels } from './channels';
+
 import { fetchFeatured, resetFeatured } from './featured';
 
 import { setTitle, setPrivate, setCategory, fetchStreaming, resetStreaming } from './streaming';
@@ -18,8 +20,10 @@ export {
 	deauthenticate,
 	fetchCategories,
 	resetCategories,
-	fetchChannel, 
+	fetchChannel,
+	fetchChannels,
 	resetChannel,
+	resetChannels,
 	fetchFeatured,
 	resetFeatured,
 	setTitle,

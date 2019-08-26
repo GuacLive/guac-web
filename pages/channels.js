@@ -29,7 +29,7 @@ class ChannelsPage extends Component {
 				<div className="w-100">
 					<h2 className="f2 tracked mt0 mb3"><Trans>Channels</Trans></h2>
                     <div className="site-component-channels">
-                        {channels.map((channel) => {
+                        {channels.data.map((channel) => {
                             return (
                                 <div className="site-component-channels__channel">
                                       <article className="hide-child relative ba b--black-20 mw5 center">
