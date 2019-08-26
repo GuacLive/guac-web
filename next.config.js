@@ -3,6 +3,16 @@ const path = require('path');
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 module.exports = withCSS({
 	webpack(config, { isServer }) {
+
+		if (config.optimization.splitChunks.cacheGroups) {
+			config.optimization.splitChunks.cacheGroups.lib.test = module => {
+			  const identifier = module.identifier();
+			  return (
+				module.size() > 160000 && /node_modules[/\\]/.test(identifier) && !/^.+css-loader\//.test(identifier)
+			  );
+			};
+		  }
+
 		config.module.rules.push({
 			test: /\.(png|svg|eot|otf|ttf|woff|woff2)$/,
 			use: {
