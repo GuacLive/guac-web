@@ -1,3 +1,4 @@
+import { callApi } from '../services/api';
 
 export function resetChannels() {
 	return {

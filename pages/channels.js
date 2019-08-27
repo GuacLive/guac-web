@@ -29,20 +29,20 @@ class ChannelsPage extends Component {
 				<div className="w-100">
 					<h2 className="f2 tracked mt0 mb3"><Trans>Channels</Trans></h2>
                     <div className="site-component-channels">
-                        {channels.data.map((channel) => {
+                        {channels.data && channels.data.map((channel) => {
                             return (
                                 <div className="site-component-channels__channel">
                                       <article className="relative mw5 center">
                                         <Image src={channel.thumbnail} shape="rounded" fit="contain" flexible lazyload />
                                         <div className="pa2">
                                             <a className="f6 db link dark-green hover-green">
-                                                <Link href={`/c/${channel.user.name}`}>
+                                                <Link href={`/c/${channel.name}`}>
                                                     <a className="link inherit">{channel.title}</a>
                                                 </Link>
                                             </a>
                                             <span className="f6 gray mv1">
-                                                <Link href={`/c/${channel.user.name}`}>
-                                                    <a className="link inherit">{channel.user.name}</a>
+                                                <Link href={`/c/${channel.name}`}>
+                                                    <a className="link inherit">{channel.name}</a>
                                                 </Link>
                                             </span>
                                             <span className="f6 gray mv1">
