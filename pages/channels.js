@@ -33,7 +33,7 @@ class ChannelsPage extends Component {
                             return (
                                 <div className="site-component-channels__channel">
                                       <article className="relative mw5 center">
-                                        <Image src={channel.thumbnail} shape="rounded" fit="contain"></Image>
+                                        <Image src={channel.thumbnail} shape="rounded" fit="contain" flexible lazyload />
                                         <div className="pa2">
                                             <a className="f6 db link dark-green hover-green">
                                                 <Link href={`/c/${channel.user.name}`}>
