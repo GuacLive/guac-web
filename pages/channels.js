@@ -32,7 +32,7 @@ class ChannelsPage extends Component {
                         {channels.data.map((channel) => {
                             return (
                                 <div className="site-component-channels__channel">
-                                      <article className="hide-child relative ba b--black-20 mw5 center">
+                                      <article className="relative mw5 center">
                                         <Image src={channel.thumbnail} shape="rounded" fit="contain"></Image>
                                         <div className="pa2">
                                             <a className="f6 db link dark-green hover-green">
