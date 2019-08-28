@@ -5,7 +5,7 @@ import '@silvermine/videojs-chromecast/dist/silvermine-videojs-chromecast.css';
 import 'videojs-resolution-switcher/lib/videojs-resolution-switcher.css';
 import 'videojs-overlay/dist/videojs-overlay.js';
 import 'videojs-overlay/dist/videojs-overlay.css';
-
+import 'videojs-resolution-switcher'
 import {useFeatureToggle} from '@flopflip/react-broadcast';
 
 import {useEffect} from 'react';
@@ -67,7 +67,6 @@ function VideoPlayer(props) {
 		require('@silvermine/videojs-chromecast')(videojs, {
 			reloadWebComponents: true
 		});
-		require('videojs-resolution-switcher');
 		// instantiate Video.js
 		player = videojs(videoNode, videoJsOptions, function onPlayerReady() {
 			log('info', null, 'onPlayerReady', this);
