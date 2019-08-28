@@ -31,8 +31,10 @@ class ChannelsPage extends Component {
                     <div className="site-component-channels flex flex-row flex-wrap w-80" style={{flexGrow: 1}}>
                         {channels.data && channels.data.map((channel) => {
                             return (
-                                <div className="site-component-channels__channel w-33">
-                                    <Image src={channel.thumbnail} shape="rounded" fit="contain" flexible lazyload />
+                                <div className="site-component-channels__channel w-33 pa2" key={`channel_${channel.id}`}>
+                                    <Link href={`/c/${channel.name}`}>
+                                        <a><Image src={channel.thumbnail} shape="rounded" fit="contain" flexible lazyload /></a>
+                                    </Link>
                                     <div className="pa2">
                                         <span className="f5 db link green">
                                             <Link href={`/c/${channel.name}`}>
@@ -41,13 +43,13 @@ class ChannelsPage extends Component {
                                         </span>
                                         <span className="f6 gray mv1">
                                             <p>
-                                                <Link href={`/c/${channel.name}`}>
-                                                    <a className="link color-inherit">{channel.name}</a>
-                                                </Link>
-                                                <br />
-                                                playing
-                                                    <Link href={`/category/${channel.category}`}>
-                                                    <a className="link color-inherit b">{channel.category}</a>
+                                                    <Link href={`/c/${channel.name}`}>
+                                                        <a className="link color-inherit b">{channel.name}</a>
+                                                    </Link>
+                                                    <br />
+                                                    is playing&nbsp;
+                                                    <Link href={`/category/${channel.category_id}`}>
+                                                    <a className="link color-inherit b">{channel.category_name}</a>
                                                 </Link>
                                             </p>
                                         </span>
