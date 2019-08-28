@@ -45,6 +45,7 @@ export default class Image extends React.Component {
             };
         }
         this.onEnter = this.onEnter.bind(this);
+        this.onError = this.onError.bind(this);
         this.createImageUrl = this.createImageUrl.bind(this);
     }
 

@@ -32,7 +32,7 @@ class ChannelsPage extends Component {
                         {channels.data && channels.data.map((channel) => {
                             return (
                                 <div className="site-component-channels__channel">
-                                      <article className="relative mw5 center">
+                                      <article className="relative mw5">
                                         <Image src={channel.thumbnail} shape="rounded" fit="contain" flexible lazyload />
                                         <div className="pa2">
                                             <a className="f6 db link dark-green hover-green">
@@ -53,7 +53,7 @@ class ChannelsPage extends Component {
                                                     </Link>
                                                 </p>
                                             </span>
-                                            <Link href={`/c/${channel.user.name}`}>
+                                            <Link href={`/c/${channel.name}`}>
                                                 <a className="link tc ph3 pv1 db bg-animate bg-dark-green hover-bg-green white f6 br1">Watch</a>
                                             </Link>
                                         </div>
