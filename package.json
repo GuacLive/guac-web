@@ -88,7 +88,7 @@
     "videojs-flvjs": "^0.2.0",
     "videojs-overlay": "^2.1.4",
     "videojs-persistvolume": "https://github.com/GuacLive/videojs-persistvolume",
-    "videojs-resolution-switcher": "github:BaNru/videojs-resolution-switcher",
+    "videojs-resolution-switcher": "https://github.com/BaNru/videojs-resolution-switcher.git",
     "viewport-observer": "^2.3.0"
   },
   "devDependencies": {
