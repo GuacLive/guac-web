@@ -16,7 +16,7 @@ class ChannelsPage extends Component {
 	static async getInitialProps({store}){
 		const { channels } = store.getState()
 		if(channels.loading){
-			await store.dispatch(actions.fetchChannels());
+			await store.dispatch(actions.fetchChannels(true));
 		}
 		return {...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})};
     }
