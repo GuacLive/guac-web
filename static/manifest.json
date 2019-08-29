@@ -1,0 +1,40 @@
+{
+    "lang": "en",
+    "name": "guac.live",
+    "short_name": "guac",
+    "description": "guac.live — live streaming platform",
+    "theme_color": "#111111",
+    "background_color": "#f4f5f7",
+    "icons": [
+        {
+          "src": "/static/img/header-logo.png",
+          "sizes": "32x32",
+          "type": "image/png"
+      },
+      {
+          "src": "/static/img/header-logo.png",
+          "sizes": "64x64",
+          "type": "image/png"
+      },
+      {
+          "src": "/static/img/header-logo.png",
+          "sizes": "128x128",
+          "type": "image/png"
+      },
+      {
+          "src": "/static/img/header-logo.png",
+          "sizes": "256x256",
+          "type": "image/png"
+      },
+      {
+          "src": "/static/img/header-logo.png",
+          "sizes": "512x512",
+          "type": "image/png"
+      }
+    ],
+    "start_url": "/",
+    "scope": "/",
+    "display": "fullscreen",
+    "orientation": "portrait",
+    "splash_pages": null
+}

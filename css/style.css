@@ -30,9 +30,6 @@ body {
 	background var(--animation-duration) var(--animation-timing);
 }
 
-.front {
-	background: blue;
-}
 
 .hover-b--blue:hover {
 	border-color: var(--blue);
@@ -45,9 +42,6 @@ body {
 :root {
 	--site-background: #f4f5f7;
 	--site-text: var(--black);
-
-	--blue: blue;
-	--green: green;
 
 	--slick-dot-color: black;
 	--chat-message-background: var(--site-background);
@@ -84,10 +78,55 @@ body {
 	color: var(--white-80);
 }
 
+.GuacImage {
+    display: inline-block;
+    overflow: hidden;
+    max-width: 100%;
+    vertical-align: middle
+}
+
+.GuacImage.-rounded {
+    border-radius: 3px
+}
+
+.GuacImage.-circle {
+    border-radius: 50%
+}
+
+.GuacImage.is-error {
+    background: #111
+}
+
+.GuacImage.-flexible {
+    position: relative;
+    width: 100%
+}
+
+.GuacImage.-flexible:before {
+    display: block;
+    padding-bottom: 56.25%;
+    content: ""
+}
+
+.GuacImage.-flexible div,.GuacImage.-flexible img {
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
 .dropdown-menu {
 	background: var(--dropdown-background);
 }
 
+.site-component-sidebar {
+	width: 24rem;
+}
+
+@media (--breakpoint-medium) {
+	.site-component-sidebar {
+		width: 8rem;
+	}	
+}
 .chat-message {
 	background: var(--chat-message-background);
 	color: var(--chat-message-text);
@@ -163,6 +202,21 @@ body {
 	font-weight: 400;
 	/* Shield-alt */
 	content: "\f3ed";
+}
+
+.chat-message-badges__badge[data-badge='staff']::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 400;
+	/* Wrench */
+	content: "\f0ad";
+}
+
+/* Currently same as staff icon */
+.chat-message-badges__badge[data-badge='admin']::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 400;
+	/* Wrench */
+	content: "\f0ad";
 }
 
 .chat-input textarea {

@@ -17,7 +17,7 @@ cp .env.build-example .env.build
 
 ```bash
 # Run in development mode
-npm run dev
+now dev
 
 # Deploy to production
 npm run deploy

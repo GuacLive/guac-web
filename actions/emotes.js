@@ -7,7 +7,7 @@ export const fetchEmotes = () => async (dispatch) => {
 		const data = await response.json();
 		for(const emote of Object.values(data)){
 			result[emote.code] = {
-				provider: 'guac',
+				provider: 'Global',
 				url: `/static/emotes/global/${emote.id}.png`,
 			};
 		}
@@ -19,34 +19,34 @@ export const fetchEmotes = () => async (dispatch) => {
 		const data = await response.json();
 		for(const emote of Object.values(data)){
 			result[emote.code] = {
-				provider: 'twitch',
-				url: `//static-cdn.jtvnw.net/emoticons/v1/${emote.id}/1.0`,
+				provider: 'Twitch',
+				url: `//static-cdn.jtvnw.net/emoticons/v1/${emote.id}/3.0`,
 			};
 		}
 	})
 	.catch(() => {});
 
-	await fetch('//api.betterttv.net/2/emotes')
+	await fetch('//api.betterttv.net/3/cached/emotes/global')
 	.then(async response => {
 		const data = await response.json();
 
-		for(const emote of data.emotes){
+		for(const emote of data){
 			result[emote.code] = {
-				provider: 'betterttv',
-				url: `//cdn.betterttv.net/emote/${emote.id}/1x`,
+				provider: 'BetterTTV',
+				url: `//cdn.betterttv.net/emote/${emote.id}/3x`,
 			};
 		}
 	})
 	.catch(() => {});
 
-	await fetch('https://api.frankerfacez.com/v1/set/global')
+	await fetch('https://api-test.frankerfacez.com/v1/set/global')
 	.then(async response => {
 		const data = await response.json();
 
 		for(const set of Object.values(data.sets)){
 			for(const emote of set.emoticons){
 				result[emote.name] = {
-					provider: 'frankerfacez',
+					provider: 'FrankerfaceZ',
 					url: `${emote.urls['1']}`,
 				};
 			}

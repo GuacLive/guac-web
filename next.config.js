@@ -1,7 +1,18 @@
 const withCSS = require('@zeit/next-css')
-const { parsed: localEnv } = require("dotenv").config();
+const path = require('path');
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 module.exports = withCSS({
-	webpack (config) {
+	webpack(config, { isServer }) {
+
+		if (config.optimization.splitChunks.cacheGroups && config.optimization.splitChunks.cacheGroups.lib) {
+			config.optimization.splitChunks.cacheGroups.lib.test = module => {
+			  const identifier = module.identifier();
+			  return (
+				module.size() > 160000 && /node_modules[/\\]/.test(identifier) && !/^.+css-loader\//.test(identifier)
+			  );
+			};
+		}
+
 		config.module.rules.push({
 			test: /\.(png|svg|eot|otf|ttf|woff|woff2)$/,
 			use: {
@@ -14,8 +25,23 @@ module.exports = withCSS({
 				}
 			}
 		});
-	
-		return config
+
+		config.module.rules.push({
+			test: /\.po/,
+			use: [
+				{
+					loader: '@lingui/loader'
+				}
+			]
+		});
+
+		if (!isServer) {
+			config.node = {
+				fs: 'empty'
+			}
+		}
+
+		return config;
 	},
 	target: 'serverless',
 	poweredByHeader: false,
@@ -46,8 +72,12 @@ module.exports = withCSS({
 			}
 		}
 	},
-	postcssLoaderOptions: {},
 	experimental: {
-		autoExport: true
-	}
+		//terserLoader: true,
+		modern: true,
+		granularChunks: true,
+	},
+	future: {
+		excludeDefaultMomentLocales: true,
+	},
 })

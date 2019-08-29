@@ -1,13 +1,10 @@
 import { callApi } from '../services/api';
 
-import { arrayToQueryString, isObjEmpty } from '../utils';
-
 export function resetChannel() {
 	return {
 		type: 'SET_CHANNEL'
 	};
 }
-
 
 export const fetchChannel = (name) => async (dispatch) => {
 	dispatch({

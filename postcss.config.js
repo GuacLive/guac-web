@@ -1,8 +1,12 @@
 module.exports = {
 	plugins: {
     	'postcss-import': {},
-    	'postcss-css-variables': {
-    		'preserve': true
-    	}
+		'postcss-preset-env': {
+			stage: 0,
+			features: {
+				customProperties: true,
+				preserve: true
+			}
+		}
 	}
 }

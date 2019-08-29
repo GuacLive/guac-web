@@ -2,11 +2,13 @@ import React, {Component} from 'react';
 
 import {connect} from 'react-redux';
 
+import { Trans } from '@lingui/macro';
+
 class PrivacyPage extends Component {
 	render() {
 		return (
-				<div className="mw8 lh-copy mv0">
-					<h2 className="f2 tracked mt0 mb3">Privacy Policy</h2>
+				<div className="mw7 lh-copy mv0">
+					<h2 className="f2 tracked mt0 mb3"><Trans>Privacy Policy</Trans></h2>
 				    <p><a name="collect"></a></p>
 <h2><a className="link white" href="#collect">What information do we collect?</a></h2>
 <ul>

@@ -2,13 +2,15 @@ const videojs = require('video.js').default;
 import '@videojs/http-streaming';
 import 'video.js/dist/video-js.css';
 import '@silvermine/videojs-chromecast/dist/silvermine-videojs-chromecast.css';
-import '@dlive/videojs-resolution-switcher/lib/videojs-resolution-switcher.css';
+import 'videojs-resolution-switcher/lib/videojs-resolution-switcher.css';
 import 'videojs-overlay/dist/videojs-overlay.js';
 import 'videojs-overlay/dist/videojs-overlay.css';
-
+import 'videojs-resolution-switcher'
 import {useFeatureToggle} from '@flopflip/react-broadcast';
 
 import {useEffect} from 'react';
+
+import log from '../../utils/log';
 
 function VideoPlayer(props) {
 	let player;
@@ -18,7 +20,7 @@ function VideoPlayer(props) {
 		const canAutoplay = require('can-autoplay').default;
 		const videoJsOptions = {
 			liveui: false,
-			poster: '/static/img/offline-poster.png',
+			poster: !props.live ? '/static/img/offline-poster.png' : '',
 			plugins: {
 				videoJsResolutionSwitcher: {
 					default: 'high',
@@ -38,7 +40,11 @@ function VideoPlayer(props) {
 				enableStashBuffer: false,
 				stashInitialSize: 1024 * 64, // 64KB
 				enableWorker: true,
-				autoCleanupSourceBuffer: true
+				lazyLoad: false,
+				autoCleanupSourceBuffer: true,
+				autoCleanupMaxBackwardDuration: 2,
+				autoCleanupMinBackwardDuration: 1,
+				seekType: 'range'
   			},
 			...props
 		};
@@ -61,10 +67,9 @@ function VideoPlayer(props) {
 		require('@silvermine/videojs-chromecast')(videojs, {
 			reloadWebComponents: true
 		});
-		require('@dlive/videojs-resolution-switcher');
 		// instantiate Video.js
 		player = videojs(videoNode, videoJsOptions, function onPlayerReady() {
-			console.log('onPlayerReady', this)
+			log('info', null, 'onPlayerReady', this);
 		});
 		
         canAutoplay.video().then((obj) => {
@@ -98,11 +103,11 @@ function VideoPlayer(props) {
 	// so videojs won't create additional wrapper in the DOM
 	// see https://github.com/videojs/video.js/pull/3856
 	return (
-		<div>	
-			<div data-vjs-player>
-				<video ref={ node => videoNode = node } className="video-js vjs-default-skin vjs-big-play-centered vjs-16-9" poster="/static/img/offline-poster.png" controls playsInline preload="auto"></video>
+		<>	
+			<div className="player" data-vjs-player>
+				<video ref={ node => videoNode = node } className="player-video video-js vjs-default-skin vjs-big-play-centered vjs-16-9" poster={!props.live ? "/static/img/offline-poster.png" : ""} controls playsInline preload="auto"></video>
 			</div>
-		</div>
+		</>
 	);
 }
 

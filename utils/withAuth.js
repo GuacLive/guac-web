@@ -1,4 +1,5 @@
 import Router from 'next/router';
+import { Trans } from '@lingui/macro';
 const requireAuth = Page => class SecurePage extends React.Component {
 	static async getInitialProps(ctx){
 		let redirect;
@@ -28,7 +29,7 @@ const requireAuth = Page => class SecurePage extends React.Component {
   
 	render() {
 	  const { redirect } = this.props;
-	  return !redirect ? <Page {...this.props} /> : <p>This page requires you to be logged in.</p>
+	  return !redirect ? <Page {...this.props} /> : <Trans>This page requires you to be logged in.</Trans>
 	}
 }
 export default requireAuth;

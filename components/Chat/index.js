@@ -11,19 +11,30 @@ import 'simplebar/dist/simplebar.css';
 import ReactTextareaAutocomplete from '@webscopeio/react-textarea-autocomplete';
 import '@webscopeio/react-textarea-autocomplete/style.css';
 import AutoTextarea from "react-autosize-textarea";
+import moment from 'moment';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import EmojiSelector from './EmojiSelector';
 import GifSelector from './GifSelector';
+import UrlEmbedder from '../../utils/UrlEmbedder';
+
+import Image from '../Image';
 
 import { ToggleFeature } from '@flopflip/react-redux';
 
+import log from '../../utils/log';
+
 import * as actions from '../../actions';
 var socket = null;
+var users = new Map();
+var me = null;
+var privileged = [];
+var hasPrivilege = false;
 function ChatComponent(props){
 	const dispatch = useDispatch();
 	const [connectedStatus, setConnectedStatus] = useState(false);
+	const [lastMessage, setLastMessage] = useState('');
 	const [message, setMessage] = useState('');
 	const [messages, setMessages] = useState([]);
 	const [customPickerEmotes, setCustomPickerEmotes] = useState(false);
@@ -33,12 +44,7 @@ function ChatComponent(props){
 	const channel = useSelector(state => state.channel);
 	const emotes = useSelector(state => state.emotes.data);
 
-	let users = new Map();
 	let maxlines = 250;
-
-	let me = null;
-	let privileged = [];
-	let hasPrivilege = false;
 
 	let rta;
 	let textarea;
@@ -51,19 +57,17 @@ function ChatComponent(props){
 		};
 	}
 
-	const handleUsers = (args) => {
-		let users = args[0];
-		console.log('helllooo', users);
+	const handleUsers = (users) => {
+		log('info', 'Chat', 'We got users', users);
 		users.forEach((user) => {
-			console.log(user, user.name);
+			log('info', 'Chat', 'user', user, user.name);
 			if(user && user.name) userJoin(user);
 		});
 	}
 
 	const handlePriv = (args) => {
-		let privileged = args[0];
+		privileged = args[0];
 		if(typeof privileged !== 'array') return;
-		privileged = privileged;
 		// In case privilege has been added or removed for your user
 		if(
 			privileged.indexOf(me.id) > -1
@@ -95,15 +99,33 @@ function ChatComponent(props){
 		}
 	}
 
+	const lastMessageHandler = (event) => {
+		if(!event) return;
+		if(event.target && !event.target.value){
+			if(event.keyCode == 38){
+				setMessage(lastMessage);
+			}else{
+				setMessage('');
+			}
+		}
+		if(event.type === 'cut'){
+			setTimeout(() => {
+				if(!event.srcElement.value){
+					setMessage('');
+				}
+			}, 20);
+		}
+	}
+
 	const handleSys = (msg) => {
 		let entry = {
 			user: null,
 			message: (
 				<>
-					<span className="chat-message-user orange b">
+					<span className="chat-message-user green b">
 						SYSTEM MESSAGE:{'\u00A0'}
 					</span>
-					<span className="chat-message-content orange">
+					<span className="chat-message-content green">
 						{msg}
 					</span>
 				</>
@@ -113,16 +135,24 @@ function ChatComponent(props){
 		cleanup();
 	}
 
+	const handleViewers = (viewers) => {
+		log('info', 'Chat', 'Viewers: ' + viewers);
+		dispatch({
+			type: 'SET_CHANNEL_VIEWERS',
+			viewers
+		});
+	}
+
 	const handleMessage = (user, messages) => {
 		let self = this;
 		let entry;
 		let writeMessage = ((message) => {
 			setMessage(message);
-		}).bind(this);
+		}).bind(self);
 		if(!user || !messages) return;
-		console.log('hello', emotes, customPickerEmotes);
+		log('info', 'Chat', 'We got emotes', emotes, customPickerEmotes);
+		const embed = new UrlEmbedder;
 		let output = messages.map((msg, i) => {
-			console.log(msg,i,emotes);
 			if(!msg.type) return null;
 			if(!msg.content.trim()) return null;
 			switch(msg.type){
@@ -130,12 +160,12 @@ function ChatComponent(props){
 					if(Object.keys(emotes).indexOf(msg.content) == -1) return null;
 					let emote = emotes[msg.content];
 					return (
-						<React.Fragment key={'c-' + i + '-' + (new Date).getTime()}><img className="chat-message-content__emote dib" src={emote.url} alt={'Emote: ' + msg.content} title={msg.content + ' by ' + emote.provider} />{i !== messages.length -1 && '\u00A0'}</React.Fragment>
+						<React.Fragment key={'c-' + i + '-' + (new Date).getTime()}><Image className="chat-message-content__emote dib" src={emote.url} alt={'Emote: ' + msg.content} title={msg.content + ' by ' + emote.provider} />{i !== messages.length -1 && '\u00A0'}</React.Fragment>
 					);
 				break;
 				case 'text':
 					return (
-						<span key={'u-' + i + '-'  + (new Date).getTime()} dangerouslySetInnerHTML={{__html: `${msg.content}${i !== messages.length -1 ? '\u00A0' : ''}`}}></span>
+						<span key={'u-' + i + '-'  + (new Date).getTime()} dangerouslySetInnerHTML={{__html: `${embed.format(msg.content)}${i !== messages.length -1 ? '\u00A0' : ''}`}}></span>
 					);
 				break;
 				default:
@@ -151,7 +181,7 @@ function ChatComponent(props){
 			message: (
 				<>
 					<span className="chat-message-time">
-						{new Date(user.lastMessage).toLocaleTimeString()}{'\u00A0'}
+						{moment(new Date(user.lastMessage)).format( 'HH:mm:ss' )}
 					</span>
 					<span className="chat-message-badges">
 						{
@@ -208,7 +238,7 @@ function ChatComponent(props){
 									title="Timeout user"
 									onClick={() => {writeMessage(`/timeout ${user.name} 600`)}}
 								>
-									<FontAwesomeIcon icon='timeglass' />
+									<FontAwesomeIcon icon='hourglass' />
 								</a>
 							</span>
 						}
@@ -228,6 +258,7 @@ function ChatComponent(props){
 
 	const writeMessage = (event) => {
 		setMessage(event.target.value);
+		if(event.target.value) setLastMessage(event.target.value);
 	}
 
 	const sendMessage = () => {
@@ -238,7 +269,7 @@ function ChatComponent(props){
 		if(msg.slice(0,1) === '/'){
 			let args = msg.split(' ');
 			let command = args.shift();
-			console.log(args, command);
+			log('info', 'Chat', 'We got a command', args, command);
 			switch(command){
 				case '/users':
 					let nicks = [];
@@ -252,7 +283,6 @@ function ChatComponent(props){
 					if(!hasPrivilege) return;
 					if(args && args[0]){
 						let user = users.get(args[0]);
-						console.log('nei', user);
 						socket.emit('ban', user && user.id);
 					}
 				break;
@@ -273,7 +303,6 @@ function ChatComponent(props){
 					}
 					if(args && args[0]){
 						let user = users.get(args[0]);
-						console.log('nei', user);
 						socket.emit('mod', user && user.id);
 					}
 				break;
@@ -334,7 +363,8 @@ function ChatComponent(props){
 				imageUrl: emotes[name].url,
 				text: name,
 				short_names: [name],
-				keywords: [name]
+				keywords: [name],
+				customCategory: emotes[name].provider
 			})
 		));
 	}, [emotes]);
@@ -355,12 +385,13 @@ function ChatComponent(props){
 			socket.on('users', handleUsers);
 			socket.on('sys', handleSys);
 			socket.on('privileged', handlePriv);
+			socket.on('viewers', handleViewers);
 			socket.on('connect', () => {
 				setConnectedStatus(true);
 				socket.emit('join', authentication.token || null);
 			});
 			socket.on('reconnect', () => {
-				console.log('reconnect');
+				log('info', 'Chat', 'reconnect');
 				//socket.emit('join', props.authentication.token || null);
 			});
 		}
@@ -411,7 +442,7 @@ function ChatComponent(props){
 				</SimpleBar>
 			</div>
 			<div className="chat-input pr4 pl4 pb4">
-				<div className="db relative">
+				<div className="relative">
 					<ReactTextareaAutocomplete
 						value={message}
 						onChange={writeMessage}
@@ -426,6 +457,8 @@ function ChatComponent(props){
 						innerRef={textarea => {
 							textarea = textarea;
 						}}
+						onKeyUp={event => lastMessageHandler(event)}
+						onCut={event => lastMessageHandler(event)}
 						textAreaComponent={{ component: AutoTextarea, ref: "innerRef" }}
 						minChar={2}
 						rows={1}
@@ -438,7 +471,7 @@ function ChatComponent(props){
 											return {
 												name,
 												char: name,
-												img: `<img src='${emotes[name].url}'/>`
+												img: <Image src={emotes[name].url} />
 											}
 										});
 									}
@@ -453,7 +486,7 @@ function ChatComponent(props){
 										return {
 											name,
 											char: name,
-											img: `<img src='${emotes[name].url}'/>`
+											img: <Image src={emotes[name].url} />
 										};
 									});
 								},
@@ -471,38 +504,43 @@ function ChatComponent(props){
 							}
 						}}
 					/>
-				</div>
-				<div className="chat-input__buttons primary flex justify-between mt1">
-					<div className="flex flex-row">
-						<div className="relative">
-							{
-								customPickerEmotes &&
-								customPickerEmotes.length > 0 &&
-								<EmojiSelector
-									emotes={customPickerEmotes} 
-									onSelect={emoji => {
-										// Select text to type - if it is custom type the id, otherwise type emoji.
-										const text = emoji.custom ? emoji.id : emoji.native;
-								
-										setMessage(`${message} ${text}`);
-									}}
-								/>
-							}
-							<ToggleFeature
-								flag='gifSelector'
-							>
-							{
-								<GifSelector
-									onEntrySelect={entry => {
-											console.log('GifSelector entry', entry);
-											setMessage(`${entry.images.fixed_width_small.url}`);
+					<div className="chat-input__buttons absolute bottom-0 right-0">
+						<div className="flex flex-row pr2 pb2">
+							<div className="relative">
+								{
+									customPickerEmotes &&
+									customPickerEmotes.length > 0 &&
+									<EmojiSelector
+										emotes={customPickerEmotes} 
+										onSelect={emoji => {
+											// Select text to type - if it is custom type the id, otherwise type emoji.
+											const text = emoji.custom ? emoji.id : emoji.native;
+									
+											setMessage(`${message} ${text}`);
+											setLastMessage(`${message} ${text}`);
 										}}
-								/>
-							}
-							</ToggleFeature>
+									/>
+								}
+								<ToggleFeature
+									flag='gifSelector'
+								>
+								{
+									<GifSelector
+										onEntrySelect={entry => {
+												log('info', 'Chat', 'GifSelector entry', entry);
+												setMessage(`${entry.images.original.url}`);
+												setLastMessage(`${entry.images.original.url}`);
+											}}
+									/>
+								}
+								</ToggleFeature>
+							</div>
 						</div>
 					</div>
-					<div className="content-center items-center flex flex-row">
+				</div>
+				<div className="flex justify-between">
+					<div className="flex flex-row">test</div>
+					<div className="flex flex-row content-center items-center">
 						<input type="button" value="Chat" onClick={sendMessage} className="white dib pv2 ph3 nowrap lh-solid pointer br2 ba b--transparent bg-green" />
 					</div>
 				</div>
