@@ -105,7 +105,7 @@ export default withRedux(configureStore)(class MyApp extends App {
 
 	render() {
 		const {Component, pageProps, store} = this.props;
-		const {locale, catalog} = pageProps;
+		const {locale, catalog} = this.props;
 		return (
 			<>
 				<Provider store={store}>
