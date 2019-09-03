@@ -270,14 +270,12 @@ function ChatComponent(props){
 		// If this is a command
 		if(msg.slice(0,1) === '/'){
 			let args = msg.split(' ');
-			let command = args.shift();
+			let command = args.shift().slice(1);
 			let commandClass;
 			log('info', 'Chat', 'We got a command', args, command);
 			if(commandClass = commands.get(command)){
 				let command = new commandClass(socket, channel, me, hasPrivilege, users);
-				command.run.bind(this)(args);
-				delete command;
-				delete commandClass;
+				command.run(args);
 			}
 		}else{
 			let msgs = msg && msg.split(' ');
