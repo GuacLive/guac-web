@@ -26,6 +26,8 @@ import { ToggleFeature } from '@flopflip/react-redux';
 import log from '../../utils/log';
 
 import * as actions from '../../actions';
+
+import commands from './commands';
 var socket = null;
 var users = new Map();
 var me = null;
@@ -269,64 +271,13 @@ function ChatComponent(props){
 		if(msg.slice(0,1) === '/'){
 			let args = msg.split(' ');
 			let command = args.shift();
+			let commandClass;
 			log('info', 'Chat', 'We got a command', args, command);
-			switch(command){
-				case '/users':
-					let nicks = [];
-					[...users].forEach((args) => {
-						let user = args[1];
-						if(user && user.name) nicks.push(user.name);
-					});
-					handleSys('User list: ' + nicks.join(' '));
-				break;
-				case '/ban':
-					if(!hasPrivilege) return;
-					if(args && args[0]){
-						let user = users.get(args[0]);
-						socket.emit('ban', user && user.id);
-					}
-				break;
-				case '/unban':
-					if(!hasPrivilege) return;
-					if(args && args[0]){
-						let user = users.get(args[0]);
-						socket.emit('unban', user && user.id);
-					}
-				break;
-				case '/mod':
-					if(!hasPrivilege) return;
-					if(
-						me
-						&& channel.data.user.name !== me.name
-					){
-						return;
-					}
-					if(args && args[0]){
-						let user = users.get(args[0]);
-						socket.emit('mod', user && user.id);
-					}
-				break;
-				case '/unmod':
-					if(!hasPrivilege) return;
-					if(
-						me
-						&& channel.data.user.name !== me.name
-					){
-						return;
-					}
-					if(args && args[0]){
-						let user = users.get(args[0]);
-						socket.emit('unmod', user && user.id);
-					}
-				break;
-				case '/timeout':
-					if(!hasPrivilege) return;
-					if(args && args[0]){
-						let user = users.get(args[0]);
-						let time = typeof args[1] === 'number' ? args[1] : 600;
-						socket.emit('timeout', user && user.id, time);
-					}
-				break;
+			if(commandClass = commands.get(command)){
+				let command = new commandClass(socket, channel, me, hasPrivilege, users);
+				command.run.bind(this)(args);
+				delete command;
+				delete commandClass;
 			}
 		}else{
 			let msgs = msg && msg.split(' ');
