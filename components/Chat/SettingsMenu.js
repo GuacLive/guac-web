@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
+import useLocalStorage from 'react-use/lib/useLocalStorage';
+
+import Switch from 'react-switch';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function SettingsMenu(props){
+	const [checked, isChecked] = useLocalStorage('showTimestamps');
 	const [isOpen, setIsOpen] = useState(false);
+
+	const handleTimestampsOption = () => isChecked(!checked);
 
 	const handleToggleClick = () => {
 		setIsOpen(!isOpen);
@@ -16,7 +22,17 @@ function SettingsMenu(props){
 				{isOpen &&
 					<div className="pa1 ba b--gray br2 bg-white near-black">
 						<div className="relative h5 w5 ml1 mb2">
-							<span class="f3 b tracked mt0 mb3">Settings</span>
+							<span className="f3 b tracked mt0 mb3">Settings</span>
+							<label className="db pv2 ph2">
+								<Switch
+									id="switch-timestamps"
+									onChange={handleTimestampsOption}
+									checked={checked}
+									uncheckedIcon={false}
+									checkedIcon={false}
+								/>
+								<span id="switch-timestamps-label" className="ml2">Timestamps</span>
+							</label>
 						</div>
 					</div>
 				}

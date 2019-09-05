@@ -29,6 +29,8 @@ import log from '../../utils/log';
 
 import * as actions from '../../actions';
 
+import useLocalStorage from 'react-use/lib/useLocalStorage';
+
 import commands from './commands';
 var socket = null;
 var users = new Map();
@@ -47,6 +49,11 @@ function ChatComponent(props){
 	const authentication = useSelector(state => state.authentication);
 	const channel = useSelector(state => state.channel);
 	const emotes = useSelector(state => state.emotes.data);
+	
+	var [showTimestamps] = useLocalStorage('showTimestamps', true);
+	var chatSettings = {
+		showTimestamps
+	};
 
 	let maxlines = 250;
 
@@ -184,9 +191,12 @@ function ChatComponent(props){
 			user,
 			message: (
 				<>
-					<span className="chat-message-time">
-						{moment(new Date(user.lastMessage)).format( 'HH:mm:ss' )}
-					</span>
+					{
+						chatSettings.showTimestamps &&
+						<span className="chat-message-time">
+							{moment(new Date(user.lastMessage)).format( 'HH:mm:ss' )}
+						</span>
+					}
 					<span className="chat-message-badges">
 						{
 							user.badges &&
@@ -491,7 +501,7 @@ function ChatComponent(props){
 				</div>
 				<div className="flex justify-between">
 					<div className="flex flex-row">
-						<SettingsMenu />
+						<SettingsMenu chatSettings={chatSettings} />
 					</div>
 					<div className="flex flex-row content-center items-center">
 						<input type="button" value="Chat" onClick={sendMessage} className="white dib pv2 ph3 nowrap lh-solid pointer br2 ba b--transparent bg-green" />
