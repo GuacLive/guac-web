@@ -6,6 +6,8 @@ import NextHead from 'next/head'
 
 import dynamic from 'next/dynamic'
 
+import { Trans } from '@lingui/macro'
+
 import Chat from '../../components/Chat'
 
 import GuacButton from '../../components/GuacButton'
@@ -104,13 +106,13 @@ class ChannelPage extends Component {
 					}
 					</div>
 
-					{stream.isFollowed && !stream.isMe && <GuacButton color="white">Unfollow</GuacButton>}
-					{!stream.isFollowed && !stream.isMe && <GuacButton color="white">Follow</GuacButton>}
-					<GuacButton color="green">Subscribe</GuacButton>
+					{stream.isFollowed && !stream.isMe && <GuacButton color="white"><Trans>Unfollow</Trans></GuacButton>}
+					{!stream.isFollowed && !stream.isMe && <GuacButton color="white"><Trans>Follow</Trans></GuacButton>}
+					<GuacButton color="green"><Trans>Subscribe</Trans></GuacButton>
 					<div>
 						<span className="b f4">{stream.title}
 						<br />
-						playing <Link href={'/category/' + stream.category_id}><a>{stream.category_name}</a></Link>
+						<Trans>playing <Link href={'/category/' + stream.category_id}>{stream.category_name}</Link></Trans>
 						</span>
 					</div>
 				</div>
@@ -137,9 +139,9 @@ class ChannelPage extends Component {
 			{name: 'twitter:description', content: (channel.data.name || '').substring(0, 200)},
 			{name: 'twitter:image', content: '//guac.live/static/img/header-logo.png'},  
 		];
-		if(channel.loading) return (<p>Loading...</p>);
+		if(channel.loading) return (<Trans>Loading...</Trans>);
 		//if(channel.error) throw channel.error;
-		if(!channel.data) return (<p>Channel not found</p>);
+		if(!channel.data) return (<Trans>Channel not found</Trans>);
 
 		let followed = site.myFollowed && site.myFollowed.find((u) => {
 			return u && u.to_id === channel.data.user.id;
