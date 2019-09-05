@@ -373,8 +373,8 @@ function ChatComponent(props){
 
 	return (
 		<>
-			<div className="flex flex-column flex-grow-1 flex-nowrap overflow-hidden">
-				<SimpleBar className="chat-messages flex-grow-1" style={{ height: '80vh' }}>
+			<div className="flex flex-column flex-grow-1 flex-nowrap overflow-hidden" style={{ height: '80vh' }}>
+				<SimpleBar className="chat-messages flex-grow-1">
 				{
 					messages
 					&&
