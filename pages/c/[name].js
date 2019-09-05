@@ -110,9 +110,11 @@ class ChannelPage extends Component {
 					{!stream.isFollowed && !stream.isMe && <GuacButton color="white"><Trans>Follow</Trans></GuacButton>}
 					<GuacButton color="green"><Trans>Subscribe</Trans></GuacButton>
 					<div>
-						<span className="b f4">{stream.title}
-						<br />
-						<Trans>playing <Link href={'/category/' + stream.category_id}>{stream.category_name}</Link></Trans>
+						<span className="b f4">
+							{stream.title}
+							<br />
+							<Trans>playing</Trans>&nbsp;
+							<Link href={'/category/' + stream.category_id}><a>{stream.category_name}</a></Link>
 						</span>
 					</div>
 				</div>
