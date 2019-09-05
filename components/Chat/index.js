@@ -17,6 +17,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import EmojiSelector from './EmojiSelector';
 import GifSelector from './GifSelector';
+import SettingsMenu from './SettingsMenu';
+
 import UrlEmbedder from '../../utils/UrlEmbedder';
 
 import Image from '../Image';
@@ -488,7 +490,9 @@ function ChatComponent(props){
 					</div>
 				</div>
 				<div className="flex justify-between">
-					<div className="flex flex-row">test</div>
+					<div className="flex flex-row">
+						<SettingsMenu />
+					</div>
 					<div className="flex flex-row content-center items-center">
 						<input type="button" value="Chat" onClick={sendMessage} className="white dib pv2 ph3 nowrap lh-solid pointer br2 ba b--transparent bg-green" />
 					</div>
