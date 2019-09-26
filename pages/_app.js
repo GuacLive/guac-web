@@ -25,9 +25,9 @@ import { initializeFirebase, initializePush } from '../utils/push-notification';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 
-import { faBan, faCheck, faHourglass, faVideo, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad } from '@fortawesome/free-solid-svg-icons';
+import { faBan, faCheck, faHourglass, faVideo, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faBan, faCheck, faHourglass, faVideo, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad);
+library.add(faBan, faCheck, faHourglass, faVideo, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog);
 export default withRedux(configureStore)(class MyApp extends App {
 	static async getInitialProps(appContext) {
 		const { ctx } = appContext;
@@ -105,7 +105,7 @@ export default withRedux(configureStore)(class MyApp extends App {
 
 	render() {
 		const {Component, pageProps, store} = this.props;
-		const {locale, catalog} = pageProps;
+		const {locale, catalog} = this.props;
 		return (
 			<>
 				<Provider store={store}>

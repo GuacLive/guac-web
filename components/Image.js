@@ -117,10 +117,10 @@ export default class Image extends React.Component {
         if(!isIntersectionObserverSupported) this.replaceImage()
     }
 
-    componentWillReceiveProps(nextProps) {
-        if(nextProps.src !== this.props.src){
+    componentDidUpdate(prevProps, prevState) {
+        if(this.props.src !== prevProps.src){
             this.setState({
-                src: this.createImageUrl(nextProps)
+                src: this.createImageUrl(this.props)
             });
         }
     }

@@ -1,8 +1,7 @@
 const videojs = require('video.js').default;
 import '@videojs/http-streaming';
-import 'video.js/dist/video-js.css';
+require('!style-loader!css-loader!video.js/dist/video-js.css')
 import '@silvermine/videojs-chromecast/dist/silvermine-videojs-chromecast.css';
-import 'videojs-resolution-switcher/lib/videojs-resolution-switcher.css';
 import 'videojs-overlay/dist/videojs-overlay.js';
 import 'videojs-overlay/dist/videojs-overlay.css';
 import 'videojs-resolution-switcher'

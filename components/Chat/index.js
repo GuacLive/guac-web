@@ -17,6 +17,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import EmojiSelector from './EmojiSelector';
 import GifSelector from './GifSelector';
+import SettingsMenu from './SettingsMenu';
+
 import UrlEmbedder from '../../utils/UrlEmbedder';
 
 import Image from '../Image';
@@ -26,6 +28,10 @@ import { ToggleFeature } from '@flopflip/react-redux';
 import log from '../../utils/log';
 
 import * as actions from '../../actions';
+
+import useLocalStorage from 'react-use/lib/useLocalStorage';
+
+import commands from './commands';
 var socket = null;
 var users = new Map();
 var me = null;
@@ -43,6 +49,11 @@ function ChatComponent(props){
 	const authentication = useSelector(state => state.authentication);
 	const channel = useSelector(state => state.channel);
 	const emotes = useSelector(state => state.emotes.data);
+	
+	var [showTimestamps] = useLocalStorage('showTimestamps', true);
+	var chatSettings = {
+		showTimestamps
+	};
 
 	let maxlines = 250;
 
@@ -180,9 +191,12 @@ function ChatComponent(props){
 			user,
 			message: (
 				<>
-					<span className="chat-message-time">
-						{moment(new Date(user.lastMessage)).format( 'HH:mm:ss' )}
-					</span>
+					{
+						chatSettings.showTimestamps &&
+						<span className="chat-message-time">
+							{moment(new Date(user.lastMessage)).format( 'HH:mm:ss' )}
+						</span>
+					}
 					<span className="chat-message-badges">
 						{
 							user.badges &&
@@ -268,65 +282,12 @@ function ChatComponent(props){
 		// If this is a command
 		if(msg.slice(0,1) === '/'){
 			let args = msg.split(' ');
-			let command = args.shift();
+			let command = args.shift().slice(1);
+			let commandClass;
 			log('info', 'Chat', 'We got a command', args, command);
-			switch(command){
-				case '/users':
-					let nicks = [];
-					[...users].forEach((args) => {
-						let user = args[1];
-						if(user && user.name) nicks.push(user.name);
-					});
-					handleSys('User list: ' + nicks.join(' '));
-				break;
-				case '/ban':
-					if(!hasPrivilege) return;
-					if(args && args[0]){
-						let user = users.get(args[0]);
-						socket.emit('ban', user && user.id);
-					}
-				break;
-				case '/unban':
-					if(!hasPrivilege) return;
-					if(args && args[0]){
-						let user = users.get(args[0]);
-						socket.emit('unban', user && user.id);
-					}
-				break;
-				case '/mod':
-					if(!hasPrivilege) return;
-					if(
-						me
-						&& channel.data.user.name !== me.name
-					){
-						return;
-					}
-					if(args && args[0]){
-						let user = users.get(args[0]);
-						socket.emit('mod', user && user.id);
-					}
-				break;
-				case '/unmod':
-					if(!hasPrivilege) return;
-					if(
-						me
-						&& channel.data.user.name !== me.name
-					){
-						return;
-					}
-					if(args && args[0]){
-						let user = users.get(args[0]);
-						socket.emit('unmod', user && user.id);
-					}
-				break;
-				case '/timeout':
-					if(!hasPrivilege) return;
-					if(args && args[0]){
-						let user = users.get(args[0]);
-						let time = typeof args[1] === 'number' ? args[1] : 600;
-						socket.emit('timeout', user && user.id, time);
-					}
-				break;
+			if(commandClass = commands.get(command)){
+				let command = new commandClass(socket, channel, me, hasPrivilege, users);
+				command.run(args);
 			}
 		}else{
 			let msgs = msg && msg.split(' ');
@@ -424,8 +385,8 @@ function ChatComponent(props){
 
 	return (
 		<>
-			<div className="flex flex-column flex-grow-1 flex-nowrap overflow-hidden">
-				<SimpleBar className="chat-messages flex-grow-1" style={{ height: '80vh' }}>
+			<div className="flex flex-column flex-grow-1 flex-nowrap overflow-hidden" style={{ height: '80vh' }}>
+				<SimpleBar className="chat-messages flex-grow-1">
 				{
 					messages
 					&&
@@ -539,7 +500,9 @@ function ChatComponent(props){
 					</div>
 				</div>
 				<div className="flex justify-between">
-					<div className="flex flex-row">test</div>
+					<div className="flex flex-row">
+						<SettingsMenu chatSettings={chatSettings} />
+					</div>
 					<div className="flex flex-row content-center items-center">
 						<input type="button" value="Chat" onClick={sendMessage} className="white dib pv2 ph3 nowrap lh-solid pointer br2 ba b--transparent bg-green" />
 					</div>
