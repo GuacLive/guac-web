@@ -40,7 +40,7 @@ export const register = (username, password) => async (dispatch) => {
 	dispatch({
 		type: 'AUTHENTICATE_REQUEST'
 	})
-	return callApi('/auth/register', {
+	return callApi('/register', {
 		method: 'POST',
 		body: JSON.stringify({
 			username,
