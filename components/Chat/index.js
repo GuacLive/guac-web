@@ -432,7 +432,7 @@ function ChatComponent(props){
 											return {
 												name,
 												char: name,
-												img: <Image src={emotes[name].url} />
+												img: `<Image src=${emotes[name].url} />`
 											}
 										});
 									}
@@ -447,7 +447,7 @@ function ChatComponent(props){
 										return {
 											name,
 											char: name,
-											img: <Image src={emotes[name].url} />
+											img: `<Image src=${emotes[name].url} />`
 										};
 									});
 								},

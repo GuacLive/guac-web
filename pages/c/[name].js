@@ -13,7 +13,7 @@ import Chat from '../../components/Chat'
 import GuacButton from '../../components/GuacButton'
 
 let VideoPlayer = dynamic(
-	() => import('../../components/VideoPlayer'),
+	() => /* webpackChunkName: 'VideoPlayer' */import('../../components/VideoPlayer'),
 	{
 		ssr: false,
 		loading: () => <div className="w-100 h-100 bg-black white content-box" style={{'paddingTop': '56.25%'}} />
@@ -128,6 +128,12 @@ class ChannelPage extends Component {
 			site,
 			authentication
 		} = this.props;
+		log('info', 'Channel', channel);
+console.log('test');
+		if(channel.loading) return (<Trans>Loading...</Trans>);
+		if(!channel.data) return (<Trans>Channel not found</Trans>);
+		if(channel.error) throw channel.error;
+
 		const meta = [
 			{name: 'og:title', hid: 'og:title', content: `${channel.data.name} &middot; guac.live`},
 			{name: 'og:description', hid: 'og:description', content: (channel.data.name || '').substring(0, 200)},
@@ -141,9 +147,6 @@ class ChannelPage extends Component {
 			{name: 'twitter:description', content: (channel.data.name || '').substring(0, 200)},
 			{name: 'twitter:image', content: '//guac.live/static/img/header-logo.png'},  
 		];
-		if(channel.loading) return (<Trans>Loading...</Trans>);
-		//if(channel.error) throw channel.error;
-		if(!channel.data) return (<Trans>Channel not found</Trans>);
 
 		let followed = site.myFollowed && site.myFollowed.find((u) => {
 			return u && u.to_id === channel.data.user.id;
