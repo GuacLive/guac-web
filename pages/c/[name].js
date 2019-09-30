@@ -129,9 +129,10 @@ class ChannelPage extends Component {
 			authentication
 		} = this.props;
 		log('info', 'Channel', channel);
+console.log('test');
 		if(channel.loading) return (<Trans>Loading...</Trans>);
-		if(channel.error) throw channel.error;
 		if(!channel.data) return (<Trans>Channel not found</Trans>);
+		if(channel.error) throw channel.error;
 
 		const meta = [
 			{name: 'og:title', hid: 'og:title', content: `${channel.data.name} &middot; guac.live`},
