@@ -13,7 +13,7 @@ import Chat from '../../components/Chat'
 import GuacButton from '../../components/GuacButton'
 
 let VideoPlayer = dynamic(
-	() => import('../../components/VideoPlayer'),
+	() => /* webpackChunkName: 'VideoPlayer' */import('../../components/VideoPlayer'),
 	{
 		ssr: false,
 		loading: () => <div className="w-100 h-100 bg-black white content-box" style={{'paddingTop': '56.25%'}} />
