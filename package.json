@@ -59,7 +59,7 @@
     "next": "^9.0.3-canary.2",
     "next-redux-wrapper": "^3.0.0-alpha.3",
     "next-server": "^9.0.2-canary.1",
-    "now": "^16.1.4-canary.3",
+    "now": "^16.2.0",
     "path-match": "^1.2.4",
     "postcss-css-variables": "^0.13.0",
     "postcss-import": "^12.0.1",
