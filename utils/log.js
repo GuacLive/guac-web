@@ -1,7 +1,7 @@
 export default function log(type = 'info', caller = 'base', text = '', ...logs) {
 	let typeBg, callerBg;
 	if(process.env.NODE_ENV === 'production'){
-		return;
+		//return;
 	}
 
 	switch(type){
