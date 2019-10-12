@@ -90,7 +90,7 @@ class DashboardPage extends Component {
 						<input  
 							name="private"
 							type="checkbox"
-							className="input-reset bn pa3 w-100 bg-white br2" 
+							className="pa3 br2" 
 							ref="private"
 							checked={streaming.private ? true : false}
 						>
