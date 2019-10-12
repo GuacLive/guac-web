@@ -90,7 +90,7 @@ class DashboardPage extends Component {
 						<input  
 							name="private"
 							type="checkbox"
-							className="input-reset bn pa3 w-100 bg-white br2" 
+							className="pa3 br2" 
 							ref="private"
 							checked={streaming.private ? true : false}
 						>
@@ -102,8 +102,9 @@ class DashboardPage extends Component {
 						<li>
 							<p>First, choose the streaming server closest to you:</p>
 							<ul className="list">
-								<li><b>Oslo, Europe:</b> rtmp://osl1.stream.guac.live:1935/live</li>
-								<li><b>London, Europe:</b> rtmp://lon1.stream.guac.live:1935/live</li>
+								<li><b>London, Europe:</b> rtmp://stream.guac.live:1935/live</li>
+								{/*<li><b>Oslo, Europe:</b> rtmp://osl1.stream.guac.live:1935/live</li>
+								<li><b>London, Europe:</b> rtmp://lon1.stream.guac.live:1935/live</li>*/}
 							</ul>
 						</li>
 						<li>
