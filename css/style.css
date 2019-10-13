@@ -164,6 +164,8 @@ body {
 .chat-message-content__emote {
 	vertical-align: middle;
 	margin: -.5rem 0;
+	min-width: 1.8rem;
+	height: 1.8rem;
 }
 
 .chat-message-badges {
