@@ -4,7 +4,7 @@ importScripts('https://www.gstatic.com/firebasejs/7.2.0/firebase-messaging.js');
 // Initialize the Firebase app in the service worker by passing in the
 // messagingSenderId.
 firebase.initializeApp({
-    apiKey: "AIzaSyAWpwVfaVmow4iNi25v0hI7n4Of8a71Qqo",
+    apiKey: "AIzaSyBYPKBfnClvbzFrUHvGx_pX0OYd4T1zHfU",
     authDomain: "guac-197816.firebaseapp.com",
     databaseURL: "https://guac-197816.firebaseio.com",
     projectId: "guac-197816",
