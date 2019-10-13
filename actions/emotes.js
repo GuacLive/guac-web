@@ -2,19 +2,19 @@ import fetch from 'cross-fetch';
 
 export const fetchEmotes = () => async (dispatch) => {
 	let result = [];
-	await fetch('/static/emotes/global.json')
+	await fetch('/emotes/global.json')
 	.then(async response => {
 		const data = await response.json();
 		for(const emote of Object.values(data)){
 			result[emote.code] = {
 				provider: 'Global',
-				url: `/static/emotes/global/${emote.id}.png`,
+				url: `/emotes/global/${emote.id}.png`,
 			};
 		}
 	})
 	.catch(() => {});
 
-	await fetch('/static/emotes/twitch.json')
+	await fetch('/emotes/twitch.json')
 	.then(async response => {
 		const data = await response.json();
 		for(const emote of Object.values(data)){

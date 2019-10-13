@@ -137,7 +137,7 @@ console.log('test');
 		const meta = [
 			{name: 'og:title', hid: 'og:title', content: `${channel.data.name} &middot; guac.live`},
 			{name: 'og:description', hid: 'og:description', content: (channel.data.name || '').substring(0, 200)},
-			{name: 'og:image', hid: 'og:image', content: '//guac.live/static/img/header-logo.png'},
+			{name: 'og:image', hid: 'og:image', content: '//guac.live/img/header-logo.png'},
 			{name: 'author', content: channel.data.name},
 			{name: 'description', hid: 'description', content: (channel.data.name || '').substring(0, 200)},
 			{name: 'profile:username', content: channel.data.name},
@@ -145,7 +145,7 @@ console.log('test');
 			{name: 'twitter:site', content: '@GuacLive'},
 			{name: 'twitter:title', content: (channel.data.title || '').substring(0, 70)},
 			{name: 'twitter:description', content: (channel.data.name || '').substring(0, 200)},
-			{name: 'twitter:image', content: '//guac.live/static/img/header-logo.png'},  
+			{name: 'twitter:image', content: '//guac.live/img/header-logo.png'},  
 		];
 
 		let followed = site.myFollowed && site.myFollowed.find((u) => {

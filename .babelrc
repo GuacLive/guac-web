@@ -3,6 +3,7 @@
 	  "next/babel"
 	],
 	"plugins": [
-	  "macros"
+	  "macros",
+	  "@babel/plugin-proposal-object-rest-spread"
 	]
   }
