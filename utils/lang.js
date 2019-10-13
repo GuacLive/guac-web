@@ -1,4 +1,5 @@
 const getLangsFromReq = (req, filtered) => {
+	if(!req.headers || !req.headers.hasOwnProperty('accept-language')) return ['en'];
 	const sortedLangByWeight = req.headers['accept-language']
 		.split(',')
 		.map(lang => {
