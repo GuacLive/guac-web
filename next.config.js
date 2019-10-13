@@ -27,6 +27,21 @@ module.exports = withCSS({
 		});
 
 		config.module.rules.push({
+			test: /\.js(\?[^?]*)?$/,
+			loader: 'babel-loader',
+			include: [
+				path.resolve(__dirname, './node_modules/next/dist/pages'),
+				path.resolve(__dirname, './node_modules/linkify-urls'),
+			],
+			query: {
+				cacheDirectory: true,
+				sourceMaps: 'both',
+				presets: ['@babel/preset-env'],
+				plugins: ['@babel/plugin-proposal-object-rest-spread']
+			}
+		});
+
+		config.module.rules.push({
 			test: /\.po/,
 			use: [
 				{
