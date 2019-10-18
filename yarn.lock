@@ -3931,16 +3931,6 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-create-html-element@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/create-html-element/-/create-html-element-2.1.0.tgz#916b28a1f0bf716adfdee74abed05e7b66714bea"
-  integrity sha512-ofbOpJh3GSDsyINuqppupKRUcQHnXSyvwvk0F5DlEtwKwb+thdFoJAtYczy7bIZWdsQjZfADUc38pF4gVd0o+Q==
-  dependencies:
-    escape-goat "^1.3.0"
-    html-tags "^2.0.0"
-    stringify-attributes "^1.0.0"
-    type-fest "^0.3.0"
-
 create-react-class@^15.6.2:
   version "15.6.3"
   resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.6.3.tgz#2d73237fb3f970ae6ebe011a9e66f46dbca80036"
@@ -4938,11 +4928,6 @@ es6-symbol@^3.1.1, es6-symbol@~3.1.1:
   dependencies:
     d "^1.0.1"
     es5-ext "^0.10.51"
-
-escape-goat@^1.1.0, escape-goat@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/escape-goat/-/escape-goat-1.3.0.tgz#bf3ee8ad1e488fbba404b084b2e4a55e09231c64"
-  integrity sha512-E2nU1Y39N5UgfLU8qwMlK0vZrZprIwWLeVmDYN8wd/e37hMtGzu2w1DBiREts0XHfgyZEQlj/hYr0H0izF0HDQ==
 
 escape-html@~1.0.3:
   version "1.0.3"
@@ -6215,11 +6200,6 @@ html-minifier@^3.5.20:
     relateurl "0.2.x"
     uglify-js "3.4.x"
 
-html-tags@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/html-tags/-/html-tags-2.0.0.tgz#10b30a386085f43cede353cc8fa7cb0deeea668b"
-  integrity sha1-ELMKOGCF9Dzt41PMj6fLDe7qZos=
-
 html-webpack-plugin@4.0.0-beta.5:
   version "4.0.0-beta.5"
   resolved "https://registry.yarnpkg.com/html-webpack-plugin/-/html-webpack-plugin-4.0.0-beta.5.tgz#2c53083c1151bfec20479b1f8aaf0039e77b5513"
@@ -7401,6 +7381,11 @@ jest@24.9.0:
     import-local "^2.0.0"
     jest-cli "^24.9.0"
 
+jquery@^3.3.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.1.tgz#714f1f8d9dde4bdfa55764ba37ef214630d80ef2"
+  integrity sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==
+
 js-cookie@^2.2.0:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-2.2.1.tgz#69e106dc5d5806894562902aa5baec3744e9b2b8"
@@ -7717,12 +7702,14 @@ line-height@^0.3.1:
   dependencies:
     computed-style "~0.1.3"
 
-linkify-urls@3.1.0-nolookbehind:
-  version "3.1.0-nolookbehind"
-  resolved "https://registry.yarnpkg.com/linkify-urls/-/linkify-urls-3.1.0-nolookbehind.tgz#2446b0d9e357b80cb49ca3b76125bb41aee2e8cf"
-  integrity sha512-FiVY8FlNfBSqXy6S/j5LCDaTiMW4rpVNCgV5cRi3N/UpHzTA1vj1vDRJYSk8OxiwL7X4lvdRqqIZz2CULRiMaw==
-  dependencies:
-    create-html-element "^2.1.0"
+linkifyjs@^2.1.8:
+  version "2.1.8"
+  resolved "https://registry.yarnpkg.com/linkifyjs/-/linkifyjs-2.1.8.tgz#2bee2272674dc196cce3740b8436c43df2162f9c"
+  integrity sha512-j3QpiEr4UYzN5foKhrr9Sr06VI9vSlI4HisDWt+7Mq+TWDwpJ6H/LLpogYsXcyUIJLVhGblXXdUnblHsVNMPpg==
+  optionalDependencies:
+    jquery "^3.3.1"
+    react "^16.4.2"
+    react-dom "^16.4.2"
 
 load-json-file@^2.0.0:
   version "2.0.0"
@@ -10540,7 +10527,7 @@ react-dev-utils@^9.1.0:
     strip-ansi "5.2.0"
     text-table "0.2.0"
 
-react-dom@^16.9.0-alpha.0:
+react-dom@^16.4.2, react-dom@^16.9.0-alpha.0:
   version "16.10.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.10.2.tgz#4840bce5409176bc3a1f2bd8cb10b92db452fda6"
   integrity sha512-kWGDcH3ItJK4+6Pl9DZB16BXYAZyrYQItU4OMy0jAkv5aNqc+mAKb4TpFtAteI6TJZu+9ZlNhaeNQSVQDHJzkw==
@@ -10700,7 +10687,7 @@ react-wait@^0.3.0:
   resolved "https://registry.yarnpkg.com/react-wait/-/react-wait-0.3.0.tgz#0cdd4d919012451a5bc3ab0a16d00c6fd9a8c10b"
   integrity sha512-kB5x/kMKWcn0uVr9gBdNz21/oGbQwEQnF3P9p6E9yLfJ9DRcKS0fagbgYMFI0YFOoyKDj+2q6Rwax0kTYJF37g==
 
-react@^16.9.0-alpha.0:
+react@^16.4.2, react@^16.9.0-alpha.0:
   version "16.10.2"
   resolved "https://registry.yarnpkg.com/react/-/react-16.10.2.tgz#a5ede5cdd5c536f745173c8da47bda64797a4cf0"
   integrity sha512-MFVIq0DpIhrHFyqLU0S3+4dIcBhhOvBE8bJ/5kHPVOVaGdo0KuiQzpcjCPsf585WvhypqtrMILyoE2th6dT+Lw==
@@ -11961,13 +11948,6 @@ string_decoder@~1.1.1:
   integrity sha512-n/ShnvDi6FHbbVfviro+WojiFzv+s8MPMHBczVePfUpDJLwoLT0ht1l4YwBCbi8pJAveEEdnkHyPyTP/mzRfwg==
   dependencies:
     safe-buffer "~5.1.0"
-
-stringify-attributes@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/stringify-attributes/-/stringify-attributes-1.0.0.tgz#9e8b2f9a9467e7b48093cb2124ebc1c17e6382c5"
-  integrity sha1-nosvmpRn57SAk8shJOvBwX5jgsU=
-  dependencies:
-    escape-goat "^1.1.0"
 
 stringify-object@^3.3.0:
   version "3.3.0"

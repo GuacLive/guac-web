@@ -26,13 +26,11 @@ module.exports = withCSS({
 			}
 		});
 
-		config.module.rules.push({
+		/*config.module.rules.push({
 			test: /\.js(\?[^?]*)?$/,
 			loader: 'babel-loader',
 			include: [
-				path.resolve(__dirname, './node_modules/next/dist/pages'),
-				path.resolve(__dirname, './node_modules/create-html-element'),
-				path.resolve(__dirname, './node_modules/linkify-urls'),
+				path.resolve(__dirname, './node_modules/next/dist/pages')
 			],
 			query: {
 				cacheDirectory: true,
@@ -40,7 +38,7 @@ module.exports = withCSS({
 				presets: ['@babel/preset-env'],
 				plugins: ['@babel/plugin-proposal-object-rest-spread']
 			}
-		});
+		});*/
 
 		config.module.rules.push({
 			test: /\.po/,
