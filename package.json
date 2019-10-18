@@ -8,7 +8,7 @@
   },
   "browserslist": "defaults, IE >= 11, EDGE >= 14, Safari >= 11, Chrome >= 41, Firefox >= 52",
   "scripts": {
-    "now-build": "NODE_OPTIONS=\"--max_old_space_size=8096\" next build",
+    "now-build": "next build",
     "dev": "next",
     "deploy": "now"
   },
@@ -55,13 +55,13 @@
     "flv.js": "^1.5.0",
     "intersection-observer": "^0.7.0",
     "js-cookie": "^2.2.0",
-    "linkify-urls": "3.1.0-nolookbehind",
+    "linkifyjs": "^2.1.8",
     "lscache": "^1.2.0",
     "moment": "^2.24.0",
-    "next": "9.1.2-canary.2",
+    "next": "9.1.2-canary.6",
     "next-redux-wrapper": "^4.0.0",
     "next-server": "^9.0.6-canary.0",
-    "now": "^16.1.4-canary.16",
+    "now": "^16.1.4-canary.19",
     "path-match": "^1.2.4",
     "postcss-css-variables": "^0.13.0",
     "postcss-import": "^12.0.1",
@@ -90,7 +90,7 @@
     "videojs-flvjs": "^0.2.0",
     "videojs-overlay": "^2.1.4",
     "videojs-persistvolume": "https://github.com/GuacLive/videojs-persistvolume",
-    "videojs-resolution-switcher": "https://github.com/BaNru/videojs-resolution-switcher",
+    "videojs-resolution-switcher": "https://github.com/BaNru/videojs-resolution-switcher.git",
     "viewport-observer": "^2.3.0"
   },
   "devDependencies": {
