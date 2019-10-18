@@ -4,7 +4,6 @@
 	],
 	"plugins": [
 	  "macros",
-	  "@babel/plugin-proposal-object-rest-spread",
-	  "transform-modern-regexp"
+	  "@babel/plugin-proposal-object-rest-spread"
 	]
   }
