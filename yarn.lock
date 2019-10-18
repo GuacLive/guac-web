@@ -7717,10 +7717,10 @@ line-height@^0.3.1:
   dependencies:
     computed-style "~0.1.3"
 
-linkify-urls@3.1.0-nolookbehind:
-  version "3.1.0-nolookbehind"
-  resolved "https://registry.yarnpkg.com/linkify-urls/-/linkify-urls-3.1.0-nolookbehind.tgz#2446b0d9e357b80cb49ca3b76125bb41aee2e8cf"
-  integrity sha512-FiVY8FlNfBSqXy6S/j5LCDaTiMW4rpVNCgV5cRi3N/UpHzTA1vj1vDRJYSk8OxiwL7X4lvdRqqIZz2CULRiMaw==
+linkify-urls@^3.1.0-nolookbehind:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/linkify-urls/-/linkify-urls-3.1.0.tgz#c94c963dc50e7c96eda408653e5c1b87a537cee4"
+  integrity sha512-WLBS5zng9FCiFT30j1QkjExDBp9wNw1oBpY4oS8vbOyIZZt6+JSymPir/xrWyS+Bu1ban3pj0nukJI7ctpCLWw==
   dependencies:
     create-html-element "^2.1.0"
 
@@ -12804,9 +12804,9 @@ videojs-overlay@^2.1.4:
   version "0.0.0"
   resolved "https://github.com/GuacLive/videojs-persistvolume#2eb8cdade4711425e2fec0236b1959951673a73c"
 
-"videojs-resolution-switcher@https://github.com/BaNru/videojs-resolution-switcher":
+"videojs-resolution-switcher@https://github.com/BaNru/videojs-resolution-switcher.git":
   version "0.4.2"
-  resolved "https://github.com/BaNru/videojs-resolution-switcher#5d6d244405d36d38e55abcfb231694ad017a23bc"
+  resolved "https://github.com/BaNru/videojs-resolution-switcher.git#5d6d244405d36d38e55abcfb231694ad017a23bc"
 
 videojs-swf@5.4.1:
   version "5.4.1"
