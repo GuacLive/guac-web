@@ -31,6 +31,7 @@ module.exports = withCSS({
 			loader: 'babel-loader',
 			include: [
 				path.resolve(__dirname, './node_modules/next/dist/pages'),
+				path.resolve(__dirname, './node_modules/create-html-element'),
 				path.resolve(__dirname, './node_modules/linkify-urls'),
 			],
 			query: {
