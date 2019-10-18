@@ -8670,9 +8670,9 @@ normalize-url@^3.0.0, normalize-url@^3.3.0:
   integrity sha512-U+JJi7duF1o+u2pynbp2zXDW2/PADgC30f0GsHZtRh+HOcXHnw137TrNlyxxRvWW5fjKd3bcLHPxofWuCjaeZg==
 
 now@^16.1.4-canary.19:
-  version "16.1.4-canary.19"
-  resolved "https://registry.yarnpkg.com/now/-/now-16.1.4-canary.19.tgz#15aae671be14b9f9f041bb1663586b217cbbf7ed"
-  integrity sha512-i2VwmjE1zbmpExfq6wxfG1aHymWL58RtIPakflFR82CDtKEGluoEDJ2MNzAkFFUqVLnrgmHdTpD03EB8F2Pang==
+  version "16.3.1"
+  resolved "https://registry.yarnpkg.com/now/-/now-16.3.1.tgz#e1109145d0e8a4508b3e011f1c2b7047cb8733da"
+  integrity sha512-bn+xHUiPRH1YRfe/hSo5WZUskOLX3igL4PTe9gnoLaUoq9ZuBQw5/6A4gG4VvW2HVQLgeRkp2OASfYnjuD+lcQ==
 
 npm-bundled@^1.0.1:
   version "1.0.6"
