@@ -39,7 +39,7 @@ export const fetchEmotes = () => async (dispatch) => {
 	})
 	.catch(() => {});
 
-	await fetch('https://api-test.frankerfacez.com/v1/set/global')
+	await fetch('https://api.frankerfacez.com/v1/room/datagutt')
 	.then(async response => {
 		const data = await response.json();
 
@@ -47,7 +47,22 @@ export const fetchEmotes = () => async (dispatch) => {
 			for(const emote of set.emoticons){
 				result[emote.name] = {
 					provider: 'FrankerfaceZ',
-					url: `${emote.urls['1']}`,
+					url: `${emote.urls['4'] || emote.urls['2'] || emote.urls['1']}`,
+				};
+			}
+		}
+	})
+	.catch(() => {});
+	
+	await fetch('https://api.frankerfacez.com/v1/set/global')
+	.then(async response => {
+		const data = await response.json();
+
+		for(const set of Object.values(data.sets)){
+			for(const emote of set.emoticons){
+				result[emote.name] = {
+					provider: 'FrankerfaceZ',
+					url: `${emote.urls['4'] || emote.urls['2'] || emote.urls['1']}`,
 				};
 			}
 		}
