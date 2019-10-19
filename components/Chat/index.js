@@ -68,6 +68,15 @@ function ChatComponent(props){
 		};
 	}
 
+	const checkIfBottom = (el) => {
+		const scrollTop = el.scrollTop;
+		const clientHeight = el.clientHeight; // or offsetHeight
+		const scrollHeight = el.scrollHeight;
+		return scrollHeight - clientHeight <= scrollTop + 100;
+		//scrollTop + clientHeight >= scrollHeight
+		//return scrollHeight - scrollTop === clientHeight;
+	};
+	  
 	const handleUsers = (users) => {
 		log('info', 'Chat', 'We got users', users);
 		users.forEach((user) => {
@@ -377,16 +386,29 @@ function ChatComponent(props){
 			if(typeof document !== 'undefined'){
 				let el = document.getElementsByClassName('chat-messages')[0];
 				if(el && el.SimpleBar){
-					el.SimpleBar.getScrollElement().scrollTop = el.SimpleBar.getScrollElement().scrollHeight;
+					if(!checkIfBottom(el.SimpleBar.getScrollElement())) return;
+					// Scroll to last message
+					const contentEl = el.SimpleBar.getContentElement();
+					const lastMsg = contentEl.querySelector('div:last-child');
+					if(lastMsg){
+						lastMsg.scrollIntoView({
+							behavior: 'smooth',
+							block: 'nearest',
+							inline: 'start'
+						});
+					}
+					setTimeout(function(){
+						el.SimpleBar.getScrollElement().scrollTop = el.SimpleBar.getScrollElement().scrollHeight;
+					}, 500);			  
 				}
 			}
-		});
+		}, [messages.length]);
 	}
 
 	return (
 		<>
-			<div className="flex flex-column flex-grow-1 flex-nowrap overflow-hidden" style={{ height: '80vh' }}>
-				<SimpleBar className="chat-messages flex-grow-1">
+			<div className="flex flex-column flex-grow-1 flex-nowrap overflow-hidden">
+				<SimpleBar className="chat-messages flex-grow-1" style={{ height: '80vh' }}>
 				{
 					messages
 					&&
