@@ -11465,21 +11465,9 @@ simplebar-react@1.2.2:
   integrity sha512-fWf6cRQSsDcPsRb4Ubli7ZwIN0RFO2mOL04YfY60Kf8DBnw23rOSjc4xcNVMxDJhpzC5dYsC8ZYnDwr5JXrxVw==
   dependencies:
     prop-types "^15.6.1"
-    simplebar "^4.2.2"
+    simplebar "^4.2.3"
 
-simplebar@4.3.0-alpha.0:
-  version "4.3.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/simplebar/-/simplebar-4.3.0-alpha.0.tgz#7425bba854ae89148308e9f06fe71eecc769a0a2"
-  integrity sha512-TZ1PMV9NFebghJS2V3jf1/Da2O34TBoHP918pF3KIGuEtDyd5NmONFyDYhmlVehlZDj6pBvEn5x9xGDA1R2z6g==
-  dependencies:
-    can-use-dom "^0.1.0"
-    core-js "^3.0.1"
-    lodash.debounce "^4.0.8"
-    lodash.memoize "^4.1.2"
-    lodash.throttle "^4.1.1"
-    resize-observer-polyfill "^1.5.1"
-
-simplebar@^4.2.2:
+simplebar@^4, simplebar@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/simplebar/-/simplebar-4.2.3.tgz#dac40aced299c17928329eab3d5e6e795fafc10c"
   integrity sha512-9no0pK7/1y+8/oTF3sy/+kx0PjQ3uk4cYwld5F1CJGk2gx+prRyUq8GRfvcVLq5niYWSozZdX73a2wIr1o9l/g==
