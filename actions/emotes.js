@@ -47,7 +47,7 @@ export const fetchEmotes = () => async (dispatch) => {
 			for(const emote of set.emoticons){
 				result[emote.name] = {
 					provider: 'FrankerfaceZ',
-					url: `${emote.urls['4'] || emote.urls['2'] || emote.urls['1']}`,
+					url: `${emote.urls['2'] || emote.urls['1']}`,
 				};
 			}
 		}
@@ -62,7 +62,7 @@ export const fetchEmotes = () => async (dispatch) => {
 			for(const emote of set.emoticons){
 				result[emote.name] = {
 					provider: 'FrankerfaceZ',
-					url: `${emote.urls['4'] || emote.urls['2'] || emote.urls['1']}`,
+					url: `${emote.urls['2'] || emote.urls['1']}`,
 				};
 			}
 		}
