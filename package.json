@@ -58,7 +58,7 @@
     "linkifyjs": "^2.1.8",
     "lscache": "^1.2.0",
     "moment": "^2.24.0",
-    "next": "9.1.2-canary.6",
+    "next": "9.1.2-canary.7",
     "next-redux-wrapper": "^4.0.0",
     "next-server": "^9.0.6-canary.0",
     "now": "^16.1.4-canary.19",
