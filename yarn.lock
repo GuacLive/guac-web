@@ -11459,10 +11459,10 @@ simple-swizzle@^0.2.2:
   dependencies:
     is-arrayish "^0.3.1"
 
-simplebar-react@1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/simplebar-react/-/simplebar-react-1.2.2.tgz#a7fa853e34bafae781b2b5f78851955fce901d48"
-  integrity sha512-fWf6cRQSsDcPsRb4Ubli7ZwIN0RFO2mOL04YfY60Kf8DBnw23rOSjc4xcNVMxDJhpzC5dYsC8ZYnDwr5JXrxVw==
+simplebar-react@^1:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/simplebar-react/-/simplebar-react-1.2.3.tgz#bd81fa9827628470e9470d06caef6ece15e1c882"
+  integrity sha512-1EOWJzFC7eqHUp1igD1/tb8GBv5aPQA5ZMvpeDnVkpNJ3jAuvmrL2kir3HuijlxhG7njvw9ssxjjBa89E5DrJg==
   dependencies:
     prop-types "^15.6.1"
     simplebar "^4.2.3"
