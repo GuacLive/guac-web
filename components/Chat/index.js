@@ -384,11 +384,11 @@ function ChatComponent(props){
 	if(process.browser){
 		useLayoutEffect(() => {
 			if(typeof document !== 'undefined'){
-				let el = document.getElementsByClassName('chat-messages')[0];
-				if(el && el.SimpleBar){
-					if(!checkIfBottom(el.SimpleBar.getScrollElement())) return;
+				let el = SimpleBar.instances.get(document.getElementsByClassName('chat-messages')[0]);
+				if(el){
+					if(!checkIfBottom(el.getScrollElement())) return;
 					// Scroll to last message
-					const contentEl = el.SimpleBar.getContentElement();
+					const contentEl = el.getContentElement();
 					const lastMsg = contentEl.querySelector('div:last-child');
 					if(lastMsg){
 						lastMsg.scrollIntoView({
@@ -398,7 +398,7 @@ function ChatComponent(props){
 						});
 					}
 					setTimeout(function(){
-						el.SimpleBar.getScrollElement().scrollTop = el.SimpleBar.getScrollElement().scrollHeight;
+						el.getScrollElement().scrollTop = el.getScrollElement().scrollHeight;
 					}, 500);			  
 				}
 			}
