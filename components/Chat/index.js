@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import useUpdateEffect from 'react-use/lib/useUpdateEffect';
@@ -44,6 +44,7 @@ function ChatComponent(props){
 	const [message, setMessage] = useState('');
 	const [messages, setMessages] = useState([]);
 	const [customPickerEmotes, setCustomPickerEmotes] = useState(false);
+	const ref = useRef();
 
 	// Redux
 	const authentication = useSelector(state => state.authentication);
@@ -383,12 +384,12 @@ function ChatComponent(props){
 	// Handle simplebar calculation
 	if(process.browser){
 		useLayoutEffect(() => {
+			if(ref && ref.current) ref.current.recalculate();
 			if(typeof document !== 'undefined'){
-				let el = document.getElementsByClassName('chat-messages')[0];
-				if(el && el.SimpleBar){
-					if(!checkIfBottom(el.SimpleBar.getScrollElement())) return;
+				if(ref && ref.current){
+					if(!checkIfBottom(ref.current.getScrollElement())) return;
 					// Scroll to last message
-					const contentEl = el.SimpleBar.getContentElement();
+					const contentEl = ref.current.getContentElement();
 					const lastMsg = contentEl.querySelector('div:last-child');
 					if(lastMsg){
 						lastMsg.scrollIntoView({
@@ -398,7 +399,7 @@ function ChatComponent(props){
 						});
 					}
 					setTimeout(function(){
-						el.SimpleBar.getScrollElement().scrollTop = el.SimpleBar.getScrollElement().scrollHeight;
+						ref.current.getScrollElement().scrollTop = ref.current.getScrollElement().scrollHeight;
 					}, 500);			  
 				}
 			}
@@ -408,7 +409,7 @@ function ChatComponent(props){
 	return (
 		<>
 			<div className="flex flex-column flex-grow-1 flex-nowrap overflow-hidden">
-				<SimpleBar className="chat-messages flex-grow-1" style={{ height: '80vh' }}>
+				<SimpleBar ref={ref} className="chat-messages flex-grow-1" style={{ height: '80vh' }}>
 				{
 					messages
 					&&
