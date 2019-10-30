@@ -59,13 +59,16 @@ export default withRedux(configureStore)(class MyApp extends App {
 			}
 		}
 
-		// Handle site mode (dark/light mode)
-		let mode = getCookie('site-mode', ctx.req) === 'dark' ? 'dark' : 'light';
-		let type = mode === 'dark' ? 'SET_DARK_MODE' : 'SET_LIGHT_MODE';
-		if(mode !== ctx.store.getState().site.mode){
-			ctx.store.dispatch({
-				type
-			});
+		let mode = 'light';
+		// Handle site mode (dark/light mode) if cookie exists
+		if(getCookie('site-mode', ctx.req)){	
+			mode = getCookie('site-mode', ctx.req) === 'dark' ? 'dark' : 'light';
+			let type = mode === 'dark' ? 'SET_DARK_MODE' : 'SET_LIGHT_MODE';
+			if(mode !== ctx.store.getState().site.mode){
+				ctx.store.dispatch({
+					type
+				});
+			}
 		}
 		// Fetch my followed
 		const { site, authentication } = ctx.store.getState()
@@ -83,6 +86,7 @@ export default withRedux(configureStore)(class MyApp extends App {
 			// Some custom thing for all pages
 			pathname: ctx.pathname,
 			mode,
+			hasThemeCookie: !!getCookie('site-mode', ctx.req),
 			locale,
 			catalog
 		};
@@ -90,8 +94,24 @@ export default withRedux(configureStore)(class MyApp extends App {
 
 	componentDidMount(){
 		const state = this.props.store.getState();
-		// Initialize firebase messaging for current user
 		if(typeof window !== 'undefined'){
+			if(window.matchMedia){
+				// Do not use system theme if overridden with cookie
+				if(this.props.hasThemeCookie) return;
+				// If user has a system-wide dark theme
+				if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+					this.props.store.dispatch({
+						type: 'SET_DARK_MODE'
+					});
+					this.props.pageProps.mode = 'dark';
+				}else if(window.matchMedia('(prefers-color-scheme: light)').matches){
+					this.props.store.dispatch({
+						type: 'SET_LIGHT_MODE'
+					});
+					this.props.pageProps.mode = 'light';
+				}
+			}
+			// Initialize firebase messaging for current user
 			let f = initializeFirebase();
 			if(f){
 				f.then(() => {
