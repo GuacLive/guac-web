@@ -1,7 +1,5 @@
 import React, {Component, Fragment} from 'react';
 
-import dynamic from 'next/dynamic';
-
 import {connect} from 'react-redux';
 
 import * as actions from '../actions';
@@ -9,6 +7,8 @@ import * as actions from '../actions';
 import { Trans } from '@lingui/macro';
 
 import Link from 'next/link';
+
+import GuacButton from '../components/GuacButton';
 
 import Image from '../components/Image';
 
@@ -53,9 +53,7 @@ class ChannelsPage extends Component {
                                                 </Link>
                                             </p>
                                         </span>
-                                        <Link href={`/c/${channel.name}`}>
-                                            <a className="link tc ph3 pv1 db bg-animate bg-dark-green hover-bg-green white f6 br1">Watch</a>
-                                        </Link>
+                                        <GuacButton url={`/c/${channel.name}`} color="dark-green">Watch</GuacButton>
                                     </div>
                                 </div>
                             );
