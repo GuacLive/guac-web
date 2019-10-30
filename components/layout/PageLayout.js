@@ -33,6 +33,7 @@ class PageLayout extends Component {
 			if(document) document.documentElement.className = `guac-skin-${this.props.mode}`;
 		}
 	}
+
 	componentDidUpdate(prevProps) {
 		if(this.props.mode !== prevProps.mode){
 			if(document) document.documentElement.className = `guac-skin-${this.props.mode}`;
@@ -100,7 +101,7 @@ class PageLayout extends Component {
 							<nav className="relative fw6 order-1 order-2-ns white">
 								<div id="account-menu" className="flex flex-nowrap h-100 items-stretch flex-grow-1" style={{WebkitAppRegion: 'no-drag'}}>
 									<div className="flex flex-row self-center overflow-x-visible">
-										<DarkModeToggle />
+										<DarkModeToggle mode={this.props.mode} />
 										{
 											!isAuthenticated && 
 											<GuacButton url="/auth/login">
@@ -126,7 +127,7 @@ class PageLayout extends Component {
 						</div>
 					</header>
 					<div className="w-100 min-vh-100 flex flex-row items-start">
-						<aside className="flex flex-column vh-100 site-component-sidebar bg-near-black">
+						<aside className="flex flex-column min-vh-100 site-component-sidebar bg-near-black">
 							<nav className="flex flex-column flex-grow-1">
 								<span className="f5 b inline-flex ph3 light-gray">
 								<Trans>Followed Channels</Trans>
@@ -176,7 +177,7 @@ class PageLayout extends Component {
 								</SimpleBar>
 							</nav>
 							
-							<footer className="flex bg-near-black white ph4 ph2-m h-25">
+							<footer className="flex bg-near-black white ph4 ph2-m absolute bottom-0">
 								<div className="f6 flex flex-column flex-grow-1">
 									<span className="dib mr4 mr5-ns ttu tracked">© {(new Date()).getFullYear()} guac.live</span>
 									<Link href="/terms">
