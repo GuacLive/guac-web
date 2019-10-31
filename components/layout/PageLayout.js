@@ -127,71 +127,73 @@ class PageLayout extends Component {
 						</div>
 					</header>
 					<div className="w-100 min-vh-100 flex flex-row items-start">
-						<aside className="flex flex-column min-vh-100 site-component-sidebar bg-near-black">
-							<nav className="flex flex-column flex-grow-1">
-								<span className="f5 b inline-flex ph3 light-gray">
-								<Trans>Followed Channels</Trans>
-								</span>
-								<SimpleBar className="flex-grow-0">
-								{
-									(!followed ||
-									!followed.length)
-									&&
-									<div className="align-center flex-l dn flex-column relative ph4 pv2 white">
-										<Trans>Start following your favorite streamers to find them quickly!</Trans>
-									</div>
-								}
-								{
-									followed &&
-									followed
-									.sort((a,b) => {
-										if(a.live === b.live){
-											return 0;
-										}else if(a.live){
-											return -1;
-										}else{
-											return 1;
-										}
-									})
-									.map((u) => {
-										return (
-											<div key={'followed-'+u.username} className="site-component-fUser items-center flex relative ph4 pv2 white">
-												<Link href={`/c/${u.username}`}>
-													<a className="inline-flex v-mid mr2 w2 h2">
-														<Image alt={u.username} className={`dim ba ${+u.live ? 'b--red' : 'b--transparent'} inline-flex br-100 w-100 h-100`} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII" />
-													</a>
-												</Link>
-												<div className="overflow-hidden dn db-l">
-													<div className="site-component-fUser__name inline-flex items-center v-bottom">
-														<a className="link white" href={'/c/' + u.username}>
-															{u.username}
-															{+u.live ? <span className="ph2 bg-red f6 tc inline-flex white mh3">LIVE</span> : ''}
+						<aside className="flex flex-column vh-100 flex-shrink-1 site-component-sidebar bg-near-black">
+							<div className="flex flex-column h-100">
+								<nav className="flex h-100 overflow-hidden relative">
+									<span className="f5 b inline-flex ph3 light-gray">
+									<Trans>Followed Channels</Trans>
+									</span>
+									<SimpleBar className="flex-shrink-0 h-100 relative">
+									{
+										(!followed ||
+										!followed.length)
+										&&
+										<div className="align-center flex-l dn flex-column relative ph4 pv2 white">
+											<Trans>Start following your favorite streamers to find them quickly!</Trans>
+										</div>
+									}
+									{
+										followed &&
+										followed
+										.sort((a,b) => {
+											if(a.live === b.live){
+												return 0;
+											}else if(a.live){
+												return -1;
+											}else{
+												return 1;
+											}
+										})
+										.map((u) => {
+											return (
+												<div key={'followed-'+u.username} className="site-component-fUser items-center flex relative ph4 pv2 white">
+													<Link href={`/c/${u.username}`}>
+														<a className="inline-flex v-mid mr2 w2 h2">
+															<Image alt={u.username} className={`dim ba ${+u.live ? 'b--red' : 'b--transparent'} inline-flex br-100 w-100 h-100`} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII" />
 														</a>
+													</Link>
+													<div className="overflow-hidden dn db-l">
+														<div className="site-component-fUser__name inline-flex items-center v-bottom">
+															<a className="link white" href={'/c/' + u.username}>
+																{u.username}
+																{+u.live ? <span className="ph2 bg-red f6 tc inline-flex white mh3">LIVE</span> : ''}
+															</a>
+														</div>
+														<div className="site-component-fUser__category truncate"><small>{u.title}</small></div>
 													</div>
-													<div className="site-component-fUser__category truncate"><small>{u.title}</small></div>
 												</div>
-											</div>
-										)
-									})
-								}
-								</SimpleBar>
-							</nav>
-							
-							<footer className="flex bg-near-black white ph4 ph2-m absolute bottom-0">
-								<div className="f6 flex flex-column flex-grow-1">
-									<span className="dib mr4 mr5-ns ttu tracked">© {(new Date()).getFullYear()} guac.live</span>
-									<Link href="/terms">
-										<a className="link white-80 hover-light-purple"><Trans>Terms</Trans></a>
-									</Link>
-									<Link href="/privacy">
-										<a className="link white-80 hover-gold"> <Trans>Privacy</Trans> </a>
-									</Link>
-									<Link href="#">
-										<a className="link white-80 hover-green"> contact@guac.live </a>
-									</Link>
-									<LangSwitcher />
-								</div>
-							</footer>
+											)
+										})
+									}
+									</SimpleBar>
+								</nav>
+								
+								<footer className="flex bg-near-black white ph4 ph2-m h-25">
+									<div className="f6 flex flex-column flex-grow-1">
+										<span className="dib mr4 mr5-ns ttu tracked">© {(new Date()).getFullYear()} guac.live</span>
+										<Link href="/terms">
+											<a className="link white-80 hover-light-purple"><Trans>Terms</Trans></a>
+										</Link>
+										<Link href="/privacy">
+											<a className="link white-80 hover-gold"> <Trans>Privacy</Trans> </a>
+										</Link>
+										<Link href="#">
+											<a className="link white-80 hover-green"> contact@guac.live </a>
+										</Link>
+										<LangSwitcher />
+									</div>
+								</footer>
+							</div>
 						</aside>
 						<div className="w-100 flex flex-column items-start pa3">
 							{ children }
