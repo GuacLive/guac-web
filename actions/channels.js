@@ -9,7 +9,7 @@ export const fetchChannels = (onlyLive) => async (dispatch) => {
 	dispatch({
 		type: 'FETCH_CHANNELS_REQUEST'
 	});
-	return callApi('/channels?live=' + onlyLive)
+	return callApi('/channels?live=' + +onlyLive)
 	.then(response => response.json())
 	.then((json) => {
 		if (json.statusCode == 200) {
