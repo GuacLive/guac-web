@@ -86,11 +86,9 @@ module.exports = withCSS({
 			}
 		}
 	},
-	//experimental: {
-		//terserLoader: true,
-		//modern: true,
-		//granularChunks: true,
-	//},
+	experimental: {
+		reactMode: 'legacy'
+	},
 	future: {
 		excludeDefaultMomentLocales: true,
 	},
