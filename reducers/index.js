@@ -17,6 +17,7 @@ import channels from './channels';
 import emotes from './emotes';
 import featured from './featured';
 import streaming from './streaming';
+import streams from './streams';
 import site from './site';
 
 export default combineReducers({
@@ -29,4 +30,5 @@ export default combineReducers({
 	featured,
 	streaming,
 	site,
+	streams,
 });
