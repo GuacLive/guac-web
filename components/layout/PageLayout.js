@@ -178,7 +178,7 @@ class PageLayout extends Component {
 									</SimpleBar>
 								</nav>
 								
-								<footer className="flex bg-near-black white ph4 ph2-m h-25">
+								<footer className="flex bg-near-black white ph4 ph2-m" style={{height:'33%'}}>
 									<div className="f6 flex flex-column flex-grow-1">
 										<span className="dib mr4 mr5-ns ttu tracked">© {(new Date()).getFullYear()} guac.live</span>
 										<Link href="/terms">
@@ -186,6 +186,9 @@ class PageLayout extends Component {
 										</Link>
 										<Link href="/privacy">
 											<a className="link white-80 hover-gold"> <Trans>Privacy</Trans> </a>
+										</Link>
+										<Link href="/dmca">
+											<a className="link white-80 hover-gold"> <Trans>DMCA</Trans> </a>
 										</Link>
 										<Link href="#">
 											<a className="link white-80 hover-green"> contact@guac.live </a>
