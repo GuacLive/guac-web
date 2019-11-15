@@ -39,7 +39,7 @@ class DashboardPage extends Component {
 		}
 		if(streaming.private !== this.refs.private.value){
 			this.props.dispatch(
-				actions.setPrivate(this.props.authentication.token, this.refs.private.value)
+				actions.setPrivate(this.props.authentication.token, this.refs.private.value == 'on')
 			);
 		}
 	}
