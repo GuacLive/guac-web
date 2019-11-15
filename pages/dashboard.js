@@ -92,7 +92,7 @@ class DashboardPage extends Component {
 							type="checkbox"
 							className="pa3 br2" 
 							ref="private"
-							checked={streaming.private ? true : false}
+							defaultChecked={streaming.private}
 						>
 						</input>
 						<input type="submit" value="Edit stream" className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" />
