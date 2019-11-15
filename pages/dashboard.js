@@ -37,9 +37,10 @@ class DashboardPage extends Component {
 				actions.setTitle(this.props.authentication.token, this.refs.title.value)
 			);
 		}
-		if(streaming.private !== this.refs.private.value){
+			console.log(this.refs.private, this.refs.private.checked);
+		if(streaming.private !== this.refs.private.checked){
 			this.props.dispatch(
-				actions.setPrivate(this.props.authentication.token, this.refs.private.value == 'on')
+				actions.setPrivate(this.props.authentication.token, this.refs.private.checked)
 			);
 		}
 	}
@@ -92,7 +93,7 @@ class DashboardPage extends Component {
 							type="checkbox"
 							className="pa3 br2" 
 							ref="private"
-							defaultChecked={streaming.private == 'on'}
+							defaultChecked={streaming.private}
 						>
 						</input>
 						<input type="submit" value="Edit stream" className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" />

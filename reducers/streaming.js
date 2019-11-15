@@ -85,6 +85,7 @@ export default function(state = initialState, action) {
 				key: action.key,
 				title: action.title,
 				category: action.category,
+				private: action.private,
 				loading: false,
 				error: false
 			};
