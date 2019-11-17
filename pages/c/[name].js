@@ -118,6 +118,22 @@ class ChannelPage extends Component {
 						</span>
 					</div>
 				</div>
+				<div className="site-component-panels flex flex-wrap justify-center w-100">
+					{
+						stream
+						&&
+						stream.panels
+						&&
+						stream.panels.map((panel) => {
+							return (
+								<div className="site-component-panels__panel db w-33 mr1 mb1 word-wrap">
+									<span className="f2">{panel.title}</span>
+									<div className="mt1">{panel.description}</div>
+								</div>
+							);
+						})
+					}
+				</div>
     		</Fragment>
     	);
     }
