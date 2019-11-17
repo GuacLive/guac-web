@@ -80,10 +80,10 @@ function ChatComponent(props){
 	  
 	const handleUsers = (users) => {
 		log('info', 'Chat', 'We got users', users);
-		users.forEach((user) => {
+		users.forEach(function(user){
 			log('info', 'Chat', 'user', user, user.name);
 			if(user && user.name) userJoin(user);
-		});
+		}.bind(this));
 	}
 
 	const handlePriv = (args) => {
@@ -99,6 +99,7 @@ function ChatComponent(props){
 
 	const userJoin = (user) => {
 		if(!user.name) return;
+		if(typeof privileged !== 'array') return;
 		if(!user.anon){
 			users.set(user.name, user);
 			if(authentication.user && user.name === authentication.user.name){
