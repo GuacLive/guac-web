@@ -13,10 +13,10 @@ class AdminIndexPage extends Component {
 		super(props);
 	}
 
-	async componentDidMount(){
-		const { authentication, streams } = this.props
+	static async getInitialProps({store, isServer, pathname, query, req}){
+		const { authentication, streams } = store.getState()
         if(streams.loading){
-            await this.props.dispatch(actions.fetchStreams(authentication.token));
+            await store.dispatch(actions.fetchStreams(authentication.token));
         }
 	}
 
@@ -27,6 +27,7 @@ class AdminIndexPage extends Component {
 		if(auth.loading) return null;
 		if(auth.error) throw auth.error;
 		if(streams.error) throw streams.error;
+		if(streams.loading) return null;
         if(
             auth
             &&
