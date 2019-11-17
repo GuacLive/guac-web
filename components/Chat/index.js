@@ -105,7 +105,7 @@ function ChatComponent(props){
 				me = authentication.user;
 				if(
 					channel.data.user.name === me.name
-					|| privileged.indexOf(me.id) > -1
+					|| (privileged && privileged.indexOf(me.id) > -1)
 				){
 					hasPrivilege = true;
 				}
