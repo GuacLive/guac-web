@@ -1,0 +1,3 @@
+[submodule "public/emotes"]
+	path = public/emotes
+	url = https://github.com/GuacLive/emotes.git

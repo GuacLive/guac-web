@@ -62,5 +62,4 @@ typings/
 config/
 .next/
 yarn-error.log
-public/emotes/global/
 locale/_build/
