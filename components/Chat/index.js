@@ -87,11 +87,16 @@ function ChatComponent(props){
 	}
 
 	const handlePriv = (args) => {
-		privileged = args[0];
-		if(typeof privileged !== 'array') return;
+		let user = args[0];
+		if(typeof privileged !== 'object') return;
+		if(privileged.indexOf(user) === -1) privileged.push(user);
 		// In case privilege has been added or removed for your user
 		if(
-			privileged.indexOf(me.id) > -1
+			authentication
+			&&
+			authentication.user
+			&&
+			privileged.indexOf(authentication.user.id) > -1
 		){
 			hasPrivilege = true;
 		}
@@ -99,9 +104,9 @@ function ChatComponent(props){
 
 	const userJoin = (user) => {
 		if(!user.name) return;
-		if(typeof privileged !== 'array') return;
 		if(!user.anon){
 			users.set(user.name, user);
+			if(typeof privileged !== 'object') return;
 			if(authentication.user && user.name === authentication.user.name){
 				me = authentication.user;
 				if(
