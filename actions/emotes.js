@@ -1,30 +1,30 @@
 import fetch from 'cross-fetch';
 
-export const fetchEmotes = () => async (dispatch) => {
+export const fetchEmotes = (channel) => async (dispatch) => {
 	let result = [];
-	await fetch('/emotes/global.json')
+	await fetch('/emotes/index.json')
 	.then(async response => {
 		const data = await response.json();
-		for(const emote of Object.values(data)){
-			result[emote.code] = {
-				provider: 'Global',
-				url: `/emotes/global/${emote.id}.png`,
-			};
+		
+		for(const emoteList of Object.values(data)){
+			if(emoteList && (emoteList.default || emoteList.directory === channel)){
+				await fetch(`/emotes/${emoteList.directory}/index.json`)
+				.then(async response => {
+					const data = await response.json();
+					for(const emote of Object.values(data)){
+						let url = emoteList.directory !== 'twitch' ? `/emotes/global/${emote.id}.png` : `//static-cdn.jtvnw.net/emoticons/v1/${emote.id}/3.0`
+						result[emote.code] = {
+							provider: emoteList.name,
+							url,
+						};
+					}
+				})
+				.catch(() => {});
+			}
 		}
 	})
 	.catch(() => {});
 
-	await fetch('/emotes/twitch.json')
-	.then(async response => {
-		const data = await response.json();
-		for(const emote of Object.values(data)){
-			result[emote.code] = {
-				provider: 'Twitch',
-				url: `//static-cdn.jtvnw.net/emoticons/v1/${emote.id}/3.0`,
-			};
-		}
-	})
-	.catch(() => {});
 
 	await fetch('//api.betterttv.net/3/cached/emotes/global')
 	.then(async response => {

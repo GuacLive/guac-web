@@ -323,7 +323,7 @@ function ChatComponent(props){
 	}
 
 	useEffect(() => {
-		dispatch(actions.fetchEmotes());
+		dispatch(actions.fetchEmotes(channel && channel.data && channel.data.user.name));
 	}, []);
 
 	useEffect(() => {
