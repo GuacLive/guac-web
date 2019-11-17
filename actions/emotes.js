@@ -2,17 +2,17 @@ import fetch from 'cross-fetch';
 
 export const fetchEmotes = (channel) => async (dispatch) => {
 	let result = [];
-	await fetch('https://emotes.guac.live/index.json')
+	await fetch('//emotes.guac.live/index.json')
 	.then(async response => {
 		const data = await response.json();
 		
 		for(const emoteList of Object.values(data)){
 			if(emoteList && (emoteList.default || emoteList.directory === channel)){
-				await fetch(`/emotes/${emoteList.directory}/index.json`)
+				await fetch(`//emotes.guac.live/emotes/${emoteList.directory}/index.json`)
 				.then(async response => {
 					const data = await response.json();
 					for(const emote of Object.values(data)){
-						let url = emoteList.directory !== 'twitch' ? `/emotes/global/${emote.id}.png` : `//static-cdn.jtvnw.net/emoticons/v1/${emote.id}/3.0`
+						let url = emoteList.directory !== 'twitch' ? `//emotes.guac.live/emotes/global/${emote.id}.png` : `//static-cdn.jtvnw.net/emoticons/v1/${emote.id}/3.0`
 						result[emote.code] = {
 							provider: emoteList.name,
 							url,
