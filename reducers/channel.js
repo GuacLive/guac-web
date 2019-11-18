@@ -3,7 +3,8 @@ const initialState = {
 	error: false,
 	statusCode: 0,
 	data: null,
-	viewers: null
+	viewers: null,
+	isFollowing: null
 };
 
 export default function(state = initialState, action) {
@@ -21,6 +22,13 @@ export default function(state = initialState, action) {
 		break;
 		case 'FETCH_CHANNEL_SUCCESS':
 			return setChannel(state, action.statusCode, action.data);
+		break;
+		case 'FOLLOW_SUCCESS':
+			return {
+				...state,
+				// omegalul
+				isFollowing: (action.statusCode == 200 && action.statusMessage == 'Person followed')
+			};
 		break;
 		case 'SET_CHANNEL_VIEWERS':
 			return setChannelViewers(state, action.viewers);

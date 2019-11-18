@@ -9,7 +9,7 @@ export default class extends React.Component {
 		// dib pv2 ph3 nowrap lh-solid pointer br2 ba b--transparent
 		const buttonClass = classNames(`link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--${this.props.border || this.props.color || 'transparent'} bg-${this.props.color || 'transparent'}`)
 		return this.props.children ? (
-			<Link href={this.props.url || '#'}><a className={buttonClass} children={this.props.children} /></Link>
+			<Link href={this.props.url || '#'}><a className={buttonClass} children={this.props.children} onClick={this.props.onClick} /></Link>
 		) : null
 	}
 }

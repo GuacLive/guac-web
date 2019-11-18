@@ -31,3 +31,38 @@ export const fetchChannel = (name) => async (dispatch) => {
         });
 	});
 };
+
+export const followChannel = (token, to_id) => async (dispatch) => {
+	dispatch({
+		type: 'FOLLOW_REQUEST'
+	})
+	return callApi('/follow', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		accessToken: token,
+		body: JSON.stringify({
+			to_id
+		})
+	})
+	.then(response => response.json())
+	.then((json) => {
+		if (json.statusCode == 200) {
+			dispatch(Object.assign({
+				type: 'FOLLOW_SUCCESS'
+			}, json));
+		} else {
+			dispatch({
+				type: 'FOLLOW_FAILURE',
+				error: new Error('Invalid follow json result: ' + JSON.stringify(json))
+			});
+		}
+	})
+	.catch(error => {
+        dispatch({
+          type: 'FOLLOW_FAILURE',
+          error
+        });
+	});
+};

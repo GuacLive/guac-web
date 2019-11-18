@@ -2,7 +2,7 @@ import { authenticate, register, reauthenticate, deauthenticate } from './auth';
 
 import { fetchCategories, resetCategories } from './categories';
 
-import { fetchChannel, resetChannel } from './channel';
+import { fetchChannel, followChannel, resetChannel } from './channel';
 
 import { fetchChannels, resetChannels } from './channels';
 
@@ -23,6 +23,7 @@ export {
 	fetchCategories,
 	resetCategories,
 	fetchChannel,
+	followChannel,
 	fetchChannels,
 	resetChannel,
 	resetChannels,

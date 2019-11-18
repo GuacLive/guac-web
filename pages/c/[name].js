@@ -37,9 +37,18 @@ class ChannelPage extends Component {
 			await store.dispatch(actions.fetchChannel(query.name));
 		}
 		return {...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})};
-    }
+	}
+	
+	follow = async e => {
+		const { authentication, channel } = this.props;
+		if(!channel || !channel.data || !channel.data.user) return;
+		await this.props.dispatch(actions.followChannel(authentication.token, channel.data.user.id));
+	};
 
-    renderStream = stream => {
+    renderStream = () => {
+		const { channel} = this.props;
+		let stream = channel.data;
+
 		let videoJsOptions = {
 			autoplay: true,
 			controls: true,
@@ -106,8 +115,8 @@ class ChannelPage extends Component {
 					}
 					</div>
 
-					{stream.isFollowed && !stream.isMe && <GuacButton color="white"><Trans>Unfollow</Trans></GuacButton>}
-					{!stream.isFollowed && !stream.isMe && <GuacButton color="white"><Trans>Follow</Trans></GuacButton>}
+					{stream.isFollowed && !stream.isMe && <GuacButton color="white" onClick={this.follow}><Trans>Unfollow</Trans></GuacButton>}
+					{!stream.isFollowed && !stream.isMe && <GuacButton color="white" onClick={this.follow}><Trans>Follow</Trans></GuacButton>}
 					<GuacButton color="green"><Trans>Subscribe</Trans></GuacButton>
 					<div>
 						<span className="b f4">
@@ -167,9 +176,10 @@ class ChannelPage extends Component {
 			return u && u.to_id === channel.data.user.id;
 		});
 
-		let isFollowed = followed && followed.to_id === channel.data.user.id;
+		let isFollowed;
+		if(channel.isFollowing === null) channel.isFollowing = followed && followed.to_id === channel.data.user.id;
 		let isMe = authentication.user.id && channel.data.user.id === authentication.user.id;
-		channel.data.isFollowed = isFollowed;
+		isFollowed = channel.data.isFollowed = channel.isFollowing;
 		channel.data.isMe = isMe;
 
 		return (
@@ -184,7 +194,7 @@ class ChannelPage extends Component {
 				</NextHead>
 				<div className="w-100 min-vh-100 flex flex-nowrap black">
 					<div className="site-component-channel w-70 w-100-m h-100 flex flex-column flex-grow-1 overflow-hidden relative">
-					{this.renderStream(channel.data)}
+					{this.renderStream()}
 					</div>
 					<aside className="site-component-chat w-30 w-100-m h-100 flex-l dn-m flex-column flex-grow-1 flex-shrink-1 flex-nowrap">
 						<Chat channel={channel.data.name} />
