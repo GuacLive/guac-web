@@ -127,6 +127,37 @@ body {
 		width: 8rem;
 	}	
 }
+
+.simplebar-track {
+    will-change: opacity;
+}
+
+.simplebar-track .simplebar-scrollbar {
+    background: #000;
+    box-shadow: 0 0 1px 1px hsla(0,0%,100%,.25);
+}
+
+.guac-skin-dark .simplebar-track .simplebar-scrollbar {
+    background: #1f1f23;
+}
+
+.guac-skin-light .simplebar-track .simplebar-scrollbar {
+    background: #000;
+}
+
+.simplebar-track .simplebar-scrollbar.visible {
+    opacity: .7;
+}
+
+.simplebar-track.vertical .simplebar-scrollbar {
+    width: .6rem;
+}
+
+.simplebar-track.horizontal .simplebar-scrollbar {
+    height: .6rem;
+}
+
+
 .chat-message {
 	background: var(--chat-message-background);
 	color: var(--chat-message-text);
