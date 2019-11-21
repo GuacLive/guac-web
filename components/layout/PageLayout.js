@@ -46,6 +46,7 @@ class PageLayout extends Component {
 	render(){
 		let { children, isAuthenticated, user, followed, i18n } = this.props;
 		let title = this.props.title ? this.props.title : '';
+		console.log('justthere', followed);
 		return (
 			<Fragment>
 				<Head>
@@ -129,7 +130,7 @@ class PageLayout extends Component {
 					<div className="w-100 min-vh-100 flex flex-row items-start">
 						<aside className="flex flex-column vh-100 flex-shrink-1 site-component-sidebar bg-near-black">
 							<div className="flex flex-column h-100">
-								<nav className="flex h-100 overflow-hidden relative">
+								<nav className="flex flex-column h-100 overflow-hidden relative">
 									<span className="f5 b inline-flex ph3 light-gray">
 									<Trans>Followed Channels</Trans>
 									</span>
