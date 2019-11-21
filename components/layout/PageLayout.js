@@ -46,7 +46,7 @@ class PageLayout extends Component {
 	render(){
 		let { children, isAuthenticated, user, followed, i18n } = this.props;
 		let title = this.props.title ? this.props.title : '';
-		console.log('justthere', followed);
+
 		return (
 			<Fragment>
 				<Head>
