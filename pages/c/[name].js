@@ -136,8 +136,8 @@ class ChannelPage extends Component {
 						stream.panels.map((panel) => {
 							return (
 								<div className="site-component-panels__panel db w-33 mr1 mb1 word-wrap">
-									<span className="f2">{panel.title}</span>
-									<div className="mt1">{panel.description}</div>
+									<span className="f2 primary tracked">{panel.title}</span>
+									<div className="mt1 primary">{panel.description}</div>
 								</div>
 							);
 						})

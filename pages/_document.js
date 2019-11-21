@@ -19,6 +19,9 @@ export default class MyDocument extends Document {
 				<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.9.0/css/solid.css" integrity="sha384-ypqxM+6jj5ropInEPawU1UEhbuOuBkkz59KyIbbsTu4Sw62PfV3KUnQadMbIoAzq" crossOrigin="anonymous" />
 				<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.9.0/css/fontawesome.css" integrity="sha384-NnhYAEceBbm5rQuNvCv6o4iIoPZlkaWfvuXVh4XkRNvHWKgu/Mk2nEjFZpPQdwiz" crossOrigin="anonymous" />
 				<link rel="manifest" href="/manifest.json" />
+				<link rel="preconnect" href="https://api.guac.live/" />
+				<link rel="preconnect" href="https://stream.guac.live/" />
+				<link rel="preconnect" href="https://emotes.guac.live/" />
 				<meta 
 					name="viewport" 
 					content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover"
