@@ -133,9 +133,9 @@ class ChannelPage extends Component {
 						&&
 						stream.panels
 						&&
-						stream.panels.map((panel) => {
+						stream.panels.map((panel, i) => {
 							return (
-								<div className="site-component-panels__panel db w-33 mr1 mb1 word-wrap">
+								<div key={`panel_${panel.id}_${i}`} className="site-component-panels__panel db w-33 mr1 mb1 word-wrap">
 									<span className="f2 primary tracked">{panel.title}</span>
 									<div className="mt1 primary">{panel.description}</div>
 								</div>
