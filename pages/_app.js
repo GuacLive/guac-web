@@ -28,6 +28,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faBan, faCheck, faHourglass, faVideo, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faBan, faCheck, faHourglass, faVideo, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog, faMinusCircle);
+	
 export default withRedux(configureStore)(class MyApp extends App {
 	static async getInitialProps(appContext) {
 		const { ctx } = appContext;
@@ -38,11 +39,11 @@ export default withRedux(configureStore)(class MyApp extends App {
 		const locales = getLangs(ctx, 'languageOnly');
 		const locale = getCookie('lang', ctx.req) || locales[0];
 		
-		let languageData = [];
-		languageData['en'] = await import(`../locale/en/messages.po`);
-		languageData['nb'] = await import(`../locale/nb/messages.po`);
-
-		const catalog = languageData[locale];
+		// Load initial catalog
+		const catalog = await import(
+			/* webpackMode: "lazy", webpackChunkName: "i18n-[index]" */
+			`@lingui/loader!../locale/${locale}/messages.po`
+		);
 
 		// Handle authenticaiton
 		initialize(ctx);
@@ -88,7 +89,9 @@ export default withRedux(configureStore)(class MyApp extends App {
 			mode,
 			hasThemeCookie: !!getCookie('site-mode', ctx.req),
 			locale,
-			catalog
+			catalogs: {
+				[locale]: catalog && catalog.default ? catalog.default : catalog
+			}
 		};
 	}
 
@@ -124,12 +127,15 @@ export default withRedux(configureStore)(class MyApp extends App {
 	}
 
 	render() {
-		const {Component, pageProps, store} = this.props;
-		const {locale, catalog} = this.props;
+		const {Component, pageProps, store, locale, catalogs} = this.props;
+
+		// Skip rendering when catalog isn't loaded.
+		if (!catalogs[locale]) return null;
+
 		return (
 			<>
 				<Provider store={store}>
-        			<I18nProvider language={locale} catalogs={{ [locale]: catalog }}>
+        			<I18nProvider language={locale} catalogs={catalogs}>
 						<PageLayout>
 							<Component {...pageProps} {...{'log': log}} />
 						</PageLayout>
