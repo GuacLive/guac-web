@@ -23,7 +23,7 @@
     "format": "po"
   },
   "engines": {
-    "node": ">=10"
+    "node": "12.x"
   },
   "dependencies": {
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
