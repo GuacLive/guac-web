@@ -46,7 +46,10 @@ class ChannelPage extends Component {
 	};
 
     renderStream = () => {
-		const { channel} = this.props;
+		const {
+			authentication,
+			channel
+		} = this.props;
 		let stream = channel.data;
 
 		let videoJsOptions = {
@@ -80,12 +83,6 @@ class ChannelPage extends Component {
 						label: STREAMING_SERVER + `(${key})`
 					});
 				});
-				/*if(stream.urls.hls){
-					videoJsOptions.sources.push({
-						src: stream.servers[STREAMING_SERVER] + stream.urls.hls,
-						type: 'application/x-mpegURL'
-					});
-				}*/
 			}
 		}
 
@@ -115,8 +112,8 @@ class ChannelPage extends Component {
 					}
 					</div>
 
-					{stream.isFollowed && !stream.isMe && <GuacButton color="white" onClick={this.follow}><Trans>Unfollow</Trans></GuacButton>}
-					{!stream.isFollowed && !stream.isMe && <GuacButton color="white" onClick={this.follow}><Trans>Follow</Trans></GuacButton>}
+					{stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={this.follow}><Trans>Unfollow</Trans></GuacButton>}
+					{!stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={this.follow}><Trans>Follow</Trans></GuacButton>}
 					<GuacButton color="green"><Trans>Subscribe</Trans></GuacButton>
 					<div>
 						<span className="b f4">
