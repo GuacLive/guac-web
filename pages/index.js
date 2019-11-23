@@ -14,8 +14,7 @@ import { Trans } from '@lingui/macro'
 
 import Link from 'next/link';
 
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
+import Carousel from 'nuka-carousel';
 
 let VideoPlayer = dynamic(
 	() => import('../components/VideoPlayer'),
@@ -86,14 +85,22 @@ class IndexPage extends Component {
     }
     
     renderStreams = () => {
-    	if(this.props.featured.statusCode == 200 
+		if(this.props.featured.statusCode == 200
 			&& this.props.featured.data
 			&& this.props.featured.data.length > 0){
-    		 return this.props.featured.data.map(this.renderStream);
-    	}
-    	return (
-    		<Trans>no streams are online</Trans>
-    	);
+			return (
+				<Carousel
+					width="100%"
+					cellAlign="center"
+					className="w-100"
+				>
+					this.props.featured.data.map(this.renderStream)
+					</Carousel>
+			);
+		}
+		return (
+			<Trans>no streams are online</Trans>
+		);
     }
 
 	render() {
@@ -103,15 +110,7 @@ class IndexPage extends Component {
 			<Fragment>
 				<div className="site-component-spotlight w-100 mw9-l bg-light-green black">
 					<h3 className="f4 b ma0 ttu tracked"><Trans>Live streams</Trans></h3>
-					<Slider
-						autoplay={false}
-						dots={true}
-						adaptiveHeight={true}
-						variableWidth={true}
-			      		className="w-100"
-					>
 					{this.renderStreams()}
-					</Slider>
 				</div>
 				<ToggleFeature
 					flag='guacWelcome'
