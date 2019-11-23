@@ -87,7 +87,7 @@ module.exports = withCSS({
 		}
 	},
 	experimental: {
-		reactMode: 'legacy'
+		reactMode: 'concurrent'
 	},
 	future: {
 		excludeDefaultMomentLocales: true,
