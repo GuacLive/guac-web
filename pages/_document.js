@@ -14,7 +14,6 @@ export default class MyDocument extends Document {
 		return (
 		<html data-cast-api-enabled="true" className={this.props.mode === 'dark' ? 'guac-skin-dark': 'guac-skin-light'}>
 			<Head nonce={nonce}>
-				<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
 				<script type="text/javascript" src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1" nonce={this.props.nonce}></script>
 				<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.9.0/css/solid.css" integrity="sha384-ypqxM+6jj5ropInEPawU1UEhbuOuBkkz59KyIbbsTu4Sw62PfV3KUnQadMbIoAzq" crossOrigin="anonymous" />
 				<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.9.0/css/fontawesome.css" integrity="sha384-NnhYAEceBbm5rQuNvCv6o4iIoPZlkaWfvuXVh4XkRNvHWKgu/Mk2nEjFZpPQdwiz" crossOrigin="anonymous" />
