@@ -113,8 +113,9 @@ class AdminIndexPage extends Component {
 											let subscribers = [];
 											if(d[1] && d[1].subscribers){
 												subscribers = d[1].subscribers.filter((sub) => {
-													// This is likely FFMPEG transcoding processes, ignore them
-													return sub && sub.ip !== '::ffff:127.0.0.1';
+													// Ignore clients that are likely to be FFMPEG transcoding processes
+													//return sub && sub.ip !== '::ffff:127.0.0.1';
+													return sub && sub.protocol == 'ws';
 												})
 											}
 											// Show FLV clients
