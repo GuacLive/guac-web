@@ -42,7 +42,7 @@ export default withRedux(configureStore)(class MyApp extends App {
 		// Load initial catalog
 		const catalog = await import(
 			/* webpackMode: "lazy", webpackChunkName: "i18n-[index]" */
-			`@lingui/loader!../locale/${locale}/messages.po`
+			`@lingui/loader!../locale/${locale || 'en'}/messages.po`
 		);
 
 		// Handle authenticaiton
