@@ -20,7 +20,8 @@ export const initializeFirebase = (callback) => {
 			console.log('registration', registration);
 			firebase.messaging().useServiceWorker(registration);
 		})
-		.then(typeof callback === 'function' ? callback : () => {});
+		.then(typeof callback === 'function' ? callback : () => {})
+		.catch(console.error);
 	}
 };
 
