@@ -115,14 +115,13 @@ export default withRedux(configureStore)(class MyApp extends App {
 				}
 			}
 			// Initialize firebase messaging for current user
-			let f = initializeFirebase();
-			if(f){
-				f.then(() => {
-					if(state.authentication && state.authentication.token){
-						initializePush(state.authentication.token);
-					}
-				});
-			}
+			initializeFirebase(() => {
+				console.log('hi');
+				console.log('inside firebase state ', state);
+				if(state.authentication && state.authentication.token){
+					initializePush(state.authentication.token);
+				}
+			});
 		}
 	}
 

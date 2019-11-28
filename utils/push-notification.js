@@ -5,21 +5,23 @@ import {callApi} from '../services/api';
 
 export const initializeFirebase = (callback) => {
 	firebase.initializeApp({
-		apiKey: "AIzaSyBYPKBfnClvbzFrUHvGx_pX0OYd4T1zHfU",
+		apiKey: "AIzaSyD3-rCPel0soeKLL5699DY3_5nQRIq5L4Y",
 		authDomain: "guac-197816.firebaseapp.com",
 		databaseURL: "https://guac-197816.firebaseio.com",
 		projectId: "guac-197816",
 		storageBucket: "guac-197816.appspot.com",
 		messagingSenderId: "910957898129",
-		appId: "1:910957898129:web:a63ea17f08eb6a65"		
+		appId: "1:910957898129:web:a63ea17f08eb6a65"
 	});
 	if(navigator.serviceWorker){
 		return navigator.serviceWorker
 		.register('/firebase-messaging-sw.js')
 		.then((registration) => {
+			console.log('registration', registration);
 			firebase.messaging().useServiceWorker(registration);
 		})
-		.then(typeof callback === 'function' ? callback : () => {});
+		.then(typeof callback === 'function' ? callback : () => {})
+		.catch(console.error);
 	}
 };
 
