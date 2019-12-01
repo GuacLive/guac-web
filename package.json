@@ -40,6 +40,7 @@
     "@lingui/macro": "^2",
     "@lingui/react": "^2",
     "@silvermine/videojs-chromecast": "^1.0.1",
+    "@silvermine/videojs-quality-selector": "^1.2.3",
     "@videojs/http-streaming": "^1.11.0",
     "@webscopeio/react-textarea-autocomplete": "^4.3.2",
     "@zeit/next-css": "^1.0.2-canary.2",

@@ -1763,6 +1763,14 @@
     underscore "1.8.3"
     webcomponents.js "git+https://git@github.com/webcomponents/webcomponentsjs.git#v0.7.24"
 
+"@silvermine/videojs-quality-selector@^1.2.3":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@silvermine/videojs-quality-selector/-/videojs-quality-selector-1.2.3.tgz#6444e8291848b3051555d854a23c21f299da88fb"
+  integrity sha512-votXSPzzydjZsBZT37589sTw31csgncWggaYPWKXTygCkzvc8V876iRNJiTykgaiZd/9qQn7pjwEJsOqnfp/pw==
+  dependencies:
+    class.extend "0.9.1"
+    underscore "1.9.1"
+
 "@svgr/babel-plugin-add-jsx-attribute@^4.2.0":
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/@svgr/babel-plugin-add-jsx-attribute/-/babel-plugin-add-jsx-attribute-4.2.0.tgz#dadcb6218503532d6884b210e7f3c502caaa44b1"
@@ -12826,6 +12834,11 @@ underscore@1.8.3:
   version "1.8.3"
   resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.8.3.tgz#4f3fb53b106e6097fcf9cb4109f2a5e9bdfa5022"
   integrity sha1-Tz+1OxBuYJf8+ctBCfKl6b36UCI=
+
+underscore@1.9.1:
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.9.1.tgz#06dce34a0e68a7babc29b365b8e74b8925203961"
+  integrity sha512-5/4etnCkd9c8gwgowi5/om/mYO5ajCaOgdzj/oW+0eQV9WxKBDZw5+ycmKmeaTXjInS/W0BzpGLo2xR2aBwZdg==
 
 unfetch@4.1.0:
   version "4.1.0"
