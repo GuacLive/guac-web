@@ -28,7 +28,7 @@ export function callApi(endpoint, options = {}) {
 		response = fetch(fullUrl, opt)
 			.then((res) => {
 				if (res.status === 401) {
-			        return Promise.reject(res);
+			        //return Promise.reject(res);
 			    }
 		    	return res;
 			}

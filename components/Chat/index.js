@@ -142,6 +142,12 @@ function ChatComponent(props){
 				}
 			}, 20);
 		}
+		if(event.key == 'Enter' && event.target.value){
+			setLastMessage(event.target.value);
+			sendMessage();
+			event.preventDefault();
+			return false;
+		}
 	}
 
 	const handleSys = (msg) => {
@@ -447,7 +453,7 @@ function ChatComponent(props){
 						innerRef={textarea => {
 							textarea = textarea;
 						}}
-						onKeyUp={event => lastMessageHandler(event)}
+						onKeyDown={event => lastMessageHandler(event)}
 						onCut={event => lastMessageHandler(event)}
 						textAreaComponent={{ component: AutoTextarea, ref: "innerRef" }}
 						minChar={2}
@@ -533,7 +539,7 @@ function ChatComponent(props){
 						<SettingsMenu chatSettings={chatSettings} />
 					</div>
 					<div className="flex flex-row content-center items-center">
-						<input type="button" value="Chat" onClick={sendMessage} className="white dib pv2 ph3 nowrap lh-solid pointer br2 ba b--transparent bg-green" />
+						<input type="submit" value="Chat" onClick={sendMessage} className="white dib pv2 ph3 nowrap lh-solid pointer br2 ba b--transparent bg-green" />
 					</div>
 				</div>
 			</div>

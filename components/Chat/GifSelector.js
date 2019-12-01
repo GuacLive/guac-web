@@ -3,10 +3,14 @@ import React, { useState } from 'react';
 import GiphySelect from '@guaclive/react-giphy-select';
 import '@guaclive/react-giphy-select/lib/styles.css';
 
+import onClickOutside from 'react-onclickoutside';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function GifSelector(props){
 	const [isOpen, setIsOpen] = useState(false);
+
+	GifSelector.handleClickOutside = () => setIsOpen(false);
 
 	const handleToggleClick = () => {
 		setIsOpen(!isOpen);
@@ -30,4 +34,9 @@ function GifSelector(props){
 	);
 }
 
-export default GifSelector;
+
+const clickOutsideConfig = {
+	handleClickOutside: () => GifSelector.handleClickOutside
+};
+  
+export default onClickOutside(GifSelector, clickOutsideConfig);

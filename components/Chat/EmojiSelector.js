@@ -4,11 +4,15 @@ import { NimblePicker } from 'emoji-mart';
 import 'emoji-mart/css/emoji-mart.css';
 import twitterData from 'emoji-mart/data/twitter.json';
 
+import onClickOutside from 'react-onclickoutside';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function EmojiSelector(props){
 	const [isOpen, setIsOpen] = useState(false);
 	const [emotes, setEmotes] = useState(props.emotes);
+
+	EmojiSelector.handleClickOutside = () => setIsOpen(false);
 
 	const handleToggleClick = () => {
 		setIsOpen(!isOpen);
@@ -50,4 +54,8 @@ function EmojiSelector(props){
 	);
 }
 
-export default EmojiSelector;
+const clickOutsideConfig = {
+	handleClickOutside: () => EmojiSelector.handleClickOutside
+};
+  
+export default onClickOutside(EmojiSelector, clickOutsideConfig);

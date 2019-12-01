@@ -36,7 +36,7 @@ class RegisterPage extends Component {
 			actions.register(this.refs.username.value, this.refs.password.value)
 		)
 		.then(() => {
-			if(!this.props.authentication.error) window.location.href = '/';
+			if(this.props.authentication.statusCode === 200) window.location.href = '/';
 		});
 	}
 
@@ -47,8 +47,8 @@ class RegisterPage extends Component {
 					<form className="measure center" onSubmit={this.handleSubmit}>
 						<fieldset id="login" className="ba b--transparent ph0 mh0">
 							<legend className="f4 fw6 ph0 mh0"><Trans>Sign up</Trans></legend>
-							{this.props.authentication.error && 
-								<div className="red"><Trans>Error</Trans>: {this.props.authentication.error.message}</div>
+							{this.props.authentication.regError && 
+								<div className="red"><Trans>Error</Trans>: {this.props.authentication.regError.message}</div>
 							}
 							<div className="mt3">
 								<label className="db fw6 lh-copy f6" htmlFor="username"><Trans>Username</Trans></label>
