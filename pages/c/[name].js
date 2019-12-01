@@ -132,7 +132,7 @@ class ChannelPage extends Component {
 						&&
 						stream.panels.map((panel, i) => {
 							return (
-								<div key={`panel_${panel.id}_${i}`} className="site-component-panels__panel db w-33 mr1 mb1 word-wrap">
+								<div key={`panel_${panel.id}_${i}`} className="site-component-panels__panel db w-100 w-third-ns mr1 mb1 word-wrap">
 									<span className="f2 primary tracked">{panel.title}</span>
 									<div className="mt1 primary">{panel.description}</div>
 								</div>
@@ -190,10 +190,10 @@ class ChannelPage extends Component {
 					})}
 				</NextHead>
 				<div className="w-100 min-vh-100 flex flex-nowrap black">
-					<div className="site-component-channel w-70 w-100-m h-100 flex flex-column flex-grow-1 overflow-hidden relative">
+					<div className="site-component-channel w-100 w-70-ns h-100 flex flex-column flex-grow-1 overflow-hidden relative">
 					{this.renderStream()}
 					</div>
-					<aside className="site-component-chat w-30 w-100-m h-100 flex-l dn-m flex-column flex-grow-1 flex-shrink-1 flex-nowrap">
+					<aside className="site-component-chat w-100 w-30-ns h-100 flex-l dn-m flex-column flex-grow-1 flex-shrink-1 flex-nowrap">
 						<Chat channel={channel.data.name} />
 					</aside>
 				</div>
