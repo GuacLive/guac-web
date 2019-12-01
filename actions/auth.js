@@ -24,7 +24,7 @@ export const authenticate = (username, password) => async (dispatch) => {
 		} else {
 			dispatch({
 				type: 'AUTHENTICATE_FAILURE',
-				error: new Error('Invalid authenticate json result: ' + JSON.stringify(json))
+				error: new Error(json && json.statusMessage)
 			});
 		}
 	})
@@ -57,7 +57,7 @@ export const register = (username, password) => async (dispatch) => {
 		} else {
 			dispatch({
 				type: 'AUTHENTICATE_FAILURE',
-				error: new Error('Invalid authenticate json result: ' + JSON.stringify(json))
+				error: new Error(json && json.statusMessage)
 			});
 		}
 	})
