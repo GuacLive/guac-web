@@ -48,7 +48,7 @@ class LoginPage extends Component {
 						<fieldset id="login" className="ba b--transparent ph0 mh0">
 							<legend className="f4 fw6 ph0 mh0"><Trans>Log in</Trans></legend>
 							{this.props.authentication.error && 
-								<div className="red"><Trans>Error</Trans>: {this.props.authentication.error.statusText}</div>
+								<div className="red"><Trans>Error</Trans>: {this.props.authentication.error.message}</div>
 							}
 							<div className="mt3">
 								<label className="db fw6 lh-copy f6" htmlFor="username"><Trans>Username</Trans></label>
