@@ -36,7 +36,7 @@ class LoginPage extends Component {
 			actions.authenticate(this.refs.username.value, this.refs.password.value)
 		)
 		.then(() => {
-			if(!this.props.authentication.error) window.location.href = '/';
+			if(this.props.authentication.statusCode === 200) window.location.href = '/';
 		});
 	}
 

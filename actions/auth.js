@@ -24,7 +24,7 @@ export const authenticate = (username, password) => async (dispatch) => {
 		} else {
 			dispatch({
 				type: 'AUTHENTICATE_FAILURE',
-				error: new Error(json && json.statusMessage)
+				error: new Error(json && json.error)
 			});
 		}
 	})
@@ -38,7 +38,7 @@ export const authenticate = (username, password) => async (dispatch) => {
 
 export const register = (username, password) => async (dispatch) => {
 	dispatch({
-		type: 'AUTHENTICATE_REQUEST'
+		type: 'REGISTER_REQUEST'
 	})
 	return callApi('/register', {
 		method: 'POST',
@@ -51,19 +51,19 @@ export const register = (username, password) => async (dispatch) => {
 	.then((json) => {
 		if (json.statusCode == 200) {
 			dispatch(Object.assign({
-				type: 'AUTHENTICATE_SUCCESS'
+				type: 'REGISTER_SUCCESS'
 			}, json));
 			setCookie('token', json.jwtToken);
 		} else {
 			dispatch({
-				type: 'AUTHENTICATE_FAILURE',
+				type: 'REGISTER_FAILURE',
 				error: new Error(json && json.statusMessage)
 			});
 		}
 	})
 	.catch(error => {
         dispatch({
-          type: 'AUTHENTICATE_FAILURE',
+          type: 'REGISTER_FAILURE',
           error
         });
 	});
