@@ -4,7 +4,7 @@ require('!style-loader!css-loader!video.js/dist/video-js.css')
 import '@silvermine/videojs-chromecast/dist/silvermine-videojs-chromecast.css';
 import 'videojs-overlay/dist/videojs-overlay.js';
 import 'videojs-overlay/dist/videojs-overlay.css';
-import 'videojs-resolution-switcher'
+import '@silvermine/videojs-quality-selector/dist/css/quality-selector.css';
 import {useFeatureToggle} from '@flopflip/react-broadcast';
 
 import {useEffect} from 'react';
@@ -21,15 +21,11 @@ function VideoPlayer(props) {
 			liveui: false,
 			poster: !props.live ? '/img/offline-poster.png' : '',
 			plugins: {
-				videoJsResolutionSwitcher: {
-					default: 'high',
-					dynamicLabel: true
-				},
 				persistvolume: {
 					namespace: 'guac-live'
 				}
 			},
-			techOrder: ['flvjs', 'html5'],
+			techOrder: ['chromecast', 'flvjs', 'html5'],
 			flvjs: {
 				mediaDataSource: {
 					isLive: true,
@@ -66,6 +62,9 @@ function VideoPlayer(props) {
 		require('@silvermine/videojs-chromecast')(videojs, {
 			reloadWebComponents: true
 		});
+		require('@silvermine/videojs-quality-selector')(videojs, {
+			reloadWebComponents: true
+		});
 		// instantiate Video.js
 		player = videojs(videoNode, videoJsOptions, function onPlayerReady() {
 			log('info', null, 'onPlayerReady', this);
@@ -78,6 +77,7 @@ function VideoPlayer(props) {
         });
 
 		player.chromecast();
+		player.controlBar.addChild('QualitySelector');
 		if(props.streamInfo && isFeatureEnabled){
 			player.overlay({
 				overlays: [{
