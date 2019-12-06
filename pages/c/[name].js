@@ -95,7 +95,7 @@ class ChannelPage extends Component {
 					<h2 className='f2 tracked ma0 dib'>
 					{stream.user.name}
 					{stream.live ? <span className="ph2 bg-red f6 tc inline-flex white mh3">LIVE</span> : ''}
-					{stream.type !== 'PARTNER' &&  
+					{stream.type == 'PARTNER' &&  
 						<span className="">
 							<FontAwesomeIcon icon='check-circle' />
 						</span>
@@ -119,7 +119,7 @@ class ChannelPage extends Component {
 
 					{stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={this.follow}><Trans>Unfollow</Trans></GuacButton>}
 					{!stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={this.follow}><Trans>Follow</Trans></GuacButton>}
-					{stream.type !== 'PARTNER' && <GuacButton color="green"><Trans>Subscribe</Trans></GuacButton>}
+					{stream.type == 'PARTNER' && <GuacButton color="green"><Trans>Subscribe</Trans></GuacButton>}
 					<div>
 						<span className="b f4">
 							{stream.title}
