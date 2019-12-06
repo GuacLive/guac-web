@@ -131,11 +131,14 @@ export default withRedux(configureStore)(class MyApp extends App {
 		// Skip rendering when catalog isn't loaded.
 		if (!catalogs[locale]) return null;
 
+		const skipLayoutDestinations = ['/embed/[name]', '/chat/[name]'];
+		const shouldSkip = this.props.pathname && skipLayoutDestinations.indexOf(this.props.pathname) === 0;
+
 		return (
 			<>
 				<Provider store={store}>
         			<I18nProvider language={locale} catalogs={catalogs}>
-						<PageLayout>
+						<PageLayout skip={shouldSkip}>
 							<Component {...pageProps} {...{'log': log}} />
 						</PageLayout>
 					</I18nProvider>
