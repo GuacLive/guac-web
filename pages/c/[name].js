@@ -96,7 +96,7 @@ class ChannelPage extends Component {
 					{stream.user.name}
 					{stream.live ? <span className="ph2 bg-red f6 tc inline-flex white mh3">LIVE</span> : ''}
 					{stream.type == 'PARTNER' &&  
-						<span className="">
+						<span className="f3">
 							<FontAwesomeIcon icon='check-circle' />
 						</span>
 					}
