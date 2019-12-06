@@ -47,6 +47,10 @@ class PageLayout extends Component {
 		let { children, isAuthenticated, user, followed, i18n } = this.props;
 		let title = this.props.title ? this.props.title : '';
 
+		if(this.props.skip){
+			return <Fragment>{ children }</Fragment>;
+		} 
+
 		return (
 			<Fragment>
 				<Head>

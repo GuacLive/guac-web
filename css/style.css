@@ -268,3 +268,12 @@ body {
 .site-component-spotlight button.slick-arrow:before {
 	color: var(--slick-dot-color);
 }
+
+.player-embed {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+}

@@ -25,9 +25,9 @@ import { initializeFirebase, initializePush } from '../utils/push-notification';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 
-import { faBan, faCheck, faHourglass, faVideo, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
+import { faBan, faCheck, faCheckCircle, faHourglass, faVideo, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faBan, faCheck, faHourglass, faVideo, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog, faMinusCircle);
+library.add(faBan, faCheck, faCheckCircle, faHourglass, faVideo, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog, faMinusCircle);
 	
 export default withRedux(configureStore)(class MyApp extends App {
 	static async getInitialProps(appContext) {
@@ -131,11 +131,14 @@ export default withRedux(configureStore)(class MyApp extends App {
 		// Skip rendering when catalog isn't loaded.
 		if (!catalogs[locale]) return null;
 
+		const skipLayoutDestinations = ['/embed/[name]', '/chat/[name]'];
+		const shouldSkip = this.props.pathname && skipLayoutDestinations.indexOf(this.props.pathname) === 0;
+
 		return (
 			<>
 				<Provider store={store}>
         			<I18nProvider language={locale} catalogs={catalogs}>
-						<PageLayout>
+						<PageLayout skip={shouldSkip}>
 							<Component {...pageProps} {...{'log': log}} />
 						</PageLayout>
 					</I18nProvider>
