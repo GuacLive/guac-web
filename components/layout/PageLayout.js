@@ -164,7 +164,13 @@ class PageLayout extends Component {
 												<div key={'followed-'+u.username} className="site-component-fUser items-center flex relative ph4 pv2 white">
 													<Link href={`/c/${u.username}`}>
 														<a className="inline-flex v-mid mr2 w2 h2">
-															<Image alt={u.username} className={`dim ba ${+u.live ? 'b--red' : 'b--transparent'} inline-flex br-100 w-100 h-100`} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII" />
+															<Image
+																src={u.avatar || '//api.guac.live/avatars/unknown.png'}
+																alt={u.username}
+																shape="squircle"
+																fit="cover" 
+																lassName={`dim ba ${+u.live ? 'b--red' : 'b--transparent'} inline-flex w-100 h-100`}
+															/>
 														</a>
 													</Link>
 													<div className="overflow-hidden dn db-l">
