@@ -18,7 +18,7 @@ export default class Image extends React.Component {
         className: PropTypes.string,
         alt: PropTypes.string,
         fit: PropTypes.oneOf(['contain', 'cover']),
-        shape: PropTypes.oneOf(['rounded', 'circle']),
+        shape: PropTypes.oneOf(['rounded', 'circle', 'squircle']),
         //proxy: PropTypes.oneOf(h),
         crop: PropTypes.bool,
         lazyload: PropTypes.bool,

@@ -93,6 +93,10 @@ body {
     border-radius: 50%
 }
 
+.GuacImage.-squircle {
+    border-radius: 35%
+}
+
 .GuacImage.is-error {
     background: #111
 }
