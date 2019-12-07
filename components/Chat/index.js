@@ -70,6 +70,7 @@ function ChatComponent(props){
 	}
 
 	const checkIfBottom = (el) => {
+		if(messages.length === 0) return true;
 		const scrollTop = el.scrollTop;
 		const clientHeight = el.clientHeight; // or offsetHeight
 		const scrollHeight = el.scrollHeight;

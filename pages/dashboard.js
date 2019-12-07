@@ -115,6 +115,17 @@ class DashboardPage extends Component {
 							<p>At last, make sure keyframe interval is set to <b>2</b>.</p>
 						</li>
 					</ol>
+					<h2 className="f2 tracked mt0 mb3">Chat commands:</h2>
+					<ul>
+						<li><b>/help</b> - Show help command</li>
+						<li><b>/users</b> - Show user list</li>
+						<li><b>/mod <i>user</i></b></li>
+						<li><b>/unmod <i>user</i></b></li>
+						<li><b>/timeout <i>user</i> <i>seconds</i></b> - Time out user for x seconds</li>
+						<li><b>/timeout <i>user</i> <i>0</i></b> - Remove timeout for user</li>
+						<li><b>/ban <i>user</i> <i>message</i></b> - Permanently ban user</li>
+						<li><b>/unban <i>user</i></b> - Unban user</li>
+					</ul>
 				</div>
 			</>
 		)

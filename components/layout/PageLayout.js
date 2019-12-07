@@ -21,6 +21,8 @@ import Image from '../Image';
 import GuacButton from '../GuacButton';
 import DarkModeToggle from '../DarkModeToggle';
 import AccountMenu from './AccountMenu';
+import SearchBar from '../Search/SearchBar';
+
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 class PageLayout extends Component {
@@ -97,9 +99,7 @@ class PageLayout extends Component {
 									</Link>
 								</div>
 								<div className="w-100 self-center dn db-l flex-grow-1">
-									<form className="mw6 relative ml3">
-										<input type="text" className="input-reset bn pa3 w-100 bg-white br2" placeholder={i18n._(t`Search...`)} />
-									</form>
+									<SearchBar />
 								</div>
 							</nav>
 
