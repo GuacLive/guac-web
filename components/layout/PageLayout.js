@@ -193,7 +193,7 @@ class PageLayout extends Component {
 											<a className="link white-80 hover-gold"> <Trans>Privacy</Trans> </a>
 										</Link>
 										<Link href="/dmca">
-											<a className="link white-80 hover-gold"> <Trans>DMCA</Trans> </a>
+											<a className="link white-80 hover-red"> <Trans>DMCA</Trans> </a>
 										</Link>
 										<Link href="#">
 											<a className="link white-80 hover-green"> contact@guac.live </a>
