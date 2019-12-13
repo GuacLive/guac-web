@@ -5,7 +5,7 @@ class Error extends React.Component {
 	static getInitialProps(ctx){
 		const {res, err} = ctx;
 		const statusCode = res ? res.statusCode : err ? err.statusCode : null;
-		initialize(req);
+		initialize(ctx);
 
 		try{
 			// Fetch my followed
