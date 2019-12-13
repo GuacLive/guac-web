@@ -8,8 +8,9 @@
       "env": {
         "API_URL": "@guac-api-url",
         "CHAT_URL": "@guac-chat-url",
-        "GIPHY_API_KEY": "@guac-giphy-api-key"
+        "GIPHY_API_KEY": "@guac-giphy-api-key",
+        "SENTRY_DSN": "@guac-sentry-dsn"
       }
     },
-    "builds": [{ "src": "package.json", "use": "@now/next@canary", "config": {"maxLambdaSize": "10mb"} }]
+    "builds": [{ "src": "package.json", "use": "@now/next@canary"}]
 }  

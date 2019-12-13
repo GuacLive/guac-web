@@ -1,4 +1,13 @@
-import Document, { Head, Main, NextScript } from 'next/document'
+import Document, { Head, Main, NextScript } from 'next/document';
+import * as Sentry from '@sentry/browser';
+
+process.on('unhandledRejection', (err) => {
+    Sentry.captureException(err);
+});
+
+process.on('uncaughtException', (err) => {
+    Sentry.captureException(err);
+});
 
 import { getCookie } from '../utils/cookie';
 export default class MyDocument extends Document {
@@ -15,8 +24,8 @@ export default class MyDocument extends Document {
 		<html data-cast-api-enabled="true" className={this.props.mode === 'dark' ? 'guac-skin-dark': 'guac-skin-light'}>
 			<Head nonce={nonce}>
 				<script type="text/javascript" src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1" nonce={this.props.nonce}></script>
-				<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.9.0/css/solid.css" integrity="sha384-ypqxM+6jj5ropInEPawU1UEhbuOuBkkz59KyIbbsTu4Sw62PfV3KUnQadMbIoAzq" crossOrigin="anonymous" />
-				<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.9.0/css/fontawesome.css" integrity="sha384-NnhYAEceBbm5rQuNvCv6o4iIoPZlkaWfvuXVh4XkRNvHWKgu/Mk2nEjFZpPQdwiz" crossOrigin="anonymous" />
+				<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.12.0/css/solid.css" integrity="sha384-9AfJF7pZ+RYk3wXpf8ge6fc3XhPaW3Xl57Qj/mSzPckn9Tu8zJ9qUipWq+/utX20" crossOrigin="anonymous" />
+				<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.12.0/css/fontawesome.css" integrity="sha384-VoScp22LWX8GkkUAmdkkkj+rz+/r84lmCD6FALIryJxjwBSz6kE6oebSlamQx19e" crossOrigin="anonymous" />
 				<link rel="manifest" href="/manifest.json" />
 				<link rel="preconnect" href="https://api.guac.live/" />
 				<link rel="preconnect" href="https://stream.guac.live/" />

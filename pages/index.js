@@ -112,6 +112,7 @@ class IndexPage extends Component {
 					<h3 className="f4 b ma0 ttu tracked"><Trans>Live streams</Trans></h3>
 					{this.renderStreams()}
 				</div>
+
 				<ToggleFeature
 					flag='guacWelcome'
 				>
