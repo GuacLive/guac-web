@@ -13,7 +13,7 @@ class Error extends React.Component {
 
 			if (site.loading && authentication.token) {
 				// Fetch followed
-				await ctx.store.dispatch(actions.fetchMyFollowed(
+				ctx.store.dispatch(actions.fetchMyFollowed(
 					authentication.token
 				));
 			}
