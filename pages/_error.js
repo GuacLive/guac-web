@@ -1,4 +1,5 @@
 import React from 'react'
+import { Trans } from '@lingui/macro';
 
 import initialize from '../utils/initialize';
 class Error extends React.Component {
