@@ -1,8 +1,8 @@
 const withCSS = require('@zeit/next-css')
-const path = require('path');
-const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
-module.exports = withCSS({
-	webpack(config, { isServer }) {
+const nextSourceMaps = require('@zeit/next-source-maps')
+const webpack = require('webpack');
+module.exports = withCSS(nextSourceMaps({
+	webpack(config, { isServer, buildId }) {
 
 		/*if (config.optimization.splitChunks.cacheGroups && config.optimization.splitChunks.cacheGroups.lib) {
 			config.optimization.splitChunks.cacheGroups.lib.test = module => {
@@ -49,7 +49,14 @@ module.exports = withCSS({
 			]
 		});
 
+		config.plugins.push(
+			new webpack.DefinePlugin({
+			  'process.env.SENTRY_RELEASE': JSON.stringify(buildId),
+			})
+		);
+
 		if (!isServer) {
+			config.resolve.alias['@sentry/node'] = '@sentry/browser';
 			config.node = {
 				fs: 'empty'
 			}
@@ -63,6 +70,7 @@ module.exports = withCSS({
 		API_URL: process.env.API_URL || 'http://api.local.guac.live',
 		CHAT_URL: process.env.CHAT_URL || 'http://chat.local.guac.live',
 		GIPHY_API_KEY: process.env.GIPHY_API_KEY,
+		SENTRY_DSN: process.env.SENTRY_DSN,
 		OIL_CONFIG: {
 			"theme": "dark",
 			"cpc_type": "standard",
@@ -92,4 +100,4 @@ module.exports = withCSS({
 	future: {
 		excludeDefaultMomentLocales: true,
 	},
-})
+}))
