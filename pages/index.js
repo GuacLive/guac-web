@@ -73,7 +73,7 @@ class IndexPage extends Component {
 		}
 
     	return (
-    		<div key={stream.user.id} style={{'height': '960px', 'width': '600px'}}>
+    		<div key={stream.user.id}>
     			<Link href="/c/[name]" as={`/c/${stream.user.name}`}>
     				<a className="link f4 b ma0">
 						<span className="i tracked b">{stream.name}</span> <Trans>is live</Trans>
@@ -92,9 +92,11 @@ class IndexPage extends Component {
 				<Carousel
 					width="100%"
 					cellAlign="center"
+					initialSlideHeight={100}
+					heightMode="first"
 					className="w-100"
 				>
-					this.props.featured.data.map(this.renderStream)
+					{this.props.featured.data.map(this.renderStream)}
 					</Carousel>
 			);
 		}
