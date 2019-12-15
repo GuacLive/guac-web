@@ -30,6 +30,19 @@ import log from '../../utils/log';
 
 const STREAMING_SERVER = 'eu';
 class ChannelPage extends Component {
+	constructor(props){
+		super(props);
+		this.state = {
+			tab: 0
+		};
+	}
+
+	switchTab(tab){
+		this.setState({
+			tab,
+		});
+	}
+
 	static async getInitialProps({store, isServer, pathname, query, req}){
 		const { channel, site } = store.getState()
 		log('info', 'Channel', query.name);
@@ -43,7 +56,7 @@ class ChannelPage extends Component {
 		const { authentication, channel } = this.props;
 		if(!channel || !channel.data || !channel.data.user) return;
 		await this.props.dispatch(actions.followChannel(authentication.token, channel.data.user.id));
-	};
+	}
 
     renderStream = () => {
 		const {
@@ -51,6 +64,7 @@ class ChannelPage extends Component {
 			channel
 		} = this.props;
 		let stream = channel.data;
+		let tab = this.state.tab;
 
 		let videoJsOptions = { 
 			autoplay: true,
@@ -129,22 +143,51 @@ class ChannelPage extends Component {
 						</span>
 					</div>
 				</div>
-				<div className="site-component-panels flex flex-wrap justify-center w-100">
-					{
-						stream
-						&&
-						stream.panels
-						&&
-						stream.panels.map((panel, i) => {
-							return (
-								<div key={`panel_${panel.id}_${i}`} className="site-component-panels__panel db w-100 w-third-ns mr1 mb1 word-wrap">
-									<span className="f2 primary tracked">{panel.title}</span>
-									<div className="mt1 primary">{panel.description}</div>
-								</div>
-							);
-						})
-					}
+				<div className="site-component-profile__tabs flex items-center bb b--gray" style={{height:'48px'}}>
+					<a 
+						href="#"
+						onClick={() => {this.switchTab(0);return true;}}
+						className={
+							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer ${tab == 0 ? 'primary' : 'gray'} hover-primary`
+						}
+					>
+						<Trans>ABOUT</Trans>
+					</a>
+					<a 
+						href="#"
+						onClick={() => {this.switchTab(1);return true;}}
+						className={
+							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer ${tab == 1 ? 'primary' : 'gray'} hover-primary`
+						}
+					>
+						<Trans>REPLAYS</Trans>
+					</a>
 				</div>
+				{
+					tab == 0 &&
+					<div className="site-component-panels flex flex-wrap justify-center w-100">
+						{
+							stream
+							&&
+							stream.panels
+							&&
+							stream.panels.map((panel, i) => {
+								return (
+									<div key={`panel_${panel.id}_${i}`} className="site-component-panels__panel db w-100 w-third-ns mr1 mb1 word-wrap">
+										<span className="f2 primary tracked">{panel.title}</span>
+										<div className="mt1 primary">{panel.description}</div>
+									</div>
+								);
+							})
+						}
+					</div>
+				}
+				{
+					tab == 1 &&
+					<div className="site-component-replays flex flex-wrap justify-center w-100 primary">
+						<Trans>No replays available.</Trans>
+					</div>
+				}
     		</Fragment>
     	);
     }
