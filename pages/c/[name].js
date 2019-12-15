@@ -108,12 +108,10 @@ class ChannelPage extends Component {
 				<div className="site-component-channel__info dib w-100 bg-light-green">
 					<h2 className='f2 tracked ma0 dib'>
 					{stream.user.name}
-					{stream.live ? <span className="ph2 bg-red f6 tc inline-flex white mh3">LIVE</span> : ''}
 					{stream.type == 'PARTNER' &&  
-						<span className="f3">
-							<FontAwesomeIcon icon='check-circle' />
-						</span>
+						<FontAwesomeIcon icon='check-circle' fixedWidth className="f3" />
 					}
+					{stream.live ? <span className="ph2 bg-red f6 tc inline-flex white mh3">LIVE</span> : ''}
 					</h2>
 					<div className="inline-flex align-items-center pr2 red f6">
 					{stream.live
