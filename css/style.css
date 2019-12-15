@@ -39,6 +39,11 @@ body {
 	border-color: var(--green);
 }
 
+.hover-primary:hover, 
+.hover-primary:focus {
+	color: var(--site-text);
+}
+
 :root {
 	--site-background: #f4f5f7;
 	--site-text: var(--black);
