@@ -11,7 +11,7 @@ function AccountMenu(props){
 	return (
 		<>
 			<a className="db link pv2 ph3" href="#!" onClick={() => setShow(!show)}>
-				<Image src={props.user.avatar} alt={props.user.name} shape="squircle" fit="cover" lazyload className="dim w2 w2-ns h2 h2-ns" />
+				<Image src={props.user.avatar || '//api.guac.live/avatars/unknown.png'} alt={props.user.name} shape="squircle" fit="cover" lazyload className="dim w2 w2-ns h2 h2-ns" />
 			</a>
 			<div data-details="" className="dropdown-menu primary absolute nowrap right-0 ba br1 w5" style={{left: 'auto', display: show ? 'block' : 'none', top: '100%'}}>
 				<ul className="list f6 mr0 ml0 mt0 mb0 pa3">
