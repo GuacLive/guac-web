@@ -169,7 +169,7 @@ class PageLayout extends Component {
 																alt={u.username}
 																shape="squircle"
 																fit="cover" 
-																lassName={`dim ba ${+u.live ? 'b--red' : 'b--transparent'} inline-flex w-100 h-100`}
+																className={`dim ba ${+u.live ? 'b--red' : 'b--transparent'} inline-flex w-100 h-100`}
 															/>
 														</a>
 													</Link>
