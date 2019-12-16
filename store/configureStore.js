@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware, compose } from 'redux';
+import createSentryMiddleware from "redux-sentry-middleware";
 import thunk from 'redux-thunk';
 
 import rootReducer from '../reducers';
@@ -10,7 +11,39 @@ import {
 } from '@flopflip/react-redux';
 import adapter from '@flopflip/localstorage-adapter';
 
-const middlewares = [thunk];
+import * as Sentry from '@sentry/browser';
+
+Sentry.init({
+	dsn: process.env.SENTRY_DSN,
+	debug: true,
+	beforeSend(event) {
+		console.log('beforeSend', event);
+		if(event.extra && event.extra.state){
+			if(event.extra.state.authentication){
+				// Don't send user's token
+				delete event.extra.state.authentication.token;
+			}
+			if(event.extra.state.streaming){
+				// Don't send user's streaming key
+				delete event.extra.state.streaming.key;
+			}
+		}
+		return event;
+	}
+});
+
+const middlewares = [
+	thunk,
+	createSentryMiddleware(Sentry,
+	{
+		getUserContext: (state) => {
+			if(state && state.authentication && state.authentication.user){
+				return state.authentication.user;
+			}
+			return null;
+		}
+	})
+];
 
 const storeEnhancers = [];
 console.log('NODE_ENV: ', process.env.NODE_ENV);
