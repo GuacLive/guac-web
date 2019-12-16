@@ -70,7 +70,7 @@ class DMCAPage extends Component {
 	such notices to a third-party for publication. As such, your letter
 	(with personal information removed) may be forwarded to Chilling
 	Effects (<a href="http://www.chillingeffects.org" rel="nofollow"
-	target="_blank" className="white">www.chillingeffects.org</a>) for publication.
+	target="_blank" className="primary">www.chillingeffects.org</a>) for publication.
 			</p>
 			<h3 className="f3 tracked mt0 mb3"><Trans>Counter-Notification</Trans></h3>
 			<p>If you elect to send us a counter notice, to be effective it must be a written communication that includes the following (please consult your legal counsel or see 17 U.S.C. Section 512(g)(3) to confirm these requirements):
