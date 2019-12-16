@@ -60,6 +60,10 @@ function SearchBar(props){
             <form className="mw6 relative ml3 site-component-search__form">
                 <input
                     type="text"
+                    style={{
+                        color: 'hsla(0, 0%, 100%, .8)',
+                        backgroundColor: 'hsla(0, 0%, 100%, .05)'
+                    }}
                     className="input-reset bn pa3 w-100 bg-white br2"
                     placeholder={i18n._(t`Search...`)} 
                     value={val}
