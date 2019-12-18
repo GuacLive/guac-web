@@ -18,7 +18,7 @@ function VideoPlayer(props) {
 	useEffect(() => {
 		const canAutoplay = require('can-autoplay').default;
 		const videoJsOptions = {
-			liveui: false,
+			liveui: !videojs.browser.IS_ANDROID,
 			poster: !props.live ? '/img/offline-poster.png' : '',
 			plugins: {
 				persistvolume: {
@@ -47,7 +47,8 @@ function VideoPlayer(props) {
 		if(window && typeof window.MediaSource === 'undefined'){
 			videoJsOptions.html5 = {
 				hls: {
-					overrideNative: false
+					overrideNative: !videojs.browser.IS_SAFARI,
+					allowSeeksWithinUnsafeLiveWindow: true,
 				},
 				nativeVideoTracks: true,
 				nativeAudioTracks: true,
