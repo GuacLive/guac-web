@@ -18,7 +18,7 @@ function VideoPlayer(props) {
 	useEffect(() => {
 		const canAutoplay = require('can-autoplay').default;
 		const videoJsOptions = {
-			liveui: !videojs.browser.IS_ANDROID,
+			liveui: false,
 			poster: !props.live ? '/img/offline-poster.png' : '',
 			plugins: {
 				persistvolume: {
