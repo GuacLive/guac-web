@@ -47,7 +47,8 @@ function VideoPlayer(props) {
 		if(window && typeof window.MediaSource === 'undefined'){
 			videoJsOptions.html5 = {
 				hls: {
-					overrideNative: false
+					overrideNative: !videojs.browser.IS_SAFARI,
+					allowSeeksWithinUnsafeLiveWindow: true,
 				},
 				nativeVideoTracks: true,
 				nativeAudioTracks: true,
