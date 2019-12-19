@@ -188,7 +188,24 @@ class ChannelPage extends Component {
 				}
     		</Fragment>
     	);
-    }
+	}
+	
+	renderBan(){
+		const {
+			channel
+		} = this.props;
+		let stream = channel.data;
+		return (
+			<Fragment key={stream.user.id}>
+				<div className="site-component-banned flex flex-column flex-wrap w-100">
+					<h3 className="f3 red ma0"><Trans>User has been banned</Trans></h3>
+					<p className="primary">
+						<Trans>{stream.user.name} has been banned from the site.</Trans>
+					</p>
+				</div>
+			</Fragment>
+		);
+	}
 
 	render() {
 		const {
@@ -236,11 +253,36 @@ class ChannelPage extends Component {
 					})}
 				</NextHead>
 				<div className="w-100 min-vh-100 flex flex-nowrap black">
+				
 					<div className="site-component-channel w-100 w-70-ns h-100 flex flex-column flex-grow-1 overflow-hidden relative">
-					{this.renderStream()}
+						{
+							channel 
+							&&
+							channel.data
+							&&
+							channel.data.user
+							&&
+							channel.data.user.banned
+							?
+							this.renderBan()
+							:
+							this.renderStream()
+						}
 					</div>
 					<aside className="site-component-chat w-100 w-30-ns h-100 flex-l dn-m flex-column flex-grow-1 flex-shrink-1 flex-nowrap">
-						<Chat channel={channel.data.name} />
+						{
+							channel
+							&&
+							channel.data
+							&&
+							channel.data.user
+							&&
+							channel.data.user.banned
+							?
+							null
+							:
+							(<Chat channel={channel.data.name} />)
+						}
 					</aside>
 				</div>
 			</Fragment>
