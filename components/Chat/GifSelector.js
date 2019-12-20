@@ -1,23 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 import GiphySelect from '@guaclive/react-giphy-select';
 import '@guaclive/react-giphy-select/lib/styles.css';
 
-import onClickOutside from 'react-onclickoutside';
+import { useClickAway } from 'react-use';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function GifSelector(props){
 	const [isOpen, setIsOpen] = useState(false);
 
-	GifSelector.handleClickOutside = () => setIsOpen(false);
-
+	const ref = useRef(null);
+	useClickAway(ref, () => {
+	  setIsOpen(false);
+	});
+  
 	const handleToggleClick = () => {
 		setIsOpen(!isOpen);
 	};
 
 	return (
-		<div className="chat-input__buttons__gif inline-flex items-center justify-center mr2">
+		<div ref={ref} className="chat-input__buttons__gif inline-flex items-center justify-center mr2">
 			<FontAwesomeIcon icon='video' onClick={handleToggleClick} />
 			<span className="absolute right-0 fr bottom-2 pv2">
 				{isOpen &&
@@ -33,10 +36,5 @@ function GifSelector(props){
 		</div>
 	);
 }
-
-
-const clickOutsideConfig = {
-	handleClickOutside: () => GifSelector.handleClickOutside
-};
   
-export default onClickOutside(GifSelector, clickOutsideConfig);
+export default GifSelector;
