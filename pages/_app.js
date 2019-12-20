@@ -27,6 +27,8 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 
 import { faBan, faCheck, faCheckCircle, faHourglass, faVideo, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 
+import * as Sentry from '@sentry/browser';
+
 library.add(faBan, faCheck, faCheckCircle, faHourglass, faVideo, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog, faMinusCircle);
 export default withRedux(configureStore)(class MyApp extends App {
 	static async getInitialProps(appContext) {
