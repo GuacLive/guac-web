@@ -93,10 +93,14 @@ function SearchBar(props){
                             &&
                             results.map((stream, i) => {
                                 //return <UserCard key={i} user={user} index={i} />;
-                                return <div key={`search_result_${i}`} className="flex w-100 h2 items-center pv2 ">
+                                return <div key={`search_result_${i}`} className="flex w-100 h2 items-center pv2">
                                     <Link href={`/c/${stream.name}`}>
-                                       <a className="link b near-black">{stream.name}</a>
-                                    </Link>
+										<a className="link near-black v-mid flex items-center">
+											{stream.name}
+											{+stream.live ? <span className="ph2 bg-red f6 tc inline-flex white mh3">LIVE</span> : ''}
+                                            <span className="truncate"><small>&nbsp;-&nbsp;{stream.title}</small></span>
+                                        </a>
+                                    </Link>                                  
                                 </div>;
                             })
                         }

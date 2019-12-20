@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import useLocalStorage from 'react-use/lib/useLocalStorage';
 
 import Switch from 'react-switch';
+
+import { useClickAway } from 'react-use';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -10,13 +12,18 @@ function SettingsMenu(props){
 	const [isOpen, setIsOpen] = useState(false);
 
 	const handleTimestampsOption = () => isChecked(!checked);
+	
+	const ref = useRef(null);
+	useClickAway(ref, () => {
+	  setIsOpen(false);
+	});
 
 	const handleToggleClick = () => {
 		setIsOpen(!isOpen);
 	};
 
 	return (
-		<div className="chat-input__settings inline-flex items-center justify-center mr2">
+		<div ref={ref} className="chat-input__settings inline-flex items-center justify-center mr2">
 			<FontAwesomeIcon icon='cog' onClick={handleToggleClick} className="primary" />
 			<div className="absolute right-0 fr pv2 ph2" style={{'bottom': '11rem'}}>
 				{isOpen &&
