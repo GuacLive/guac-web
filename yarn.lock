@@ -5032,9 +5032,11 @@ elliptic@^6.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
-emoji-mart@Gargron/emoji-mart#build:
-  version "2.6.3"
-  resolved "https://codeload.github.com/Gargron/emoji-mart/tar.gz/934f314fd8322276765066e8a2a6be5bac61b1cf"
+emoji-mart@missive/emoji-mart:
+  version "2.11.1"
+  resolved "https://codeload.github.com/missive/emoji-mart/tar.gz/7a025243b464e58d8fc3ad93564a940ec0e16b89"
+  dependencies:
+    prop-types "^15.6.0"
 
 emoji-regex@^7.0.1, emoji-regex@^7.0.2:
   version "7.0.3"
