@@ -41,10 +41,18 @@ export default withRedux(configureStore)(class MyApp extends App {
 		const locale = getCookie('lang', ctx.req) || locales[0];
 		
 		// Load initial catalog
-		const catalog = await import(
-			/* webpackMode: "lazy", webpackChunkName: "i18n-[index]" */
-			`@lingui/loader!../locale/${locale || 'en'}/messages.po`
-		);
+		var catalog;
+		try{
+			catalog = await import(
+				/* webpackMode: "lazy", webpackChunkName: "i18n-[index]" */
+				`@lingui/loader!../locale/${locale || 'en'}/messages.po`
+			);
+		}catch(e){
+			catalog = await import(
+				/* webpackMode: "lazy", webpackChunkName: "i18n-[index]" */
+				`@lingui/loader!../locale/en/messages.po`
+			);
+		}
 
 		// Handle authenticaiton
 		initialize(ctx);
