@@ -94,6 +94,7 @@
     "videojs-overlay": "^2.1.4",
     "videojs-persistvolume": "https://github.com/GuacLive/videojs-persistvolume",
     "videojs-resolution-switcher": "https://github.com/BaNru/videojs-resolution-switcher.git",
+    "videojs-theater-mode": "^1.0.0",
     "viewport-observer": "^2.3.0"
   },
   "devDependencies": {
