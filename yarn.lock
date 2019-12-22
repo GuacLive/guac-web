@@ -5032,9 +5032,9 @@ elliptic@^6.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
-"emoji-mart@https://github.com/missive/emoji-mart.git#master":
+"emoji-mart@github:GuacLive/emoji-mart#build":
   version "2.11.1"
-  resolved "https://github.com/missive/emoji-mart.git#61c0bd4e4e75ffeedc8096579a2bd7cb411417c8"
+  resolved "https://codeload.github.com/GuacLive/emoji-mart/tar.gz/61c0bd4e4e75ffeedc8096579a2bd7cb411417c8"
   dependencies:
     prop-types "^15.6.0"
 
