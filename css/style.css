@@ -286,3 +286,37 @@ body {
     left: 0;
     overflow: hidden;
 }
+
+html.theater-mode .site-component-profile__tabs,
+html.theater-mode .site-component-panels,
+html.theater-mode .site-component-sidebar,
+html.theater-mode footer,
+html.theater-mode header {
+	display: none;
+}
+html.theater-mode .site-component-main {
+	/* verbose af */
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+}
+html.theater-mode .site-component-channel__player,
+html.theater-mode .site-component-chat {
+	height: 100vh !important;
+}
+html.theater-mode .site-component-channel__info {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	padding: 20px;
+	background: linear-gradient(180deg, rgba(14, 14, 14, .9) 50%, transparent);
+	width: 100%;
+	transition: opacity .3s ease-in-out;
+	opacity: 0;
+	color: var(--site-text);
+}
+html.theater-mode .site-component-channel__info.active {
+	opacity: .8
+}

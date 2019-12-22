@@ -50,6 +50,7 @@ function ChatComponent(props){
 	const authentication = useSelector(state => state.authentication);
 	const channel = useSelector(state => state.channel);
 	const emotes = useSelector(state => state.emotes.data);
+	const darkMode = useSelector(state => state.site.mode === 'dark');
 	
 	var [showTimestamps] = useLocalStorage('showTimestamps', true);
 	var chatSettings = {
@@ -509,6 +510,7 @@ function ChatComponent(props){
 									customPickerEmotes.length > 0 &&
 									<EmojiSelector
 										emotes={customPickerEmotes} 
+										darkMode={darkMode}
 										onSelect={emoji => {
 											// Select text to type - if it is custom type the id, otherwise type emoji.
 											const text = emoji.custom ? emoji.id : emoji.native;

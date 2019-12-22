@@ -52,7 +52,7 @@
     "classnames": "^2.2.5",
     "cross-fetch": "^3.0.0",
     "dotenv": "^8.0.0",
-    "emoji-mart": "Gargron/emoji-mart#build",
+    "emoji-mart": "https://github.com/missive/emoji-mart.git#master",
     "file-loader": "^4.0.0",
     "firebase": "^7.5.0-canary.638aba6",
     "flv.js": "^1.5.0",
@@ -94,6 +94,7 @@
     "videojs-overlay": "^2.1.4",
     "videojs-persistvolume": "https://github.com/GuacLive/videojs-persistvolume",
     "videojs-resolution-switcher": "https://github.com/BaNru/videojs-resolution-switcher.git",
+    "videojs-theater-mode": "^1.0.0",
     "viewport-observer": "^2.3.0"
   },
   "devDependencies": {

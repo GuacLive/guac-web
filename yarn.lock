@@ -5032,9 +5032,11 @@ elliptic@^6.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
-emoji-mart@Gargron/emoji-mart#build:
-  version "2.6.3"
-  resolved "https://codeload.github.com/Gargron/emoji-mart/tar.gz/934f314fd8322276765066e8a2a6be5bac61b1cf"
+"emoji-mart@https://github.com/missive/emoji-mart.git#master":
+  version "2.11.1"
+  resolved "https://github.com/missive/emoji-mart.git#61c0bd4e4e75ffeedc8096579a2bd7cb411417c8"
+  dependencies:
+    prop-types "^15.6.0"
 
 emoji-regex@^7.0.1, emoji-regex@^7.0.2:
   version "7.0.3"
@@ -13267,7 +13269,7 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-video.js@^5.10.1:
+video.js@^5.10.1, video.js@^5.2.1:
   version "5.20.5"
   resolved "https://registry.yarnpkg.com/video.js/-/video.js-5.20.5.tgz#445cdae204bce459782d86a31b25a32afd6d8eff"
   integrity sha1-RFza4gS85Fl4LYajGyWjKv1tjv8=
@@ -13355,6 +13357,14 @@ videojs-swf@5.4.1:
   version "5.4.1"
   resolved "https://registry.yarnpkg.com/videojs-swf/-/videojs-swf-5.4.1.tgz#2077ef71c749f2c7823ef49babae4dd2acb08f87"
   integrity sha1-IHfvccdJ8seCPvSbq65N0qywj4c=
+
+videojs-theater-mode@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/videojs-theater-mode/-/videojs-theater-mode-1.0.0.tgz#d96211932b74ee8aaa11edc279e7a3c8bc9adfa3"
+  integrity sha1-2WIRkyt07oqqEe3CeeejyLya36M=
+  dependencies:
+    global "^4.3.2"
+    video.js "^5.2.1"
 
 videojs-vtt.js@0.12.6:
   version "0.12.6"

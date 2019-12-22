@@ -209,7 +209,7 @@ class PageLayout extends Component {
 								</footer>
 							</div>
 						</aside>
-						<div className="w-100 flex flex-column items-start pa3">
+						<div className="w-100 flex flex-column items-start pa3 site-component-main">
 							{ children }
 						</div>
 					</div>
