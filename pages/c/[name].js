@@ -107,7 +107,7 @@ class ChannelPage extends Component {
 					<VideoPlayer { ...videoJsOptions } live={stream.live}></VideoPlayer>
 				</div>
 				<div 
-					className="site-component-channel__info dib w-100 bg-light-green"
+					className="site-component-channel__info dib w-100 bg-black-30"
 					onMouseEnter={(e) => {
 						if(e && e.target) e.target.classList.add('active');
 					}}
@@ -115,7 +115,7 @@ class ChannelPage extends Component {
 						if(e && e.target) e.target.classList.remove('active');
 					}}
 				>
-					<h2 className='f2 tracked ma0 dib'>
+					<h2 className='f2 tracked ma0 dib primary'>
 					{stream.user.name}
 					{stream.type == 'PARTNER' &&  
 						<FontAwesomeIcon icon='check-circle' fixedWidth className="f3" />
@@ -142,7 +142,7 @@ class ChannelPage extends Component {
 					{!stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={this.follow}><Trans>Follow</Trans></GuacButton>}
 					{stream.type == 'PARTNER' && <GuacButton color="green"><Trans>Subscribe</Trans></GuacButton>}
 					<div>
-						<span className="b f4">
+						<span className="b f4 primary">
 							{stream.title}
 							<br />
 							<Trans>playing</Trans>&nbsp;
