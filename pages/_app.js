@@ -38,13 +38,27 @@ export default withRedux(configureStore)(class MyApp extends App {
 
 		// Locale
 		const locales = getLangs(ctx, 'languageOnly');
-		const locale = getCookie('lang', ctx.req) || locales[0];
+		var locale = getCookie('lang', ctx.req) || locales[0];
 		
-		// Load initial catalog
-		const catalog = await import(
-			/* webpackMode: "lazy", webpackChunkName: "i18n-[index]" */
-			`@lingui/loader!../locale/${locale || 'en'}/messages.po`
-		);
+		var catalog;
+		// If locale does not match expected format, fallback to en
+		if(!/^[a-zA-Z0-9-_]+$/.test(locale)){
+			locale = 'en';
+		}
+		// Load initial catalog based on locale
+		try{
+			catalog = await import(
+				/* webpackMode: "lazy", webpackChunkName: "i18n-[index]" */
+				`@lingui/loader!../locale/${locale || 'en'}/messages.po`
+			);
+		}catch(e){
+			// File does not exist, fallback to en locale
+			locale = 'en';
+			catalog = await import(
+				/* webpackMode: "lazy", webpackChunkName: "i18n-[index]" */
+				`@lingui/loader!../locale/en/messages.po`
+			);
+		}
 
 		// Handle authenticaiton
 		initialize(ctx);
