@@ -114,7 +114,6 @@ class IndexPage extends Component {
 					<h3 className="f4 b ma0 ttu tracked"><Trans>Live streams</Trans></h3>
 					{this.renderStreams()}
 				</div>
-
 				<ToggleFeature
 					flag='guacWelcome'
 				>
@@ -145,6 +144,11 @@ class IndexPage extends Component {
 						</article>
 					</section>
 				</ToggleFeature>
+				<div className="w-100 mw9-l">
+					<a href="https://discord.gg/k6MJSAj">
+						<img src="https://discordapp.com/api/guilds/564909420199411732/widget.png?style=banner2" />
+					</a>
+				</div>
 			</Fragment>
 		)
 	}
