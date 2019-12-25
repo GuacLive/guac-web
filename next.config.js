@@ -1,7 +1,9 @@
 const withCSS = require('@zeit/next-css')
 const nextSourceMaps = require('@zeit/next-source-maps')
-const webpack = require('webpack');
+const nextBuildId = require('next-build-id')
+const webpack = require('webpack')
 module.exports = withCSS(nextSourceMaps({
+	generateBuildId: () => nextBuildId({ dir: __dirname }),
 	webpack(config, { isServer, buildId }) {
 
 		/*if (config.optimization.splitChunks.cacheGroups && config.optimization.splitChunks.cacheGroups.lib) {
