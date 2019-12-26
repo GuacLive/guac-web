@@ -6286,7 +6286,7 @@ global@4.3.2, global@~4.3.0:
     min-document "^2.19.0"
     process "~0.5.1"
 
-global@^4.3.0, global@^4.3.1, global@^4.3.2, global@~4.4.0:
+global@^4.3.0, global@^4.3.1, global@^4.3.2, global@^4.4.0, global@~4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/global/-/global-4.4.0.tgz#3e7b105179006a323ed71aafca3e9c57a5cc6406"
   integrity sha512-wv/LAoHdRE3BeTGz53FAamhGlPLhlssK45usmGFThIi4XqnBmjKQ16u+RNbP7WvigRZDxUsM0J3gcQ5yicaL0w==
@@ -13392,6 +13392,14 @@ video.js@^7.7.1:
     safe-json-parse "4.0.0"
     videojs-font "3.2.0"
     videojs-vtt.js "^0.15.2"
+
+videojs-errors@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/videojs-errors/-/videojs-errors-4.3.0.tgz#f77d38f9ab185d67221c1dbe0430a970c454c32b"
+  integrity sha512-ABgaOSunNrtSjDiCHbTIMSKC0kEvjQq35OHUNjbY916FpcwOBlvOIqQFlh+19Xo/qA16jtmItr3czExenhfLzQ==
+  dependencies:
+    global "^4.4.0"
+    video.js "^6 || ^7"
 
 videojs-flvjs@^0.2.0:
   version "0.2.0"

@@ -90,6 +90,7 @@
     "tachyons": "^4",
     "url-loader": "^2.0.1",
     "video.js": "^7.7.1",
+    "videojs-errors": "^4.3.0",
     "videojs-flvjs": "^0.2.0",
     "videojs-overlay": "^2.1.4",
     "videojs-persistvolume": "https://github.com/GuacLive/videojs-persistvolume",
