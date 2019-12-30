@@ -1,16 +1,10 @@
 import React, { useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import useUpdateEffect from 'react-use/lib/useUpdateEffect';
 
-import SimpleBar from 'simplebar-react';
-import 'simplebar/dist/simplebar.css';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import moment from 'moment';
 
 import Image from '../Image';
-
-import log from '../../utils/log';
 
 import * as actions from '../../actions';
 function ReplaysList(props){
