@@ -201,7 +201,8 @@ body {
     text-decoration: underline;
 }
 
-.chat-message-content__emote {
+.chat-message-content__emote,
+.chat-input .rta__entity img {
 	vertical-align: middle;
 	margin: -.5rem 0;
 	min-width: 1.8rem;

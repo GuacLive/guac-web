@@ -13,6 +13,9 @@ import '@webscopeio/react-textarea-autocomplete/style.css';
 import AutoTextarea from "react-autosize-textarea";
 import moment from 'moment';
 
+import { withI18n } from '@lingui/react';
+import { Trans, t } from '@lingui/macro';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import EmojiSelector from './EmojiSelector';
@@ -445,7 +448,7 @@ function ChatComponent(props){
 						value={message}
 						onChange={writeMessage}
 						className="w-100 pa2 br2 input-reset ba db"
-						loadingComponent={() => <span>Loading</span>}
+						loadingComponent={() => <Trans>Loading...</Trans>}
 						style={{
 							'paddingRight': '6rem'
 						}}
@@ -549,4 +552,4 @@ function ChatComponent(props){
 		</>
 	);
 }
-export default ChatComponent;
+export default withI18n()(ChatComponent);

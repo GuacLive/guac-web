@@ -7,6 +7,9 @@ import { useClickAway } from 'react-use';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { withI18n } from '@lingui/react';
+import { Trans, t } from '@lingui/macro';
+
 function SettingsMenu(props){
 	const [checked, isChecked] = useLocalStorage('showTimestamps');
 	const [isOpen, setIsOpen] = useState(false);
@@ -29,7 +32,7 @@ function SettingsMenu(props){
 				{isOpen &&
 					<div className="pa1 ba b--gray br2 bg-white near-black">
 						<div className="relative h5 w5 ml1 mb2">
-							<span className="f3 b tracked mt0 mb3">Settings</span>
+							<span className="f3 b tracked mt0 mb3"><Trans>Settings</Trans></span>
 							<label className="db pv2 ph2">
 								<Switch
 									id="switch-timestamps"
@@ -38,7 +41,9 @@ function SettingsMenu(props){
 									uncheckedIcon={false}
 									checkedIcon={false}
 								/>
-								<span id="switch-timestamps-label" className="ml2">Timestamps</span>
+								<span id="switch-timestamps-label" className="ml2">
+								<Trans>Timestamps</Trans>
+								</span>
 							</label>
 						</div>
 					</div>
@@ -48,4 +53,4 @@ function SettingsMenu(props){
 	);
 }
 
-export default SettingsMenu;
+export default withI18n()(SettingsMenu);

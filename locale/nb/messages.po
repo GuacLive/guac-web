@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: pages/index.js:125
+#: pages/index.js:127
 msgid "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 msgstr "<0>Hei,<1/>Velkommen til guac.live — direktestrømming-platformen. Vi er for tiden i beta.</0><2>Mens vi er i beta, så vil strømmeprivilegier bli gitt på invitasjonsbasis.<3/>Men, lag gjerne en konto og delta i chatten og det generelle fellesskapet!</2>"
 
@@ -21,11 +21,23 @@ msgstr "<0>Hei,<1/>Velkommen til guac.live — direktestrømming-platformen. Vi 
 #~ msgid "<0>{0}</0> is live"
 #~ msgstr "<0>{0}</0> sender direkte"
 
+#: pages/c/[name].js:162
+msgid "ABOUT"
+msgstr "OM"
+
+#: pages/dashboard.js:180
+msgid "At last, make sure keyframe interval is set to <0>2</0>."
+msgstr "Til slutt, sørg for at keyframe interval er satt til <0>2</0>"
+
 #: pages/terms.js:26
 msgid "Breaking the law"
 msgstr "Å bryte loven"
 
-#: pages/c/[name].js:160
+#: pages/dashboard.js:130
+msgid "Category:"
+msgstr "Kategori:"
+
+#: pages/c/[name].js:229
 msgid "Channel not found"
 msgstr "Kanal ikke funnet"
 
@@ -35,6 +47,14 @@ msgstr "Kanal ikke funnet"
 #: pages/channels.js:53
 msgid "Channels"
 msgstr "Kanaler"
+
+#: pages/dashboard.js:185
+msgid "Chat commands:"
+msgstr "Chat-kommandoer:"
+
+#: pages/_error.js:32
+msgid "Client error"
+msgstr "Klient-feil"
 
 #: pages/terms.js:18
 msgid "Copyrighted Content"
@@ -77,7 +97,11 @@ msgstr "Engelsk"
 msgid "Error"
 msgstr "Feil"
 
-#: pages/c/[name].js:121
+#: pages/dashboard.js:169
+msgid "First, choose the streaming server closest to you:"
+msgstr "Først, velg strømmeserveren som er nærmest deg:"
+
+#: pages/c/[name].js:143
 msgid "Follow"
 msgstr "Følg"
 
@@ -96,6 +120,10 @@ msgstr "Glemt ditt passord?"
 msgid "Games"
 msgstr "Spill"
 
+#: pages/dashboard.js:166
+msgid "Get started with streaming"
+msgstr "Start med strømming"
+
 #: pages/terms.js:20
 msgid "Harassment & Bullying"
 msgstr "Trakassering og mobbing"
@@ -106,17 +134,19 @@ msgstr "Hatprat"
 
 #: pages/dmca.js:13
 msgid "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be \"repeat infringers\". If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (\"DMCA\") by providing Guac.live's Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
-msgstr "Det er vår policy å svare på klare merknader om påstått brudd på opphavsretten som er i samsvar med Digital Millennium Copyright Act. I tillegg vil vi straks avslutte uten varsel kontoene til de som bestemmes av oss å være \"gjentatte krenkere\". Hvis du er opphavsrettseier eller en agent derav, og du tror at alt innhold som er vert på nettstedet vårt (www.guac.live) krenker opphavsretten din, kan du sende inn et varsel i henhold til Digital Millennium Copyright Act ("DMCA\") ved å gi Guac.lives utpekte copyrightagent følgende informasjon skriftlig (vennligst kontakt din advokat eller se 17 USC Seksjon 512 (c) (3) for å bekrefte disse kravene):"
+msgstr "Det er vår policy å svare på klare merknader om påstått brudd på opphavsretten som er i samsvar med Digital Millennium Copyright Act. I tillegg vil vi straks avslutte uten varsel kontoene til de som bestemmes av oss å være \"gjentatte krenkere\". Hvis du er opphavsrettseier eller en agent derav, og du tror at alt innhold som er vert på nettstedet vårt (www.guac.live) krenker opphavsretten din, kan du sende inn et varsel i henhold til Digital Millennium Copyright Act (\"DMCA\") ved å gi Guac.lives utpekte copyrightagent følgende informasjon skriftlig (vennligst kontakt din advokat eller se 17 USC Seksjon 512 (c) (3) for å bekrefte disse kravene):"
 
-#: pages/index.js:139
+#: pages/index.js:141
 msgid "Join"
 msgstr "Bli med"
 
-#: pages/index.js:112
+#: pages/index.js:114
 msgid "Live streams"
 msgstr "Direktesendinger"
 
-#: pages/c/[name].js:159
+#: components/Chat/index.js:451
+#: components/Search/SearchBar.js:83
+#: pages/c/[name].js:228
 msgid "Loading..."
 msgstr "Laster..."
 
@@ -132,6 +162,14 @@ msgstr "Logg inn"
 msgid "Log out"
 msgstr "Logg ut"
 
+#: components/Replays/ReplaysList.js:46
+msgid "No replays available."
+msgstr "Ingen arkiverte videoer tilgjengelig."
+
+#: pages/dashboard.js:177
+msgid "No streaming key found, please contact an admin."
+msgstr "Ingen strømmenøkkel funnet, vennligst kontakt en administrator."
+
 #: components/LangSwitcher.js:9
 msgid "Norwegian"
 msgstr "Norsk"
@@ -140,10 +178,22 @@ msgstr "Norsk"
 msgid "Notification of Infringement"
 msgstr "Varsel om krenkelse"
 
+#: pages/dashboard.js:177
+msgid "Now, use the following stream key:"
+msgstr "Nå, bruk følgende strømmenøkkel:"
+
+#: pages/_error.js:41
+msgid "Page not found"
+msgstr "Side ikke funnet"
+
 #: pages/auth/login.js:58
 #: pages/auth/register.js:58
 msgid "Password"
 msgstr "Passord"
+
+#: pages/dashboard.js:193
+msgid "Permanently ban user"
+msgstr "Utesteng brukeren permanent"
 
 #: pages/terms.js:17
 msgid "Pornographic and sexually explicit content is not permitted in any form, including in profile pictures or streaming content."
@@ -161,17 +211,38 @@ msgstr "Personvern"
 msgid "Privacy Policy"
 msgstr "Personvern"
 
+#: pages/dashboard.js:153
+msgid "Private (don't show in categories, frontpage or search):"
+msgstr "Privat (vises ikke i kategorier, forsisden eller i søk):"
+
+#: pages/c/[name].js:171
+msgid "REPLAYS"
+msgstr "ARKIV"
+
 #: pages/auth/login.js:61
 msgid "Remember me"
 msgstr "Husk meg"
 
-#: components/Search/SearchBar.js:64
+#: components/Search/SearchBar.js:68
 msgid "Search..."
 msgstr "Søk..."
 
+#: pages/_error.js:48
+msgid "Server error"
+msgstr "Server-feil"
+
+#: components/Chat/SettingsMenu.js:35
 #: components/layout/AccountMenu.js:19
 msgid "Settings"
 msgstr "Innstillinger"
+
+#: pages/dashboard.js:187
+msgid "Show help command"
+msgstr "Vis hjelp-kommandoen"
+
+#: pages/dashboard.js:188
+msgid "Show user list"
+msgstr "Vis liste over brukere"
 
 #: components/layout/PageLayout.js:120
 #: components/layout/PageLayout.js:120
@@ -185,7 +256,15 @@ msgstr "Registrer"
 msgid "Start following your favorite streamers to find them quickly!"
 msgstr "Begynn å følge dine favoritt-strømmere for å finne dem raskt!"
 
-#: pages/c/[name].js:122
+#: pages/dashboard.js:119
+msgid "Stream preview"
+msgstr "Strømmeforhåndsvisning"
+
+#: pages/dashboard.js:123
+msgid "Stream settings"
+msgstr "Strømmeinnstillinger"
+
+#: pages/c/[name].js:144
 msgid "Subscribe"
 msgstr "Abonnér"
 
@@ -213,9 +292,29 @@ msgstr "Denne siden krever at du er logget inn."
 msgid "Threats, Violence & Harm"
 msgstr "Trusler, vold og skade"
 
-#: pages/c/[name].js:120
+#: pages/dashboard.js:191
+msgid "Time out user for x seconds"
+msgstr "Time ut brukeren i x sekunder"
+
+#: components/Chat/SettingsMenu.js:45
+msgid "Timestamps"
+msgstr "Tidsmerking"
+
+#: pages/dashboard.js:194
+msgid "Unban user"
+msgstr "Fjern utestenging av bruker"
+
+#: pages/c/[name].js:142
 msgid "Unfollow"
 msgstr "Avfølg"
+
+#: pages/_error.js:55
+msgid "Unknown error"
+msgstr "Ukjent feil"
+
+#: pages/c/[name].js:211
+msgid "User has been banned"
+msgstr "Brukeren har blitt utestengt"
 
 #: pages/auth/login.js:54
 #: pages/auth/register.js:54
@@ -226,9 +325,13 @@ msgstr "Brukernavn"
 msgid "We will review every reported user on a case-by-case basis, and give <0>warnings</0> or <1>temporary/permanent bans</1> depending on the severity of the case."
 msgstr "Vi vil gjennomgå alle rapporterte brukere fra sak til sak, og gi <0>advarsler</0> eller <1>midlertidige/permanente utestengelser</1> basert på alvorlighetsgraden til saken."
 
-#: pages/index.js:123
+#: pages/index.js:125
 msgid "Welcome to guac.live"
 msgstr "Velkommen til guac.live"
+
+#: pages/dashboard.js:115
+msgid "You do not have permission to stream"
+msgstr "Du har ikke tillatelse til å streame"
 
 #: pages/terms.js:19
 msgid "You may not stream copyright infringing content, such as movies and TV shows."
@@ -242,10 +345,31 @@ msgstr "Du må respektere alle gjeldende lokale, nasjonale og internasjonale lov
 msgid "is live"
 msgstr "sender direkte"
 
-#: pages/index.js:102
+#: pages/dashboard.js:193
+msgid "message"
+msgstr "melding"
+
+#: pages/index.js:104
 msgid "no streams are online"
 msgstr "ingen aktive direktesendinger"
 
-#: pages/c/[name].js:127
+#: pages/c/[name].js:149
 msgid "playing"
 msgstr "spiller"
+
+#: pages/dashboard.js:191
+msgid "seconds"
+msgstr "sekunder"
+
+#: pages/dashboard.js:189
+#: pages/dashboard.js:190
+#: pages/dashboard.js:191
+#: pages/dashboard.js:192
+#: pages/dashboard.js:193
+#: pages/dashboard.js:194
+msgid "user"
+msgstr "bruker"
+
+#: pages/c/[name].js:214
+msgid "{0} has been banned from the site."
+msgstr "{0} har blitt utestengt fra nettstedet."

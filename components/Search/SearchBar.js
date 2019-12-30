@@ -80,7 +80,7 @@ function SearchBar(props){
                         <div className="w5 pa1 ba b--gray br2 bg-white near-black site-component-search__results">
                         {
                             loading && (
-                                <div className="dib i ml8">Loading...</div>
+                                <div className="dib i ml8"><Trans>Loading...</Trans></div>
                             )
                         }
                         {

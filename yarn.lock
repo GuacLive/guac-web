@@ -1726,7 +1726,7 @@
   resolved "https://registry.yarnpkg.com/@lingui/babel-plugin-transform-react/-/babel-plugin-transform-react-2.9.0.tgz#f44b01ff8030de3cc1bf945c8e09ca20253aa89f"
   integrity sha512-m/Dd1p2ckWN6iKXKDfHE9Y03TUD/17wJP1E4963JsZqVFx0Wq5Z9D3m3rCUqfl4OGN38ivHnvoKZ6Y9SLeVjbg==
 
-"@lingui/cli@2.9.0", "@lingui/cli@^2":
+"@lingui/cli@2.9.0", "@lingui/cli@^2.9.0":
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/@lingui/cli/-/cli-2.9.0.tgz#5fab071a2ac17cf79ef14035f216aa02ebe15b5b"
   integrity sha512-1NZaw0QE9TYdDIU4d2xtDmuNn734wfjVxjofRMjfVw0XOhsuUCr+PTOJwfFhuw6inVl1wDSNLo88ctrd/27WWQ==
@@ -13092,6 +13092,11 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+
+typescript@^3.7.4:
+  version "3.7.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.7.4.tgz#1743a5ec5fef6a1fa9f3e4708e33c81c73876c19"
+  integrity sha512-A25xv5XCtarLwXpcDNZzCGvW2D1S3/bACratYBx2sax8PefsFhlYmkQicKHvpYflFS8if4zne5zT5kpJ7pzuvw==
 
 ua-parser-js@^0.7.18:
   version "0.7.21"
