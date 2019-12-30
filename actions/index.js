@@ -6,6 +6,8 @@ import { fetchChannel, followChannel, resetChannel } from './channel';
 
 import { fetchChannels, resetChannels } from './channels';
 
+import { fetchReplays, resetReplays } from './replays';
+
 import { fetchFeatured, resetFeatured } from './featured';
 
 import { setTitle, setPrivate, setCategory, fetchStreaming, resetStreaming } from './streaming';
@@ -27,6 +29,8 @@ export {
 	fetchChannels,
 	resetChannel,
 	resetChannels,
+	fetchReplays,
+	resetReplays,
 	fetchFeatured,
 	resetFeatured,
 	setTitle,
