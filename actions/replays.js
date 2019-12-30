@@ -10,7 +10,7 @@ export const fetchReplays = (name) => async (dispatch) => {
 	dispatch({
 		type: 'FETCH_REPLAYS_REQUEST'
 	});
-	return callApi('/replays/' + name)
+	return callApi('/archive/' + name)
 	.then(response => response.json())
 	.then((json) => {
 		if (json.statusCode == 200) {

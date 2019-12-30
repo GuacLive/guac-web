@@ -30,8 +30,18 @@ function ReplaysList(props){
 				replays.data
 				&&
 				replays.data.map((replay, i) => {
-					<div className="flex w-25 flex-grow-1 flex-nowrap pa1 bg-near-black white">
-						<span className="f5 b">{replay.title}</span>
+					<div className="flex w-33 flex-grow-1 flex-nowrap pa1 bg-near-black white">
+						<Link href={replay.stream}>
+							<a><Image src={replay.thumbnail} shape="rounded" fit="contain" flexible lazyload /></a>
+						</Link>
+						<div className="pa2">
+							<span className="f5 db link green">
+								<Link href={replay.stream}>
+									<a className="link color-inherit">{moment(stream.time).format('LLLL')}</a>
+								</Link>
+							</span>
+							<GuacButton url={replay.stream} color="dark-green">Watch replay</GuacButton>
+						</div>	
 					</div>
 				})
 			}
