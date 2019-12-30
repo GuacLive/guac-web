@@ -113,7 +113,7 @@
 .video-js .vjs-control-bar {
 	background-color: rgba(0, 0, 0, 0) !important;
 	color: #fff;
-	font-size: 18px
+	font-size: 14px
 }
 
 .video-js .vjs-play-progress,
@@ -161,10 +161,6 @@
 
 .video-js .vjs-load-progress {
 	background: rgba(255, 255, 255, .5)
-}
-
-.vjs-workinghover .vjs-menu-button-popup:hover .vjs-menu {
-	display: none;
 }
 
 .vjs-menu li.vjs-menu-item:hover {
@@ -333,4 +329,52 @@ video[poster]{
     padding: 0;
     flex: none;
     vertical-align: middle;
+}
+
+/* Animations */
+.video-js .vjs-big-play-button {
+    transition: all .3s ease!important;
+    -webkit-transition: all .3s ease!important;
+    transition-property: transform,opacity,background-color!important;
+    -webkit-transition-property: transform,opacity,background-color!important;
+    border-radius: 10px!important
+}
+
+.video-js.vjs-paused .vjs-big-play-button {
+    transform: scale(1)
+}
+
+.video-js.vjs-playing .vjs-big-play-button {
+    display: block!important;
+    opacity: 0!important;
+    transform: scale(1.2);
+    pointer-events: none
+}
+
+.video-js .vjs-loading-spinner {
+	opacity: .75!important
+}
+
+.video-js .vjs-menu-button-popup .vjs-menu .vjs-menu-content {
+    opacity: 0!important;
+    transform: translateY(10px) scale(.9)!important;
+    transform-origin: bottom!important;
+    pointer-events: none!important;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    transition-property: transform,opacity;
+    -webkit-transition-property: transform,opacity
+}
+
+.video-js .vjs-menu-button-popup .vjs-menu .vjs-menu-content .vjs-menu-item {
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    transition-property: background-color,text-shadow;
+    -webkit-transition-property: background-color,text-shadow;
+}
+
+.vjs-menu-button-popup .vjs-menu.vjs-lock-showing .vjs-menu-content,.vjs-workinghover .vjs-menu-button-popup:hover .vjs-menu .vjs-menu-content {
+    pointer-events: all!important;
+    opacity: 1!important;
+    transform: translateY(0) scale(1)!important
 }

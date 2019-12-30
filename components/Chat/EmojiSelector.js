@@ -34,6 +34,7 @@ function EmojiSelector(props){
 						set="twitter"
 						custom={emotes}
 						onSelect={props.onSelect}
+						darkMode={props.darkMode}
 						data={twitterData}
 						include={[
 							'recent',

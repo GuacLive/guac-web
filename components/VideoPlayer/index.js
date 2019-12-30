@@ -2,10 +2,10 @@ const videojs = require('video.js').default;
 import '@videojs/http-streaming';
 require('!style-loader!css-loader!video.js/dist/video-js.css')
 import '@silvermine/videojs-chromecast/dist/silvermine-videojs-chromecast.css';
-import 'videojs-overlay/dist/videojs-overlay.js';
-import 'videojs-overlay/dist/videojs-overlay.css';
 import '@silvermine/videojs-quality-selector/dist/css/quality-selector.css';
-import {useFeatureToggle} from '@flopflip/react-broadcast';
+import 'videojs-theater-mode/dist/videojs.theaterMode.css';
+import 'videojs-errors';
+import 'videojs-errors/dist/videojs-errors.css';
 
 import {useEffect} from 'react';
 
@@ -14,13 +14,17 @@ import log from '../../utils/log';
 function VideoPlayer(props) {
 	let player;
 	let videoNode;
-	const isFeatureEnabled = useFeatureToggle('streamOverlay');
 	useEffect(() => {
 		const canAutoplay = require('can-autoplay').default;
 		const videoJsOptions = {
+			errorDisplay: false,
 			liveui: false,
 			poster: !props.live ? '/img/offline-poster.png' : '',
 			plugins: {
+				chromecast: {
+					appId: '50E3A992',
+					addButtonToControlBar: false, // Defaults to true
+				},
 				persistvolume: {
 					namespace: 'guac-live'
 				}
@@ -40,7 +44,31 @@ function VideoPlayer(props) {
 				autoCleanupMaxBackwardDuration: 2,
 				autoCleanupMinBackwardDuration: 1,
 				seekType: 'range'
-  			},
+			  },
+			  controlBar: {
+				children: {
+					  'playToggle': {},
+					  'muteToggle': {},
+					  'volumeControl': {},
+					  'currentTimeDisplay': {},
+					  'timeDivider': {},
+					  'durationDisplay': {},
+					  'liveDisplay': {},
+
+					  'flexibleWidthSpacer': {},
+					  'progressControl': {},
+					  'pictureInPictureToggle': {},
+
+					  'chromecastButton': {},
+					  'QualitySelector': {},
+
+					  'TheaterModeToggle': {
+						  elementToToggle: 'guac',
+						  className: 'theater-mode'
+					  },
+					  'fullscreenToggle': {}
+				}
+			},
 			...props
 		};
 		
@@ -58,6 +86,7 @@ function VideoPlayer(props) {
 
 		if(window) window.flvjs = require('flv.js').default;
 		if(window) window.videojs = videojs;
+		require('videojs-theater-mode/dist/videojs.theaterMode.js');
 		require('../../videojs-flvjs.js');
 		require('../../videojs-persistvolume.js');
 		require('@silvermine/videojs-chromecast')(videojs, {
@@ -72,23 +101,23 @@ function VideoPlayer(props) {
 		});
 		
         canAutoplay.video().then((obj) => {
-            if (obj.result === false) {
+            if(obj.result === false){
                 player.muted(true);
             }
-        });
+		});
 
-		player.chromecast();
-		player.controlBar.addChild('QualitySelector');
-		if(props.streamInfo && isFeatureEnabled){
-			player.overlay({
-				overlays: [{
-					align: 'top',
-					content: props.streamInfo.username,
-					start: 'loadedmetadata',
-					end: 'play'
-				}]
-			});
+		// Hide theater mode if not on channel page
+		if(!props.streamInfo || !props.streamInfo.isChannel){
+			player.controlBar.removeChild('TheaterModeToggle');
 		}
+
+		player.on('theaterMode', function (elm, data){
+			if(data.theaterModeIsOn){
+				player.fill(true);
+			}else{
+				player.fill(false);
+			}
+		});
 		// Specify how to clean up after this effect:
 		return function cleanup() {
 			if(player){

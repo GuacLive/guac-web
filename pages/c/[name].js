@@ -71,7 +71,8 @@ class ChannelPage extends Component {
 			controls: true,
 			sources: [],
 			streamInfo: {
-				username: stream.user.name
+				username: stream.user.name,
+				isChannel: true
 			}
 		};
 
@@ -105,8 +106,16 @@ class ChannelPage extends Component {
 				<div className="site-component-channel__player">
 					<VideoPlayer { ...videoJsOptions } live={stream.live}></VideoPlayer>
 				</div>
-				<div className="site-component-channel__info dib w-100 bg-light-green">
-					<h2 className='f2 tracked ma0 dib'>
+				<div 
+					className="site-component-channel__info dib w-100 bg-black-30"
+					onMouseEnter={(e) => {
+						if(e && e.target) e.target.classList.add('active');
+					}}
+					onMouseLeave={(e) => {
+						if(e && e.target) e.target.classList.remove('active');
+					}}
+				>
+					<h2 className='f2 tracked ma0 dib primary'>
 					{stream.user.name}
 					{stream.type == 'PARTNER' &&  
 						<FontAwesomeIcon icon='check-circle' fixedWidth className="f3" />
@@ -133,7 +142,7 @@ class ChannelPage extends Component {
 					{!stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={this.follow}><Trans>Follow</Trans></GuacButton>}
 					{stream.type == 'PARTNER' && <GuacButton color="green"><Trans>Subscribe</Trans></GuacButton>}
 					<div>
-						<span className="b f4">
+						<span className="b f4 primary">
 							{stream.title}
 							<br />
 							<Trans>playing</Trans>&nbsp;
@@ -239,7 +248,7 @@ class ChannelPage extends Component {
 
 		let isFollowed;
 		if(channel.isFollowing === null) channel.isFollowing = followed && followed.to_id === channel.data.user.id;
-		let isMe = authentication.user.id && channel.data.user.id === authentication.user.id;
+		let isMe = authentication.user && authentication.user.id && channel.data.user.id === authentication.user.id;
 		isFollowed = channel.data.isFollowed = channel.isFollowing;
 		channel.data.isMe = isMe;
 
