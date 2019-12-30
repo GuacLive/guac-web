@@ -2,9 +2,10 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux';
 import dynamic from 'next/dynamic'
 
+import { Trans } from '@lingui/macro';
+
 import withAuth from '../utils/withAuth';
 import * as actions from '../actions';
-
 
 let VideoPlayer = dynamic(
 	() => /* webpackChunkName: 'VideoPlayer' */import('../components/VideoPlayer'),
@@ -111,22 +112,22 @@ class DashboardPage extends Component {
 		if(channel.loading) return null;
 		if(categories.error) throw categories.error;
 		if(streaming.error) throw streaming.error;
-		if(auth && auth.user && !auth.user.can_stream) return <p>You do not have permission to stream</p>;
+		if(auth && auth.user && !auth.user.can_stream) return <p><Trans>You do not have permission to stream</Trans></p>;
 		return (
 			<div className="flex flex-row flex-wrap w-100">
 				<div className="w-50 pa3">
-					<h2 className="f2 tracked mt0 mb3">Stream preview</h2>
+					<h2 className="f2 tracked mt0 mb3"><Trans>Stream preview</Trans></h2>
 					{ this.renderStream() }
 				</div>
 				<div className="w-50 pa3">
-					<h2 className="f2 tracked mt0 mb3">Stream settings</h2>
+					<h2 className="f2 tracked mt0 mb3"><Trans>Stream settings</Trans></h2>
 					<form className="measure" onSubmit={this.handleSubmit}>
 						<label htmlFor="title">Title:</label>
 						<input name="title" type="text" className="input-reset bn pa3 w-100 bg-white br2" ref="title" defaultValue={streaming.title} placeholder="Title" />
 						{
 							categories.data &&
 							<>
-								<label htmlFor="category">Category:</label>
+								<label htmlFor="category"><Trans>Category:</Trans></label>
 								<select 
 									name="category"
 									className="input-reset bn pa3 w-100 bg-white br2" 
@@ -149,7 +150,7 @@ class DashboardPage extends Component {
 								</select>
 							</>
 						}
-						<label htmlFor="private">Private (don't show in categories, frontpage or search):</label>
+						<label htmlFor="private"><Trans>Private (don't show in categories, frontpage or search):</Trans></label>
 						<input  
 							name="private"
 							type="checkbox"
@@ -162,10 +163,10 @@ class DashboardPage extends Component {
 					</form>
 				</div>
 				<div className="w-50 pa3">
-					<h2 className="f2 tracked mt0 mb3">Get started with streaming</h2>
+					<h2 className="f2 tracked mt0 mb3"><Trans>Get started with streaming</Trans></h2>
 					<ol>
 						<li>
-							<p>First, choose the streaming server closest to you:</p>
+							<p><Trans>First, choose the streaming server closest to you:</Trans></p>
 							<ul className="list">
 								<li><b>London, Europe:</b> rtmp://stream.guac.live:1935/live</li>
 								{/*<li><b>Oslo, Europe:</b> rtmp://osl1.stream.guac.live:1935/live</li>
@@ -173,24 +174,24 @@ class DashboardPage extends Component {
 							</ul>
 						</li>
 						<li>
-							{streaming && streaming.key ? <p>Now, use the following stream key: <b>{auth.user.name}?token={streaming.key}</b></p> : <p style={{color: 'red'}}>No streaming key found, please contact an admin.</p>}
+							{streaming && streaming.key ? <p><Trans>Now, use the following stream key:</Trans> <b>{auth.user.name}?token={streaming.key}</b></p> : <p style={{color: 'red'}}><Trans>No streaming key found, please contact an admin.</Trans></p>}
 						</li>
 						<li>
-							<p>At last, make sure keyframe interval is set to <b>2</b>.</p>
+							<p><Trans>At last, make sure keyframe interval is set to <b>2</b>.</Trans></p>
 						</li>
 					</ol>
 				</div>
 				<div className="w-50 pa3">
-					<h2 className="f2 tracked mt0 mb3">Chat commands:</h2>
+					<h2 className="f2 tracked mt0 mb3"><Trans>Chat commands:</Trans></h2>
 					<ul>
-						<li><b>/help</b> - Show help command</li>
-						<li><b>/users</b> - Show user list</li>
-						<li><b>/mod <i>user</i></b></li>
-						<li><b>/unmod <i>user</i></b></li>
-						<li><b>/timeout <i>user</i> <i>seconds</i></b> - Time out user for x seconds</li>
-						<li><b>/timeout <i>user</i> <i>0</i></b> - Remove timeout for user</li>
-						<li><b>/ban <i>user</i> <i>message</i></b> - Permanently ban user</li>
-						<li><b>/unban <i>user</i></b> - Unban user</li>
+						<li><b>/help</b> - <Trans>Show help command</Trans></li>
+						<li><b>/users</b> - <Trans>Show user list</Trans></li>
+						<li><b>/mod <i><Trans>user</Trans></i></b></li>
+						<li><b>/unmod <i><Trans>user</Trans></i></b></li>
+						<li><b>/timeout <i><Trans>user</Trans></i> <i><Trans>seconds</Trans></i></b> - <Trans>Time out user for x seconds</Trans></li>
+						<li><b>/timeout <i><Trans>user</Trans></i> <i>0</i></b> - Remove timeout for user</li>
+						<li><b>/ban <i><Trans>user</Trans></i> <i><Trans>message</Trans></i></b> - <Trans>Permanently ban user</Trans></li>
+						<li><b>/unban <i><Trans>user</Trans></i></b> - <Trans>Unban user</Trans></li>
 					</ul>
 				</div>
 			</div>
