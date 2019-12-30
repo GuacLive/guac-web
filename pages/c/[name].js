@@ -27,6 +27,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as actions from '../../actions';
 
 import log from '../../utils/log';
+import ReplaysList from '../../components/Replays/ReplaysList'
 
 const STREAMING_SERVER = 'eu';
 class ChannelPage extends Component {
@@ -192,7 +193,7 @@ class ChannelPage extends Component {
 				{
 					tab == 1 &&
 					<div className="site-component-replays flex flex-wrap justify-center w-100 primary">
-						<Trans>No replays available.</Trans>
+						<ReplaysList />
 					</div>
 				}
     		</Fragment>
