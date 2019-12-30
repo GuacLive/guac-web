@@ -25,6 +25,8 @@ function ReplaysList(props){
 				replays
 				&&
 				replays.data
+				&&
+				replays.data.length > 0
 				?
 				replays.data.map((replay, i) => {
 					<div className="flex w-33 flex-grow-1 flex-nowrap pa1 bg-near-black white">
