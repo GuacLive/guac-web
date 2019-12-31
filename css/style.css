@@ -137,35 +137,54 @@ body {
 	}	
 }
 
+.simplebar-horizontal.simplebar-track .simplebar-scrollbar {
+    height: 7px;
+    min-height: 0;
+    min-width: 10px;
+    right: auto;
+    top: 2px;
+    width: auto
+}
+
+.simplebar-scroll-content {
+    max-height: inherit !important;
+}
+
 .simplebar-track {
     will-change: opacity;
 }
 
-.simplebar-track .simplebar-scrollbar {
+.simplebar-track .simplebar-scrollbar:before {
+    -webkit-transition: opacity .2s linear;
     background: #000;
+    background-clip: padding-box;
+    border-radius: 7px;
+    min-height: 10px;
+    opacity: 0;
+    transition: opacity .2s linear;
+    width: 7px;
     box-shadow: 0 0 1px 1px hsla(0,0%,100%,.25);
 }
 
-.guac-skin-dark .simplebar-track .simplebar-scrollbar {
+.guac-skin-dark .simplebar-track .simplebar-scrollbar:before {
     background: #1f1f23;
 }
 
-.guac-skin-light .simplebar-track .simplebar-scrollbar {
+.guac-skin-light .simplebar-track .simplebar-scrollbar:before {
     background: #000;
 }
 
-.simplebar-track .simplebar-scrollbar.visible {
+.simplebar-track .simplebar-scrollbar.simplebar-visible:before {
     opacity: .7;
 }
 
-.simplebar-track.vertical .simplebar-scrollbar {
+.simplebar-track.simplebar-vertical .simplebar-scrollbar {
     width: .6rem;
 }
 
-.simplebar-track.horizontal .simplebar-scrollbar {
+.simplebar-track.simplebar-horizontal .simplebar-scrollbar {
     height: .6rem;
 }
-
 
 .chat-message {
 	background: var(--chat-message-background);
