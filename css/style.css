@@ -321,3 +321,6 @@ html.theater-mode .site-component-channel__info {
 html.theater-mode .site-component-channel__info.active {
 	opacity: .8
 }
+html.theater-mode .site-component-channel__info .guac-btn {
+	color: var(--black) !important;
+}
