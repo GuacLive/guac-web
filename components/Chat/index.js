@@ -392,7 +392,7 @@ function ChatComponent(props){
 			});
 			socket.on('reconnect', () => {
 				log('info', 'Chat', 'reconnect');
-				//socket.emit('join', props.authentication.token || null);
+				socket.emit('join', props.authentication.token || null);
 			});
 		}
 			
