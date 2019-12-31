@@ -181,7 +181,7 @@ function ChatComponent(props){
 		});
 	}
 
-	const handleMessage = (user, messages) => {
+	const handleMessage = (user, msgID, messages) => {
 		let self = this;
 		let entry;
 		let writeMessage = ((message) => {
@@ -216,6 +216,7 @@ function ChatComponent(props){
 			(privileged && privileged.indexOf(user.id) === -1);
 		entry = {
 			user,
+			msgID,
 			message: (
 				<>
 					{
@@ -332,6 +333,16 @@ function ChatComponent(props){
 		setMessage('');
 	}
 
+	const handleDelete = (msgID) => {
+		setMessages(messages => messages.filter(entry => 
+			entry.msgID
+			&&
+			msgID
+			&& entry.msgID !== msgID
+		));
+		cleanup();
+	}
+
 	const cleanup = () => {
 		const lines = messages;
 		if(lines.length >= maxlines){
@@ -374,6 +385,7 @@ function ChatComponent(props){
 			socket.on('sys', handleSys);
 			socket.on('privileged', handlePriv);
 			socket.on('viewers', handleViewers);
+			socket.on('delete', handleDelete);
 			socket.on('connect', () => {
 				setConnectedStatus(true);
 				socket.emit('join', authentication.token || null);
