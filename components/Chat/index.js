@@ -390,8 +390,12 @@ function ChatComponent(props){
 				setConnectedStatus(true);
 				socket.emit('join', authentication.token || null);
 			});
+			socket.on('disconnect', () => {
+				setConnectedStatus(false)
+			})
 			socket.on('reconnect', () => {
 				log('info', 'Chat', 'reconnect');
+				setConnectedStatus(true);
 				socket.emit('join', props.authentication.token || null);
 			});
 		}
@@ -475,6 +479,7 @@ function ChatComponent(props){
 						textAreaComponent={{ component: AutoTextarea, ref: "innerRef" }}
 						minChar={2}
 						rows={1}
+						disabled={!connectedStatus}
 						trigger={{
 							':': {
 								dataProvider: token => {
@@ -557,7 +562,7 @@ function ChatComponent(props){
 						<SettingsMenu chatSettings={chatSettings} />
 					</div>
 					<div className="flex flex-row content-center items-center">
-						<input type="submit" value="Chat" onClick={sendMessage} className="white dib pv2 ph3 nowrap lh-solid pointer br2 ba b--transparent bg-green" />
+						<input type="submit" value="Chat" onClick={sendMessage} disabled={!connectedStatus} className="white dib pv2 ph3 nowrap lh-solid pointer br2 ba b--transparent bg-green" />
 					</div>
 				</div>
 			</div>
