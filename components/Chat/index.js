@@ -396,7 +396,7 @@ function ChatComponent(props){
 			socket.on('reconnect', () => {
 				log('info', 'Chat', 'reconnect');
 				setConnectedStatus(true);
-				socket.emit('join', props.authentication.token || null);
+				socket.emit('join', authentication.token || null);
 			});
 		}
 			
