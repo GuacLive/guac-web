@@ -280,7 +280,7 @@ class ChannelPage extends Component {
 							this.renderStream()
 						}
 					</div>
-					<aside className="site-component-chat w-100 w-30-ns h-100 flex-l dn-m flex-column flex-grow-1 flex-shrink-1 flex-nowrap">
+					<aside className="site-component-chat w-100 w-30-ns h-100 flex-l dn flex-column flex-grow-1 flex-shrink-1 flex-nowrap">
 						{
 							channel
 							&&
