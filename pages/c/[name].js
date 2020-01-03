@@ -242,6 +242,13 @@ class ChannelPage extends Component {
 			{name: 'twitter:description', content: (channel.data.name || '').substring(0, 200)},
 			{name: 'twitter:image', content: '//guac.live/img/header-logo.png'},  
 		];
+		// Add meta noindex, nofollow if channel is private
+		if(channel.data && channel.data.private){
+			meta.push({
+				name: 'robots',
+				content: 'noindex, nofollow, noarchive'
+			})
+		}
 
 		let followed = site.myFollowed && site.myFollowed.find((u) => {
 			return u && u.to_id === channel.data.user.id;
