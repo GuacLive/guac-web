@@ -284,6 +284,24 @@ function ChatComponent(props){
 								</a>
 							</span>
 						}
+						{
+							showModTools &&
+							(users.get(user.name) && !users.get(user.name).banned) &&
+							<span className="mr2">
+								<a
+									href="#" 
+									className="link color-inherit"
+									title="Delete message"
+									onClick={() => {
+										console.log('emit delete', msgID);
+										console.log(socket);
+										socket.emit('delete', msgID);
+									}}
+								>
+									<FontAwesomeIcon icon='trash' />
+								</a>
+							</span>
+						}
 					</span>
 					<span className="chat-message-user b dib">
 						<a href={'/c/' + user.name} className="link color-inherit">{user.name}</a>:{'\u00A0'}
@@ -334,12 +352,13 @@ function ChatComponent(props){
 	}
 
 	const handleDelete = (msgID) => {
-		setMessages(messages => messages.filter(entry => 
-			entry.msgID
-			&&
-			msgID
-			&& entry.msgID !== msgID
-		));
+		console.log('handleDelete', msgID, BigInt(msgID));
+		setMessages(messages => {
+			console.log(messages);
+			return messages.filter(
+				entry => entry.msgID !== msgID
+			);
+		});
 		cleanup();
 	}
 
