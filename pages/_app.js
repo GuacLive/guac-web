@@ -70,7 +70,7 @@ export default withRedux(configureStore)(class MyApp extends App {
 		if(ctx.res){
 			if(ctx.res.setHeader){
 				ctx.res.setHeader('content-security-policy', csp);
-				ctx.res.setHeader('Cache-Control', 's-maxage=1, must-revalidate');
+				ctx.res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
 				ctx.res.setHeader('X-Powered-By', 'tacos');
 			}
 		}
