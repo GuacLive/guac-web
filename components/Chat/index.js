@@ -352,7 +352,6 @@ function ChatComponent(props){
 	}
 
 	const handleDelete = (msgID) => {
-		console.log('handleDelete', msgID, BigInt(msgID));
 		setMessages(messages => {
 			console.log(messages);
 			return messages.filter(
