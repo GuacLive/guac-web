@@ -32,7 +32,7 @@ export default class MyDocument extends Document {
 				<link rel="preconnect" href="https://emotes.guac.live/" />
 				<meta 
 					name="viewport" 
-					content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover"
+					content="width=device-width,initial-scale=1,minimal-ui"
 				/>
 				<meta name="apple-mobile-web-app-capable" content="yes" />
 				<meta name="apple-touch-fullscreen" content="yes" />
