@@ -28,23 +28,49 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 class PageLayout extends Component {
 	constructor(props){
 		super(props);
+		this.state = {
+			showSidebar: true
+		}
 	}
-	
+
+	updateDimensions = () => {
+		let breakpoint = window && window.matchMedia('screen and (min-width: 720px)');
+		let showSidebar = breakpoint && breakpoint.matches;
+		console.log('updateDimensions', showSidebar);
+		if(
+			typeof document !== 'undefined'
+			&& document.documentElement
+			&& document.documentElement.classList
+		){
+			if(showSidebar){
+				document.documentElement.classList.add('toggled-sidebar');
+			}else{
+				document.documentElement.classList.remove('toggled-sidebar');
+			}
+		}
+		this.setState({
+			showSidebar
+		})
+	};
+
 	componentDidMount(){
 		if(this.props.mode){
 			if(document) document.documentElement.className = `guac-skin-${this.props.mode}`;
 		}
+		this.updateDimensions();
+		window.addEventListener('resize', this.updateDimensions);
 	}
 
-	componentDidUpdate(prevProps) {
+	componentWillUnmount(){
+		window.removeEventListener('resize', this.updateDimensions);
+	}
+
+	componentDidUpdate(prevProps){
 		if(this.props.mode !== prevProps.mode){
 			if(document) document.documentElement.className = `guac-skin-${this.props.mode}`;
 		}
 	}
-	
-	componentWillUnmount(){
-	}
-	
+
 	render(){
 		let { children, isAuthenticated, user, followed, i18n } = this.props;
 		let title = this.props.title ? this.props.title : '';
@@ -53,7 +79,85 @@ class PageLayout extends Component {
 			return <Fragment>{ children }</Fragment>;
 		} 
 
-		return (
+		const SideBarComponent = (
+				<aside className="flex vw-100 z-max flex-column vh-100 flex-shrink-1 site-component-sidebar bg-near-black">
+					<div className="flex flex-column h-100">
+						<nav className="flex flex-column h-100 overflow-hidden relative">
+							<span className="f5 b inline-flex ph3 light-gray">
+								<Trans>Followed Channels</Trans>
+							</span>
+							<SimpleBar className="flex-shrink-0 h-100 relative">
+								{
+									(!followed ||
+										!followed.length)
+									&&
+									<div className="align-center flex-l dn flex-column relative ph4 pv2 white">
+										<Trans>Start following your favorite streamers to find them quickly!</Trans>
+									</div>
+								}
+								{
+									followed &&
+									followed
+										.sort((a, b) => {
+											if(a.live === b.live){
+												return 0;
+											}else if(a.live){
+												return -1;
+											}else{
+												return 1;
+											}
+										})
+										.map((u) => {
+											return (
+												<div key={'followed-' + u.username} className="site-component-fUser items-center flex relative ph4 pv2 white">
+													<Link href={`/c/${u.username}`}>
+														<a className="inline-flex v-mid mr2 w2 h2">
+															<Image
+																src={u.avatar || '//api.guac.live/avatars/unknown.png'}
+																alt={u.username}
+																shape="squircle"
+																fit="cover"
+																className={`dim ba ${+u.live ? 'b--red' : 'b--transparent'} inline-flex w-100 h-100`}
+															/>
+														</a>
+													</Link>
+													<div className="overflow-hidden dn db-l">
+														<div className="site-component-fUser__name inline-flex items-center v-bottom">
+															<a className="link white" href={'/c/' + u.username}>
+																{u.username}
+																{+u.live ? <span className="ph2 bg-red f6 tc inline-flex white mh3">LIVE</span> : ''}
+															</a>
+														</div>
+														<div className="site-component-fUser__category truncate"><small>{u.title}</small></div>
+													</div>
+												</div>
+											)
+										})
+								}
+							</SimpleBar>
+						</nav>
+					</div>
+					<footer className="flex bg-near-black white ph4 ph2-m" style={{height:'33%'}}>
+						<div className="f6 flex flex-column flex-grow-1">
+							<span className="dib mr4 mr5-ns ttu tracked">© {(new Date()).getFullYear()} guac.live</span>
+							<Link href="/terms">
+								<a className="link white-80 hover-light-purple"><Trans>Terms</Trans></a>
+							</Link>
+							<Link href="/privacy">
+								<a className="link white-80 hover-gold"> <Trans>Privacy</Trans> </a>
+							</Link>
+							<Link href="/dmca">
+								<a className="link white-80 hover-red"> <Trans>DMCA</Trans> </a>
+							</Link>
+							<Link href="#">
+								<a className="link white-80 hover-green"> contact@guac.live </a>
+							</Link>
+							<LangSwitcher />
+						</div>
+					</footer>
+				</aside>
+			);
+			return (
 			<Fragment>
 				<Head>
 					<title>{ title }{ title.length > 0 ? ' &middot; guac.live' : 'guac.live'}</title>
@@ -75,14 +179,23 @@ class PageLayout extends Component {
 				<main className="w-100 h-100 flex flex-column flex-nowrap justify-between items-start page-wrapper">
 					<header className="z-5 w-100 h-100 ph3 pv2 bg-near-black ml-auto flex-shrink-0">
 						<div className="h-100 flex items-stretch flex-nowrap">
-							<div className="inline-flex flex-shrink-0 items-center pointer">
+							<div className="dn flex-l flex-shrink-0 items-center pointer">
 								<Link href="/">
 									<a className="inline-flex pa2 content-box">
 										<Image className="h2" src="/img/header-logo.png" alt="guac.live" />
 									</a>
 								</Link>
 							</div>
-
+							<div className="dn-l flex-shrink-0 pointer pa2 transition-transform" onClick={
+								() => {
+									this.setState({
+										showSidebar: !this.state.showSidebar
+									})
+								}
+							}>
+								<span className='db w2 mt1 mb2 bw2 pb2 bt bb b--dark-white'></span>
+								<span className='db w2 mt1 bw2 pb1 bt b--dark-white'></span>
+							</div>
 							<nav className="items-stretch flex flex-grow-1 flex-nowrap flex-shrink-0">
 								<div className="items-stretch flex flex-nowrap flex-shrink-0">
 									<Link href="/channels">
@@ -132,83 +245,7 @@ class PageLayout extends Component {
 						</div>
 					</header>
 					<div className="w-100 min-vh-100 flex flex-row items-start">
-						<aside className="flex flex-column vh-100 flex-shrink-1 site-component-sidebar bg-near-black">
-							<div className="flex flex-column h-100">
-								<nav className="flex flex-column h-100 overflow-hidden relative">
-									<span className="f5 b inline-flex ph3 light-gray">
-									<Trans>Followed Channels</Trans>
-									</span>
-									<SimpleBar className="flex-shrink-0 h-100 relative">
-									{
-										(!followed ||
-										!followed.length)
-										&&
-										<div className="align-center flex-l dn flex-column relative ph4 pv2 white">
-											<Trans>Start following your favorite streamers to find them quickly!</Trans>
-										</div>
-									}
-									{
-										followed &&
-										followed
-										.sort((a,b) => {
-											if(a.live === b.live){
-												return 0;
-											}else if(a.live){
-												return -1;
-											}else{
-												return 1;
-											}
-										})
-										.map((u) => {
-											return (
-												<div key={'followed-'+u.username} className="site-component-fUser items-center flex relative ph4 pv2 white">
-													<Link href={`/c/${u.username}`}>
-														<a className="inline-flex v-mid mr2 w2 h2">
-															<Image
-																src={u.avatar || '//api.guac.live/avatars/unknown.png'}
-																alt={u.username}
-																shape="squircle"
-																fit="cover" 
-																className={`dim ba ${+u.live ? 'b--red' : 'b--transparent'} inline-flex w-100 h-100`}
-															/>
-														</a>
-													</Link>
-													<div className="overflow-hidden dn db-l">
-														<div className="site-component-fUser__name inline-flex items-center v-bottom">
-															<a className="link white" href={'/c/' + u.username}>
-																{u.username}
-																{+u.live ? <span className="ph2 bg-red f6 tc inline-flex white mh3">LIVE</span> : ''}
-															</a>
-														</div>
-														<div className="site-component-fUser__category truncate"><small>{u.title}</small></div>
-													</div>
-												</div>
-											)
-										})
-									}
-									</SimpleBar>
-								</nav>
-								
-								<footer className="flex bg-near-black white ph4 ph2-m" style={{height:'33%'}}>
-									<div className="f6 flex flex-column flex-grow-1">
-										<span className="dib mr4 mr5-ns ttu tracked">© {(new Date()).getFullYear()} guac.live</span>
-										<Link href="/terms">
-											<a className="link white-80 hover-light-purple"><Trans>Terms</Trans></a>
-										</Link>
-										<Link href="/privacy">
-											<a className="link white-80 hover-gold"> <Trans>Privacy</Trans> </a>
-										</Link>
-										<Link href="/dmca">
-											<a className="link white-80 hover-red"> <Trans>DMCA</Trans> </a>
-										</Link>
-										<Link href="#">
-											<a className="link white-80 hover-green"> contact@guac.live </a>
-										</Link>
-										<LangSwitcher />
-									</div>
-								</footer>
-							</div>
-						</aside>
+						{this.state.showSidebar ? SideBarComponent : null}
 						<div className="w-100 flex flex-column items-start site-component-main">
 							{ children }
 						</div>
