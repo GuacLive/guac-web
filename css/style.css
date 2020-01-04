@@ -127,14 +127,11 @@ body {
 	background: var(--dropdown-background);
 }
 
-.site-component-sidebar {
-	width: 24rem;
-}
 
-@media (--breakpoint-medium) {
+@media (--breakpoint-large) {
 	.site-component-sidebar {
-		width: 8rem;
-	}	
+		width: 24rem !important;
+	}
 }
 
 .simplebar-horizontal.simplebar-track .simplebar-scrollbar {
