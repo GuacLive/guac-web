@@ -80,7 +80,7 @@ class PageLayout extends Component {
 		} 
 
 		const SideBarComponent = (
-				<aside className="flex vw-100 z-max flex-column vh-100 flex-shrink-1 site-component-sidebar bg-near-black">
+				<aside className="flex z-max flex-column vh-100 flex-shrink-1 site-component-sidebar bg-near-black">
 					<div className="flex flex-column h-100">
 						<nav className="flex flex-column h-100 overflow-hidden relative">
 							<span className="f5 b inline-flex ph3 light-gray">
@@ -193,11 +193,15 @@ class PageLayout extends Component {
 									})
 								}
 							}>
-								<span className='db w2 mt1 mb2 bw2 pb2 bt bb b--dark-white'></span>
-								<span className='db w2 mt1 bw2 pb1 bt b--dark-white'></span>
+								<FontAwesomeIcon icon="bars" />
 							</div>
 							<nav className="items-stretch flex flex-grow-1 flex-nowrap flex-shrink-0">
 								<div className="items-stretch flex flex-nowrap flex-shrink-0">
+									<Link href="/">
+										<a className="flex pa3 pa0-l center nowrap items-center b link white hover-light-green">
+											<span className="dn-l" title={i18n._(t`Home`)}><FontAwesomeIcon icon="home" /></span>
+										</a>
+									</Link>
 									<Link href="/channels">
 										<a className="flex pa3 center nowrap items-center b link white hover-light-green">
 											<span className="dn db-l" title={i18n._(t`Channels`)}><Trans>Channels</Trans></span>
