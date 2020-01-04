@@ -14,7 +14,7 @@ class LoginPage extends Component {
 	}
 	static async getInitialProps({store}){
 		const { authentication } = store.getState()
-		return {redirect: (authentication.token !== null)}
+		return {redirect: (authentication.token !== null && authentication.user)}
     }
 
 	componentDidMount() {
