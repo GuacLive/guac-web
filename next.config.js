@@ -98,7 +98,8 @@ module.exports = withCSS(nextSourceMaps({
 		workerThreads: true,
 		sprFlushToDisk: true,
 		deferScripts: true,
-		catchAllRouting: true
+		catchAllRouting: true,
+		granularChunks: true
 	},
 	future: {
 		excludeDefaultMomentLocales: true,
