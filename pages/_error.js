@@ -3,7 +3,7 @@ import { Trans } from '@lingui/macro';
 
 import initialize from '../utils/initialize';
 class Error extends React.Component {
-	static getInitialProps(ctx){
+	static async getInitialProps(ctx){
 		const {res, err} = ctx;
 		const statusCode = res ? res.statusCode : err ? err.statusCode : null;
 		initialize(ctx);

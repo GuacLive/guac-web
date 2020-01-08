@@ -27,9 +27,10 @@
   },
   "dependencies": {
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
-    "@flopflip/localstorage-adapter": "^1.2.4-next.3",
-    "@flopflip/react-broadcast": "^9.0.5-next.4",
-    "@flopflip/react-redux": "^9.0.5-next.4",
+    "@flopflip/localstorage-adapter": "1.4.0",
+    "@flopflip/react": "9.1.0",
+    "@flopflip/react-broadcast": "10.1.0",
+    "@flopflip/react-redux": "10.1.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.26-1",
     "@fortawesome/free-brands-svg-icons": "^5.12.0-1",
     "@fortawesome/free-solid-svg-icons": "^5.12.0-1",

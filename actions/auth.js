@@ -76,7 +76,7 @@ export const reauthenticate = (token) => async (dispatch) => {
 	dispatch({
 		type: 'AUTHENTICATE_SUCCESS',
 		statusCode: 200,
-		jwtToken: token
+		token: token
 	});
 	dispatch({
 		type: 'AUTHENTICATE_REQUEST'
@@ -94,7 +94,7 @@ export const reauthenticate = (token) => async (dispatch) => {
 			dispatch({
 				type: 'AUTHENTICATE_SUCCESS',
 				statusCode: 200,
-				jwtToken: json.token,
+				token: json.token,
 				user: json.user
 			});
 			setCookie('token', json.token);
