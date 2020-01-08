@@ -26,7 +26,7 @@ export default function(state = initialState, action) {
 			return {
 				...state,
 				statusCode: action.statusCode,
-				token: action.jwtToken,
+				token: action.token,
 				user: action.user,
 				loading: false,
 				error: false,

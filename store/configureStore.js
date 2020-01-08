@@ -56,15 +56,15 @@ storeEnhancers.unshift(middlewareEnhancer);
 
 if(typeof localStorage === 'object'){
 	console.log('createFlopFlipEnhancer', adapter);
-	adapter.configure({
-		user: {
-			key: 'user'
-		},
-		onFlagsStateChange: () => {console.log('onFlagsStateChange')},
-		onStatusStateChange: () => {}
-	});
 	storeEnhancers.push(createFlopFlipEnhancer(
-		adapter
+		adapter,
+		{
+			user: {
+				key: 'user'
+			},
+			onFlagsStateChange: () => {console.log('onFlagsStateChange')},
+			onStatusStateChange: () => {}
+		}
 	));
 }
 
