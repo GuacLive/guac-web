@@ -499,6 +499,49 @@ function ChatComponent(props){
 						rows={1}
 						disabled={!connectedStatus}
 						trigger={{
+							'@': {
+								dataProvider: token => {
+									console.log('token', [...users.values()]);
+									if(!token || !token.length){
+										return [...users.values()]
+										.map((user) => {
+											return {
+												name: user.name,
+												char: user.name
+											}
+										});
+									}
+									return [...users.values()]
+									.filter(user => {
+										console.log('user', user);
+										if(user
+											&& user.name
+											&& user.name.search(new RegExp(token, "i")) !== -1
+											&& !user.anon){
+											return user.name;
+										}
+										return null;
+									})
+									.map(user => {
+										return {
+											name: user.name,
+											char: user.name
+										};
+									});
+								},
+								component: ({ entity: {name} }) => <div>{name}</div>,
+								output: (item) => {
+									console.log('itæm', item); 
+									if(item && item.name){
+										return {
+											key: item.name,
+											text: `${item.char}`,
+											caretPosition: 'next',
+										};
+									}
+									return null;
+								}
+							},
 							':': {
 								dataProvider: token => {
 									if(!token || !token.length){
