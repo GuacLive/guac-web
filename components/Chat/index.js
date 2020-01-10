@@ -516,7 +516,8 @@ function ChatComponent(props){
 										console.log('user', user);
 										if(user
 											&& user.name
-											&& user.name.search(new RegExp(token, "i")) !== -1){
+											&& user.name.search(new RegExp(token, "i")) !== -1
+											&& !user.anon){
 											return user.name;
 										}
 										return null;
