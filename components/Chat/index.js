@@ -188,7 +188,6 @@ function ChatComponent(props){
 			setMessage(message);
 		}).bind(self);
 		if(!user || !messages) return;
-		log('info', 'Chat', 'We got emotes', emotes, customPickerEmotes);
 		const embed = new UrlEmbedder;
 		let output = messages.map((msg, i) => {
 			if(!msg.type) return null;
