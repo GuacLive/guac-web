@@ -33,15 +33,18 @@ class PageLayout extends Component {
 		}
 	}
 
-	updateDimensions = () => {
-		let breakpoint = window && window.matchMedia('screen and (min-width: 720px)');
-		let showSidebar = breakpoint && breakpoint.matches;
+	updateViewport = () => {
 		if(
 			typeof document !== 'undefined'
 		){
 			let vh = window.innerHeight * 0.01;
 			document.documentElement.style.setProperty('--vh', `${vh}px`);
 		}
+	};
+
+	updateDimensions = (evt) => {
+		let showSidebar = evt && evt.matches;
+		
 		console.log('updateDimensions', showSidebar);
 		if(
 			typeof document !== 'undefined'
@@ -63,12 +66,21 @@ class PageLayout extends Component {
 		if(this.props.mode){
 			if(document) document.documentElement.className = `guac-skin-${this.props.mode}`;
 		}
+
+		// This a hack to fix vh
+		this.updateViewport();
+		window.addEventListener('resize', this.updateViewport);
+
+		// This is the logic that handles sidebar
+		var mediaQueryList = window && window.matchMedia('screen and (min-width: 960px)');
+		if(mediaQueryList){
+			mediaQueryList.addListener(this.updateDimensions);
+		}
 		this.updateDimensions();
-		window.addEventListener('resize', this.updateDimensions);
 	}
 
 	componentWillUnmount(){
-		window.removeEventListener('resize', this.updateDimensions);
+		window.removeEventListener('resize', this.updateViewport);
 	}
 
 	componentDidUpdate(prevProps){
