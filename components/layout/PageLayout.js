@@ -25,11 +25,14 @@ import SearchBar from '../Search/SearchBar';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
+const mediaQueryList = typeof window !== 'undefined' 
+	&& window.matchMedia('screen and (min-width: 960px)');
 class PageLayout extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			showSidebar: true
+			showSidebar: true,
+			overrideSidebar: false
 		}
 	}
 
@@ -44,14 +47,19 @@ class PageLayout extends Component {
 
 	updateDimensions = (evt) => {
 		let showSidebar = evt && evt.matches;
-		
-		console.log('updateDimensions', showSidebar);
+		// If media query is now matching, reset overriden sidebar
+		if(showSidebar === true && this.state.showSidebar !== showSidebar){
+			this.setState({
+				overrideSidebar: false
+			})
+		}
+		console.log('updateDimensions', evt);
 		if(
 			typeof document !== 'undefined'
 			&& document.documentElement
 			&& document.documentElement.classList
 		){
-			if(showSidebar){
+			if(showSidebar || this.state.overrideSidebar){
 				document.documentElement.classList.add('toggled-sidebar');
 			}else{
 				document.documentElement.classList.remove('toggled-sidebar');
@@ -70,17 +78,17 @@ class PageLayout extends Component {
 		// This a hack to fix vh
 		this.updateViewport();
 		window.addEventListener('resize', this.updateViewport);
-
+ 
 		// This is the logic that handles sidebar
-		var mediaQueryList = window && window.matchMedia('screen and (min-width: 960px)');
 		if(mediaQueryList){
 			mediaQueryList.addListener(this.updateDimensions);
 		}
-		this.updateDimensions();
+		this.updateDimensions(mediaQueryList);
 	}
 
 	componentWillUnmount(){
 		window.removeEventListener('resize', this.updateViewport);
+		mediaQueryList.removeListener(this.updateDimensions);
 	}
 
 	componentDidUpdate(prevProps){
@@ -207,7 +215,7 @@ class PageLayout extends Component {
 							<div className="dn-l flex-shrink-0 pointer pa2 transition-transform" onClick={
 								() => {
 									this.setState({
-										showSidebar: !this.state.showSidebar
+										overrideSidebar: !this.state.overrideSidebar
 									})
 								}
 							}>
@@ -267,7 +275,13 @@ class PageLayout extends Component {
 						</div>
 					</header>
 					<div className="w-100 min-vh-100 flex flex-row items-start">
-						{this.state.showSidebar ? SideBarComponent : null}
+						{
+							(this.state.overrideSidebar || this.state.showSidebar)
+							?
+							SideBarComponent
+							:
+							null
+						}
 						<div className="w-100 flex flex-column items-start site-component-main">
 							{ children }
 						</div>
