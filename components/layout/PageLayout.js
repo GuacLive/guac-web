@@ -36,7 +36,6 @@ class PageLayout extends Component {
 	updateDimensions = () => {
 		let breakpoint = window && window.matchMedia('screen and (min-width: 720px)');
 		let showSidebar = breakpoint && breakpoint.matches;
-		
 		if(
 			typeof document !== 'undefined'
 		){
