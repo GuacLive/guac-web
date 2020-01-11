@@ -36,6 +36,12 @@ class PageLayout extends Component {
 	updateDimensions = () => {
 		let breakpoint = window && window.matchMedia('screen and (min-width: 720px)');
 		let showSidebar = breakpoint && breakpoint.matches;
+		if(
+			typeof document !== 'undefined'
+		){
+			let vh = window.innerHeight * 0.01;
+			document.documentElement.style.setProperty('--vh', `${vh}px`);
+		}
 		console.log('updateDimensions', showSidebar);
 		if(
 			typeof document !== 'undefined'
