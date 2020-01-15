@@ -1,6 +1,9 @@
 @import 'tachyons/src/tachyons';
 @import 'videojs-skin.css';
 
+@import 'emoji-mart/css/emoji-mart.css';
+@import '@webscopeio/react-textarea-autocomplete/style.css';
+@import '@guaclive/react-giphy-select/lib/styles.css';
 /* Custom properties */
 * {
 	box-sizing: border-box;
@@ -193,6 +196,7 @@ body {
     height: .6rem;
 }
 
+/* Chat */
 .chat-message {
 	background: var(--chat-message-background);
 	color: var(--chat-message-text);
@@ -297,13 +301,8 @@ body {
 	background-repeat: no-repeat;
 }
 
-.site-component-spotlight .slick-dots li button:before {
-	color: var(--slick-dot-color);
-}
 
-.site-component-spotlight button.slick-arrow:before {
-	color: var(--slick-dot-color);
-}
+/* Player embed */
 
 .player-embed {
     position: absolute;
@@ -314,6 +313,7 @@ body {
     overflow: hidden;
 }
 
+/* Theater mode */
 html.theater-mode .site-component-profile__tabs,
 html.theater-mode .site-component-panels,
 html.theater-mode .site-component-sidebar,

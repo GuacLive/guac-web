@@ -8898,10 +8898,10 @@ next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
-next@9.1.8-canary.6:
-  version "9.1.8-canary.6"
-  resolved "https://registry.yarnpkg.com/next/-/next-9.1.8-canary.6.tgz#0919a157c556c11040b85d2afcb1642e02971de9"
-  integrity sha512-IfMRWfzdvHESKvNJ3KCXOTCK886K4NaOzIUldXxK95gy6WI1X1kRdUy0oSi1r9V+isgG8OIM1ffFYxNvISUzLw==
+next@^9.2.0:
+  version "9.2.0"
+  resolved "https://registry.yarnpkg.com/next/-/next-9.2.0.tgz#1adc85ad45143114cd22e6a68337f56319cd59d2"
+  integrity sha512-c4gyJotZHuvq9dslum+Z2Z21jjb9qWMYybV+IS9yEg7hTjs8OyKU59snyJ1Bi0ul84OdyLOZ4ytjch9zMw9lEQ==
   dependencies:
     "@ampproject/toolbox-optimizer" "1.1.1"
     "@babel/core" "7.7.2"
@@ -9076,7 +9076,7 @@ node-notifier@^5.4.2:
     shellwords "^0.1.1"
     which "^1.3.0"
 
-node-pre-gyp@*, node-pre-gyp@^0.14.0:
+node-pre-gyp@^0.14.0:
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.14.0.tgz#9a0596533b877289bcad4e143982ca3d904ddc83"
   integrity sha512-+CvDC7ZttU/sSt9rFjix/P05iS43qHCOOGzcr3Ry99bXG7VX953+vFyEuph/tfqoYu8dttBkE86JSKBO2OzcxA==
@@ -11082,14 +11082,14 @@ react-dev-utils@^10.0.0:
     text-table "0.2.0"
 
 react-dom@^0.0.0-experimental-f42431abe:
-  version "0.0.0-fec00a869"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-0.0.0-fec00a869.tgz#f952e11a31e446c00e87603998d7780bc51bdbd9"
-  integrity sha512-atB5i2HgCvbvhtGXq9oaX/BCL2AFZjnccougU8S9eulRFNQbNrfGNwIcj04PRo3XU1ZsBw5syL/5l596UaolKA==
+  version "0.0.0-experimental-f42431abe"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-0.0.0-experimental-f42431abe.tgz#d3fda43b88f0765a0031de237da1496818d2b58b"
+  integrity sha512-nOw0pqaW6yn+3AebuCJ9Dt4Kjx4ZyS3/G11AuP8c5rxzkCxn2QFDGFt8QigpikIR8MM+cn/2fUUFSVf5zHfTOA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "0.0.0-fec00a869"
+    scheduler "0.0.0-experimental-f42431abe"
 
 react-dom@^16.4.2:
   version "16.12.0"
@@ -11250,14 +11250,13 @@ react-use@^13.9.0:
     tslib "^1.10.0"
 
 react@^0.0.0-experimental-f42431abe:
-  version "0.0.0-fec00a869"
-  resolved "https://registry.yarnpkg.com/react/-/react-0.0.0-fec00a869.tgz#1803f4f17cdd5adfdf614de2386c5fb5c84bbe91"
-  integrity sha512-FaS3ViFU4ag7cuhDHQgGK3DAdWaD8YFXzEbO/Qzz33Si7VEzRRdnyoegFwg7VkEKxR6CvCVP6revi9Tm3Gq+WQ==
+  version "0.0.0-experimental-f42431abe"
+  resolved "https://registry.yarnpkg.com/react/-/react-0.0.0-experimental-f42431abe.tgz#bacc0acb4722a2a4c92e4a33cce76978005b3f76"
+  integrity sha512-uKx0z0+j6E9NU43cd8IwGM05dgAClJ0Sa3JVk7nx5k5S4yxNDVdVTw0/1ibS5Y7fRI6ZatBk4IYA6g49QdXApA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "0.0.0-fec00a869"
 
 react@^16.4.2:
   version "16.12.0"
@@ -11861,10 +11860,10 @@ saxes@^3.1.9:
   dependencies:
     xmlchars "^2.1.1"
 
-scheduler@0.0.0-fec00a869:
-  version "0.0.0-fec00a869"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.0.0-fec00a869.tgz#e28ff1aa107e1d04d6e8901641b4fb1e3ba98577"
-  integrity sha512-0U25jnyBP6dRPYwaVW4WMYB0jJSYlrIHFmIuXv27X+KIHJr7vyE9gcFTqZ61NQTuxYLYepAHnUs4KgQEUDlI+g==
+scheduler@0.0.0-experimental-f42431abe:
+  version "0.0.0-experimental-f42431abe"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.0.0-experimental-f42431abe.tgz#4ab6329853c94f4680c51b7484137668d81ac772"
+  integrity sha512-Lhg9EIlp94fJ8ew6r1bEJEDm+HOvucrBNokjHBTjMMQmMJonuj1ytG+4/BtJiWVewKNMgJVoZgbamjVwnmVeFQ==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"

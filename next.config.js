@@ -1,7 +1,6 @@
-const withCSS = require('@zeit/next-css')
 const nextSourceMaps = require('@zeit/next-source-maps')
 const webpack = require('webpack');
-module.exports = withCSS(nextSourceMaps({
+module.exports = nextSourceMaps({
 	webpack(config, { isServer, buildId }) {
 
 		/*if (config.optimization.splitChunks.cacheGroups && config.optimization.splitChunks.cacheGroups.lib) {
@@ -99,9 +98,9 @@ module.exports = withCSS(nextSourceMaps({
 		sprFlushToDisk: true,
 		deferScripts: true,
 		catchAllRouting: true,
-		granularChunks: false
+		granularChunks: true
 	},
 	future: {
 		excludeDefaultMomentLocales: true,
 	},
-}))
+})

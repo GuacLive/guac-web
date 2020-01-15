@@ -6,9 +6,6 @@ import { Fragment, Component } from 'react';
 import {connect} from 'react-redux';
 
 import SimpleBar from 'simplebar-react';
-import 'simplebar/dist/simplebar.css';
-
-import '../../css/style.css';
 
 import * as actions from '../../actions';
 

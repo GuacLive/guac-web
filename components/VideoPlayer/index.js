@@ -1,11 +1,6 @@
 const videojs = require('video.js').default;
 import '@videojs/http-streaming';
-require('!style-loader!css-loader!video.js/dist/video-js.css')
-import '@silvermine/videojs-chromecast/dist/silvermine-videojs-chromecast.css';
-import '@silvermine/videojs-quality-selector/dist/css/quality-selector.css';
-import 'videojs-theater-mode/dist/videojs.theaterMode.css';
 import 'videojs-errors';
-import 'videojs-errors/dist/videojs-errors.css';
 
 import {useEffect} from 'react';
 

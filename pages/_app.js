@@ -29,6 +29,13 @@ import { faBan, faBars, faCheck, faCheckCircle, faHourglass, faHome, faVideo, fa
 
 import * as Sentry from '@sentry/browser';
 
+// We need to put these here, since Next only allows global.css in _app
+import '../css/style.css';
+import 'simplebar/dist/simplebar.css';
+import '@silvermine/videojs-chromecast/dist/silvermine-videojs-chromecast.css';
+if(typeof document !== 'undefined'){
+	require('!style-loader!css-loader!video.js/dist/video-js.css')
+}
 library.add(faBan, faBars, faCheck, faCheckCircle, faHourglass, faHome, faVideo, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog, faMinusCircle, faTrash);
 export default withRedux(configureStore)(class MyApp extends App {
 	static async getInitialProps(appContext) {

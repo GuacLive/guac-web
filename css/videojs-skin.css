@@ -1,3 +1,8 @@
+
+@import '@silvermine/videojs-quality-selector/dist/css/quality-selector.css';
+@import 'videojs-theater-mode/dist/videojs.theaterMode.css';
+@import 'videojs-errors/dist/videojs-errors.css';
+
 .video-js .vjs-tech {
 	pointer-events: none;
 }
