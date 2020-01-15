@@ -6,10 +6,8 @@ import useUpdateEffect from 'react-use/lib/useUpdateEffect';
 import io from 'socket.io-client';
 
 import SimpleBar from 'simplebar-react';
-import 'simplebar/dist/simplebar.css';
 
 import ReactTextareaAutocomplete from '@webscopeio/react-textarea-autocomplete';
-import '@webscopeio/react-textarea-autocomplete/style.css';
 import AutoTextarea from "react-autosize-textarea";
 import moment from 'moment';
 

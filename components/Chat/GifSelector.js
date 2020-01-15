@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 
 import GiphySelect from '@guaclive/react-giphy-select';
-import '@guaclive/react-giphy-select/lib/styles.css';
 
 import { useClickAway } from 'react-use';
 
