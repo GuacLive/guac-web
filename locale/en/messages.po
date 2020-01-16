@@ -41,9 +41,9 @@ msgstr "Category:"
 msgid "Channel not found"
 msgstr "Channel not found"
 
-#: components/layout/PageLayout.js:90
-#: components/layout/PageLayout.js:90
-#: components/layout/PageLayout.js:91
+#: components/layout/PageLayout.js:230
+#: components/layout/PageLayout.js:230
+#: components/layout/PageLayout.js:231
 #: pages/channels.js:53
 msgid "Channels"
 msgstr "Channels"
@@ -52,9 +52,13 @@ msgstr "Channels"
 msgid "Chat commands:"
 msgstr "Chat commands:"
 
-#: pages/_error.js:32
+#: pages/_error.js:19
 msgid "Client error"
 msgstr "Client error"
+
+#: pages/categories.js:28
+msgid "Coming soon."
+msgstr "Coming soon."
 
 #: pages/terms.js:18
 msgid "Copyrighted Content"
@@ -64,11 +68,11 @@ msgstr "Copyrighted Content"
 msgid "Counter-Notification"
 msgstr "Counter-Notification"
 
-#: components/layout/PageLayout.js:202
+#: components/layout/PageLayout.js:173
 msgid "DMCA"
 msgstr "DMCA"
 
-#: components/layout/AccountMenu.js:20
+#: components/layout/AccountMenu.js:28
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -105,7 +109,7 @@ msgstr "First, choose the streaming server closest to you:"
 msgid "Follow"
 msgstr "Follow"
 
-#: components/layout/PageLayout.js:139
+#: components/layout/PageLayout.js:110
 msgid "Followed Channels"
 msgstr "Followed Channels"
 
@@ -114,9 +118,10 @@ msgstr "Followed Channels"
 msgid "Forgot your password?"
 msgstr "Forgot your password?"
 
-#: components/layout/PageLayout.js:96
-#: components/layout/PageLayout.js:96
-#: components/layout/PageLayout.js:97
+#: components/layout/PageLayout.js:236
+#: components/layout/PageLayout.js:236
+#: components/layout/PageLayout.js:237
+#: pages/categories.js:26
 msgid "Games"
 msgstr "Games"
 
@@ -132,6 +137,10 @@ msgstr "Harassment & Bullying"
 msgid "Hate Speech"
 msgstr "Hate Speech"
 
+#: components/layout/PageLayout.js:225
+msgid "Home"
+msgstr "Home"
+
 #: pages/dmca.js:13
 msgid "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be \"repeat infringers\". If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (\"DMCA\") by providing Guac.live's Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
 msgstr "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be \"repeat infringers\". If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (\"DMCA\") by providing Guac.live's Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
@@ -144,21 +153,21 @@ msgstr "Join"
 msgid "Live streams"
 msgstr "Live streams"
 
-#: components/Chat/index.js:451
+#: components/Chat/index.js:482
 #: components/Search/SearchBar.js:83
 #: pages/c/[name].js:228
 msgid "Loading..."
 msgstr "Loading..."
 
-#: components/layout/PageLayout.js:113
-#: components/layout/PageLayout.js:113
-#: components/layout/PageLayout.js:114
+#: components/layout/PageLayout.js:253
+#: components/layout/PageLayout.js:253
+#: components/layout/PageLayout.js:254
 #: pages/auth/login.js:49
 #: pages/auth/register.js:66
 msgid "Log in"
 msgstr "Log in"
 
-#: components/layout/AccountMenu.js:21
+#: components/layout/AccountMenu.js:29
 msgid "Log out"
 msgstr "Log out"
 
@@ -182,7 +191,7 @@ msgstr "Notification of Infringement"
 msgid "Now, use the following stream key:"
 msgstr "Now, use the following stream key:"
 
-#: pages/_error.js:41
+#: pages/_error.js:28
 msgid "Page not found"
 msgstr "Page not found"
 
@@ -203,7 +212,7 @@ msgstr "Pornographic and sexually explicit content is not permitted in any form,
 msgid "Pornographic/Sexually Explicit Content"
 msgstr "Pornographic/Sexually Explicit Content"
 
-#: components/layout/PageLayout.js:199
+#: components/layout/PageLayout.js:170
 msgid "Privacy"
 msgstr "Privacy"
 
@@ -227,12 +236,12 @@ msgstr "Remember me"
 msgid "Search..."
 msgstr "Search..."
 
-#: pages/_error.js:48
+#: pages/_error.js:35
 msgid "Server error"
 msgstr "Server error"
 
 #: components/Chat/SettingsMenu.js:35
-#: components/layout/AccountMenu.js:19
+#: components/layout/AccountMenu.js:27
 msgid "Settings"
 msgstr "Settings"
 
@@ -244,15 +253,15 @@ msgstr "Show help command"
 msgid "Show user list"
 msgstr "Show user list"
 
-#: components/layout/PageLayout.js:120
-#: components/layout/PageLayout.js:120
-#: components/layout/PageLayout.js:121
+#: components/layout/PageLayout.js:260
+#: components/layout/PageLayout.js:260
+#: components/layout/PageLayout.js:261
 #: pages/auth/login.js:67
 #: pages/auth/register.js:49
 msgid "Sign up"
 msgstr "Sign up"
 
-#: components/layout/PageLayout.js:147
+#: components/layout/PageLayout.js:118
 msgid "Start following your favorite streamers to find them quickly!"
 msgstr "Start following your favorite streamers to find them quickly!"
 
@@ -276,7 +285,7 @@ msgstr "Subscribe"
 msgid "Switch language"
 msgstr "Switch language"
 
-#: components/layout/PageLayout.js:196
+#: components/layout/PageLayout.js:167
 msgid "Terms"
 msgstr "Terms"
 
@@ -312,7 +321,7 @@ msgstr "Unban user"
 msgid "Unfollow"
 msgstr "Unfollow"
 
-#: pages/_error.js:55
+#: pages/_error.js:42
 msgid "Unknown error"
 msgstr "Unknown error"
 
