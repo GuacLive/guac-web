@@ -2,7 +2,7 @@
     "version": 2,
     "public": false,
     "name": "guac-web",
-    "regions": ["arn", "cdg", "lhr", "bru"],
+    "regions": ["arn"],
     "build": {
       "env": {
         "API_URL": "@guac-api-url",
