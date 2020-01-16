@@ -41,9 +41,9 @@ msgstr "Kategori:"
 msgid "Channel not found"
 msgstr "Kanal ikke funnet"
 
-#: components/layout/PageLayout.js:90
-#: components/layout/PageLayout.js:90
-#: components/layout/PageLayout.js:91
+#: components/layout/PageLayout.js:230
+#: components/layout/PageLayout.js:230
+#: components/layout/PageLayout.js:231
 #: pages/channels.js:53
 msgid "Channels"
 msgstr "Kanaler"
@@ -52,9 +52,13 @@ msgstr "Kanaler"
 msgid "Chat commands:"
 msgstr "Chat-kommandoer:"
 
-#: pages/_error.js:32
+#: pages/_error.js:19
 msgid "Client error"
 msgstr "Klient-feil"
+
+#: pages/categories.js:28
+msgid "Coming soon."
+msgstr "Kommer snart."
 
 #: pages/terms.js:18
 msgid "Copyrighted Content"
@@ -64,11 +68,11 @@ msgstr "Opphavsrettsbeskyttet innhold"
 msgid "Counter-Notification"
 msgstr "Innsigelse"
 
-#: components/layout/PageLayout.js:202
+#: components/layout/PageLayout.js:173
 msgid "DMCA"
 msgstr "DMCA"
 
-#: components/layout/AccountMenu.js:20
+#: components/layout/AccountMenu.js:28
 msgid "Dashboard"
 msgstr "Kontrollpanel"
 
@@ -105,7 +109,7 @@ msgstr "Først, velg strømmeserveren som er nærmest deg:"
 msgid "Follow"
 msgstr "Følg"
 
-#: components/layout/PageLayout.js:139
+#: components/layout/PageLayout.js:110
 msgid "Followed Channels"
 msgstr "Fulgte kanaler"
 
@@ -114,9 +118,10 @@ msgstr "Fulgte kanaler"
 msgid "Forgot your password?"
 msgstr "Glemt ditt passord?"
 
-#: components/layout/PageLayout.js:96
-#: components/layout/PageLayout.js:96
-#: components/layout/PageLayout.js:97
+#: components/layout/PageLayout.js:236
+#: components/layout/PageLayout.js:236
+#: components/layout/PageLayout.js:237
+#: pages/categories.js:26
 msgid "Games"
 msgstr "Spill"
 
@@ -132,6 +137,10 @@ msgstr "Trakassering og mobbing"
 msgid "Hate Speech"
 msgstr "Hatprat"
 
+#: components/layout/PageLayout.js:225
+msgid "Home"
+msgstr "Hjem"
+
 #: pages/dmca.js:13
 msgid "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be \"repeat infringers\". If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (\"DMCA\") by providing Guac.live's Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
 msgstr "Det er vår policy å svare på klare merknader om påstått brudd på opphavsretten som er i samsvar med Digital Millennium Copyright Act. I tillegg vil vi straks avslutte uten varsel kontoene til de som bestemmes av oss å være \"gjentatte krenkere\". Hvis du er opphavsrettseier eller en agent derav, og du tror at alt innhold som er vert på nettstedet vårt (www.guac.live) krenker opphavsretten din, kan du sende inn et varsel i henhold til Digital Millennium Copyright Act (\"DMCA\") ved å gi Guac.lives utpekte copyrightagent følgende informasjon skriftlig (vennligst kontakt din advokat eller se 17 USC Seksjon 512 (c) (3) for å bekrefte disse kravene):"
@@ -144,21 +153,21 @@ msgstr "Bli med"
 msgid "Live streams"
 msgstr "Direktesendinger"
 
-#: components/Chat/index.js:451
+#: components/Chat/index.js:482
 #: components/Search/SearchBar.js:83
 #: pages/c/[name].js:228
 msgid "Loading..."
 msgstr "Laster..."
 
-#: components/layout/PageLayout.js:113
-#: components/layout/PageLayout.js:113
-#: components/layout/PageLayout.js:114
+#: components/layout/PageLayout.js:253
+#: components/layout/PageLayout.js:253
+#: components/layout/PageLayout.js:254
 #: pages/auth/login.js:49
 #: pages/auth/register.js:66
 msgid "Log in"
 msgstr "Logg inn"
 
-#: components/layout/AccountMenu.js:21
+#: components/layout/AccountMenu.js:29
 msgid "Log out"
 msgstr "Logg ut"
 
@@ -182,7 +191,7 @@ msgstr "Varsel om krenkelse"
 msgid "Now, use the following stream key:"
 msgstr "Nå, bruk følgende strømmenøkkel:"
 
-#: pages/_error.js:41
+#: pages/_error.js:28
 msgid "Page not found"
 msgstr "Side ikke funnet"
 
@@ -203,7 +212,7 @@ msgstr "Pornografisk og seksuelt eksplisitt innhold er ikke tillatt i noen form,
 msgid "Pornographic/Sexually Explicit Content"
 msgstr "Pornografisk/seksuelt eksplisitt innhold"
 
-#: components/layout/PageLayout.js:199
+#: components/layout/PageLayout.js:170
 msgid "Privacy"
 msgstr "Personvern"
 
@@ -227,12 +236,12 @@ msgstr "Husk meg"
 msgid "Search..."
 msgstr "Søk..."
 
-#: pages/_error.js:48
+#: pages/_error.js:35
 msgid "Server error"
 msgstr "Server-feil"
 
 #: components/Chat/SettingsMenu.js:35
-#: components/layout/AccountMenu.js:19
+#: components/layout/AccountMenu.js:27
 msgid "Settings"
 msgstr "Innstillinger"
 
@@ -244,15 +253,15 @@ msgstr "Vis hjelp-kommandoen"
 msgid "Show user list"
 msgstr "Vis liste over brukere"
 
-#: components/layout/PageLayout.js:120
-#: components/layout/PageLayout.js:120
-#: components/layout/PageLayout.js:121
+#: components/layout/PageLayout.js:260
+#: components/layout/PageLayout.js:260
+#: components/layout/PageLayout.js:261
 #: pages/auth/login.js:67
 #: pages/auth/register.js:49
 msgid "Sign up"
 msgstr "Registrer"
 
-#: components/layout/PageLayout.js:147
+#: components/layout/PageLayout.js:118
 msgid "Start following your favorite streamers to find them quickly!"
 msgstr "Begynn å følge dine favoritt-strømmere for å finne dem raskt!"
 
@@ -272,7 +281,7 @@ msgstr "Abonnér"
 msgid "Switch language"
 msgstr "Bytt språk"
 
-#: components/layout/PageLayout.js:196
+#: components/layout/PageLayout.js:167
 msgid "Terms"
 msgstr "Vilkår"
 
@@ -308,7 +317,7 @@ msgstr "Fjern utestenging av bruker"
 msgid "Unfollow"
 msgstr "Avfølg"
 
-#: pages/_error.js:55
+#: pages/_error.js:42
 msgid "Unknown error"
 msgstr "Ukjent feil"
 
