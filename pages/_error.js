@@ -6,23 +6,10 @@ class Error extends React.Component {
 	static async getInitialProps(ctx){
 		const {res, err} = ctx;
 		const statusCode = res ? res.statusCode : err ? err.statusCode : null;
-		initialize(ctx);
-
-		try{
-			// Fetch my followed
-			const {site, authentication} = ctx.store.getState()
-
-			if (site.loading && authentication.token) {
-				// Fetch followed
-				ctx.store.dispatch(actions.fetchMyFollowed(
-					authentication.token
-				));
-			}
-		}catch(e){
-
-		}
-
-		return {statusCode}
+		return {
+			statusCode,
+			...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})
+		};
 	}
 
 	render(){
