@@ -97,7 +97,7 @@ class DashboardPage extends Component {
 		}
 
     	return (
-			<div class="w-100 h-100 flex flex-column flex-grow-1 overflow-hidden relative">
+			<div className="w-100 h-100 flex flex-column flex-grow-1 overflow-hidden relative">
                 <VideoPlayer { ...videoJsOptions } live={stream.live}></VideoPlayer>
             </div>
 		);
