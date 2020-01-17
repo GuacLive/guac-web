@@ -3,6 +3,7 @@
 @import 'videojs-theater-mode/dist/videojs.theaterMode.css';
 @import 'videojs-errors/dist/videojs-errors.css';
 
+@import './videojs-chromecast.css';
 .video-js .vjs-tech {
 	pointer-events: none;
 }
