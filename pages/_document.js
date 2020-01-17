@@ -44,7 +44,7 @@ export default class MyDocument extends Document {
 			<body className="sans-serif h-100 w-100">
 				<Main />
 				<NextScript nonce={nonce} />
-				<script async defer src="https://cheese.guac.live/app.js"></script>
+				<script async defer src="https://cheese.guac.live/app.js" nonce={nonce}></script>
 				<noscript><img src="https://cheese.guac.live/image.gif" alt="" /></noscript>
 			</body>
 		</html>
