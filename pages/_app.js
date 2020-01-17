@@ -32,7 +32,6 @@ import * as Sentry from '@sentry/browser';
 // We need to put these here, since Next only allows global.css in _app
 import '../css/style.css';
 import 'simplebar/dist/simplebar.css';
-import '@silvermine/videojs-chromecast/dist/silvermine-videojs-chromecast.css';
 if(typeof document !== 'undefined'){
 	require('!style-loader!css-loader!video.js/dist/video-js.css')
 }
