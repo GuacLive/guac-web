@@ -11,11 +11,13 @@ export default function(state = initialState, action) {
 	switch (action.type) {
 		case 'AUTHENTICATE_REQUEST':
 		case 'REGISTER_REQUEST':
+		case 'CHANGE_PASSWORD_REQUEST':
 			return Object.assign({}, state, {
 				loading: true,
 			});
 		break;
 		case 'AUTHENTICATE_FAILURE':
+		case 'CHANGE_PASSWORD_FAILURE':
 			return Object.assign({}, state, {
 				loading: false,
 				error: action.error
@@ -31,6 +33,14 @@ export default function(state = initialState, action) {
 				loading: false,
 				error: false,
 				regError: false
+			};
+		break;
+		case 'CHANGE_PASSWORD_SUCCESS':
+			return {
+				...state,
+				statusCode: action.statusCode,
+				loading: false,
+				error: false
 			};
 		break;
 		case 'REGISTER_FAILURE':

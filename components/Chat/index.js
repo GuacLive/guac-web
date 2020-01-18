@@ -387,6 +387,7 @@ function ChatComponent(props){
 		let didCancel = false;
 		if(!didCancel){
 			socket = io(CHAT_URL, {
+				'transports': [ 'websocket' ],
 				'reconnection': true,
 				'reconnectionDelay': 1000,
 				'reconnectionDelayMax': 5000,
@@ -428,6 +429,11 @@ function ChatComponent(props){
 			}
 		};
 	}, [emotes]);
+	// If token changes, join with the new one
+	// Is this really necessary? I just added because it might fix some issues
+	useEffect(() => {
+		if(socket) socket.emit('join', authentication.token);
+	}, [authentication && authentication.token]);
 
 	// Handle simplebar calculation
 	if(process.browser){
