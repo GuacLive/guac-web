@@ -14,7 +14,7 @@ import { setTitle, setPrivate, setCategory, fetchStreaming, resetStreaming } fro
 
 import { fetchEmotes } from './emotes';
 
-import { fetchStreams, stopStream, resetStreams } from './streams';
+import { fetchStreams, stopStream, banUser, resetStreams } from './streams';
 
 import { setDarkMode, setLightMode, fetchMyFollowed, resetSite } from './site';
 export {
@@ -45,6 +45,7 @@ export {
 	fetchMyFollowed,
 	resetSite,
 	fetchStreams,
+	banUser,
 	stopStream,
 	resetStreams
 }

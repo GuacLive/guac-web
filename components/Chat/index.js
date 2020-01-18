@@ -387,7 +387,6 @@ function ChatComponent(props){
 		let didCancel = false;
 		if(!didCancel){
 			socket = io(CHAT_URL, {
-				'transports': [ 'websocket' ],
 				'reconnection': true,
 				'reconnectionDelay': 1000,
 				'reconnectionDelayMax': 5000,

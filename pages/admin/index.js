@@ -156,6 +156,18 @@ class AdminIndexPage extends Component {
 																<FontAwesomeIcon icon='minus-circle' />
 															</a>
 														</span>
+														<span className="mr2">
+															<a
+																href="#"
+																className="link color-inherit"
+																title="Ban user"
+																onClick={() => {
+																	this.props.dispatch(actions.banUser(auth.token, stream));
+																}}
+															>
+																<FontAwesomeIcon icon='ban' />
+															</a>
+														</span>
 													</td>
 												</tr>
 											)
