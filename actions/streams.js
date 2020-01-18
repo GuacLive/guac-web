@@ -67,3 +67,34 @@ export const stopStream = (token, stream = '') => async (dispatch) => {
         });
 	});
 };
+
+export const banUser = (token, user = '', reason = '') => async (dispatch) => {
+	dispatch({
+		type: 'BAN_USER_REQUEST'
+	});
+	return callApi('/admin/banUser/' + user, {
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		accessToken: token
+	})
+	.then(response => response.json())
+	.then((json) => {
+		if (json.statusCode == 200) {
+			dispatch(Object.assign({
+				type: 'BAN_USER_SUCCESS'
+			}, json));
+		} else {
+			dispatch({
+				type: 'BAN_USER_FAILURE',
+				error: new Error('Invalid status code in ban user json: ' + JSON.stringify(json))
+			});
+		}
+	})
+	.catch(error => {
+        dispatch({
+          type: 'BAN_USER_FAILURE',
+          error
+        });
+	});
+};
