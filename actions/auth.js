@@ -120,3 +120,39 @@ export const deauthenticate = () => async (dispatch) => {
 		type: 'DEAUTHENTICATE'
 	});
 };
+
+
+export const setPassword = (token, password) => async (dispatch) => {
+	dispatch({
+	  type: 'PASSWORD_CHANGE_REQUEST'
+	});
+	return callApi('/user/password', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		accessToken: token,
+		body: JSON.stringify({
+			password
+		})
+	})
+	.then(response => response.json())
+	.then((json) => {
+		if (json.statusCode == 200) {
+			dispatch(Object.assign({
+				type: 'PASSWORD_CHANGE_SUCCESS'
+			}, json));
+		} else {
+			dispatch({
+				type: 'PASSWORD_CHANGE_FAILURE',
+				error: new Error(json && json.statusMessage)
+			});
+		}
+	})
+	.catch(error => {
+        dispatch({
+          type: 'PASSWORD_CHANGE_FAILURE',
+          error
+        });
+	});
+};
