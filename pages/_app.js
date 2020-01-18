@@ -132,6 +132,14 @@ export default withRedux(configureStore)(class MyApp extends App {
 	componentDidMount(){
 		const state = this.props.store.getState();
 		if(typeof window !== 'undefined'){
+			// Initialize firebase messaging for current user
+			initializeFirebase(() => {
+				console.log('hi');
+				console.log('inside firebase state ', state);
+				if(state.authentication && state.authentication.token){
+					initializePush(state.authentication.token);
+				}
+			});
 			if(window.matchMedia){
 				// Do not use system theme if overridden with cookie
 				if(this.props.hasThemeCookie) return;
@@ -148,14 +156,6 @@ export default withRedux(configureStore)(class MyApp extends App {
 					this.props.pageProps.mode = 'light';
 				}
 			}
-			// Initialize firebase messaging for current user
-			initializeFirebase(() => {
-				console.log('hi');
-				console.log('inside firebase state ', state);
-				if(state.authentication && state.authentication.token){
-					initializePush(state.authentication.token);
-				}
-			});
 		}
 	}
 
