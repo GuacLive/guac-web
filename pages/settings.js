@@ -37,7 +37,7 @@ class DashboardPage extends Component {
 				}
                 <form className="measure" onSubmit={this.handleSubmit}>
 					<label htmlFor="password"><Trans>New password:</Trans></label>
-					<input name="password" type="passsword" className="input-reset bn pa3 w-100 bg-white br2" ref="password" placeholder="password" />
+					<input name="password" type="password" className="input-reset bn pa3 w-100 bg-white br2" ref="password" placeholder="password" />
 					<input type="submit" value="Edit user" className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" />
 				</form>
 			</div>
