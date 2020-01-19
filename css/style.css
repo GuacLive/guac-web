@@ -23,13 +23,18 @@ html, .sans-serif {
 	'Segoe UI Symbol';
 }
 
+@media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 2dppx) {
+	html {
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+	}
+}
+
 html {
 	line-height: 1.5;
 	margin: 0;
 	
     text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 	-webkit-tap-highlight-color: var(--highlight-color);
 
 	transition: color var(--animation-duration) var(--animation-timing),
