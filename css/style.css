@@ -23,16 +23,18 @@ html, .sans-serif {
 	'Segoe UI Symbol';
 }
 
-body {
+html {
 	line-height: 1.5;
 	margin: 0;
-	background: var(--site-background);
-	color: var(--site-text);
+	
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	-webkit-tap-highlight-color: var(--highlight-color);
 
 	transition: color var(--animation-duration) var(--animation-timing),
 	background var(--animation-duration) var(--animation-timing);
 }
-
 
 .hover-b--blue:hover {
 	border-color: var(--blue);
@@ -50,6 +52,7 @@ body {
 :root {
 	--site-background: #f4f5f7;
 	--site-text: var(--black);
+	--highlight-color: rgba(255,255,255,0);
 
 	--slick-dot-color: black;
 	--chat-message-background: var(--site-background);
@@ -66,6 +69,7 @@ body {
 .guac-skin-dark {
 	--site-background: #2a2a2a;
 	--site-text: var(--white);
+	--highlight-color: rgba(0,0,0,0);
 
 	--slick-dot-color: white;
 	--chat-message-background: var(--black-20);
@@ -74,6 +78,29 @@ body {
 	--chat-message-link: var(--light-green);
 
 	--dropdown-background: #111111;
+}
+
+/* For chat OBS overlay */
+.overlay-wrapper {
+	--site-background: rgba(0,0,0,0);
+	--site-text: var(--black);
+	--chat-message-background: var(--black-20);
+	--chat-message-background-odd: var(--black-40);
+	--chat-message-text: var(--white);
+	--chat-message-link: var(--light-green);
+}
+/* Set background and text color for whole page*/
+.page-wrapper,
+.overlay-wrapper {
+	background: var(--site-background);
+	color: var(--site-text);
+
+	transition: color var(--animation-duration) var(--animation-timing),
+	background var(--animation-duration) var(--animation-timing);
+}
+.overlay-wrapper .chat-messages {
+	height: 100vh !important; /* Fallback for browsers that do not support Custom Properties */
+	height: calc(var(--vh, 1vh) * 100) !important;  
 }
 
 
