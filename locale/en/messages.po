@@ -44,7 +44,7 @@ msgstr "Channel not found"
 #: components/layout/PageLayout.js:230
 #: components/layout/PageLayout.js:230
 #: components/layout/PageLayout.js:231
-#: pages/channels.js:53
+#: pages/channels.js:52
 msgid "Channels"
 msgstr "Channels"
 
@@ -98,6 +98,7 @@ msgstr "English"
 
 #: pages/auth/login.js:51
 #: pages/auth/register.js:51
+#: pages/settings.js:36
 msgid "Error"
 msgstr "Error"
 
@@ -153,7 +154,7 @@ msgstr "Join"
 msgid "Live streams"
 msgstr "Live streams"
 
-#: components/Chat/index.js:482
+#: components/Chat/index.js:472
 #: components/Search/SearchBar.js:83
 #: pages/c/[name].js:228
 msgid "Loading..."
@@ -170,6 +171,10 @@ msgstr "Log in"
 #: components/layout/AccountMenu.js:29
 msgid "Log out"
 msgstr "Log out"
+
+#: pages/settings.js:39
+msgid "New password:"
+msgstr "New password:"
 
 #: components/Replays/ReplaysList.js:46
 msgid "No replays available."
@@ -248,6 +253,10 @@ msgstr "Settings"
 #: pages/dashboard.js:187
 msgid "Show help command"
 msgstr "Show help command"
+
+#: pages/channels.js:55
+msgid "Show only live"
+msgstr "Show only live"
 
 #: pages/dashboard.js:188
 msgid "Show user list"
@@ -328,6 +337,10 @@ msgstr "Unknown error"
 #: pages/c/[name].js:211
 msgid "User has been banned"
 msgstr "User has been banned"
+
+#: pages/settings.js:34
+msgid "User settings"
+msgstr "User settings"
 
 #: pages/auth/login.js:54
 #: pages/auth/register.js:54

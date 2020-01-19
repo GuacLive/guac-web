@@ -44,7 +44,7 @@ msgstr "Kanal ikke funnet"
 #: components/layout/PageLayout.js:230
 #: components/layout/PageLayout.js:230
 #: components/layout/PageLayout.js:231
-#: pages/channels.js:53
+#: pages/channels.js:52
 msgid "Channels"
 msgstr "Kanaler"
 
@@ -98,6 +98,7 @@ msgstr "Engelsk"
 
 #: pages/auth/login.js:51
 #: pages/auth/register.js:51
+#: pages/settings.js:36
 msgid "Error"
 msgstr "Feil"
 
@@ -153,7 +154,7 @@ msgstr "Bli med"
 msgid "Live streams"
 msgstr "Direktesendinger"
 
-#: components/Chat/index.js:482
+#: components/Chat/index.js:472
 #: components/Search/SearchBar.js:83
 #: pages/c/[name].js:228
 msgid "Loading..."
@@ -170,6 +171,10 @@ msgstr "Logg inn"
 #: components/layout/AccountMenu.js:29
 msgid "Log out"
 msgstr "Logg ut"
+
+#: pages/settings.js:39
+msgid "New password:"
+msgstr "Nytt passord:"
 
 #: components/Replays/ReplaysList.js:46
 msgid "No replays available."
@@ -249,6 +254,10 @@ msgstr "Innstillinger"
 msgid "Show help command"
 msgstr "Vis hjelp-kommandoen"
 
+#: pages/channels.js:55
+msgid "Show only live"
+msgstr "Vis bare direkte"
+
 #: pages/dashboard.js:188
 msgid "Show user list"
 msgstr "Vis liste over brukere"
@@ -324,6 +333,10 @@ msgstr "Ukjent feil"
 #: pages/c/[name].js:211
 msgid "User has been banned"
 msgstr "Brukeren har blitt utestengt"
+
+#: pages/settings.js:34
+msgid "User settings"
+msgstr "Brukerinnstillinger"
 
 #: pages/auth/login.js:54
 #: pages/auth/register.js:54
