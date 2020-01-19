@@ -108,6 +108,7 @@ export default withRedux(configureStore)(class MyApp extends App {
 			// Some custom thing for all pages
 			pathname: ctx.pathname,
 			mode,
+			nonce,
 			hasThemeCookie: !!getCookie('site-mode', ctx.req),
 			locale,
 			catalogs: {
@@ -165,14 +166,13 @@ export default withRedux(configureStore)(class MyApp extends App {
 		// Skip rendering when catalog isn't loaded.
 		if (!catalogs[locale]) return null;
 
-		const skipLayoutDestinations = ['/embed/[name]', '/chat/[name]'];
-		const shouldSkip = this.props.pathname && skipLayoutDestinations.indexOf(this.props.pathname) === 0;
-
+		const skipLayoutDestinations = ['/embed/[name]', '/chat/[name]', '/overlay/[name]'];
+		const shouldSkip = this.props.pathname && skipLayoutDestinations.indexOf(this.props.pathname) > -1;
 		return (
 			<>
 				<Provider store={store}>
         			<I18nProvider language={locale} catalogs={catalogs}>
-						<PageLayout skip={shouldSkip}>
+						<PageLayout skip={shouldSkip} nonce={this.props.nonce}>
 							<Component {...pageProps} {...{'log': log}} />
 						</PageLayout>
 					</I18nProvider>
