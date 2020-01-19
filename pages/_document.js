@@ -30,6 +30,8 @@ export default class MyDocument extends Document {
 				<link rel="preconnect" href="https://api.guac.live/" />
 				<link rel="preconnect" href="https://stream.guac.live/" />
 				<link rel="preconnect" href="https://emotes.guac.live/" />
+
+				<meta charSet='utf-8' />
 				<meta 
 					name="viewport" 
 					content="width=device-width,initial-scale=1,minimal-ui"
@@ -37,9 +39,9 @@ export default class MyDocument extends Document {
 				<meta name="apple-mobile-web-app-capable" content="yes" />
 				<meta name="apple-touch-fullscreen" content="yes" />
 				<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
 				<script type="application/configuration" id="oil-configuration" dangerouslySetInnerHTML={{__html: JSON.stringify(process.env.OIL_CONFIG)}}></script>
 				<script type="text/javascript" dangerouslySetInnerHTML={{__html: oil}} nonce={nonce}></script>
-				<script type="text/javascript" src="//privacy.guac.live/release/current/oil.1.3.1-alpha-RELEASE.min.js" nonce={nonce}></script>
 			</Head>
 			<body className="sans-serif h-100 w-100">
 				<Main />

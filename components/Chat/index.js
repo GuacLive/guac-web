@@ -47,6 +47,8 @@ function ChatComponent(props){
 	const [customPickerEmotes, setCustomPickerEmotes] = useState(false);
 	const ref = useRef();
 
+	const isOverlay = props.overlay ? true : false;
+
 	// Redux
 	const authentication = useSelector(state => state.authentication);
 	const channel = useSelector(state => state.channel);
@@ -459,6 +461,161 @@ function ChatComponent(props){
 		}, [messages.length]);
 	}
 
+	const ChatInput = (
+		<>
+			<div className="chat-input pr4 pl4 pb4">
+					<div className="relative">
+						<ReactTextareaAutocomplete
+							value={message}
+							onChange={writeMessage}
+							className="w-100 pa2 br2 input-reset ba db"
+							loadingComponent={() => <Trans>Loading...</Trans>}
+							style={{
+								'paddingRight': '6rem'
+							}}
+							ref={rta => {
+								rta = rta;
+							}}
+							innerRef={textarea => {
+								textarea = textarea;
+							}}
+							onKeyDown={event => lastMessageHandler(event)}
+							onCut={event => lastMessageHandler(event)}
+							textAreaComponent={{ component: AutoTextarea, ref: "innerRef" }}
+							minChar={2}
+							rows={1}
+							disabled={!connectedStatus}
+							trigger={{
+								'@': {
+									dataProvider: token => {
+										console.log('token', [...users.values()]);
+										if(!token || !token.length){
+											return [...users.values()]
+											.map((user) => {
+												return {
+													name: user.name,
+													char: user.name
+												}
+											});
+										}
+										return [...users.values()]
+										.filter(user => {
+											console.log('user', user);
+											if(user
+												&& user.name
+												&& user.name.search(new RegExp(token, "i")) !== -1
+												&& !user.anon){
+												return user.name;
+											}
+											return null;
+										})
+										.map(user => {
+											return {
+												name: user.name,
+												char: user.name
+											};
+										});
+									},
+									component: ({ entity: {name} }) => <div>{name}</div>,
+									output: (item) => {
+										console.log('itæm', item); 
+										if(item && item.name){
+											return {
+												key: item.name,
+												text: `${item.char}`,
+												caretPosition: 'next',
+											};
+										}
+										return null;
+									}
+								},
+								':': {
+									dataProvider: token => {
+										if(!token || !token.length){
+											return Object.keys(emotes)
+											.map((name) => {
+												return {
+													name,
+													char: name,
+													img: `<Image src=${emotes[name].url} />`
+												}
+											});
+										}
+										return Object.keys(emotes)
+										.filter(name => {
+											if(name.search(new RegExp(token, "i")) !== -1){
+												return name;
+											}
+											return null;
+										})
+										.map(name => {
+											return {
+												name,
+												char: name,
+												img: `<Image src=${emotes[name].url} />`
+											};
+										});
+									},
+									component: ({ entity: {name, img} }) => <div dangerouslySetInnerHTML={createEmoteMarkup(name, img)}></div>,
+									output: (item) => {
+										if(item && item.name){
+											return {
+												key: item.name,
+												text: `${item.char}`,
+												caretPosition: 'next',
+											};
+										}
+										return null;
+									}
+								}
+							}}
+						/>
+						<div className="chat-input__buttons absolute bottom-0 right-0">
+							<div className="flex flex-row pr2 pb2">
+								<div className="relative">
+									{
+										customPickerEmotes &&
+										customPickerEmotes.length > 0 &&
+										<EmojiSelector
+											emotes={customPickerEmotes} 
+											darkMode={darkMode}
+											onSelect={emoji => {
+												// Select text to type - if it is custom type the id, otherwise type emoji.
+												const text = emoji.custom ? emoji.id : emoji.native;
+										
+												setMessage(`${message} ${text}`);
+												setLastMessage(`${message} ${text}`);
+											}}
+										/>
+									}
+									<ToggleFeature
+										flag='gifSelector'
+									>
+									{
+										<GifSelector
+											onEntrySelect={entry => {
+													log('info', 'Chat', 'GifSelector entry', entry);
+													setMessage(`${entry.images.original.url}`);
+													setLastMessage(`${entry.images.original.url}`);
+												}}
+										/>
+									}
+									</ToggleFeature>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="flex justify-between">
+						<div className="flex flex-row">
+							<SettingsMenu chatSettings={chatSettings} />
+						</div>
+						<div className="flex flex-row content-center items-center">
+							<input type="submit" value="Chat" onClick={sendMessage} disabled={!connectedStatus} className="white dib pv2 ph3 nowrap lh-solid pointer br2 ba b--transparent bg-green" />
+						</div>
+					</div>
+				</div>
+			</>
+		);
 	return (
 		<>
 			<div className="flex flex-column flex-grow-1 flex-nowrap overflow-hidden">
@@ -478,157 +635,7 @@ function ChatComponent(props){
 				}
 				</SimpleBar>
 			</div>
-			<div className="chat-input pr4 pl4 pb4">
-				<div className="relative">
-					<ReactTextareaAutocomplete
-						value={message}
-						onChange={writeMessage}
-						className="w-100 pa2 br2 input-reset ba db"
-						loadingComponent={() => <Trans>Loading...</Trans>}
-						style={{
-							'paddingRight': '6rem'
-						}}
-						ref={rta => {
-							rta = rta;
-						}}
-						innerRef={textarea => {
-							textarea = textarea;
-						}}
-						onKeyDown={event => lastMessageHandler(event)}
-						onCut={event => lastMessageHandler(event)}
-						textAreaComponent={{ component: AutoTextarea, ref: "innerRef" }}
-						minChar={2}
-						rows={1}
-						disabled={!connectedStatus}
-						trigger={{
-							'@': {
-								dataProvider: token => {
-									console.log('token', [...users.values()]);
-									if(!token || !token.length){
-										return [...users.values()]
-										.map((user) => {
-											return {
-												name: user.name,
-												char: user.name
-											}
-										});
-									}
-									return [...users.values()]
-									.filter(user => {
-										console.log('user', user);
-										if(user
-											&& user.name
-											&& user.name.search(new RegExp(token, "i")) !== -1
-											&& !user.anon){
-											return user.name;
-										}
-										return null;
-									})
-									.map(user => {
-										return {
-											name: user.name,
-											char: user.name
-										};
-									});
-								},
-								component: ({ entity: {name} }) => <div>{name}</div>,
-								output: (item) => {
-									console.log('itæm', item); 
-									if(item && item.name){
-										return {
-											key: item.name,
-											text: `${item.char}`,
-											caretPosition: 'next',
-										};
-									}
-									return null;
-								}
-							},
-							':': {
-								dataProvider: token => {
-									if(!token || !token.length){
-										return Object.keys(emotes)
-										.map((name) => {
-											return {
-												name,
-												char: name,
-												img: `<Image src=${emotes[name].url} />`
-											}
-										});
-									}
-									return Object.keys(emotes)
-									.filter(name => {
-										if(name.search(new RegExp(token, "i")) !== -1){
-											return name;
-										}
-										return null;
-									})
-									.map(name => {
-										return {
-											name,
-											char: name,
-											img: `<Image src=${emotes[name].url} />`
-										};
-									});
-								},
-								component: ({ entity: {name, img} }) => <div dangerouslySetInnerHTML={createEmoteMarkup(name, img)}></div>,
-								output: (item) => {
-									if(item && item.name){
-										return {
-											key: item.name,
-											text: `${item.char}`,
-											caretPosition: 'next',
-										};
-									}
-									return null;
-								}
-							}
-						}}
-					/>
-					<div className="chat-input__buttons absolute bottom-0 right-0">
-						<div className="flex flex-row pr2 pb2">
-							<div className="relative">
-								{
-									customPickerEmotes &&
-									customPickerEmotes.length > 0 &&
-									<EmojiSelector
-										emotes={customPickerEmotes} 
-										darkMode={darkMode}
-										onSelect={emoji => {
-											// Select text to type - if it is custom type the id, otherwise type emoji.
-											const text = emoji.custom ? emoji.id : emoji.native;
-									
-											setMessage(`${message} ${text}`);
-											setLastMessage(`${message} ${text}`);
-										}}
-									/>
-								}
-								<ToggleFeature
-									flag='gifSelector'
-								>
-								{
-									<GifSelector
-										onEntrySelect={entry => {
-												log('info', 'Chat', 'GifSelector entry', entry);
-												setMessage(`${entry.images.original.url}`);
-												setLastMessage(`${entry.images.original.url}`);
-											}}
-									/>
-								}
-								</ToggleFeature>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div className="flex justify-between">
-					<div className="flex flex-row">
-						<SettingsMenu chatSettings={chatSettings} />
-					</div>
-					<div className="flex flex-row content-center items-center">
-						<input type="submit" value="Chat" onClick={sendMessage} disabled={!connectedStatus} className="white dib pv2 ph3 nowrap lh-solid pointer br2 ba b--transparent bg-green" />
-					</div>
-				</div>
-			</div>
+			{ !isOverlay ? ChatInput : null}
 		</>
 	);
 }
