@@ -40,7 +40,6 @@ class ChannelsPage extends Component {
 	}
 
 	handleChange(onlyLive) {
-		console.log('onlyLive', onlyLive);
 		this.setState({ onlyLive });
 	}
 
@@ -53,7 +52,7 @@ class ChannelsPage extends Component {
 					<h2 className="f2 tracked mt0 mb3"><Trans>Channels</Trans></h2>
 					<div className="live-switch">
 						<label>
-							<div className="primary">Show only live</div>
+							<div className="primary"><Trans>Show only live</Trans></div>
 							<Switch
 								onChange={this.handleChange}
 								checked={this.state.onlyLive}

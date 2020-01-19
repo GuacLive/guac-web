@@ -106,6 +106,13 @@ function VideoPlayer(props) {
 			player.controlBar.removeChild('TheaterModeToggle');
 		}
 
+		// Reload if the source fails (HLS-only)
+		if(player.reloadSourceOnError){
+			player.reloadSourceOnError({
+				errorInterval: 10
+			});
+		}
+
 		player.on('theaterMode', function (elm, data){
 			if(data.theaterModeIsOn){
 				player.fill(true);
