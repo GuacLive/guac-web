@@ -13,10 +13,6 @@ class DashboardPage extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	componentDidMount(){
-	}
-
-
 	handleSubmit(e){
 		e.preventDefault();
 		console.log(this.refs);
