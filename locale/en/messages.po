@@ -92,13 +92,17 @@ msgstr "Do not engage in hate speech."
 msgid "Do not engage, or encourage others to engage, in any targeted abuse or harassment against any other user."
 msgstr "Do not engage, or encourage others to engage, in any targeted abuse or harassment against any other user."
 
+#: pages/settings.js:38
+msgid "Edit user"
+msgstr "Edit user"
+
 #: components/LangSwitcher.js:8
 msgid "English"
 msgstr "English"
 
 #: pages/auth/login.js:51
 #: pages/auth/register.js:51
-#: pages/settings.js:36
+#: pages/settings.js:33
 msgid "Error"
 msgstr "Error"
 
@@ -172,7 +176,7 @@ msgstr "Log in"
 msgid "Log out"
 msgstr "Log out"
 
-#: pages/settings.js:39
+#: pages/settings.js:36
 msgid "New password:"
 msgstr "New password:"
 
@@ -202,6 +206,7 @@ msgstr "Page not found"
 
 #: pages/auth/login.js:58
 #: pages/auth/register.js:58
+#: pages/settings.js:37
 msgid "Password"
 msgstr "Password"
 
@@ -240,6 +245,10 @@ msgstr "Remember me"
 #: components/Search/SearchBar.js:68
 msgid "Search..."
 msgstr "Search..."
+
+#: pages/terms.js:23
+msgid "Serious threats of harm to public and personal safety aren't allowed. This includes specific threats of physical harm as well as threats of theft, vandalism, and other financial harm.<0/>We don’t allow the glorification of self-harm."
+msgstr "Serious threats of harm to public and personal safety aren't allowed. This includes specific threats of physical harm as well as threats of theft, vandalism, and other financial harm.<0/>We don’t allow the glorification of self-harm."
 
 #: pages/_error.js:35
 msgid "Server error"
@@ -338,7 +347,7 @@ msgstr "Unknown error"
 msgid "User has been banned"
 msgstr "User has been banned"
 
-#: pages/settings.js:34
+#: pages/settings.js:31
 msgid "User settings"
 msgstr "User settings"
 

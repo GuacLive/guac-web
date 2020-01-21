@@ -20,7 +20,7 @@ class PrivacyPage extends Component {
 				<h3 className="primary"><Trans>Harassment & Bullying</Trans></h3>
 				<p><Trans>Do not engage, or encourage others to engage, in any targeted abuse or harassment against any other user.</Trans></p>
 				<h3 className="primary"><Trans>Threats, Violence & Harm</Trans></h3>
-				<p>Serious threats of harm to public and personal safety aren't allowed. This includes specific threats of physical harm as well as threats of theft, vandalism, and other financial harm.<br />We don’t allow the glorification of self-harm.</p>
+				<p><Trans>Serious threats of harm to public and personal safety aren't allowed. This includes specific threats of physical harm as well as threats of theft, vandalism, and other financial harm.<br />We don’t allow the glorification of self-harm.</Trans></p>
 				<h3 className="primary"><Trans>Hate Speech</Trans></h3>
 				<p><Trans>Do not engage in hate speech.</Trans></p>
 				<h3 className="primary"><Trans>Breaking the law</Trans></h3>
