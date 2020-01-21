@@ -90,6 +90,7 @@ function VideoPlayer(props) {
 		require('@silvermine/videojs-quality-selector')(videojs, {
 			reloadWebComponents: true
 		});
+		require('videojs-hotkeys');
 		// instantiate Video.js
 		player = videojs(videoNode, videoJsOptions, function onPlayerReady() {
 			log('info', null, 'onPlayerReady', this);
@@ -112,6 +113,23 @@ function VideoPlayer(props) {
 				errorInterval: 10
 			});
 		}
+
+		// Hotkeys
+		if(player.hotkeys){
+			player.hotkeys({
+				volumeStep: 0.1,
+				rewindKey: () => {
+					return null;
+				},
+				forwardKey: () => {
+					return null;
+				},
+				enableModifiersForNumbers: false,
+				enableNumbers: false,
+				enableHoverScroll: true
+			});
+		}
+
 
 		player.on('theaterMode', function (elm, data){
 			if(data.theaterModeIsOn){
