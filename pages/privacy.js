@@ -46,9 +46,7 @@ class PrivacyPage extends Component {
 <p>Occasionally, at our discretion, we may include or offer third party products or services on our site. These third party sites have separate and independent privacy policies. We therefore have no responsibility or liability for the content and activities of these linked sites. Nonetheless, we seek to protect the integrity of our site and welcome any feedback about these sites.</p>
 <p><a name="coppa"></a></p>
 <h2><a className="link primary" href="#coppa">Children’s Online Privacy Protection Act Compliance</a></h2>
-<p class="">If this server is in the EU or the EEA: Our site, products and services are all directed to people who are at least 16 years old. If you are under the age of 16, per the requirements of the GDPR (General Data Protection Regulation) do not use this site.</p>
-<p class="">If this server is in the USA: Our site, products and services are all directed to people who are at least 13 years old. If you are under the age of 13, per the requirements of COPPA (Children's Online Privacy Protection Act) do not use this site.</p>
-<p class="">Law requirements can be different if this server is in another jurisdiction.</p>
+<p class="">Our site, products and services are all directed to people who are at least 16 years old. If you are under the age of 16, per the requirements of the GDPR (General Data Protection Regulation) do not use this site.</p>
 <h2><a className="link primary" href="#online">Online Privacy Policy Only</a></h2>
 <p>This online privacy policy applies only to information collected through our site and not to information collected offline.</p>
 <p><a name="consent"></a></p>
