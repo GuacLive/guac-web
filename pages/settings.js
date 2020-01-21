@@ -26,7 +26,7 @@ class DashboardPage extends Component {
 		if(auth.loading) return null;
 		if(auth.error) throw auth.error;
 		return (
-			<div className="flex flex-row flex-wrap w-100">
+			<div className="flex flex-column flex-wrap w-100">
                 <h2 className="f2 tracked mt0 mb3"><Trans>User settings</Trans></h2>
                 {auth.error && 
 					<div className="red"><Trans>Error</Trans>: {auth.error.message}</div>
