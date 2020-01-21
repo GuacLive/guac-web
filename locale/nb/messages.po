@@ -92,13 +92,17 @@ msgstr "Ikke delta i hatprat"
 msgid "Do not engage, or encourage others to engage, in any targeted abuse or harassment against any other user."
 msgstr "Ikke engasjer deg eller oppmuntre andre til å engasjere seg i målrettet misbruk eller trakassering mot andre brukere."
 
+#: pages/settings.js:38
+msgid "Edit user"
+msgstr "Endre bruker"
+
 #: components/LangSwitcher.js:8
 msgid "English"
 msgstr "Engelsk"
 
 #: pages/auth/login.js:51
 #: pages/auth/register.js:51
-#: pages/settings.js:36
+#: pages/settings.js:33
 msgid "Error"
 msgstr "Feil"
 
@@ -172,7 +176,7 @@ msgstr "Logg inn"
 msgid "Log out"
 msgstr "Logg ut"
 
-#: pages/settings.js:39
+#: pages/settings.js:36
 msgid "New password:"
 msgstr "Nytt passord:"
 
@@ -202,6 +206,7 @@ msgstr "Side ikke funnet"
 
 #: pages/auth/login.js:58
 #: pages/auth/register.js:58
+#: pages/settings.js:37
 msgid "Password"
 msgstr "Passord"
 
@@ -240,6 +245,10 @@ msgstr "Husk meg"
 #: components/Search/SearchBar.js:68
 msgid "Search..."
 msgstr "Søk..."
+
+#: pages/terms.js:23
+msgid "Serious threats of harm to public and personal safety aren't allowed. This includes specific threats of physical harm as well as threats of theft, vandalism, and other financial harm.<0/>We don’t allow the glorification of self-harm."
+msgstr "Seriøse trusler om skade til offentligheten og personlig sikkerhet er ikke tillatt. Dette inkluderer spesifikke trusler om fysisk skade og trusler om tyveri, vandalisme og annen finansiell skade.</o/> Vi tillater ikke glorifisering av selvskading."
 
 #: pages/_error.js:35
 msgid "Server error"
@@ -334,7 +343,7 @@ msgstr "Ukjent feil"
 msgid "User has been banned"
 msgstr "Brukeren har blitt utestengt"
 
-#: pages/settings.js:34
+#: pages/settings.js:31
 msgid "User settings"
 msgstr "Brukerinnstillinger"
 

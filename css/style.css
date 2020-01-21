@@ -54,6 +54,11 @@ html {
 	color: var(--site-text);
 }
 
+input:focus {
+	outline: 0;
+	box-shadow: 0 0 0 3px rgba(0, 123, 255, .5);
+}
+
 :root {
 	--site-background: #f4f5f7;
 	--site-text: var(--black);
