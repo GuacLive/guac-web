@@ -1,5 +1,4 @@
 
-import linkify from 'linkifyjs';
 import linkifyHtml from 'linkifyjs/html';
 export default class UrlEmbedder {
 	GIPHY_REGEX = /https?:\/\/(\?|media[0-9]{0,61}\.giphy\.com\/media\/([^ /\n]+)\/giphy\.gif|i\.giphy\.com\/([^ /\n]+)\.gif|giphy\.com\/gifs\/(?:.*-)?([^ /\n]+))/i
