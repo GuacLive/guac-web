@@ -23,6 +23,11 @@
       },
       {
           "src": "/img/header-logo.png",
+          "sizes": "192x192",
+          "type": "image/png"
+      },
+      {
+          "src": "/img/header-logo.png",
           "sizes": "256x256",
           "type": "image/png"
       },
