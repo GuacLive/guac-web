@@ -522,7 +522,7 @@ function ChatComponent(props){
 										if(item && item.name){
 											return {
 												key: item.name,
-												text: `${item.char}`,
+												text: `@${item.char}`,
 												caretPosition: 'next',
 											};
 										}
