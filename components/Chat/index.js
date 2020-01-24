@@ -201,6 +201,12 @@ function ChatComponent(props){
 					);
 				break;
 				case 'text':
+					// Add username highlighting
+					if(me && me.name){
+						const pattern = new RegExp(`@${me.name}\\b`, 'gi');
+						msg.content = msg.content.replace(pattern, `<span class="b green highlight">$&</span>`);
+					}
+
 					return (
 						<span key={'u-' + i + '-'  + (new Date).getTime()} dangerouslySetInnerHTML={{__html: `${embed.format(msg.content)}${i !== messages.length -1 ? '\u00A0' : ''}`}}></span>
 					);
@@ -522,7 +528,7 @@ function ChatComponent(props){
 										if(item && item.name){
 											return {
 												key: item.name,
-												text: `${item.char}`,
+												text: `@${item.char}`,
 												caretPosition: 'next',
 											};
 										}
