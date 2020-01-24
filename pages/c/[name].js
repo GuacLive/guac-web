@@ -147,7 +147,7 @@ class ChannelPage extends Component {
 							{stream.title}
 							<br />
 							<Trans>playing</Trans>&nbsp;
-							<Link href={'/category/' + stream.category_id}><a>{stream.category_name}</a></Link>
+							<Link href={'/category/' + stream.category_id}><a className="primary">{stream.category_name}</a></Link>
 						</span>
 					</div>
 				</div>

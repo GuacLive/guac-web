@@ -474,7 +474,7 @@ function ChatComponent(props){
 						<ReactTextareaAutocomplete
 							value={message}
 							onChange={writeMessage}
-							className="w-100 pa2 br2 input-reset ba db"
+							className="w-100 pa2 br2 input-reset ba db outline-transparent"
 							loadingComponent={() => <Trans>Loading...</Trans>}
 							style={{
 								'paddingRight': '6rem'
