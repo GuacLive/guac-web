@@ -158,7 +158,7 @@ msgstr "Bli med"
 msgid "Live streams"
 msgstr "Direktesendinger"
 
-#: components/Chat/index.js:472
+#: components/Chat/index.js:478
 #: components/Search/SearchBar.js:83
 #: pages/c/[name].js:228
 msgid "Loading..."
@@ -282,6 +282,10 @@ msgstr "Registrer"
 #: components/layout/PageLayout.js:118
 msgid "Start following your favorite streamers to find them quickly!"
 msgstr "Begynn å følge dine favoritt-strømmere for å finne dem raskt!"
+
+#: components/Chat/index.js:633
+msgid "Stream Chat"
+msgstr "Strømmechat"
 
 #: pages/dashboard.js:119
 msgid "Stream preview"
