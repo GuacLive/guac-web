@@ -26,6 +26,7 @@ function AccountMenu(props){
 					<li><Link href={props.user.can_stream ? `/c/${props.user.name}` : '/'}><a className="flex items-center pa1 relative w-100 link b hover-green primary ph3"><span>{props.user.name}</span></a></Link></li>
 					<li><Link href="/settings"><a className="flex items-center pa1 relative w-100 link b hover-green primary ph3"><Trans>Settings</Trans></a></Link></li>
 					<li><Link href="/dashboard"><a className="flex items-center pa1 relative w-100 link b hover-green primary ph3"><Trans>Dashboard</Trans></a></Link></li>
+					{(props.user.type === 'staff' || props.user.type === 'admin') && <li><Link href="/admin"><a className="flex items-center pa1 relative w-100 link b hover-green primary ph3"><Trans>Admin</Trans></a></Link></li>}
 					<li><Link href="/auth/logout"><a className="flex items-center pa1 relative w-100 link b hover-green primary ph3"><Trans>Log out</Trans></a></Link></li>
 				</ul>
 			</div>
