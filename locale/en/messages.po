@@ -158,7 +158,7 @@ msgstr "Join"
 msgid "Live streams"
 msgstr "Live streams"
 
-#: components/Chat/index.js:472
+#: components/Chat/index.js:478
 #: components/Search/SearchBar.js:83
 #: pages/c/[name].js:228
 msgid "Loading..."
@@ -282,6 +282,10 @@ msgstr "Sign up"
 #: components/layout/PageLayout.js:118
 msgid "Start following your favorite streamers to find them quickly!"
 msgstr "Start following your favorite streamers to find them quickly!"
+
+#: components/Chat/index.js:633
+msgid "Stream Chat"
+msgstr "Stream Chat"
 
 #: pages/dashboard.js:119
 msgid "Stream preview"
