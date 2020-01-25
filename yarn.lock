@@ -11235,9 +11235,9 @@ react-switch@^5.0.0:
     prop-types "^15.6.2"
 
 react-use@^13.9.0:
-  version "13.21.0"
-  resolved "https://registry.yarnpkg.com/react-use/-/react-use-13.21.0.tgz#9dd689264d0cd6eca31512099c43e769850b14eb"
-  integrity sha512-JwGAYb6XRIRsadqJ9LoYy+kJC5QPB6HhHFsToPvdX/Hg3P0RBDHMIYt5ITkuRqWrEOkkdCYPt8p3jADH/0CRVw==
+  version "13.22.0"
+  resolved "https://registry.yarnpkg.com/react-use/-/react-use-13.22.0.tgz#92e5c29648cd7a86ac6bb208e4c79393e0b21153"
+  integrity sha512-6VpS/0x2fmiF60ZpLdXimy6wJZMgDg4O/QlyP6E6prOXKSrQfM7E9tMmBkiwu4oI1WjrrVp0N3W2bTbpRY9bbA==
   dependencies:
     "@types/js-cookie" "2.2.4"
     "@xobotyi/scrollbar-width" "1.5.0"
@@ -13356,9 +13356,9 @@ vary@~1.1.2:
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
 vendors@^1.0.0:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/vendors/-/vendors-1.0.3.tgz#a6467781abd366217c050f8202e7e50cc9eef8c0"
-  integrity sha512-fOi47nsJP5Wqefa43kyWSg80qF+Q3XA6MUkgi7Hp1HQaKDQW4cQrK2D0P7mmbFtsV1N89am55Yru/nyEwRubcw==
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/vendors/-/vendors-1.0.4.tgz#e2b800a53e7a29b93506c3cf41100d16c4c4ad8e"
+  integrity sha512-/juG65kTL4Cy2su4P8HjtkTxk6VmJDiOPBufWniqQ6wknac6jNiXS9vU+hO3wgusiyqWlzTbVHi0dyJqRONg3w==
 
 verror@1.10.0:
   version "1.10.0"
