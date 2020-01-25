@@ -25,6 +25,10 @@ msgstr "<0>Hei,<1/>Velkommen til guac.live — direktestrømming-platformen. Vi 
 msgid "ABOUT"
 msgstr "OM"
 
+#: components/layout/AccountMenu.js:29
+msgid "Admin"
+msgstr "Admin"
+
 #: pages/dashboard.js:180
 msgid "At last, make sure keyframe interval is set to <0>2</0>."
 msgstr "Til slutt, sørg for at keyframe interval er satt til <0>2</0>"
@@ -172,7 +176,7 @@ msgstr "Laster..."
 msgid "Log in"
 msgstr "Logg inn"
 
-#: components/layout/AccountMenu.js:29
+#: components/layout/AccountMenu.js:30
 msgid "Log out"
 msgstr "Logg ut"
 
