@@ -625,7 +625,35 @@ function ChatComponent(props){
 	return (
 		<>
 			<div className="flex flex-column flex-grow-1 flex-nowrap overflow-hidden">
-				<SimpleBar ref={ref} className="chat-messages flex-grow-1" style={{ height: '80vh' }}>
+				{
+					!isOverlay ?
+					(
+					<div className="chat-header items-center bb b--white-05 bg-black-50 flex flex-shrink-0 w-100 justify-center pl3 pr3">
+						<div className="items-center flex white">
+							<h5 className="f6 b ttu tracked"><Trans>Stream Chat</Trans></h5>
+						</div>
+						<div className="absolute mr3 right-0 white">
+							<a
+								href="#"
+								onClick={(e) => {
+									e&&e.preventDefault();
+									let commandClass;
+									if(commandClass = commands.get('users')){
+										let command = new commandClass(socket, channel, me, hasPrivilege, users);
+										command.run();
+									}
+								}} 
+								className="link color-inherit ph2 br2 bg-animate hover-bg-dark-gray outline-none" 
+								title="Users in chat"
+							>
+								<FontAwesomeIcon icon='user' />
+							</a>
+						</div>
+					</div>
+					)
+					: null
+				}
+				<SimpleBar ref={ref} className="chat-messages flex-grow-1" style={{ height: '78vh' }}>
 				{
 					messages
 					&&
