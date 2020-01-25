@@ -197,7 +197,7 @@ class PageLayout extends Component {
 					<meta property="twitter:creator" content="@datagutt" key="twitter:creator" />
 					<meta property="twitter:description" content="guac is a live streaming platform." key="twitter:description" />
 					<meta property="twitter:image" content="https://guac.live/img/header-logo.png" key="twitter:image" />
-					<script type="text/javascript" src="//privacy.guac.live/release/current/oil.1.3.1-alpha-RELEASE.min.js" nonce={this.props.nonce}></script>
+					<script type="text/javascript" src="//privacy.guac.live/release/current/oil.1.3.5-RELEASE.min.js" nonce={this.props.nonce}></script>
 				</Head>
 				<main className="w-100 h-100 flex flex-column flex-nowrap justify-between items-start page-wrapper">
 					<header className="z-5 w-100 h-100 ph3 pv2 bg-near-black ml-auto flex-shrink-0">
