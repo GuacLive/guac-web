@@ -78,7 +78,6 @@
     "react-process-string": "^1.2.0",
     "react-redux": "^7.1.0-alpha.4",
     "react-scripts": "^3.3.0-next.62",
-    "react-string-replace": "^0.4.4",
     "react-switch": "^5.0.0",
     "react-use": "^13.9.0",
     "redux": "^4.0.0",
