@@ -208,7 +208,7 @@ function ChatComponent(props){
 					}
 
 					return (
-						<span key={'u-' + i + '-'  + (new Date).getTime()} dangerouslySetInnerHTML={{__html: `${embed.format(msg.content)}${i !== messages.length -1 ? '\u00A0' : ''}`}}></span>
+						<span key={'u-' + i + '-'  + (new Date).getTime()}>{embed.format(msg.content)}{i !== messages.length -1 ? '\u00A0' : ''}</span>
 					);
 				break;
 				default:
