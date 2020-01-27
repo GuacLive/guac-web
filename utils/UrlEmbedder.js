@@ -1,5 +1,5 @@
-
-import linkifyHtml from 'linkifyjs/html';
+import processString from 'react-process-string';
+import Linkify from 'linkifyjs/react';
 export default class UrlEmbedder {
 	GIPHY_REGEX = /https?:\/\/(\?|media[0-9]{0,61}\.giphy\.com\/media\/([^ /\n]+)\/giphy\.gif|i\.giphy\.com\/([^ /\n]+)\.gif|giphy\.com\/gifs\/(?:.*-)?([^ /\n]+))/i
 	YOUTUBE_REGEX = null
@@ -8,17 +8,11 @@ export default class UrlEmbedder {
 		if(!str) return;
 		const self = this;
 		// Giphy
-		str = str.replace(self.GIPHY_REGEX, (url) => {
-			if(url){
-				return `<img src="${url}" alt="GIF from Giphy" title="GIF from Giphy" class="flex mw4" />`;
-			}
-			return url;
-		});
-		console.log(str);
-		// Linkify the rest of urls
-		if(!str.match(self.GIPHY_REGEX)){
-			str = linkifyHtml(str);
-		}
-		return str;
+		let config = [{
+            regex: self.GIPHY_REGEX,
+            fn: (key, result) => <img key={key} src={result[0]} alt="GIF from Giphy" title="GIF from Giphy" className="flex mw4" />
+		}];
+		str = processString(config)(str);
+		return <Linkify>{str}</Linkify>;
 	}
 }
