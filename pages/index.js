@@ -49,7 +49,7 @@ class IndexPage extends Component {
 				if(stream.urls.flv){
 					videoJsOptions.sources.push({
 						src: typeof window === 'object' && 'WebSocket' in window
-							? `${window.location.protocol === 'https:' ? 'wss' : 'ws'}:${flvUrl}`
+							? `wss:${flvUrl}`
 							: flvUrl,
 						type: 'video/x-flv',
 						label: STREAMING_SERVER + `(FLV)`
