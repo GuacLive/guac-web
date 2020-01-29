@@ -63,18 +63,18 @@ class ChannelsPage extends Component {
 						{channels.data && channels.data.map((channel) => {
 							return (
 								<div className="site-component-channels__channel w-33 pa2" key={`channel_${channel.id}`}>
-									<Link href={`/c/${channel.name}`}>
+									<Link href={`/c/[name]`} as={`/c/${channel.name}`}>
 										<a><Image src={channel.thumbnail} shape="rounded" fit="contain" flexible lazyload /></a>
 									</Link>
 									<div className="pa2">
 										<span className="f5 db link green">
-											<Link href={`/c/${channel.name}`}>
+											<Link href={`/c/[name]`} as={`/c/${channel.name}`}>
 												<a className="link color-inherit">{channel.title}</a>
 											</Link>
 										</span>
 										<span className="f6 gray mv1">
 											<p>
-													<Link href={`/c/${channel.name}`}>
+													<Link href={`/c/[name]`} as={`/c/${channel.name}`}>
 														<a className="link color-inherit b">{channel.name}</a>
 													</Link>
 													<br />
