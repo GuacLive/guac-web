@@ -15,21 +15,7 @@ import * as Sentry from '@sentry/browser';
 
 Sentry.init({
 	dsn: process.env.SENTRY_DSN,
-	debug: true,
-	beforeSend(event) {
-		console.log('beforeSend', event);
-		if(event.extra && event.extra.state){
-			if(event.extra.state.authentication){
-				// Don't send user's token
-				delete event.extra.state.authentication.token;
-			}
-			if(event.extra.state.streaming){
-				// Don't send user's streaming key
-				delete event.extra.state.streaming.key;
-			}
-		}
-		return event;
-	}
+	debug: true
 });
 
 const middlewares = [
