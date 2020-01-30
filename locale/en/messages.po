@@ -21,7 +21,7 @@ msgstr "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are curre
 #~ msgid "<0>{0}</0> is live"
 #~ msgstr "<0>{0}</0> is live"
 
-#: pages/c/[name].js:162
+#: pages/c/[name].js:166
 msgid "ABOUT"
 msgstr "ABOUT"
 
@@ -41,7 +41,7 @@ msgstr "Breaking the law"
 msgid "Category:"
 msgstr "Category:"
 
-#: pages/c/[name].js:229
+#: pages/c/[name].js:233
 msgid "Channel not found"
 msgstr "Channel not found"
 
@@ -115,12 +115,20 @@ msgid "First, choose the streaming server closest to you:"
 msgstr "First, choose the streaming server closest to you:"
 
 #: pages/c/[name].js:143
-msgid "Follow"
-msgstr "Follow"
+#~ msgid "Follow"
+#~ msgstr "Follow"
+
+#: pages/c/[name].js:147
+msgid "Follow ({0})"
+msgstr "Follow ({0})"
 
 #: components/layout/PageLayout.js:110
 msgid "Followed Channels"
 msgstr "Followed Channels"
+
+#: pages/c/[name].js:146
+msgid "Following ({0})"
+msgstr "Following ({0})"
 
 #: pages/auth/login.js:68
 #: pages/auth/register.js:67
@@ -164,7 +172,7 @@ msgstr "Live streams"
 
 #: components/Chat/index.js:478
 #: components/Search/SearchBar.js:83
-#: pages/c/[name].js:228
+#: pages/c/[name].js:232
 msgid "Loading..."
 msgstr "Loading..."
 
@@ -238,7 +246,7 @@ msgstr "Privacy Policy"
 msgid "Private (don't show in categories, frontpage or search):"
 msgstr "Private (don't show in categories, frontpage or search):"
 
-#: pages/c/[name].js:171
+#: pages/c/[name].js:175
 msgid "REPLAYS"
 msgstr "REPLAYS"
 
@@ -299,7 +307,7 @@ msgstr "Stream preview"
 msgid "Stream settings"
 msgstr "Stream settings"
 
-#: pages/c/[name].js:144
+#: pages/c/[name].js:148
 msgid "Subscribe"
 msgstr "Subscribe"
 
@@ -344,14 +352,14 @@ msgid "Unban user"
 msgstr "Unban user"
 
 #: pages/c/[name].js:142
-msgid "Unfollow"
-msgstr "Unfollow"
+#~ msgid "Unfollow"
+#~ msgstr "Unfollow"
 
 #: pages/_error.js:42
 msgid "Unknown error"
 msgstr "Unknown error"
 
-#: pages/c/[name].js:211
+#: pages/c/[name].js:215
 msgid "User has been banned"
 msgstr "User has been banned"
 
@@ -396,7 +404,7 @@ msgstr "message"
 msgid "no streams are online"
 msgstr "no streams are online"
 
-#: pages/c/[name].js:149
+#: pages/c/[name].js:153
 msgid "playing"
 msgstr "playing"
 
@@ -417,6 +425,6 @@ msgstr "seconds"
 msgid "user"
 msgstr "user"
 
-#: pages/c/[name].js:214
+#: pages/c/[name].js:218
 msgid "{0} has been banned from the site."
 msgstr "{0} has been banned from the site."
