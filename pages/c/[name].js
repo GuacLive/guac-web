@@ -29,6 +29,10 @@ import * as actions from '../../actions';
 import log from '../../utils/log';
 import ReplaysList from '../../components/Replays/ReplaysList'
 
+function kFormatter(num){
+	return Math.abs(num) > 999 ? Math.sign(num) * ((Math.abs(num) / 1000).toFixed(1)) + 'k' : Math.sign(num) * Math.abs(num);
+}
+
 const STREAMING_SERVER = 'eu';
 class ChannelPage extends Component {
 	constructor(props){
@@ -138,9 +142,9 @@ class ChannelPage extends Component {
 						: ''
 					}
 					</div>
-
-					{stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={this.follow}><Trans>Unfollow</Trans></GuacButton>}
-					{!stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={this.follow}><Trans>Follow</Trans></GuacButton>}
+					{!authentication.token && <span className="f5 primary ml1 mr2">Followers · {kFormatter(stream.followers)}</span>}
+					{stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={this.follow}><Trans>Following ({kFormatter(stream.followers)})</Trans></GuacButton>}
+					{!stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={this.follow}><Trans>Follow ({kFormatter(stream.followers)})</Trans></GuacButton>}
 					{stream.type == 'PARTNER' && <GuacButton color="green"><Trans>Subscribe</Trans></GuacButton>}
 					<div>
 						<span className="b f4 primary">
