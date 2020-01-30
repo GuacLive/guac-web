@@ -209,7 +209,7 @@ class PageLayout extends Component {
 									</a>
 								</Link>
 							</div>
-							<div className="dn-l flex-shrink-0 pointer pa2 transition-transform" onClick={
+							<div className="dn-l flex-shrink-0 pointer pa2 transition-transform white" onClick={
 								() => {
 									this.setState({
 										overrideSidebar: !this.state.overrideSidebar
