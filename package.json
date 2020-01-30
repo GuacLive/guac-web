@@ -65,7 +65,7 @@
     "next-redux-wrapper": "^4.0.0",
     "next-server": "^9.0.6-canary.0",
     "now": "^16.6.2",
-    "nuka-carousel": "^4.5.13",
+    "nuka-carousel": "4.6.1",
     "path-match": "^1.2.4",
     "postcss-css-variables": "^0.13.0",
     "postcss-import": "^12.0.1",
