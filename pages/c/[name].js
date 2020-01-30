@@ -142,9 +142,9 @@ class ChannelPage extends Component {
 						: ''
 					}
 					</div>
-					{!authentication.token && <span className="f5 primary ml1 mr2"><Trans>Followers · {kFormatter(stream.followers)}</Trans></span>}
-					{stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={this.follow}><Trans>Following ({kFormatter(stream.followers)})</Trans></GuacButton>}
-					{!stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={this.follow}><Trans>Follow ({kFormatter(stream.followers)})</Trans></GuacButton>}
+					{!authentication.token && <span className="f5 primary ml1 mr2"><Trans>Followers</Trans> · {kFormatter(stream.followers)}</span>}
+					{stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={this.follow}><Trans>Following</Trans> ({kFormatter(stream.followers)})</GuacButton>}
+					{!stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={this.follow}><Trans>Follow</Trans> ({kFormatter(stream.followers)})</GuacButton>}
 					{stream.type == 'PARTNER' && <GuacButton color="green"><Trans>Subscribe</Trans></GuacButton>}
 					<div>
 						<span className="b f4 primary">

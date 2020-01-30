@@ -115,20 +115,20 @@ msgid "First, choose the streaming server closest to you:"
 msgstr "Først, velg strømmeserveren som er nærmest deg:"
 
 #: pages/c/[name].js:147
-msgid "Follow ({0})"
-msgstr "Følg ({0})"
+msgid "Follow"
+msgstr "Følg"
 
 #: components/layout/PageLayout.js:110
 msgid "Followed Channels"
 msgstr "Fulgte kanaler"
 
 #: pages/c/[name].js:145
-msgid "Followers · {0}"
-msgstr "Følgere · {0}"
+msgid "Followers"
+msgstr "Følgere"
 
 #: pages/c/[name].js:146
-msgid "Following ({0})"
-msgstr "Følger ({0})"
+msgid "Following"
+msgstr "Følger"
 
 #: pages/auth/login.js:68
 #: pages/auth/register.js:67

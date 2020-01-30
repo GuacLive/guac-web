@@ -114,25 +114,33 @@ msgstr "Error"
 msgid "First, choose the streaming server closest to you:"
 msgstr "First, choose the streaming server closest to you:"
 
-#: pages/c/[name].js:143
-#~ msgid "Follow"
-#~ msgstr "Follow"
+#: pages/c/[name].js:147
+msgid "Follow"
+msgstr "Follow"
 
 #: pages/c/[name].js:147
-msgid "Follow ({0})"
-msgstr "Follow ({0})"
+#~ msgid "Follow ({0})"
+#~ msgstr "Follow ({0})"
 
 #: components/layout/PageLayout.js:110
 msgid "Followed Channels"
 msgstr "Followed Channels"
 
 #: pages/c/[name].js:145
-msgid "Followers · {0}"
-msgstr "Followers · {0}"
+msgid "Followers"
+msgstr "Followers"
+
+#: pages/c/[name].js:145
+#~ msgid "Followers · {0}"
+#~ msgstr "Followers · {0}"
 
 #: pages/c/[name].js:146
-msgid "Following ({0})"
-msgstr "Following ({0})"
+msgid "Following"
+msgstr "Following"
+
+#: pages/c/[name].js:146
+#~ msgid "Following ({0})"
+#~ msgstr "Following ({0})"
 
 #: pages/auth/login.js:68
 #: pages/auth/register.js:67
