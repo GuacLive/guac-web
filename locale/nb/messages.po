@@ -122,6 +122,10 @@ msgstr "Følg ({0})"
 msgid "Followed Channels"
 msgstr "Fulgte kanaler"
 
+#: pages/c/[name].js:145
+msgid "Followers · {0}"
+msgstr "Følgere · {0}"
+
 #: pages/c/[name].js:146
 msgid "Following ({0})"
 msgstr "Følger ({0})"
