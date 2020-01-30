@@ -21,7 +21,7 @@ msgstr "<0>Hei,<1/>Velkommen til guac.live — direktestrømming-platformen. Vi 
 #~ msgid "<0>{0}</0> is live"
 #~ msgstr "<0>{0}</0> sender direkte"
 
-#: pages/c/[name].js:162
+#: pages/c/[name].js:166
 msgid "ABOUT"
 msgstr "OM"
 
@@ -41,7 +41,7 @@ msgstr "Å bryte loven"
 msgid "Category:"
 msgstr "Kategori:"
 
-#: pages/c/[name].js:229
+#: pages/c/[name].js:233
 msgid "Channel not found"
 msgstr "Kanal ikke funnet"
 
@@ -114,13 +114,21 @@ msgstr "Feil"
 msgid "First, choose the streaming server closest to you:"
 msgstr "Først, velg strømmeserveren som er nærmest deg:"
 
-#: pages/c/[name].js:143
-msgid "Follow"
-msgstr "Følg"
+#: pages/c/[name].js:147
+msgid "Follow ({0})"
+msgstr "Følg ({0})"
 
 #: components/layout/PageLayout.js:110
 msgid "Followed Channels"
 msgstr "Fulgte kanaler"
+
+#: pages/c/[name].js:145
+msgid "Followers · {0}"
+msgstr "Følgere · {0}"
+
+#: pages/c/[name].js:146
+msgid "Following ({0})"
+msgstr "Følger ({0})"
 
 #: pages/auth/login.js:68
 #: pages/auth/register.js:67
@@ -164,7 +172,7 @@ msgstr "Direktesendinger"
 
 #: components/Chat/index.js:478
 #: components/Search/SearchBar.js:83
-#: pages/c/[name].js:228
+#: pages/c/[name].js:232
 msgid "Loading..."
 msgstr "Laster..."
 
@@ -238,7 +246,7 @@ msgstr "Personvern"
 msgid "Private (don't show in categories, frontpage or search):"
 msgstr "Privat (vises ikke i kategorier, forsisden eller i søk):"
 
-#: pages/c/[name].js:171
+#: pages/c/[name].js:175
 msgid "REPLAYS"
 msgstr "ARKIV"
 
@@ -299,7 +307,7 @@ msgstr "Strømmeforhåndsvisning"
 msgid "Stream settings"
 msgstr "Strømmeinnstillinger"
 
-#: pages/c/[name].js:144
+#: pages/c/[name].js:148
 msgid "Subscribe"
 msgstr "Abonnér"
 
@@ -339,15 +347,11 @@ msgstr "Tidsmerking"
 msgid "Unban user"
 msgstr "Fjern utestenging av bruker"
 
-#: pages/c/[name].js:142
-msgid "Unfollow"
-msgstr "Avfølg"
-
 #: pages/_error.js:42
 msgid "Unknown error"
 msgstr "Ukjent feil"
 
-#: pages/c/[name].js:211
+#: pages/c/[name].js:215
 msgid "User has been banned"
 msgstr "Brukeren har blitt utestengt"
 
@@ -392,7 +396,7 @@ msgstr "melding"
 msgid "no streams are online"
 msgstr "ingen aktive direktesendinger"
 
-#: pages/c/[name].js:149
+#: pages/c/[name].js:153
 msgid "playing"
 msgstr "spiller"
 
@@ -409,6 +413,6 @@ msgstr "sekunder"
 msgid "user"
 msgstr "bruker"
 
-#: pages/c/[name].js:214
+#: pages/c/[name].js:218
 msgid "{0} has been banned from the site."
 msgstr "{0} har blitt utestengt fra nettstedet."
