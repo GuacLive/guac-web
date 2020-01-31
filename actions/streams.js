@@ -104,7 +104,7 @@ export const banUser = (token, user = '', reason = '') => async (dispatch) => {
 	});
 };
 
-export const giveStreamPermission = (token, user = '') => async (dispatch) => {
+export const giveStreamPermission = (token, username = '') => async (dispatch) => {
 	dispatch({
 		type: 'GIVE_PERMISSION_REQUEST'
 	});
@@ -115,7 +115,7 @@ export const giveStreamPermission = (token, user = '') => async (dispatch) => {
 		},
 		accessToken: token,
 		body: JSON.stringify({
-			user
+			username
 		})
 	})
 	.then(response => response.json())
