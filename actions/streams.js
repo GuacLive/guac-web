@@ -72,11 +72,16 @@ export const banUser = (token, user = '', reason = '') => async (dispatch) => {
 	dispatch({
 		type: 'BAN_USER_REQUEST'
 	});
-	return callApi('/admin/banUser/' + user, {
+	return callApi('/admin/user/ban', {
+		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		accessToken: token
+		accessToken: token,
+		body: JSON.stringify({
+			user_id: user,
+			reason
+		})
 	})
 	.then(response => response.json())
 	.then((json) => {
@@ -98,3 +103,39 @@ export const banUser = (token, user = '', reason = '') => async (dispatch) => {
         });
 	});
 };
+
+export const giveStreamPermission = (token, user = '') => async (dispatch) => {
+	dispatch({
+		type: 'GIVE_PERMISSION_REQUEST'
+	});
+	return callApi('/admin/stream', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		accessToken: token,
+		body: JSON.stringify({
+			user
+		})
+	})
+	.then(response => response.json())
+	.then((json) => {
+		if (json.statusCode == 200) {
+			dispatch(Object.assign({
+				type: 'GIVE_PERMISSION_SUCCESS'
+			}, json));
+		} else {
+			dispatch({
+				type: 'GIVE_PERMISSION_FAILURE',
+				error: new Error('Invalid status code in give permission json: ' + JSON.stringify(json))
+			});
+		}
+	})
+	.catch(error => {
+        dispatch({
+          type: 'GIVE_PERMISSION_FAILURE',
+          error
+        });
+	});
+};
+giveStreamPermission
