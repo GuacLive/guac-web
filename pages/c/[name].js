@@ -8,6 +8,8 @@ import dynamic from 'next/dynamic'
 
 import { Trans } from '@lingui/macro'
 
+import moment from 'moment';
+
 import Chat from '../../components/Chat'
 
 import GuacButton from '../../components/GuacButton'
@@ -142,10 +144,25 @@ class ChannelPage extends Component {
 						: ''
 					}
 					</div>
+					<div className="inline-flex align-items-center pr2 primary f6">
+					{stream.live
+						?
+							<>
+							{stream.liveAt !== null &&  
+								<span className="">
+									<FontAwesomeIcon icon='clock' />
+									&nbsp;
+									{moment(stream.liveAt).fromNow(true)}
+								</span>
+							}
+							</>
+						: ''
+					}
+					</div>
 					{!authentication.token && <span className="f5 primary ml1 mr2"><Trans>Followers</Trans> · {kFormatter(stream.followers)}</span>}
 					{stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={this.follow}><Trans>Following</Trans> ({kFormatter(stream.followers)})</GuacButton>}
 					{!stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={this.follow}><Trans>Follow</Trans> ({kFormatter(stream.followers)})</GuacButton>}
-					{stream.type == 'PARTNER' && <GuacButton color="green"><Trans>Subscribe</Trans></GuacButton>}
+					{false && stream.type == 'PARTNER' && <GuacButton color="green"><Trans>Subscribe</Trans></GuacButton>}
 					<div>
 						<span className="b f4 primary">
 							{stream.title}
