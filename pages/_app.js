@@ -25,7 +25,7 @@ import { initializeFirebase, initializePush } from '../utils/push-notification';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 
-import { faBan, faBars, faCheck, faCheckCircle, faHourglass, faHome, faVideo, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog, faMinusCircle, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faBan, faBars, faCheck, faCheckCircle, faClock, faHourglass, faHome, faVideo, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog, faMinusCircle, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 import * as Sentry from '@sentry/browser';
 
@@ -35,7 +35,7 @@ import 'simplebar/dist/simplebar.css';
 if(typeof document !== 'undefined'){
 	require('!style-loader!css-loader!video.js/dist/video-js.css')
 }
-library.add(faBan, faBars, faCheck, faCheckCircle, faHourglass, faHome, faVideo, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog, faMinusCircle, faTrash);
+library.add(faBan, faBars, faCheck, faCheckCircle, faClock, faHourglass, faHome, faVideo, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog, faMinusCircle, faTrash);
 export default withRedux(configureStore)(class MyApp extends App {
 	static async getInitialProps(appContext) {
 		const { ctx } = appContext;
