@@ -129,7 +129,7 @@ class ChannelPage extends Component {
 					}
 					{stream.live ? <span className="ph2 bg-red f6 tc inline-flex white mh3">LIVE</span> : ''}
 					</h2>
-					<div className="inline-flex align-items-center pr2 red f6">
+					<div className="inline-flex items-center pr2 red f6">
 					{stream.live
 						?
 							<>
@@ -144,7 +144,7 @@ class ChannelPage extends Component {
 						: ''
 					}
 					</div>
-					<div className="inline-flex align-items-center pr2 primary f6">
+					<div className="inline-flex items-center pr2 primary f6">
 					{stream.live
 						?
 							<>
