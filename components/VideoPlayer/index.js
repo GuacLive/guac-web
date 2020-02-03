@@ -72,6 +72,8 @@ function VideoPlayer(props) {
 				hls: {
 					overrideNative: !videojs.browser.IS_SAFARI,
 					allowSeeksWithinUnsafeLiveWindow: true,
+					enableLowInitialPlaylist: true,
+					handlePartialData: true,	  
 				},
 				nativeVideoTracks: true,
 				nativeAudioTracks: true,
