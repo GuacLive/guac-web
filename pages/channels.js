@@ -79,9 +79,9 @@ class ChannelsPage extends Component {
 													</Link>
 													<br />
 													is playing&nbsp;
-													<Link href={`/category/${channel.category_id}`}>
-													<a className="link color-inherit b">{channel.category_name}</a>
-												</Link>
+													<Link href={`/category/[id}`} href={`/category/${channel.category_id}`}>
+														<a className="link color-inherit b">{channel.category_name}</a>
+													</Link>
 											</p>
 										</span>
 										<GuacButton url={`/c/${channel.name}`} color="dark-green">Watch</GuacButton>

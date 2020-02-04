@@ -6,10 +6,12 @@ import * as actions from '../actions';
 
 import { Trans } from '@lingui/macro';
 
+import Link from 'next/link';
+
 class CategoriesPage extends Component {
 	static async getInitialProps({store}) {
-		const { channels } = store.getState()
-		if(channels.loading){
+		const { categories } = store.getState()
+		if(categories.loading){
 			await store.dispatch(actions.fetchCategories());
 		}
 		return {
@@ -25,13 +27,13 @@ class CategoriesPage extends Component {
 				<div className="w-100">
 					<h2 className="f2 tracked mt0 mb3"><Trans>Games</Trans></h2>
 					<div className="site-component-categories flex flex-row flex-wrap w-100" style={{flexGrow: 1}}>
-					<Trans>Coming soon.</Trans>
 					{categories.data && categories.data.map((category) => {
-						return false;
 						return (
-							<div className="site-component-categories_category w-100 pa2" key={`category_${category.id}`}>
+							<div className="site-component-categories_category w-100 pa2" key={`category_${category.category_id}`}>
 								<div className="pa2">
-									<span className="f5 db link green">{category.name}</span>
+									<Link href={`/category/[id}`} href={`/category/${category.category_id}`}>
+										<a className="f5 db link green">{category.name}</a>
+									</Link>
 								</div>
 							</div>
 						);
