@@ -133,7 +133,7 @@ class PageLayout extends Component {
 										.map((u) => {
 											return (
 												<div key={'followed-' + u.username} className="site-component-fUser items-center flex relative ph4 pv2 white">
-													<Link href={`/c/${u.username}`}>
+													<Link href="/c/[name]" as={`/c/${u.username}`}>
 														<a className="inline-flex v-mid mr2 w2 h2">
 															<Image
 																src={u.avatar || '//api.guac.live/avatars/unknown.png'}
@@ -146,10 +146,12 @@ class PageLayout extends Component {
 													</Link>
 													<div className="overflow-hidden dn db-l">
 														<div className="site-component-fUser__name inline-flex items-center v-bottom">
-															<a className="link white" href={'/c/' + u.username}>
-																{u.username}
-																{+u.live ? <span className="ph2 bg-red f6 tc inline-flex white mh3">LIVE</span> : ''}
-															</a>
+															<Link href="/c/[name]" as={`/c/${u.username}`}>	
+																<a className="link white">
+																	{u.username}
+																	{+u.live ? <span className="ph2 bg-red f6 tc inline-flex white mh3">LIVE</span> : ''}
+																</a>
+															</Link>
 														</div>
 														<div className="site-component-fUser__category truncate"><small>{u.title}</small></div>
 													</div>

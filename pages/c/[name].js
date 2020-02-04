@@ -53,9 +53,9 @@ class ChannelPage extends Component {
 	static async getInitialProps({store, isServer, pathname, query, req}){
 		const { channel, site } = store.getState()
 		log('info', 'Channel', query.name);
-		if(channel.loading){
+		//if(channel.loading){
 			await store.dispatch(actions.fetchChannel(query.name));
-		}
+		//}
 		return {...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})};
 	}
 	
