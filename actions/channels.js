@@ -5,11 +5,11 @@ export function resetChannels() {
 		type: 'SET_CHANNELS'
 	};
 }
-export const fetchChannels = (onlyLive) => async (dispatch) => {
+export const fetchChannels = (onlyLive, category) => async (dispatch) => {
 	dispatch({
 		type: 'FETCH_CHANNELS_REQUEST'
 	});
-	return callApi('/channels?live=' + +onlyLive)
+	return callApi(`/channels?live=${onlyLive}&category=${category}`)
 	.then(response => response.json())
 	.then((json) => {
 		if (json.statusCode == 200) {
