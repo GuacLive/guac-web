@@ -411,7 +411,6 @@ function ChatComponent(props){
 			socket.on('delete', handleDelete);
 			socket.on('connect', () => {
 				setConnectedStatus(true);
-				socket.emit('join', authentication.token || null);
 			});
 			socket.on('disconnect', () => {
 				setConnectedStatus(false)
@@ -419,7 +418,6 @@ function ChatComponent(props){
 			socket.on('reconnect', () => {
 				log('info', 'Chat', 'reconnect');
 				setConnectedStatus(true);
-				socket.emit('join', authentication.token || null);
 			});
 		}
 			
@@ -439,8 +437,8 @@ function ChatComponent(props){
 	// If token changes, join with the new one
 	// Is this really necessary? I just added because it might fix some issues
 	useEffect(() => {
-		if(socket) socket.emit('join', authentication.token);
-	}, [authentication && authentication.token]);
+		if(socket && connectedStatus) socket.emit('join', authentication.token || null);
+	}, [authentication.token, connectedStatus]);
 
 	// Handle simplebar calculation
 	if(process.browser){
