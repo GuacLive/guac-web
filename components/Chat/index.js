@@ -337,7 +337,7 @@ function ChatComponent(props){
 			let commandClass;
 			log('info', 'Chat', 'We got a command', args, command);
 			if(commandClass = commands.get(command)){
-				let command = new commandClass(socket, channel, me, hasPrivilege, users);
+				let command = new commandClass(socket, channel, me, authentication.token, hasPrivilege, users);
 				command.run(args);
 			}
 		}else{
@@ -425,6 +425,7 @@ function ChatComponent(props){
 		return function cleanup(){
       		didCancel = true;
 			if(socket){
+				socket.emit('disconnect');
 				socket.removeAllListeners();
 				socket.off('connect');
 				socket.off('disconnect');
@@ -637,7 +638,7 @@ function ChatComponent(props){
 									e&&e.preventDefault();
 									let commandClass;
 									if(commandClass = commands.get('users')){
-										let command = new commandClass(socket, channel, me, hasPrivilege, users);
+										let command = new commandClass(socket, channel, me, authentication.token, hasPrivilege, users);
 										command.run();
 									}
 								}} 
