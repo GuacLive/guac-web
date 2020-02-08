@@ -63,3 +63,4 @@ config/
 .next/
 yarn-error.log
 locale/_build/
+.now
