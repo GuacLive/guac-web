@@ -35,7 +35,7 @@ class ChannelsPage extends Component {
 
 	async componentDidUpdate(prevProps, prevState) {
 		if(this.state.onlyLive !== prevState.onlyLive){
-			await this.props.dispatch(actions.fetchChannels(this.state.onlyLive));
+			await this.props.dispatch(actions.fetchChannels(this.state.onlyLive, ''));
 		}
 	}
 
