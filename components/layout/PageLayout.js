@@ -120,14 +120,14 @@ class PageLayout extends Component {
 								}
 								{
 									followed &&
-									followed
+										[].concat(followed)
 										.sort((a, b) => {
 											if(a.live === b.live){
-												return 0;
-											}else if(a.live){
-												return -1;
-											}else{
 												return 1;
+											}else if(a.live){
+												return 0;
+											}else{
+												return -1;
 											}
 										})
 										.map((u) => {
