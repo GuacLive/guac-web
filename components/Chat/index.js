@@ -451,7 +451,7 @@ function ChatComponent(props){
 					// Scroll to last message
 					const contentEl = ref.current.getContentElement();
 					const lastMsg = contentEl.querySelector('div:last-child');
-					if(lastMsg){
+					if(lastMsg && lastMsg.scrollIntoView){
 						lastMsg.scrollIntoView({
 							behavior: 'smooth',
 							block: 'nearest',
