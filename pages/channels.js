@@ -26,7 +26,7 @@ class ChannelsPage extends Component {
 	static async getInitialProps({store}) {
 		const { channels } = store.getState()
 		if(channels.loading){
-			await store.dispatch(actions.fetchChannels(true));
+			await store.dispatch(actions.fetchChannels(1));
 		}
 		return {
 			...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})
@@ -35,7 +35,7 @@ class ChannelsPage extends Component {
 
 	async componentDidUpdate(prevProps, prevState) {
 		if(this.state.onlyLive !== prevState.onlyLive){
-			await this.props.dispatch(actions.fetchChannels(this.state.onlyLive, ''));
+			await this.props.dispatch(actions.fetchChannels(this.state.onlyLive ? 1 : 0, ''));
 		}
 	}
 
