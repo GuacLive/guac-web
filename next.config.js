@@ -68,6 +68,7 @@ module.exports = nextSourceMaps({
 	env: {
 		API_URL: process.env.API_URL || 'http://api.local.guac.live',
 		CHAT_URL: process.env.CHAT_URL || 'http://chat.local.guac.live',
+		VIEWER_API_URL: process.env.VIEWER_API_URL || 'http://viewer-api.local.guac.live',
 		GIPHY_API_KEY: process.env.GIPHY_API_KEY,
 		SENTRY_DSN: process.env.SENTRY_DSN,
 		OIL_CONFIG: {
