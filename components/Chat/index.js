@@ -174,11 +174,11 @@ function ChatComponent(props){
 	}
 
 	const handleViewers = (viewers) => {
-		log('info', 'Chat', 'Viewers: ' + viewers);
-		dispatch({
-			type: 'SET_CHANNEL_VIEWERS',
-			viewers
-		});
+		log('info', 'Chat', 'Chatters: ' + viewers);
+		//dispatch({
+		//	type: 'SET_CHANNEL_VIEWERS',
+		//	viewers
+		//});
 	}
 
 	const handleMessage = (user, msgID, messages) => {

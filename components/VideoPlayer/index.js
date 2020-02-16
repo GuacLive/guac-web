@@ -95,30 +95,38 @@ function VideoPlayer(props) {
 			window.videojs = videojs;
 		}
 
-		let viewerAPISocket, didCancel = false;
+		let playbackAPISocket, didCancel = false;
+		let channel = props.streamInfo && props.streamInfo.username;
 
-		let connectToViewerAPI = () => {
-			viewerAPISocket = io(VIEWER_API_URL, {
-				transports: ['websocket']
-			});
-			viewerAPISocket.on('connect', () => {
-				log('info', 'ViewerAPI', `connected to ${channel}`);
-				viewerAPISocket.emit('channel', channel);
-			});
-			viewerAPISocket.on('reload', () => {
-				window.location.reload();
-			});
-			viewerAPISocket.on('redirect', (url) => {
-				window.location = url;
-			});
-			viewerAPISocket.on('live', (liveBoolean) => {
-				log('info', 'ViewerAPI', `socket sent live: ${liveBoolean}`);
-				props.live = liveBoolean;
-				dispatch(fetchChannel(props.streamInfo.username));
-			});
-			viewerAPISocket.on('reconnect', () => {
-				log('info', 'ViewerAPI', 'reconnect');
-			});
+		let connectToPlaybackAPI = () => {
+			if(!didCancel){
+				playbackAPISocket = io(`${VIEWER_API_URL}/playback`, {
+					transports: ['websocket']
+				});
+				playbackAPISocket.on('connect', () => {
+					log('info', 'PlaybackAPI', `connected to ${channel}`);
+					playbackAPISocket.emit('join', {
+						name: channel
+					});
+				});
+				playbackAPISocket.on('viewerCount', (data) => {
+					log('info', 'PlaybackAPI', `connected to ${channel}`);
+					if(!data || data.channel !== channel) return;
+					dispatch({
+						type: 'SET_CHANNEL_VIEWERS',
+						viewers: data.viewers
+					});
+				});
+				playbackAPISocket.on('disconnect', () => {
+					log('info', 'PlaybackAPI', `left ${channel}`);
+					playbackAPISocket.emit('leave', {
+						name: channel
+					});
+				});
+				playbackAPISocket.on('reconnect', () => {
+					log('info', 'PlaybackAPI', 'reconnect');
+				});
+			}
 		};
 
 		require('videojs-theater-mode/dist/videojs.theaterMode.js');
@@ -171,28 +179,28 @@ function VideoPlayer(props) {
 		}
 
 		player.on('pause', () => {
-			if(viewerAPISocket) {
-				if(viewerAPISocket.connected) {
-					viewerAPISocket.disconnect();
+			if(playbackAPISocket) {
+				if(playbackAPISocket.connected) {
+					playbackAPISocket.disconnect();
 				}
 			}
 		})
 		player.on('playing', () => {
-			if(viewerAPISocket == undefined){
-				connectToViewerAPI();
-			}else if(!viewerAPISocket.connected){
-				connectToViewerAPI();
+			if(playbackAPISocket == undefined){
+				connectToPlaybackAPI();
+			}else if(!playbackAPISocket.connected){
+				playbackAPISocket.connect();
 			}
 		});
 
 		player.on('error', (e) => {
-			if(viewerAPISocket){
-				if(viewerAPISocket.connected){
-					viewerAPISocket.disconnect();
+			if(playbackAPISocket){
+				if(playbackAPISocket.connected){
+					playbackAPISocket.disconnect();
 				}
 			}
 			if(e.code != 3){
-				player.error(null);
+				//player.error(null);
 				if(props.live){
 					//retry();
 				}
@@ -213,9 +221,12 @@ function VideoPlayer(props) {
 			if(player){
 				player.dispose();
 			}
-			if(viewerAPISocket){
-				viewerAPISocket.removeAllListeners();
-				viewerAPISocket.disconnect();
+			if(playbackAPISocket){
+				playbackAPISocket.emit('disconnect');
+				playbackAPISocket.removeAllListeners();
+				playbackAPISocket.off('connect');
+				playbackAPISocket.off('disconnect');
+				playbackAPISocket.disconnect();
 			}
 		};
 	  }, []);
