@@ -141,7 +141,7 @@ function VideoPlayer(props) {
 		require('videojs-hotkeys');
 		// instantiate Video.js
 		player = videojs(videoNode, videoJsOptions, function onPlayerReady() {
-			log('info', null, 'onPlayerReady', this);
+			log('info', 'VideoPlayer', 'onPlayerReady', this);
 		});
 		
         canAutoplay.video().then((obj) => {
@@ -200,9 +200,10 @@ function VideoPlayer(props) {
 				}
 			}
 			if(e.code != 3){
-				//player.error(null);
+				player.error(null);
 				if(props.live){
-					//retry();
+					this.player.poster = videoJsOptions.poster;
+					this.player.play();
 				}
 			}
 		});
