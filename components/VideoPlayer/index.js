@@ -10,8 +10,6 @@ import log from '../../utils/log';
 
 import { useDispatch } from 'react-redux';
 
-import { fetchChannel } from '../../actions';
-
 const OFFLINE_POSTER = '/img/offline-poster.png';
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
 function VideoPlayer(props) {
