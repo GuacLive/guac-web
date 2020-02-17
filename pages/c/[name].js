@@ -24,24 +24,57 @@ let VideoPlayer = dynamic(
 
 import {connect} from 'react-redux';
 
+import io from 'socket.io-client';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import * as actions from '../../actions';
 
 import log from '../../utils/log';
-import ReplaysList from '../../components/Replays/ReplaysList'
+import ReplaysList from '../../components/Replays/ReplaysList';
 
 function kFormatter(num){
 	return Math.abs(num) > 999 ? Math.sign(num) * ((Math.abs(num) / 1000).toFixed(1)) + 'k' : Math.sign(num) * Math.abs(num);
 }
 
 const STREAMING_SERVER = 'eu';
+const VIEWER_API_URL = process.env.VIEWER_API_URL;
 class ChannelPage extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
 			tab: 0
 		};
+	}
+
+	componentDidMount(){
+		const { channel } = this.props;
+		let channelAPISocket;
+		channelAPISocket = io(`${VIEWER_API_URL}/channel`, {
+			transports: ['websocket']
+		});
+		channelAPISocket.on('connect', () => {
+			channelAPISocket.emit('join', {
+				name: channel.data.name
+			});
+		});
+		channelAPISocket.on('disconnect', () => {
+			channelAPISocket.emit('leave', {
+				name: channel.data.name
+			});
+		});
+		channelAPISocket.on('reload', () => {
+			window.location.reload();
+		});
+		channelAPISocket.on('redirect', (url) => {
+			window.location = url;
+		});
+		channelAPISocket.on('live', (liveBoolean) => {
+			console.log(`socket sent live: ${liveBoolean}`);
+			setTimeout(async () => {
+				await this.props.dispatch(actions.fetchChannel(channel.data.name));
+			}, 3000);
+		});
 	}
 
 	switchTab(tab){

@@ -2,19 +2,26 @@ const videojs = require('video.js').default;
 import '@videojs/http-streaming';
 import 'videojs-errors';
 
+import io from 'socket.io-client';
+
 import {useEffect} from 'react';
 
 import log from '../../utils/log';
 
+import { useDispatch } from 'react-redux';
+
+const OFFLINE_POSTER = '/img/offline-poster.png';
+const VIEWER_API_URL = process.env.VIEWER_API_URL;
 function VideoPlayer(props) {
 	let player;
 	let videoNode;
+	const dispatch = useDispatch();
 	useEffect(() => {
 		const canAutoplay = require('can-autoplay').default;
 		const videoJsOptions = {
 			errorDisplay: false,
 			liveui: false,
-			poster: !props.live ? '/img/offline-poster.png' : '',
+			poster: !props.live ? OFFLINE_POSTER : '',
 			plugins: {
 				chromecast: {
 					appId: '50E3A992',
@@ -81,8 +88,45 @@ function VideoPlayer(props) {
 			};
 		}
 
-		if(window) window.flvjs = require('flv.js').default;
-		if(window) window.videojs = videojs;
+		if(window){
+			window.flvjs = require('flv.js').default;
+			window.videojs = videojs;
+		}
+
+		let playbackAPISocket, didCancel = false;
+		let channel = props.streamInfo && props.streamInfo.username;
+
+		let connectToPlaybackAPI = () => {
+			if(!didCancel){
+				playbackAPISocket = io(`${VIEWER_API_URL}/playback`, {
+					transports: ['websocket']
+				});
+				playbackAPISocket.on('connect', () => {
+					log('info', 'PlaybackAPI', `connected to ${channel}`);
+					playbackAPISocket.emit('join', {
+						name: channel
+					});
+				});
+				playbackAPISocket.on('viewerCount', (data) => {
+					log('info', 'PlaybackAPI', `connected to ${channel}`);
+					if(!data || data.channel !== channel) return;
+					dispatch({
+						type: 'SET_CHANNEL_VIEWERS',
+						viewers: data.viewers
+					});
+				});
+				playbackAPISocket.on('disconnect', () => {
+					log('info', 'PlaybackAPI', `left ${channel}`);
+					playbackAPISocket.emit('leave', {
+						name: channel
+					});
+				});
+				playbackAPISocket.on('reconnect', () => {
+					log('info', 'PlaybackAPI', 'reconnect');
+				});
+			}
+		};
+
 		require('videojs-theater-mode/dist/videojs.theaterMode.js');
 		require('../../videojs-flvjs.js');
 		require('../../videojs-persistvolume.js');
@@ -95,7 +139,7 @@ function VideoPlayer(props) {
 		require('videojs-hotkeys');
 		// instantiate Video.js
 		player = videojs(videoNode, videoJsOptions, function onPlayerReady() {
-			log('info', null, 'onPlayerReady', this);
+			log('info', 'VideoPlayer', 'onPlayerReady', this);
 		});
 		
         canAutoplay.video().then((obj) => {
@@ -132,6 +176,35 @@ function VideoPlayer(props) {
 			});
 		}
 
+		player.on('pause', () => {
+			if(playbackAPISocket) {
+				if(playbackAPISocket.connected) {
+					playbackAPISocket.disconnect();
+				}
+			}
+		})
+		player.on('playing', () => {
+			if(playbackAPISocket == undefined){
+				connectToPlaybackAPI();
+			}else if(!playbackAPISocket.connected){
+				playbackAPISocket.connect();
+			}
+		});
+
+		player.on('error', (e) => {
+			if(playbackAPISocket){
+				if(playbackAPISocket.connected){
+					playbackAPISocket.disconnect();
+				}
+			}
+			if(e.code != 3){
+				player.error(null);
+				if(props.live){
+					this.player.poster = videoJsOptions.poster;
+					this.player.play();
+				}
+			}
+		});
 
 		player.on('theaterMode', function (elm, data){
 			if(data.theaterModeIsOn){
@@ -140,10 +213,19 @@ function VideoPlayer(props) {
 				player.fill(false);
 			}
 		});
+
 		// Specify how to clean up after this effect:
 		return function cleanup() {
+			didCancel = true;
 			if(player){
 				player.dispose();
+			}
+			if(playbackAPISocket){
+				playbackAPISocket.emit('disconnect');
+				playbackAPISocket.removeAllListeners();
+				playbackAPISocket.off('connect');
+				playbackAPISocket.off('disconnect');
+				playbackAPISocket.disconnect();
 			}
 		};
 	  }, []);
