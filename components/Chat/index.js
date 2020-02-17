@@ -473,7 +473,7 @@ function ChatComponent(props){
 						<ReactTextareaAutocomplete
 							value={message}
 							onChange={writeMessage}
-							className="w-100 pa2 br2 input-reset ba db outline-transparent"
+							className="w-100 pa2 br2 input-reset ba db outline-transparent bg-transparent primary"
 							loadingComponent={() => <Trans>Loading...</Trans>}
 							style={{
 								'paddingRight': '6rem'
@@ -575,7 +575,7 @@ function ChatComponent(props){
 								}
 							}}
 						/>
-						<div className="chat-input__buttons absolute bottom-0 right-0">
+						<div className="chat-input__buttons absolute bottom-0 right-0 primary">
 							<div className="flex flex-row pr2 pb2">
 								<div className="relative">
 									{
