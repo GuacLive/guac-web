@@ -147,7 +147,7 @@ class ChannelPage extends Component {
 					<VideoPlayer { ...videoJsOptions } live={stream.live}></VideoPlayer>
 				</div>
 				<div 
-					className="site-component-channel__info dib w-100 bg-black-30"
+					className="site-component-channel__info dib w-100 bg-black-50"
 					onMouseEnter={(e) => {
 						if(e && e.target) e.target.classList.add('active');
 					}}
