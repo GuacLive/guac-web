@@ -21,7 +21,7 @@ export default function(state = initialState, action) {
 			});
 		break;
 		case 'FETCH_CHANNEL_SUCCESS':
-			return setChannel(state, action.statusCode, action.data);
+			return setChannel(state, action.statusCode, action.data, action.viewers);
 		break;
 		case 'FOLLOW_SUCCESS':
 			return {
@@ -40,11 +40,12 @@ export default function(state = initialState, action) {
 	return state;
 };
 
-function setChannel(state, statusCode, data) {
+function setChannel(state, statusCode, data, viewers) {
 	return {
 		...state,
 		statusCode,
 		data,
+		viewers,
 		loading: false
 	};
 }
