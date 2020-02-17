@@ -628,10 +628,10 @@ function ChatComponent(props){
 					!isOverlay ?
 					(
 					<div className="chat-header items-center bb b--white-05 bg-black-50 flex flex-shrink-0 w-100 justify-center pl3 pr3">
-						<div className="items-center flex white">
+						<div className="items-center flex primary">
 							<h5 className="f6 b ttu tracked"><Trans>Stream Chat</Trans></h5>
 						</div>
-						<div className="absolute mr3 right-0 white">
+						<div className="absolute mr3 right-0 primary">
 							<a
 								href="#"
 								onClick={(e) => {
