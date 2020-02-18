@@ -100,7 +100,8 @@ module.exports = nextSourceMaps({
 		sprFlushToDisk: true,
 		deferScripts: true,
 		catchAllRouting: true,
-		granularChunks: true
+		granularChunks: true,
+		polyfillsOptimization: true,
 	},
 	future: {
 		excludeDefaultMomentLocales: true,
