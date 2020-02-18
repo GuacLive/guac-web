@@ -259,7 +259,7 @@ function ChannelPage(props){
 					<h3 className="f3 red ma0"><Trans>User has been banned</Trans></h3>
 					<img src="https://cdn.frankerfacez.com/emoticon/269642/4" class="db w4" />
 					<p className="primary">
-						<Trans>{stream.user.name} has been banned from the site.</Trans>
+						{stream.user.name}&nbsp;<Trans>has been banned from the site.</Trans>
 					</p>
 				</div>
 			</Fragment>
