@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react'
+import React, {Component, Fragment, useEffect, useState} from 'react'
 
 import Link from 'next/link'
 
@@ -7,6 +7,8 @@ import NextHead from 'next/head'
 import dynamic from 'next/dynamic'
 
 import { Trans } from '@lingui/macro'
+
+import { useDispatch } from 'react-redux'
 
 import moment from 'moment';
 
@@ -39,72 +41,64 @@ function kFormatter(num){
 
 const STREAMING_SERVER = 'eu';
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
-class ChannelPage extends Component {
-	constructor(props){
-		super(props);
-		this.state = {
-			tab: 0
+function ChannelPage(props){
+	const [tab, setTab] = useState(0);
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		const { channel } = props;
+		let channelAPISocket, didCancel = false;
+		if(!didCancel){
+			channelAPISocket = io(`${VIEWER_API_URL}/channel`, {
+				transports: ['websocket']
+			});
+			channelAPISocket.on('connect', () => {
+				channelAPISocket.emit('join', {
+					name: channel.data.name
+				});
+			});
+			channelAPISocket.on('disconnect', () => {
+				channelAPISocket.emit('leave', {
+					name: channel.data.name
+				});
+			});
+			channelAPISocket.on('reload', () => {
+				window.location.reload();
+			});
+			channelAPISocket.on('redirect', (url) => {
+				window.location = url;
+			});
+			channelAPISocket.on('live', (liveBoolean) => {
+				console.log(`socket sent live: ${liveBoolean}`);
+				setTimeout(async () => {
+					dispatch(actions.fetchChannel(channel.data.name));
+				}, 3000);
+			});
+		}
+		return function cleanup(){
+			didCancel = true;
+			if(channelAPISocket){
+				channelAPISocket.emit('disconnect');
+				channelAPISocket.removeAllListeners();
+				channelAPISocket.off('connect');
+				channelAPISocket.off('disconnect');
+				channelAPISocket.disconnect();
+			}
 		};
-	}
-
-	componentDidMount(){
-		const { channel } = this.props;
-		let channelAPISocket;
-		channelAPISocket = io(`${VIEWER_API_URL}/channel`, {
-			transports: ['websocket']
-		});
-		channelAPISocket.on('connect', () => {
-			channelAPISocket.emit('join', {
-				name: channel.data.name
-			});
-		});
-		channelAPISocket.on('disconnect', () => {
-			channelAPISocket.emit('leave', {
-				name: channel.data.name
-			});
-		});
-		channelAPISocket.on('reload', () => {
-			window.location.reload();
-		});
-		channelAPISocket.on('redirect', (url) => {
-			window.location = url;
-		});
-		channelAPISocket.on('live', (liveBoolean) => {
-			console.log(`socket sent live: ${liveBoolean}`);
-			setTimeout(async () => {
-				await this.props.dispatch(actions.fetchChannel(channel.data.name));
-			}, 3000);
-		});
-	}
-
-	switchTab(tab){
-		this.setState({
-			tab,
-		});
-	}
-
-	static async getInitialProps({store, isServer, pathname, query, req}){
-		const { channel, site } = store.getState()
-		log('info', 'Channel', query.name);
-		//if(channel.loading){
-			await store.dispatch(actions.fetchChannel(query.name));
-		//}
-		return {...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})};
-	}
+	}, []);
 	
-	follow = async e => {
-		const { authentication, channel } = this.props;
+	const follow = async e => {
+		const { authentication, channel } = props;
 		if(!channel || !channel.data || !channel.data.user) return;
-		await this.props.dispatch(actions.followChannel(authentication.token, channel.data.user.id));
+		dispatch(actions.followChannel(authentication.token, channel.data.user.id));
 	}
 
-    renderStream = () => {
+    const renderStream = () => {
 		const {
 			authentication,
 			channel
-		} = this.props;
+		} = props;
 		let stream = channel.data;
-		let tab = this.state.tab;
 
 		let videoJsOptions = { 
 			autoplay: true,
@@ -166,11 +160,11 @@ class ChannelPage extends Component {
 					{stream.live
 						?
 							<>
-							{this.props.channel.viewers !== null &&  
+							{props.channel.viewers !== null &&  
 								<span className="">
 									<FontAwesomeIcon icon='user' />
 									&nbsp;
-									{this.props.channel.viewers}
+									{props.channel.viewers}
 								</span>
 							}
 							</>
@@ -193,8 +187,8 @@ class ChannelPage extends Component {
 					}
 					</div>
 					{!authentication.token && <span className="f5 primary ml1 mr2"><Trans>Followers</Trans> · {kFormatter(stream.followers)}</span>}
-					{stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={this.follow}><Trans>Following</Trans> ({kFormatter(stream.followers)})</GuacButton>}
-					{!stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={this.follow}><Trans>Follow</Trans> ({kFormatter(stream.followers)})</GuacButton>}
+					{stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={follow}><Trans>Following</Trans> ({kFormatter(stream.followers)})</GuacButton>}
+					{!stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={follow}><Trans>Follow</Trans> ({kFormatter(stream.followers)})</GuacButton>}
 					{false && stream.type == 'PARTNER' && <GuacButton color="green"><Trans>Subscribe</Trans></GuacButton>}
 					<div>
 						<span className="b f4 primary">
@@ -208,7 +202,7 @@ class ChannelPage extends Component {
 				<div className="site-component-profile__tabs flex items-center bb b--gray" style={{height:'48px'}}>
 					<a 
 						href="#"
-						onClick={() => {this.switchTab(0);return true;}}
+						onClick={() => {setTab(0);return true;}}
 						className={
 							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer ${tab == 0 ? 'primary' : 'gray'} hover-primary`
 						}
@@ -217,7 +211,7 @@ class ChannelPage extends Component {
 					</a>
 					<a 
 						href="#"
-						onClick={() => {this.switchTab(1);return true;}}
+						onClick={() => {setTab(1);return true;}}
 						className={
 							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer ${tab == 1 ? 'primary' : 'gray'} hover-primary`
 						}
@@ -254,10 +248,10 @@ class ChannelPage extends Component {
     	);
 	}
 	
-	renderBan(){
+	function renderBan(){
 		const {
 			channel
-		} = this.props;
+		} = props;
 		let stream = channel.data;
 		return (
 			<Fragment key={stream.user.id}>
@@ -272,93 +266,99 @@ class ChannelPage extends Component {
 		);
 	}
 
-	render() {
-		const {
-			channel,
-			site,
-			authentication
-		} = this.props;
+	const {
+		channel,
+		site,
+		authentication
+	} = props;
 
-		if(channel.loading) return (<Trans>Loading...</Trans>);
-		if(!channel.data) return (<Trans>Channel not found</Trans>);
-		if(channel.error) throw channel.error;
+	if(channel.loading) return (<Trans>Loading...</Trans>);
+	if(!channel.data) return (<Trans>Channel not found</Trans>);
+	if(channel.error) throw channel.error;
 
-		const meta = [
-			{name: 'og:title', hid: 'og:title', content: `${channel.data.name} &middot; guac.live`},
-			{name: 'og:description', hid: 'og:description', content: (channel.data.name || '').substring(0, 200)},
-			{name: 'og:image', hid: 'og:image', content: '//guac.live/img/header-logo.png'},
-			{name: 'author', content: channel.data.name},
-			{name: 'description', hid: 'description', content: (channel.data.name || '').substring(0, 200)},
-			{name: 'profile:username', content: channel.data.name},
-			{name: 'twitter:card', content: 'summary_large_image'},
-			{name: 'twitter:site', content: '@GuacLive'},
-			{name: 'twitter:title', content: (channel.data.title || '').substring(0, 70)},
-			{name: 'twitter:description', content: (channel.data.name || '').substring(0, 200)},
-			{name: 'twitter:image', content: '//guac.live/img/header-logo.png'},  
-		];
-		// Add meta noindex, nofollow if channel is private
-		if(channel.data && channel.data.private){
-			meta.push({
-				name: 'robots',
-				content: 'noindex, nofollow, noarchive'
-			})
-		}
-
-		let followed = site.myFollowed && site.myFollowed.find((u) => {
-			return u && u.to_id === channel.data.user.id;
-		});
-
-		let isFollowed;
-		if(channel.isFollowing === null) channel.isFollowing = followed && followed.to_id === channel.data.user.id;
-		let isMe = authentication.user && authentication.user.id && channel.data.user.id === authentication.user.id;
-		isFollowed = channel.data.isFollowed = channel.isFollowing;
-		channel.data.isMe = isMe;
-
-		return (
-			<Fragment>
-				<NextHead>
-					<title>{channel.data.name} &middot; guac.live</title>
-					{ meta && meta.map((m) => {
-						return (
-							<meta name={m.name} content={m.content} key={m.name} />
-						)
-					})}
-				</NextHead>
-				<div className="w-100 min-vh-100 flex flex-nowrap black">
-				
-					<div className="site-component-channel w-100 w-70-ns h-100 flex flex-column flex-grow-1 overflow-hidden relative">
-						{
-							channel 
-							&&
-							channel.data
-							&&
-							channel.data.user
-							&&
-							channel.data.user.banned
-							?
-							this.renderBan()
-							:
-							this.renderStream()
-						}
-					</div>
-					<aside className="site-component-chat w-100 w-30-ns h-100 flex-l dn flex-column flex-grow-1 flex-shrink-1 flex-nowrap">
-						{
-							channel
-							&&
-							channel.data
-							&&
-							channel.data.user
-							&&
-							channel.data.user.banned
-							?
-							null
-							:
-							(<Chat channel={channel.data.name} />)
-						}
-					</aside>
-				</div>
-			</Fragment>
-		)
+	const meta = [
+		{name: 'og:title', hid: 'og:title', content: `${channel.data.name} &middot; guac.live`},
+		{name: 'og:description', hid: 'og:description', content: (channel.data.name || '').substring(0, 200)},
+		{name: 'og:image', hid: 'og:image', content: '//guac.live/img/header-logo.png'},
+		{name: 'author', content: channel.data.name},
+		{name: 'description', hid: 'description', content: (channel.data.name || '').substring(0, 200)},
+		{name: 'profile:username', content: channel.data.name},
+		{name: 'twitter:card', content: 'summary_large_image'},
+		{name: 'twitter:site', content: '@GuacLive'},
+		{name: 'twitter:title', content: (channel.data.title || '').substring(0, 70)},
+		{name: 'twitter:description', content: (channel.data.name || '').substring(0, 200)},
+		{name: 'twitter:image', content: '//guac.live/img/header-logo.png'},  
+	];
+	// Add meta noindex, nofollow if channel is private
+	if(channel.data && channel.data.private){
+		meta.push({
+			name: 'robots',
+			content: 'noindex, nofollow, noarchive'
+		})
 	}
+
+	let followed = site.myFollowed && site.myFollowed.find((u) => {
+		return u && u.to_id === channel.data.user.id;
+	});
+
+	let isFollowed;
+	if(channel.isFollowing === null) channel.isFollowing = followed && followed.to_id === channel.data.user.id;
+	let isMe = authentication.user && authentication.user.id && channel.data.user.id === authentication.user.id;
+	isFollowed = channel.data.isFollowed = channel.isFollowing;
+	channel.data.isMe = isMe;
+
+	return (
+		<Fragment>
+			<NextHead>
+				<title>{channel.data.name} &middot; guac.live</title>
+				{ meta && meta.map((m) => {
+					return (
+						<meta name={m.name} content={m.content} key={m.name} />
+					)
+				})}
+			</NextHead>
+			<div className="w-100 min-vh-100 flex flex-nowrap black">			
+				<div className="site-component-channel w-100 w-70-ns h-100 flex flex-column flex-grow-1 overflow-hidden relative">
+						{
+						channel 
+						&&
+						channel.data
+						&&
+						channel.data.user
+						&&
+						channel.data.user.banned
+						?
+						renderBan()
+						:
+						renderStream()
+					}
+				</div>
+				<aside className="site-component-chat w-100 w-30-ns h-100 flex-l dn flex-column flex-grow-1 flex-shrink-1 flex-nowrap">
+					{
+						channel
+						&&
+						channel.data
+						&&
+						channel.data.user
+						&&
+						channel.data.user.banned
+						?
+						null
+						:
+						(<Chat channel={channel.data.name} />)
+					}
+				</aside>
+			</div>
+		</Fragment>
+	)
 }
+ChannelPage.getInitialProps = async function getInitialProps({store, isServer, pathname, query, req}){
+	const { channel, site } = store.getState()
+	log('info', 'Channel', query.name);
+	//if(channel.loading){
+		await store.dispatch(actions.fetchChannel(query.name));
+	//}
+	return {...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})};
+};
+
 export default connect(state => state)(ChannelPage)
