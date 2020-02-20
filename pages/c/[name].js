@@ -34,6 +34,7 @@ import * as actions from '../../actions';
 
 import log from '../../utils/log';
 import ReplaysList from '../../components/Replays/ReplaysList';
+import EditStreamPanel from '../../components/EditStreamPanel';
 
 function kFormatter(num){
 	return Math.abs(num) > 999 ? Math.sign(num) * ((Math.abs(num) / 1000).toFixed(1)) + 'k' : Math.sign(num) * Math.abs(num);
@@ -43,11 +44,13 @@ const STREAMING_SERVER = 'eu';
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
 function ChannelPage(props){
 	const [tab, setTab] = useState(0);
+	const [showModal, setShowModal] = useState(false);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		const { channel } = props;
 		let channelAPISocket, didCancel = false;
+		
 		if(!didCancel){
 			channelAPISocket = io(`${VIEWER_API_URL}/channel`, {
 				transports: ['websocket']
@@ -87,6 +90,13 @@ function ChannelPage(props){
 		};
 	}, []);
 	
+	const editStream = async e => {
+		const { authentication, channel } = props;
+		if(!channel || !channel.data || !channel.data.user) return;
+		setShowModal(!showModal);
+		e.preventDefault();
+	}
+
 	const follow = async e => {
 		const { authentication, channel } = props;
 		if(!channel || !channel.data || !channel.data.user) return;
@@ -190,6 +200,12 @@ function ChannelPage(props){
 					{stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={follow}><Trans>Following</Trans> ({kFormatter(stream.followers)})</GuacButton>}
 					{!stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={follow}><Trans>Follow</Trans> ({kFormatter(stream.followers)})</GuacButton>}
 					{false && stream.type == 'PARTNER' && <GuacButton color="green"><Trans>Subscribe</Trans></GuacButton>}
+					{isMe && 
+						<GuacButton color="dark-gray" title="Edit stream" onClick={editStream}>
+						<FontAwesomeIcon icon="edit" fixedWidth className="white" />
+						<span className="white"><Trans>Edit</Trans></span>
+						</GuacButton>
+					}
 					<div>
 						<span className="b f4 primary">
 							{stream.title}
@@ -199,6 +215,7 @@ function ChannelPage(props){
 						</span>
 					</div>
 				</div>
+				{showModal && <div className="db pa2 bg-black-50 primary"><EditStreamPanel /></div>}
 				<div className="site-component-profile__tabs flex items-center bb b--gray" style={{height:'48px'}}>
 					<a 
 						href="#"
