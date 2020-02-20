@@ -1,7 +1,8 @@
 const nextSourceMaps = require('@zeit/next-source-maps')
 const webpack = require('webpack');
-module.exports = nextSourceMaps({
-	webpack(config, { isServer, buildId }) {
+const withOffline = require('next-offline');
+module.exports = withOffline(nextSourceMaps({
+	webpack(config, {isServer, buildId}) {
 
 		/*if (config.optimization.splitChunks.cacheGroups && config.optimization.splitChunks.cacheGroups.lib) {
 			config.optimization.splitChunks.cacheGroups.lib.test = module => {
@@ -50,7 +51,7 @@ module.exports = nextSourceMaps({
 
 		config.plugins.push(
 			new webpack.DefinePlugin({
-			  'process.env.SENTRY_RELEASE': JSON.stringify(buildId),
+				'process.env.SENTRY_RELEASE': JSON.stringify(buildId),
 			})
 		);
 
@@ -95,6 +96,68 @@ module.exports = nextSourceMaps({
 			}
 		}
 	},
+	transformManifest: manifest => ['/'].concat(manifest), // add the homepage to the cache
+	// Trying to set NODE_ENV=production when running yarn dev causes a build-time error so we
+	// turn on the SW in dev mode so that we can actually test it
+	generateInDevMode: true,
+	workboxOpts: {
+		swDest: 'static/service-worker.js',
+		cleanupOutdatedCaches: true,
+		maximumFileSizeToCacheInBytes: 3e7 /*30mb*/,
+		runtimeCaching: [
+			{
+				urlPattern: '/.*',
+				handler: 'NetworkFirst',
+				method: 'GET',
+				options: {
+					cacheName: 'guac-frontend',
+					expiration: {
+						maxEntries: 10,
+						maxAgeSeconds: 60 * 60 * 24 * 1, // 1 day
+						purgeOnQuotaError: true,
+					}
+				},
+			},
+
+			// Long lived API responses
+			{
+				urlPattern: 'https://api.guac.live/channels',
+				handler: 'NetworkFirst',
+				method: 'GET',
+				options: {
+					cacheName: 'guac-api',
+				},
+			},
+			{
+				urlPattern: 'https://api.guac.live/watch(/?|/([a-zA-Z0-9._-]+)?)$',
+				handler: 'NetworkFirst',
+				method: 'GET',
+				options: {
+					cacheName: 'guac-api',
+				},
+			},
+
+			// Cache emotes
+			{
+				urlPattern: 'https://emotes.guac.live/(.*)$',
+				handler: 'CacheFirst',
+				method: 'GET',
+				options: {
+					cacheName: 'guac-emotes',
+					cacheableResponse: {
+						statuses: [200],
+					},
+					expiration: {
+						maxEntries: 10,
+						maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
+						purgeOnQuotaError: true,
+					},
+				},
+			},
+
+			// more workbox cache settings...
+		],
+	},
 	experimental: {
 		workerThreads: true,
 		sprFlushToDisk: true,
@@ -106,4 +169,4 @@ module.exports = nextSourceMaps({
 	future: {
 		excludeDefaultMomentLocales: true,
 	},
-})
+}))

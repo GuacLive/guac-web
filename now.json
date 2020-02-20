@@ -3,6 +3,16 @@
     "public": false,
     "name": "guac-web",
     "regions": ["arn"],
+    "routes": [
+      {
+        "src": "^/service-worker.js$",
+        "dest": "/_next/static/service-worker.js",
+        "headers": {
+          "cache-control": "public, max-age=43200, immutable",
+          "Service-Worker-Allowed": "/"
+        }
+      }
+    ],
     "build": {
       "env": {
         "API_URL": "@guac-api-url",
