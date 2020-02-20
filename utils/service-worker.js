@@ -36,7 +36,6 @@ self.addEventListener('message', event => {
  * requests for URLs in the manifest.
  * See https://goo.gl/S9QRab
  */
-self.__WB_MANIFEST = [].concat(self.__WB_MANIFEST || []);
 workbox.precaching.precacheAndRoute(self.__WB_MANIFEST, {});
 workbox.precaching.cleanupOutdatedCaches();
 
@@ -52,7 +51,7 @@ workbox.routing.registerRoute(
             })
         ],
     }),
-    'GET',
+    'GET'
 );
 workbox.routing.registerRoute(
     'https://api.guac.live/channels',
@@ -60,7 +59,7 @@ workbox.routing.registerRoute(
         cacheName: 'guac-api',
         plugins: []
     }),
-    'GET',
+    'GET'
 );
 workbox.routing.registerRoute(
     'https://api.guac.live/watch(/?|/([a-zA-Z0-9._-]+)?)$',
@@ -68,7 +67,7 @@ workbox.routing.registerRoute(
         cacheName: 'guac-api',
         plugins: []
     }),
-    'GET',
+    'GET'
 );
 workbox.routing.registerRoute(
     'https://emotes.guac.live/(.*)$',
@@ -85,7 +84,7 @@ workbox.routing.registerRoute(
             })
         ],
     }),
-    'GET',
+    'GET'
 );
 
 self.addEventListener('install', function(event) {
