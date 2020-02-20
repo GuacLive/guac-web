@@ -100,63 +100,12 @@ module.exports = withOffline(nextSourceMaps({
 	// Trying to set NODE_ENV=production when running yarn dev causes a build-time error so we
 	// turn on the SW in dev mode so that we can actually test it
 	generateInDevMode: true,
+	dontAutoRegisterSw: true,
+	generateSw: false,
 	workboxOpts: {
 		swDest: 'static/service-worker.js',
-		cleanupOutdatedCaches: true,
-		maximumFileSizeToCacheInBytes: 3e7 /*30mb*/,
-		runtimeCaching: [
-			{
-				urlPattern: '/.*',
-				handler: 'NetworkFirst',
-				method: 'GET',
-				options: {
-					cacheName: 'guac-frontend',
-					expiration: {
-						maxEntries: 10,
-						maxAgeSeconds: 60 * 60 * 24 * 1, // 1 day
-						purgeOnQuotaError: true,
-					}
-				},
-			},
-
-			// Long lived API responses
-			{
-				urlPattern: 'https://api.guac.live/channels',
-				handler: 'NetworkFirst',
-				method: 'GET',
-				options: {
-					cacheName: 'guac-api',
-				},
-			},
-			{
-				urlPattern: 'https://api.guac.live/watch(/?|/([a-zA-Z0-9._-]+)?)$',
-				handler: 'NetworkFirst',
-				method: 'GET',
-				options: {
-					cacheName: 'guac-api',
-				},
-			},
-
-			// Cache emotes
-			{
-				urlPattern: 'https://emotes.guac.live/(.*)$',
-				handler: 'CacheFirst',
-				method: 'GET',
-				options: {
-					cacheName: 'guac-emotes',
-					cacheableResponse: {
-						statuses: [200],
-					},
-					expiration: {
-						maxEntries: 10,
-						maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
-						purgeOnQuotaError: true,
-					},
-				},
-			},
-
-			// more workbox cache settings...
-		],
+		swSrc: './utils/service-worker.js',
+		maximumFileSizeToCacheInBytes: 3e7 /*30mb*/
 	},
 	experimental: {
 		workerThreads: true,

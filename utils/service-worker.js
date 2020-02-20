@@ -1,6 +1,8 @@
 importScripts('https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/7.7.0/firebase-messaging.js');
 
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js');
+
 // Initialize the Firebase app in the service worker by passing in the
 // messagingSenderId.
 firebase.initializeApp({
@@ -22,6 +24,69 @@ const oldSelf = self;
 let notificationPayload = null;
 
 let notification;
+
+self.addEventListener('message', event => {
+    if (event.data && event.data.type === 'SKIP_WAITING') {
+        self.skipWaiting();
+    }
+});
+
+/**
+ * The workboxSW.precacheAndRoute() method efficiently caches and responds to
+ * requests for URLs in the manifest.
+ * See https://goo.gl/S9QRab
+ */
+self.__WB_MANIFEST = [].concat(self.__WB_MANIFEST || []);
+workbox.precaching.precacheAndRoute(self.__WB_MANIFEST, {});
+workbox.precaching.cleanupOutdatedCaches();
+
+workbox.routing.registerRoute(
+    '/.*',
+    new workbox.strategies.NetworkFirst({
+        cacheName: 'guac-frontend',
+        plugins: [
+            new workbox.expiration.Plugin({
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 1, // 1 day
+                purgeOnQuotaError: false
+            })
+        ],
+    }),
+    'GET',
+);
+workbox.routing.registerRoute(
+    'https://api.guac.live/channels',
+    new workbox.strategies.NetworkFirst({
+        cacheName: 'guac-api',
+        plugins: []
+    }),
+    'GET',
+);
+workbox.routing.registerRoute(
+    'https://api.guac.live/watch(/?|/([a-zA-Z0-9._-]+)?)$',
+    new workbox.strategies.NetworkFirst({
+        cacheName: 'guac-api',
+        plugins: []
+    }),
+    'GET',
+);
+workbox.routing.registerRoute(
+    'https://emotes.guac.live/(.*)$',
+    new workbox.strategies.CacheFirst({
+        cacheName: 'guac-emotes',
+        plugins: [
+            new workbox.expiration.Plugin({
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
+                purgeOnQuotaError: true
+            }),
+            new workbox.expiration.cacheableResponse({
+                statuses: [200]
+            })
+        ],
+    }),
+    'GET',
+);
 
 self.addEventListener('install', function(event) {
   event.waitUntil(self.skipWaiting());
