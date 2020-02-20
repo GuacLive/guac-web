@@ -26,7 +26,7 @@ let notificationPayload = null;
 let notification;
 
 self.addEventListener('message', event => {
-    if (event.data && event.data.type === 'SKIP_WAITING') {
+    if(event.data && event.data.type === 'SKIP_WAITING'){
         self.skipWaiting();
     }
 });
@@ -36,7 +36,7 @@ self.addEventListener('message', event => {
  * requests for URLs in the manifest.
  * See https://goo.gl/S9QRab
  */
-workbox.precaching.precacheAndRoute(self.__WB_MANIFEST, {});
+workbox.precaching.precacheAndRoute(self.__WB_MANIFEST);
 workbox.precaching.cleanupOutdatedCaches();
 
 workbox.routing.registerRoute(
@@ -49,7 +49,7 @@ workbox.routing.registerRoute(
                 maxAgeSeconds: 60 * 60 * 24 * 1, // 1 day
                 purgeOnQuotaError: false
             })
-        ],
+        ]
     }),
     'GET'
 );
@@ -82,7 +82,7 @@ workbox.routing.registerRoute(
             new workbox.expiration.cacheableResponse({
                 statuses: [200]
             })
-        ],
+        ]
     }),
     'GET'
 );
