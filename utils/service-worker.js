@@ -1,7 +1,11 @@
 importScripts('https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/7.7.0/firebase-messaging.js');
 
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js');
+import {registerRoute} from 'workbox-routing';
+import {precacheAndRoute, cleanupOutdatedCaches} from 'workbox-precaching';
+import {CacheFirst, NetworkFirst} from 'workbox-strategies';
+const ExpirationPlugin = require('workbox-expiration').Plugin;
+import {CacheableResponse} from 'workbox-cacheable-response';
 
 // Initialize the Firebase app in the service worker by passing in the
 // messagingSenderId.
@@ -36,15 +40,15 @@ self.addEventListener('message', event => {
  * requests for URLs in the manifest.
  * See https://goo.gl/S9QRab
  */
-workbox.precaching.precacheAndRoute(self.__WB_MANIFEST);
-workbox.precaching.cleanupOutdatedCaches();
+precacheAndRoute(self.__WB_MANIFEST);
+cleanupOutdatedCaches();
 
-workbox.routing.registerRoute(
+registerRoute(
     '/.*',
-    new workbox.strategies.NetworkFirst({
+    new NetworkFirst({
         cacheName: 'guac-frontend',
         plugins: [
-            new workbox.expiration.Plugin({
+            new ExpirationPlugin({
                 maxEntries: 10,
                 maxAgeSeconds: 60 * 60 * 24 * 1, // 1 day
                 purgeOnQuotaError: false
@@ -53,33 +57,33 @@ workbox.routing.registerRoute(
     }),
     'GET'
 );
-workbox.routing.registerRoute(
+registerRoute(
     'https://api.guac.live/channels',
-    new workbox.strategies.NetworkFirst({
+    new NetworkFirst({
         cacheName: 'guac-api',
         plugins: []
     }),
     'GET'
 );
-workbox.routing.registerRoute(
+registerRoute(
     'https://api.guac.live/watch(/?|/([a-zA-Z0-9._-]+)?)$',
-    new workbox.strategies.NetworkFirst({
+    new NetworkFirst({
         cacheName: 'guac-api',
         plugins: []
     }),
     'GET'
 );
-workbox.routing.registerRoute(
+registerRoute(
     'https://emotes.guac.live/(.*)$',
-    new workbox.strategies.CacheFirst({
+    new CacheFirst({
         cacheName: 'guac-emotes',
         plugins: [
-            new workbox.expiration.Plugin({
+            new Expiration({
                 maxEntries: 10,
                 maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
                 purgeOnQuotaError: true
             }),
-            new workbox.expiration.cacheableResponse({
+            new CacheableResponse({
                 statuses: [200]
             })
         ]
