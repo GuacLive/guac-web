@@ -56,11 +56,13 @@ function ChannelPage(props){
 				transports: ['websocket']
 			});
 			channelAPISocket.on('connect', () => {
+				if (!channel || !channel.data || !channel.data.name) return;
 				channelAPISocket.emit('join', {
 					name: channel.data.name
 				});
 			});
 			channelAPISocket.on('disconnect', () => {
+				if (!channel || !channel.data || !channel.data.name) return;
 				channelAPISocket.emit('leave', {
 					name: channel.data.name
 				});
@@ -74,7 +76,9 @@ function ChannelPage(props){
 			channelAPISocket.on('live', (liveBoolean) => {
 				console.log(`socket sent live: ${liveBoolean}`);
 				setTimeout(async () => {
-					dispatch(actions.fetchChannel(channel.data.name));
+					try{
+						dispatch(actions.fetchChannel(channel.data.name));
+					}catch(e){}
 				}, 3000);
 			});
 		}
