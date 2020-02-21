@@ -1,4 +1,5 @@
 import fetch from 'cross-fetch';
+import AbortController from 'abort-controller';
 import lscache from 'lscache';
 
 const TTL_MINUTES = 5;
@@ -10,7 +11,15 @@ export function callApi(endpoint, options = {}) {
 	opt.headers = opt.headers || {};
 	const fullUrl = (endpoint.indexOf(API_URL) === -1) ? API_URL + endpoint : endpoint;
 
-	const accessToken = options.accessToken;
+	const controller = new AbortController();
+	const timeout = setTimeout(
+		() => {
+			controller.abort();
+		},
+		opt.timeout,
+	);
+
+	const accessToken = opt.accessToken;
 	let shouldCache = opt.method === 'GET' && !accessToken;
 	let response = null;
 	const defaultHeaders = {
@@ -23,6 +32,9 @@ export function callApi(endpoint, options = {}) {
 	if (shouldCache) {
 		response = lscache.get(fullUrl);
 	}
+	if (opt.timeout) {
+		opt.signal = controller.signal;
+	}
 	opt.headers = Object.assign(defaultHeaders, opt.headers);
 	if (response === null) {
 		response = fetch(fullUrl, opt)
@@ -31,8 +43,17 @@ export function callApi(endpoint, options = {}) {
 			        //return Promise.reject(res);
 			    }
 		    	return res;
+			},
+			err => {
+				if (err.name !== 'AbortError') throw err;
 			}
 		);
+		if (opt.timeout) {
+			response = response
+				.finally(() => {
+					clearTimeout(timeout);
+				});
+		}
 		if (shouldCache) lscache.set(fullUrl, response, TTL_MINUTES);
 	}
 	return response;

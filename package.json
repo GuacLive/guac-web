@@ -46,6 +46,7 @@
     "@videojs/http-streaming": "1.11.3",
     "@webscopeio/react-textarea-autocomplete": "^4.6.3",
     "@zeit/next-source-maps": "^0.0.3",
+    "abort-controller": "^3.0.0",
     "babel-plugin-macros": "^2.8.0",
     "browserslist": "^4.7.0",
     "can-autoplay": "^3.0.0",
