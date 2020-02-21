@@ -13,7 +13,9 @@ export const fetchFeatured = () => async (dispatch) => {
 	dispatch({
 		type: 'FETCH_FEATURED_REQUEST'
 	});
-	return callApi('/featured')
+	return callApi('/featured', {
+		timeout: 1500
+	})
 	.then(response => response.json())
 	.then((json) => {
 		if (json.statusCode == 200) {
