@@ -74,7 +74,7 @@ registerRoute(
     'GET'
 );
 registerRoute(
-    'https://emotes.guac.live/(.*)$',
+    'https://emotes.guac.live/(.*).png$',
     new CacheFirst({
         cacheName: 'guac-emotes',
         plugins: [
