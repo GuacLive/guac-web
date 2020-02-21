@@ -1,7 +1,8 @@
 const nextSourceMaps = require('@zeit/next-source-maps')
 const webpack = require('webpack');
-module.exports = nextSourceMaps({
-	webpack(config, { isServer, buildId }) {
+const withOffline = require('next-offline');
+module.exports = withOffline(nextSourceMaps({
+	webpack(config, {isServer, buildId}) {
 
 		/*if (config.optimization.splitChunks.cacheGroups && config.optimization.splitChunks.cacheGroups.lib) {
 			config.optimization.splitChunks.cacheGroups.lib.test = module => {
@@ -50,7 +51,7 @@ module.exports = nextSourceMaps({
 
 		config.plugins.push(
 			new webpack.DefinePlugin({
-			  'process.env.SENTRY_RELEASE': JSON.stringify(buildId),
+				'process.env.SENTRY_RELEASE': JSON.stringify(buildId),
 			})
 		);
 
@@ -95,6 +96,17 @@ module.exports = nextSourceMaps({
 			}
 		}
 	},
+	transformManifest: manifest => ['/'].concat(manifest), // add the homepage to the cache
+	// Trying to set NODE_ENV=production when running yarn dev causes a build-time error so we
+	// turn on the SW in dev mode so that we can actually test it
+	generateInDevMode: true,
+	dontAutoRegisterSw: true,
+	generateSw: false,
+	workboxOpts: {
+		swDest: 'static/service-worker.js',
+		swSrc: './utils/service-worker.js',
+		maximumFileSizeToCacheInBytes: 3e7 /*30mb*/
+	},
 	experimental: {
 		workerThreads: true,
 		sprFlushToDisk: true,
@@ -106,4 +118,4 @@ module.exports = nextSourceMaps({
 	future: {
 		excludeDefaultMomentLocales: true,
 	},
-})
+}))

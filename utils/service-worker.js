@@ -1,6 +1,12 @@
 importScripts('https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/7.7.0/firebase-messaging.js');
 
+import {registerRoute} from 'workbox-routing';
+import {precacheAndRoute, cleanupOutdatedCaches} from 'workbox-precaching';
+import {CacheFirst, NetworkFirst} from 'workbox-strategies';
+const ExpirationPlugin = require('workbox-expiration').Plugin;
+import {CacheableResponse} from 'workbox-cacheable-response';
+
 // Initialize the Firebase app in the service worker by passing in the
 // messagingSenderId.
 firebase.initializeApp({
@@ -22,6 +28,68 @@ const oldSelf = self;
 let notificationPayload = null;
 
 let notification;
+
+self.addEventListener('message', event => {
+    if(event.data && event.data.type === 'SKIP_WAITING'){
+        self.skipWaiting();
+    }
+});
+
+/**
+ * The workboxSW.precacheAndRoute() method efficiently caches and responds to
+ * requests for URLs in the manifest.
+ * See https://goo.gl/S9QRab
+ */
+precacheAndRoute(self.__WB_MANIFEST);
+cleanupOutdatedCaches();
+
+registerRoute(
+    '/.*',
+    new NetworkFirst({
+        cacheName: 'guac-frontend',
+        plugins: [
+            new ExpirationPlugin({
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 1, // 1 day
+                purgeOnQuotaError: false
+            })
+        ]
+    }),
+    'GET'
+);
+registerRoute(
+    'https://api.guac.live/channels',
+    new NetworkFirst({
+        cacheName: 'guac-api',
+        plugins: []
+    }),
+    'GET'
+);
+registerRoute(
+    'https://api.guac.live/watch(/?|/([a-zA-Z0-9._-]+)?)$',
+    new NetworkFirst({
+        cacheName: 'guac-api',
+        plugins: []
+    }),
+    'GET'
+);
+registerRoute(
+    'https://emotes.guac.live/(.*)$',
+    new CacheFirst({
+        cacheName: 'guac-emotes',
+        plugins: [
+            new ExpirationPlugin({
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
+                purgeOnQuotaError: true
+            }),
+            new CacheableResponse({
+                statuses: [200]
+            })
+        ]
+    }),
+    'GET'
+);
 
 self.addEventListener('install', function(event) {
   event.waitUntil(self.skipWaiting());
