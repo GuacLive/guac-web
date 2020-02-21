@@ -15,7 +15,7 @@ export const initializeFirebase = (callback) => {
 	});
 	if(navigator.serviceWorker){
 		return navigator.serviceWorker
-		.register('/service-worker.js')
+		.register('/service-worker.js?1')
 		.then((registration) => {
 			console.log('registration', registration);
 			firebase.messaging().useServiceWorker(registration);
