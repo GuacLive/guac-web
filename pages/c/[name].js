@@ -319,7 +319,7 @@ function ChannelPage(props){
 	});
 
 	let isFollowed;
-	if(channel.isFollowing === null) channel.isFollowing = followed && followed.to_id === channel.data.user.id;
+	channel.isFollowing = followed && followed.to_id === channel.data.user.id;
 	let isMe = authentication.user && authentication.user.id && channel.data.user.id === authentication.user.id;
 	isFollowed = channel.data.isFollowed = channel.isFollowing;
 	channel.data.isMe = isMe;
