@@ -78,7 +78,7 @@ registerRoute(
     new CacheFirst({
         cacheName: 'guac-emotes',
         plugins: [
-            new Expiration({
+            new ExpirationPlugin({
                 maxEntries: 10,
                 maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
                 purgeOnQuotaError: true
