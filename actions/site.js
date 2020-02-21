@@ -29,7 +29,8 @@ export const fetchMyFollowed = (token) => async (dispatch) => {
 				'Content-Type': 'application/json'
 			},
 			accessToken: token,
-			body: JSON.stringify({})
+			body: JSON.stringify({}),
+			timeout: 1500
 		}
 	)
 	.then(response => response.json())
