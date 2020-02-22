@@ -4,7 +4,7 @@ import 'videojs-errors';
 
 import io from 'socket.io-client';
 
-import {useEffect} from 'react';
+import {useEffect,useState} from 'react';
 
 import log from '../../utils/log';
 
@@ -16,6 +16,23 @@ function VideoPlayer(props) {
 	let player;
 	let videoNode;
 	const dispatch = useDispatch();
+	const [connectedStatus, setConnectedStatus] = useState(false);
+	let playbackAPISocket;
+	
+	useEffect(() => {
+		if(playbackAPISocket){
+			if(connectedStatus){
+				playbackAPISocket.emit('join', {
+					name: channel
+				});
+			}else{
+				playbackAPISocket.emit('leave', {
+					name: channel
+				});
+			}
+		}
+	}, [connectedStatus]);
+
 	useEffect(() => {
 		const canAutoplay = require('can-autoplay').default;
 		const videoJsOptions = {
@@ -93,19 +110,21 @@ function VideoPlayer(props) {
 			window.videojs = videojs;
 		}
 
-		let playbackAPISocket, didCancel = false;
+		let didCancel = false;
 		let channel = props.streamInfo && props.streamInfo.username;
 
 		let connectToPlaybackAPI = () => {
 			if(!didCancel){
 				playbackAPISocket = io(`${VIEWER_API_URL}/playback`, {
-					transports: ['websocket']
+					'reconnection': true,
+					'reconnectionDelay': 1000,
+					'reconnectionDelayMax': 5000,
+					'reconnectionAttempts': 5,
+					'forceNew': true
 				});
 				playbackAPISocket.on('connect', () => {
 					log('info', 'PlaybackAPI', `connected to ${channel}`);
-					playbackAPISocket.emit('join', {
-						name: channel
-					});
+					setConnectedStatus(true);
 				});
 				playbackAPISocket.on('viewerCount', (data) => {
 					log('info', 'PlaybackAPI', `connected to ${channel}`);
@@ -117,12 +136,11 @@ function VideoPlayer(props) {
 				});
 				playbackAPISocket.on('disconnect', () => {
 					log('info', 'PlaybackAPI', `left ${channel}`);
-					playbackAPISocket.emit('leave', {
-						name: channel
-					});
+					setConnectedStatus(false);
 				});
 				playbackAPISocket.on('reconnect', () => {
 					log('info', 'PlaybackAPI', 'reconnect');
+					setConnectedStatus(true);
 				});
 			}
 		};
