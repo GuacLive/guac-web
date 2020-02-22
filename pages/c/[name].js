@@ -50,9 +50,7 @@ function ChannelPage(props){
 		let channelAPISocket, didCancel = false;
 		
 		if(!didCancel){
-			channelAPISocket = io(`${VIEWER_API_URL}/channel`, {
-				transports: ['websocket']
-			});
+			channelAPISocket = io(`${VIEWER_API_URL}/channel`);
 			channelAPISocket.on('connect', () => {
 				if (!channel || !channel.data || !channel.data.name) return;
 				channelAPISocket.emit('join', {
