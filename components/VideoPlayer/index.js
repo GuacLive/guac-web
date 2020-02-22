@@ -17,6 +17,22 @@ function VideoPlayer(props) {
 	let videoNode;
 	const dispatch = useDispatch();
 	const [connectedStatus, setConnectedStatus] = useState(false);
+	let playbackAPISocket;
+	
+	useEffect(() => {
+		if(playbackAPISocket){
+			if(connectedStatus){
+				playbackAPISocket.emit('join', {
+					name: channel
+				});
+			}else{
+				playbackAPISocket.emit('leave', {
+					name: channel
+				});
+			}
+		}
+	}, [connectedStatus]);
+
 	useEffect(() => {
 		const canAutoplay = require('can-autoplay').default;
 		const videoJsOptions = {
@@ -94,7 +110,7 @@ function VideoPlayer(props) {
 			window.videojs = videojs;
 		}
 
-		let playbackAPISocket, didCancel = false;
+		let didCancel = false;
 		let channel = props.streamInfo && props.streamInfo.username;
 
 		let connectToPlaybackAPI = () => {
@@ -128,19 +144,6 @@ function VideoPlayer(props) {
 				});
 			}
 		};
-		useEffect(() => {
-			if(playbackAPISocket){
-				if(connectedStatus){
-					playbackAPISocket.emit('join', {
-						name: channel
-					});
-				}else{
-					playbackAPISocket.emit('leave', {
-						name: channel
-					});
-				}
-			}
-		}, [connectedStatus])
 
 		require('videojs-theater-mode/dist/videojs.theaterMode.js');
 		require('../../videojs-flvjs.js');
