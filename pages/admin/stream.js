@@ -10,6 +10,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import withAuth from '../../utils/withAuth';
 import * as actions from '../../actions';
 
+import { kFormatter, secondsToDhms } from '../../utils';
+
 class AdminStreamPage extends Component {
 	constructor(props){
 		super(props);
@@ -17,9 +19,9 @@ class AdminStreamPage extends Component {
 
 	static async getInitialProps({store, isServer, pathname, query, req}){
 		const { authentication, streams } = store.getState()
-		if(streams.loading){
+		//if(streams.loading){
 			await store.dispatch(actions.fetchStreams(authentication.token));
-		}
+		//}
 	}
 
 
@@ -141,7 +143,7 @@ class AdminStreamPage extends Component {
 													<td className="pa3">{
 														publisher.connectCreated
 														&&
-														<span>{moment(publisher.connectCreated).fromNow(true)}</span>
+														<span>{secondsToDhms(duration)}</span>
 													}
 													</td>
 													<td className="pa3">{subscriberCount}</td>

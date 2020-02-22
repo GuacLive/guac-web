@@ -36,9 +36,7 @@ import log from '../../utils/log';
 import ReplaysList from '../../components/Replays/ReplaysList';
 import EditStreamPanel from '../../components/EditStreamPanel';
 
-function kFormatter(num){
-	return Math.abs(num) > 999 ? Math.sign(num) * ((Math.abs(num) / 1000).toFixed(1)) + 'k' : Math.sign(num) * Math.abs(num);
-}
+import { kFormatter, secondsToDhms } from '../../utils';
 
 const STREAMING_SERVER = 'eu';
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
@@ -148,7 +146,8 @@ function ChannelPage(props){
 				});
 			}
 		}
-
+		let now = new Date().getTime() / 1000;
+		let liveAt = stream && stream.liveAt ? new Date(stream.liveAt).getTime() / 1000 : 0;
     	return (
     		<Fragment key={stream.user.id}>
 				<div className="site-component-channel__player">
@@ -193,7 +192,9 @@ function ChannelPage(props){
 								<span className="">
 									<FontAwesomeIcon icon='clock' />
 									&nbsp;
-									{moment(stream.liveAt).fromNow(true)}
+									{
+										secondsToDhms(now - liveAt)
+									}
 								</span>
 							}
 							</>
