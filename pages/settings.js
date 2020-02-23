@@ -32,7 +32,7 @@ class DashboardPage extends Component {
                 {auth.error && 
 					<div className="red"><Trans>Error</Trans>: {auth.error.message}</div>
 				}
-				<div className="primary"><Trans>E-mail</Trans>: {auth.data.email}</div>
+				<div className="primary"><Trans>E-mail</Trans>: {auth.user.email}</div>
                 <form className="measure" onSubmit={this.handleSubmit}>
 					<label htmlFor="password"><Trans>New password:</Trans></label>
 					<input name="password" type="password" className="input-reset bn pa3 w-100 bg-white br2" ref="password" placeholder={i18n._(t`Password`)} />
