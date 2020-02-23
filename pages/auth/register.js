@@ -10,6 +10,9 @@ import * as actions from '../../actions';
 class RegisterPage extends Component {
 	constructor(props){
 		super(props);
+		this.state = {
+			registered: false
+		}
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 	static async getInitialProps({store}){
@@ -33,14 +36,21 @@ class RegisterPage extends Component {
 		e.preventDefault();
 		// yay uncontrolled forms!
 		this.props.dispatch(
-			actions.register(this.refs.username.value, this.refs.password.value)
+			actions.register(this.refs.username.value, this.refs.email.value, this.refs.password.value)
 		)
 		.then(() => {
-			if(this.props.authentication.statusCode === 200) window.location.href = '/';
+			if(this.props.authentication.statusCode === 200) this.setState({registered: true})
 		});
 	}
 
 	render(){
+		if(this.state.registered){
+			return (
+				<main className="pa4 primary-80">
+					<Trans>Your account is now registered. Please check your e-mail to verify your account.</Trans>
+				</main>
+			)
+		}
 		return (
 			<>
 				<main className="pa4 primary-80">
@@ -53,6 +63,10 @@ class RegisterPage extends Component {
 							<div className="mt3">
 								<label className="db fw6 lh-copy f6" htmlFor="username"><Trans>Username</Trans></label>
 								<input ref="username" className="pa2 input-reset ba b--inherit primary bg-transparent hover-bg-green hover-white w-100" type="text" name="username"  id="username" />
+							</div>
+							<div className="mt3">
+								<label className="db fw6 lh-copy f6" htmlFor="username"><Trans>E-mail</Trans></label>
+								<input ref="email" className="pa2 input-reset ba b--inherit primary bg-transparent hover-bg-green hover-white w-100" type="email" name="email" id="email" />
 							</div>
 							<div className="mv3">
 								<label className="db fw6 lh-copy f6" htmlFor="password"><Trans>Password</Trans></label>

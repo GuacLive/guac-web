@@ -1,7 +1,10 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
 
-import Router from 'next/router';
+import { Trans } from '@lingui/macro';
+
+import fetch from 'cross-fetch';
+import Link from 'next/link';
 
 const API_URL = process.env.API_URL;
 class ActivatePage extends Component {
@@ -26,7 +29,16 @@ class ActivatePage extends Component {
     }
 
 	render(){
-		return <p>lol {this.props.result}</p>;
+        const { result } = this.props;
+        if(result.statusCode == 400){
+            return <Trans>This verification token is not valid.</Trans>;
+        }
+         return (
+            <div className="primary">
+                <Trans>Your e-mail has been verified.</Trans>&nbsp;
+                <Link href='/auth/login'><a className="color-inherit"><Trans>Log in</Trans></a></Link>
+            </div>
+        );
 	}
 }
 

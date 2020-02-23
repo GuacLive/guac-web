@@ -17,7 +17,7 @@ msgstr ""
 msgid "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 msgstr "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 
-#: pages/c/[name].js:210
+#: pages/c/[name].js:230
 msgid "ABOUT"
 msgstr "ABOUT"
 
@@ -25,7 +25,7 @@ msgstr "ABOUT"
 msgid "Admin"
 msgstr "Admin"
 
-#: pages/dashboard.js:180
+#: pages/dashboard.js:119
 msgid "At last, make sure keyframe interval is set to <0>2</0>."
 msgstr "At last, make sure keyframe interval is set to <0>2</0>."
 
@@ -33,11 +33,11 @@ msgstr "At last, make sure keyframe interval is set to <0>2</0>."
 msgid "Breaking the law"
 msgstr "Breaking the law"
 
-#: pages/dashboard.js:130
+#: components/EditStreamPanel.js:60
 msgid "Category:"
 msgstr "Category:"
 
-#: pages/c/[name].js:276
+#: pages/c/[name].js:296
 msgid "Channel not found"
 msgstr "Channel not found"
 
@@ -48,7 +48,7 @@ msgstr "Channel not found"
 msgid "Channels"
 msgstr "Channels"
 
-#: pages/dashboard.js:185
+#: pages/dashboard.js:124
 msgid "Chat commands:"
 msgstr "Chat commands:"
 
@@ -92,7 +92,16 @@ msgstr "Do not engage in hate speech."
 msgid "Do not engage, or encourage others to engage, in any targeted abuse or harassment against any other user."
 msgstr "Do not engage, or encourage others to engage, in any targeted abuse or harassment against any other user."
 
-#: pages/settings.js:38
+#: pages/auth/register.js:68
+#: pages/settings.js:35
+msgid "E-mail"
+msgstr "E-mail"
+
+#: pages/c/[name].js:209
+msgid "Edit"
+msgstr "Edit"
+
+#: pages/settings.js:39
 msgid "Edit user"
 msgstr "Edit user"
 
@@ -101,16 +110,16 @@ msgid "English"
 msgstr "English"
 
 #: pages/auth/login.js:51
-#: pages/auth/register.js:51
+#: pages/auth/register.js:61
 #: pages/settings.js:33
 msgid "Error"
 msgstr "Error"
 
-#: pages/dashboard.js:169
+#: pages/dashboard.js:108
 msgid "First, choose the streaming server closest to you:"
 msgstr "First, choose the streaming server closest to you:"
 
-#: pages/c/[name].js:191
+#: pages/c/[name].js:204
 msgid "Follow"
 msgstr "Follow"
 
@@ -122,7 +131,7 @@ msgstr "Follow"
 msgid "Followed Channels"
 msgstr "Followed Channels"
 
-#: pages/c/[name].js:189
+#: pages/c/[name].js:202
 msgid "Followers"
 msgstr "Followers"
 
@@ -130,7 +139,7 @@ msgstr "Followers"
 #~ msgid "Followers · {0}"
 #~ msgstr "Followers · {0}"
 
-#: pages/c/[name].js:190
+#: pages/c/[name].js:203
 msgid "Following"
 msgstr "Following"
 
@@ -139,7 +148,7 @@ msgstr "Following"
 #~ msgstr "Following ({0})"
 
 #: pages/auth/login.js:68
-#: pages/auth/register.js:67
+#: pages/auth/register.js:81
 msgid "Forgot your password?"
 msgstr "Forgot your password?"
 
@@ -150,7 +159,7 @@ msgstr "Forgot your password?"
 msgid "Games"
 msgstr "Games"
 
-#: pages/dashboard.js:166
+#: pages/dashboard.js:105
 msgid "Get started with streaming"
 msgstr "Get started with streaming"
 
@@ -184,15 +193,16 @@ msgstr "Live streams"
 
 #: components/Chat/index.js:477
 #: components/Search/SearchBar.js:83
-#: pages/c/[name].js:275
+#: pages/c/[name].js:295
 msgid "Loading..."
 msgstr "Loading..."
 
 #: components/layout/PageLayout.js:255
 #: components/layout/PageLayout.js:255
 #: components/layout/PageLayout.js:256
+#: pages/auth/activate.js:39
 #: pages/auth/login.js:49
-#: pages/auth/register.js:66
+#: pages/auth/register.js:80
 msgid "Log in"
 msgstr "Log in"
 
@@ -204,7 +214,7 @@ msgstr "Log out"
 msgid "Manage"
 msgstr "Manage"
 
-#: pages/settings.js:36
+#: pages/settings.js:37
 msgid "New password:"
 msgstr "New password:"
 
@@ -212,7 +222,7 @@ msgstr "New password:"
 msgid "No replays available."
 msgstr "No replays available."
 
-#: pages/dashboard.js:177
+#: pages/dashboard.js:116
 msgid "No streaming key found, please contact an admin."
 msgstr "No streaming key found, please contact an admin."
 
@@ -224,7 +234,7 @@ msgstr "Norwegian"
 msgid "Notification of Infringement"
 msgstr "Notification of Infringement"
 
-#: pages/dashboard.js:177
+#: pages/dashboard.js:116
 msgid "Now, use the following stream key:"
 msgstr "Now, use the following stream key:"
 
@@ -233,12 +243,12 @@ msgid "Page not found"
 msgstr "Page not found"
 
 #: pages/auth/login.js:58
-#: pages/auth/register.js:58
-#: pages/settings.js:37
+#: pages/auth/register.js:72
+#: pages/settings.js:38
 msgid "Password"
 msgstr "Password"
 
-#: pages/dashboard.js:193
+#: pages/dashboard.js:132
 msgid "Permanently ban user"
 msgstr "Permanently ban user"
 
@@ -258,11 +268,11 @@ msgstr "Privacy"
 msgid "Privacy Policy"
 msgstr "Privacy Policy"
 
-#: pages/dashboard.js:153
+#: components/EditStreamPanel.js:83
 msgid "Private (don't show in categories, frontpage or search):"
 msgstr "Private (don't show in categories, frontpage or search):"
 
-#: pages/c/[name].js:219
+#: pages/c/[name].js:239
 msgid "REPLAYS"
 msgstr "REPLAYS"
 
@@ -287,7 +297,7 @@ msgstr "Server error"
 msgid "Settings"
 msgstr "Settings"
 
-#: pages/dashboard.js:187
+#: pages/dashboard.js:126
 msgid "Show help command"
 msgstr "Show help command"
 
@@ -295,7 +305,7 @@ msgstr "Show help command"
 msgid "Show only live"
 msgstr "Show only live"
 
-#: pages/dashboard.js:188
+#: pages/dashboard.js:127
 msgid "Show user list"
 msgstr "Show user list"
 
@@ -303,7 +313,7 @@ msgstr "Show user list"
 #: components/layout/PageLayout.js:262
 #: components/layout/PageLayout.js:263
 #: pages/auth/login.js:67
-#: pages/auth/register.js:49
+#: pages/auth/register.js:59
 msgid "Sign up"
 msgstr "Sign up"
 
@@ -319,11 +329,11 @@ msgstr "Stream Chat"
 msgid "Stream Manager"
 msgstr "Stream Manager"
 
-#: pages/dashboard.js:119
+#: pages/dashboard.js:97
 msgid "Stream preview"
 msgstr "Stream preview"
 
-#: pages/dashboard.js:123
+#: pages/dashboard.js:101
 msgid "Stream settings"
 msgstr "Stream settings"
 
@@ -331,7 +341,7 @@ msgstr "Stream settings"
 msgid "Streaming permissions"
 msgstr "Streaming permissions"
 
-#: pages/c/[name].js:192
+#: pages/c/[name].js:205
 msgid "Subscribe"
 msgstr "Subscribe"
 
@@ -363,11 +373,15 @@ msgstr "This page is scuffed and incomplete LOL"
 msgid "This page requires you to be logged in."
 msgstr "This page requires you to be logged in."
 
+#: pages/auth/activate.js:34
+msgid "This verification token is not valid."
+msgstr "This verification token is not valid."
+
 #: pages/terms.js:22
 msgid "Threats, Violence & Harm"
 msgstr "Threats, Violence & Harm"
 
-#: pages/dashboard.js:191
+#: pages/dashboard.js:130
 msgid "Time out user for x seconds"
 msgstr "Time out user for x seconds"
 
@@ -375,7 +389,7 @@ msgstr "Time out user for x seconds"
 msgid "Timestamps"
 msgstr "Timestamps"
 
-#: pages/dashboard.js:194
+#: pages/dashboard.js:133
 msgid "Unban user"
 msgstr "Unban user"
 
@@ -387,7 +401,7 @@ msgstr "Unban user"
 msgid "Unknown error"
 msgstr "Unknown error"
 
-#: pages/c/[name].js:259
+#: pages/c/[name].js:279
 msgid "User has been banned"
 msgstr "User has been banned"
 
@@ -396,7 +410,7 @@ msgid "User settings"
 msgstr "User settings"
 
 #: pages/auth/login.js:54
-#: pages/auth/register.js:54
+#: pages/auth/register.js:64
 msgid "Username"
 msgstr "Username"
 
@@ -412,7 +426,7 @@ msgstr "We will review every reported user on a case-by-case basis, and give <0>
 msgid "Welcome to guac.live"
 msgstr "Welcome to guac.live"
 
-#: pages/dashboard.js:115
+#: pages/dashboard.js:93
 msgid "You do not have permission to stream"
 msgstr "You do not have permission to stream"
 
@@ -424,7 +438,15 @@ msgstr "You may not stream copyright infringing content, such as movies and TV s
 msgid "You must respect all applicable local, national, and international laws while using our services. Any content or activity featuring, encouraging, offering, or soliciting illegal activity is prohibited."
 msgstr "You must respect all applicable local, national, and international laws while using our services. Any content or activity featuring, encouraging, offering, or soliciting illegal activity is prohibited."
 
-#: pages/c/[name].js:262
+#: pages/auth/register.js:50
+msgid "Your account is now registered. Please check your e-mail to verify your account."
+msgstr "Your account is now registered. Please check your e-mail to verify your account."
+
+#: pages/auth/activate.js:38
+msgid "Your e-mail has been verified."
+msgstr "Your e-mail has been verified."
+
+#: pages/c/[name].js:282
 msgid "has been banned from the site."
 msgstr "has been banned from the site."
 
@@ -432,7 +454,7 @@ msgstr "has been banned from the site."
 msgid "is live"
 msgstr "is live"
 
-#: pages/dashboard.js:193
+#: pages/dashboard.js:132
 msgid "message"
 msgstr "message"
 
@@ -440,7 +462,7 @@ msgstr "message"
 msgid "no streams are online"
 msgstr "no streams are online"
 
-#: pages/c/[name].js:197
+#: pages/c/[name].js:216
 msgid "playing"
 msgstr "playing"
 
@@ -448,15 +470,15 @@ msgstr "playing"
 #~ msgid "playing <0>{0}</0>"
 #~ msgstr "playing <0>{0}</0>"
 
-#: pages/dashboard.js:191
+#: pages/dashboard.js:130
 msgid "seconds"
 msgstr "seconds"
 
-#: pages/dashboard.js:189
-#: pages/dashboard.js:190
-#: pages/dashboard.js:191
-#: pages/dashboard.js:192
-#: pages/dashboard.js:193
-#: pages/dashboard.js:194
+#: pages/dashboard.js:128
+#: pages/dashboard.js:129
+#: pages/dashboard.js:130
+#: pages/dashboard.js:131
+#: pages/dashboard.js:132
+#: pages/dashboard.js:133
 msgid "user"
 msgstr "user"

@@ -21,7 +21,7 @@ msgstr "<0>Hei,<1/>Velkommen til guac.live — direktestrømming-platformen. Vi 
 #~ msgid "<0>{0}</0> is live"
 #~ msgstr "<0>{0}</0> sender direkte"
 
-#: pages/c/[name].js:210
+#: pages/c/[name].js:230
 msgid "ABOUT"
 msgstr "OM"
 
@@ -29,7 +29,7 @@ msgstr "OM"
 msgid "Admin"
 msgstr "Admin"
 
-#: pages/dashboard.js:180
+#: pages/dashboard.js:119
 msgid "At last, make sure keyframe interval is set to <0>2</0>."
 msgstr "Til slutt, sørg for at keyframe interval er satt til <0>2</0>"
 
@@ -37,11 +37,11 @@ msgstr "Til slutt, sørg for at keyframe interval er satt til <0>2</0>"
 msgid "Breaking the law"
 msgstr "Å bryte loven"
 
-#: pages/dashboard.js:130
+#: components/EditStreamPanel.js:60
 msgid "Category:"
 msgstr "Kategori:"
 
-#: pages/c/[name].js:276
+#: pages/c/[name].js:296
 msgid "Channel not found"
 msgstr "Kanal ikke funnet"
 
@@ -52,7 +52,7 @@ msgstr "Kanal ikke funnet"
 msgid "Channels"
 msgstr "Kanaler"
 
-#: pages/dashboard.js:185
+#: pages/dashboard.js:124
 msgid "Chat commands:"
 msgstr "Chat-kommandoer:"
 
@@ -96,7 +96,16 @@ msgstr "Ikke delta i hatprat"
 msgid "Do not engage, or encourage others to engage, in any targeted abuse or harassment against any other user."
 msgstr "Ikke engasjer deg eller oppmuntre andre til å engasjere seg i målrettet misbruk eller trakassering mot andre brukere."
 
-#: pages/settings.js:38
+#: pages/auth/register.js:68
+#: pages/settings.js:35
+msgid "E-mail"
+msgstr "E-post"
+
+#: pages/c/[name].js:209
+msgid "Edit"
+msgstr "Endre"
+
+#: pages/settings.js:39
 msgid "Edit user"
 msgstr "Endre bruker"
 
@@ -105,16 +114,16 @@ msgid "English"
 msgstr "Engelsk"
 
 #: pages/auth/login.js:51
-#: pages/auth/register.js:51
+#: pages/auth/register.js:61
 #: pages/settings.js:33
 msgid "Error"
 msgstr "Feil"
 
-#: pages/dashboard.js:169
+#: pages/dashboard.js:108
 msgid "First, choose the streaming server closest to you:"
 msgstr "Først, velg strømmeserveren som er nærmest deg:"
 
-#: pages/c/[name].js:191
+#: pages/c/[name].js:204
 msgid "Follow"
 msgstr "Følg"
 
@@ -122,16 +131,16 @@ msgstr "Følg"
 msgid "Followed Channels"
 msgstr "Fulgte kanaler"
 
-#: pages/c/[name].js:189
+#: pages/c/[name].js:202
 msgid "Followers"
 msgstr "Følgere"
 
-#: pages/c/[name].js:190
+#: pages/c/[name].js:203
 msgid "Following"
 msgstr "Følger"
 
 #: pages/auth/login.js:68
-#: pages/auth/register.js:67
+#: pages/auth/register.js:81
 msgid "Forgot your password?"
 msgstr "Glemt ditt passord?"
 
@@ -142,7 +151,7 @@ msgstr "Glemt ditt passord?"
 msgid "Games"
 msgstr "Spill"
 
-#: pages/dashboard.js:166
+#: pages/dashboard.js:105
 msgid "Get started with streaming"
 msgstr "Start med strømming"
 
@@ -176,15 +185,16 @@ msgstr "Direktesendinger"
 
 #: components/Chat/index.js:477
 #: components/Search/SearchBar.js:83
-#: pages/c/[name].js:275
+#: pages/c/[name].js:295
 msgid "Loading..."
 msgstr "Laster..."
 
 #: components/layout/PageLayout.js:255
 #: components/layout/PageLayout.js:255
 #: components/layout/PageLayout.js:256
+#: pages/auth/activate.js:39
 #: pages/auth/login.js:49
-#: pages/auth/register.js:66
+#: pages/auth/register.js:80
 msgid "Log in"
 msgstr "Logg inn"
 
@@ -196,7 +206,7 @@ msgstr "Logg ut"
 msgid "Manage"
 msgstr "Håndter"
 
-#: pages/settings.js:36
+#: pages/settings.js:37
 msgid "New password:"
 msgstr "Nytt passord:"
 
@@ -204,7 +214,7 @@ msgstr "Nytt passord:"
 msgid "No replays available."
 msgstr "Ingen arkiverte videoer tilgjengelig."
 
-#: pages/dashboard.js:177
+#: pages/dashboard.js:116
 msgid "No streaming key found, please contact an admin."
 msgstr "Ingen strømmenøkkel funnet, vennligst kontakt en administrator."
 
@@ -216,7 +226,7 @@ msgstr "Norsk"
 msgid "Notification of Infringement"
 msgstr "Varsel om krenkelse"
 
-#: pages/dashboard.js:177
+#: pages/dashboard.js:116
 msgid "Now, use the following stream key:"
 msgstr "Nå, bruk følgende strømmenøkkel:"
 
@@ -225,12 +235,12 @@ msgid "Page not found"
 msgstr "Side ikke funnet"
 
 #: pages/auth/login.js:58
-#: pages/auth/register.js:58
-#: pages/settings.js:37
+#: pages/auth/register.js:72
+#: pages/settings.js:38
 msgid "Password"
 msgstr "Passord"
 
-#: pages/dashboard.js:193
+#: pages/dashboard.js:132
 msgid "Permanently ban user"
 msgstr "Utesteng brukeren permanent"
 
@@ -250,11 +260,11 @@ msgstr "Personvern"
 msgid "Privacy Policy"
 msgstr "Personvern"
 
-#: pages/dashboard.js:153
+#: components/EditStreamPanel.js:83
 msgid "Private (don't show in categories, frontpage or search):"
 msgstr "Privat (vises ikke i kategorier, forsisden eller i søk):"
 
-#: pages/c/[name].js:219
+#: pages/c/[name].js:239
 msgid "REPLAYS"
 msgstr "ARKIV"
 
@@ -279,7 +289,7 @@ msgstr "Server-feil"
 msgid "Settings"
 msgstr "Innstillinger"
 
-#: pages/dashboard.js:187
+#: pages/dashboard.js:126
 msgid "Show help command"
 msgstr "Vis hjelp-kommandoen"
 
@@ -287,7 +297,7 @@ msgstr "Vis hjelp-kommandoen"
 msgid "Show only live"
 msgstr "Vis bare direkte"
 
-#: pages/dashboard.js:188
+#: pages/dashboard.js:127
 msgid "Show user list"
 msgstr "Vis liste over brukere"
 
@@ -295,7 +305,7 @@ msgstr "Vis liste over brukere"
 #: components/layout/PageLayout.js:262
 #: components/layout/PageLayout.js:263
 #: pages/auth/login.js:67
-#: pages/auth/register.js:49
+#: pages/auth/register.js:59
 msgid "Sign up"
 msgstr "Registrer"
 
@@ -311,11 +321,11 @@ msgstr "Strømmechat"
 msgid "Stream Manager"
 msgstr "Strømming-håndtering"
 
-#: pages/dashboard.js:119
+#: pages/dashboard.js:97
 msgid "Stream preview"
 msgstr "Strømmeforhåndsvisning"
 
-#: pages/dashboard.js:123
+#: pages/dashboard.js:101
 msgid "Stream settings"
 msgstr "Strømmeinnstillinger"
 
@@ -323,7 +333,7 @@ msgstr "Strømmeinnstillinger"
 msgid "Streaming permissions"
 msgstr "Strømmetillatelse"
 
-#: pages/c/[name].js:192
+#: pages/c/[name].js:205
 msgid "Subscribe"
 msgstr "Abonnér"
 
@@ -351,11 +361,15 @@ msgstr "Denne siden er scuffed og uferdig LOL"
 msgid "This page requires you to be logged in."
 msgstr "Denne siden krever at du er logget inn."
 
+#: pages/auth/activate.js:34
+msgid "This verification token is not valid."
+msgstr "Denne verifiseringskoden er ikke gyldig."
+
 #: pages/terms.js:22
 msgid "Threats, Violence & Harm"
 msgstr "Trusler, vold og skade"
 
-#: pages/dashboard.js:191
+#: pages/dashboard.js:130
 msgid "Time out user for x seconds"
 msgstr "Time ut brukeren i x sekunder"
 
@@ -363,7 +377,7 @@ msgstr "Time ut brukeren i x sekunder"
 msgid "Timestamps"
 msgstr "Tidsmerking"
 
-#: pages/dashboard.js:194
+#: pages/dashboard.js:133
 msgid "Unban user"
 msgstr "Fjern utestenging av bruker"
 
@@ -371,7 +385,7 @@ msgstr "Fjern utestenging av bruker"
 msgid "Unknown error"
 msgstr "Ukjent feil"
 
-#: pages/c/[name].js:259
+#: pages/c/[name].js:279
 msgid "User has been banned"
 msgstr "Brukeren har blitt utestengt"
 
@@ -380,7 +394,7 @@ msgid "User settings"
 msgstr "Brukerinnstillinger"
 
 #: pages/auth/login.js:54
-#: pages/auth/register.js:54
+#: pages/auth/register.js:64
 msgid "Username"
 msgstr "Brukernavn"
 
@@ -396,7 +410,7 @@ msgstr "Vi vil gjennomgå alle rapporterte brukere fra sak til sak, og gi <0>adv
 msgid "Welcome to guac.live"
 msgstr "Velkommen til guac.live"
 
-#: pages/dashboard.js:115
+#: pages/dashboard.js:93
 msgid "You do not have permission to stream"
 msgstr "Du har ikke tillatelse til å streame"
 
@@ -408,7 +422,15 @@ msgstr "Du kan ikke streamer opphavsrettsbeskyttet innhold, slik som filmer og T
 msgid "You must respect all applicable local, national, and international laws while using our services. Any content or activity featuring, encouraging, offering, or soliciting illegal activity is prohibited."
 msgstr "Du må respektere alle gjeldende lokale, nasjonale og internasjonale lover mens du bruker våre tjenester. Alt innhold eller aktivitet som inneholder, oppmuntrer, tilbyr eller oppfordrer til ulovlig aktivitet er forbudt."
 
-#: pages/c/[name].js:262
+#: pages/auth/register.js:50
+msgid "Your account is now registered. Please check your e-mail to verify your account."
+msgstr "Kontoen din er opprettet. Vennligst sjekk din e-post for å verifisere kontoen din."
+
+#: pages/auth/activate.js:38
+msgid "Your e-mail has been verified."
+msgstr "E-posten din har blitt verifisert."
+
+#: pages/c/[name].js:282
 msgid "has been banned from the site."
 msgstr "har blitt utestengt fra dette nettstedet."
 
@@ -416,7 +438,7 @@ msgstr "har blitt utestengt fra dette nettstedet."
 msgid "is live"
 msgstr "sender direkte"
 
-#: pages/dashboard.js:193
+#: pages/dashboard.js:132
 msgid "message"
 msgstr "melding"
 
@@ -424,19 +446,19 @@ msgstr "melding"
 msgid "no streams are online"
 msgstr "ingen aktive direktesendinger"
 
-#: pages/c/[name].js:197
+#: pages/c/[name].js:216
 msgid "playing"
 msgstr "spiller"
 
-#: pages/dashboard.js:191
+#: pages/dashboard.js:130
 msgid "seconds"
 msgstr "sekunder"
 
-#: pages/dashboard.js:189
-#: pages/dashboard.js:190
-#: pages/dashboard.js:191
-#: pages/dashboard.js:192
-#: pages/dashboard.js:193
-#: pages/dashboard.js:194
+#: pages/dashboard.js:128
+#: pages/dashboard.js:129
+#: pages/dashboard.js:130
+#: pages/dashboard.js:131
+#: pages/dashboard.js:132
+#: pages/dashboard.js:133
 msgid "user"
 msgstr "bruker"

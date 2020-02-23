@@ -36,7 +36,7 @@ export const authenticate = (username, password) => async (dispatch) => {
 	});
 };
 
-export const register = (username, password) => async (dispatch) => {
+export const register = (username, email, password) => async (dispatch) => {
 	dispatch({
 		type: 'REGISTER_REQUEST'
 	})
@@ -44,6 +44,7 @@ export const register = (username, password) => async (dispatch) => {
 		method: 'POST',
 		body: JSON.stringify({
 			username,
+			email,
 			password
 		})
 	})
