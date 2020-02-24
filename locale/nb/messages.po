@@ -37,6 +37,13 @@ msgstr "Til slutt, sørg for at keyframe interval er satt til <0>2</0>"
 msgid "Breaking the law"
 msgstr "Å bryte loven"
 
+#: components/layout/PageLayout.js:239
+#: components/layout/PageLayout.js:239
+#: components/layout/PageLayout.js:240
+#: pages/categories.js:28
+msgid "Browse"
+msgstr "Utforsk"
+
 #: components/EditStreamPanel.js:60
 msgid "Category:"
 msgstr "Kategori:"
@@ -45,9 +52,9 @@ msgstr "Kategori:"
 msgid "Channel not found"
 msgstr "Kanal ikke funnet"
 
-#: components/layout/PageLayout.js:232
-#: components/layout/PageLayout.js:232
 #: components/layout/PageLayout.js:233
+#: components/layout/PageLayout.js:233
+#: components/layout/PageLayout.js:234
 #: pages/channels.js:50
 msgid "Channels"
 msgstr "Kanaler"
@@ -72,7 +79,7 @@ msgstr "Opphavsrettsbeskyttet innhold"
 msgid "Counter-Notification"
 msgstr "Innsigelse"
 
-#: components/layout/PageLayout.js:175
+#: components/layout/PageLayout.js:176
 msgid "DMCA"
 msgstr "DMCA"
 
@@ -148,8 +155,8 @@ msgstr "Glemt ditt passord?"
 #: components/layout/PageLayout.js:238
 #: components/layout/PageLayout.js:239
 #: pages/categories.js:28
-msgid "Games"
-msgstr "Spill"
+#~ msgid "Games"
+#~ msgstr "Spill"
 
 #: pages/dashboard.js:105
 msgid "Get started with streaming"
@@ -163,7 +170,7 @@ msgstr "Trakassering og mobbing"
 msgid "Hate Speech"
 msgstr "Hatprat"
 
-#: components/layout/PageLayout.js:227
+#: components/layout/PageLayout.js:228
 msgid "Home"
 msgstr "Hjem"
 
@@ -189,9 +196,9 @@ msgstr "Direktesendinger"
 msgid "Loading..."
 msgstr "Laster..."
 
-#: components/layout/PageLayout.js:255
-#: components/layout/PageLayout.js:255
 #: components/layout/PageLayout.js:256
+#: components/layout/PageLayout.js:256
+#: components/layout/PageLayout.js:257
 #: pages/auth/activate.js:39
 #: pages/auth/login.js:49
 #: pages/auth/register.js:80
@@ -252,7 +259,7 @@ msgstr "Pornografisk og seksuelt eksplisitt innhold er ikke tillatt i noen form,
 msgid "Pornographic/Sexually Explicit Content"
 msgstr "Pornografisk/seksuelt eksplisitt innhold"
 
-#: components/layout/PageLayout.js:172
+#: components/layout/PageLayout.js:173
 msgid "Privacy"
 msgstr "Personvern"
 
@@ -301,9 +308,9 @@ msgstr "Vis bare direkte"
 msgid "Show user list"
 msgstr "Vis liste over brukere"
 
-#: components/layout/PageLayout.js:262
-#: components/layout/PageLayout.js:262
 #: components/layout/PageLayout.js:263
+#: components/layout/PageLayout.js:263
+#: components/layout/PageLayout.js:264
 #: pages/auth/login.js:67
 #: pages/auth/register.js:59
 msgid "Sign up"
@@ -341,7 +348,7 @@ msgstr "Abonnér"
 msgid "Switch language"
 msgstr "Bytt språk"
 
-#: components/layout/PageLayout.js:169
+#: components/layout/PageLayout.js:170
 msgid "Terms"
 msgstr "Vilkår"
 
