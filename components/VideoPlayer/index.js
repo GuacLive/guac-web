@@ -39,6 +39,8 @@ function VideoPlayer(props) {
 			errorDisplay: false,
 			liveui: false,
 			poster: !props.live ? OFFLINE_POSTER : '',
+			inactivityTimeout: 1000,
+			suppressNotSupportedError: true,
 			plugins: {
 				chromecast: {
 					appId: '50E3A992',
