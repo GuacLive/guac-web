@@ -65,6 +65,7 @@ module.exports = withOffline(nextSourceMaps({
 		return config;
 	},
 	target: 'serverless',
+	generateBuildId: async () => pkg.version,
 	poweredByHeader: false,
 	env: {
 		API_URL: process.env.API_URL || 'http://api.local.guac.live',
