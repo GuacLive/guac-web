@@ -165,6 +165,7 @@ class PageLayout extends Component {
 					<footer className="flex bg-near-black white ph4 ph2-m" style={{height:'33%'}}>
 						<div className="f6 flex flex-column flex-grow-1">
 							<span className="dib mr4 mr5-ns ttu tracked">© {(new Date()).getFullYear()} guac.live</span>
+							<span className="dib mr4 mr5-ns f7 silver">v{process.env.SENTRY_RELEASE}</span>
 							<Link href="/terms">
 								<a className="link white-80 hover-light-purple"><Trans>Terms</Trans></a>
 							</Link>

@@ -1,6 +1,7 @@
 const nextSourceMaps = require('@zeit/next-source-maps')
 const webpack = require('webpack');
 const withOffline = require('next-offline');
+const pkg = require('./package.json');
 module.exports = withOffline(nextSourceMaps({
 	webpack(config, {isServer, buildId}) {
 
@@ -65,6 +66,7 @@ module.exports = withOffline(nextSourceMaps({
 		return config;
 	},
 	target: 'serverless',
+	generateBuildId: async () => pkg.version,
 	poweredByHeader: false,
 	env: {
 		API_URL: process.env.API_URL || 'http://api.local.guac.live',
