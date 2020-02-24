@@ -1,6 +1,7 @@
 const nextSourceMaps = require('@zeit/next-source-maps')
 const webpack = require('webpack');
 const withOffline = require('next-offline');
+const pkg = require('../package.json');
 module.exports = withOffline(nextSourceMaps({
 	webpack(config, {isServer, buildId}) {
 
