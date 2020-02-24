@@ -236,8 +236,8 @@ class PageLayout extends Component {
 									</Link>
 									<Link href="/categories">
 										<a className="flex pa3 center nowrap items-center b link white hover-light-green">
-											<span className="dn db-l" title={i18n._(t`Games`)}><Trans>Games</Trans></span>
-											<span className="dn-l" title={i18n._(t`Games`)}><FontAwesomeIcon icon="gamepad" /></span>
+											<span className="dn db-l" title={i18n._(t`Browse`)}><Trans>Browse</Trans></span>
+											<span className="dn-l" title={i18n._(t`Browse`)}><FontAwesomeIcon icon="gamepad" /></span>
 										</a>
 									</Link>
 								</div>
