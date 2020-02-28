@@ -108,12 +108,7 @@ function VideoPlayer(props) {
 		}
 
 		if(window){
-			// Attempt to use our flvjs fork
-			try{
-				window.flvjs = require('@guaclive/flv.js').default;
-			}catch(e){
-				window.flvjs = require('flv.js').default;
-			}
+			window.flvjs = require('flv.js').default;
 			window.videojs = videojs;
 		}
 
