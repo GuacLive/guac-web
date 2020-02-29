@@ -189,6 +189,8 @@ function ChatComponent(props){
 		}).bind(self);
 		if(!user || !messages) return;
 		const embed = new UrlEmbedder;
+		//let emoteOnly = messages && messages.filter(m => m.content.length > 0).length === 1;
+		let emoteOnly = true;
 		let output = messages.map((msg, i) => {
 			if(!msg.type) return null;
 			if(!msg.content.trim()) return null;
@@ -199,21 +201,21 @@ function ChatComponent(props){
 					return (
 						<React.Fragment key={'c-' + i + '-' + (new Date).getTime()}><Image className="chat-message-content__emote dib" src={emote.url} alt={'Emote: ' + msg.content} title={msg.content + ' by ' + emote.provider} />{i !== messages.length -1 && '\u00A0'}</React.Fragment>
 					);
-				break;
 				case 'text':
 					// Add username highlighting
 					if(me && me.name){
 						const pattern = new RegExp(`@${me.name}\\b`, 'gi');
 						msg.content = msg.content.replace(pattern, `<span class="b green highlight">$&</span>`);
 					}
+					
+					// Text is found, set emoteOnly to false
+					if(emoteOnly && msg.content) emoteOnly = false;
 
 					return (
 						<React.Fragment key={'u-' + i + '-'  + (new Date).getTime()}>{embed.format(msg.content)}{i !== messages.length -1 ? '\u00A0' : ''}</React.Fragment>
 					);
-				break;
 				default:
 					return false;
-				break;
 			}
 		});
 		let showModTools = hasPrivilege &&
@@ -309,11 +311,9 @@ function ChatComponent(props){
 						}
 					</span>
 					<span className="chat-message-user b dib">
-						<a href={'/c/' + user.name} className="link color-inherit">{user.name}</a>:{'\u00A0'}
+						<a href={'/c/' + user.name} className="link color-inherit">{user.name}</a>{'\u00A0'}
 					</span>
-					<span className="chat-message-content">
-						{output}
-					</span>
+					<span className={`chat-message-content db ${emoteOnly ? 'chat-message-content__emote-only' : 'chat-message-content__with-text'}`}>{output}</span>
 				</>
 			)
 		};

@@ -54,7 +54,7 @@ export default class Image extends React.Component {
             r = this.props.fit && e && isObjectFitSupported;
 
         return (this.props.flexible ?
-            <div className={`GuacImage -flexible -${this.props.shape}`}>
+            <div className={`GuacImage -flexible${this.props.shape ? ` -${this.props.shape}` : ''}`}>
                 <SuperImage
                     className={this.props.className}
                     src={this.state.src}
@@ -70,7 +70,7 @@ export default class Image extends React.Component {
                 />
             </div> :
             <SuperImage
-                className={`GuacImage -${this.props.shape} ${this.props.className}`}
+                className={`GuacImage ${this.props.shape ? ` -${this.props.shape}` : ''} ${this.props.className}`}
                 src={this.state.src}
                 width={this.props.width}
                 height={this.props.height}
