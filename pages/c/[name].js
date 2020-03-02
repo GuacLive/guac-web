@@ -10,7 +10,7 @@ import { Trans } from '@lingui/macro'
 
 import { useDispatch } from 'react-redux'
 
-import moment from 'moment';
+import prettyMilliseconds from 'pretty-ms';
 
 import Chat from '../../components/Chat'
 
@@ -36,7 +36,7 @@ import log from '../../utils/log';
 import ReplaysList from '../../components/Replays/ReplaysList';
 import EditStreamPanel from '../../components/EditStreamPanel';
 
-import { kFormatter, secondsToDhms } from '../../utils';
+import { kFormatter } from '../../utils';
 
 const STREAMING_SERVER = 'eu';
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
@@ -144,8 +144,8 @@ function ChannelPage(props){
 				});
 			}
 		}
-		let now = new Date().getTime() / 1000;
-		let liveAt = stream && stream.liveAt ? new Date(stream.liveAt).getTime() / 1000 : 0;
+		let now = new Date().getTime();
+		let liveAt = stream && stream.liveAt ? new Date(stream.liveAt) : 0;
     	return (
     		<Fragment key={stream.user.id}>
 				<div className="site-component-channel__player">
@@ -190,8 +190,13 @@ function ChannelPage(props){
 								<span className="">
 									<FontAwesomeIcon icon='clock' />
 									&nbsp;
-									{
-										secondsToDhms(now - liveAt)
+									{	
+										prettyMilliseconds(now - liveAt, {
+											unitCount: 3,
+											formatSubMilliseconds: false,
+											separateMilliseconds: false,
+											secondsDecimalDigits: 0
+										})
 									}
 								</span>
 							}
