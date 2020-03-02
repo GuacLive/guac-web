@@ -1,6 +1,6 @@
 {
   "name": "guac-web",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Main web ui for the Guac livestreaming platform",
   "repository": "GuacLive/guac-web",
   "author": {
@@ -75,6 +75,7 @@
     "postcss-nested": "^4.1.2",
     "postcss-preset-env": "^6.7.0",
     "postcss-url": "9",
+    "pretty-ms": "^6.0.1",
     "react": "^0.0.0-experimental-f42431abe",
     "react-autosize-textarea": "^6",
     "react-dom": "^0.0.0-experimental-f42431abe",

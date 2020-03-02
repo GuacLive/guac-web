@@ -3,14 +3,12 @@ import {connect} from 'react-redux';
 
 import Link from 'next/link';
 
-import moment from 'moment';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import withAuth from '../../utils/withAuth';
 import * as actions from '../../actions';
 
-import { kFormatter, secondsToDhms } from '../../utils';
+import prettyMilliseconds from 'pretty-ms';
 
 class AdminStreamPage extends Component {
 	constructor(props){
@@ -143,7 +141,7 @@ class AdminStreamPage extends Component {
 													<td className="pa3">{
 														publisher.connectCreated
 														&&
-														<span>{secondsToDhms(duration)}</span>
+														<span>{prettyMilliseconds(Date.now() - new Date(publisher.connectCreated).getTime())}</span>
 													}
 													</td>
 													<td className="pa3">{subscriberCount}</td>
