@@ -103,7 +103,7 @@ class PageLayout extends Component {
 		} 
 
 		const SideBarComponent = (
-				<aside className="flex z-max flex-column vh-100 flex-shrink-1 site-component-sidebar bg-near-black">
+				<aside className="fixed flex flex-column vh-100 flex-shrink-1 mv2-l site-component-sidebar bg-near-black">
 					<div className="flex flex-column h-100">
 						<nav className="flex flex-column h-100 overflow-hidden relative">
 							<span className="f5 b inline-flex ph3 light-gray">
@@ -203,7 +203,7 @@ class PageLayout extends Component {
 					<script type="text/javascript" src="//privacy.guac.live/release/current/oil.1.3.5-RELEASE.min.js" nonce={this.props.nonce}></script>
 				</Head>
 				<main className="w-100 h-100 flex flex-column flex-nowrap justify-between items-start page-wrapper">
-					<header className="z-5 w-100 h-100 ph3 pv2 bg-near-black ml-auto flex-shrink-0">
+					<header className="site-component-header z-5 w-100 fixed ph3 pv2 bg-near-black ml-auto flex-shrink-0">
 						<div className="h-100 flex items-stretch flex-nowrap">
 							<div className="dn flex-l flex-shrink-0 items-center pointer">
 								<Link href="/">
@@ -282,7 +282,7 @@ class PageLayout extends Component {
 							:
 							null
 						}
-						<div className="w-100 flex flex-column items-start site-component-main">
+						<div className="w-100 flex flex-column items-start pl7-l site-component-main">
 							{ children }
 						</div>
 					</div>
