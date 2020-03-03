@@ -103,7 +103,7 @@ class PageLayout extends Component {
 		} 
 
 		const SideBarComponent = (
-				<aside className="flex z-max flex-column vh-100 flex-shrink-1 site-component-sidebar bg-near-black">
+				<aside className="flex flex-column vh-100 flex-shrink-1 site-component-sidebar bg-near-black">
 					<div className="flex flex-column h-100">
 						<nav className="flex flex-column h-100 overflow-hidden relative">
 							<span className="f5 b inline-flex ph3 light-gray">
