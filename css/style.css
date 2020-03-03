@@ -180,10 +180,30 @@ input:focus {
 	background: var(--dropdown-background);
 }
 
+.site-component-header {
+	top: 0;
+}
+
+.site-component-sidebar {
+    top: var(--spacing-extra-large);
+    transform: translateX(0%);
+    max-height: calc(100% - 0px);
+}
+
+.site-component-sidebar {
+	/*width: 24rem !important;*/
+	z-index: 20;
+}
 
 @media (--breakpoint-large) {
 	.site-component-sidebar {
-		width: 24rem !important;
+		/*width: 24rem !important;*/
+		z-index: initial !important;
+	}
+	.site-component-main {
+		margin-top: calc(var(--spacing-extra-large) + var(--spacing-small));
+		margin-bottom: calc(var(--spacing-extra-large) + var(--spacing-small));
+		margin-left: calc(var(--spacing-small) + var(--spacing-extra-small));
 	}
 }
 
@@ -375,6 +395,11 @@ html.theater-mode .site-component-main {
 	padding-bottom: 0;
 	padding-left: 0;
 	padding-right: 0;
+
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
 }
 html.theater-mode .site-component-channel__player,
 html.theater-mode .site-component-chat {
