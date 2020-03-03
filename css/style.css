@@ -194,16 +194,15 @@ input:focus {
 	/*width: 24rem !important;*/
 	z-index: 20;
 }
-
+.site-component-main {
+	margin-top: calc(var(--spacing-extra-large) + var(--spacing-small));
+	margin-bottom: calc(var(--spacing-extra-large) + var(--spacing-small));
+	margin-left: calc(var(--spacing-small) + var(--spacing-extra-small));
+}
 @media (--breakpoint-large) {
 	.site-component-sidebar {
 		/*width: 24rem !important;*/
 		z-index: initial !important;
-	}
-	.site-component-main {
-		margin-top: calc(var(--spacing-extra-large) + var(--spacing-small));
-		margin-bottom: calc(var(--spacing-extra-large) + var(--spacing-small));
-		margin-left: calc(var(--spacing-small) + var(--spacing-extra-small));
 	}
 }
 
