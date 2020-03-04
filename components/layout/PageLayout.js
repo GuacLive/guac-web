@@ -105,7 +105,7 @@ class PageLayout extends Component {
 		const SideBarComponent = (
 				<aside className="fixed flex flex-column vh-100 flex-shrink-1 mv2-l site-component-sidebar bg-near-black">
 					<div className="flex flex-column h-100">
-						<nav className="flex flex-column h-100 overflow-hidden relative">
+						<nav className="flex flex-column h-100 relative">
 							<span className="f5 b inline-flex ph3 light-gray">
 								<Trans>Followed Channels</Trans>
 							</span>
@@ -161,26 +161,26 @@ class PageLayout extends Component {
 								}
 							</SimpleBar>
 						</nav>
+						<footer className="flex bg-near-black white ph4 ph2-m mb5">
+							<div className="f6 flex flex-column flex-grow-1">
+								<span className="dib mr4 mr5-ns ttu tracked">© {(new Date()).getFullYear()} guac.live</span>
+								<span className="dib mr4 mr5-ns f7 silver">v{process.env.SENTRY_RELEASE}</span>
+								<Link href="/terms">
+									<a className="link white-80 hover-light-purple"><Trans>Terms</Trans></a>
+								</Link>
+								<Link href="/privacy">
+									<a className="link white-80 hover-gold"> <Trans>Privacy</Trans> </a>
+								</Link>
+								<Link href="/dmca">
+									<a className="link white-80 hover-red"> <Trans>DMCA</Trans> </a>
+								</Link>
+								<Link href="#">
+									<a className="link white-80 hover-green"> contact@guac.live </a>
+								</Link>
+								<LangSwitcher />
+							</div>
+						</footer>
 					</div>
-					<footer className="flex bg-near-black white ph4 ph2-m" style={{height:'33%'}}>
-						<div className="f6 flex flex-column flex-grow-1">
-							<span className="dib mr4 mr5-ns ttu tracked">© {(new Date()).getFullYear()} guac.live</span>
-							<span className="dib mr4 mr5-ns f7 silver">v{process.env.SENTRY_RELEASE}</span>
-							<Link href="/terms">
-								<a className="link white-80 hover-light-purple"><Trans>Terms</Trans></a>
-							</Link>
-							<Link href="/privacy">
-								<a className="link white-80 hover-gold"> <Trans>Privacy</Trans> </a>
-							</Link>
-							<Link href="/dmca">
-								<a className="link white-80 hover-red"> <Trans>DMCA</Trans> </a>
-							</Link>
-							<Link href="#">
-								<a className="link white-80 hover-green"> contact@guac.live </a>
-							</Link>
-							<LangSwitcher />
-						</div>
-					</footer>
 				</aside>
 			);
 			return (

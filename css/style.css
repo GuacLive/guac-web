@@ -185,9 +185,10 @@ input:focus {
 }
 
 .site-component-sidebar {
-    top: var(--spacing-extra-large);
+    top: 64px;
     transform: translateX(0%);
-    max-height: calc(100% - 0px);
+	max-height: calc(100% - 0px);
+	width: 256px;
 }
 
 .site-component-sidebar {
@@ -197,7 +198,7 @@ input:focus {
 .site-component-main {
 	margin-top: calc(var(--spacing-extra-large) + var(--spacing-small));
 	margin-bottom: calc(var(--spacing-extra-large) + var(--spacing-small));
-	margin-left: calc(var(--spacing-small) + var(--spacing-extra-small));
+	left: 256px;
 }
 @media (--breakpoint-large) {
 	.site-component-sidebar {
