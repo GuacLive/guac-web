@@ -19,7 +19,8 @@
         "CHAT_URL": "@guac-chat-url",
         "VIEWER_API_URL": "@guac-viewer-api-url",
         "GIPHY_API_KEY": "@guac-giphy-api-key",
-        "SENTRY_DSN": "@guac-sentry-dsn"
+        "SENTRY_DSN": "@guac-sentry-dsn",
+        "SPLIT_IO_KEY": "@guac-split-io-key"
       }
     },
     "builds": [{ "src": "package.json", "use": "@now/next@canary"}]

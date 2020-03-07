@@ -74,6 +74,7 @@ module.exports = withOffline(nextSourceMaps({
 		VIEWER_API_URL: process.env.VIEWER_API_URL || 'http://viewer-api.local.guac.live',
 		GIPHY_API_KEY: process.env.GIPHY_API_KEY,
 		SENTRY_DSN: process.env.SENTRY_DSN,
+		SPLIT_IO_KEY: process.env.SPLIT_IO_KEY,
 		OIL_CONFIG: {
 			"theme": "dark",
 			"cpc_type": "standard",
