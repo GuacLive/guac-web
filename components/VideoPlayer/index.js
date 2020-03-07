@@ -12,27 +12,49 @@ import { useDispatch } from 'react-redux';
 
 const OFFLINE_POSTER = '/img/offline-poster.png';
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
+var didCancel = false;
+var playbackAPISocket;
 function VideoPlayer(props) {
 	let player;
 	let videoNode;
 	const dispatch = useDispatch();
 	const [connectedStatus, setConnectedStatus] = useState(false);
-	let playbackAPISocket;
-	var channel = props.streamInfo && props.streamInfo.username;
 	
-	useEffect(() => {
-		if(playbackAPISocket){
-			if(connectedStatus){
-				playbackAPISocket.emit('join', {
-					name: channel
+
+	function connectToPlaybackAPI() {
+		if(!didCancel){
+			playbackAPISocket = io(`${VIEWER_API_URL}/playback`, {
+				'transports': ['websocket'],
+				/*'reconnection': true,
+				'reconnectionDelay': 1000,
+				'reconnectionDelayMax': 5000,
+				'reconnectionAttempts': 5,
+				'forceNew': true*/
+			});
+			playbackAPISocket.on('connect', () => {
+				log('info', 'PlaybackAPI', `connected to ${channel}`);
+				setConnectedStatus(true);
+			});
+			playbackAPISocket.on('viewerCount', (data) => {
+				log('info', 'PlaybackAPI', `connected to ${channel}`);
+				if(!data || data.channel !== channel) return;
+				dispatch({
+					type: 'SET_CHANNEL_VIEWERS',
+					viewers: data.viewers
 				});
-			}else{
-				playbackAPISocket.emit('leave', {
-					name: channel
-				});
-			}
+			});
+			playbackAPISocket.on('disconnect', () => {
+				log('info', 'PlaybackAPI', `left ${channel}`);
+				setConnectedStatus(false);
+			});
+			playbackAPISocket.on('reconnect', () => {
+				log('info', 'PlaybackAPI', 'reconnect');
+				setConnectedStatus(true);
+			});
 		}
-	}, [connectedStatus]);
+	};
+	console.log('aaa', props);
+	var channel = props.streamInfo && props.streamInfo.username;
 
 	useEffect(() => {
 		const canAutoplay = require('can-autoplay').default;
@@ -112,41 +134,6 @@ function VideoPlayer(props) {
 			window.flvjs = require('flv.js').default;
 			window.videojs = videojs;
 		}
-
-		let didCancel = false;
-
-		let connectToPlaybackAPI = () => {
-			if(!didCancel){
-				playbackAPISocket = io(`${VIEWER_API_URL}/playback`, {
-					'transports': ['websockets'],
-					/*'reconnection': true,
-					'reconnectionDelay': 1000,
-					'reconnectionDelayMax': 5000,
-					'reconnectionAttempts': 5,*/
-					'forceNew': true
-				});
-				playbackAPISocket.on('connect', () => {
-					log('info', 'PlaybackAPI', `connected to ${channel}`);
-					setConnectedStatus(true);
-				});
-				playbackAPISocket.on('viewerCount', (data) => {
-					log('info', 'PlaybackAPI', `connected to ${channel}`);
-					if(!data || data.channel !== channel) return;
-					dispatch({
-						type: 'SET_CHANNEL_VIEWERS',
-						viewers: data.viewers
-					});
-				});
-				playbackAPISocket.on('disconnect', () => {
-					log('info', 'PlaybackAPI', `left ${channel}`);
-					setConnectedStatus(false);
-				});
-				playbackAPISocket.on('reconnect', () => {
-					log('info', 'PlaybackAPI', 'reconnect');
-					setConnectedStatus(true);
-				});
-			}
-		};
 
 		require('videojs-theater-mode/dist/videojs.theaterMode.js');
 		require('../../videojs-flvjs.js');
@@ -251,6 +238,22 @@ function VideoPlayer(props) {
 		};
 	  }, []);
 	
+	
+	  useEffect(function joinOrLeavePlayback() {
+		console.log('useEffect', connectedStatus, channel, playbackAPISocket);
+		if(playbackAPISocket){
+			console.log('inside playbackAPISocket');
+			if(connectedStatus){
+				playbackAPISocket.emit('join', {
+					name: channel
+				});
+			}else{
+				playbackAPISocket.emit('leave', {
+					name: channel
+				});
+			}
+		}
+	}.bind(this), [connectedStatus]);
 
 
 	// wrap the player in a div with a `data-vjs-player` attribute
