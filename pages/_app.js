@@ -7,6 +7,9 @@ import withRedux from 'next-redux-wrapper';
 
 import configureStore from '../store/configureStore';
 
+import { ConfigureFlopFlip } from '@flopflip/react-redux';
+import adapter from '@flopflip/splitio-adapter';
+
 import PageLayout from '../components/layout/PageLayout';
 
 import { getCookie } from '../utils/cookie';
@@ -71,7 +74,7 @@ export default withRedux(configureStore)(class MyApp extends App {
 
 		// In dev we allow 'unsafe-eval', so HMR doesn't trigger the CSP
 		let devCsp = process.env.NODE_ENV !== 'production' ? "'unsafe-eval'" : '';
-		let csp = `default-src 'self' guac.live *.guac.live privacy.guac.live localhost:*; base-uri 'self'; script-src 'self' ${devCsp} 'nonce-${nonce}' 'strict-dynamic' www.google.com www.googletagmanager.com www.google-analytics.com www.gstatic.com *.googleapis.com guac.live *.guac.live cheese.guac.live privacy.guac.live static.cloudflareinsights.com localhost:* wss://chat.guac.live wss://viewer-api.guac.live cdn.ravenjs.com; child-src www.google.com guac.live *.guac.live privacy.guac.live localhost:* wss://chat.guac.live wss://viewer-api.guac.live blob:; style-src 'self' 'unsafe-inline' *.googleapis.com use.fontawesome.com pro.fontawesome.com guac.live *.guac.live privacy.guac.live localhost:*; img-src 'self' data: guac.live *.guac.live emotes.guac.live privacy.guac.live cheese.guac.live chat.guac.live viewer-api.guac.live *.googleapis.com *.gstatic.com www.google-analytics.com *.giphy.com http: https:; media-src 'self' blob: guac.live *.guac.live privacy.guac.live localhost:* wss://chat.guac.live wss://viewer-api.guac.live; connect-src 'self' guac.live *.guac.live emotes.guac.live privacy.guac.live firebaseinstallations.googleapis.com fcmregistrations.googleapis.com localhost:* ws://chat.local.guac.live ws://viewer-api.guac.live ws://chat.guac.live wss://guac.live wss://chat.guac.live wss://viewer-api.guac.live ws://localhost:* wss://localhost:* ws://local.guac.live wss://local.guac.live ws://stream.local.guac.live wss://stream.local.guac.live ws://stream.guac.live wss://stream.guac.live ws://*.stream.guac.live wss://*.stream.guac.live www.google-analytics.com vendorlist.consensu.org api.betterttv.net api.frankerfacez.com api-test.frankerfacez.com twitchemotes.com *.giphy.com fcm.googleapis.com https://sentry.io; font-src 'self' use.fontawesome.com pro.fontawesome.com guac.live *.guac.live *.gstatic.com data:; object-src 'none';`;
+		let csp = `default-src 'self' guac.live *.guac.live privacy.guac.live localhost:*; base-uri 'self'; script-src 'self' ${devCsp} 'nonce-${nonce}' 'strict-dynamic' www.google.com www.googletagmanager.com www.google-analytics.com www.gstatic.com *.googleapis.com guac.live *.guac.live cheese.guac.live privacy.guac.live static.cloudflareinsights.com localhost:* wss://chat.guac.live wss://viewer-api.guac.live cdn.ravenjs.com; child-src www.google.com guac.live *.guac.live privacy.guac.live localhost:* wss://chat.guac.live wss://viewer-api.guac.live blob:; style-src 'self' 'unsafe-inline' *.googleapis.com use.fontawesome.com pro.fontawesome.com guac.live *.guac.live privacy.guac.live localhost:*; img-src 'self' data: guac.live *.guac.live emotes.guac.live privacy.guac.live cheese.guac.live chat.guac.live viewer-api.guac.live *.googleapis.com *.gstatic.com www.google-analytics.com *.giphy.com http: https:; media-src 'self' blob: guac.live *.guac.live privacy.guac.live localhost:* wss://chat.guac.live wss://viewer-api.guac.live; connect-src 'self' guac.live *.guac.live emotes.guac.live privacy.guac.live firebaseinstallations.googleapis.com fcmregistrations.googleapis.com localhost:* sdk.split.io events.split.io ws://chat.local.guac.live ws://viewer-api.guac.live ws://chat.guac.live wss://guac.live wss://chat.guac.live wss://viewer-api.guac.live ws://localhost:* wss://localhost:* ws://local.guac.live wss://local.guac.live ws://stream.local.guac.live wss://stream.local.guac.live ws://stream.guac.live wss://stream.guac.live ws://*.stream.guac.live wss://*.stream.guac.live www.google-analytics.com vendorlist.consensu.org api.betterttv.net api.frankerfacez.com api-test.frankerfacez.com twitchemotes.com *.giphy.com fcm.googleapis.com https://sentry.io; font-src 'self' use.fontawesome.com pro.fontawesome.com guac.live *.guac.live *.gstatic.com data:; object-src 'none';`;
 		if(ctx && ctx.req) ctx.req.nonce = nonce;
 		if(ctx.res){
 			if(ctx.res.setHeader){
@@ -163,19 +166,28 @@ export default withRedux(configureStore)(class MyApp extends App {
 
 	render() {
 		const {Component, pageProps, store, locale, catalogs} = this.props;
+		const state = store.getState();
 
 		// Skip rendering when catalog isn't loaded.
 		if (!catalogs[locale]) return null;
 
 		const skipLayoutDestinations = ['/embed/[name]', '/chat/[name]', '/overlay/[name]'];
 		const shouldSkip = this.props.pathname && skipLayoutDestinations.indexOf(this.props.pathname) > -1;
+	
 		return (
 			<>
 				<Provider store={store}>
         			<I18nProvider language={locale} catalogs={catalogs}>
-						<PageLayout skip={shouldSkip} nonce={this.props.nonce}>
-							<Component {...pageProps} {...{'log': log}} />
-						</PageLayout>
+						<ConfigureFlopFlip adapter={adapter} adapterArgs={{
+							authorizationKey: process.env.SPLIT_IO_KEY,
+							user: {
+								key: state.authentication.user && state.authentication.user.name
+							}
+						 }}>
+							<PageLayout skip={shouldSkip} nonce={this.props.nonce}>
+								<Component {...pageProps} {...{'log': log}} />
+							</PageLayout>
+						</ConfigureFlopFlip>
 					</I18nProvider>
 				</Provider>
 			</>

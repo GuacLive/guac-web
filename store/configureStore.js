@@ -9,7 +9,7 @@ import logger from 'redux-logger';
 import {
 	createFlopFlipEnhancer,
 } from '@flopflip/react-redux';
-import adapter from '@flopflip/localstorage-adapter';
+import adapter from '@flopflip/splitio-adapter';
 
 import * as Sentry from '@sentry/browser';
 
@@ -45,11 +45,9 @@ if(typeof localStorage === 'object'){
 	storeEnhancers.push(createFlopFlipEnhancer(
 		adapter,
 		{
+			authorizationKey: process.env.SPLIT_IO_KEY,
 			user: {
-				key: 'user'
-			},
-			onFlagsStateChange: () => {console.log('onFlagsStateChange')},
-			onStatusStateChange: () => {}
+			}
 		}
 	));
 }
