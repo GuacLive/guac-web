@@ -18,6 +18,7 @@ function VideoPlayer(props) {
 	const dispatch = useDispatch();
 	const [connectedStatus, setConnectedStatus] = useState(false);
 	let playbackAPISocket;
+	var channel = props.streamInfo && props.streamInfo.username;
 	
 	useEffect(() => {
 		if(playbackAPISocket){
@@ -113,15 +114,15 @@ function VideoPlayer(props) {
 		}
 
 		let didCancel = false;
-		let channel = props.streamInfo && props.streamInfo.username;
 
 		let connectToPlaybackAPI = () => {
 			if(!didCancel){
 				playbackAPISocket = io(`${VIEWER_API_URL}/playback`, {
-					'reconnection': true,
+					'transports': ['websockets'],
+					/*'reconnection': true,
 					'reconnectionDelay': 1000,
 					'reconnectionDelayMax': 5000,
-					'reconnectionAttempts': 5,
+					'reconnectionAttempts': 5,*/
 					'forceNew': true
 				});
 				playbackAPISocket.on('connect', () => {
