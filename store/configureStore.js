@@ -40,18 +40,6 @@ if (process.env.NODE_ENV === 'development') {
 const middlewareEnhancer = applyMiddleware(...middlewares);
 storeEnhancers.unshift(middlewareEnhancer);
 
-if(typeof localStorage === 'object'){
-	console.log('createFlopFlipEnhancer', adapter);
-	storeEnhancers.push(createFlopFlipEnhancer(
-		adapter,
-		{
-			authorizationKey: process.env.SPLIT_IO_KEY,
-			user: {
-			}
-		}
-	));
-}
-
 /* eslint-disable */
 export default function configureStore(initialState) {
 	const composeEnhancers = typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
