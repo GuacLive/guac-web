@@ -118,10 +118,11 @@ function VideoPlayer(props) {
 		let connectToPlaybackAPI = () => {
 			if(!didCancel){
 				playbackAPISocket = io(`${VIEWER_API_URL}/playback`, {
-					'reconnection': true,
+					'transports': ['websockets'],
+					/*'reconnection': true,
 					'reconnectionDelay': 1000,
 					'reconnectionDelayMax': 5000,
-					'reconnectionAttempts': 5,
+					'reconnectionAttempts': 5,*/
 					'forceNew': true
 				});
 				playbackAPISocket.on('connect', () => {
