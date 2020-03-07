@@ -171,11 +171,11 @@ function ChannelPage(props){
 					{stream.live
 						?
 							<>
-							{props.channel.viewers !== null &&  
+							{typeof props.channel.viewers !== 'undefined' &&  
 								<span className="">
 									<FontAwesomeIcon icon='user' />
 									&nbsp;
-									{props.channel.viewers}
+									{props.channel.viewers.toString()}
 								</span>
 							}
 							</>
