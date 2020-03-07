@@ -219,7 +219,7 @@ function ChannelPage(props){
 							{stream.title}
 							<br />
 							<Trans>playing</Trans>&nbsp;
-							<Link href={'/category/' + stream.category_id}><a className="primary">{stream.category_name}</a></Link>
+							<Link href="/category/[id]" as={`/category/${stream.category_id}`}><a className="primary">{stream.category_name}</a></Link>
 						</span>
 					</div>
 				</div>
