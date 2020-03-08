@@ -36,6 +36,10 @@ import log from '../../utils/log';
 import ReplaysList from '../../components/Replays/ReplaysList';
 import EditStreamPanel from '../../components/EditStreamPanel';
 
+import { useFeatureToggle } from '@flopflip/react-broadcast';
+
+import { ToggleFeature } from '@flopflip/react-redux';
+
 import { kFormatter } from '../../utils';
 
 const STREAMING_SERVER = 'eu';
@@ -44,7 +48,6 @@ function ChannelPage(props){
 	const [tab, setTab] = useState(0);
 	const [showModal, setShowModal] = useState(false);
 	const dispatch = useDispatch();
-
 	useEffect(() => {
 		const { channel } = props;
 		let channelAPISocket, didCancel = false;
@@ -207,7 +210,9 @@ function ChannelPage(props){
 					{!authentication.token && <span className="f5 primary ml1 mr2"><Trans>Followers</Trans> · {kFormatter(stream.followers)}</span>}
 					{stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={follow}><Trans>Following</Trans> ({kFormatter(stream.followers)})</GuacButton>}
 					{!stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={follow}><Trans>Follow</Trans> ({kFormatter(stream.followers)})</GuacButton>}
-					{false && stream.type == 'PARTNER' && <GuacButton color="green"><Trans>Subscribe</Trans></GuacButton>}
+					<ToggleFeature flag="subscribeButton">
+						{stream.type == 'PARTNER' && <GuacButton color="green"><Trans>Subscribe</Trans></GuacButton>}
+					</ToggleFeature>
 					{isMe && 
 						<GuacButton color="dark-gray" title="Edit stream" onClick={editStream}>
 						<FontAwesomeIcon icon="edit" fixedWidth className="white" />
