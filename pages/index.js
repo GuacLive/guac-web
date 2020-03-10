@@ -137,9 +137,13 @@ class IndexPage extends Component {
 										</span>
 									</div>
 								</div>
-								<div className="pa3 pa4-l db v-mid black">
-									<GuacButton color="light-green" url="/auth/login"><Trans>Join</Trans></GuacButton>
-								</div>
+								{
+									(!this.props.authentication.token)
+									&&
+									<div className="pa3 pa4-l db v-mid black">
+										<GuacButton color="light-green" url="/auth/login"><Trans>Join</Trans></GuacButton>
+									</div>
+								}
 							</div>
 						</article>
 					</section>
