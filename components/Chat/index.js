@@ -311,7 +311,7 @@ function ChatComponent(props){
 						}
 					</span>
 					<span className="chat-message-user b dib">
-						<a href={'/c/' + user.name} className="link color-inherit">{user.name}</a>{'\u00A0'}
+						<a href={'/c/' + user.name} className="link color-inherit" style={{color: `#${user.color}`}}>{user.name}</a>{'\u00A0'}
 					</span>
 					<span className={`chat-message-content db ${emoteOnly ? 'chat-message-content__emote-only' : 'chat-message-content__with-text'}`}>{output}</span>
 				</>
