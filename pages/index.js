@@ -149,6 +149,15 @@ class IndexPage extends Component {
 					</section>
 				</ToggleFeature>
 				<div className="w-100 mw9-l">
+					<iframe
+						src="https://www.patreon.com/platform/iframe?widget=become-patron-button&creatorID=19057109"
+						scrolling="no"
+						allowtransparency="true"
+						frameborder="0"
+						class="patreon-widget"
+						title="Patreon Widget" 
+						style={{display: 'block', height: '35px', verticalAlign: 'top'}}
+					/>
 					<a href="https://discord.gg/k6MJSAj">
 						<img src="https://discordapp.com/api/guilds/564909420199411732/widget.png?style=banner2" />
 					</a>
