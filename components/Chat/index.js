@@ -438,7 +438,7 @@ function ChatComponent(props){
 	// If token changes, join with the new one
 	// Is this really necessary? I just added because it might fix some issues
 	useEffect(() => {
-		if(socket && connectedStatus) socket.emit('join', authentication.token || null);
+		if(socket && connectedStatus) socket.emit('join', authentication.token || null, channel.data && channel.data.user && channel.data.user.name);
 	}, [authentication.token, connectedStatus]);
 
 	// Handle simplebar calculation
