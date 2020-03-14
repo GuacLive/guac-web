@@ -311,7 +311,7 @@ function ChatComponent(props){
 						}
 					</span>
 					<span className="chat-message-user b dib">
-						<a href={'/c/' + user.name} className="link color-inherit">{user.name}</a>{'\u00A0'}
+						<a href={'/c/' + user.name} className="link color-inherit" style={{color: `#${user.color}`}}>{user.name}</a>{'\u00A0'}
 					</span>
 					<span className={`chat-message-content db ${emoteOnly ? 'chat-message-content__emote-only' : 'chat-message-content__with-text'}`}>{output}</span>
 				</>
@@ -438,7 +438,7 @@ function ChatComponent(props){
 	// If token changes, join with the new one
 	// Is this really necessary? I just added because it might fix some issues
 	useEffect(() => {
-		if(socket && connectedStatus) socket.emit('join', authentication.token || null);
+		if(socket && connectedStatus) socket.emit('join', authentication.token || null, channel.data && channel.data.user && channel.data.user.name);
 	}, [authentication.token, connectedStatus]);
 
 	// Handle simplebar calculation
