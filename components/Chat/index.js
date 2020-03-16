@@ -416,7 +416,8 @@ function ChatComponent(props){
 				'reconnectionDelay': 1000,
 				'reconnectionDelayMax': 5000,
 				'reconnectionAttempts': 5,
-				'forceNew': true
+				'forceNew': true,
+				'transports': ['websocket']
 			});
 			socket.on('join', userJoin);
 			socket.on('leave', userLeave);
