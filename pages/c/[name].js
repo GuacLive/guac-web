@@ -36,8 +36,6 @@ import log from '../../utils/log';
 import ReplaysList from '../../components/Replays/ReplaysList';
 import EditStreamPanel from '../../components/EditStreamPanel';
 
-import { useFeatureToggle } from '@flopflip/react-broadcast';
-
 import { ToggleFeature } from '@flopflip/react-redux';
 
 import { kFormatter } from '../../utils';
