@@ -124,15 +124,15 @@ class IndexPage extends Component {
 		if(featured.loading) return null;
 		return (
 			<Fragment>
-				<div className="site-component-spotlight w-100 ph3 ph5-l mw9-l">
-					<h3 className="f4 b ma0 ttu tracked primary"><Trans>Live streams</Trans></h3>
+				<div className="site-component-spotlight w-100 pv3 ph4-l mw9-l">
+					<h3 className="f4 b ma0 mt0 mb3 ttu tracked primary"><Trans>Live streams</Trans></h3>
 					{this.renderStreams()}
 				</div>
 				<ToggleFeature
 					flag='guacWelcome'
 				>
-					<section className="ph3 ph5-l pv5">
-						<article className="center-l br2 ba b--transparent">
+					<section className="ph4-l pv5">
+						<article className="center-l br2 ba b--transparent bg-black-50">
 							<div className="db w-100">
 								<div className="pa3 pa4-ns db v-mid">
 									<div>
@@ -158,24 +158,24 @@ class IndexPage extends Component {
 										<GuacButton color="light-green" url="/auth/login"><Trans>Join</Trans></GuacButton>
 									</div>
 								}
+								<div className="pa3 pa4-l db">
+									<iframe
+										src="https://www.patreon.com/platform/iframe?widget=become-patron-button&creatorID=19057109"
+										scrolling="no"
+										allowtransparency="true"
+										frameborder="0"
+										class="patreon-widget"
+										title="Patreon Widget" 
+										style={{display: 'block', height: '35px', verticalAlign: 'top'}}
+									/>
+									<a href="https://discord.gg/k6MJSAj">
+										<img src="https://discordapp.com/api/guilds/564909420199411732/widget.png?style=banner2" />
+									</a>
+								</div>
 							</div>
 						</article>
 					</section>
 				</ToggleFeature>
-				<div className="w-100 mw9-l">
-					<iframe
-						src="https://www.patreon.com/platform/iframe?widget=become-patron-button&creatorID=19057109"
-						scrolling="no"
-						allowtransparency="true"
-						frameborder="0"
-						class="patreon-widget"
-						title="Patreon Widget" 
-						style={{display: 'block', height: '35px', verticalAlign: 'top'}}
-					/>
-					<a href="https://discord.gg/k6MJSAj">
-						<img src="https://discordapp.com/api/guilds/564909420199411732/widget.png?style=banner2" />
-					</a>
-				</div>
 			</Fragment>
 		)
 	}
