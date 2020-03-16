@@ -13,11 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: pages/index.js:127
+#: pages/index.js:141
 msgid "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 msgstr "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 
-#: pages/c/[name].js:230
+#: pages/c/[name].js:240
 msgid "ABOUT"
 msgstr "ABOUT"
 
@@ -44,7 +44,7 @@ msgstr "Browse"
 msgid "Category:"
 msgstr "Category:"
 
-#: pages/c/[name].js:296
+#: pages/c/[name].js:306
 msgid "Channel not found"
 msgstr "Channel not found"
 
@@ -75,7 +75,7 @@ msgstr "Copyrighted Content"
 msgid "Counter-Notification"
 msgstr "Counter-Notification"
 
-#: components/layout/PageLayout.js:176
+#: components/layout/PageLayout.js:175
 msgid "DMCA"
 msgstr "DMCA"
 
@@ -104,7 +104,7 @@ msgstr "Do not engage, or encourage others to engage, in any targeted abuse or h
 msgid "E-mail"
 msgstr "E-mail"
 
-#: pages/c/[name].js:209
+#: pages/c/[name].js:219
 msgid "Edit"
 msgstr "Edit"
 
@@ -126,7 +126,7 @@ msgstr "Error"
 msgid "First, choose the streaming server closest to you:"
 msgstr "First, choose the streaming server closest to you:"
 
-#: pages/c/[name].js:204
+#: pages/c/[name].js:212
 msgid "Follow"
 msgstr "Follow"
 
@@ -138,7 +138,7 @@ msgstr "Follow"
 msgid "Followed Channels"
 msgstr "Followed Channels"
 
-#: pages/c/[name].js:202
+#: pages/c/[name].js:210
 msgid "Followers"
 msgstr "Followers"
 
@@ -146,7 +146,7 @@ msgstr "Followers"
 #~ msgid "Followers · {0}"
 #~ msgstr "Followers · {0}"
 
-#: pages/c/[name].js:203
+#: pages/c/[name].js:211
 msgid "Following"
 msgstr "Following"
 
@@ -190,17 +190,17 @@ msgstr "Information"
 msgid "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be \"repeat infringers\". If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (\"DMCA\") by providing Guac.live's Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
 msgstr "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be \"repeat infringers\". If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (\"DMCA\") by providing Guac.live's Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
 
-#: pages/index.js:141
+#: pages/index.js:158
 msgid "Join"
 msgstr "Join"
 
-#: pages/index.js:114
+#: pages/index.js:128
 msgid "Live streams"
 msgstr "Live streams"
 
 #: components/Chat/index.js:477
 #: components/Search/SearchBar.js:83
-#: pages/c/[name].js:295
+#: pages/c/[name].js:305
 msgid "Loading..."
 msgstr "Loading..."
 
@@ -267,7 +267,7 @@ msgstr "Pornographic and sexually explicit content is not permitted in any form,
 msgid "Pornographic/Sexually Explicit Content"
 msgstr "Pornographic/Sexually Explicit Content"
 
-#: components/layout/PageLayout.js:173
+#: components/layout/PageLayout.js:172
 msgid "Privacy"
 msgstr "Privacy"
 
@@ -279,7 +279,7 @@ msgstr "Privacy Policy"
 msgid "Private (don't show in categories, frontpage or search):"
 msgstr "Private (don't show in categories, frontpage or search):"
 
-#: pages/c/[name].js:239
+#: pages/c/[name].js:249
 msgid "REPLAYS"
 msgstr "REPLAYS"
 
@@ -348,7 +348,7 @@ msgstr "Stream settings"
 msgid "Streaming permissions"
 msgstr "Streaming permissions"
 
-#: pages/c/[name].js:205
+#: pages/c/[name].js:214
 msgid "Subscribe"
 msgstr "Subscribe"
 
@@ -360,7 +360,7 @@ msgstr "Subscribe"
 msgid "Switch language"
 msgstr "Switch language"
 
-#: components/layout/PageLayout.js:170
+#: components/layout/PageLayout.js:169
 msgid "Terms"
 msgstr "Terms"
 
@@ -408,7 +408,7 @@ msgstr "Unban user"
 msgid "Unknown error"
 msgstr "Unknown error"
 
-#: pages/c/[name].js:279
+#: pages/c/[name].js:289
 msgid "User has been banned"
 msgstr "User has been banned"
 
@@ -429,7 +429,7 @@ msgstr "Username:"
 msgid "We will review every reported user on a case-by-case basis, and give <0>warnings</0> or <1>temporary/permanent bans</1> depending on the severity of the case."
 msgstr "We will review every reported user on a case-by-case basis, and give <0>warnings</0> or <1>temporary/permanent bans</1> depending on the severity of the case."
 
-#: pages/index.js:125
+#: pages/index.js:139
 msgid "Welcome to guac.live"
 msgstr "Welcome to guac.live"
 
@@ -453,7 +453,7 @@ msgstr "Your account is now registered. Please check your e-mail to verify your 
 msgid "Your e-mail has been verified."
 msgstr "Your e-mail has been verified."
 
-#: pages/c/[name].js:282
+#: pages/c/[name].js:292
 msgid "has been banned from the site."
 msgstr "has been banned from the site."
 
@@ -465,11 +465,11 @@ msgstr "is live"
 msgid "message"
 msgstr "message"
 
-#: pages/index.js:104
+#: pages/index.js:118
 msgid "no streams are online"
 msgstr "no streams are online"
 
-#: pages/c/[name].js:216
+#: pages/c/[name].js:226
 msgid "playing"
 msgstr "playing"
 

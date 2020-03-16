@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: pages/index.js:127
+#: pages/index.js:141
 msgid "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 msgstr "<0>Hei,<1/>Velkommen til guac.live — direktestrømming-platformen. Vi er for tiden i beta.</0><2>Mens vi er i beta, så vil strømmeprivilegier bli gitt på invitasjonsbasis.<3/>Men, lag gjerne en konto og delta i chatten og det generelle fellesskapet!</2>"
 
@@ -21,7 +21,7 @@ msgstr "<0>Hei,<1/>Velkommen til guac.live — direktestrømming-platformen. Vi 
 #~ msgid "<0>{0}</0> is live"
 #~ msgstr "<0>{0}</0> sender direkte"
 
-#: pages/c/[name].js:230
+#: pages/c/[name].js:240
 msgid "ABOUT"
 msgstr "OM"
 
@@ -48,7 +48,7 @@ msgstr "Utforsk"
 msgid "Category:"
 msgstr "Kategori:"
 
-#: pages/c/[name].js:296
+#: pages/c/[name].js:306
 msgid "Channel not found"
 msgstr "Kanal ikke funnet"
 
@@ -79,7 +79,7 @@ msgstr "Opphavsrettsbeskyttet innhold"
 msgid "Counter-Notification"
 msgstr "Innsigelse"
 
-#: components/layout/PageLayout.js:176
+#: components/layout/PageLayout.js:175
 msgid "DMCA"
 msgstr "DMCA"
 
@@ -108,7 +108,7 @@ msgstr "Ikke engasjer deg eller oppmuntre andre til å engasjere seg i målrette
 msgid "E-mail"
 msgstr "E-post"
 
-#: pages/c/[name].js:209
+#: pages/c/[name].js:219
 msgid "Edit"
 msgstr "Endre"
 
@@ -130,7 +130,7 @@ msgstr "Feil"
 msgid "First, choose the streaming server closest to you:"
 msgstr "Først, velg strømmeserveren som er nærmest deg:"
 
-#: pages/c/[name].js:204
+#: pages/c/[name].js:212
 msgid "Follow"
 msgstr "Følg"
 
@@ -138,11 +138,11 @@ msgstr "Følg"
 msgid "Followed Channels"
 msgstr "Fulgte kanaler"
 
-#: pages/c/[name].js:202
+#: pages/c/[name].js:210
 msgid "Followers"
 msgstr "Følgere"
 
-#: pages/c/[name].js:203
+#: pages/c/[name].js:211
 msgid "Following"
 msgstr "Følger"
 
@@ -182,17 +182,17 @@ msgstr "Informasjon"
 msgid "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be \"repeat infringers\". If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (\"DMCA\") by providing Guac.live's Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
 msgstr "Det er vår policy å svare på klare merknader om påstått brudd på opphavsretten som er i samsvar med Digital Millennium Copyright Act. I tillegg vil vi straks avslutte uten varsel kontoene til de som bestemmes av oss å være \"gjentatte krenkere\". Hvis du er opphavsrettseier eller en agent derav, og du tror at alt innhold som er vert på nettstedet vårt (www.guac.live) krenker opphavsretten din, kan du sende inn et varsel i henhold til Digital Millennium Copyright Act (\"DMCA\") ved å gi Guac.lives utpekte copyrightagent følgende informasjon skriftlig (vennligst kontakt din advokat eller se 17 USC Seksjon 512 (c) (3) for å bekrefte disse kravene):"
 
-#: pages/index.js:141
+#: pages/index.js:158
 msgid "Join"
 msgstr "Bli med"
 
-#: pages/index.js:114
+#: pages/index.js:128
 msgid "Live streams"
 msgstr "Direktesendinger"
 
 #: components/Chat/index.js:477
 #: components/Search/SearchBar.js:83
-#: pages/c/[name].js:295
+#: pages/c/[name].js:305
 msgid "Loading..."
 msgstr "Laster..."
 
@@ -259,7 +259,7 @@ msgstr "Pornografisk og seksuelt eksplisitt innhold er ikke tillatt i noen form,
 msgid "Pornographic/Sexually Explicit Content"
 msgstr "Pornografisk/seksuelt eksplisitt innhold"
 
-#: components/layout/PageLayout.js:173
+#: components/layout/PageLayout.js:172
 msgid "Privacy"
 msgstr "Personvern"
 
@@ -271,7 +271,7 @@ msgstr "Personvern"
 msgid "Private (don't show in categories, frontpage or search):"
 msgstr "Privat (vises ikke i kategorier, forsisden eller i søk):"
 
-#: pages/c/[name].js:239
+#: pages/c/[name].js:249
 msgid "REPLAYS"
 msgstr "ARKIV"
 
@@ -340,7 +340,7 @@ msgstr "Strømmeinnstillinger"
 msgid "Streaming permissions"
 msgstr "Strømmetillatelse"
 
-#: pages/c/[name].js:205
+#: pages/c/[name].js:214
 msgid "Subscribe"
 msgstr "Abonnér"
 
@@ -348,7 +348,7 @@ msgstr "Abonnér"
 msgid "Switch language"
 msgstr "Bytt språk"
 
-#: components/layout/PageLayout.js:170
+#: components/layout/PageLayout.js:169
 msgid "Terms"
 msgstr "Vilkår"
 
@@ -392,7 +392,7 @@ msgstr "Fjern utestenging av bruker"
 msgid "Unknown error"
 msgstr "Ukjent feil"
 
-#: pages/c/[name].js:279
+#: pages/c/[name].js:289
 msgid "User has been banned"
 msgstr "Brukeren har blitt utestengt"
 
@@ -413,7 +413,7 @@ msgstr "Brukernavn:"
 msgid "We will review every reported user on a case-by-case basis, and give <0>warnings</0> or <1>temporary/permanent bans</1> depending on the severity of the case."
 msgstr "Vi vil gjennomgå alle rapporterte brukere fra sak til sak, og gi <0>advarsler</0> eller <1>midlertidige/permanente utestengelser</1> basert på alvorlighetsgraden til saken."
 
-#: pages/index.js:125
+#: pages/index.js:139
 msgid "Welcome to guac.live"
 msgstr "Velkommen til guac.live"
 
@@ -437,7 +437,7 @@ msgstr "Kontoen din er opprettet. Vennligst sjekk din e-post for å verifisere k
 msgid "Your e-mail has been verified."
 msgstr "E-posten din har blitt verifisert."
 
-#: pages/c/[name].js:282
+#: pages/c/[name].js:292
 msgid "has been banned from the site."
 msgstr "har blitt utestengt fra dette nettstedet."
 
@@ -449,11 +449,11 @@ msgstr "sender direkte"
 msgid "message"
 msgstr "melding"
 
-#: pages/index.js:104
+#: pages/index.js:118
 msgid "no streams are online"
 msgstr "ingen aktive direktesendinger"
 
-#: pages/c/[name].js:216
+#: pages/c/[name].js:226
 msgid "playing"
 msgstr "spiller"
 
