@@ -74,8 +74,8 @@ class IndexPage extends Component {
 
     	return (
     		<div key={stream.user.id}>
-    			<Link href="/c/[name]" as={`/c/${stream.user.name}`}>
-    				<a className="link f4 b ma0">
+    			<Link href="/c/[name]" as={`/c/${stream.name}`}>
+    				<a className="link f4 b ma0 primary">
 						<span className="i tracked b">{stream.name}</span> <Trans>is live</Trans>
 					</a>
     			</Link>
@@ -91,10 +91,24 @@ class IndexPage extends Component {
 			return (
 				<Carousel
 					width="100%"
-					cellAlign="center"
 					initialSlideHeight={100}
-					heightMode="first"
+					heightMode="max"
 					className="w-100"
+					slidesToShow={6}
+					cellSpacing={20}
+					asing="easeInQuad"
+					slidesToScroll={5}
+					dragging={true}
+					wraparound={true}
+					cellAlign={'center'}
+					slideWidth={3}
+					defaultControlsConfig={{
+						nextButtonText: <i class="fa fa-arrow-right primary"></i>,
+						prevButtonText: <i class="fa fa-arrow-left primary"></i>,
+						pagingDotsStyle: {
+						  fill: 'white'
+						}
+					  }}
 				>
 					{this.props.featured.data.map(this.renderStream)}
 					</Carousel>
@@ -110,8 +124,8 @@ class IndexPage extends Component {
 		if(featured.loading) return null;
 		return (
 			<Fragment>
-				<div className="site-component-spotlight w-100 mw9-l bg-light-green black">
-					<h3 className="f4 b ma0 ttu tracked"><Trans>Live streams</Trans></h3>
+				<div className="site-component-spotlight w-100 ph3 ph5-l mw9-l">
+					<h3 className="f4 b ma0 ttu tracked primary"><Trans>Live streams</Trans></h3>
 					{this.renderStreams()}
 				</div>
 				<ToggleFeature
