@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import moment from 'moment';
+import format from 'date-fns/format';
 
 import Image from '../Image';
 
@@ -36,7 +36,7 @@ function ReplaysList(props){
 						<div className="pa2">
 							<span className="f5 db link green">
 								<Link href={replay.stream}>
-									<a className="link color-inherit">{moment(stream.time).format('LLLL')}</a>
+									<a className="link color-inherit">{format(stream.time, 'LLLL')}</a>
 								</Link>
 							</span>
 							<GuacButton url={replay.stream} color="dark-green">Watch replay</GuacButton>
