@@ -8,8 +8,9 @@ import io from 'socket.io-client';
 import SimpleBar from 'simplebar-react';
 
 import ReactTextareaAutocomplete from '@webscopeio/react-textarea-autocomplete';
-import AutoTextarea from "react-autosize-textarea";
-import moment from 'moment';
+import AutoTextarea from 'react-autosize-textarea';
+
+import format from 'date-fns/format';
 
 import { withI18n } from '@lingui/react';
 import { Trans, t } from '@lingui/macro';
@@ -25,12 +26,15 @@ import UrlEmbedder from '../../utils/UrlEmbedder';
 import Image from '../Image';
 
 import { ToggleFeature } from '@flopflip/react-redux';
+import { useFeatureToggle } from '@flopflip/react-broadcast';
 
 import log from '../../utils/log';
 
 import * as actions from '../../actions';
 
 import useLocalStorage from 'react-use/lib/useLocalStorage';
+
+import { callApi } from '../../services/api';
 
 import commands from './commands';
 var socket = null;
@@ -48,6 +52,8 @@ function ChatComponent(props){
 	const ref = useRef();
 
 	const isOverlay = props.overlay ? true : false;
+
+	let useChatHydration = useFeatureToggle('chatHydration');
 
 	// Redux
 	const authentication = useSelector(state => state.authentication);
@@ -229,7 +235,7 @@ function ChatComponent(props){
 					{
 						chatSettings.showTimestamps &&
 						<span className="chat-message-time">
-							{moment(new Date(user.lastMessage)).format( 'HH:mm:ss' )}
+							{format(new Date(user.lastMessage), 'HH:mm:ss' )}
 						</span>
 					}
 					<span className="chat-message-badges">
@@ -374,6 +380,17 @@ function ChatComponent(props){
 	}
 
 	useEffect(() => {
+		if(useChatHydration){
+			callApi(`/messages/${channel && channel.data && channel.data.user.name}`)
+			.then((data) => {
+				if(data.messages){
+					let msgs = data.messages;
+					msgs.forEach((msg) => {
+						handleMessage(msg);
+					});
+				}
+			});
+		}
 		dispatch(actions.fetchEmotes(channel && channel.data && channel.data.user.name));
 	}, []);
 
