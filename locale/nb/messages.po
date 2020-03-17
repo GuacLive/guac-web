@@ -21,7 +21,7 @@ msgstr "<0>Hei,<1/>Velkommen til guac.live — direktestrømming-platformen. Vi 
 #~ msgid "<0>{0}</0> is live"
 #~ msgstr "<0>{0}</0> sender direkte"
 
-#: pages/c/[name].js:240
+#: pages/c/[name].js:238
 msgid "ABOUT"
 msgstr "OM"
 
@@ -48,7 +48,7 @@ msgstr "Utforsk"
 msgid "Category:"
 msgstr "Kategori:"
 
-#: pages/c/[name].js:306
+#: pages/c/[name].js:304
 msgid "Channel not found"
 msgstr "Kanal ikke funnet"
 
@@ -108,7 +108,7 @@ msgstr "Ikke engasjer deg eller oppmuntre andre til å engasjere seg i målrette
 msgid "E-mail"
 msgstr "E-post"
 
-#: pages/c/[name].js:219
+#: pages/c/[name].js:217
 msgid "Edit"
 msgstr "Endre"
 
@@ -130,7 +130,7 @@ msgstr "Feil"
 msgid "First, choose the streaming server closest to you:"
 msgstr "Først, velg strømmeserveren som er nærmest deg:"
 
-#: pages/c/[name].js:212
+#: pages/c/[name].js:210
 msgid "Follow"
 msgstr "Følg"
 
@@ -138,11 +138,11 @@ msgstr "Følg"
 msgid "Followed Channels"
 msgstr "Fulgte kanaler"
 
-#: pages/c/[name].js:210
+#: pages/c/[name].js:208
 msgid "Followers"
 msgstr "Følgere"
 
-#: pages/c/[name].js:211
+#: pages/c/[name].js:209
 msgid "Following"
 msgstr "Følger"
 
@@ -190,9 +190,9 @@ msgstr "Bli med"
 msgid "Live streams"
 msgstr "Direktesendinger"
 
-#: components/Chat/index.js:477
+#: components/Chat/index.js:495
 #: components/Search/SearchBar.js:83
-#: pages/c/[name].js:305
+#: pages/c/[name].js:303
 msgid "Loading..."
 msgstr "Laster..."
 
@@ -228,6 +228,10 @@ msgstr "Ingen strømmenøkkel funnet, vennligst kontakt en administrator."
 #: components/LangSwitcher.js:9
 msgid "Norwegian"
 msgstr "Norsk"
+
+#: components/Chat/index.js:640
+msgid "Not connected to chat."
+msgstr "Ikke tilkoblet chat."
 
 #: pages/dmca.js:12
 msgid "Notification of Infringement"
@@ -271,9 +275,13 @@ msgstr "Personvern"
 msgid "Private (don't show in categories, frontpage or search):"
 msgstr "Privat (vises ikke i kategorier, forsisden eller i søk):"
 
-#: pages/c/[name].js:249
+#: pages/c/[name].js:247
 msgid "REPLAYS"
 msgstr "ARKIV"
+
+#: components/Chat/index.js:641
+msgid "Reconnect"
+msgstr "Koble til"
 
 #: pages/auth/login.js:61
 msgid "Remember me"
@@ -320,7 +328,7 @@ msgstr "Registrer"
 msgid "Start following your favorite streamers to find them quickly!"
 msgstr "Begynn å følge dine favoritt-strømmere for å finne dem raskt!"
 
-#: components/Chat/index.js:632
+#: components/Chat/index.js:659
 msgid "Stream Chat"
 msgstr "Strømmechat"
 
@@ -340,7 +348,7 @@ msgstr "Strømmeinnstillinger"
 msgid "Streaming permissions"
 msgstr "Strømmetillatelse"
 
-#: pages/c/[name].js:214
+#: pages/c/[name].js:212
 msgid "Subscribe"
 msgstr "Abonnér"
 
@@ -392,7 +400,7 @@ msgstr "Fjern utestenging av bruker"
 msgid "Unknown error"
 msgstr "Ukjent feil"
 
-#: pages/c/[name].js:289
+#: pages/c/[name].js:287
 msgid "User has been banned"
 msgstr "Brukeren har blitt utestengt"
 
@@ -437,7 +445,7 @@ msgstr "Kontoen din er opprettet. Vennligst sjekk din e-post for å verifisere k
 msgid "Your e-mail has been verified."
 msgstr "E-posten din har blitt verifisert."
 
-#: pages/c/[name].js:292
+#: pages/c/[name].js:290
 msgid "has been banned from the site."
 msgstr "har blitt utestengt fra dette nettstedet."
 
@@ -453,7 +461,7 @@ msgstr "melding"
 msgid "no streams are online"
 msgstr "ingen aktive direktesendinger"
 
-#: pages/c/[name].js:226
+#: pages/c/[name].js:224
 msgid "playing"
 msgstr "spiller"
 

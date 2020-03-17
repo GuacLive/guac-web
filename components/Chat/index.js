@@ -638,7 +638,7 @@ function ChatComponent(props){
 							customPickerEmotes.length > 0 &&
 							<div className="flex flex-row center">
 								<span className="primary"><Trans>Not connected to chat.</Trans></span>
-								<button className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" onClick={connect}>Reconnect</button>
+								<button className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" onClick={connect}><Trans>Reconnect</Trans></button>
 							</div>
 						}
 						<div className="flex flex-row content-center items-center">
