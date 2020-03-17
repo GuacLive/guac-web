@@ -454,7 +454,7 @@ function ChatComponent(props){
 		};
 	}, [emotes]);
 	const connect = () => {
-		if(socket && connectedStatus) socket.emit('join', authentication.token || null, channel.data && channel.data.user && channel.data.user.name);
+		if(socket) socket.emit('join', authentication.token || null, channel.data && channel.data.user && channel.data.user.name);
 	};
 	// If token or connected status changes, join with the new one
 	useEffect(connect, [authentication.token, connectedStatus]);
