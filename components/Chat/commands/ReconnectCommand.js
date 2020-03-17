@@ -5,6 +5,5 @@ export default class ReconnectCommand extends Command {
         this.socket.emit('disconnect');
         this.socket.disconnect();
         this.socket.connect();
-        this.socket.emit('join', this.token);
     }
 }

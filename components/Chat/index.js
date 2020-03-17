@@ -453,11 +453,11 @@ function ChatComponent(props){
 			}
 		};
 	}, [emotes]);
-	// If token changes, join with the new one
-	// Is this really necessary? I just added because it might fix some issues
-	useEffect(() => {
+	const connect = () => {
 		if(socket && connectedStatus) socket.emit('join', authentication.token || null, channel.data && channel.data.user && channel.data.user.name);
-	}, [authentication.token, connectedStatus]);
+	};
+	// If token or connected status changes, join with the new one
+	useEffect(connect, [authentication.token, connectedStatus]);
 
 	// Handle simplebar calculation
 	if(process.browser){
@@ -632,6 +632,15 @@ function ChatComponent(props){
 						<div className="flex flex-row">
 							<SettingsMenu chatSettings={chatSettings} />
 						</div>
+						{
+							!connectedStatus &&
+							customPickerEmotes &&
+							customPickerEmotes.length > 0 &&
+							<div className="flex flex-row center">
+								<span className="primary"><Trans>Not connected to chat.</Trans></span>
+								<button className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" onClick={connect}>Reconnect</button>
+							</div>
+						}
 						<div className="flex flex-row content-center items-center">
 							<input type="submit" value="Chat" onClick={sendMessage} disabled={!connectedStatus} className="white dib pv2 ph3 nowrap lh-solid pointer br2 ba b--transparent bg-green" />
 						</div>
