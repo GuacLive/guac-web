@@ -1,6 +1,6 @@
 {
   "name": "guac-web",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "description": "Main web ui for the Guac livestreaming platform",
   "repository": "GuacLive/guac-web",
   "author": {
@@ -43,9 +43,9 @@
     "@lingui/macro": "^2.9.0",
     "@lingui/react": "^2.9.0",
     "@sentry/browser": "^5.10.2",
-    "@silvermine/videojs-chromecast": "^1.0.1",
+    "@silvermine/videojs-chromecast": "^1.2.0",
     "@silvermine/videojs-quality-selector": "^1.2.3",
-    "@videojs/http-streaming": "1.11.3",
+    "@videojs/http-streaming": "^1.12.3",
     "@webscopeio/react-textarea-autocomplete": "^4.6.3",
     "@zeit/next-source-maps": "^0.0.3",
     "abort-controller": "^3.0.0",

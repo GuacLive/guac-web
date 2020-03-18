@@ -103,8 +103,8 @@ class IndexPage extends Component {
 					cellAlign={'center'}
 					slideWidth={3}
 					defaultControlsConfig={{
-						nextButtonText: <i class="fa fa-arrow-right primary"></i>,
-						prevButtonText: <i class="fa fa-arrow-left primary"></i>,
+						nextButtonText: <i className="fa fa-arrow-right primary"></i>,
+						prevButtonText: <i className="fa fa-arrow-left primary"></i>,
 						pagingDotsStyle: {
 						  fill: 'white'
 						}
@@ -163,8 +163,8 @@ class IndexPage extends Component {
 										src="https://www.patreon.com/platform/iframe?widget=become-patron-button&creatorID=19057109"
 										scrolling="no"
 										allowtransparency="true"
-										frameborder="0"
-										class="patreon-widget"
+										frameBorder="0"
+										className="patreon-widget"
 										title="Patreon Widget" 
 										style={{display: 'block', height: '35px', verticalAlign: 'top'}}
 									/>
