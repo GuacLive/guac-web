@@ -51,9 +51,9 @@ function ChatComponent(props){
 	const [customPickerEmotes, setCustomPickerEmotes] = useState(false);
 	const ref = useRef();
 
-	const isOverlay = props.overlay ? true : false;
+	const useChatHydration = true;
 
-	let useChatHydration = useFeatureToggle('chatHydration');
+	const isOverlay = props.overlay ? true : false;
 
 	// Redux
 	const authentication = useSelector(state => state.authentication);
@@ -235,7 +235,7 @@ function ChatComponent(props){
 					{
 						chatSettings.showTimestamps &&
 						<span className="chat-message-time">
-							{format(new Date(user.lastMessage), 'HH:mm:ss' )}
+							{format(new Date(messages.time || user.lastMessage), 'HH:mm:ss' )}
 						</span>
 					}
 					<span className="chat-message-badges">
@@ -364,7 +364,6 @@ function ChatComponent(props){
 
 	const handleDelete = (msgID) => {
 		setMessages(messages => {
-			console.log(messages);
 			return messages.filter(
 				entry => entry.msgID !== msgID
 			);
@@ -382,11 +381,16 @@ function ChatComponent(props){
 	useEffect(() => {
 		if(useChatHydration){
 			callApi(`/messages/${channel && channel.data && channel.data.user.name}`)
-			.then((data) => {
-				if(data.messages){
-					let msgs = data.messages;
+			.then(res => res.json())
+			.then((res) => {
+				if(res.data){
+					me = authentication.user;
+					let msgs = res.data.sort((a,b) => {
+						return a.time > b.time;
+					})
 					msgs.forEach((msg) => {
-						handleMessage(msg);
+						msg.msgs.time = msg.time;
+						handleMessage(msg.user, msg.id, msg.msgs);
 					});
 				}
 			});
