@@ -384,7 +384,6 @@ function ChatComponent(props){
 			.then(res => res.json())
 			.then((res) => {
 				if(res.data){
-					me = authentication.user;
 					let msgs = res.data.sort((a,b) => {
 						return a.time > b.time;
 					})
