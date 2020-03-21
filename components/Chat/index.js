@@ -384,10 +384,11 @@ function ChatComponent(props){
 			.then(res => res.json())
 			.then((res) => {
 				if(res.data){
-					let msgs = res.data.sort((a,b) => {
+					let msgs = res.data;
+					msgs
+					.sort((a,b) => {
 						return a.time > b.time;
-					})
-					msgs.forEach((msg) => {
+					}).forEach((msg) => {
 						msg.msgs.time = msg.time;
 						handleMessage(msg.user, msg.id, msg.msgs);
 					});
