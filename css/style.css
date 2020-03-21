@@ -4,6 +4,7 @@
 @import 'emoji-mart/css/emoji-mart.css';
 @import '@webscopeio/react-textarea-autocomplete/style.css';
 @import '@guaclive/react-giphy-select/lib/styles.css';
+@import 'react-tippy/dist/tippy.css';
 /* Custom properties */
 * {
 	box-sizing: border-box;
