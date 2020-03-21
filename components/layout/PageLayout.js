@@ -21,7 +21,10 @@ import AccountMenu from './AccountMenu';
 import SearchBar from '../Search/SearchBar';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-
+import {
+	Tooltip,
+  } from 'react-tippy';
+  
 const mediaQueryList = typeof window !== 'undefined' 
 	&& window.matchMedia('screen and (min-width: 960px)');
 class PageLayout extends Component {
@@ -132,30 +135,50 @@ class PageLayout extends Component {
 										})
 										.map((u) => {
 											return (
-												<div key={'followed-' + u.username} className="site-component-fUser items-center flex relative ph4 pv2 white">
-													<Link href="/c/[name]" as={`/c/${u.username}`}>
-														<a className="inline-flex v-mid mr2 w2 h2">
-															<Image
-																src={u.avatar || '//api.guac.live/avatars/unknown.png'}
-																alt={u.username}
-																shape="squircle"
-																fit="cover"
-																className={`dim ba ${+u.live ? 'b--red' : 'b--transparent'} inline-flex w-100 h-100`}
-															/>
-														</a>
-													</Link>
-													<div className="overflow-hidden dn db-l">
-														<div className="site-component-fUser__name inline-flex items-center v-bottom">
-															<Link href="/c/[name]" as={`/c/${u.username}`}>	
-																<a className="link white">
-																	{u.username}
-																	{+u.live ? <span className="ph2 bg-red f6 tc inline-flex white mh3">LIVE</span> : ''}
-																</a>
-															</Link>
-														</div>
-														<div className="site-component-fUser__category truncate"><small>{u.title}</small></div>
-													</div>
-												</div>
+												<Link key={'followed-' + u.username} href="/c/[name]" as={`/c/${u.username}`}>
+													<a className="site-component-fUser link white">
+														<Tooltip
+															// options
+															title={u.title}
+															position="right"
+															trigger="mouseenter"
+															theme="transparent"
+															className="items-center flex flex-nowrap ph3 pv2 hover-bg-dark-gray bg-animate"
+															style={{'display': 'flex !important'}}
+														>
+															<div className="items-center flex-shrink-0">
+																<Image
+																	src={u.avatar || '//api.guac.live/avatars/unknown.png'}
+																	alt={u.username}
+																	shape="squircle"
+																	fit="cover"
+																	className={`ba ${+u.live ? 'b--red' : 'b--transparent'} v-mid w2 h2`}
+																/>
+															</div>
+															<div className="dn flex-l justify-between truncate w-100">
+																<div className="site-component-fMetadata truncate w-100 ml3">
+																	<div className="site-component-fUser__name flex items-center">
+																		<span className="truncate white flex-grow-1 b lh-title">{u.username}</span>
+																	</div>
+																	<div className="site-component-fUser__category pr2">
+																		<span className="f6 lh-title">{u.category_name}</span>
+																	</div>
+																</div>
+																<div className="site-component-fLive flex-shrink-0 ml2">
+																	<div className="flex items-center">
+																		{
+																		+u.live
+																		?
+																		<span className="ph2 bg-red f6 tc inline-flex truncate white flex-grow-1 lh-title mh3">LIVE</span> 
+																		:
+																		<span className="ph2 f6 tc inline-flex truncate white flex-grow-1 lh-title mh3">Offline</span>
+																		}
+																	</div>
+																</div>
+															</div>
+														</Tooltip>
+													</a>
+												</Link>
 											)
 										})
 								}
