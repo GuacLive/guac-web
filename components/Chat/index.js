@@ -396,7 +396,7 @@ function ChatComponent(props){
 			});
 		}
 		dispatch(actions.fetchEmotes(channel && channel.data && channel.data.user.name));
-	}, []);
+	}, [emotes]);
 
 	useEffect(() => {
 		setCustomPickerEmotes(Object.keys(emotes).map(
