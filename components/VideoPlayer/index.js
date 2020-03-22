@@ -122,7 +122,11 @@ function VideoPlayer(props) {
 					overrideNative: !videojs.browser.IS_SAFARI,
 					allowSeeksWithinUnsafeLiveWindow: true,
 					enableLowInitialPlaylist: true,
-					handlePartialData: true,	  
+					handlePartialData: true,	
+					liveSyncDurationCount: 1,
+					liveMaxLatencyDurationCount: 6,
+					maxBufferSize: 10*1000*1000,
+					liveBackBufferLength: 0		  
 				},
 				nativeVideoTracks: true,
 				nativeAudioTracks: true,
