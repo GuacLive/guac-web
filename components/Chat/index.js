@@ -50,6 +50,7 @@ function ChatComponent(props){
 	const [message, setMessage] = useState('');
 	const [messages, setMessages] = useState([]);
 	const [customPickerEmotes, setCustomPickerEmotes] = useState(false);
+	const [emotesStatus, setEmotesStatus] = useState(false);
 	const ref = useRef();
 
 	const useChatHydration = true;
@@ -380,12 +381,13 @@ function ChatComponent(props){
 	}
 
 	useEffect(() => {
-		if(!emotes || !emotes.length){
-			dispatch(actions.fetchEmotes(channel && channel.data && channel.data.user.name));
+		if(!emotesStatus){
+			dispatch(actions.fetchEmotes(channel && channel.data && channel.data.user.name)).then(() => setEmotesStatus(true));
 		}
 	}, [channel.data]);
 
 	useEffect(() => {
+		if(!emotesStatus) return;
 		if(hasHydrated) return;
 		if(useChatHydration){
 			callApi(`/messages/${channel && channel.data && channel.data.user.name}`)
@@ -404,7 +406,7 @@ function ChatComponent(props){
 				hasHydrated = true;
 			}).catch(()=>{hasHydrated = true;});
 		}
-	}, [emotes]);
+	}, [emotesStatus]);
 
 	useEffect(() => {
 		setCustomPickerEmotes(Object.keys(emotes).map(
@@ -418,7 +420,7 @@ function ChatComponent(props){
 				customCategory: emotes[name].provider
 			})
 		));
-	}, [emotes]);
+	}, [emotesStatus]);
 	// Handle chat connection
 	useUpdateEffect(() => {
 		let didCancel = false;
