@@ -42,6 +42,7 @@ var users = new Map();
 var me = null;
 var privileged = [];
 var hasPrivilege = false;
+var hasHydrated = false;
 function ChatComponent(props){
 	const dispatch = useDispatch();
 	const [connectedStatus, setConnectedStatus] = useState(false);
@@ -379,6 +380,7 @@ function ChatComponent(props){
 	}
 
 	useEffect(() => {
+		if(hasHydrated) return;
 		if(useChatHydration){
 			callApi(`/messages/${channel && channel.data && channel.data.user.name}`)
 			.then(res => res.json())
@@ -393,7 +395,8 @@ function ChatComponent(props){
 						handleMessage(msg.user, msg.id, msg.msgs);
 					});
 				}
-			});
+				hasHydrated = true;
+			}).catch(()=>{hasHydrated = true;});
 		}
 		dispatch(actions.fetchEmotes(channel && channel.data && channel.data.user.name));
 	}, [emotes]);
@@ -420,6 +423,7 @@ function ChatComponent(props){
 				'reconnectionDelay': 1000,
 				'reconnectionDelayMax': 5000,
 				'reconnectionAttempts': 5,
+				'max reconnection attempts': 5,
 				'forceNew': true,
 				'transports': ['websocket']
 			});
@@ -458,7 +462,7 @@ function ChatComponent(props){
 		};
 	}, [emotes]);
 	const connect = () => {
-		if(socket) socket.emit('join', authentication.token || null, channel.data && channel.data.user && channel.data.user.name);
+		if(socket && connectedStatus) socket.emit('join', authentication.token || null, channel.data && channel.data.user && channel.data.user.name);
 	};
 	// If token or connected status changes, join with the new one
 	useEffect(connect, [authentication.token, connectedStatus]);
