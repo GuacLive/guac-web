@@ -380,7 +380,12 @@ function ChatComponent(props){
 	}
 
 	useEffect(() => {
-		dispatch(actions.fetchEmotes(channel && channel.data && channel.data.user.name));
+		if(!emotes || !emotes.length){
+			dispatch(actions.fetchEmotes(channel && channel.data && channel.data.user.name));
+		}
+	}, [channel.data]);
+
+	useEffect(() => {
 		if(hasHydrated) return;
 		if(useChatHydration){
 			callApi(`/messages/${channel && channel.data && channel.data.user.name}`)
