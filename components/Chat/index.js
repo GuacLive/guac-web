@@ -428,7 +428,6 @@ function ChatComponent(props){
 				'reconnectionDelay': 1000,
 				'reconnectionDelayMax': 5000,
 				'reconnectionAttempts': 5,
-				'max reconnection attempts': 5,
 				'forceNew': true,
 				'transports': ['websocket']
 			});
@@ -446,9 +445,13 @@ function ChatComponent(props){
 			socket.on('disconnect', () => {
 				setConnectedStatus(false)
 			})
-			socket.on('reconnect', () => {
-				log('info', 'Chat', 'reconnect');
-				setConnectedStatus(true);
+			socket.on('reconnect', (attemptNumber) => {
+				if(attemptNumber > 5){
+					socket.disconnect();
+				}else{
+					log('info', 'Chat', 'reconnect');
+					setConnectedStatus(true);
+				}
 			});
 		}
 			
