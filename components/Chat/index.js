@@ -380,6 +380,12 @@ function ChatComponent(props){
 	}
 
 	useEffect(() => {
+		if(!emotes || !emotes.length){
+			dispatch(actions.fetchEmotes(channel && channel.data && channel.data.user.name));
+		}
+	}, [channel.data]);
+
+	useEffect(() => {
 		if(hasHydrated) return;
 		if(useChatHydration){
 			callApi(`/messages/${channel && channel.data && channel.data.user.name}`)
@@ -398,7 +404,6 @@ function ChatComponent(props){
 				hasHydrated = true;
 			}).catch(()=>{hasHydrated = true;});
 		}
-		dispatch(actions.fetchEmotes(channel && channel.data && channel.data.user.name));
 	}, [emotes]);
 
 	useEffect(() => {
@@ -423,7 +428,6 @@ function ChatComponent(props){
 				'reconnectionDelay': 1000,
 				'reconnectionDelayMax': 5000,
 				'reconnectionAttempts': 5,
-				'max reconnection attempts': 5,
 				'forceNew': true,
 				'transports': ['websocket']
 			});
@@ -441,9 +445,13 @@ function ChatComponent(props){
 			socket.on('disconnect', () => {
 				setConnectedStatus(false)
 			})
-			socket.on('reconnect', () => {
-				log('info', 'Chat', 'reconnect');
-				setConnectedStatus(true);
+			socket.on('reconnect', (attemptNumber) => {
+				if(attemptNumber > 5){
+					socket.disconnect();
+				}else{
+					log('info', 'Chat', 'reconnect');
+					setConnectedStatus(true);
+				}
 			});
 		}
 			
