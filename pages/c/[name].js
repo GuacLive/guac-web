@@ -204,7 +204,7 @@ function ChannelPage(props){
 									<span className="b f5 primary">
 										{stream.title}
 										<br />
-										<Link href="/category/[id]" as={`/category/${stream.category_id}`}><a className="gray hover-primary link">{stream.category_name}</a></Link>
+										<Link href="/category/[id]" as={`/category/${stream.category_id}`}><a className="primary-80 hover-primary link">{stream.category_name}</a></Link>
 									</span>
 								</div>
 							</div>
