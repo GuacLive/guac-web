@@ -6,7 +6,7 @@ import NextHead from 'next/head'
 
 import dynamic from 'next/dynamic'
 
-import { Trans } from '@lingui/macro'
+import { Trans, t } from '@lingui/macro';
 
 import { useDispatch } from 'react-redux'
 
@@ -38,6 +38,7 @@ import log from '../../utils/log';
 import Image from '../../components/Image';
 
 import { ToggleFeature } from '@flopflip/react-redux';
+import { withI18n } from '@lingui/react';
 
 import { kFormatter } from '../../utils';
 
@@ -52,6 +53,7 @@ function ChannelPage(props){
 	const [showSub, setShowSub] = useState(false);
 	const dispatch = useDispatch();
 	const { i18n } = props;
+
 	useEffect(() => {
 		const { channel } = props;
 		let channelAPISocket, didCancel = false;
@@ -169,7 +171,7 @@ function ChannelPage(props){
 						if (e && e.target) e.target.classList.remove('active');
 					}}
 				>
-					<div class="flex content-between">
+					<div className="flex content-between">
 						<div className="items-start flex flex-grow-1 flex-shrink-1 justify-start pa3">
 							<div className="justify-center items-center flex-shrink-0">
 								<Image
@@ -193,7 +195,7 @@ function ChannelPage(props){
 									<span className="b f5 primary">
 										{stream.title}
 										<br />
-										<Link href="/category/[id]" as={`/category/${stream.category_id}`}><a className="primary">{stream.category_name}</a></Link>
+										<Link href="/category/[id]" as={`/category/${stream.category_id}`}><a className="gray hover-primary link">{stream.category_name}</a></Link>
 									</span>
 								</div>
 							</div>
@@ -207,7 +209,7 @@ function ChannelPage(props){
 									&&
 									<Tooltip
 										// options
-										title={i18n._('Create an account to follow this user')}
+										title={i18n._(t`Create an account to follow this user`)}
 										position="top"
 										trigger="mouseenter"
 										theme="transparent"
@@ -323,7 +325,7 @@ function ChannelPage(props){
 			<Fragment key={stream.user.id}>
 				<div className="site-component-banned flex flex-column flex-wrap w-100">
 					<h3 className="f3 red ma0"><Trans>User has been banned</Trans></h3>
-					<img src="https://cdn.frankerfacez.com/emoticon/269642/4" class="db w4" />
+					<img src="https://cdn.frankerfacez.com/emoticon/269642/4" className="db w4" />
 					<p className="primary">
 						{stream.user.name}&nbsp;<Trans>has been banned from the site.</Trans>
 					</p>
@@ -427,4 +429,4 @@ ChannelPage.getInitialProps = async function getInitialProps({store, isServer, p
 	return {...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})};
 };
 
-export default connect(state => state)(ChannelPage)
+export default withI18n()(connect(state => state)(ChannelPage))
