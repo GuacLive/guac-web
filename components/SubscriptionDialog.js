@@ -2,10 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import Link from 'next/link';
-
-import GuacButton from './GuacButton';
-
 import { Trans } from '@lingui/macro';
 
 import { callApi } from '../services/api';
@@ -23,13 +19,13 @@ function SubscriptionDialog(props){
 		paypal_link = 'https://www.paypal.com/cgi-bin/webscr/?';
 	}
 
-	/*if(!auth || !auth.user || !auth.user.email){
+	if(!auth || !auth.user || !auth.user.email){
 		return (
 			<div className="flex w-100 flex-grow-1 flex-nowrap pa1 bg-black-50 primary">
 				<Trans>You must be logged in, and have an email attached to your user, to subscribe.</Trans>
 			</div>
 		);
-	}*/
+	}
    
 	useEffect(() => {
 		const fetchData = async () => {

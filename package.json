@@ -27,6 +27,7 @@
     "node": "12.x"
   },
   "dependencies": {
+    "@babel/compat-data": "7.8.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
     "@flopflip/localstorage-adapter": "^1.7.0",
     "@flopflip/react": "^9.1.10",

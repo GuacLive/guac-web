@@ -17,7 +17,7 @@ msgstr ""
 msgid "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 msgstr "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 
-#: pages/c/[name].js:238
+#: pages/c/[name].js:276
 msgid "ABOUT"
 msgstr "ABOUT"
 
@@ -33,9 +33,9 @@ msgstr "At last, make sure keyframe interval is set to <0>2</0>."
 msgid "Breaking the law"
 msgstr "Breaking the law"
 
-#: components/layout/PageLayout.js:239
-#: components/layout/PageLayout.js:239
-#: components/layout/PageLayout.js:240
+#: components/layout/PageLayout.js:262
+#: components/layout/PageLayout.js:262
+#: components/layout/PageLayout.js:263
 #: pages/categories.js:28
 msgid "Browse"
 msgstr "Browse"
@@ -44,13 +44,13 @@ msgstr "Browse"
 msgid "Category:"
 msgstr "Category:"
 
-#: pages/c/[name].js:304
+#: pages/c/[name].js:342
 msgid "Channel not found"
 msgstr "Channel not found"
 
-#: components/layout/PageLayout.js:233
-#: components/layout/PageLayout.js:233
-#: components/layout/PageLayout.js:234
+#: components/layout/PageLayout.js:256
+#: components/layout/PageLayout.js:256
+#: components/layout/PageLayout.js:257
 #: pages/channels.js:50
 msgid "Channels"
 msgstr "Channels"
@@ -75,7 +75,11 @@ msgstr "Copyrighted Content"
 msgid "Counter-Notification"
 msgstr "Counter-Notification"
 
-#: components/layout/PageLayout.js:175
+#: pages/c/[name].js:210
+msgid "Create an account to follow this user"
+msgstr "Create an account to follow this user"
+
+#: components/layout/PageLayout.js:198
 msgid "DMCA"
 msgstr "DMCA"
 
@@ -104,7 +108,7 @@ msgstr "Do not engage, or encourage others to engage, in any targeted abuse or h
 msgid "E-mail"
 msgstr "E-mail"
 
-#: pages/c/[name].js:217
+#: pages/c/[name].js:225
 msgid "Edit"
 msgstr "Edit"
 
@@ -126,7 +130,8 @@ msgstr "Error"
 msgid "First, choose the streaming server closest to you:"
 msgstr "First, choose the streaming server closest to you:"
 
-#: pages/c/[name].js:210
+#: pages/c/[name].js:204
+#: pages/c/[name].js:216
 msgid "Follow"
 msgstr "Follow"
 
@@ -134,19 +139,19 @@ msgstr "Follow"
 #~ msgid "Follow ({0})"
 #~ msgstr "Follow ({0})"
 
-#: components/layout/PageLayout.js:110
+#: components/layout/PageLayout.js:113
 msgid "Followed Channels"
 msgstr "Followed Channels"
 
 #: pages/c/[name].js:208
-msgid "Followers"
-msgstr "Followers"
+#~ msgid "Followers"
+#~ msgstr "Followers"
 
 #: pages/c/[name].js:145
 #~ msgid "Followers · {0}"
 #~ msgstr "Followers · {0}"
 
-#: pages/c/[name].js:209
+#: pages/c/[name].js:203
 msgid "Following"
 msgstr "Following"
 
@@ -178,7 +183,7 @@ msgstr "Harassment & Bullying"
 msgid "Hate Speech"
 msgstr "Hate Speech"
 
-#: components/layout/PageLayout.js:228
+#: components/layout/PageLayout.js:251
 msgid "Home"
 msgstr "Home"
 
@@ -198,15 +203,15 @@ msgstr "Join"
 msgid "Live streams"
 msgstr "Live streams"
 
-#: components/Chat/index.js:495
+#: components/Chat/index.js:513
 #: components/Search/SearchBar.js:83
-#: pages/c/[name].js:303
+#: pages/c/[name].js:341
 msgid "Loading..."
 msgstr "Loading..."
 
-#: components/layout/PageLayout.js:256
-#: components/layout/PageLayout.js:256
-#: components/layout/PageLayout.js:257
+#: components/layout/PageLayout.js:279
+#: components/layout/PageLayout.js:279
+#: components/layout/PageLayout.js:280
 #: pages/auth/activate.js:39
 #: pages/auth/login.js:49
 #: pages/auth/register.js:80
@@ -237,7 +242,7 @@ msgstr "No streaming key found, please contact an admin."
 msgid "Norwegian"
 msgstr "Norwegian"
 
-#: components/Chat/index.js:640
+#: components/Chat/index.js:658
 msgid "Not connected to chat."
 msgstr "Not connected to chat."
 
@@ -271,7 +276,7 @@ msgstr "Pornographic and sexually explicit content is not permitted in any form,
 msgid "Pornographic/Sexually Explicit Content"
 msgstr "Pornographic/Sexually Explicit Content"
 
-#: components/layout/PageLayout.js:172
+#: components/layout/PageLayout.js:195
 msgid "Privacy"
 msgstr "Privacy"
 
@@ -283,11 +288,11 @@ msgstr "Privacy Policy"
 msgid "Private (don't show in categories, frontpage or search):"
 msgstr "Private (don't show in categories, frontpage or search):"
 
-#: pages/c/[name].js:247
+#: pages/c/[name].js:285
 msgid "REPLAYS"
 msgstr "REPLAYS"
 
-#: components/Chat/index.js:641
+#: components/Chat/index.js:659
 msgid "Reconnect"
 msgstr "Reconnect"
 
@@ -324,19 +329,19 @@ msgstr "Show only live"
 msgid "Show user list"
 msgstr "Show user list"
 
-#: components/layout/PageLayout.js:263
-#: components/layout/PageLayout.js:263
-#: components/layout/PageLayout.js:264
+#: components/layout/PageLayout.js:286
+#: components/layout/PageLayout.js:286
+#: components/layout/PageLayout.js:287
 #: pages/auth/login.js:67
 #: pages/auth/register.js:59
 msgid "Sign up"
 msgstr "Sign up"
 
-#: components/layout/PageLayout.js:118
+#: components/layout/PageLayout.js:121
 msgid "Start following your favorite streamers to find them quickly!"
 msgstr "Start following your favorite streamers to find them quickly!"
 
-#: components/Chat/index.js:659
+#: components/Chat/index.js:677
 msgid "Stream Chat"
 msgstr "Stream Chat"
 
@@ -356,7 +361,7 @@ msgstr "Stream settings"
 msgid "Streaming permissions"
 msgstr "Streaming permissions"
 
-#: pages/c/[name].js:212
+#: pages/c/[name].js:220
 msgid "Subscribe"
 msgstr "Subscribe"
 
@@ -368,7 +373,7 @@ msgstr "Subscribe"
 msgid "Switch language"
 msgstr "Switch language"
 
-#: components/layout/PageLayout.js:169
+#: components/layout/PageLayout.js:192
 msgid "Terms"
 msgstr "Terms"
 
@@ -416,7 +421,7 @@ msgstr "Unban user"
 msgid "Unknown error"
 msgstr "Unknown error"
 
-#: pages/c/[name].js:287
+#: pages/c/[name].js:325
 msgid "User has been banned"
 msgstr "User has been banned"
 
@@ -449,6 +454,10 @@ msgstr "You do not have permission to stream"
 msgid "You may not stream copyright infringing content, such as movies and TV shows."
 msgstr "You may not stream copyright infringing content, such as movies and TV shows."
 
+#: components/SubscriptionDialog.js:25
+msgid "You must be logged in, and have an email attached to your user, to subscribe."
+msgstr "You must be logged in, and have an email attached to your user, to subscribe."
+
 #: pages/terms.js:27
 msgid "You must respect all applicable local, national, and international laws while using our services. Any content or activity featuring, encouraging, offering, or soliciting illegal activity is prohibited."
 msgstr "You must respect all applicable local, national, and international laws while using our services. Any content or activity featuring, encouraging, offering, or soliciting illegal activity is prohibited."
@@ -461,7 +470,7 @@ msgstr "Your account is now registered. Please check your e-mail to verify your 
 msgid "Your e-mail has been verified."
 msgstr "Your e-mail has been verified."
 
-#: pages/c/[name].js:290
+#: pages/c/[name].js:328
 msgid "has been banned from the site."
 msgstr "has been banned from the site."
 
@@ -478,8 +487,8 @@ msgid "no streams are online"
 msgstr "no streams are online"
 
 #: pages/c/[name].js:224
-msgid "playing"
-msgstr "playing"
+#~ msgid "playing"
+#~ msgstr "playing"
 
 #: pages/c/[name].js:115
 #~ msgid "playing <0>{0}</0>"

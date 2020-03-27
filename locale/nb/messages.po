@@ -21,7 +21,7 @@ msgstr "<0>Hei,<1/>Velkommen til guac.live — direktestrømming-platformen. Vi 
 #~ msgid "<0>{0}</0> is live"
 #~ msgstr "<0>{0}</0> sender direkte"
 
-#: pages/c/[name].js:238
+#: pages/c/[name].js:276
 msgid "ABOUT"
 msgstr "OM"
 
@@ -37,9 +37,9 @@ msgstr "Til slutt, sørg for at keyframe interval er satt til <0>2</0>"
 msgid "Breaking the law"
 msgstr "Å bryte loven"
 
-#: components/layout/PageLayout.js:239
-#: components/layout/PageLayout.js:239
-#: components/layout/PageLayout.js:240
+#: components/layout/PageLayout.js:262
+#: components/layout/PageLayout.js:262
+#: components/layout/PageLayout.js:263
 #: pages/categories.js:28
 msgid "Browse"
 msgstr "Utforsk"
@@ -48,13 +48,13 @@ msgstr "Utforsk"
 msgid "Category:"
 msgstr "Kategori:"
 
-#: pages/c/[name].js:304
+#: pages/c/[name].js:342
 msgid "Channel not found"
 msgstr "Kanal ikke funnet"
 
-#: components/layout/PageLayout.js:233
-#: components/layout/PageLayout.js:233
-#: components/layout/PageLayout.js:234
+#: components/layout/PageLayout.js:256
+#: components/layout/PageLayout.js:256
+#: components/layout/PageLayout.js:257
 #: pages/channels.js:50
 msgid "Channels"
 msgstr "Kanaler"
@@ -79,7 +79,11 @@ msgstr "Opphavsrettsbeskyttet innhold"
 msgid "Counter-Notification"
 msgstr "Innsigelse"
 
-#: components/layout/PageLayout.js:175
+#: pages/c/[name].js:210
+msgid "Create an account to follow this user"
+msgstr "Opprett en konto for å følge denne brukeren"
+
+#: components/layout/PageLayout.js:198
 msgid "DMCA"
 msgstr "DMCA"
 
@@ -108,7 +112,7 @@ msgstr "Ikke engasjer deg eller oppmuntre andre til å engasjere seg i målrette
 msgid "E-mail"
 msgstr "E-post"
 
-#: pages/c/[name].js:217
+#: pages/c/[name].js:225
 msgid "Edit"
 msgstr "Endre"
 
@@ -130,19 +134,20 @@ msgstr "Feil"
 msgid "First, choose the streaming server closest to you:"
 msgstr "Først, velg strømmeserveren som er nærmest deg:"
 
-#: pages/c/[name].js:210
+#: pages/c/[name].js:204
+#: pages/c/[name].js:216
 msgid "Follow"
 msgstr "Følg"
 
-#: components/layout/PageLayout.js:110
+#: components/layout/PageLayout.js:113
 msgid "Followed Channels"
 msgstr "Fulgte kanaler"
 
 #: pages/c/[name].js:208
-msgid "Followers"
-msgstr "Følgere"
+#~ msgid "Followers"
+#~ msgstr "Følgere"
 
-#: pages/c/[name].js:209
+#: pages/c/[name].js:203
 msgid "Following"
 msgstr "Følger"
 
@@ -170,7 +175,7 @@ msgstr "Trakassering og mobbing"
 msgid "Hate Speech"
 msgstr "Hatprat"
 
-#: components/layout/PageLayout.js:228
+#: components/layout/PageLayout.js:251
 msgid "Home"
 msgstr "Hjem"
 
@@ -190,15 +195,15 @@ msgstr "Bli med"
 msgid "Live streams"
 msgstr "Direktesendinger"
 
-#: components/Chat/index.js:495
+#: components/Chat/index.js:513
 #: components/Search/SearchBar.js:83
-#: pages/c/[name].js:303
+#: pages/c/[name].js:341
 msgid "Loading..."
 msgstr "Laster..."
 
-#: components/layout/PageLayout.js:256
-#: components/layout/PageLayout.js:256
-#: components/layout/PageLayout.js:257
+#: components/layout/PageLayout.js:279
+#: components/layout/PageLayout.js:279
+#: components/layout/PageLayout.js:280
 #: pages/auth/activate.js:39
 #: pages/auth/login.js:49
 #: pages/auth/register.js:80
@@ -229,7 +234,7 @@ msgstr "Ingen strømmenøkkel funnet, vennligst kontakt en administrator."
 msgid "Norwegian"
 msgstr "Norsk"
 
-#: components/Chat/index.js:640
+#: components/Chat/index.js:658
 msgid "Not connected to chat."
 msgstr "Ikke tilkoblet chat."
 
@@ -263,7 +268,7 @@ msgstr "Pornografisk og seksuelt eksplisitt innhold er ikke tillatt i noen form,
 msgid "Pornographic/Sexually Explicit Content"
 msgstr "Pornografisk/seksuelt eksplisitt innhold"
 
-#: components/layout/PageLayout.js:172
+#: components/layout/PageLayout.js:195
 msgid "Privacy"
 msgstr "Personvern"
 
@@ -275,11 +280,11 @@ msgstr "Personvern"
 msgid "Private (don't show in categories, frontpage or search):"
 msgstr "Privat (vises ikke i kategorier, forsisden eller i søk):"
 
-#: pages/c/[name].js:247
+#: pages/c/[name].js:285
 msgid "REPLAYS"
 msgstr "ARKIV"
 
-#: components/Chat/index.js:641
+#: components/Chat/index.js:659
 msgid "Reconnect"
 msgstr "Koble til"
 
@@ -316,19 +321,19 @@ msgstr "Vis bare direkte"
 msgid "Show user list"
 msgstr "Vis liste over brukere"
 
-#: components/layout/PageLayout.js:263
-#: components/layout/PageLayout.js:263
-#: components/layout/PageLayout.js:264
+#: components/layout/PageLayout.js:286
+#: components/layout/PageLayout.js:286
+#: components/layout/PageLayout.js:287
 #: pages/auth/login.js:67
 #: pages/auth/register.js:59
 msgid "Sign up"
 msgstr "Registrer"
 
-#: components/layout/PageLayout.js:118
+#: components/layout/PageLayout.js:121
 msgid "Start following your favorite streamers to find them quickly!"
 msgstr "Begynn å følge dine favoritt-strømmere for å finne dem raskt!"
 
-#: components/Chat/index.js:659
+#: components/Chat/index.js:677
 msgid "Stream Chat"
 msgstr "Strømmechat"
 
@@ -348,7 +353,7 @@ msgstr "Strømmeinnstillinger"
 msgid "Streaming permissions"
 msgstr "Strømmetillatelse"
 
-#: pages/c/[name].js:212
+#: pages/c/[name].js:220
 msgid "Subscribe"
 msgstr "Abonnér"
 
@@ -356,7 +361,7 @@ msgstr "Abonnér"
 msgid "Switch language"
 msgstr "Bytt språk"
 
-#: components/layout/PageLayout.js:169
+#: components/layout/PageLayout.js:192
 msgid "Terms"
 msgstr "Vilkår"
 
@@ -400,7 +405,7 @@ msgstr "Fjern utestenging av bruker"
 msgid "Unknown error"
 msgstr "Ukjent feil"
 
-#: pages/c/[name].js:287
+#: pages/c/[name].js:325
 msgid "User has been banned"
 msgstr "Brukeren har blitt utestengt"
 
@@ -433,6 +438,10 @@ msgstr "Du har ikke tillatelse til å streame"
 msgid "You may not stream copyright infringing content, such as movies and TV shows."
 msgstr "Du kan ikke streamer opphavsrettsbeskyttet innhold, slik som filmer og TV-serier."
 
+#: components/SubscriptionDialog.js:25
+msgid "You must be logged in, and have an email attached to your user, to subscribe."
+msgstr "Du må være innlogget, og ha en e-post tilkoblet din bruker, for å abonnere."
+
 #: pages/terms.js:27
 msgid "You must respect all applicable local, national, and international laws while using our services. Any content or activity featuring, encouraging, offering, or soliciting illegal activity is prohibited."
 msgstr "Du må respektere alle gjeldende lokale, nasjonale og internasjonale lover mens du bruker våre tjenester. Alt innhold eller aktivitet som inneholder, oppmuntrer, tilbyr eller oppfordrer til ulovlig aktivitet er forbudt."
@@ -445,7 +454,7 @@ msgstr "Kontoen din er opprettet. Vennligst sjekk din e-post for å verifisere k
 msgid "Your e-mail has been verified."
 msgstr "E-posten din har blitt verifisert."
 
-#: pages/c/[name].js:290
+#: pages/c/[name].js:328
 msgid "has been banned from the site."
 msgstr "har blitt utestengt fra dette nettstedet."
 
@@ -462,8 +471,8 @@ msgid "no streams are online"
 msgstr "ingen aktive direktesendinger"
 
 #: pages/c/[name].js:224
-msgid "playing"
-msgstr "spiller"
+#~ msgid "playing"
+#~ msgstr "spiller"
 
 #: pages/dashboard.js:130
 msgid "seconds"

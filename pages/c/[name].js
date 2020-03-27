@@ -11,7 +11,9 @@ import { Trans } from '@lingui/macro'
 import { useDispatch } from 'react-redux'
 
 import prettyMilliseconds from 'pretty-ms';
-
+import {
+	Tooltip,
+  } from 'react-tippy';
 import Chat from '../../components/Chat'
 
 import GuacButton from '../../components/GuacButton'
@@ -33,14 +35,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as actions from '../../actions';
 
 import log from '../../utils/log';
-import ReplaysList from '../../components/Replays/ReplaysList';
-import EditStreamPanel from '../../components/EditStreamPanel';
+import Image from '../../components/Image';
 
 import { ToggleFeature } from '@flopflip/react-redux';
 
 import { kFormatter } from '../../utils';
-import SubscriptionDialog from '../../components/SubscriptionDialog'
 
+const ReplaysList = dynamic(() => import('../../components/Replays/ReplaysList'));
+const EditStreamPanel = dynamic(() => import('../../components/EditStreamPanel'));
+const SubscriptionDialog = dynamic(() => import('../../components/SubscriptionDialog'));
 const STREAMING_SERVER = 'eu';
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
 function ChannelPage(props){
@@ -48,6 +51,7 @@ function ChannelPage(props){
 	const [showModal, setShowModal] = useState(false);
 	const [showSub, setShowSub] = useState(false);
 	const dispatch = useDispatch();
+	const { i18n } = props;
 	useEffect(() => {
 		const { channel } = props;
 		let channelAPISocket, didCancel = false;
@@ -95,14 +99,16 @@ function ChannelPage(props){
 	
 	const editStream = async e => {
 		const { authentication, channel } = props;
-		if(!channel || !channel.data || !channel.data.user) return;
+		if(!channel || !channel.data || !channel.data.user) return false;
 		setShowModal(!showModal);
 		e.preventDefault();
 	}
 
 	const follow = async e => {
 		const { authentication, channel } = props;
-		if(!channel || !channel.data || !channel.data.user) return;
+		e.preventDefault();
+		if(!authentication || !authentication.token) return false;
+		if(!channel || !channel.data || !channel.data.user) return false;
 		dispatch(actions.followChannel(authentication.token, channel.data.user.id));
 	}
 
@@ -154,78 +160,107 @@ function ChannelPage(props){
 				<div className="site-component-channel__player">
 					<VideoPlayer { ...videoJsOptions } live={stream.live}></VideoPlayer>
 				</div>
-				<div 
+				<div
 					className="site-component-channel__info dib w-100 bg-black-50"
 					onMouseEnter={(e) => {
-						if(e && e.target) e.target.classList.add('active');
+						if (e && e.target) e.target.classList.add('active');
 					}}
 					onMouseLeave={(e) => {
-						if(e && e.target) e.target.classList.remove('active');
+						if (e && e.target) e.target.classList.remove('active');
 					}}
 				>
-					<h2 className='f2 tracked ma0 dib primary'>
-					{stream.user.name}
-					{stream.type == 'PARTNER' &&  
-						<FontAwesomeIcon icon='check-circle' fixedWidth className="f3" />
-					}
-					{stream.live ? <span className="ph2 bg-red f6 tc inline-flex white mh3">LIVE</span> : ''}
-					</h2>
-					<div className="inline-flex items-center pr2 red f6">
-					{stream.live
-						?
-							<>
-							{typeof props.channel.viewers !== 'undefined' &&  
-								<span className="">
-									<FontAwesomeIcon icon='user' />
-									&nbsp;
-									{props.channel.viewers.toString()}
-								</span>
-							}
-							</>
-						: ''
-					}
-					</div>
-					<div className="inline-flex items-center pr2 primary f6">
-					{stream.live
-						?
-							<>
-							{stream.liveAt !== null &&  
-								<span className="">
-									<FontAwesomeIcon icon='clock' />
-									&nbsp;
-									{	
-										prettyMilliseconds(now - liveAt, {
-											unitCount: 3,
-											formatSubMilliseconds: false,
-											separateMilliseconds: false,
-											secondsDecimalDigits: 0
-										})
+					<div class="flex content-between">
+						<div className="items-start flex flex-grow-1 flex-shrink-1 justify-start pa3">
+							<div className="justify-center items-center flex-shrink-0">
+								<Image
+									src={stream.avatar || '//api.guac.live/avatars/unknown.png'}
+									alt={stream.name}
+									shape="squircle"
+									fit="cover"
+									className={`ba ${+stream.live ? 'b--red' : 'b--transparent'} v-mid w3 h3`}
+								/>
+							</div>
+							<div className="ml2">
+								<Link href="/c/[name]" as={`/c/${stream.name}`}>
+									<h2 className='f3 tracked ma0 dib primary items-center flex'>
+										{stream.user.name}
+										{stream.type == 'PARTNER' &&
+											<FontAwesomeIcon icon='check-circle' fixedWidth className="f5" />
+										}
+									</h2>
+								</Link>
+								<div className="flex flex-column mb3 mt2">
+									<span className="b f5 primary">
+										{stream.title}
+										<br />
+										<Link href="/category/[id]" as={`/category/${stream.category_id}`}><a className="primary">{stream.category_name}</a></Link>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div className="flex flex-column flex-grow-0 flex-shrink-0 justify-start ma3">
+							<div className="items-center flex flex-nowrap justify-end mb3">
+								{stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={follow}><Trans>Following</Trans> ({kFormatter(stream.followers)})</GuacButton>}
+								{!stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={follow}><Trans>Follow</Trans> ({kFormatter(stream.followers)})</GuacButton>}
+								{
+									!authentication.token
+									&&
+									<Tooltip
+										// options
+										title={i18n._('Create an account to follow this user')}
+										position="top"
+										trigger="mouseenter"
+										theme="transparent"
+										style={{'display': 'flex !important'}}
+									>
+										<GuacButton color="white" onClick={follow}><Trans>Follow</Trans> ({kFormatter(stream.followers)})</GuacButton>
+									</Tooltip>
+								}
+								<ToggleFeature flag="subscribeButton">
+									{stream.type == 'PARTNER' && <GuacButton color="green" onClick={(e) => {setShowSub(!showSub); e.preventDefault(); return true;}}><Trans>Subscribe</Trans></GuacButton>}
+								</ToggleFeature>
+								{isMe &&
+									<GuacButton color="dark-gray" title="Edit stream" onClick={editStream}>
+										<FontAwesomeIcon icon="edit" fixedWidth className="white" />
+										<span className="white"><Trans>Edit</Trans></span>
+									</GuacButton>
+								}
+							</div>
+							<div className="items-center flex justify-end ml3">
+								<span className="inline-flex items-center mr3 red f6">
+									{stream.live
+										?
+										<>
+											<FontAwesomeIcon icon='user' fixedWidth />
+											&nbsp;
+											{props.channel.viewers ? props.channel.viewers.toString() : 0}
+										</>
+										: ''
 									}
 								</span>
-							}
-							</>
-						: ''
-					}
-					</div>
-					{!authentication.token && <span className="f5 primary ml1 mr2"><Trans>Followers</Trans> · {kFormatter(stream.followers)}</span>}
-					{stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={follow}><Trans>Following</Trans> ({kFormatter(stream.followers)})</GuacButton>}
-					{!stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={follow}><Trans>Follow</Trans> ({kFormatter(stream.followers)})</GuacButton>}
-					<ToggleFeature flag="subscribeButton">
-						{stream.type == 'PARTNER' && <GuacButton color="green" onClick={(e) => {setShowSub(!showSub);e.preventDefault();return true;}}><Trans>Subscribe</Trans></GuacButton>}
-					</ToggleFeature>
-					{isMe && 
-						<GuacButton color="dark-gray" title="Edit stream" onClick={editStream}>
-						<FontAwesomeIcon icon="edit" fixedWidth className="white" />
-						<span className="white"><Trans>Edit</Trans></span>
-						</GuacButton>
-					}
-					<div>
-						<span className="b f4 primary">
-							{stream.title}
-							<br />
-							<Trans>playing</Trans>&nbsp;
-							<Link href="/category/[id]" as={`/category/${stream.category_id}`}><a className="primary">{stream.category_name}</a></Link>
-						</span>
+								<span className="inline-flex items-center mr3 primary f6">
+									{
+									stream.live 
+									&&
+									stream.liveAt !== null
+										?
+										<>
+											<FontAwesomeIcon icon='clock' />
+											&nbsp;
+											{
+												prettyMilliseconds(now - liveAt, {
+													unitCount: 3,
+													formatSubMilliseconds: false,
+													separateMilliseconds: false,
+													secondsDecimalDigits: 0
+												})
+											}
+										</>
+										: ''
+									}
+								</span>
+							</div>
+						</div>
 					</div>
 				</div>
 				{showSub && <SubscriptionDialog />}
