@@ -39,12 +39,14 @@ import EditStreamPanel from '../../components/EditStreamPanel';
 import { ToggleFeature } from '@flopflip/react-redux';
 
 import { kFormatter } from '../../utils';
+import SubscriptionDialog from '../../components/SubscriptionDialog'
 
 const STREAMING_SERVER = 'eu';
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
 function ChannelPage(props){
 	const [tab, setTab] = useState(0);
 	const [showModal, setShowModal] = useState(false);
+	const [showSub, setShowSub] = useState(false);
 	const dispatch = useDispatch();
 	useEffect(() => {
 		const { channel } = props;
@@ -209,7 +211,7 @@ function ChannelPage(props){
 					{stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={follow}><Trans>Following</Trans> ({kFormatter(stream.followers)})</GuacButton>}
 					{!stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={follow}><Trans>Follow</Trans> ({kFormatter(stream.followers)})</GuacButton>}
 					<ToggleFeature flag="subscribeButton">
-						{stream.type == 'PARTNER' && <GuacButton color="green"><Trans>Subscribe</Trans></GuacButton>}
+						{stream.type == 'PARTNER' && <GuacButton color="green" onClick={(e) => {setShowSub(!showSub);e.preventDefault();return true;}}><Trans>Subscribe</Trans></GuacButton>}
 					</ToggleFeature>
 					{isMe && 
 						<GuacButton color="dark-gray" title="Edit stream" onClick={editStream}>
@@ -226,6 +228,7 @@ function ChannelPage(props){
 						</span>
 					</div>
 				</div>
+				{showSub && <SubscriptionDialog />}
 				{showModal && <div className="db pa2 bg-black-50 primary"><EditStreamPanel /></div>}
 				<div className="site-component-profile__tabs flex items-center bb b--gray" style={{height:'48px'}}>
 					<a 
