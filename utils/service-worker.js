@@ -1,5 +1,5 @@
-importScripts('https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js');
-importScripts('https://www.gstatic.com/firebasejs/7.7.0/firebase-messaging.js');
+importScripts('https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/7.12.0/firebase-messaging.js');
 
 import {registerRoute} from 'workbox-routing';
 import {precacheAndRoute, cleanupOutdatedCaches} from 'workbox-precaching';
