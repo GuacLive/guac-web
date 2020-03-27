@@ -187,7 +187,16 @@ function ChannelPage(props){
 									<h2 className='f3 tracked ma0 dib primary items-center flex'>
 										{stream.user.name}
 										{stream.type == 'PARTNER' &&
+											<Tooltip
+												// options
+												title={i18n._(t`Partnered`)}
+												position="right"
+												trigger="mouseenter"
+												theme="transparent"
+												style={{'display': 'flex !important'}}
+											>
 											<FontAwesomeIcon icon='check-circle' fixedWidth className="f5" />
+											</Tooltip>
 										}
 									</h2>
 								</Link>
