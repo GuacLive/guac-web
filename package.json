@@ -1,6 +1,6 @@
 {
   "name": "guac-web",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Main web ui for the Guac livestreaming platform",
   "repository": "GuacLive/guac-web",
   "author": {
@@ -27,6 +27,7 @@
     "node": "12.x"
   },
   "dependencies": {
+    "@babel/compat-data": "7.8.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
     "@flopflip/localstorage-adapter": "^1.7.0",
     "@flopflip/react": "^9.1.10",
