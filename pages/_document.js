@@ -25,8 +25,8 @@ export default class MyDocument extends Document {
 		<html data-cast-api-enabled="true" id="guac" className={this.props.mode === 'dark' ? 'guac-skin-dark': 'guac-skin-light'}>
 			<Head nonce={nonce}>
 				<script type="text/javascript" src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1" nonce={this.props.nonce}></script>
-				<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.12.0/css/solid.css" integrity="sha384-9AfJF7pZ+RYk3wXpf8ge6fc3XhPaW3Xl57Qj/mSzPckn9Tu8zJ9qUipWq+/utX20" crossOrigin="anonymous" />
-				<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.12.0/css/fontawesome.css" integrity="sha384-VoScp22LWX8GkkUAmdkkkj+rz+/r84lmCD6FALIryJxjwBSz6kE6oebSlamQx19e" crossOrigin="anonymous" />
+				<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.13.0/css/solid.css" integrity="sha384-fZFUEa75TqnWs6kJuLABg1hDDArGv1sOKyoqc7RubztZ1lvSU7BS+rc5mwf1Is5a" crossOrigin="anonymous" />
+				<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.13.0/css/fontawesome.css" integrity="sha384-syoT0d9IcMjfxtHzbJUlNIuL19vD9XQAdOzftC+llPALVSZdxUpVXE0niLOiw/mn" crossOrigin="anonymous" />
 				<link rel="manifest" href="/manifest.json" />
 				<link rel="preconnect" href="https://api.guac.live/" />
 				<link rel="preconnect" href="https://stream.guac.live/" />
