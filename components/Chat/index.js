@@ -237,7 +237,7 @@ function ChatComponent(props){
 					{
 						chatSettings.showTimestamps &&
 						<span className="chat-message-time">
-							{format(new Date(user.lastMessage || messages.time), 'HH:mm:ss' )}
+							{format(new Date(messages.time ? messages.time : user.lastMessage), 'HH:mm:ss' )}
 						</span>
 					}
 					<span className="chat-message-badges">
