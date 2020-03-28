@@ -634,6 +634,7 @@ function ChatComponent(props){
 									>
 									{
 										<GifSelector
+											darkMode={darkMode}
 											onEntrySelect={entry => {
 													log('info', 'Chat', 'GifSelector entry', entry);
 													setMessage(`${entry.images.original.url}`);

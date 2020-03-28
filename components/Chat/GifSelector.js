@@ -25,7 +25,7 @@ function GifSelector(props){
 				{isOpen &&
 					<GiphySelect
 					theme={{
-						select: `pa1 ba b--gray br2 bg-white near-black`
+						select: `pa1 ba b--gray br2 ${props.darkMode ? 'bg-near-black' : 'bg-white'} ${props.darkMode ? 'near-white' : 'near-black'}`
 					}}
 					requestKey={process.env.GIPHY_API_KEY}
 					onEntrySelect={props.onEntrySelect}
