@@ -17,7 +17,7 @@ msgstr ""
 msgid "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 msgstr "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 
-#: pages/c/[name].js:276
+#: pages/c/[name].js:286
 msgid "ABOUT"
 msgstr "ABOUT"
 
@@ -44,7 +44,7 @@ msgstr "Browse"
 msgid "Category:"
 msgstr "Category:"
 
-#: pages/c/[name].js:342
+#: pages/c/[name].js:352
 msgid "Channel not found"
 msgstr "Channel not found"
 
@@ -75,7 +75,7 @@ msgstr "Copyrighted Content"
 msgid "Counter-Notification"
 msgstr "Counter-Notification"
 
-#: pages/c/[name].js:210
+#: pages/c/[name].js:220
 msgid "Create an account to follow this user"
 msgstr "Create an account to follow this user"
 
@@ -108,7 +108,7 @@ msgstr "Do not engage, or encourage others to engage, in any targeted abuse or h
 msgid "E-mail"
 msgstr "E-mail"
 
-#: pages/c/[name].js:225
+#: pages/c/[name].js:235
 msgid "Edit"
 msgstr "Edit"
 
@@ -130,8 +130,8 @@ msgstr "Error"
 msgid "First, choose the streaming server closest to you:"
 msgstr "First, choose the streaming server closest to you:"
 
-#: pages/c/[name].js:204
-#: pages/c/[name].js:216
+#: pages/c/[name].js:214
+#: pages/c/[name].js:226
 msgid "Follow"
 msgstr "Follow"
 
@@ -151,7 +151,7 @@ msgstr "Followed Channels"
 #~ msgid "Followers · {0}"
 #~ msgstr "Followers · {0}"
 
-#: pages/c/[name].js:203
+#: pages/c/[name].js:213
 msgid "Following"
 msgstr "Following"
 
@@ -205,7 +205,7 @@ msgstr "Live streams"
 
 #: components/Chat/index.js:513
 #: components/Search/SearchBar.js:83
-#: pages/c/[name].js:341
+#: pages/c/[name].js:351
 msgid "Loading..."
 msgstr "Loading..."
 
@@ -258,6 +258,10 @@ msgstr "Now, use the following stream key:"
 msgid "Page not found"
 msgstr "Page not found"
 
+#: pages/c/[name].js:191
+msgid "Partnered"
+msgstr "Partnered"
+
 #: pages/auth/login.js:58
 #: pages/auth/register.js:72
 #: pages/settings.js:38
@@ -288,7 +292,7 @@ msgstr "Privacy Policy"
 msgid "Private (don't show in categories, frontpage or search):"
 msgstr "Private (don't show in categories, frontpage or search):"
 
-#: pages/c/[name].js:285
+#: pages/c/[name].js:295
 msgid "REPLAYS"
 msgstr "REPLAYS"
 
@@ -361,7 +365,7 @@ msgstr "Stream settings"
 msgid "Streaming permissions"
 msgstr "Streaming permissions"
 
-#: pages/c/[name].js:220
+#: pages/c/[name].js:230
 msgid "Subscribe"
 msgstr "Subscribe"
 
@@ -421,7 +425,7 @@ msgstr "Unban user"
 msgid "Unknown error"
 msgstr "Unknown error"
 
-#: pages/c/[name].js:325
+#: pages/c/[name].js:335
 msgid "User has been banned"
 msgstr "User has been banned"
 
@@ -470,7 +474,7 @@ msgstr "Your account is now registered. Please check your e-mail to verify your 
 msgid "Your e-mail has been verified."
 msgstr "Your e-mail has been verified."
 
-#: pages/c/[name].js:328
+#: pages/c/[name].js:338
 msgid "has been banned from the site."
 msgstr "has been banned from the site."
 

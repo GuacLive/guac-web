@@ -21,7 +21,7 @@ msgstr "<0>Hei,<1/>Velkommen til guac.live — direktestrømming-platformen. Vi 
 #~ msgid "<0>{0}</0> is live"
 #~ msgstr "<0>{0}</0> sender direkte"
 
-#: pages/c/[name].js:276
+#: pages/c/[name].js:286
 msgid "ABOUT"
 msgstr "OM"
 
@@ -48,7 +48,7 @@ msgstr "Utforsk"
 msgid "Category:"
 msgstr "Kategori:"
 
-#: pages/c/[name].js:342
+#: pages/c/[name].js:352
 msgid "Channel not found"
 msgstr "Kanal ikke funnet"
 
@@ -79,7 +79,7 @@ msgstr "Opphavsrettsbeskyttet innhold"
 msgid "Counter-Notification"
 msgstr "Innsigelse"
 
-#: pages/c/[name].js:210
+#: pages/c/[name].js:220
 msgid "Create an account to follow this user"
 msgstr "Opprett en konto for å følge denne brukeren"
 
@@ -112,7 +112,7 @@ msgstr "Ikke engasjer deg eller oppmuntre andre til å engasjere seg i målrette
 msgid "E-mail"
 msgstr "E-post"
 
-#: pages/c/[name].js:225
+#: pages/c/[name].js:235
 msgid "Edit"
 msgstr "Endre"
 
@@ -134,8 +134,8 @@ msgstr "Feil"
 msgid "First, choose the streaming server closest to you:"
 msgstr "Først, velg strømmeserveren som er nærmest deg:"
 
-#: pages/c/[name].js:204
-#: pages/c/[name].js:216
+#: pages/c/[name].js:214
+#: pages/c/[name].js:226
 msgid "Follow"
 msgstr "Følg"
 
@@ -147,7 +147,7 @@ msgstr "Fulgte kanaler"
 #~ msgid "Followers"
 #~ msgstr "Følgere"
 
-#: pages/c/[name].js:203
+#: pages/c/[name].js:213
 msgid "Following"
 msgstr "Følger"
 
@@ -197,7 +197,7 @@ msgstr "Direktesendinger"
 
 #: components/Chat/index.js:513
 #: components/Search/SearchBar.js:83
-#: pages/c/[name].js:341
+#: pages/c/[name].js:351
 msgid "Loading..."
 msgstr "Laster..."
 
@@ -250,6 +250,10 @@ msgstr "Nå, bruk følgende strømmenøkkel:"
 msgid "Page not found"
 msgstr "Side ikke funnet"
 
+#: pages/c/[name].js:191
+msgid "Partnered"
+msgstr "Partner"
+
 #: pages/auth/login.js:58
 #: pages/auth/register.js:72
 #: pages/settings.js:38
@@ -280,7 +284,7 @@ msgstr "Personvern"
 msgid "Private (don't show in categories, frontpage or search):"
 msgstr "Privat (vises ikke i kategorier, forsisden eller i søk):"
 
-#: pages/c/[name].js:285
+#: pages/c/[name].js:295
 msgid "REPLAYS"
 msgstr "ARKIV"
 
@@ -298,7 +302,7 @@ msgstr "Søk..."
 
 #: pages/terms.js:23
 msgid "Serious threats of harm to public and personal safety aren't allowed. This includes specific threats of physical harm as well as threats of theft, vandalism, and other financial harm.<0/>We don’t allow the glorification of self-harm."
-msgstr "Seriøse trusler om skade til offentligheten og personlig sikkerhet er ikke tillatt. Dette inkluderer spesifikke trusler om fysisk skade og trusler om tyveri, vandalisme og annen finansiell skade.</o/> Vi tillater ikke glorifisering av selvskading."
+msgstr "Seriøse trusler om skade til offentligheten og personlig sikkerhet er ikke tillatt. Dette inkluderer spesifikke trusler om fysisk skade og trusler om tyveri, vandalisme og annen finansiell skade.<0/>Vi tillater ikke glorifisering av selvskading."
 
 #: pages/_error.js:35
 msgid "Server error"
@@ -353,7 +357,7 @@ msgstr "Strømmeinnstillinger"
 msgid "Streaming permissions"
 msgstr "Strømmetillatelse"
 
-#: pages/c/[name].js:220
+#: pages/c/[name].js:230
 msgid "Subscribe"
 msgstr "Abonnér"
 
@@ -405,7 +409,7 @@ msgstr "Fjern utestenging av bruker"
 msgid "Unknown error"
 msgstr "Ukjent feil"
 
-#: pages/c/[name].js:325
+#: pages/c/[name].js:335
 msgid "User has been banned"
 msgstr "Brukeren har blitt utestengt"
 
@@ -454,7 +458,7 @@ msgstr "Kontoen din er opprettet. Vennligst sjekk din e-post for å verifisere k
 msgid "Your e-mail has been verified."
 msgstr "E-posten din har blitt verifisert."
 
-#: pages/c/[name].js:328
+#: pages/c/[name].js:338
 msgid "has been banned from the site."
 msgstr "har blitt utestengt fra dette nettstedet."
 
