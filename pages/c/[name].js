@@ -201,10 +201,11 @@ function ChannelPage(props){
 									</h2>
 								</Link>
 								<div className="flex flex-column mb3 mt2">
-									<span className="b f5 primary">
-										{stream.title}
-										<br />
-										<Link href="/category/[id]" as={`/category/${stream.category_id}`}><a className="primary-80 hover-primary link">{stream.category_name}</a></Link>
+									<span className="f5 primary">
+										<span className="truncate b line-clamp-2" style={{wordWrap: 'break-word'}}>{stream.title}</span>
+										<div>
+											<Link href="/category/[id]" as={`/category/${stream.category_id}`}><a className="primary-50 hover-primary link">{stream.category_name}</a></Link>
+										</div>
 									</span>
 								</div>
 							</div>
@@ -281,7 +282,7 @@ function ChannelPage(props){
 						href="#"
 						onClick={() => {setTab(0);return true;}}
 						className={
-							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer ${tab == 0 ? 'primary' : 'gray'} hover-primary`
+							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer ${tab == 0 ? 'primary' : 'gray'} hover-primary link`
 						}
 					>
 						<Trans>ABOUT</Trans>
@@ -290,7 +291,7 @@ function ChannelPage(props){
 						href="#"
 						onClick={() => {setTab(1);return true;}}
 						className={
-							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer ${tab == 1 ? 'primary' : 'gray'} hover-primary`
+							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer ${tab == 1 ? 'primary' : 'gray'} hover-primary link`
 						}
 					>
 						<Trans>REPLAYS</Trans>

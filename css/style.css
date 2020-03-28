@@ -55,7 +55,7 @@ html {
 
 .hover-primary:hover, 
 .hover-primary:focus {
-	color: var(--site-text);
+	color: var(--site-text) !important;
 }
 
 input:focus {
@@ -141,6 +141,17 @@ input:focus {
 }
 .guac-skin-dark .primary-50{
 	color: var(--white-50);
+}
+
+@supports (-webkit-line-clamp:2) {
+	.line-clamp-2 {
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		display: -webkit-box;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: normal;
+	}
 }
 
 .GuacImage {
