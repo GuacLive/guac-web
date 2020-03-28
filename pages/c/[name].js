@@ -183,23 +183,21 @@ function ChannelPage(props){
 								/>
 							</div>
 							<div className="ml2">
-								<Link href="/c/[name]" as={`/c/${stream.name}`}>
-									<h2 className='f3 tracked ma0 dib primary items-center flex'>
-										{stream.user.name}
-										{stream.type == 'PARTNER' &&
-											<Tooltip
-												// options
-												title={i18n._(t`Partnered`)}
-												position="right"
-												trigger="mouseenter"
-												theme="transparent"
-												style={{'display': 'flex !important'}}
-											>
-											<FontAwesomeIcon icon='check-circle' fixedWidth className="f5" />
-											</Tooltip>
-										}
-									</h2>
-								</Link>
+								<h2 className='f3 tracked ma0 dib primary items-center flex'>
+									{stream.user.name}
+									{stream.type == 'PARTNER' &&
+										<Tooltip
+											// options
+											title={i18n._(t`Partnered`)}
+											position="right"
+											trigger="mouseenter"
+											theme="transparent"
+											style={{'display': 'flex !important'}}
+										>
+										<FontAwesomeIcon icon='check-circle' fixedWidth className="f5" />
+										</Tooltip>
+									}
+								</h2>
 								<div className="flex flex-column mb3 mt2">
 									<span className="f5 primary">
 										<span className="truncate b line-clamp-2" style={{wordWrap: 'break-word'}}>{stream.title}</span>
