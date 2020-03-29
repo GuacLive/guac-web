@@ -74,9 +74,9 @@ input:focus {
 	--chat-message-text: var(--black);
 	--chat-message-link: var(--green);
 	
-	--dropdown-background: #fff;
+	--dropdown-background: var(--near-black);
 
-	--animation-duration: 1.0s;
+	--animation-duration: 450ms;
 	--animation-timing: ease-in-out;
 }
 
@@ -91,7 +91,7 @@ input:focus {
 	--chat-message-text: var(--white);
 	--chat-message-link: var(--light-green);
 
-	--dropdown-background: #111111;
+	--dropdown-background: var(--near-black);
 }
 
 /* For chat OBS overlay */
