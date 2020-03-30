@@ -45,6 +45,10 @@ html {
 	background var(--animation-duration) var(--animation-timing);
 }
 
+#__next, body, html {
+    touch-action: manipulation!important;
+}
+
 .hover-b--blue:hover {
 	border-color: var(--blue);
 }
