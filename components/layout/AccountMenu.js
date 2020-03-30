@@ -25,7 +25,7 @@ function AccountMenu(props){
 				<ul className="list f6 mr0 ml0 mt0 mb0 pa3">
 					<li>
 						<Link href={props.user.can_stream ? `/c/${props.user.name}` : '/'}>
-							<a className="flex items-center tw-relative pa2 relative w-100 link b hover-green primary ph3">
+							<a className="flex items-center tw-relative pa2 relative w-100 link b hover-green white ph3">
 								<div className="items-center flex flex-shrink-0 pr2">
 									<div className="items-center inline-flex">
 										<i class="fa fa-user"></i>
@@ -37,7 +37,7 @@ function AccountMenu(props){
 					</li>
 					<li>
 						<Link href="/settings">
-							<a className="flex items-center tw-relative pa2 relative w-100 link b hover-green primary ph3">
+							<a className="flex items-center tw-relative pa2 relative w-100 link b hover-green white ph3">
 								<div className="items-center flex flex-shrink-0 pr2">
 									<div className="items-center inline-flex">
 										<i class="fas fa-fw fa-user-cog"></i>
@@ -49,7 +49,7 @@ function AccountMenu(props){
 					</li>
 					<li>
 						<Link href="/dashboard">
-							<a className="flex items-center tw-relative pa2 relative w-100 link b hover-green primary ph3">
+							<a className="flex items-center tw-relative pa2 relative w-100 link b hover-green white ph3">
 								<div className="items-center flex flex-shrink-0 pr2">
 									<div className="items-center inline-flex">
 										<i class="fas fa-fw fa-video"></i>
@@ -64,7 +64,7 @@ function AccountMenu(props){
 					&&
 						<li>
 							<Link href="/admin">
-								<a className="flex items-center tw-relative pa2 relative w-100 link b hover-blue primary ph3">
+								<a className="flex items-center tw-relative pa2 relative w-100 link b hover-blue white ph3">
 									<div className="items-center flex flex-shrink-0 pr2">
 										<div className="items-center inline-flex">
 											<i class="fas fa-fw fa-hammer"></i>
@@ -77,7 +77,7 @@ function AccountMenu(props){
 					}
 					<li>
 						<Link href="/auth/logout">
-							<a className="flex items-center tw-relative pa2 relative w-100 link b hover-red primary ph3">
+							<a className="flex items-center tw-relative pa2 relative w-100 link b hover-red white ph3">
 								<div className="items-center flex flex-shrink-0 pr2">
 									<div className="items-center inline-flex">
 										<i class="fas fa-fw fa-sign-out-alt"></i>
