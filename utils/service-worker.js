@@ -1,5 +1,5 @@
-importScripts('https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js');
-importScripts('https://www.gstatic.com/firebasejs/7.12.0/firebase-messaging.js');
+importScripts('https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/7.13.1/firebase-messaging.js');
 
 import {registerRoute} from 'workbox-routing';
 import {precacheAndRoute, cleanupOutdatedCaches} from 'workbox-precaching';
@@ -119,6 +119,11 @@ messaging.setBackgroundMessageHandler(payload => {
 });
 
 self.addEventListener('notificationclick', function(event) {
+    try{
+        const clickedNotification = event.notification;
+        clickedNotification.close();
+    }catch(e){}
+
     console.log(
         '%c guac.live %c Firebase notification clicked',
         'background: #0FABE9; color: #e8e8e8; border-radius: 3px 0 0 3px;',
