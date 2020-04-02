@@ -32,12 +32,14 @@ class DashboardPage extends Component {
                 {auth.error && 
 					<div className="red"><Trans>Error</Trans>: {auth.error.message}</div>
 				}
-				<div className="primary"><Trans>E-mail</Trans>: {auth.user.email}</div>
+				<div className="primary"><span className="b"><Trans>E-mail</Trans></span>: {auth.user.email || 'None'}</div>
                 <form className="measure" onSubmit={this.handleSubmit}>
-					<label htmlFor="password"><Trans>New password:</Trans></label>
+					<label htmlFor="password" className="b"><Trans>New password:</Trans></label>
 					<input name="password" type="password" className="input-reset bn pa3 w-100 bg-white br2" ref="password" placeholder={i18n._(t`Password`)} />
 					<input type="submit" value={i18n._(t`Edit user`)} className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" />
 				</form>
+				<div className="primary"><span className="b"><Trans>Color</Trans></span>: <span style={{color: auth.user.color}}>{auth.user.color || 'Default'}</span></div>
+				<span>Want to customize your color? <a target="_blank" href="https://www.patreon.com/join/guaclive" className="primary b">Join our Patreon!</a></span>
 			</div>
 		)
 	}
