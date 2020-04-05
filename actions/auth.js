@@ -125,7 +125,7 @@ export const deauthenticate = () => async (dispatch) => {
 
 export const setPassword = (token, password) => async (dispatch) => {
 	dispatch({
-	  type: 'PASSWORD_CHANGE_REQUEST'
+	  type: 'CHANGE_PASSWORD_REQUEST'
 	});
 	return callApi('/user/password', {
 		method: 'POST',
@@ -141,18 +141,18 @@ export const setPassword = (token, password) => async (dispatch) => {
 	.then((json) => {
 		if (json.statusCode == 200) {
 			dispatch(Object.assign({
-				type: 'PASSWORD_CHANGE_SUCCESS'
+				type: 'CHANGE_PASSWORD_SUCCESS'
 			}, json));
 		} else {
 			dispatch({
-				type: 'PASSWORD_CHANGE_FAILURE',
+				type: 'CHANGE_PASSWORD_FAILURE',
 				error: new Error(json && json.statusMessage)
 			});
 		}
 	})
 	.catch(error => {
         dispatch({
-          type: 'PASSWORD_CHANGE_FAILURE',
+          type: 'CHANGE_PASSWORD_FAILURE',
           error
         });
 	});
