@@ -1,6 +1,6 @@
 {
   "name": "guac-web",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "description": "Main web ui for the Guac livestreaming platform",
   "repository": "GuacLive/guac-web",
   "author": {
@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@babel/compat-data": "7.8.0",
+    "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
     "@flopflip/localstorage-adapter": "^1.7.0",
     "@flopflip/react": "^9.1.10",
@@ -39,7 +40,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.12.0-1",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@guaclive/react-giphy-select": "^1.0.5",
-    "@lingui/cli": "^2.9.0",
+    "@lingui/cli": "^2.9.1",
     "@lingui/loader": "^2",
     "@lingui/macro": "^2.9.0",
     "@lingui/react": "^2.9.0",
@@ -50,6 +51,7 @@
     "@webscopeio/react-textarea-autocomplete": "^4.6.3",
     "@zeit/next-source-maps": "^0.0.3",
     "abort-controller": "^3.0.0",
+    "babel-core": "7.0.0-bridge.0",
     "babel-plugin-macros": "^2.8.0",
     "browserslist": "^4.7.0",
     "can-autoplay": "^3.0.0",

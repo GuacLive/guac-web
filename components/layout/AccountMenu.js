@@ -43,7 +43,7 @@ function AccountMenu(props){
 										<i className="fas fa-fw fa-user-cog"></i>
 									</div>
 								</div>
-								<div className="flex-grow-1">Settings</div>
+								<div className="flex-grow-1"><Trans>Settings</Trans></div>
 							</a>
 						</Link>
 					</li>
@@ -55,7 +55,7 @@ function AccountMenu(props){
 										<i className="fas fa-fw fa-video"></i>
 									</div>
 								</div>
-								<div className="flex-grow-1">Dashboard</div>
+								<div className="flex-grow-1"><Trans>Dashboard</Trans></div>
 							</a>
 						</Link>
 					</li>
@@ -70,7 +70,7 @@ function AccountMenu(props){
 											<i className="fas fa-fw fa-hammer"></i>
 										</div>
 									</div>
-									<div className="flex-grow-1">Admin</div>
+									<div className="flex-grow-1"><Trans>Admin</Trans></div>
 								</a>
 							</Link>
 						</li> 
@@ -83,7 +83,7 @@ function AccountMenu(props){
 										<i className="fas fa-fw fa-sign-out-alt"></i>
 									</div>
 								</div>
-								<div className="flex-grow-1">Log out</div>
+								<div className="flex-grow-1"><Trans>Log out</Trans></div>
 							</a>
 						</Link>
 					</li>

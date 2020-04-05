@@ -21,7 +21,7 @@ msgstr "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are curre
 msgid "ABOUT"
 msgstr "ABOUT"
 
-#: components/layout/AccountMenu.js:29
+#: components/layout/AccountMenu.js:73
 msgid "Admin"
 msgstr "Admin"
 
@@ -44,6 +44,10 @@ msgstr "Browse"
 msgid "Category:"
 msgstr "Category:"
 
+#: pages/settings.js:31
+msgid "Channel"
+msgstr "Channel"
+
 #: pages/c/[name].js:352
 msgid "Channel not found"
 msgstr "Channel not found"
@@ -63,9 +67,17 @@ msgstr "Chat commands:"
 msgid "Client error"
 msgstr "Client error"
 
+#: components/Settings/Profile.js:25
+msgid "Color"
+msgstr "Color"
+
 #: pages/categories.js:28
 #~ msgid "Coming soon."
 #~ msgstr "Coming soon."
+
+#: pages/settings.js:35
+msgid "Connections"
+msgstr "Connections"
 
 #: pages/terms.js:18
 msgid "Copyrighted Content"
@@ -83,7 +95,7 @@ msgstr "Create an account to follow this user"
 msgid "DMCA"
 msgstr "DMCA"
 
-#: components/layout/AccountMenu.js:28
+#: components/layout/AccountMenu.js:58
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -103,8 +115,8 @@ msgstr "Do not engage in hate speech."
 msgid "Do not engage, or encourage others to engage, in any targeted abuse or harassment against any other user."
 msgstr "Do not engage, or encourage others to engage, in any targeted abuse or harassment against any other user."
 
+#: components/Settings/Profile.js:24
 #: pages/auth/register.js:68
-#: pages/settings.js:35
 msgid "E-mail"
 msgstr "E-mail"
 
@@ -112,7 +124,7 @@ msgstr "E-mail"
 msgid "Edit"
 msgstr "Edit"
 
-#: pages/settings.js:39
+#: components/Settings/Profile.js:30
 msgid "Edit user"
 msgstr "Edit user"
 
@@ -120,9 +132,9 @@ msgstr "Edit user"
 msgid "English"
 msgstr "English"
 
+#: components/Settings/Profile.js:22
 #: pages/auth/login.js:51
 #: pages/auth/register.js:61
-#: pages/settings.js:33
 msgid "Error"
 msgstr "Error"
 
@@ -218,7 +230,7 @@ msgstr "Loading..."
 msgid "Log in"
 msgstr "Log in"
 
-#: components/layout/AccountMenu.js:30
+#: components/layout/AccountMenu.js:86
 msgid "Log out"
 msgstr "Log out"
 
@@ -226,7 +238,7 @@ msgstr "Log out"
 msgid "Manage"
 msgstr "Manage"
 
-#: pages/settings.js:37
+#: components/Settings/Profile.js:28
 msgid "New password:"
 msgstr "New password:"
 
@@ -242,7 +254,7 @@ msgstr "No streaming key found, please contact an admin."
 msgid "Norwegian"
 msgstr "Norwegian"
 
-#: components/Chat/index.js:658
+#: components/Chat/index.js:659
 msgid "Not connected to chat."
 msgstr "Not connected to chat."
 
@@ -262,9 +274,9 @@ msgstr "Page not found"
 msgid "Partnered"
 msgstr "Partnered"
 
+#: components/Settings/Profile.js:29
 #: pages/auth/login.js:58
 #: pages/auth/register.js:72
-#: pages/settings.js:38
 msgid "Password"
 msgstr "Password"
 
@@ -292,11 +304,15 @@ msgstr "Privacy Policy"
 msgid "Private (don't show in categories, frontpage or search):"
 msgstr "Private (don't show in categories, frontpage or search):"
 
+#: pages/settings.js:27
+msgid "Profile"
+msgstr "Profile"
+
 #: pages/c/[name].js:295
 msgid "REPLAYS"
 msgstr "REPLAYS"
 
-#: components/Chat/index.js:659
+#: components/Chat/index.js:660
 msgid "Reconnect"
 msgstr "Reconnect"
 
@@ -317,7 +333,8 @@ msgid "Server error"
 msgstr "Server error"
 
 #: components/Chat/SettingsMenu.js:35
-#: components/layout/AccountMenu.js:27
+#: components/layout/AccountMenu.js:46
+#: pages/settings.js:24
 msgid "Settings"
 msgstr "Settings"
 
@@ -345,7 +362,7 @@ msgstr "Sign up"
 msgid "Start following your favorite streamers to find them quickly!"
 msgstr "Start following your favorite streamers to find them quickly!"
 
-#: components/Chat/index.js:677
+#: components/Chat/index.js:678
 msgid "Stream Chat"
 msgstr "Stream Chat"
 
@@ -430,8 +447,8 @@ msgid "User has been banned"
 msgstr "User has been banned"
 
 #: pages/settings.js:31
-msgid "User settings"
-msgstr "User settings"
+#~ msgid "User settings"
+#~ msgstr "User settings"
 
 #: pages/auth/login.js:54
 #: pages/auth/register.js:64
@@ -441,6 +458,10 @@ msgstr "Username"
 #: pages/admin/index.js:54
 msgid "Username:"
 msgstr "Username:"
+
+#: components/Settings/Profile.js:26
+msgid "Want to customize your color? <0>Join our Patreon!</0>"
+msgstr "Want to customize your color? <0>Join our Patreon!</0>"
 
 #: pages/terms.js:12
 msgid "We will review every reported user on a case-by-case basis, and give <0>warnings</0> or <1>temporary/permanent bans</1> depending on the severity of the case."
