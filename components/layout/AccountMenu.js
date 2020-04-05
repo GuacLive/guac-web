@@ -28,10 +28,10 @@ function AccountMenu(props){
 							<a className="flex items-center tw-relative pa2 relative w-100 link b hover-green white ph3">
 								<div className="items-center flex flex-shrink-0 pr2">
 									<div className="items-center inline-flex">
-										<i class="fa fa-user"></i>
+										<i className="fa fa-user"></i>
 									</div>
 								</div>
-								<div class="flex-grow-1">{props.user.name}</div>
+								<div className="flex-grow-1">{props.user.name}</div>
 							</a>
 						</Link>
 					</li>
@@ -40,10 +40,10 @@ function AccountMenu(props){
 							<a className="flex items-center tw-relative pa2 relative w-100 link b hover-green white ph3">
 								<div className="items-center flex flex-shrink-0 pr2">
 									<div className="items-center inline-flex">
-										<i class="fas fa-fw fa-user-cog"></i>
+										<i className="fas fa-fw fa-user-cog"></i>
 									</div>
 								</div>
-								<div class="flex-grow-1">Settings</div>
+								<div className="flex-grow-1">Settings</div>
 							</a>
 						</Link>
 					</li>
@@ -52,10 +52,10 @@ function AccountMenu(props){
 							<a className="flex items-center tw-relative pa2 relative w-100 link b hover-green white ph3">
 								<div className="items-center flex flex-shrink-0 pr2">
 									<div className="items-center inline-flex">
-										<i class="fas fa-fw fa-video"></i>
+										<i className="fas fa-fw fa-video"></i>
 									</div>
 								</div>
-								<div class="flex-grow-1">Dashboard</div>
+								<div className="flex-grow-1">Dashboard</div>
 							</a>
 						</Link>
 					</li>
@@ -67,10 +67,10 @@ function AccountMenu(props){
 								<a className="flex items-center tw-relative pa2 relative w-100 link b hover-blue white ph3">
 									<div className="items-center flex flex-shrink-0 pr2">
 										<div className="items-center inline-flex">
-											<i class="fas fa-fw fa-hammer"></i>
+											<i className="fas fa-fw fa-hammer"></i>
 										</div>
 									</div>
-									<div class="flex-grow-1">Admin</div>
+									<div className="flex-grow-1">Admin</div>
 								</a>
 							</Link>
 						</li> 
@@ -80,10 +80,10 @@ function AccountMenu(props){
 							<a className="flex items-center tw-relative pa2 relative w-100 link b hover-red white ph3">
 								<div className="items-center flex flex-shrink-0 pr2">
 									<div className="items-center inline-flex">
-										<i class="fas fa-fw fa-sign-out-alt"></i>
+										<i className="fas fa-fw fa-sign-out-alt"></i>
 									</div>
 								</div>
-								<div class="flex-grow-1">Log out</div>
+								<div className="flex-grow-1">Log out</div>
 							</a>
 						</Link>
 					</li>
