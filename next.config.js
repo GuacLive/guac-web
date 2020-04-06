@@ -85,6 +85,7 @@ module.exports = withOffline(nextSourceMaps({
 			"poi_subscriber_set_cookie": true,
 			"poi_group_name": "guac.live",
 			"timeout": -1,
+			"require_optout_confirm": true,
 			"default_to_optin": false,
 			"advanced_settings": true,
 			"advanced_settings_purposes_default": true,
@@ -94,7 +95,11 @@ module.exports = withOffline(nextSourceMaps({
 				"texts": {
 					"label_intro_heading": "guac.live",
 					"label_intro": "This site uses cookies. By continuing to use this site, closing this banner, or clicking \"I Agree\", you agree to the use of cookies. Read our <a href=\"/privacy\" target=\"_blank\">privacy statement</a> for more information.",
-					"label_button_yes": "I agree"
+					"label_button_yes": "I agree",
+					"label_cpc_purpose_optout_confirm_heading": "Are you sure?",
+					"label_cpc_purpose_optout_confirm_text": "This setting may significantly affect your experience on our website.",
+					"label_cpc_purpose_optout_confirm_proceed": "Continue",
+					"label_cpc_purpose_optout_confirm_cancel": "Cancel"
 				}
 			}
 		}
