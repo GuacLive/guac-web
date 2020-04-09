@@ -230,7 +230,9 @@ function VideoPlayer(props) {
 		if(player.bigPlayButton && player.bigPlayButton.one){
 			player.bigPlayButton.one('tap', function () {
 				if(videojs.browser.IS_ANDROID){
-					player.requestFullscreen();
+					try{
+						player.requestFullscreen();
+					}catch(e){}
 				}
 			});
 		}
