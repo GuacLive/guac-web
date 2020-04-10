@@ -116,7 +116,7 @@ class DashboardPage extends Component {
 							{streaming && streaming.key ? <p><Trans>Now, use the following stream key:</Trans> <b>{auth.user.name}?token={streaming.key}</b></p> : <p style={{color: 'red'}}><Trans>No streaming key found, please contact an admin.</Trans></p>}
 						</li>
 						<li>
-							<p><Trans>At last, make sure keyframe interval is set to <b>2</b>.</Trans></p>
+							<p><Trans>At last, make sure keyframe interval is set to <b>1</b>.</Trans></p>
 						</li>
 					</ol>
 				</div>

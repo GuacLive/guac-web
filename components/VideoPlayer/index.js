@@ -226,6 +226,17 @@ function VideoPlayer(props) {
 			}
 		});
 
+		// If browser is Android, automatically go fullscreen on play tap
+		if(player.bigPlayButton && player.bigPlayButton.one){
+			player.bigPlayButton.one('tap', function () {
+				if(videojs.browser.IS_ANDROID){
+					try{
+						player.requestFullscreen();
+					}catch(e){}
+				}
+			});
+		}
+
 		// Specify how to clean up after this effect:
 		return function cleanup() {
 			didCancel = true;
