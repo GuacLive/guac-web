@@ -26,8 +26,12 @@ msgid "Admin"
 msgstr "Admin"
 
 #: pages/dashboard.js:119
-msgid "At last, make sure keyframe interval is set to <0>2</0>."
-msgstr "At last, make sure keyframe interval is set to <0>2</0>."
+msgid "At last, make sure keyframe interval is set to <0>1</0>."
+msgstr "At last, make sure keyframe interval is set to <0>1</0>."
+
+#: pages/dashboard.js:119
+#~ msgid "At last, make sure keyframe interval is set to <0>2</0>."
+#~ msgstr "At last, make sure keyframe interval is set to <0>2</0>."
 
 #: pages/terms.js:26
 msgid "Breaking the law"
@@ -58,6 +62,10 @@ msgstr "Channel not found"
 #: pages/channels.js:50
 msgid "Channels"
 msgstr "Channels"
+
+#: components/Chat/index.js:759
+msgid "Chat Paused Due To Scroll"
+msgstr "Chat Paused Due To Scroll"
 
 #: pages/dashboard.js:124
 msgid "Chat commands:"
@@ -215,7 +223,7 @@ msgstr "Join"
 msgid "Live streams"
 msgstr "Live streams"
 
-#: components/Chat/index.js:513
+#: components/Chat/index.js:552
 #: components/Search/SearchBar.js:83
 #: pages/c/[name].js:351
 msgid "Loading..."
@@ -254,7 +262,7 @@ msgstr "No streaming key found, please contact an admin."
 msgid "Norwegian"
 msgstr "Norwegian"
 
-#: components/Chat/index.js:659
+#: components/Chat/index.js:698
 msgid "Not connected to chat."
 msgstr "Not connected to chat."
 
@@ -312,7 +320,7 @@ msgstr "Profile"
 msgid "REPLAYS"
 msgstr "REPLAYS"
 
-#: components/Chat/index.js:660
+#: components/Chat/index.js:699
 msgid "Reconnect"
 msgstr "Reconnect"
 
@@ -362,7 +370,7 @@ msgstr "Sign up"
 msgid "Start following your favorite streamers to find them quickly!"
 msgstr "Start following your favorite streamers to find them quickly!"
 
-#: components/Chat/index.js:678
+#: components/Chat/index.js:717
 msgid "Stream Chat"
 msgstr "Stream Chat"
 
