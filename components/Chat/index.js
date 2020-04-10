@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
+import React, { useState, useRef, useEffect, useLayoutEffect, useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import useUpdateEffect from 'react-use/lib/useUpdateEffect';
@@ -26,7 +26,6 @@ import UrlEmbedder from '../../utils/UrlEmbedder';
 import Image from '../Image';
 
 import { ToggleFeature } from '@flopflip/react-redux';
-import { useFeatureToggle } from '@flopflip/react-broadcast';
 
 import log from '../../utils/log';
 
@@ -51,8 +50,90 @@ function ChatComponent(props){
 	const [messages, setMessages] = useState([]);
 	const [customPickerEmotes, setCustomPickerEmotes] = useState(false);
 	const [emotesStatus, setEmotesStatus] = useState(false);
-	const ref = useRef();
 
+	const [showFAB, setShowFAB] = useState(false);
+  
+	const lastMessageRef = useRef();
+	const messageContainerRef = useRef();
+
+	const goToBottom = useCallback(() => {
+		if(
+			lastMessageRef && lastMessageRef.current
+			&& messageContainerRef && messageContainerRef.current
+		){
+			messageContainerRef.current.recalculate();
+			console.log(lastMessageRef.current.offsetHeight);
+			messageContainerRef.current.getScrollElement().scrollTop = messageContainerRef.current.getScrollElement().scrollHeight - messageContainerRef.current.getScrollElement().clientHeight + lastMessageRef.current.offsetHeight;
+			setTimeout(() => {
+				if(
+					lastMessageRef
+					&& lastMessageRef.current
+				){
+					if(lastMessageRef.current.scrollIntoViewIfNeeded){
+						lastMessageRef.current.scrollIntoViewIfNeeded(false);
+					}else if(lastMessageRef.current.scrollIntoView){
+						lastMessageRef.current.scrollIntoView(false);
+					}
+					setShowFAB(false);
+				}
+			}, 1000);
+		}
+	}, [
+		lastMessageRef, messageContainerRef
+	]);
+
+	const scrollOrShowMessage = useCallback(() => {
+		if(
+			lastMessageRef && lastMessageRef.current
+			&& messageContainerRef && messageContainerRef.current
+		){
+			const diff = Math.abs(
+				messageContainerRef.current.getScrollElement().scrollTop - lastMessageRef.current.offsetTop);
+			const scrolledRatio = diff / messageContainerRef.current.getScrollElement().offsetHeight;
+			if(scrolledRatio < 1.8){
+				goToBottom();
+			} else {
+				setShowFAB(true);
+			}
+		}
+	}, [messages, lastMessageRef]);
+
+	const onScroll = useCallback(() => {
+		if(!messageContainerRef || !messageContainerRef.current) return;
+		const scrollTop = messageContainerRef.current.getScrollElement().scrollTop;
+		const clientHeight = messageContainerRef.current.getScrollElement().clientHeight; // or offsetHeight
+		const scrollHeight = messageContainerRef.current.getScrollElement().scrollHeight;
+		if(scrollHeight - clientHeight <= scrollTop + 100){
+			setShowFAB(false);
+		}else{
+			setShowFAB(true);
+		}
+	}, [messages]);
+
+	if(process.browser){
+		useEffect(() => {
+			if(messageContainerRef && messageContainerRef.current){
+				messageContainerRef.current.getScrollElement().addEventListener('scroll', onScroll);
+			}
+
+			return () => {
+				window.removeEventListener('scroll', onScroll)
+			}
+		}, [messageContainerRef]);
+	}
+
+	const setLastMessageRef = (r, i) => {
+		if(!r){
+			return;
+		}
+		if(
+			i === (messages.length - 1)
+			&& (!lastMessageRef.current || lastMessageRef.current.dataset.id !== r.dataset.id)
+		) {
+			lastMessageRef.current = r;
+			scrollOrShowMessage();
+		}
+	};
 	const useChatHydration = true;
 
 	const isOverlay = props.overlay ? true : false;
@@ -68,10 +149,7 @@ function ChatComponent(props){
 		showTimestamps
 	};
 
-	let maxlines = 250;
-
-	let rta;
-	let textarea;
+	let maxlines = 100;
 
 	const CHAT_URL = process.env.CHAT_URL;
 
@@ -80,16 +158,6 @@ function ChatComponent(props){
 			__html: `${name}: ${img}`
 		};
 	}
-
-	const checkIfBottom = (el) => {
-		if(messages.length === 0) return true;
-		const scrollTop = el.scrollTop;
-		const clientHeight = el.clientHeight; // or offsetHeight
-		const scrollHeight = el.scrollHeight;
-		return scrollHeight - clientHeight <= scrollTop + 100;
-		//scrollTop + clientHeight >= scrollHeight
-		//return scrollHeight - scrollTop === clientHeight;
-	};
 	  
 	const handleUsers = (users) => {
 		log('info', 'Chat', 'We got users', users);
@@ -183,10 +251,6 @@ function ChatComponent(props){
 
 	const handleViewers = (viewers) => {
 		log('info', 'Chat', 'Chatters: ' + viewers);
-		//dispatch({
-		//	type: 'SET_CHANNEL_VIEWERS',
-		//	viewers
-		//});
 	}
 
 	const handleMessage = (user, msgID, messages) => {
@@ -319,7 +383,7 @@ function ChatComponent(props){
 						}
 					</span>
 					<span className="chat-message-user b dib">
-						<a href={'/c/' + user.name} className="link color-inherit" style={{color: `#${user.color}`}}>{user.name}</a>{'\u00A0'}
+						<a onClick={() => {writeMessage(`${user.name} `);}} href="#" className="link color-inherit" style={{color: `#${user.color}`}}>{user.name}</a>{'\u00A0'}
 					</span>
 					<span className={`chat-message-content db ${emoteOnly ? 'chat-message-content__emote-only' : 'chat-message-content__with-text'}`}>{output}</span>
 				</>
@@ -476,31 +540,6 @@ function ChatComponent(props){
 	};
 	// If token or connected status changes, join with the new one
 	useEffect(connect, [authentication.token, connectedStatus]);
-
-	// Handle simplebar calculation
-	if(process.browser){
-		useLayoutEffect(() => {
-			if(ref && ref.current) ref.current.recalculate();
-			if(typeof document !== 'undefined'){
-				if(ref && ref.current){
-					if(!checkIfBottom(ref.current.getScrollElement())) return;
-					// Scroll to last message
-					const contentEl = ref.current.getContentElement();
-					const lastMsg = contentEl.querySelector('div:last-child');
-					if(lastMsg && lastMsg.scrollIntoView){
-						lastMsg.scrollIntoView({
-							behavior: 'smooth',
-							block: 'nearest',
-							inline: 'start'
-						});
-					}
-					setTimeout(function(){
-						ref.current.getScrollElement().scrollTop = ref.current.getScrollElement().scrollHeight;
-					}, 500);			  
-				}
-			}
-		}, [messages.length]);
-	}
 
 	const ChatInput = (
 		<>
@@ -698,7 +737,7 @@ function ChatComponent(props){
 					)
 					: null
 				}
-				<SimpleBar ref={ref} className="chat-messages flex-grow-1" style={{ height: '78vh' }}>
+				<SimpleBar ref={messageContainerRef} className="chat-messages flex-grow-1" style={{ height: '78vh' }}>
 				{
 					messages
 					&&
@@ -708,11 +747,20 @@ function ChatComponent(props){
 					})
 					.map((data, i) => {
 						return (
-							<div className="chat-message" key={'chat-message' + i}>{data.message}</div>
+							<div className="chat-message" key={'chat-message' + i} data-id={data.msgID} ref={r => setLastMessageRef(r, i)}>{data.message}</div>
 						);
 					})
 				}
 				</SimpleBar>
+				<div className="flex justify-center relative pointer" style={{height: '0'}}>
+				{
+					showFAB ?
+							<div className="absolute br2 bottom-0 flex justify-center items-center pv3 ph4 mb3 bg-black-50 white b" onClick={goToBottom}>
+								<div><Trans>Chat Paused Due To Scroll</Trans></div>
+							</div> 
+						: null
+				}
+				</div>
 			</div>
 			{ !isOverlay ? ChatInput : null}
 		</>
