@@ -162,7 +162,7 @@ function ChatComponent(props){
 	const handleUsers = (users) => {
 		log('info', 'Chat', 'We got users', users);
 		users.forEach(function(user){
-			log('info', 'Chat', 'user', user, user.name);
+			log('info', 'Chat', 'user', user);
 			if(user && user.name) userJoin(user);
 		}.bind(this));
 	}
@@ -290,6 +290,9 @@ function ChatComponent(props){
 					return false;
 			}
 		});
+		if(user && user.name && !users.get(user.name)){
+			users.set(user.name, user);
+		}
 		let showModTools = hasPrivilege &&
 			(me && me.name !== user.name) &&
 			(privileged && privileged.indexOf(user.id) === -1);
@@ -365,7 +368,6 @@ function ChatComponent(props){
 						}
 						{
 							showModTools &&
-							(users.get(user.name) && !users.get(user.name).banned) &&
 							<span className="mr2">
 								<a
 									href="#" 
