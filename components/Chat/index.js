@@ -290,8 +290,10 @@ function ChatComponent(props){
 					return false;
 			}
 		});
-		if(user && user.name && !users.get(user.name)){
-			users.set(user.name, user);
+		if(hasHydrated){
+			if(user && user.name && !users.get(user.name)){
+				users.set(user.name, user);
+			}
 		}
 		let showModTools = hasPrivilege &&
 			(me && me.name !== user.name) &&
