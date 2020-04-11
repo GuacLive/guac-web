@@ -6,8 +6,7 @@ export default class UsersCommand extends Command {
 		[...this.users].forEach((args) => {
 			let user = args[1];
     		if(user && !user.anon){
-                if(user.heartbeat <= (new Date).getTime() - (900 * 1000)){
-                }else{
+                if(user.heartbeat >= (new Date).getTime() - (900 * 1000)){
                     nicks.push(user.name);
                 }
             }
