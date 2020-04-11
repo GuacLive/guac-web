@@ -1,3 +1,5 @@
+import { HYDRATE } from 'next-redux-wrapper';
+
 const initialState = {
 	loading: true,
 	error: false,
@@ -11,19 +13,17 @@ export default function(state = initialState, action) {
 			return Object.assign({}, state, {
 				loading: true,
 			});
-		break;
 		case 'FETCH_FEATURED_FAILURE':
 			return Object.assign({}, state, {
 				loading: false,
 				error: action.error
 			});
-		break;
+		case HYDRATE:
+			return {...state, ...action.payload.featured};
 		case 'FETCH_FEATURED_SUCCESS':
 			return setFeatured(state, action.statusCode, action.data);
-		break;
 		case 'RESET_FEATURED':
 			return initialState;
-		break;
 	}
 	return state;
 };

@@ -1,4 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
+
+import {createWrapper} from 'next-redux-wrapper';
+
 import createSentryMiddleware from "redux-sentry-middleware";
 import thunk from 'redux-thunk';
 
@@ -6,12 +9,7 @@ import rootReducer from '../reducers';
 
 import logger from 'redux-logger';
 
-import {
-	createFlopFlipEnhancer,
-} from '@flopflip/react-redux';
-import adapter from '@flopflip/splitio-adapter';
-
-import * as Sentry from '@sentry/browser';
+import * as Sentry from '@sentry/node';
 
 Sentry.init({
 	dsn: process.env.SENTRY_DSN,
@@ -41,11 +39,10 @@ const middlewareEnhancer = applyMiddleware(...middlewares);
 storeEnhancers.unshift(middlewareEnhancer);
 
 /* eslint-disable */
-export default function configureStore(initialState) {
+export default function configureStore(context) {
 	const composeEnhancers = typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 	const store = createStore(
 		rootReducer,
-		initialState,
 		composeEnhancers(...storeEnhancers)
 	);
 
@@ -60,3 +57,4 @@ export default function configureStore(initialState) {
 
 	return store;
 }
+export const wrapper = createWrapper(configureStore , {debug: true});

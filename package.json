@@ -13,16 +13,6 @@
     "dev": "next",
     "deploy": "now"
   },
-  "lingui": {
-    "sourceLocale": "en",
-    "localeDir": "./locale",
-    "srcPathDirs": [
-      "./pages/",
-      "./components/",
-      "./utils"
-    ],
-    "format": "po"
-  },
   "engines": {
     "node": "12.x"
   },
@@ -40,11 +30,10 @@
     "@fortawesome/free-solid-svg-icons": "^5.12.0-1",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@guaclive/react-giphy-select": "^1.0.5",
-    "@lingui/cli": "^2.9.1",
-    "@lingui/loader": "^2",
-    "@lingui/macro": "^2.9.0",
-    "@lingui/react": "^2.9.0",
+    "@lingui/core": "^3.0.0-10",
+    "@lingui/react": "^3.0.0-10",
     "@sentry/browser": "^5.10.2",
+    "@sentry/node": "^5.15.4",
     "@silvermine/videojs-chromecast": "^1.2.0",
     "@silvermine/videojs-quality-selector": "^1.2.3",
     "@videojs/http-streaming": "^1.12.3",
@@ -52,7 +41,7 @@
     "@zeit/next-source-maps": "^0.0.3",
     "abort-controller": "^3.0.0",
     "babel-core": "7.0.0-bridge.0",
-    "babel-plugin-macros": "^2.8.0",
+    "babel-plugin-macros": "^2",
     "browserslist": "^4.7.0",
     "can-autoplay": "^3.0.0",
     "classnames": "^2.2.5",
@@ -67,9 +56,9 @@
     "js-cookie": "^3.0.0-beta.0",
     "linkifyjs": "^2.1.8",
     "lscache": "^1.2.0",
-    "next": "^9.2.2-canary.3",
+    "next": "9.3.5-canary.8",
     "next-offline": "^5.0.0",
-    "next-redux-wrapper": "^4.0.0",
+    "next-redux-wrapper": "6.0.0-rc.5",
     "next-server": "^9.0.6-canary.0",
     "now": "^16.6.2",
     "nuka-carousel": "4.6.6",
@@ -111,6 +100,9 @@
     "viewport-observer": "^2.3.0"
   },
   "devDependencies": {
+    "@lingui/cli": "^3.0.0-10",
+    "@lingui/loader": "^3.0.0-10",
+    "@lingui/macro": "^3.0.0-10",
     "babel-plugin-add-module-exports": "^1.0.0",
     "serviceworker-webpack-plugin": "^1.0.1"
   }

@@ -14,8 +14,12 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: pages/index.js:141
-msgid "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
-msgstr "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
+msgid "<0>Hi,<1/>Welcome to guac.live &mdash; live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
+msgstr "<0>Hi,<1/>Welcome to guac.live &mdash; live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
+
+#: pages/index.js:141
+#~ msgid "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
+#~ msgstr "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 
 #: pages/c/[name].js:286
 msgid "ABOUT"
@@ -37,9 +41,9 @@ msgstr "At last, make sure keyframe interval is set to <0>1</0>."
 msgid "Breaking the law"
 msgstr "Breaking the law"
 
-#: components/layout/PageLayout.js:262
-#: components/layout/PageLayout.js:262
 #: components/layout/PageLayout.js:263
+#: components/layout/PageLayout.js:263
+#: components/layout/PageLayout.js:264
 #: pages/categories.js:28
 msgid "Browse"
 msgstr "Browse"
@@ -56,14 +60,14 @@ msgstr "Channel"
 msgid "Channel not found"
 msgstr "Channel not found"
 
-#: components/layout/PageLayout.js:256
-#: components/layout/PageLayout.js:256
 #: components/layout/PageLayout.js:257
+#: components/layout/PageLayout.js:257
+#: components/layout/PageLayout.js:258
 #: pages/channels.js:50
 msgid "Channels"
 msgstr "Channels"
 
-#: components/Chat/index.js:759
+#: components/Chat/index.js:763
 msgid "Chat Paused Due To Scroll"
 msgstr "Chat Paused Due To Scroll"
 
@@ -99,7 +103,7 @@ msgstr "Counter-Notification"
 msgid "Create an account to follow this user"
 msgstr "Create an account to follow this user"
 
-#: components/layout/PageLayout.js:198
+#: components/layout/PageLayout.js:199
 msgid "DMCA"
 msgstr "DMCA"
 
@@ -136,7 +140,7 @@ msgstr "Edit"
 msgid "Edit user"
 msgstr "Edit user"
 
-#: components/LangSwitcher.js:8
+#: components/LangSwitcher.js:9
 msgid "English"
 msgstr "English"
 
@@ -159,7 +163,7 @@ msgstr "Follow"
 #~ msgid "Follow ({0})"
 #~ msgstr "Follow ({0})"
 
-#: components/layout/PageLayout.js:113
+#: components/layout/PageLayout.js:114
 msgid "Followed Channels"
 msgstr "Followed Channels"
 
@@ -203,7 +207,7 @@ msgstr "Harassment & Bullying"
 msgid "Hate Speech"
 msgstr "Hate Speech"
 
-#: components/layout/PageLayout.js:251
+#: components/layout/PageLayout.js:252
 msgid "Home"
 msgstr "Home"
 
@@ -212,8 +216,12 @@ msgid "Information"
 msgstr "Information"
 
 #: pages/dmca.js:13
-msgid "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be \"repeat infringers\". If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (\"DMCA\") by providing Guac.live's Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
-msgstr "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be \"repeat infringers\". If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (\"DMCA\") by providing Guac.live's Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
+#~ msgid "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be \"repeat infringers\". If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (\"DMCA\") by providing Guac.live's Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
+#~ msgstr "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be \"repeat infringers\". If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (\"DMCA\") by providing Guac.live's Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
+
+#: pages/dmca.js:13
+msgid "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be &quot;repeat infringers&quot;. If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (&quot;DMCA&quot;) by providing Guac.live&#039;s Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
+msgstr "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be &quot;repeat infringers&quot;. If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (&quot;DMCA&quot;) by providing Guac.live&#039;s Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
 
 #: pages/index.js:158
 msgid "Join"
@@ -223,15 +231,15 @@ msgstr "Join"
 msgid "Live streams"
 msgstr "Live streams"
 
-#: components/Chat/index.js:552
+#: components/Chat/index.js:556
 #: components/Search/SearchBar.js:83
 #: pages/c/[name].js:351
 msgid "Loading..."
 msgstr "Loading..."
 
-#: components/layout/PageLayout.js:279
-#: components/layout/PageLayout.js:279
 #: components/layout/PageLayout.js:280
+#: components/layout/PageLayout.js:280
+#: components/layout/PageLayout.js:281
 #: pages/auth/activate.js:39
 #: pages/auth/login.js:49
 #: pages/auth/register.js:80
@@ -258,11 +266,11 @@ msgstr "No replays available."
 msgid "No streaming key found, please contact an admin."
 msgstr "No streaming key found, please contact an admin."
 
-#: components/LangSwitcher.js:9
+#: components/LangSwitcher.js:10
 msgid "Norwegian"
 msgstr "Norwegian"
 
-#: components/Chat/index.js:698
+#: components/Chat/index.js:702
 msgid "Not connected to chat."
 msgstr "Not connected to chat."
 
@@ -300,7 +308,7 @@ msgstr "Pornographic and sexually explicit content is not permitted in any form,
 msgid "Pornographic/Sexually Explicit Content"
 msgstr "Pornographic/Sexually Explicit Content"
 
-#: components/layout/PageLayout.js:195
+#: components/layout/PageLayout.js:196
 msgid "Privacy"
 msgstr "Privacy"
 
@@ -320,7 +328,7 @@ msgstr "Profile"
 msgid "REPLAYS"
 msgstr "REPLAYS"
 
-#: components/Chat/index.js:699
+#: components/Chat/index.js:703
 msgid "Reconnect"
 msgstr "Reconnect"
 
@@ -358,19 +366,19 @@ msgstr "Show only live"
 msgid "Show user list"
 msgstr "Show user list"
 
-#: components/layout/PageLayout.js:286
-#: components/layout/PageLayout.js:286
 #: components/layout/PageLayout.js:287
+#: components/layout/PageLayout.js:287
+#: components/layout/PageLayout.js:288
 #: pages/auth/login.js:67
 #: pages/auth/register.js:59
 msgid "Sign up"
 msgstr "Sign up"
 
-#: components/layout/PageLayout.js:121
+#: components/layout/PageLayout.js:122
 msgid "Start following your favorite streamers to find them quickly!"
 msgstr "Start following your favorite streamers to find them quickly!"
 
-#: components/Chat/index.js:717
+#: components/Chat/index.js:721
 msgid "Stream Chat"
 msgstr "Stream Chat"
 
@@ -398,11 +406,11 @@ msgstr "Subscribe"
 #~ msgid "Swedish"
 #~ msgstr "Swedish"
 
-#: components/LangSwitcher.js:42
+#: components/LangSwitcher.js:43
 msgid "Switch language"
 msgstr "Switch language"
 
-#: components/layout/PageLayout.js:192
+#: components/layout/PageLayout.js:193
 msgid "Terms"
 msgstr "Terms"
 

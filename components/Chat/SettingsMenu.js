@@ -7,7 +7,6 @@ import { useClickAway } from 'react-use';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { withI18n } from '@lingui/react';
 import { Trans, t } from '@lingui/macro';
 
 function SettingsMenu(props){
@@ -53,4 +52,4 @@ function SettingsMenu(props){
 	);
 }
 
-export default withI18n()(SettingsMenu);
+export default SettingsMenu;

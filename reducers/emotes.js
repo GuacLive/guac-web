@@ -1,3 +1,4 @@
+import { HYDRATE } from 'next-redux-wrapper';
 const initialState = {
 	loading: true,
 	error: false,
@@ -10,19 +11,17 @@ export default function(state = initialState, action) {
 			return Object.assign({}, state, {
 				loading: true,
 			});
-		break;
 		case 'FETCH_EMOTES_FAILURE':
 			return Object.assign({}, state, {
 				loading: false,
 				error: action.error
 			});
-		break;
+		case HYDRATE:
+			return {...state, ...action.payload.emotes};
 		case 'FETCH_EMOTES_SUCCESS':
 			return setEmotes(state, action.data);
-		break;
 		case 'RESET_FEATURED':
 			return initialState;
-		break;
 	}
 	return state;
 };

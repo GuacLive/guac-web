@@ -1,3 +1,4 @@
+import { HYDRATE } from 'next-redux-wrapper';
 const initialState = {
 	loading: true,
 	error: false,
@@ -20,6 +21,8 @@ export default function(state = initialState, action) {
 				error: action.error
 			});
 		break;
+		case HYDRATE:
+			return {...state, ...action.payload.streaming};
 		case 'SET_CATEGORY_SUCCESS':
 			return {
 				...state,

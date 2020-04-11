@@ -8,7 +8,9 @@ import dynamic from 'next/dynamic'
 
 import { Trans, t } from '@lingui/macro';
 
-import { useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux';
+
+import { wrapper } from '../../store/configureStore';
 
 import prettyMilliseconds from 'pretty-ms';
 import {
@@ -38,7 +40,7 @@ import log from '../../utils/log';
 import Image from '../../components/Image';
 
 import { ToggleFeature } from '@flopflip/react-redux';
-import { withI18n } from '@lingui/react';
+import { useLingui } from '@lingui/react';
 
 import { kFormatter } from '../../utils';
 
@@ -52,7 +54,7 @@ function ChannelPage(props){
 	const [showModal, setShowModal] = useState(false);
 	const [showSub, setShowSub] = useState(false);
 	const dispatch = useDispatch();
-	const { i18n } = props;
+	const { i18n } = useLingui();
 
 	useEffect(() => {
 		const { channel } = props;
@@ -428,13 +430,16 @@ function ChannelPage(props){
 		</Fragment>
 	)
 }
-ChannelPage.getInitialProps = async function getInitialProps({store, isServer, pathname, query, req}){
-	const { channel, site } = store.getState()
-	log('info', 'Channel', query.name);
-	//if(channel.loading){
-		await store.dispatch(actions.fetchChannel(query.name));
-	//}
-	return {...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})};
-};
+ChannelPage.getInitialProps = wrapper.getInitialPageProps(
+		async ({store, isServer, pathname, query, req}) => {
+			const { channel, site } = store.getState()
+			console.log('yes', store);
+			log('info', 'Channel', query.name);
+			//if(channel.loading){
+				await store.dispatch(actions.fetchChannel(query.name));
+			//}
+			return {...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})};
+	}
+);
 
-export default withI18n()(connect(state => state)(ChannelPage))
+export default connect(state => state)(ChannelPage)
