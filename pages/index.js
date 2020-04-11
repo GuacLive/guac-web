@@ -30,6 +30,7 @@ class IndexPage extends Component {
 		// we can dispatch from here too
 		//store.dispatch({type: 'SET_FEATURED'});
 		const { featured } = store.getState()
+		console.log('featured1', featured);
 		if(featured.loading){
 			await store.dispatch(actions.fetchFeatured());
 		}

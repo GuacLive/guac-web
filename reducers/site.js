@@ -1,3 +1,4 @@
+import { HYDRATE } from 'next-redux-wrapper';
 const initialState = {
 	loading: true,
 	error: false,
@@ -12,13 +13,13 @@ export default function(state = initialState, action) {
 			return Object.assign({}, state, {
 				loading: true,
 			});
-		break;
 		case 'FETCH_MY_FOLLOWED_FAILURE':
 			return Object.assign({}, state, {
 				loading: false,
 				error: action.error
 			});
-		break;
+		case HYDRATE:
+			return {...state, ...action.payload.site};
 		case 'FETCH_MY_FOLLOWED_SUCCESS':
 			return {
 				...state,
@@ -27,20 +28,16 @@ export default function(state = initialState, action) {
 				loading: false,
 				error: false
 			};
-		break;
 		case 'SET_DARK_MODE':
 			return Object.assign({}, state, {
 				mode: 'dark',
 			});
-		break;
 		case 'SET_LIGHT_MODE':
 			return Object.assign({}, state, {
 				mode: 'light',
 			});
-		break;
 		case 'RESET_SITE':
 			return initialState;
-		break;
 	}
 	return state;
 };

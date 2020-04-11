@@ -1,5 +1,5 @@
 import Document, { Head, Main, NextScript } from 'next/document';
-import * as Sentry from '@sentry/browser';
+import * as Sentry from '@sentry/node';
 
 process.on('unhandledRejection', (err) => {
     Sentry.captureException(err);

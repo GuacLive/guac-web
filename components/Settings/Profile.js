@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { withI18n } from '@lingui/react';
+import { useLingui } from '@lingui/react';
 import { Trans, t } from '@lingui/macro';
 import * as actions from '../../actions';
 function ProfileComponent(props){
-	const {i18n} = props;
+	const { i18n } = useLingui();
 	const dispatch = useDispatch();
 	const auth = useSelector(state => state.authentication);
 	const password = useRef();
@@ -32,4 +32,4 @@ function ProfileComponent(props){
 		</>
 	);
 }
-export default withI18n()(ProfileComponent);
+export default ProfileComponent;
