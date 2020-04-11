@@ -14,7 +14,7 @@ export default class UrlEmbedder {
 		// Giphy
 		let config = [{
             regex: self.GIPHY_REGEX,
-            fn: (key, result) => <img key={key} src={result[0]} alt="GIF from Giphy" title="GIF from Giphy" className="flex mw4" />
+            fn: (key, result) => <img key={key} src={result[0]} alt="GIF from Giphy" title="GIF from Giphy" className="flex mw5" />
 		}];
 		// This will decode <3 and various other variants (that are server-side escaped)
 		// This should NOT cause code execution, since React will escape it anyways
