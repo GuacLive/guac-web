@@ -1,3 +1,4 @@
+import { HYDRATE } from 'next-redux-wrapper';
 const initialState = {
 	loading: true,
 	error: false,
@@ -15,14 +16,14 @@ export default function(state = initialState, action) {
 			return Object.assign({}, state, {
 				loading: true,
 			});
-		break;
 		case 'AUTHENTICATE_FAILURE':
 		case 'CHANGE_PASSWORD_FAILURE':
 			return Object.assign({}, state, {
 				loading: false,
 				error: action.error
 			});
-		break;
+		case HYDRATE:
+			return {...state, ...action.payload.authentication};
 		case 'AUTHENTICATE_SUCCESS':
 		case 'REGISTER_SUCCESS':
 			return {
@@ -34,7 +35,6 @@ export default function(state = initialState, action) {
 				error: false,
 				regError: false
 			};
-		break;
 		case 'CHANGE_PASSWORD_SUCCESS':
 			return {
 				...state,
@@ -42,17 +42,14 @@ export default function(state = initialState, action) {
 				loading: false,
 				error: false
 			};
-		break;
 		case 'REGISTER_FAILURE':
 			return Object.assign({}, state, {
 				loading: false,
 				error: false,
 				regError: action.error
 			});
-		break;
 		case 'DEAUTHENTICATE':
 			return initialState;
-		break;
 	}
 	return state;
 };

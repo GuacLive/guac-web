@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux';
 
-import { withI18n } from '@lingui/react';
-
 import { Trans, t } from '@lingui/macro';
 
 import withAuth from '../utils/withAuth';
@@ -14,7 +12,6 @@ const ProfileComponent = dynamic(() => import('../components/Settings/Profile'))
 
 function SettingsPage(props){
 	const auth = props.authentication;
-	const {i18n} = props;
 	const [tab, setTab] = useState(0);
 	if(auth.loading) return null;
 	return (
@@ -44,4 +41,4 @@ function SettingsPage(props){
 	);
 }
 
-export default withI18n()(connect(state => state)(withAuth(SettingsPage)))
+export default connect(state => state)(withAuth(SettingsPage))

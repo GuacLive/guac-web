@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { useDebounce, useMount } from 'react-use';
 
-import { withI18n } from '@lingui/react';
+import { useLingui } from "@lingui/react"
 import { Trans, t } from '@lingui/macro';
 
 import fetch from 'cross-fetch';
@@ -11,7 +11,7 @@ import Link from 'next/link';
 
 const API_URL = process.env.API_URL;
 function SearchBar(props){
-	const { i18n } = props;
+	const { i18n } = useLingui();
 
 	const inputEl = React.useRef(null);
 	const [val, setVal] = React.useState('');
@@ -111,4 +111,4 @@ function SearchBar(props){
 	);
 }
 
-export default withI18n()(SearchBar);
+export default SearchBar;

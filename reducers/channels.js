@@ -1,3 +1,4 @@
+import { HYDRATE } from 'next-redux-wrapper';
 const initialState = {
 	loading: true,
 	error: false,
@@ -11,19 +12,17 @@ export default function(state = initialState, action) {
 			return Object.assign({}, state, {
 				loading: true,
 			});
-		break;
 		case 'FETCH_CHANNELS_FAILURE':
 			return Object.assign({}, state, {
 				loading: false,
 				error: action.error
 			});
-		break;
+		case HYDRATE:
+			return {...state, ...action.payload.channels};
 		case 'FETCH_CHANNELS_SUCCESS':
 			return setChannels(state, action.statusCode, action.data);
-		break;
 		case 'RESET_CHANNELS':
 			return initialState;
-		break;
 	}
 	return state;
 };

@@ -1,3 +1,4 @@
+import { HYDRATE } from 'next-redux-wrapper';
 const initialState = {
 	loading: true,
 	error: false,
@@ -13,29 +14,25 @@ export default function(state = initialState, action) {
 			return Object.assign({}, state, {
 				loading: true,
 			});
-		break;
 		case 'FETCH_CHANNEL_FAILURE':
 			return Object.assign({}, state, {
 				loading: false,
 				error: action.error
 			});
-		break;
+		case HYDRATE:
+			return {...state, ...action.payload.channel};
 		case 'FETCH_CHANNEL_SUCCESS':
 			return setChannel(state, action.statusCode, action.data, action.viewers);
-		break;
 		case 'FOLLOW_SUCCESS':
 			return {
 				...state,
 				// omegalul
 				isFollowing: (action.statusCode == 200 && action.statusMessage == 'Person followed')
 			};
-		break;
 		case 'SET_CHANNEL_VIEWERS':
 			return setChannelViewers(state, action.viewers);
-		break;
 		case 'RESET_CHANNEL':
 			return initialState;
-		break;
 	}
 	return state;
 };

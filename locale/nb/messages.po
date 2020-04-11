@@ -14,12 +14,8 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: pages/index.js:141
-msgid "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
-msgstr "<0>Hei,<1/>Velkommen til guac.live — direktestrømming-platformen. Vi er for tiden i beta.</0><2>Mens vi er i beta, så vil strømmeprivilegier bli gitt på invitasjonsbasis.<3/>Men, lag gjerne en konto og delta i chatten og det generelle fellesskapet!</2>"
-
-#: pages/index.js:71
-#~ msgid "<0>{0}</0> is live"
-#~ msgstr "<0>{0}</0> sender direkte"
+msgid "<0>Hi,<1/>Welcome to guac.live &mdash; live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
+msgstr "<0>Hi,<1/>Velkommen til guac.live — direktestrømming-platformen. Vi er for tiden i beta.</0><2>Mens vi er i beta, så vil strømmeprivilegier bli gitt på invitasjonsbasis.<3/>Men, lag gjerne en konto og delta i chatten og det generelle fellesskapet!</2>"
 
 #: pages/c/[name].js:286
 msgid "ABOUT"
@@ -41,9 +37,9 @@ msgstr "Til slutt, sørg for at keyframe interval er satt til <0>1</0>."
 msgid "Breaking the law"
 msgstr "Å bryte loven"
 
-#: components/layout/PageLayout.js:262
-#: components/layout/PageLayout.js:262
 #: components/layout/PageLayout.js:263
+#: components/layout/PageLayout.js:263
+#: components/layout/PageLayout.js:264
 #: pages/categories.js:28
 msgid "Browse"
 msgstr "Utforsk"
@@ -60,14 +56,14 @@ msgstr "Kanal"
 msgid "Channel not found"
 msgstr "Kanal ikke funnet"
 
-#: components/layout/PageLayout.js:256
-#: components/layout/PageLayout.js:256
 #: components/layout/PageLayout.js:257
+#: components/layout/PageLayout.js:257
+#: components/layout/PageLayout.js:258
 #: pages/channels.js:50
 msgid "Channels"
 msgstr "Kanaler"
 
-#: components/Chat/index.js:759
+#: components/Chat/index.js:763
 msgid "Chat Paused Due To Scroll"
 msgstr "Chat pauset pga. scrolling"
 
@@ -103,7 +99,7 @@ msgstr "Innsigelse"
 msgid "Create an account to follow this user"
 msgstr "Opprett en konto for å følge denne brukeren"
 
-#: components/layout/PageLayout.js:198
+#: components/layout/PageLayout.js:199
 msgid "DMCA"
 msgstr "DMCA"
 
@@ -140,7 +136,7 @@ msgstr "Endre"
 msgid "Edit user"
 msgstr "Endre bruker"
 
-#: components/LangSwitcher.js:8
+#: components/LangSwitcher.js:9
 msgid "English"
 msgstr "Engelsk"
 
@@ -159,7 +155,7 @@ msgstr "Først, velg strømmeserveren som er nærmest deg:"
 msgid "Follow"
 msgstr "Følg"
 
-#: components/layout/PageLayout.js:113
+#: components/layout/PageLayout.js:114
 msgid "Followed Channels"
 msgstr "Fulgte kanaler"
 
@@ -195,7 +191,7 @@ msgstr "Trakassering og mobbing"
 msgid "Hate Speech"
 msgstr "Hatprat"
 
-#: components/layout/PageLayout.js:251
+#: components/layout/PageLayout.js:252
 msgid "Home"
 msgstr "Hjem"
 
@@ -204,8 +200,8 @@ msgid "Information"
 msgstr "Informasjon"
 
 #: pages/dmca.js:13
-msgid "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be \"repeat infringers\". If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (\"DMCA\") by providing Guac.live's Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
-msgstr "Det er vår policy å svare på klare merknader om påstått brudd på opphavsretten som er i samsvar med Digital Millennium Copyright Act. I tillegg vil vi straks avslutte uten varsel kontoene til de som bestemmes av oss å være \"gjentatte krenkere\". Hvis du er opphavsrettseier eller en agent derav, og du tror at alt innhold som er vert på nettstedet vårt (www.guac.live) krenker opphavsretten din, kan du sende inn et varsel i henhold til Digital Millennium Copyright Act (\"DMCA\") ved å gi Guac.lives utpekte copyrightagent følgende informasjon skriftlig (vennligst kontakt din advokat eller se 17 USC Seksjon 512 (c) (3) for å bekrefte disse kravene):"
+msgid "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be &quot;repeat infringers&quot;. If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (&quot;DMCA&quot;) by providing Guac.live&#039;s Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
+msgstr "Det er vår policy å svare på klare merknader om påstått brudd på opphavsretten som er i samsvar med Digital Millennium Copyright Act. I tillegg vil vi straks avslutte uten varsel kontoene til de som bestemmes av oss å være &quot;gjentatte krenkere&quot;. Hvis du er opphavsrettseier eller en agent derav, og du tror at at innhold som ligger på nettstedet vårt (www.guac.live) krenker opphavsretten din, kan du sende inn et varsel i henhold til Digital Millennium Copyright Act (&quot;DMCA&quot;) by providing Guac.live&#039;s ved å gi Guac.lives utpekte copyrightagent følgende informasjon skriftlig (vennligst kontakt din advokat eller se 17 USC Seksjon 512 (c) (3) for å bekrefte disse kravene):"
 
 #: pages/index.js:158
 msgid "Join"
@@ -215,15 +211,15 @@ msgstr "Bli med"
 msgid "Live streams"
 msgstr "Direktesendinger"
 
-#: components/Chat/index.js:552
+#: components/Chat/index.js:556
 #: components/Search/SearchBar.js:83
 #: pages/c/[name].js:351
 msgid "Loading..."
 msgstr "Laster..."
 
-#: components/layout/PageLayout.js:279
-#: components/layout/PageLayout.js:279
 #: components/layout/PageLayout.js:280
+#: components/layout/PageLayout.js:280
+#: components/layout/PageLayout.js:281
 #: pages/auth/activate.js:39
 #: pages/auth/login.js:49
 #: pages/auth/register.js:80
@@ -250,11 +246,11 @@ msgstr "Ingen arkiverte videoer tilgjengelig."
 msgid "No streaming key found, please contact an admin."
 msgstr "Ingen strømmenøkkel funnet, vennligst kontakt en administrator."
 
-#: components/LangSwitcher.js:9
+#: components/LangSwitcher.js:10
 msgid "Norwegian"
 msgstr "Norsk"
 
-#: components/Chat/index.js:698
+#: components/Chat/index.js:702
 msgid "Not connected to chat."
 msgstr "Ikke tilkoblet chat."
 
@@ -292,7 +288,7 @@ msgstr "Pornografisk og seksuelt eksplisitt innhold er ikke tillatt i noen form,
 msgid "Pornographic/Sexually Explicit Content"
 msgstr "Pornografisk/seksuelt eksplisitt innhold"
 
-#: components/layout/PageLayout.js:195
+#: components/layout/PageLayout.js:196
 msgid "Privacy"
 msgstr "Personvern"
 
@@ -312,7 +308,7 @@ msgstr "Profil"
 msgid "REPLAYS"
 msgstr "ARKIV"
 
-#: components/Chat/index.js:699
+#: components/Chat/index.js:703
 msgid "Reconnect"
 msgstr "Koble til"
 
@@ -350,19 +346,19 @@ msgstr "Vis bare direkte"
 msgid "Show user list"
 msgstr "Vis liste over brukere"
 
-#: components/layout/PageLayout.js:286
-#: components/layout/PageLayout.js:286
 #: components/layout/PageLayout.js:287
+#: components/layout/PageLayout.js:287
+#: components/layout/PageLayout.js:288
 #: pages/auth/login.js:67
 #: pages/auth/register.js:59
 msgid "Sign up"
 msgstr "Registrer"
 
-#: components/layout/PageLayout.js:121
+#: components/layout/PageLayout.js:122
 msgid "Start following your favorite streamers to find them quickly!"
 msgstr "Begynn å følge dine favoritt-strømmere for å finne dem raskt!"
 
-#: components/Chat/index.js:717
+#: components/Chat/index.js:721
 msgid "Stream Chat"
 msgstr "Strømmechat"
 
@@ -386,11 +382,11 @@ msgstr "Strømmetillatelse"
 msgid "Subscribe"
 msgstr "Abonnér"
 
-#: components/LangSwitcher.js:42
+#: components/LangSwitcher.js:43
 msgid "Switch language"
 msgstr "Bytt språk"
 
-#: components/layout/PageLayout.js:192
+#: components/layout/PageLayout.js:193
 msgid "Terms"
 msgstr "Vilkår"
 
@@ -503,9 +499,6 @@ msgstr "melding"
 msgid "no streams are online"
 msgstr "ingen aktive direktesendinger"
 
-#: pages/c/[name].js:224
-#~ msgid "playing"
-#~ msgstr "spiller"
 
 #: pages/dashboard.js:130
 msgid "seconds"

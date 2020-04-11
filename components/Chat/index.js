@@ -12,7 +12,6 @@ import AutoTextarea from 'react-autosize-textarea';
 
 import format from 'date-fns/format';
 
-import { withI18n } from '@lingui/react';
 import { Trans, t } from '@lingui/macro';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -41,7 +40,6 @@ var users = new Map();
 var me = null;
 var privileged = [];
 var hasPrivilege = false;
-var hasHydrated = false;
 function ChatComponent(props){
 	const dispatch = useDispatch();
 	const [connectedStatus, setConnectedStatus] = useState(false);
@@ -50,6 +48,7 @@ function ChatComponent(props){
 	const [messages, setMessages] = useState([]);
 	const [customPickerEmotes, setCustomPickerEmotes] = useState(false);
 	const [emotesStatus, setEmotesStatus] = useState(false);
+	const [hydrated, setHydrated] = useState(false);
 
 	const [showFAB, setShowFAB] = useState(false);
   
@@ -290,7 +289,7 @@ function ChatComponent(props){
 					return false;
 			}
 		});
-		if(hasHydrated){
+		if(hydrated){
 			if(user && user.name && !users.get(user.name)){
 				users.set(user.name, user);
 			}
@@ -456,7 +455,7 @@ function ChatComponent(props){
 
 	useEffect(() => {
 		if(!emotesStatus) return;
-		if(hasHydrated) return;
+		if(hydrated) return;
 		if(useChatHydration){
 			callApi(`/messages/${channel && channel.data && channel.data.user.name}`)
 			.then(res => res.json())
@@ -471,8 +470,8 @@ function ChatComponent(props){
 						handleMessage(msg.user, msg.id, msg.msgs);
 					});
 				}
-				hasHydrated = true;
-			}).catch(()=>{hasHydrated = true;});
+				setHydrated(true);
+			}).catch(()=>{setHydrated(true);});
 		}
 	}, [emotesStatus]);
 
@@ -770,4 +769,4 @@ function ChatComponent(props){
 		</>
 	);
 }
-export default withI18n()(ChatComponent);
+export default ChatComponent;
