@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { withI18n } from '@lingui/react';
+import { useLingui } from '@lingui/react';
 import { Trans, t } from '@lingui/macro';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,6 +15,7 @@ import * as actions from '../../actions';
 
 function AdminIndexPage(props){
 	const dispatch = useDispatch();
+	const { i18n } = useLingui();
 	const auth = useSelector(state => state.authentication);
 	const username = useRef();
 	if(auth.loading) return null;
@@ -73,4 +74,4 @@ function AdminIndexPage(props){
 	);
 }
 
-export default withI18n()(withAuth(AdminIndexPage))
+export default withAuth(AdminIndexPage)
