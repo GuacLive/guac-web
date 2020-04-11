@@ -30,7 +30,10 @@ import { activate } from '../utils/i18n';
 
 import { initializeFirebase, initializePush } from '../utils/push-notification';
 
+import ErrorBoundary from '../utils/ErrorBoundary';
+
 import { library } from '@fortawesome/fontawesome-svg-core';
+
 
 import { faBan, faBars, faCheck, faCheckCircle, faClock, faHourglass, faHome, faVideo, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog, faMinusCircle, faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 
@@ -93,20 +96,22 @@ const MyApp = (props) => {
 
 	// Skip render when locale isn't 
 	return (
-		<I18nProvider i18n={i18n}>
-			<I18nWatchLocale>
-				<ConfigureFlopFlip adapter={adapter} adapterArgs={{
-					authorizationKey: process.env.SPLIT_IO_KEY,
-					user: {
-						key: state.authentication.user && state.authentication.user.name
-					}
-				}}>
-					<PageLayout skip={shouldSkip} nonce={props.nonce} key={i18n.locale}>
-						<Component {...pageProps} {...{'log': log}} />
-					</PageLayout>
-				</ConfigureFlopFlip>
-			</I18nWatchLocale>
-		</I18nProvider>
+		<ErrorBoundary>
+			<I18nProvider i18n={i18n}>
+				<I18nWatchLocale>
+					<ConfigureFlopFlip adapter={adapter} adapterArgs={{
+						authorizationKey: process.env.SPLIT_IO_KEY,
+						user: {
+							key: state.authentication.user && state.authentication.user.name
+						}
+					}}>
+						<PageLayout skip={shouldSkip} nonce={props.nonce} key={i18n.locale}>
+							<Component {...pageProps} {...{'log': log}} />
+						</PageLayout>
+					</ConfigureFlopFlip>
+				</I18nWatchLocale>
+			</I18nProvider>
+		</ErrorBoundary>
 	);
 };
 MyApp.getInitialProps = wrapper.getInitialAppProps(async appContext => {
