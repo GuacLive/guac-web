@@ -128,6 +128,9 @@ MyApp.getInitialProps = wrapper.getInitialAppProps(async appContext => {
 		locale = 'en';
 	}
 
+	// Load initial catalog based on locale
+	activate(locale);
+
 	// Handle authenticaiton
 	initialize(ctx);
 
