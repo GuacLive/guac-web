@@ -65,7 +65,6 @@ const MyApp = (props) => {
 			// Initialize firebase messaging for current user
 			initializeFirebase(() => {
 				console.log('hi');
-				console.log('inside firebase state ', state);
 				if(authentication && authentication.token){
 					initializePush(authentication.token);
 				}
