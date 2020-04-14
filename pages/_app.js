@@ -97,20 +97,20 @@ const MyApp = (props) => {
 	// Skip render when locale isn't 
 	return (
 		<ErrorBoundary>
-			<I18nProvider i18n={i18n}>
-				<I18nWatchLocale>
-					<ConfigureFlopFlip adapter={adapter} adapterArgs={{
-						authorizationKey: process.env.SPLIT_IO_KEY,
-						user: {
-							key: state.authentication.user && state.authentication.user.name
-						}
-					}}>
+			<ConfigureFlopFlip adapter={adapter} adapterArgs={{
+				authorizationKey: process.env.SPLIT_IO_KEY,
+				user: {
+					key: state.authentication.user && state.authentication.user.name
+				}
+			}}>
+				<I18nProvider i18n={i18n}>
+					<I18nWatchLocale>
 						<PageLayout skip={shouldSkip} nonce={props.nonce} key={i18n.locale}>
 							<Component {...pageProps} {...{'log': log}} />
 						</PageLayout>
-					</ConfigureFlopFlip>
-				</I18nWatchLocale>
-			</I18nProvider>
+					</I18nWatchLocale>
+				</I18nProvider>
+			</ConfigureFlopFlip>
 		</ErrorBoundary>
 	);
 };
