@@ -20,6 +20,9 @@
         "VIEWER_API_URL": "@guac-viewer-api-url",
         "GIPHY_API_KEY": "@guac-giphy-api-key",
         "SENTRY_DSN": "@guac-sentry-dsn",
+        "SENTRY_ORG": "@guac-sentry-org",
+        "SENTRY_PROJECT": "@guac-sentry-project",
+        "SENTRY_AUTH_TOKEN": "@guac-sentry-auth-token",
         "SPLIT_IO_KEY": "@guac-split-io-key"
       }
     },
