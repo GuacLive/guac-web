@@ -104,11 +104,9 @@ const MyApp = (props) => {
 				}
 			}}>
 				<I18nProvider i18n={i18n}>
-					<I18nWatchLocale>
-						<PageLayout skip={shouldSkip} nonce={props.nonce} key={i18n.locale}>
+						<PageLayout skip={shouldSkip} nonce={props.nonce}>
 							<Component {...pageProps} {...{'log': log}} />
 						</PageLayout>
-					</I18nWatchLocale>
 				</I18nProvider>
 			</ConfigureFlopFlip>
 		</ErrorBoundary>
