@@ -46,7 +46,7 @@ module.exports = withOffline(nextSourceMaps({
 		if(SENTRY_DSN && SENTRY_ORG && SENTRY_PROJECT && SENTRY_AUTH_TOKEN && process.env.NODE_ENV !== 'development'){
 			config.plugins.push(
 				new SentryWebpackPlugin({
-					release: async () => pkg.version,
+					release: pkg.version,
 					include: '.next',
 					ignore: ['node_modules'],
 					urlPrefix: '~/_next',
