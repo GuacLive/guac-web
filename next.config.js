@@ -1,4 +1,5 @@
-const nextSourceMaps = require('@zeit/next-source-maps')
+const nextSourceMaps = require('@zeit/next-source-maps');
+const SentryWebpackPlugin = require('@sentry/webpack-plugin');
 const webpack = require('webpack');
 const withOffline = require('next-offline');
 const pkg = require('./package.json');
@@ -53,6 +54,13 @@ module.exports = withOffline(nextSourceMaps({
 		config.plugins.push(
 			new webpack.DefinePlugin({
 				'process.env.SENTRY_RELEASE': JSON.stringify(buildId),
+			})
+		);
+		config.plugins.push(
+			new SentryWebpackPlugin({
+				include: '.next',
+				ignore: ['node_modules'],
+				urlPrefix: '~/_next',
 			})
 		);
 

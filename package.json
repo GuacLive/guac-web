@@ -34,6 +34,7 @@
     "@lingui/react": "^3.0.0-10",
     "@sentry/browser": "^5.10.2",
     "@sentry/node": "^5.15.4",
+    "@sentry/webpack-plugin": "^1.10.0",
     "@silvermine/videojs-chromecast": "^1.2.0",
     "@silvermine/videojs-quality-selector": "^1.2.3",
     "@videojs/http-streaming": "^1.12.3",
