@@ -5,6 +5,7 @@ const withOffline = require('next-offline');
 const pkg = require('./package.json');
 module.exports = withOffline(nextSourceMaps({
 	webpack(config, {isServer, buildId}) {
+		
 
 		/*if (config.optimization.splitChunks.cacheGroups && config.optimization.splitChunks.cacheGroups.lib) {
 			config.optimization.splitChunks.cacheGroups.lib.test = module => {
@@ -58,6 +59,9 @@ module.exports = withOffline(nextSourceMaps({
 		);
 		config.plugins.push(
 			new SentryWebpackPlugin({
+				release: () => {
+					return pkg.version;
+				},
 				include: '.next',
 				ignore: ['node_modules'],
 				urlPrefix: '~/_next',
