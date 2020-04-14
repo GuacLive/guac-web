@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Head from 'next/head'
 
-import { Fragment, useState, useEffect } from 'react';
+import { Fragment, useState, useEffect, useLayoutEffect } from 'react';
 
 import {connect} from 'react-redux';
 
@@ -63,21 +63,23 @@ function PageLayout(props){
 		setShowSidebar(ssb);
 	};
 
-	useEffect(() => {
-		// This a hack to fix vh
-		updateViewport();
-		window.addEventListener('resize', updateViewport);
- 
-		// This is the logic that handles sidebar
-		if(mediaQueryList){
-			mediaQueryList.addListener(updateDimensions);
-		}
-		updateDimensions(mediaQueryList);
-		return () => {
-			window.removeEventListener('resize', updateViewport);
-			mediaQueryList.removeListener(updateDimensions);
-		};
-	}, []);
+	if(process.browser){
+		useLayoutEffect(() => {
+			// This a hack to fix vh
+			updateViewport();
+			window.addEventListener('resize', updateViewport);
+	
+			// This is the logic that handles sidebar
+			if(mediaQueryList){
+				mediaQueryList.addListener(updateDimensions);
+			}
+			updateDimensions(mediaQueryList);
+			return () => {
+				window.removeEventListener('resize', updateViewport);
+				mediaQueryList.removeListener(updateDimensions);
+			};
+		}, []);
+	}
 
 	useEffect(() => {
 		if(props.mode){

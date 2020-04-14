@@ -56,7 +56,7 @@ function I18nWatchLocale({children}) {
 }
 const MyApp = (props) => {
 	const dispatch = useDispatch();
-	const state = useSelector(state => state);
+	const authentication = useSelector(state => state.authentication);
 	useEffect(() => {
 		// Load initial catalog based on locale
 		activate(props.locale);
@@ -65,9 +65,8 @@ const MyApp = (props) => {
 			// Initialize firebase messaging for current user
 			initializeFirebase(() => {
 				console.log('hi');
-				console.log('inside firebase state ', state);
-				if(state.authentication && state.authentication.token){
-					initializePush(state.authentication.token);
+				if(authentication && authentication.token){
+					initializePush(authentication.token);
 				}
 			});
 			if(window.matchMedia){
@@ -89,7 +88,7 @@ const MyApp = (props) => {
 		}
 	}, []);
 
-	const { Component, pageProps, store } = props;
+	const { Component, pageProps } = props;
 
 	const skipLayoutDestinations = ['/embed/[name]', '/chat/[name]', '/overlay/[name]'];
 	const shouldSkip = props.pathname && skipLayoutDestinations.indexOf(props.pathname) > -1;
@@ -100,13 +99,15 @@ const MyApp = (props) => {
 			<ConfigureFlopFlip adapter={adapter} adapterArgs={{
 				authorizationKey: process.env.SPLIT_IO_KEY,
 				user: {
-					key: state.authentication.user && state.authentication.user.name
+					key: authentication.user && authentication.user.name
 				}
 			}}>
 				<I18nProvider i18n={i18n}>
+					<I18nWatchLocale>
 						<PageLayout skip={shouldSkip} nonce={props.nonce}>
 							<Component {...pageProps} {...{'log': log}} />
 						</PageLayout>
+					</I18nWatchLocale>
 				</I18nProvider>
 			</ConfigureFlopFlip>
 		</ErrorBoundary>
