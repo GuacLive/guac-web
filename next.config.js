@@ -1,18 +1,20 @@
-const nextSourceMaps = require('@zeit/next-source-maps')
+const nextSourceMaps = require("@zeit/next-source-maps")();
+
+// Use the SentryWebpack plugin to upload the source maps during build step
+const SentryWebpackPlugin = require('@sentry/webpack-plugin')
+const { SENTRY_DSN, SENTRY_ORG, SENTRY_PROJECT, SENTRY_AUTH_TOKEN } = process.env
+
 const webpack = require('webpack');
 const withOffline = require('next-offline');
 const pkg = require('./package.json');
 module.exports = withOffline(nextSourceMaps({
 	webpack(config, {isServer, buildId}) {
-
-		/*if (config.optimization.splitChunks.cacheGroups && config.optimization.splitChunks.cacheGroups.lib) {
-			config.optimization.splitChunks.cacheGroups.lib.test = module => {
-			  const identifier = module.identifier();
-			  return (
-				module.size() > 160000 && /node_modules[/\\]/.test(identifier) && !/^.+css-loader\//.test(identifier)
-			  );
-			};
-		}*/
+		if (!isServer) {
+			config.resolve.alias['@sentry/node'] = '@sentry/browser';
+			config.node = {
+				fs: 'empty'
+			}
+		}
 
 		config.module.rules.push({
 			test: /\.(png|svg|eot|otf|ttf|woff|woff2)$/,
@@ -26,20 +28,6 @@ module.exports = withOffline(nextSourceMaps({
 				}
 			}
 		});
-
-		/*config.module.rules.push({
-			test: /\.js(\?[^?]*)?$/,
-			loader: 'babel-loader',
-			include: [
-				path.resolve(__dirname, './node_modules/next/dist/pages')
-			],
-			query: {
-				cacheDirectory: true,
-				sourceMaps: 'both',
-				presets: ['@babel/preset-env'],
-				plugins: ['@babel/plugin-proposal-object-rest-spread']
-			}
-		});*/
 
 		config.module.rules.push({
 			test: /\.po/,
@@ -55,14 +43,16 @@ module.exports = withOffline(nextSourceMaps({
 				'process.env.SENTRY_RELEASE': JSON.stringify(buildId),
 			})
 		);
-
-		if (!isServer) {
-			config.resolve.alias['@sentry/node'] = '@sentry/browser';
-			config.node = {
-				fs: 'empty'
-			}
+		if(SENTRY_DSN && SENTRY_ORG && SENTRY_PROJECT && SENTRY_AUTH_TOKEN && process.env.NODE_ENV !== 'development'){
+			config.plugins.push(
+				new SentryWebpackPlugin({
+					release: async () => pkg.version,
+					include: '.next',
+					ignore: ['node_modules'],
+					urlPrefix: '~/_next',
+				})
+			);
 		}
-
 		return config;
 	},
 	target: 'serverless',
@@ -74,6 +64,9 @@ module.exports = withOffline(nextSourceMaps({
 		VIEWER_API_URL: process.env.VIEWER_API_URL || 'http://viewer-api.local.guac.live',
 		GIPHY_API_KEY: process.env.GIPHY_API_KEY,
 		SENTRY_DSN: process.env.SENTRY_DSN,
+		SENTRY_ORG: process.env.SENTRY_ORG,
+		SENTRY_PROJECT: process.env.SENTRY_PROJECT,
+		SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
 		SPLIT_IO_KEY: process.env.SPLIT_IO_KEY,
 		OIL_CONFIG: {
 			"theme": "dark",

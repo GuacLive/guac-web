@@ -13,7 +13,16 @@ import * as Sentry from '@sentry/node';
 
 Sentry.init({
 	dsn: process.env.SENTRY_DSN,
-	debug: true
+	debug: true,
+	attachStacktrace: true,
+	release: process.env.SENTRY_RELEASE,
+	enabled: process.env.NODE_ENV !== 'test',
+	ignoreErrors: [/\[Please ignore this error\]/],
+	blacklistUrls: [
+	  // Chrome extensions
+	  /extensions\//i,
+	  /^chrome:\/\//i,
+	],
 });
 
 const middlewares = [
