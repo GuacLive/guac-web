@@ -17,9 +17,9 @@ export default () => {
 		evt.preventDefault();
 		setCookie('lang', evt.currentTarget.lang.value);
 		activate(evt.currentTarget.lang.value);
-		/*Router.push({
+		Router.push({
 			pathname: window.location.pathname
-		});*/
+		});
 	}
 
 	return (
