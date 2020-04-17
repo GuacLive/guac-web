@@ -4,19 +4,21 @@ import {en, nb} from 'make-plural/plurals'
 i18n.loadLocaleData('en', {plurals: en})
 i18n.loadLocaleData('nb', {plurals: nb})
 
-export async function activate(locale) {
+export async function activate(locale){
+	var catalog; 
 	try{
-		const { messages } = await import(
+		catalog =  await import(
 			/* webpackMode: "lazy", webpackChunkName: "locale/[request]" */
 			`../locale/${locale}/messages.js`
 		);
 	}catch(e){
-		const { messages } = await import(
+		catalog = await import(
 			/* webpackMode: "lazy", webpackChunkName: "locale/[request]" */
 			`../locale/en/messages.js`
 		);
 	}
+	const { messages } = catalog;
 
-	i18n.load(locale, messages)
-	i18n.activate(locale)
+	i18n.load(locale, messages);
+	i18n.activate(locale);
 }
