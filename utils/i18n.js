@@ -5,10 +5,17 @@ i18n.loadLocaleData('en', {plurals: en})
 i18n.loadLocaleData('nb', {plurals: nb})
 
 export async function activate(locale) {
-	const { messages } = await import(
-		/* webpackMode: "lazy", webpackChunkName: "locale/[request]" */
-		`../locale/${locale}/messages.js`
-	);
+	try{
+		const { messages } = await import(
+			/* webpackMode: "lazy", webpackChunkName: "locale/[request]" */
+			`../locale/${locale}/messages.js`
+		);
+	}catch(e){
+		const { messages } = await import(
+			/* webpackMode: "lazy", webpackChunkName: "locale/[request]" */
+			`../locale/en/messages.js`
+		);
+	}
 
 	i18n.load(locale, messages)
 	i18n.activate(locale)
