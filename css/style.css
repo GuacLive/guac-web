@@ -391,6 +391,26 @@ input:focus {
 	background-repeat: no-repeat;
 }
 
+/* Chat overlay emotes */
+/* IceCold */
+.chat-message-content img + img.chat-message-content__emote[data-emote-code="IceCold"] {
+}
+/* SoSnowy */
+.chat-message-content img + img.chat-message-content__emote[data-emote-code="SoSnowy"] {
+}
+/* SantaHat */
+.chat-message-content img + img.chat-message-content__emote[data-emote-code="TopHat"],
+.chat-message-content img + img.chat-message-content__emote[data-emote-code="CandyCane"],
+.chat-message-content img + img.chat-message-content__emote[data-emote-code="ReinDeer"] {
+}
+
+/* SantaHat */
+.chat-message-content + img + img.chat-message-content__emote[data-emote-code="SantaHat"] {
+}
+/* cvHazmat, cvMask */
+.chat-message-content img + img.chat-message-content__emote[data-emote-code="cvHazmat"],
+.chat-message-content img + img.chat-message-content__emote[data-emote-code="cvMask"] {
+}
 
 /* Player embed */
 

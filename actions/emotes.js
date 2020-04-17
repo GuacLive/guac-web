@@ -25,6 +25,18 @@ export const fetchEmotes = (channel) => async (dispatch) => {
 	})
 	.catch(() => {});
 
+	await fetch('//api.betterttv.net/3/cached/users/twitch/7427594')
+	.then(async response => {
+		const data = await response.json();
+		const e = Object.assign(data.channelEmotes, data.sharedEmotes);
+		for(const emote of e){
+			result[emote.code] = {
+				provider: 'BetterTTV',
+				url: `//cdn.betterttv.net/emote/${emote.id}/3x`,
+			};
+		}
+	})
+	.catch(() => {});
 
 	await fetch('//api.betterttv.net/3/cached/emotes/global')
 	.then(async response => {
