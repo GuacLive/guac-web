@@ -9066,10 +9066,10 @@ next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
-next@^9.3.5-canary.11:
-  version "9.3.5-canary.11"
-  resolved "https://registry.yarnpkg.com/next/-/next-9.3.5-canary.11.tgz#7472fd701f2ccffb38ef61075ec625dffab6a8ec"
-  integrity sha512-DclASy0kOHrze3ZAGvATd22ljx6hwGvf9MpTqH5ZnAv8yeA3j3U27MB5bQEdOKjdf2ZCXKRgg18pBxe54/LLww==
+next@9.3.6-canary.2:
+  version "9.3.6-canary.2"
+  resolved "https://registry.yarnpkg.com/next/-/next-9.3.6-canary.2.tgz#724eff4ce99b2afc1132ee5445faf63844a90e51"
+  integrity sha512-uuXpWRYQntpfaBuqec3kHuA60dsipEWsf5Od61MKOww+l5qJC9Ivb36mJcTCjTKum2/cwl5Um6zjSFCLHyVujA==
   dependencies:
     "@ampproject/toolbox-optimizer" "2.2.0"
     "@babel/core" "7.7.2"
@@ -11081,7 +11081,7 @@ react-dev-utils@^10.2.1:
     strip-ansi "6.0.0"
     text-table "0.2.0"
 
-react-dom@0.0.0-experimental-e5d06e34b:
+react-dom@^0.0.0-experimental-e5d06e34b:
   version "0.0.0-experimental-e5d06e34b"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-0.0.0-experimental-e5d06e34b.tgz#e90fd8a1f5ac18045798f276734feecdf107442e"
   integrity sha512-E2jMRRCHs69jfI5YMnUEFEdWLv1FthDE52xDP67luRVGBU+Hc2xq06Eu+ukiHgCevgwAqBM4Q9HeYbQrcBvFdg==
@@ -11240,7 +11240,7 @@ react-use@^14.1.1:
     ts-easing "^0.2.0"
     tslib "^1.10.0"
 
-react@0.0.0-experimental-e5d06e34b:
+react@^0.0.0-experimental-e5d06e34b:
   version "0.0.0-experimental-e5d06e34b"
   resolved "https://registry.yarnpkg.com/react/-/react-0.0.0-experimental-e5d06e34b.tgz#bfdbe2b228e1d1967330fc18b9e05331818f610d"
   integrity sha512-2WUOtH5VE3cSyg22XxavfDoMQDIc51Pyudr/mrU1I1GcWIDKVg7QA/1dh5DlKyIvyWlM44pkwqz7V7gYHFzf2A==

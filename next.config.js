@@ -108,6 +108,7 @@ module.exports = withOffline(nextSourceMaps({
 		swSrc: './utils/service-worker.js',
 		maximumFileSizeToCacheInBytes: 3e7 /*30mb*/
 	},
+	reactStrictMode: true,
 	experimental: {
 		workerThreads: true,
 		sprFlushToDisk: true,
@@ -115,6 +116,7 @@ module.exports = withOffline(nextSourceMaps({
 		catchAllRouting: true,
 		granularChunks: true,
 		polyfillsOptimization: true,
+		reactMode: 'concurrent',
 	},
 	future: {
 		excludeDefaultMomentLocales: true,
