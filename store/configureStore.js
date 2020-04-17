@@ -67,4 +67,4 @@ export default function configureStore(context) {
 
 	return store;
 }
-export const wrapper = createWrapper(configureStore , {debug: true});
+export const wrapper = createWrapper(configureStore);
