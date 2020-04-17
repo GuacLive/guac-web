@@ -9,7 +9,7 @@ export async function activate(locale){
 	try{
 		catalog =  await import(
 			/* webpackMode: "lazy", webpackChunkName: "locale/[request]" */
-			`../locale/${locale}/messages.js`
+			`../locale/${locale || 'en'}/messages.js`
 		);
 	}catch(e){
 		catalog = await import(
@@ -17,8 +17,7 @@ export async function activate(locale){
 			`../locale/en/messages.js`
 		);
 	}
-	const { messages } = catalog;
 
-	i18n.load(locale, messages);
+	i18n.load(locale, catalog.messages);
 	i18n.activate(locale);
 }
