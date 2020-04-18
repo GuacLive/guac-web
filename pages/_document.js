@@ -45,10 +45,13 @@ export default class MyDocument extends Document {
 		return (
 			<html lang={this.props.locale} data-cast-api-enabled="true" id="guac" className={this.props.mode === 'dark' ? 'guac-skin-dark' : 'guac-skin-light'}>
 				<MyHead nonce={nonce}>
-					<script type="text/javascript" src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1" nonce={this.props.nonce}></script>
+					<script async defer type="text/javascript" src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1" nonce={this.props.nonce}></script>
 					<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.13.0/css/solid.css" integrity="sha384-fZFUEa75TqnWs6kJuLABg1hDDArGv1sOKyoqc7RubztZ1lvSU7BS+rc5mwf1Is5a" crossOrigin="anonymous" />
 					<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.13.0/css/fontawesome.css" integrity="sha384-syoT0d9IcMjfxtHzbJUlNIuL19vD9XQAdOzftC+llPALVSZdxUpVXE0niLOiw/mn" crossOrigin="anonymous" />
 					<link rel="manifest" href="/manifest.json" />
+					<link rel="preconnect" href="https://static.cloudflareinsights.com/" />
+					<link rel="preconnect" href="https://use.fontawesome.com/" />
+					<link rel="preconnect" href="https://privacy.guac.live/" />
 					<link rel="preconnect" href="https://api.guac.live/" />
 					<link rel="preconnect" href="https://stream.guac.live/" />
 					<link rel="preconnect" href="https://emotes.guac.live/" />
