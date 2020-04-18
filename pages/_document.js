@@ -33,8 +33,7 @@ export default class MyDocument extends Document {
 	static getInitialProps({req, renderPage}) {
 		const {html, head, errorHtml, chunks} = renderPage()
 		let mode = getCookie('site-mode', req) === 'dark' ? 'dark' : 'light';
-		return {html, head, errorHtml, chunks, 'nonce': req.nonce, mode}
-
+		return {html, head, errorHtml, chunks, nonce: req.nonce, locale: req.locale, mode}
 	}
 
 	render() {
@@ -44,7 +43,7 @@ export default class MyDocument extends Document {
 		let event = 'window.sa_event=window.sa_event||function(){a=[].slice.call(arguments);sa_event.q?sa_event.q.push(a):sa_event.q=[a]};';
 		let perf = 'hydrationMetrics&&hydrationMetrics.onInputDelay&&performance&&hydrationMetrics.onInputDelay(function(e,n){sa_event("event",{eventCategory:"Perf Metrics",eventAction:"first-input-delay",eventLabel:n.type,eventValue:Math.round(e),nonInteraction:!0})});';
 		return (
-			<html data-cast-api-enabled="true" id="guac" className={this.props.mode === 'dark' ? 'guac-skin-dark' : 'guac-skin-light'}>
+			<html lang={this.props.locale} data-cast-api-enabled="true" id="guac" className={this.props.mode === 'dark' ? 'guac-skin-dark' : 'guac-skin-light'}>
 				<MyHead nonce={nonce}>
 					<script type="text/javascript" src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1" nonce={this.props.nonce}></script>
 					<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.13.0/css/solid.css" integrity="sha384-fZFUEa75TqnWs6kJuLABg1hDDArGv1sOKyoqc7RubztZ1lvSU7BS+rc5mwf1Is5a" crossOrigin="anonymous" />
