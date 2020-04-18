@@ -170,7 +170,8 @@ class IndexPage extends Component {
 										style={{display: 'block', height: '35px', verticalAlign: 'top'}}
 									/>
 									<a href="https://discord.gg/k6MJSAj">
-										<img src="https://discordapp.com/api/guilds/564909420199411732/widget.png?style=banner2" />
+										<img src="https://discordapp.com/api/guilds/564909420199411732/widget.png?style=banner2" alt="Discord server invite image" />
+										<span className="dn">Discord server invite</span>
 									</a>
 								</div>
 							</div>

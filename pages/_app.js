@@ -26,7 +26,7 @@ import { getLangs } from '../utils/lang';
 
 import { I18nProvider, useLingui } from '@lingui/react';
 import { i18n } from '@lingui/core';
-import { activate } from '../utils/i18n';
+import { activate, isValidLocale } from '../utils/i18n';
 
 import { initializeFirebase, initializePush } from '../utils/push-notification';
 
@@ -93,7 +93,6 @@ const MyApp = (props) => {
 	const skipLayoutDestinations = ['/embed/[name]', '/chat/[name]', '/overlay/[name]'];
 	const shouldSkip = props.pathname && skipLayoutDestinations.indexOf(props.pathname) > -1;
 
-	// Skip render when locale isn't 
 	return (
 		<ErrorBoundary>
 			<ConfigureFlopFlip adapter={adapter} adapterArgs={{
@@ -123,7 +122,7 @@ MyApp.getInitialProps = wrapper.getInitialAppProps(async appContext => {
 	var locale = getCookie('lang', ctx.req) || locales[0];
 
 	// If locale does not match expected format, fallback to en
-	if (!/^[a-zA-Z0-9-_]+$/.test(locale)) {
+	if(!isValidLocale(locale)){
 		locale = 'en';
 	}
 
@@ -136,7 +135,7 @@ MyApp.getInitialProps = wrapper.getInitialAppProps(async appContext => {
 	// In dev we allow 'unsafe-eval', so HMR doesn't trigger the CSP
 	let devCsp = process.env.NODE_ENV !== 'production' ? "'unsafe-eval'" : '';
 	let csp = `default-src 'self' guac.live *.guac.live privacy.guac.live localhost:*; base-uri 'self'; script-src 'self' ${devCsp} 'nonce-${nonce}' 'strict-dynamic' www.google.com www.googletagmanager.com www.google-analytics.com www.gstatic.com *.googleapis.com guac.live *.guac.live cheese.guac.live privacy.guac.live localhost:* c6.patreon.com static.cloudflareinsights.com wss://chat.guac.live wss://viewer-api.guac.live cdn.ravenjs.com; child-src www.google.com guac.live *.guac.live privacy.guac.live localhost:* patreon.com www.patreon.com wss://chat.guac.live wss://viewer-api.guac.live blob:; style-src 'self' 'unsafe-inline' *.googleapis.com use.fontawesome.com pro.fontawesome.com guac.live *.guac.live privacy.guac.live localhost:*; img-src 'self' data: guac.live *.guac.live emotes.guac.live privacy.guac.live cheese.guac.live chat.guac.live viewer-api.guac.live *.googleapis.com *.gstatic.com www.google-analytics.com c6.patreon.com *.giphy.com http: https:; media-src 'self' blob: guac.live *.guac.live privacy.guac.live localhost:* wss://chat.guac.live wss://viewer-api.guac.live; connect-src 'self' guac.live *.guac.live emotes.guac.live privacy.guac.live firebaseinstallations.googleapis.com fcmregistrations.googleapis.com localhost:* sdk.split.io events.split.io c6.patreon.com ws://chat.local.guac.live ws://viewer-api.guac.live ws://chat.guac.live wss://guac.live wss://chat.guac.live wss://viewer-api.guac.live ws://localhost:* wss://localhost:* ws://local.guac.live wss://local.guac.live ws://stream.local.guac.live wss://stream.local.guac.live ws://stream.guac.live wss://stream.guac.live ws://*.stream.guac.live wss://*.stream.guac.live www.google-analytics.com vendorlist.consensu.org api.betterttv.net api.frankerfacez.com api-test.frankerfacez.com twitchemotes.com *.giphy.com fcm.googleapis.com https://sentry.io; font-src 'self' use.fontawesome.com pro.fontawesome.com guac.live *.guac.live *.gstatic.com data:; object-src 'none';`;
-	if(ctx && ctx.req) ctx.req.nonce = nonce;
+	if(ctx && ctx.req) ctx.req.nonce = nonce, ctx.req.locale = locale;
 	if(ctx.res){
 		if (ctx.res.setHeader) {
 			ctx.res.setHeader('content-security-policy', csp);
