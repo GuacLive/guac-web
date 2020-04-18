@@ -85,18 +85,18 @@ class EmbedPage extends Component {
         if(channel.error) throw channel.error;
 
 		const meta = [
-			{name: 'og:title', hid: 'og:title', content: `${channel.data.name} &middot; guac.live`},
-			{name: 'og:description', hid: 'og:description', content: (channel.data.name || '').substring(0, 200)},
-			{name: 'og:image', hid: 'og:image', content: '//guac.live/img/header-logo.png'},
+			{property: 'og:title', hid: 'og:title', content: `${channel.data.name} &middot; guac.live`},
+			{property: 'og:description', hid: 'og:description', content: `Watch ${channel.data.name} stream ${channel.data.category_name} on guac`},
+			{property: 'og:image', hid: 'og:image', content: channel.data.user.avatar || '//guac.live/img/header-logo.png'},
 			{name: 'author', content: channel.data.name},
-			{name: 'description', hid: 'description', content: (channel.data.name || '').substring(0, 200)},
+			{name: 'description', hid: 'description', content: `Watch ${channel.data.name} stream ${channel.data.category_name} on guac`},
 			{name: 'profile:username', content: channel.data.name},
-			{name: 'twitter:card', content: 'summary_large_image'},
-			{name: 'twitter:site', content: '@GuacLive'},
-			{name: 'twitter:title', content: (channel.data.title || '').substring(0, 70)},
-			{name: 'twitter:description', content: (channel.data.name || '').substring(0, 200)},
-			{name: 'twitter:image', content: '//guac.live/img/header-logo.png'},  
-        ];
+			{property: 'twitter:card', content: 'summary_large_image'},
+			{property: 'twitter:site', content: '@GuacLive'},
+			{property: 'twitter:title', content: (channel.data.title || '').substring(0, 70)},
+			{property: 'twitter:description', content: `Watch ${channel.data.name} stream ${channel.data.category_name} on guac`},
+			{property: 'twitter:image', content: channel.data.user.avatar || '//guac.live/img/header-logo.png'},  
+		];
 		// Add meta noindex, nofollow if channel is private
 		if(channel.data && channel.data.private){
 			meta.push({
