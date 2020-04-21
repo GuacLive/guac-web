@@ -389,9 +389,9 @@ function ChannelPage(props){
 		<Fragment>
 			<NextHead>
 				<title>{channel.data.name} &middot; guac.live</title>
-				{ meta && meta.map((m) => {
+				{ meta && meta.map((m, i) => {
 					return (
-						<meta name={m.name} content={m.content} key={m.name} />
+						<meta name={m.name} content={m.content} key={m.name + i} />
 					)
 				})}
 			</NextHead>
