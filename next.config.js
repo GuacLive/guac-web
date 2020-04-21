@@ -118,6 +118,7 @@ module.exports = withOffline(nextSourceMaps({
 		workerThreads: true,
 		pageEnv: true,
 		measureFid: true,
+		reactRefresh: true,
 	},
 	future: {
 		excludeDefaultMomentLocales: true,
