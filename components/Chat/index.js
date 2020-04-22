@@ -262,6 +262,7 @@ function ChatComponent(props){
 		if(!user || !messages) return;
 		const embed = new UrlEmbedder;
 		//let emoteOnly = messages && messages.filter(m => m.content.length > 0).length === 1;
+		// Assume this is an emote-only message by default
 		let emoteOnly = true;
 		let output = messages.map((msg, i) => {
 			if(!msg.type) return null;
@@ -291,10 +292,16 @@ function ChatComponent(props){
 			}
 		});
 		if(hydrated){
+			// If hydrated and user does not exist in users list
 			if(user && user.name && !users.get(user.name)){
+				// Add it to the list
 				users.set(user.name, user);
 			}
 		}
+		// This will show mod icons if the following conditions are true:
+		// 1) The user has privileges
+		// 2) The message is not your own
+		// 3) The sender of the message does not have privileges
 		let showModTools = hasPrivilege &&
 			(me && me.name !== user.name) &&
 			(privileged && privileged.indexOf(user.id) === -1);
@@ -387,7 +394,10 @@ function ChatComponent(props){
 						}
 					</span>
 					<span className="chat-message-user b dib">
-						<a onClick={() => {setMessage(`${message} @${user.name} `);}} href="#" className="link color-inherit" style={{color: `#${user.color}`}}>{user.name}</a>{'\u00A0'}
+						<a onClick={() => {
+							setMessage(`${message} @${user.name})`);
+							setLastMessage(`${message} @${user.name}`);
+						}} href="#" className="link color-inherit" style={{color: `#${user.color}`}}>{user.name}</a>{'\u00A0'}
 					</span>
 					<span className={`chat-message-content db ${emoteOnly ? 'chat-message-content__emote-only' : 'chat-message-content__with-text'}`}>{output}</span>
 				</>
