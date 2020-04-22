@@ -59,7 +59,7 @@ function ViewerList(props){
 										staff &&
 										staff.map((u) => {
 											return (
-												<li key={`staff_${u.name}`} className="flex flex-grow-1">{u.name}</li>
+												<li key={`staff_${u.name}`} className="flex flex-grow-1" style={{color: `#${u.color}`}}>{u.name}</li>
 											);
 										})
 									}
@@ -72,13 +72,13 @@ function ViewerList(props){
 							mods.length > 0
 							&&
 							<div className="db bb b--gray pb4">
-								<span className="f5 b tracked mt0 mb3">Users in chat:</span>
+								<span className="f5 b tracked mt0 mb3">Moderators in chat:</span>
 								<ul className="pa0 ma0 list">
 									{
 										mods &&
 										mods.map((u) => {
 											return (
-												<li key={`mods_${u.name}`} className="flex flex-grow-1">{u.name}</li>
+												<li key={`mods_${u.name}`} className="flex flex-grow-1" style={{color: `#${u.color}`}}>{u.name}</li>
 											);
 										})
 									}
@@ -97,7 +97,7 @@ function ViewerList(props){
 										usrs &&
 										usrs.map((u) => {
 											return (
-												<li key={`user_${u.name}`} className="flex flex-grow-1">{u.name}</li>
+												<li key={`user_${u.name}`} className="flex flex-grow-1" style={{color: `#${u.color}`}}>{u.name}</li>
 											);
 										})
 									}
