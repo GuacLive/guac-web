@@ -476,6 +476,11 @@ function ChatComponent(props){
 		}
 	}, [emotesStatus]);
 
+	// If chat has just been hydrated, go to bottom
+	useEffect(() => {
+		goToBottom();
+	}, [hydrated]);
+
 	useEffect(() => {
 		setCustomPickerEmotes(Object.keys(emotes).map(
 			(name) => ({
