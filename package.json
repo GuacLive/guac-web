@@ -58,7 +58,7 @@
     "linkifyjs": "^2.1.8",
     "lscache": "^1.2.0",
     "next": "^9.3.6-canary.8",
-    "next-offline": "^5.0.0",
+    "next-offline": "^5",
     "next-redux-wrapper": "6.0.0-rc.5",
     "next-server": "^9.0.6-canary.0",
     "now": "^18.0.0",
@@ -106,5 +106,8 @@
     "@lingui/macro": "^3.0.0-10",
     "babel-plugin-add-module-exports": "^1.0.0",
     "serviceworker-webpack-plugin": "^1.0.1"
+  },
+  "resolutions": {
+    "terser": "4.6.9"
   }
 }
