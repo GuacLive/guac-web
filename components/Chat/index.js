@@ -62,7 +62,6 @@ function ChatComponent(props){
 			&& messageContainerRef && messageContainerRef.current
 		){
 			messageContainerRef.current.recalculate();
-			console.log(lastMessageRef.current.offsetHeight);
 			messageContainerRef.current.getScrollElement().scrollTop = messageContainerRef.current.getScrollElement().scrollHeight - messageContainerRef.current.getScrollElement().clientHeight + lastMessageRef.current.offsetHeight;
 			setTimeout(() => {
 				if(
@@ -260,8 +259,11 @@ function ChatComponent(props){
 			setMessage(message);
 		}).bind(self);
 		if(!user || !messages) return;
-		const embed = new UrlEmbedder;
-		//let emoteOnly = messages && messages.filter(m => m.content.length > 0).length === 1;
+		// Create new instance of urlembedder
+		// Use username as parameter because we also use this for highlighting
+		const embed = new UrlEmbedder(me && me.name ? me.name : null);
+		//let emoteOnly = messages && memessagessages.filter(m => m.content.length > 0).length === 1;
+		// Assume this is an emote-only  by default
 		let emoteOnly = true;
 		let output = messages.map((msg, i) => {
 			if(!msg.type) return null;
@@ -274,12 +276,6 @@ function ChatComponent(props){
 						<React.Fragment key={'c-' + i + '-' + (new Date).getTime()}><Image className="chat-message-content__emote dib" data-emote-code={msg.content} src={emote.url} alt={'Emote: ' + msg.content} title={msg.content + ' by ' + emote.provider} />{i !== messages.length -1 && '\u00A0'}</React.Fragment>
 					);
 				case 'text':
-					// Add username highlighting
-					if(me && me.name){
-						const pattern = new RegExp(`@${me.name}\\b`, 'gi');
-						msg.content = msg.content.replace(pattern, `<span class="b green highlight">$&</span>`);
-					}
-					
 					// Text is found, set emoteOnly to false
 					if(emoteOnly && msg.content) emoteOnly = false;
 
@@ -291,10 +287,16 @@ function ChatComponent(props){
 			}
 		});
 		if(hydrated){
+			// If hydrated and user does not exist in users list
 			if(user && user.name && !users.get(user.name)){
+				// Add it to the list
 				users.set(user.name, user);
 			}
 		}
+		// This will show mod icons if the following conditions are true:
+		// 1) The user has privileges
+		// 2) The message is not your own
+		// 3) The sender of the message does not have privileges
 		let showModTools = hasPrivilege &&
 			(me && me.name !== user.name) &&
 			(privileged && privileged.indexOf(user.id) === -1);
@@ -387,7 +389,10 @@ function ChatComponent(props){
 						}
 					</span>
 					<span className="chat-message-user b dib">
-						<a onClick={() => {setMessage(`${message} @${user.name} `);}} href="#" className="link color-inherit" style={{color: `#${user.color}`}}>{user.name}</a>{'\u00A0'}
+						<a onClick={() => {
+							setMessage(`${message} @${user.name}`);
+							setLastMessage(`${message} @${user.name}`);
+						}} href="#" className="link color-inherit" style={{color: `#${user.color}`}}>{user.name}</a>{'\u00A0'}
 					</span>
 					<span className={`chat-message-content db ${emoteOnly ? 'chat-message-content__emote-only' : 'chat-message-content__with-text'}`}>{output}</span>
 				</>
@@ -577,7 +582,6 @@ function ChatComponent(props){
 							trigger={{
 								'@': {
 									dataProvider: token => {
-										console.log('token', [...users.values()]);
 										if(!token || !token.length){
 											return [...users.values()]
 											.map((user) => {
@@ -589,7 +593,6 @@ function ChatComponent(props){
 										}
 										return [...users.values()]
 										.filter(user => {
-											console.log('user', user);
 											if(user
 												&& user.name
 												&& user.name.search(new RegExp(token, "i")) !== -1
@@ -607,7 +610,6 @@ function ChatComponent(props){
 									},
 									component: ({ entity: {name} }) => <div>{name}</div>,
 									output: (item) => {
-										console.log('itæm', item); 
 										if(item && item.name){
 											return {
 												key: item.name,
