@@ -36,7 +36,7 @@ class CategoryPage extends Component {
 		console.log(thisCategory);
 		return (
 			<Fragment>
-				<div className="w-100">
+				<div className="w-100 pv3 ph3-l">
 					<h2 className="f2 tracked mt0 mb3">
 					{
 						thisCategory
