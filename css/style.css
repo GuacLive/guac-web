@@ -465,3 +465,7 @@ html.theater-mode .site-component-channel__info .guac-btn {
 .chat-message-content img + img.chat-message-content__emote[data-emote-code="cvHazmat"],
 .chat-message-content img + img.chat-message-content__emote[data-emote-code="cvMask"] {
 }
+
+.settings-row:not(:first-child):not(.settings-row--focused) {
+    border-top: 1px solid rgba(255, 255, 255, .1);
+}

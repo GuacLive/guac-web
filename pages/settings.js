@@ -9,6 +9,7 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 
 const ProfileComponent = dynamic(() => import('../components/Settings/Profile'));
+const ConnectionsComponent = dynamic(() => import('../components/Settings/Connections'));
 
 function SettingsPage(props){
 	const auth = props.authentication;
@@ -35,6 +36,7 @@ function SettingsPage(props){
 				</div>
 				<div className="flex flex-column flex-nowrap h-100 w-100 overflow-hidden relative">
 					{tab == 0 && <ProfileComponent />}
+					{tab == 2 && <ConnectionsComponent />}
 				</div>
 			</div>
 		</div>
