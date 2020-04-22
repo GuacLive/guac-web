@@ -24,7 +24,7 @@ class CategoriesPage extends Component {
 		if(categories.loading) return null;
 		return (
 			<Fragment>
-				<div className="w-100">
+				<div className="w-100 pv3 ph3-l">
 					<h2 className="f2 tracked mt0 mb3"><Trans>Browse</Trans></h2>
 					<div className="site-component-categories flex flex-row flex-wrap w-100" style={{flexGrow: 1}}>
 					{categories.data && categories.data.map((category) => {

@@ -7,7 +7,7 @@ import { Trans } from '@lingui/macro';
 class PrivacyPage extends Component {
 	render() {
 		return (
-			<div className="mw7 lh-copy mv0">
+			<div className="pv3 ph3-l mw7 lh-copy mv0">
 				<h2 className="f2 tracked mt0 mb3"><Trans>Terms of use</Trans></h2>
 				<p><Trans>We will review every reported user on a case-by-case basis, and give <b>warnings</b> or <b>temporary/permanent bans</b> depending on the severity of the case.</Trans></p>
 				<div className="bg-light-red pa2 br2-ns ba b--black-10">

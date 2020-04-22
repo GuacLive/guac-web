@@ -46,7 +46,7 @@ class ChannelsPage extends Component {
 		if(channels.loading) return null;
 		return (
 			<Fragment>
-				<div className="w-100">
+				<div className="w-100 pv3 ph3-l">
 					<h2 className="f2 tracked mt0 mb3"><Trans>Channels</Trans></h2>
 					<div className="live-switch">
 						<label>
