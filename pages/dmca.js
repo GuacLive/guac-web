@@ -7,7 +7,7 @@ import { Trans } from '@lingui/macro';
 class DMCAPage extends Component {
 	render() {
 		return (
-			<div className="mw7 lh-copy mv0">
+			<div className="pv3 ph3-l mw7 lh-copy mv0">
 				<h2 className="f2 tracked mt0 mb3"><Trans>Digital Millennium Copyright Act</Trans></h2>
 				<h3 className="f3 tracked mt0 mb3"><Trans>Notification of Infringement</Trans></h3>
 				<p><Trans>It is our policy to respond to clear notices of

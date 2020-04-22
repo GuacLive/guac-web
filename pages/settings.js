@@ -16,7 +16,7 @@ function SettingsPage(props){
 	const [tab, setTab] = useState(0);
 	if(auth.loading) return null;
 	return (
-		<div className="flex flex-nowrap h-100 w-100 mw7 overflow-hidden relative">
+		<div className="flex flex-nowrap h-100 w-100 mw7 pv3 ph3-l overflow-hidden relative">
 			<div className="flex flex-column flex-grow-1 h-100 w-100 overflow-hidden relative">
 				<div className="site-component-settings-tabs">
 					<h2 className="f2 tracked mt0 mb3"><Trans>Settings</Trans></h2>

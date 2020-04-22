@@ -7,7 +7,7 @@ import { Trans } from '@lingui/macro';
 class PrivacyPage extends Component {
 	render() {
 		return (
-				<div className="mw7 lh-copy mv0">
+				<div className="pv3 ph3-l mw7 lh-copy mv0">
 					<h2 className="f2 tracked mt0 mb3"><Trans>Privacy Policy</Trans></h2>
 				    <p><a name="collect"></a></p>
 <h2><a className="link primary" href="#collect">What information do we collect?</a></h2>

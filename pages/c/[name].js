@@ -355,11 +355,11 @@ function ChannelPage(props){
 	if(channel.error) throw channel.error;
 
 	const meta = [
-		{property: 'og:title', hid: 'og:title', content: `${channel.data.name} &middot; guac.live`},
-		{property: 'og:description', hid: 'og:description', content: `Watch ${channel.data.name} stream ${channel.data.category_name} on guac`},
-		{property: 'og:image', hid: 'og:image', content: channel.data.user.avatar || '//guac.live/img/header-logo.png'},
+		{property: 'og:title', content: `${channel.data.name} &middot; guac.live`},
+		{property: 'og:description', content: `Watch ${channel.data.name} stream ${channel.data.category_name} on guac`},
+		{property: 'og:image', content: channel.data.user.avatar || '//guac.live/img/header-logo.png'},
 		{name: 'author', content: channel.data.name},
-		{name: 'description', hid: 'description', content: `Watch ${channel.data.name} stream ${channel.data.category_name} on guac`},
+		{name: 'description', content: `Watch ${channel.data.name} stream ${channel.data.category_name} on guac`},
 		{name: 'profile:username', content: channel.data.name},
 		{property: 'twitter:card', content: 'summary_large_image'},
 		{property: 'twitter:site', content: '@GuacLive'},
@@ -390,9 +390,13 @@ function ChannelPage(props){
 			<NextHead>
 				<title>{channel.data.name} &middot; guac.live</title>
 				{ meta && meta.map((m, i) => {
-					return (
-						<meta name={m.name} content={m.content} key={m.name + i} />
-					)
+					return m.name ? 
+					(
+						<meta name={m.name} content={m.content} key={m.name} />
+					) :
+					(
+						<meta property={m.property} content={m.content} key={m.property} />
+					);
 				})}
 			</NextHead>
 			<div className="w-100 min-vh-100 flex flex-nowrap black">			
