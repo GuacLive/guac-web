@@ -35,6 +35,7 @@ import useLocalStorage from 'react-use/lib/useLocalStorage';
 import { callApi } from '../../services/api';
 
 import commands from './commands';
+import ViewerList from './ViewerList';
 var socket = null;
 var users = new Map();
 var me = null;
@@ -386,7 +387,7 @@ function ChatComponent(props){
 						}
 					</span>
 					<span className="chat-message-user b dib">
-						<a onClick={() => {writeMessage(`${user.name} `);}} href="#" className="link color-inherit" style={{color: `#${user.color}`}}>{user.name}</a>{'\u00A0'}
+						<a onClick={() => {setMessage(`${message} @${user.name} `);}} href="#" className="link color-inherit" style={{color: `#${user.color}`}}>{user.name}</a>{'\u00A0'}
 					</span>
 					<span className={`chat-message-content db ${emoteOnly ? 'chat-message-content__emote-only' : 'chat-message-content__with-text'}`}>{output}</span>
 				</>
@@ -720,21 +721,7 @@ function ChatComponent(props){
 							<h5 className="f6 b ttu tracked"><Trans>Stream Chat</Trans></h5>
 						</div>
 						<div className="absolute mr3 right-0 primary">
-							<a
-								href="#"
-								onClick={(e) => {
-									e&&e.preventDefault();
-									let commandClass;
-									if(commandClass = commands.get('users')){
-										let command = new commandClass(socket, channel, me, authentication.token, hasPrivilege, users);
-										command.run();
-									}
-								}} 
-								className="link color-inherit ph2 br2 bg-animate hover-bg-dark-gray outline-none" 
-								title="Users in chat"
-							>
-								<FontAwesomeIcon icon='user' />
-							</a>
+							<ViewerList users={users} darkMode={darkMode} />
 						</div>
 					</div>
 					)

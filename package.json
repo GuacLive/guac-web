@@ -1,6 +1,6 @@
 {
   "name": "guac-web",
-  "version": "1.3.7",
+  "version": "1.3.8",
   "description": "Main web ui for the Guac livestreaming platform",
   "repository": "GuacLive/guac-web",
   "author": {
@@ -57,7 +57,7 @@
     "js-cookie": "^3.0.0-beta.0",
     "linkifyjs": "^2.1.8",
     "lscache": "^1.2.0",
-    "next": "9.3.6-canary.0",
+    "next": "^9.3.6-canary.8",
     "next-offline": "^5.0.0",
     "next-redux-wrapper": "6.0.0-rc.5",
     "next-server": "^9.0.6-canary.0",
