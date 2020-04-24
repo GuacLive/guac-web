@@ -6,7 +6,7 @@ import cookie from 'js-cookie';
 export const setCookie = (key, value) => {
 	if(process.browser){
 		cookie.set(key, value, {
-			expires: 7 * 2, // two weeks
+			expires: 154, // 22 weeks / 5 months
 			path: '/'
 		});
 	}
@@ -15,7 +15,7 @@ export const setCookie = (key, value) => {
 export const removeCookie = (key) => {
 	if(process.browser){
 		cookie.remove(key, {
-			expires: 7 * 2, // two weeks
+			expires: 154 // 22 weeks / 5 months
 		});
 	}
 };
