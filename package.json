@@ -1,6 +1,6 @@
 {
   "name": "guac-web",
-  "version": "1.3.10",
+  "version": "1.3.11",
   "description": "Main web ui for the Guac livestreaming platform",
   "repository": "GuacLive/guac-web",
   "author": {
