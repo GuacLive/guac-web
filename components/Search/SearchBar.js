@@ -57,7 +57,7 @@ function SearchBar(props){
 	
 	return (
 		<div className="site-component-search">
-			<form className="mw7 relative ml3 site-component-search__form">
+			<form className="w-75 relative ml3 site-component-search__form">
 				<input
 					type="text"
 					style={{
