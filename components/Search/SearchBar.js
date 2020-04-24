@@ -31,7 +31,7 @@ function SearchBar(props){
 	);
 
 	useMount(() => {
-		inputEl.current.focus();
+		//inputEl.current.focus();
 	});
 
 	const search = async term => {
