@@ -85,6 +85,10 @@ function ChannelPage(props){
 				setTimeout(async () => {
 					try{
 						dispatch(actions.fetchChannel(channel.data.name));
+						// If no longer live, go out of theater mode
+						if(!liveBoolean){
+							document.documentElement.classList.remove('theater-mode');
+						}
 					}catch(e){}
 				}, 3000);
 			});
