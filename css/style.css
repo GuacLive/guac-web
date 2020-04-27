@@ -45,6 +45,12 @@ html {
 	background var(--animation-duration) var(--animation-timing);
 }
 
+body {
+	min-height: calc(var(--vh, 1vh) * 100);
+	/* mobile viewport bug fix */
+	min-height: -webkit-fill-available;
+}
+
 #__next, body, html {
     touch-action: manipulation!important;
 }
