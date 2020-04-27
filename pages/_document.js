@@ -70,7 +70,7 @@ export default class MyDocument extends Document {
 					<script type="text/javascript" dangerouslySetInnerHTML={{__html: event}} nonce={nonce}></script>
 					<script type="text/javascript" dangerouslySetInnerHTML={{__html: darkMode}} nonce={nonce}></script>
 				</MyHead>
-				<body className="sans-serif h-100 w-100">
+				<body className="sans-serif">
 					<Main />
 					<NextScript nonce={nonce} />
 					<script async defer src="https://cheese.guac.live/app.js" nonce={nonce}></script>
