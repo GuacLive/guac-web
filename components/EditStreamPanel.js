@@ -89,7 +89,7 @@ class EditStreamPanel extends Component {
                     defaultChecked={streaming.private}
                 >
                 </input>
-                <input type="submit" value="Edit stream" className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" />
+                <input type="submit" value="Edit stream" className="link color-inherit db pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" />
             </form>
 		)
 	}

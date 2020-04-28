@@ -110,7 +110,6 @@ module.exports = withOffline(nextSourceMaps({
 	},
 	reactStrictMode: true,
 	experimental: {
-		documentMiddleware: true,
 		granularChunks: true,
 		plugins: true,
 		sprFlushToDisk: true,
