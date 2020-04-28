@@ -29,6 +29,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.12.0-1",
     "@fortawesome/free-solid-svg-icons": "^5.12.0-1",
     "@fortawesome/react-fontawesome": "^0.1.4",
+    "@guaclive/flv.js": "1.7.1",
     "@guaclive/react-giphy-select": "^1.0.5",
     "@lingui/core": "^3.0.0-10",
     "@lingui/react": "^3.0.0-10",

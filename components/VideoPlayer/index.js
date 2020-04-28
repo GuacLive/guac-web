@@ -135,7 +135,7 @@ function VideoPlayer(props) {
 		}
 
 		if(window){
-			window.flvjs = require('flv.js').default;
+			window.flvjs = require('@guaclive/flv.js').default;
 			window.videojs = videojs;
 		}
 
