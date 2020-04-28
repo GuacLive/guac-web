@@ -1,4 +1,4 @@
-import React, {Component, Fragment, useEffect, useState} from 'react'
+import React, {Component, Fragment, useEffect, useState, useRef} from 'react'
 
 import Link from 'next/link'
 
@@ -39,6 +39,8 @@ import * as actions from '../../actions';
 import log from '../../utils/log';
 import Image from '../../components/Image';
 
+import Switch from 'react-switch';
+
 import { ToggleFeature } from '@flopflip/react-redux';
 import { useLingui } from '@lingui/react';
 
@@ -53,11 +55,30 @@ function ChannelPage(props){
 	const [tab, setTab] = useState(0);
 	const [showModal, setShowModal] = useState(false);
 	const [showSub, setShowSub] = useState(false);
+	const [editPanelState, showEditPanel] = useState(false);
 	const dispatch = useDispatch();
 	const { i18n } = useLingui();
 
+	const {
+		channel,
+		site,
+		authentication
+	} = props;
+	let isMe = authentication.user && authentication.user.id && channel.data.user.id === authentication.user.id;
+
+	const editPanel = async (i) => {
+		var p = refs[i] && refs[i].current;
+		var panel_id  = p.dataset['id'];
+		/*await this.props.dispatch(
+			actions.editPanel(
+				panel_id,
+				p.title.value,
+				p.description.value
+			)
+		);*/
+	};
+
 	useEffect(() => {
-		const { channel } = props;
 		let channelAPISocket, didCancel = false;
 		
 		if(!didCancel){
@@ -106,14 +127,12 @@ function ChannelPage(props){
 	}, []);
 	
 	const editStream = async e => {
-		const { authentication, channel } = props;
 		if(!channel || !channel.data || !channel.data.user) return false;
 		setShowModal(!showModal);
 		e.preventDefault();
 	}
 
 	const follow = async e => {
-		const { authentication, channel } = props;
 		e.preventDefault();
 		if(!authentication || !authentication.token) return false;
 		if(!channel || !channel.data || !channel.data.user) return false;
@@ -121,11 +140,7 @@ function ChannelPage(props){
 	}
 
     const renderStream = () => {
-		const {
-			authentication,
-			channel
-		} = props;
-		let stream = channel.data;
+		let stream = props.channel.data;
 
 		let videoJsOptions = { 
 			autoplay: true,
@@ -305,13 +320,55 @@ function ChannelPage(props){
 					tab == 0 &&
 					<div className="site-component-panels flex flex-wrap justify-center w-100">
 						{
+							isMe
+							&&
+							<ToggleFeature flag="editPanels">
+								<div className="db w-100 mt2 mr2 mb2 word-wrap">
+									<div className="flex primary">
+										<Switch
+											onChange={() => showEditPanel(!editPanelState)}
+											checked={editPanelState}
+											uncheckedIcon={<span></span>}
+											className="flex-column"
+										/>
+										<span className="ml2"><Trans>Edit panels</Trans></span>
+									</div>
+								</div>
+							</ToggleFeature>
+						}
+						{
 							stream
 							&&
 							stream.panels
 							&&
+							editPanelState
+							&&
+							isMe
+							&&
 							stream.panels.map((panel, i) => {
 								return (
-									<div key={`panel_${panel.id}_${i}`} className="site-component-panels__panel db w-100 w-third-ns mr1 mb1 word-wrap">
+									<form key={`editpanel_${panel.panel_id}_${i}`} ref={refs[i]} data-id={panel.panel_id} onSubmit={e => e.preventDefault()} className="db w-100 w-third-ns mr1 mb1 word-wrap">
+										<label htmlFor="title" className="primary"><Trans>Title</Trans>:</label>
+										<input name="title" type="text" className="input-reset bn pa3 w-100 bg-white br2" defaultValue={panel.title} placeholder={i18n._(t`Title`)} />
+
+										<label htmlFor="description" className="primary"><Trans>Description</Trans>:</label>
+										<input name="description" type="text" className="input-reset bn pa3 w-100 bg-white br2" defaultValue={panel.description} placeholder={i18n._(t`Description`)} />
+
+										<input type="submit" value={i18n._(t`Edit panel`)} onClick={() => editPanel(i)} className="link color-inherit db pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" />
+									</form>
+								);
+							})
+						}
+						{
+							stream
+							&&
+							stream.panels
+							&&
+							!editPanelState
+							&&
+							stream.panels.map((panel, i) => {
+								return (
+									<div key={`panel_${panel.panel_id}_${i}`} className="site-component-panels__panel db w-100 w-third-ns mr1 mb1 word-wrap">
 										<span className="f2 primary tracked">{panel.title}</span>
 										<div className="mt1 primary">{panel.description}</div>
 									</div>
@@ -331,10 +388,7 @@ function ChannelPage(props){
 	}
 	
 	function renderBan(){
-		const {
-			channel
-		} = props;
-		let stream = channel.data;
+		let stream = props.channel.data;
 		return (
 			<Fragment key={stream.user.id}>
 				<div className="site-component-banned flex flex-column flex-wrap w-100">
@@ -347,12 +401,6 @@ function ChannelPage(props){
 			</Fragment>
 		);
 	}
-
-	const {
-		channel,
-		site,
-		authentication
-	} = props;
 
 	if(channel.loading) return (<Trans>Loading...</Trans>);
 	if(!channel.data) return (<Trans>Channel not found</Trans>);
@@ -379,13 +427,14 @@ function ChannelPage(props){
 		})
 	}
 
+	const refs = Array.from({length: channel.data.panels.length}, a => useRef(null));
+
 	let followed = site.myFollowed && site.myFollowed.find((u) => {
 		return u && u.to_id === channel.data.user.id;
 	});
 
 	let isFollowed;
 	channel.isFollowing = followed && followed.to_id === channel.data.user.id;
-	let isMe = authentication.user && authentication.user.id && channel.data.user.id === authentication.user.id;
 	isFollowed = channel.data.isFollowed = channel.isFollowing;
 	channel.data.isMe = isMe;
 
