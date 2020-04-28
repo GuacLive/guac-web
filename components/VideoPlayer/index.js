@@ -19,8 +19,9 @@ function VideoPlayer(props) {
 	let videoNode;
 	const dispatch = useDispatch();
 	const [connectedStatus, setConnectedStatus] = useState(false);
-	
 
+	var channel = props.streamInfo && props.streamInfo.username;
+	
 	function connectToPlaybackAPI() {
 		if(!didCancel){
 			playbackAPISocket = io(`${VIEWER_API_URL}/playback`, {
@@ -54,7 +55,6 @@ function VideoPlayer(props) {
 		}
 	};
 	console.log('aaa', props);
-	var channel = props.streamInfo && props.streamInfo.username;
 
 	useEffect(() => {
 		const canAutoplay = require('can-autoplay').default;
