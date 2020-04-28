@@ -7,7 +7,8 @@ const { SENTRY_DSN, SENTRY_ORG, SENTRY_PROJECT, SENTRY_AUTH_TOKEN } = process.en
 const webpack = require('webpack');
 const withOffline = require('next-offline');
 const pkg = require('./package.json');
-module.exports = withOffline(nextSourceMaps({
+const withTM = require('next-transpile-modules')(['react-giphy-searchbox']);
+module.exports = withTM(withOffline(nextSourceMaps({
 	webpack(config, {isServer, buildId}) {
 		if (!isServer) {
 			config.resolve.alias['@sentry/node'] = '@sentry/browser';
@@ -122,4 +123,4 @@ module.exports = withOffline(nextSourceMaps({
 	future: {
 		excludeDefaultMomentLocales: true,
 	},
-}))
+})))

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 
-import GiphySelect from '@guaclive/react-giphy-select';
+import ReactGiphySearchbox from 'react-giphy-searchbox';
 
 import { useClickAway } from 'react-use';
 
@@ -23,12 +23,15 @@ function GifSelector(props){
 			<FontAwesomeIcon icon='video' onClick={handleToggleClick} />
 			<span className="absolute right-0 fr bottom-2 pv2">
 				{isOpen &&
-					<GiphySelect
-					theme={{
-						select: `pa1 ba b--gray br2 ${props.darkMode ? 'bg-near-black' : 'bg-white'} ${props.darkMode ? 'near-white' : 'near-black'}`
-					}}
-					requestKey={process.env.GIPHY_API_KEY}
-					onEntrySelect={props.onEntrySelect}
+					<ReactGiphySearchbox
+					rating="r"
+					wrapperClassName={`chat-gifselector pa1 ba b--gray br2 ${props.darkMode ? 'bg-near-black' : 'bg-white'} ${props.darkMode ? 'near-white' : 'near-black'}`}
+					masonryConfig={[
+						{ columns: 3, imageWidth: 110, gutter: 5 },
+					]}
+					apiKey={process.env.GIPHY_API_KEY}
+					onSelect={props.onEntrySelect}
+					poweredByGiphyImage={props.darkMode ? '/img/giphy_white.png' : '/img/giphy_black.png'}
 					/>
 				}
 			</span>
