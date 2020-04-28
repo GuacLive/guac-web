@@ -38,14 +38,19 @@ class IndexPage extends Component {
     }
 
     renderStream = stream => {
-		let videoJsOptions = {
+		let videoJsOptions = { 
 			autoplay: true,
 			controls: true,
-			sources: []
+			sources: [],
+			streamInfo: {
+				username: stream.user.name,
+				isChannel: false
+			}
 		};
 
 		if(stream.live){
 			if(stream.urls){
+				// Prefer FLV if available, it has lower latency
 				let flvUrl = stream.servers[STREAMING_SERVER] + stream.urls.flv;
 				if(stream.urls.flv){
 					videoJsOptions.sources.push({
@@ -56,6 +61,7 @@ class IndexPage extends Component {
 						label: STREAMING_SERVER + `(FLV)`
 					});
 				}
+				// Only HLS has quality options
 				Object.keys(stream.qualities).forEach((key) => {
 					let urlKey = stream.qualities[key];
 					videoJsOptions.sources.push({
@@ -64,12 +70,6 @@ class IndexPage extends Component {
 						label: STREAMING_SERVER + `(${key})`
 					});
 				});
-				/*if(stream.urls.hls){
-					videoJsOptions.sources.push({
-						src: stream.servers[STREAMING_SERVER] + stream.urls.hls,
-						type: 'application/x-mpegURL'
-					});
-				}*/
 			}
 		}
 
