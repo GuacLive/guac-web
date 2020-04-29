@@ -402,6 +402,7 @@ function ChannelPage(props){
 		);
 	}
 
+	const refs = Array.from({length: channel.data.panels.length}, a => useRef(null));
 	if(channel.loading) return (<Trans>Loading...</Trans>);
 	if(!channel.data) return (<Trans>Channel not found</Trans>);
 	if(channel.error) throw channel.error;
@@ -426,8 +427,6 @@ function ChannelPage(props){
 			content: 'noindex, nofollow, noarchive'
 		})
 	}
-
-	const refs = Array.from({length: channel.data.panels.length}, a => useRef(null));
 
 	let followed = site.myFollowed && site.myFollowed.find((u) => {
 		return u && u.to_id === channel.data.user.id;
