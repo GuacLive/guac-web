@@ -1,4 +1,4 @@
-import React, {Component, Fragment, useEffect, useState, useRef} from 'react'
+import React, {Component, Fragment, useEffect, useState, useMemo} from 'react'
 
 import Link from 'next/link'
 
@@ -402,7 +402,10 @@ function ChannelPage(props){
 		);
 	}
 
-	const refs = Array.from({length: channel.data.panels.length}, a => useRef(null));
+	var refs = useMemo(
+		() => Array.from({length: channel.data.panels.length}).map(() => React.createRef()),
+		[]
+	);
 	if(channel.loading) return (<Trans>Loading...</Trans>);
 	if(!channel.data) return (<Trans>Channel not found</Trans>);
 	if(channel.error) throw channel.error;
