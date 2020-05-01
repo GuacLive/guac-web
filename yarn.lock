@@ -1921,10 +1921,22 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@next/react-refresh-utils@9.3.6":
-  version "9.3.6"
-  resolved "https://registry.yarnpkg.com/@next/react-refresh-utils/-/react-refresh-utils-9.3.6.tgz#a5eb91b4b8270fecb5fcf2d1319d8d04f0cf6f75"
-  integrity sha512-XgxPc3WAkNpzD9xYtN4bd3wpV39WhnHYSwXGovVVcImXY6yn1as6hDgwkbuLADY/SHLIu2AI6CTVq0JDoTC/+g==
+"@next/react-dev-overlay@9.3.7-canary.4":
+  version "9.3.7-canary.4"
+  resolved "https://registry.yarnpkg.com/@next/react-dev-overlay/-/react-dev-overlay-9.3.7-canary.4.tgz#75ffeae47b8a2fc2ba6339ab846df48e42735b71"
+  integrity sha512-ee0tvIWFpULOVquRjaS5imU2g7vG1zMYuAtFd4P6J32k4XM+UB/0EnZ9m5BICcmog1Rd+o0xRr4F9pkxh7suGA==
+  dependencies:
+    "@babel/code-frame" "7.8.3"
+    anser "1.4.9"
+    classnames "2.2.6"
+    source-map "0.8.0-beta.0"
+    stacktrace-parser "0.1.9"
+    strip-ansi "6.0.0"
+
+"@next/react-refresh-utils@9.3.7-canary.4":
+  version "9.3.7-canary.4"
+  resolved "https://registry.yarnpkg.com/@next/react-refresh-utils/-/react-refresh-utils-9.3.7-canary.4.tgz#6d5586d263aebc594135afd5274e625940e5c49d"
+  integrity sha512-Yw5zd8XzQu70GCbTOjp1oXCdez50JklJpChTaEkuPx/is71nYEkkBDHEaToIycb3XpmK13D7RVDaz0sh0/3coA==
 
 "@nodelib/fs.stat@^1.1.2":
   version "1.1.3"
@@ -2983,6 +2995,11 @@ alphanum-sort@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
+
+anser@1.4.9:
+  version "1.4.9"
+  resolved "https://registry.yarnpkg.com/anser/-/anser-1.4.9.tgz#1f85423a5dcf8da4631a341665ff675b96845760"
+  integrity sha512-AI+BjTeGt2+WFk4eWcqbQ7snZpDBt8SaLlj0RT2h5xfdWaiy51OjYvqwMrNzJLGy8iOAL6nKDITWO+rd4MkYEA==
 
 ansi-colors@^3.0.0:
   version "3.2.4"
@@ -4081,7 +4098,7 @@ class.extend@0.9.1:
   resolved "https://registry.yarnpkg.com/class.extend/-/class.extend-0.9.1.tgz#b4ee417c693740a44a92a6d64f1c9540641b097a"
   integrity sha1-tO5BfGk3QKRKkqbWTxyVQGQbCXo=
 
-classnames@^2.2.5:
+classnames@2.2.6, classnames@^2.2.5:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
@@ -9007,10 +9024,10 @@ next-transpile-modules@^3.3.0:
     micromatch "^4.0.2"
     slash "^3.0.0"
 
-next@^9.3.6-canary.8:
-  version "9.3.6"
-  resolved "https://registry.yarnpkg.com/next/-/next-9.3.6.tgz#2bfd76f835606db3840adf07b51b052514ef3709"
-  integrity sha512-b46i+qw2SYMVTOObc7GqUizt1zH1fB3T5qcOiCpl9utD7/LcWZkSxSPe7ZJtpAdFnl8V/7A58ADSvU1oxDDWug==
+next@9.3.7-canary.4:
+  version "9.3.7-canary.4"
+  resolved "https://registry.yarnpkg.com/next/-/next-9.3.7-canary.4.tgz#f150a7e90a4ad7c6c97bf88515ede91215186cf0"
+  integrity sha512-SI92GXTUN0MrX/wzcQ4if5aYEzSSnywgw/lx/SInqcQ67cO93DZpDQE0l7M7Z5zHnDMC3LNOoVjTbgToJg5xew==
   dependencies:
     "@ampproject/toolbox-optimizer" "2.2.0"
     "@babel/core" "7.7.2"
@@ -9028,7 +9045,8 @@ next@^9.3.6-canary.8:
     "@babel/preset-react" "7.7.0"
     "@babel/preset-typescript" "7.7.2"
     "@babel/runtime" "7.7.2"
-    "@next/react-refresh-utils" "9.3.6"
+    "@next/react-dev-overlay" "9.3.7-canary.4"
+    "@next/react-refresh-utils" "9.3.7-canary.4"
     babel-plugin-syntax-jsx "6.18.0"
     babel-plugin-transform-define "2.0.0"
     babel-plugin-transform-react-remove-prop-types "0.4.24"
@@ -12168,6 +12186,13 @@ source-map@0.7.3, source-map@^0.7.3:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.7.3.tgz#5302f8169031735226544092e64981f751750383"
   integrity sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ==
 
+source-map@0.8.0-beta.0:
+  version "0.8.0-beta.0"
+  resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.8.0-beta.0.tgz#d4c1bb42c3f7ee925f005927ba10709e0d1d1f11"
+  integrity sha512-2ymg6oRBpebeZi9UUNsgQ89bhx01TcTkmNTGnNO88imTmbSgy4nfujrgVEFKWpMTEGA11EDkTt7mqObTPdigIA==
+  dependencies:
+    whatwg-url "^7.0.0"
+
 source-map@^0.5.0, source-map@^0.5.6:
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
@@ -12307,6 +12332,13 @@ stacktrace-js@^2.0.0:
     error-stack-parser "^2.0.6"
     stack-generator "^2.0.5"
     stacktrace-gps "^3.0.4"
+
+stacktrace-parser@0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/stacktrace-parser/-/stacktrace-parser-0.1.9.tgz#11e6d61d42e8cfc87293143d0766408b7a87b00f"
+  integrity sha512-DRy03ljj0367Ud3OAJHD6eVS/+CvMK2u/djVYuU37fHYcYHoZ8tkFyhbRf7PNG1h3bWLsw+SNTSXrPFe07A7aQ==
+  dependencies:
+    type-fest "^0.7.1"
 
 standard-as-callback@^2.0.1:
   version "2.0.1"
@@ -12992,6 +13024,11 @@ type-fest@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.3.1.tgz#63d00d204e059474fe5e1b7c011112bbd1dc29e1"
   integrity sha512-cUGJnCdr4STbePCgqNFbpVNCepa+kAVohJs1sLhxzdH+gnEoOd8VhbYa7pD3zZYGiURWM2xzEII3fQcRizDkYQ==
+
+type-fest@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.7.1.tgz#8dda65feaf03ed78f0a3f9678f1869147f7c5c48"
+  integrity sha512-Ne2YiiGN8bmrmJJEuTWTLJR32nh/JdL1+PSicowtNb0WFpn59GK8/lfD61bVtzguz7b3PBt74nxpv/Pw5po5Rg==
 
 type-fest@^0.8.1:
   version "0.8.1"
