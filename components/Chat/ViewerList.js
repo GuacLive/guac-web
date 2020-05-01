@@ -27,8 +27,11 @@ function ViewerList(props){
 	const mods = users.filter((u) => {
 		return u && u.type &&  u.type !== 'staff' && u.type === 'moderator';
 	});
+	const supporters = users.filter((u) => {
+		return u && !u.anon && u.type !== 'staff' && u.type !== 'moderator' && u.color;
+	});
 	const usrs = users.filter((u) => {
-		return u && !u.anon && u.type !== 'staff' && u.type !== 'moderator';
+		return u && !u.anon && u.type !== 'staff' && u.type !== 'moderator' && !u.color;
 	});
 
 	return (
@@ -79,6 +82,25 @@ function ViewerList(props){
 										mods.map((u) => {
 											return (
 												<li key={`mods_${u.name}`} className="flex flex-grow-1" style={{color: `#${u.color}`}}>{u.name}</li>
+											);
+										})
+									}
+								</ul>
+							</div>
+						}
+						{
+							supporters
+							&&
+							supporters.length > 0
+							&&
+							<div className="db bb b--gray pb4">
+								<span className="f5 b tracked mt0 mb3">Patreon supporters:</span>
+								<ul className="pa0 ma0 list">
+									{
+										supporters &&
+										supporters.map((u) => {
+											return (
+												<li key={`user_${u.name}`} className="flex flex-grow-1" style={{color: `#${u.color}`}}>{u.name}</li>
 											);
 										})
 									}
