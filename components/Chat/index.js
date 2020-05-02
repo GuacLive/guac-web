@@ -426,7 +426,7 @@ function ChatComponent(props){
 			if(!msg) return;
 			msgs = msgs.map((msg) => {
 				return {
-					type: Object.keys(emotes).indexOf(msg) > -1 ? 'emote' : 'text',
+					type: emotes[msg] !== null ? 'emote' : 'text',
 					content: msg
 				};
 			});
