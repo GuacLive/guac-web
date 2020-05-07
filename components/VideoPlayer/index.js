@@ -279,7 +279,13 @@ function VideoPlayer(props) {
 	return (
 		<>	
 			<div className="player" data-vjs-player>
-				<video ref={ node => videoNode = node } className={`player-video video-js vjs-default-skin vjs-big-play-centered ${props.fill ? 'vjs-fill' : 'vjs-16-9'}`} poster={!props.live ? "/img/offline-poster.png" : ""} controls playsInline preload="auto"></video>
+				<video
+					ref={ node => videoNode = node }
+					className={`player-video video-js vjs-default-skin vjs-big-play-centered ${props.fill ? 'vjs-fill' : 'vjs-16-9'}`} poster={!props.live ? "/img/offline-poster.png" : ""}
+					controls
+					playsInline
+					preload="auto"
+				></video>
 			</div>
 		</>
 	);
