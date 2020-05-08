@@ -12,7 +12,7 @@ class ExampleBoundary extends Component {
 				scope.setExtra(key, errorInfo[key]);
 			});
 			Sentry.captureException(error);
-		}
+		});
 	}
 	render() {
 		if (this.state.error) {
