@@ -69,6 +69,8 @@ module.exports = withTM(withOffline(nextSourceMaps({
 		SENTRY_PROJECT: process.env.SENTRY_PROJECT,
 		SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
 		SPLIT_IO_KEY: process.env.SPLIT_IO_KEY,
+		PATREON_CLIENT_ID: process.env.PATREON_CLIENT_ID,
+		PATREON_REDIRECT_URI: process.env.PATREON_REDIRECT_URI,
 		OIL_CONFIG: {
 			"theme": "dark",
 			"cpc_type": "standard",
