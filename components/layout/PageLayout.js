@@ -214,7 +214,6 @@ function PageLayout(props){
 				<meta property="twitter:image" content="https://guac.live/img/header-logo.png" key="twitter:image" />
 				<meta name="description" content="guac is a live streaming platform." key="description" />
 				<meta name="theme-color" key="theme-color" content="#19a974" />
-				<script type="text/javascript" src="//privacy.guac.live/release/current/oil.1.3.5-RELEASE.min.js" nonce={props.nonce}></script>
 			</Head>
 			<main className="w-100 h-100 flex flex-column flex-nowrap justify-between items-start page-wrapper">
 				<header className="site-component-header z-5 w-100 fixed ph3 pv2 bg-near-black ml-auto flex-shrink-0">
