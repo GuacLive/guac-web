@@ -11,9 +11,9 @@ export const fetchChannel = (name) => async (dispatch) => {
 		type: 'FETCH_CHANNEL_REQUEST'
 	});
 	return callApi('/watch/' + name)
-	.then(response => response.json())
+	.then(response => response ? response.json() : null)
 	.then((json) => {
-		if (json.statusCode == 200) {
+		if (json && json.statusCode == 200) {
 			dispatch(Object.assign({
 				type: 'FETCH_CHANNEL_SUCCESS'
 			}, json));
