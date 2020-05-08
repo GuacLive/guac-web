@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import * as Sentry from '@sentry/node';
-class ExampleBoundary extends Component {
+export default class ExampleBoundary extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {error: null};
