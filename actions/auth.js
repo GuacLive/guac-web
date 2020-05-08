@@ -157,3 +157,38 @@ export const setPassword = (token, password) => async (dispatch) => {
         });
 	});
 };
+
+export const setColor = (token, color) => async (dispatch) => {
+	dispatch({
+	  type: 'CHANGE_COLOR_REQUEST'
+	});
+	return callApi('/user/color', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		accessToken: token,
+		body: JSON.stringify({
+			color
+		})
+	})
+	.then(response => response.json())
+	.then((json) => {
+		if (json.statusCode == 200) {
+			dispatch(Object.assign({
+				type: 'CHANGE_COLOR_SUCCESS'
+			}, json));
+		} else {
+			dispatch({
+				type: 'CHANGE_COLOR_FAILURE',
+				error: new Error(json && json.statusMessage)
+			});
+		}
+	})
+	.catch(error => {
+        dispatch({
+          type: 'CHANGE_COLOR_FAILURE',
+          error
+        });
+	});
+};

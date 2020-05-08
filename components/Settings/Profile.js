@@ -7,13 +7,21 @@ function ProfileComponent(props){
 	const { i18n } = useLingui();
 	const dispatch = useDispatch();
 	const auth = useSelector(state => state.authentication);
+	const color = useRef();
 	const password = useRef();
 
 	function handleSubmit(e){
 		e.preventDefault();
-		dispatch(
-			actions.setPassword(auth.token, password.current.value)
-		);
+		if(color.current.value){
+			dispatch(
+				actions.setColor(auth.token, color.current.value)
+			);
+		}
+		if(password.current.value){
+			dispatch(
+				actions.setPassword(auth.token, password.current.value)
+			);
+		}
 	}
 
 	return (
@@ -21,10 +29,11 @@ function ProfileComponent(props){
 			{auth.error &&
 				<div className="red"><Trans>Error</Trans>: {auth.error.message}</div>
 			}
-			<div className="primary"><span className="b"><Trans>E-mail</Trans></span>: {auth.user.email || 'None'}</div>
-			<div className="primary"><span className="b"><Trans>Color</Trans></span>: <span style={{color: auth.user.color}}>{auth.user.color || 'Default'}</span></div>
-			<div className="primary f7"><Trans>Want to customize your color? <a target="_blank" href="https://www.patreon.com/join/guaclive" className="primary b"><Trans>Join our Patreon!</Trans></a></Trans></div>
 			<form className="measure" onSubmit={handleSubmit}>
+				<div className="primary"><span className="b"><Trans>E-mail</Trans></span>: {auth.user.email || 'None'}</div>
+				<label htmlFor="color" className="b"><Trans>Color</Trans>:</label>
+				<input name="color" type="color" disabled={auth.user.patreon ? false : true} className="input-reset bg-white br2" ref={color} placeholder={i18n._(t`Color`)} defaultValue={auth.user.color ? `#${auth.user.color}` : null}/>
+				<div className="primary f7"><Trans>Want to customize your color? <a target="_blank" href="https://www.patreon.com/join/guaclive" className="primary b"><Trans>Join our Patreon!</Trans></a></Trans></div>
 				<label htmlFor="password" className="b"><Trans>New password:</Trans></label>
 				<input name="password" type="password" className="input-reset bn pa3 w-100 bg-white br2" ref={password} placeholder={i18n._(t`Password`)} />
 				<input type="submit" value={i18n._(t`Edit user`)} className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" />
