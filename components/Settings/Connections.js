@@ -1,12 +1,15 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLingui } from '@lingui/react';
 import { Trans, t } from '@lingui/macro';
 
+const API_URL = process.env.API_URL;
 const loginURL = `https://www.patreon.com/oauth2/authorize?response_type=code&client_id=${process.env.PATREON_CLIENT_ID}&redirect_uri=${process.env.PATREON_REDIRECT_URI}&state=`;
 function ConnectionsComponent(props){
 	const { i18n } = useLingui();
 	const auth = useSelector(state => state.authentication);
+	const [verifySuccess, setVerifySuccess] = useState(false);
+	const [verifyError, setVerifyError] = useState(false);
 
 	const patreonOAuth = async () => {
 		const { token, user } = auth;
@@ -27,6 +30,33 @@ function ConnectionsComponent(props){
 			});
 		}
 		window.location.href = loginURL;
+	};
+
+	const verifyPatreonStatus = async () => {
+		const { token, user } = auth;
+		return await fetch(`${API_URL}/user/verifyPatreon`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${token}`,
+			}
+		})
+		.then((response) => {
+			return response.json();
+		})
+		.then(data => {
+			if(data.statusCode !== 200){
+				setVerifyError(true);
+				setVerifySuccess(false);
+				return console.error(data);
+			}
+			setVerifyError(false);
+			setVerifySuccess(true);
+		}).catch(e => {
+			setVerifyError(true);
+			setVerifySuccess(false);
+			return console.error(e);
+		});
 	};
 	
 	return (
@@ -66,6 +96,13 @@ function ConnectionsComponent(props){
 									</div>
 									: null}
 							</div>
+							{auth && auth.user && auth.user.patreon ?
+							<div
+							onClick={verifyPatreonStatus}
+							className='content-center v-mid inline-flex justify-center overflow-hidden relative link color-inherit nowrap lh-solid pointer br2 ba b--green bg-green'>
+								<span className='items-center flex flex-grow-0 pv2 ph3'>{verifyError ? i18n._(t`Failed to verify`) : i18n._(t`Verify`)}</span>
+							</div>
+							: null}
 							<div
 							onClick={patreonOAuth}
 							className='content-center v-mid inline-flex justify-center overflow-hidden relative link color-inherit nowrap lh-solid pointer br2 ba b--green bg-green'>
