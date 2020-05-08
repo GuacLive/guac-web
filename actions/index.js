@@ -1,4 +1,4 @@
-import { authenticate, register, reauthenticate, deauthenticate, setPassword } from './auth';
+import { authenticate, register, reauthenticate, deauthenticate, setPassword, setColor } from './auth';
 
 import { fetchCategories, resetCategories } from './categories';
 
@@ -22,6 +22,7 @@ export {
 	register,
 	reauthenticate,
 	deauthenticate,
+	setColor,
 	setPassword,
 	fetchCategories,
 	resetCategories,
