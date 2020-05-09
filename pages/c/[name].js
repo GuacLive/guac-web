@@ -50,6 +50,7 @@ const ReplaysList = dynamic(() => import('../../components/Replays/ReplaysList')
 const EditStreamPanel = dynamic(() => import('../../components/EditStreamPanel'));
 const SubscriptionDialog = dynamic(() => import('../../components/SubscriptionDialog'));
 const STREAMING_SERVER = 'eu';
+const API_URL = process.env.API_URL;
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
 function ChannelPage(props){
 	const [tab, setTab] = useState(0);
@@ -69,13 +70,25 @@ function ChannelPage(props){
 	const editPanel = async (i) => {
 		var p = refs[i] && refs[i].current;
 		var panel_id  = p.dataset['id'];
-		/*await this.props.dispatch(
-			actions.editPanel(
+	
+		await fetch(API_URL + '/panels', {
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${authentication.user.token}`,
+			},
+			method: 'POST',
+			body: JSON.stringify({
 				panel_id,
-				p.title.value,
-				p.description.value
-			)
-		);*/
+				title: p.title.value,
+				description: p.description.value
+			})
+		})
+		.then(response => response.json())
+		.then(r => {
+			console.log('editPanel', r);
+		})
+		.catch(error => console.error(error));
 	};
 
 	useEffect(() => {
