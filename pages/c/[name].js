@@ -335,19 +335,17 @@ function ChannelPage(props){
 						{
 							isMe
 							&&
-							<ToggleFeature flag="editPanels">
-								<div className="db w-100 mt2 mr2 mb2 word-wrap">
-									<div className="flex primary">
-										<Switch
-											onChange={() => showEditPanel(!editPanelState)}
-											checked={editPanelState}
-											uncheckedIcon={<span></span>}
-											className="flex-column"
-										/>
-										<span className="ml2"><Trans>Edit panels</Trans></span>
-									</div>
+							<div className="db w-100 mt2 mr2 mb2 word-wrap">
+								<div className="flex primary">
+									<Switch
+										onChange={() => showEditPanel(!editPanelState)}
+										checked={editPanelState}
+										uncheckedIcon={<span></span>}
+										className="flex-column"
+									/>
+									<span className="ml2"><Trans>Edit panels</Trans></span>
 								</div>
-							</ToggleFeature>
+							</div>
 						}
 						{
 							stream
