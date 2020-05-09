@@ -425,12 +425,15 @@ function ChatComponent(props){
 			let msgs = msg && msg.split(' ');
 			if(!msg) return;
 			msgs = msgs.map((msg) => {
+				if(!msg || !msg.trim()) return;
 				return {
 					type: Object.keys(emotes).indexOf(msg) > -1 ? 'emote' : 'text',
 					content: msg
 				};
 			});
-			socket.emit('message', msgs);
+			if(msgs.length > 0){
+				socket.emit('message', msgs);
+			}
 		}
 		
 		// empty the message box
