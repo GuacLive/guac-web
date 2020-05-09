@@ -21,7 +21,7 @@ export default class ExampleBoundary extends Component {
 					className="snap"
 					onClick={() => Sentry.lastEventId() && Sentry.showReportDialog()}
 				>
-					<img src={oops} />
+					<img src="/img/error.png" />
 					<p>We're sorry — something's gone wrong.</p>
 					<p>Our team has been notified, but click here fill out a report.</p>
 					<p>Or refresh the page and try again.</p>
