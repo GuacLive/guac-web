@@ -1,6 +1,6 @@
 {
   "name": "guac-web",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "Main web ui for the Guac livestreaming platform",
   "repository": "GuacLive/guac-web",
   "author": {
@@ -11,7 +11,7 @@
   "scripts": {
     "now-build": "next build",
     "dev": "next",
-    "deploy": "now"
+    "deploy": "vercel"
   },
   "engines": {
     "node": "12.x"
@@ -57,12 +57,11 @@
     "js-cookie": "^3.0.0-beta.0",
     "linkifyjs": "^2.1.8",
     "lscache": "^1.2.0",
-    "next": "9.3.7-canary.4",
+    "next": "^9.3.7-canary.16",
     "next-offline": "^5",
     "next-redux-wrapper": "6.0.0-rc.5",
     "next-server": "^9.0.6-canary.0",
     "next-transpile-modules": "^3.3.0",
-    "now": "^18.0.0",
     "nuka-carousel": "4.6.6",
     "path-match": "^1.2.4",
     "postcss-css-variables": "^0.14.0",
@@ -92,6 +91,7 @@
     "tachyons": "^4",
     "typescript": "^3.9.0-dev.20200414",
     "url-loader": "^4.1.0",
+    "vercel": "^18.0.1-canary.24",
     "video.js": "npm:@bitwave/video.js",
     "videojs-errors": "^4.3.0",
     "videojs-flvjs": "^0.2.0",
