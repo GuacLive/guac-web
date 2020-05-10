@@ -34,7 +34,6 @@ import ErrorBoundary from '../utils/ErrorBoundary';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 
-
 import { faBan, faBars, faCheck, faCheckCircle, faClock, faHourglass, faHome, faVideo, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog, faMinusCircle, faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 
 // We need to put these here, since Next only allows global.css in _app

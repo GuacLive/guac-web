@@ -1,8 +1,6 @@
 import Document, {Head, Main, NextScript} from 'next/document';
 import * as Sentry from '@sentry/node';
 
-import fidPolyfill from 'next/dist/next-server/lib/fid';
-
 process.on('unhandledRejection', (err) => {
 	Sentry.captureException(err);
 });
@@ -12,23 +10,6 @@ process.on('uncaughtException', (err) => {
 });
 
 import {getCookie} from '../utils/cookie';
-class MyHead extends Head {
-	getFidPolyfill(){
-		const {nonce} = this.props;
-		if(!process.env.__NEXT_FID_POLYFILL){
-			return null
-		}
-
-		return (
-			<script
-				nonce={nonce}
-				dangerouslySetInnerHTML={{
-					__html: `(${fidPolyfill})(addEventListener, removeEventListener)`,
-				}}
-			/>
-		)
-	}
-}
 export default class MyDocument extends Document {
 	static getInitialProps({req, renderPage}) {
 		const {html, head, errorHtml, chunks} = renderPage()
@@ -45,7 +26,7 @@ export default class MyDocument extends Document {
 		//let perf = 'hydrationMetrics&&hydrationMetrics.onInputDelay&&performance&&hydrationMetrics.onInputDelay(function(e,n){sa_event("event",{eventCategory:"Perf Metrics",eventAction:"first-input-delay",eventLabel:n.type,eventValue:Math.round(e),nonInteraction:!0})});';
 		return (
 			<html lang={this.props.locale} data-cast-api-enabled="true" id="guac" className={this.props.mode === 'dark' ? 'guac-skin-dark' : 'guac-skin-light'}>
-				<MyHead nonce={nonce}>
+				<Head nonce={nonce}>
 					<script async defer type="text/javascript" src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1" nonce={this.props.nonce}></script>
 					<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.13.0/css/solid.css" integrity="sha384-fZFUEa75TqnWs6kJuLABg1hDDArGv1sOKyoqc7RubztZ1lvSU7BS+rc5mwf1Is5a" crossOrigin="anonymous" />
 					<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.13.0/css/fontawesome.css" integrity="sha384-syoT0d9IcMjfxtHzbJUlNIuL19vD9XQAdOzftC+llPALVSZdxUpVXE0niLOiw/mn" crossOrigin="anonymous" />
@@ -70,7 +51,7 @@ export default class MyDocument extends Document {
 					<script type="text/javascript" dangerouslySetInnerHTML={{__html: event}} nonce={nonce}></script>
 					<script type="text/javascript" dangerouslySetInnerHTML={{__html: darkMode}} nonce={nonce}></script>
 					<style type="text/css" nonce={nonce} dangerouslySetInnerHTML={{__html: quantCSS}}></style>
-				</MyHead>
+				</Head>
 				<body className="sans-serif">
 					<Main />
 					<NextScript nonce={nonce} />
