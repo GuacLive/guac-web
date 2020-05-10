@@ -2,6 +2,8 @@ const videojs = require('video.js').default;
 import '@videojs/http-streaming';
 import 'videojs-errors';
 
+import {useLingui} from '@lingui/react';
+
 import io from 'socket.io-client';
 
 import {useEffect,useState} from 'react';
@@ -18,6 +20,7 @@ function VideoPlayer(props) {
 	let player;
 	let videoNode;
 	const dispatch = useDispatch();
+	const { i18n } = useLingui();
 	const [connectedStatus, setConnectedStatus] = useState(false);
 
 	var channel = props.streamInfo && props.streamInfo.username;
@@ -60,7 +63,8 @@ function VideoPlayer(props) {
 		const canAutoplay = require('can-autoplay').default;
 		const videoJsOptions = {
 			errorDisplay: false,
-			liveui: false,
+			liveui: true,
+			language: i18n.locale || 'en',
 			poster: !props.live ? OFFLINE_POSTER : '',
 			inactivityTimeout: 1000,
 			suppressNotSupportedError: true,
@@ -137,6 +141,11 @@ function VideoPlayer(props) {
 		if(window){
 			window.flvjs = require('@guaclive/flv.js').default;
 			window.videojs = videojs;
+			try{
+				require(`video.js/dist/lang/${i18n.locale || 'en'}.js`);
+			}catch(e){
+
+			}
 		}
 
 		require('videojs-theater-mode/dist/videojs.theaterMode.js');
