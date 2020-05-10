@@ -1,4 +1,3 @@
-import fetch from 'cross-fetch';
 import AbortController from 'abort-controller';
 import lscache from 'lscache';
 
