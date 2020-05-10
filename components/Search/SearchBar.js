@@ -5,8 +5,6 @@ import { useDebounce, useMount } from 'react-use';
 import { useLingui } from "@lingui/react"
 import { Trans, t } from '@lingui/macro';
 
-import fetch from 'cross-fetch';
-
 import Link from 'next/link';
 
 const API_URL = process.env.API_URL;
