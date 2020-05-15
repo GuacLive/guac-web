@@ -136,13 +136,14 @@ self.addEventListener('notificationclick', function(event) {
             type: 'window'
         })
         .then(function(clientList) {
+            let link = `/c/${notificationPayload.data.username}`;
             for(var i = 0; i < clientList.length; i++){
                 var client = clientList[i];
-                if(client.url == '/' && 'focus' in client)
+                if(client.url == link && 'focus' in client)
                     return client.focus();
             }
             if(clients.openWindow){
-                return clients.openWindow(`https://guac.live/c/${notificationPayload.data.username}`);
+                return clients.openWindow(`https://guac.live${link}`);
             }
         })
     );
