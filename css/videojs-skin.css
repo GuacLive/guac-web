@@ -144,7 +144,12 @@
 	line-height: 1.9em!important;
 	margin-top: -1em!important;
 	margin-left: -1em;
-	border-width: 3px
+	border-width: 3px;
+	background-color: rgba(0,0,0,.35) !important;
+	font-size: 3.5em;
+	border-radius: 50% !important;
+	border-width: 3px;
+	display: block;
 }
 
 .video-js .vjs-big-play-button:before,
