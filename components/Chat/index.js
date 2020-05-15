@@ -756,7 +756,7 @@ function ChatComponent(props){
 				{
 					showFAB ?
 							<div className="absolute br2 bottom-0 flex justify-center items-center pv3 ph4 mb3 bg-black-50 white b" onClick={goToBottom}>
-								<div><Trans>Chat Paused Due To Scroll</Trans></div>
+								<div><Trans>More messages below.</Trans></div>
 							</div> 
 						: null
 				}
