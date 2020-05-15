@@ -1,5 +1,3 @@
-const nextSourceMaps = require("@zeit/next-source-maps")();
-
 // Use the SentryWebpack plugin to upload the source maps during build step
 const SentryWebpackPlugin = require('@sentry/webpack-plugin')
 const { SENTRY_DSN, SENTRY_ORG, SENTRY_PROJECT, SENTRY_AUTH_TOKEN } = process.env
@@ -8,7 +6,7 @@ const webpack = require('webpack');
 const withOffline = require('next-offline');
 const pkg = require('./package.json');
 const withTM = require('next-transpile-modules')(['react-giphy-searchbox']);
-module.exports = withTM(withOffline(nextSourceMaps({
+module.exports = withTM(withOffline({
 	webpack(config, {isServer, buildId}) {
 		if (!isServer) {
 			config.resolve.alias['@sentry/node'] = '@sentry/browser';
@@ -54,6 +52,8 @@ module.exports = withTM(withOffline(nextSourceMaps({
 				})
 			);
 		}
+
+		config.devtool = config.devtool || 'source-map';
 		return config;
 	},
 	target: 'serverless',
@@ -97,4 +97,4 @@ module.exports = withTM(withOffline(nextSourceMaps({
 	future: {
 		excludeDefaultMomentLocales: true,
 	},
-})))
+}))
