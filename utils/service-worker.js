@@ -4,7 +4,7 @@ importScripts('https://www.gstatic.com/firebasejs/7.14.0/firebase-messaging.js')
 import {registerRoute} from 'workbox-routing';
 import {precacheAndRoute, cleanupOutdatedCaches} from 'workbox-precaching';
 import {CacheFirst, NetworkFirst} from 'workbox-strategies';
-const ExpirationPlugin = require('workbox-expiration').Plugin;
+import { ExpirationPlugin } from 'workbox-expiration';
 import {CacheableResponse} from 'workbox-cacheable-response';
 
 // Initialize the Firebase app in the service worker by passing in the
