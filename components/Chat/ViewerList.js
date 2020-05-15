@@ -1,10 +1,14 @@
 import React, { useState, useRef } from 'react';
 
+import { useLingui } from "@lingui/react"
+import { Trans, t } from '@lingui/macro';
+
 import { useClickAway } from 'react-use';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function ViewerList(props){
+	const { i18n } = useLingui();
 	const [isOpen, setIsOpen] = useState(false);
 
 	const ref = useRef(null);
@@ -43,7 +47,7 @@ function ViewerList(props){
 					handleToggleClick();
 				}}
 				className="link color-inherit ph2 br2 bg-animate hover-bg-dark-gray outline-none"
-				title="Users in chat"
+				title={i18n._(t`Users in chat`)}
 			>
 			<FontAwesomeIcon icon='user' fixedWidth />
 			</a>
@@ -56,7 +60,7 @@ function ViewerList(props){
 							staff.length > 0
 							&&
 							<div className="db bb b--gray pb4">
-								<span className="f5 b tracked mt0 mb3">Staff in chat:</span>
+								<span className="f5 b tracked mt0 mb3"><Trans>Staff in chat:</Trans></span>
 								<ul className="pa0 ma0 list">
 									{
 										staff &&
@@ -75,7 +79,7 @@ function ViewerList(props){
 							mods.length > 0
 							&&
 							<div className="db bb b--gray pb4">
-								<span className="f5 b tracked mt0 mb3">Moderators in chat:</span>
+								<span className="f5 b tracked mt0 mb3"><Trans>Moderators in chat:</Trans></span>
 								<ul className="pa0 ma0 list">
 									{
 										mods &&
@@ -94,7 +98,7 @@ function ViewerList(props){
 							supporters.length > 0
 							&&
 							<div className="db bb b--gray pb4">
-								<span className="f5 b tracked mt0 mb3">Patreon supporters:</span>
+								<span className="f5 b tracked mt0 mb3"><Trans>Patreon supporters:</Trans></span>
 								<ul className="pa0 ma0 list">
 									{
 										supporters &&
@@ -113,7 +117,7 @@ function ViewerList(props){
 							usrs.length > 0
 							&&
 							<div className="db bb b--gray pb4">
-								<span className="f5 b tracked mt0 mb3">Users in chat:</span>
+								<span className="f5 b tracked mt0 mb3"><Trans>Users in chat:</Trans></span>
 								<ul className="pa0 ma0 list">
 									{
 										usrs &&

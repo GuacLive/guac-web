@@ -17,7 +17,7 @@ msgstr ""
 msgid "<0>Hi,<1/>Welcome to guac.live &mdash; live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 msgstr "<0>Hi,<1/>Velkommen til guac.live — direktestrømming-platformen. Vi er for tiden i beta.</0><2>Mens vi er i beta, så vil strømmeprivilegier bli gitt på invitasjonsbasis.<3/>Men, lag gjerne en konto og delta i chatten og det generelle fellesskapet!</2>"
 
-#: pages/c/[name].js:307
+#: pages/c/[name].js:320
 msgid "ABOUT"
 msgstr "OM"
 
@@ -37,9 +37,9 @@ msgstr "Til slutt, sørg for at keyframe interval er satt til <0>1</0>."
 msgid "Breaking the law"
 msgstr "Å bryte loven"
 
+#: components/layout/PageLayout.js:250
+#: components/layout/PageLayout.js:250
 #: components/layout/PageLayout.js:251
-#: components/layout/PageLayout.js:251
-#: components/layout/PageLayout.js:252
 #: pages/categories.js:28
 msgid "Browse"
 msgstr "Utforsk"
@@ -52,20 +52,20 @@ msgstr "Kategori:"
 msgid "Channel"
 msgstr "Kanal"
 
-#: pages/c/[name].js:410
+#: pages/c/[name].js:421
 msgid "Channel not found"
 msgstr "Kanal ikke funnet"
 
+#: components/layout/PageLayout.js:244
+#: components/layout/PageLayout.js:244
 #: components/layout/PageLayout.js:245
-#: components/layout/PageLayout.js:245
-#: components/layout/PageLayout.js:246
 #: pages/channels.js:50
 msgid "Channels"
 msgstr "Kanaler"
 
-#: components/Chat/index.js:756
-msgid "Chat Paused Due To Scroll"
-msgstr "Chat pauset pga. scrolling"
+#: components/Chat/index.js:759
+#~ msgid "Chat Paused Due To Scroll"
+#~ msgstr "Chat pauset pga. scrolling"
 
 #: pages/dashboard.js:124
 msgid "Chat commands:"
@@ -75,7 +75,8 @@ msgstr "Chat-kommandoer:"
 msgid "Client error"
 msgstr "Klient-feil"
 
-#: components/Settings/Profile.js:25
+#: components/Settings/Profile.js:34
+#: components/Settings/Profile.js:35
 msgid "Color"
 msgstr "Farge"
 
@@ -100,7 +101,7 @@ msgstr "Opphavsrettsbeskyttet innhold"
 msgid "Counter-Notification"
 msgstr "Innsigelse"
 
-#: pages/c/[name].js:241
+#: pages/c/[name].js:254
 msgid "Create an account to follow this user"
 msgstr "Opprett en konto for å følge denne brukeren"
 
@@ -112,10 +113,10 @@ msgstr "DMCA"
 msgid "Dashboard"
 msgstr "Kontrollpanel"
 
-#: pages/c/[name].js:354
-#: pages/c/[name].js:355
+#: pages/c/[name].js:365
+#: pages/c/[name].js:366
 msgid "Description"
-msgstr ""
+msgstr "Beskrivelse"
 
 #: pages/dmca.js:94
 msgid "Designated Copyright Agent"
@@ -137,24 +138,24 @@ msgstr "Ikke delta i hatprat"
 msgid "Do not engage, or encourage others to engage, in any targeted abuse or harassment against any other user."
 msgstr "Ikke engasjer deg eller oppmuntre andre til å engasjere seg i målrettet misbruk eller trakassering mot andre brukere."
 
-#: components/Settings/Profile.js:24
+#: components/Settings/Profile.js:33
 #: pages/auth/register.js:68
 msgid "E-mail"
 msgstr "E-post"
 
-#: pages/c/[name].js:256
+#: pages/c/[name].js:269
 msgid "Edit"
 msgstr "Endre"
 
-#: pages/c/[name].js:357
+#: pages/c/[name].js:368
 msgid "Edit panel"
 msgstr "Endre panel"
 
-#: pages/c/[name].js:334
+#: pages/c/[name].js:346
 msgid "Edit panels"
 msgstr "Endre paneler"
 
-#: components/Settings/Profile.js:30
+#: components/Settings/Profile.js:39
 msgid "Edit user"
 msgstr "Endre bruker"
 
@@ -162,7 +163,7 @@ msgstr "Endre bruker"
 msgid "English"
 msgstr "Engelsk"
 
-#: components/Settings/Profile.js:22
+#: components/Settings/Profile.js:30
 #: pages/auth/login.js:51
 #: pages/auth/register.js:61
 msgid "Error"
@@ -176,8 +177,8 @@ msgstr "Feilet verifisering"
 msgid "First, choose the streaming server closest to you:"
 msgstr "Først, velg strømmeserveren som er nærmest deg:"
 
-#: pages/c/[name].js:235
-#: pages/c/[name].js:247
+#: pages/c/[name].js:248
+#: pages/c/[name].js:260
 msgid "Follow"
 msgstr "Følg"
 
@@ -189,7 +190,7 @@ msgstr "Fulgte kanaler"
 #~ msgid "Followers"
 #~ msgstr "Følgere"
 
-#: pages/c/[name].js:234
+#: pages/c/[name].js:247
 msgid "Following"
 msgstr "Følger"
 
@@ -217,7 +218,7 @@ msgstr "Trakassering og mobbing"
 msgid "Hate Speech"
 msgstr "Hatprat"
 
-#: components/layout/PageLayout.js:240
+#: components/layout/PageLayout.js:239
 msgid "Home"
 msgstr "Hjem"
 
@@ -237,16 +238,16 @@ msgstr "Bli med"
 msgid "Live streams"
 msgstr "Direktesendinger"
 
-#: components/Chat/index.js:566
-#: components/Search/SearchBar.js:83
-#: pages/c/[name].js:409
+#: components/Chat/index.js:569
+#: components/Search/SearchBar.js:81
+#: pages/c/[name].js:420
 msgid "Loading..."
 msgstr "Laster..."
 
+#: components/layout/PageLayout.js:267
+#: components/layout/PageLayout.js:267
 #: components/layout/PageLayout.js:268
-#: components/layout/PageLayout.js:268
-#: components/layout/PageLayout.js:269
-#: pages/auth/activate.js:39
+#: pages/auth/activate.js:38
 #: pages/auth/login.js:49
 #: pages/auth/register.js:80
 msgid "Log in"
@@ -262,9 +263,17 @@ msgstr "Håndter"
 
 #: components/Settings/Connections.js:67
 msgid "Manage your connected accounts and services"
-msgstr ""
+msgstr "Håndter din tilkoblede kontoer og tjenester"
 
-#: components/Settings/Profile.js:28
+#: components/Chat/ViewerList.js:82
+msgid "Moderators in chat:"
+msgstr "Moderatorer i chat:"
+
+#: components/Chat/index.js:759
+msgid "More messages below."
+msgstr "Flere meldinger under."
+
+#: components/Settings/Profile.js:37
 msgid "New password:"
 msgstr "Nytt passord:"
 
@@ -280,7 +289,7 @@ msgstr "Ingen strømmenøkkel funnet, vennligst kontakt en administrator."
 msgid "Norwegian"
 msgstr "Norsk"
 
-#: components/Chat/index.js:709
+#: components/Chat/index.js:712
 msgid "Not connected to chat."
 msgstr "Ikke tilkoblet chat."
 
@@ -296,11 +305,11 @@ msgstr "Nå, bruk følgende strømmenøkkel:"
 msgid "Page not found"
 msgstr "Side ikke funnet"
 
-#: pages/c/[name].js:212
+#: pages/c/[name].js:225
 msgid "Partnered"
 msgstr "Partner"
 
-#: components/Settings/Profile.js:29
+#: components/Settings/Profile.js:38
 #: pages/auth/login.js:58
 #: pages/auth/register.js:72
 msgid "Password"
@@ -309,6 +318,10 @@ msgstr "Passord"
 #: components/Settings/Connections.js:92
 msgid "Patreon Status: Not a Patron"
 msgstr "Patreon-status: Ikke en patron"
+
+#: components/Chat/ViewerList.js:101
+msgid "Patreon supporters:"
+msgstr "Patreon-støttere:"
 
 #: pages/dashboard.js:132
 msgid "Permanently ban user"
@@ -338,11 +351,11 @@ msgstr "Privat (vises ikke i kategorier, forsiden eller i søk):"
 msgid "Profile"
 msgstr "Profil"
 
-#: pages/c/[name].js:316
+#: pages/c/[name].js:329
 msgid "REPLAYS"
 msgstr "ARKIV"
 
-#: components/Chat/index.js:710
+#: components/Chat/index.js:713
 msgid "Reconnect"
 msgstr "Koble til"
 
@@ -350,7 +363,7 @@ msgstr "Koble til"
 msgid "Remember me"
 msgstr "Husk meg"
 
-#: components/Search/SearchBar.js:68
+#: components/Search/SearchBar.js:66
 msgid "Search..."
 msgstr "Søk..."
 
@@ -380,19 +393,23 @@ msgstr "Vis bare direkte"
 msgid "Show user list"
 msgstr "Vis liste over brukere"
 
+#: components/layout/PageLayout.js:274
+#: components/layout/PageLayout.js:274
 #: components/layout/PageLayout.js:275
-#: components/layout/PageLayout.js:275
-#: components/layout/PageLayout.js:276
 #: pages/auth/login.js:67
 #: pages/auth/register.js:59
 msgid "Sign up"
 msgstr "Registrer"
 
+#: components/Chat/ViewerList.js:63
+msgid "Staff in chat:"
+msgstr "Staff i chat:"
+
 #: components/layout/PageLayout.js:110
 msgid "Start following your favorite streamers to find them quickly!"
 msgstr "Begynn å følge dine favoritt-strømmere for å finne dem raskt!"
 
-#: components/Chat/index.js:728
+#: components/Chat/index.js:731
 msgid "Stream Chat"
 msgstr "Strømmechat"
 
@@ -412,7 +429,7 @@ msgstr "Strømmeinnstillinger"
 msgid "Streaming permissions"
 msgstr "Strømmetillatelse"
 
-#: pages/c/[name].js:251
+#: pages/c/[name].js:264
 msgid "Subscribe"
 msgstr "Abonnér"
 
@@ -440,7 +457,7 @@ msgstr "Denne siden er scuffed og uferdig LOL"
 msgid "This page requires you to be logged in."
 msgstr "Denne siden krever at du er logget inn."
 
-#: pages/auth/activate.js:34
+#: pages/auth/activate.js:33
 msgid "This verification token is not valid."
 msgstr "Denne verifiseringskoden er ikke gyldig."
 
@@ -456,8 +473,8 @@ msgstr "Time ut brukeren i x sekunder"
 msgid "Timestamps"
 msgstr "Tidsmerking"
 
-#: pages/c/[name].js:351
-#: pages/c/[name].js:352
+#: pages/c/[name].js:362
+#: pages/c/[name].js:363
 msgid "Title"
 msgstr "Tittel"
 
@@ -469,7 +486,7 @@ msgstr "Fjern utestenging av bruker"
 msgid "Unknown error"
 msgstr "Ukjent feil"
 
-#: pages/c/[name].js:395
+#: pages/c/[name].js:406
 msgid "User has been banned"
 msgstr "Brukeren har blitt utestengt"
 
@@ -486,11 +503,19 @@ msgstr "Brukernavn"
 msgid "Username:"
 msgstr "Brukernavn:"
 
+#: components/Chat/ViewerList.js:50
+msgid "Users in chat"
+msgstr "Brukere i chat:"
+
+#: components/Chat/ViewerList.js:120
+msgid "Users in chat:"
+msgstr "Brukere i chat:"
+
 #: components/Settings/Connections.js:103
 msgid "Verify"
 msgstr "Verifiser"
 
-#: components/Settings/Profile.js:26
+#: components/Settings/Profile.js:36
 msgid "Want to customize your color? <0>Join our Patreon!</0>"
 msgstr "Vil du endre fargen din? <0>Join vår Patreon!</0>"
 
@@ -530,11 +555,11 @@ msgstr "Din Patreon-konto er tilkoblet."
 msgid "Your account is now registered. Please check your e-mail to verify your account."
 msgstr "Kontoen din er opprettet. Vennligst sjekk din e-post for å verifisere kontoen din."
 
-#: pages/auth/activate.js:38
+#: pages/auth/activate.js:37
 msgid "Your e-mail has been verified."
 msgstr "E-posten din har blitt verifisert."
 
-#: pages/c/[name].js:398
+#: pages/c/[name].js:409
 msgid "has been banned from the site."
 msgstr "har blitt utestengt fra dette nettstedet."
 
