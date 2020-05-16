@@ -32,10 +32,10 @@ function ViewerList(props){
 		return u && u.type &&  u.type !== 'staff' && u.type === 'moderator';
 	});
 	const supporters = users.filter((u) => {
-		return u && !u.anon && u.type !== 'staff' && u.type !== 'moderator' && u.color;
+		return u && !u.anon && u.type !== 'staff' && u.type !== 'moderator' && u.isPatreon;
 	});
 	const usrs = users.filter((u) => {
-		return u && !u.anon && u.type !== 'staff' && u.type !== 'moderator' && !u.color;
+		return u && !u.anon && u.type !== 'staff' && u.type !== 'moderator' && !u.isPatreon;
 	});
 
 	return (
