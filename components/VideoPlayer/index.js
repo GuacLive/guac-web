@@ -64,6 +64,9 @@ function VideoPlayer(props) {
 		const videoJsOptions = {
 			errorDisplay: false,
 			liveui: true,
+			fluid: true,
+			responsive: true,
+			fill: props.fill,
 			language: i18n.locale || 'en',
 			poster: !props.live ? OFFLINE_POSTER : '',
 			inactivityTimeout: 1000,
@@ -98,9 +101,10 @@ function VideoPlayer(props) {
 					  'playToggle': {},
 					  'muteToggle': {},
 					  'volumeControl': {},
-					  'currentTimeDisplay': {},
-					  'timeDivider': {},
-					  'durationDisplay': {},
+					  'currentTimeDisplay' : false,
+					  'timeDivider': false,
+					  'durationDisplay': false,
+					  'remainingTimeDisplay': false,
 					  'liveDisplay': {},
 
 					  'flexibleWidthSpacer': {},
