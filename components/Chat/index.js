@@ -56,6 +56,9 @@ function ChatComponent(props){
 	const lastMessageRef = useRef();
 	const messageContainerRef = useRef();
 
+	// CC0 public domain sound from http://www.freesound.org/people/pan14/sounds/263133/
+	const notificationSound = typeof Audio === 'function' && new Audio('/sounds/notification.wav');
+
 	const goToBottom = useCallback(() => {
 		if(
 			lastMessageRef && lastMessageRef.current
@@ -144,8 +147,10 @@ function ChatComponent(props){
 	const darkMode = useSelector(state => state.site.mode === 'dark');
 	
 	var [showTimestamps] = useLocalStorage('showTimestamps', true);
+	var [notifySound] = useLocalStorage('notifySound', true);
 	var chatSettings = {
-		showTimestamps
+		showTimestamps,
+		notifySound
 	};
 
 	let maxlines = 100;
@@ -262,10 +267,11 @@ function ChatComponent(props){
 		// Create new instance of urlembedder
 		// Use username as parameter because we also use this for highlighting
 		const embed = new UrlEmbedder(me && me.name ? me.name : null);
-		//let emoteOnly = messages && memessagessages.filter(m => m.content.length > 0).length === 1;
+
 		// Assume this is an emote-only  by default
 		let emoteOnly = true;
 		let output = messages.map((msg, i) => {
+			if(!msg) return null;
 			if(!msg.type) return null;
 			if(!msg.content.trim()) return null;
 			switch(msg.type){
@@ -278,7 +284,16 @@ function ChatComponent(props){
 				case 'text':
 					// Text is found, set emoteOnly to false
 					if(emoteOnly && msg.content) emoteOnly = false;
-
+					// If highlighted, play audio clip
+					if(me && me.name){
+						var USER_REGEX = new RegExp(`@${me.name}\\b`, 'gi');
+						if(USER_REGEX.test(msg.content) && notificationSound){
+							notificationSound.loop = false;
+							try{
+								notificationSound.play();
+							}catch(e){}
+						}
+					}
 					return (
 						<React.Fragment key={'u-' + i + '-'  + (new Date).getTime()}>{embed.format(msg.content)}{i !== messages.length -1 ? '\u00A0' : ''}</React.Fragment>
 					);

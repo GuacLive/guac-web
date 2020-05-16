@@ -11,9 +11,11 @@ import { Trans, t } from '@lingui/macro';
 
 function SettingsMenu(props){
 	const [checked, isChecked] = useLocalStorage('showTimestamps');
+	const [notifySound, setNotifySound] = useLocalStorage('notifySound');
 	const [isOpen, setIsOpen] = useState(false);
 
 	const handleTimestampsOption = () => isChecked(!checked);
+	const handleNotifySound = () => setNotifySound(!notifySound);
 	
 	const ref = useRef(null);
 	useClickAway(ref, () => {
@@ -42,6 +44,18 @@ function SettingsMenu(props){
 								/>
 								<span id="switch-timestamps-label" className="ml2">
 								<Trans>Timestamps</Trans>
+								</span>
+							</label>
+							<label className="db pv2 ph2">
+								<Switch
+									id="switch-notifysound"
+									onChange={handleNotifySound}
+									checked={checked}
+									uncheckedIcon={false}
+									checkedIcon={false}
+								/>
+								<span id="switch-notifysound-label" className="ml2">
+								<Trans>Sound when highlighted</Trans>
 								</span>
 							</label>
 						</div>
