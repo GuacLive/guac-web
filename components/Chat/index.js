@@ -57,7 +57,7 @@ function ChatComponent(props){
 	const messageContainerRef = useRef();
 
 	// CC0 public domain sound from http://www.freesound.org/people/pan14/sounds/263133/
-	const notificationSound = new Audio('/sounds/notification.wav');
+	const notificationSound = typeof Audio === 'function' && new Audio('/sounds/notification.wav');
 
 	const goToBottom = useCallback(() => {
 		if(
@@ -271,6 +271,7 @@ function ChatComponent(props){
 		// Assume this is an emote-only  by default
 		let emoteOnly = true;
 		let output = messages.map((msg, i) => {
+			if(!msg) return null;
 			if(!msg.type) return null;
 			if(!msg.content.trim()) return null;
 			switch(msg.type){
@@ -286,7 +287,7 @@ function ChatComponent(props){
 					// If highlighted, play audio clip
 					if(me && me.name){
 						var USER_REGEX = new RegExp(`@${me.name}\\b`, 'gi');
-						if(USER_REGEX.test(msg.content)){
+						if(USER_REGEX.test(msg.content) && notificationSound){
 							notificationSound.loop = false;
 							try{
 								notificationSound.play();
