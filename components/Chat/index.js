@@ -284,14 +284,19 @@ function ChatComponent(props){
 				case 'text':
 					// Text is found, set emoteOnly to false
 					if(emoteOnly && msg.content) emoteOnly = false;
-					// If highlighted, play audio clip
-					if(me && me.name){
+					// If highlighted and hydrated, play audio clip
+					if(me && me.name && hydrated){
 						var USER_REGEX = new RegExp(`@${me.name}\\b`, 'gi');
 						if(USER_REGEX.test(msg.content) && notificationSound){
 							notificationSound.loop = false;
-							try{
-								notificationSound.play();
-							}catch(e){}
+							if(audio.paused){
+								try{
+									notificationSound.play();
+								}catch(e){}
+							}else{
+								notificationSound.currentTime = 0;
+							}
+							
 						}
 					}
 					return (
