@@ -342,6 +342,12 @@ video[poster]{
     vertical-align: middle;
 }
 
+/* Disable theatre-mode if on small screen */
+.video-js .vjs-layout-small .vjs-theater-mode-control-open,
+.video-js .vjs-layout-small .vjs-theater-mode-control-close {
+	display: none;
+}
+
 /* Animations */
 .video-js .vjs-big-play-button {
     transition: all .3s ease!important;
