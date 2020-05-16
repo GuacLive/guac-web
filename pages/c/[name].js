@@ -1,5 +1,7 @@
 import React, {Component, Fragment, useEffect, useState, useMemo} from 'react'
 
+import {useUpdateEffect} from 'react-use';
+
 import Link from 'next/link'
 
 import NextHead from 'next/head'
@@ -46,9 +48,12 @@ import { useLingui } from '@lingui/react';
 
 import { kFormatter } from '../../utils';
 
+import ReactMarkdown from '../../components/ReactMarkdown';
+
 const ReplaysList = dynamic(() => import('../../components/Replays/ReplaysList'));
 const EditStreamPanel = dynamic(() => import('../../components/EditStreamPanel'));
 const SubscriptionDialog = dynamic(() => import('../../components/SubscriptionDialog'));
+
 const STREAMING_SERVER = 'eu';
 const API_URL = process.env.API_URL;
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
@@ -138,6 +143,12 @@ function ChannelPage(props){
 			}
 		};
 	}, []);
+
+	useUpdateEffect(() => {
+		if(!showEditPanel){
+			dispatch(actions.fetchChannel(channel.data.name));
+		}
+	}, [showEditPanel])
 	
 	const editStream = async e => {
 		if(!channel || !channel.data || !channel.data.user) return false;
@@ -363,7 +374,7 @@ function ChannelPage(props){
 										<input name="title" type="text" className="input-reset bn pa3 w-100 bg-white br2" defaultValue={panel.title} placeholder={i18n._(t`Title`)} />
 
 										<label htmlFor="description" className="primary"><Trans>Description</Trans>:</label>
-										<input name="description" type="text" className="input-reset bn pa3 w-100 bg-white br2" defaultValue={panel.description} placeholder={i18n._(t`Description`)} />
+										<textarea name="description" rows="10" className="input-reset bn pa3 w-100 bg-white br2" defaultValue={panel.description} placeholder={i18n._(t`Description`)} />
 
 										<input type="submit" value={i18n._(t`Edit panel`)} onClick={() => editPanel(i)} className="link color-inherit db pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" />
 									</form>
@@ -381,7 +392,7 @@ function ChannelPage(props){
 								return (
 									<div key={`panel_${panel.panel_id}_${i}`} className="site-component-panels__panel db w-100 w-third-ns mr1 mb1 word-wrap">
 										<span className="f2 primary tracked">{panel.title}</span>
-										<div className="mt1 primary">{panel.description}</div>
+										<ReactMarkdown className="mt1 primary" source={panel.description} />
 									</div>
 								);
 							})

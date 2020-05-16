@@ -28,5 +28,5 @@
         "PATREON_REDIRECT_URI": "@guac-patreon-redirect-uri"
       }
     },
-    "builds": [{ "src": "package.json", "use": "@now/next@canary"}]
+    "builds": [{ "src": "package.json", "use": "@vercel/next@canary"}]
 }  
