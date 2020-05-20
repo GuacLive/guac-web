@@ -31,5 +31,5 @@ function renderMarkdown(data) {
 export default function ReactMarkdown(props){
 	if(!props || !props.source) return null;
 	const compiled = renderMarkdown(props.source);
-	return <div {...props} dangerouslySetInnerHTML={{__html: compiled}} />;
+	return <div className={props.className} dangerouslySetInnerHTML={{__html: compiled}} />;
 }

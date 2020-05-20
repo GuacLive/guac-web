@@ -390,7 +390,7 @@ function ChannelPage(props){
 							&&
 							stream.panels.map((panel, i) => {
 								return (
-									<div key={`panel_${panel.panel_id}_${i}`} className="site-component-panels__panel db w-100 w5-l mr1 mb1">
+									<div key={`panel_${panel.panel_id}_${i}`} className="site-component-panels__panel db w-100 w5-l mr3 mb3">
 										<span className="f2 primary tracked word-wrap">{panel.title}</span>
 										<ReactMarkdown className="mt1 primary word-wrap" source={panel.description} />
 									</div>
