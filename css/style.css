@@ -163,6 +163,10 @@ input:focus {
 	}
 }
 
+.word-wrap {
+	word-wrap: break-word;
+}
+
 .GuacImage {
     display: inline-block;
     overflow: hidden;
