@@ -51,7 +51,7 @@ function ViewerList(props){
 			>
 			<FontAwesomeIcon icon='user' fixedWidth />
 			</a>
-			<div className="absolute top-2 right-2 fr pv2 ph2 h-100 w5 z-max">
+			<div className="absolute top-2 right-2 fr pv2 ph2 h-100 w5">
 				{isOpen &&
 					<div className={`pa2 ba b--gray br2 ${props.darkMode ? 'bg-near-black' : 'bg-white'} ${props.darkMode ? 'near-white' : 'near-black'}`}>
 						{
