@@ -74,7 +74,7 @@ function ChannelPage(props){
 
 	const editPanel = async (i) => {
 		var p = refs[i] && refs[i].current;
-		var panel_id  = p.dataset['id'];
+		var panel_id = p.dataset['id'];
 	
 		await fetch(API_URL + '/panels', {
 			headers: {
@@ -93,6 +93,14 @@ function ChannelPage(props){
 		.then(response => response.json())
 		.then(r => {
 			console.log('editPanel', r);
+			// Remove panel
+			if(p.delete.checked){
+				stream.panels = stream.panels.filter(p => {
+					var currP = refs[i] && refs[i].current;
+					var currP_id = currP.dataset['id'];
+					return currP_id !== panel_id;
+				})
+			}
 		})
 		.catch(error => console.error(error));
 	};
