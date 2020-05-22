@@ -95,7 +95,7 @@ function ChannelPage(props){
 			console.log('editPanel', r);
 			// Remove panel
 			if(p.delete.checked){
-				stream.panels = stream.panels.filter(p => {
+				props.channel.data.panels = props.channel.data.panels.filter(p => {
 					var currP = refs[i] && refs[i].current;
 					var currP_id = currP.dataset['id'];
 					return currP_id !== panel_id;
