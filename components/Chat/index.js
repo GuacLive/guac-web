@@ -753,7 +753,7 @@ function ChatComponent(props){
 					)
 					: null
 				}
-				<SimpleBar ref={messageContainerRef} className="chat-messages flex-grow-1" style={{ height: '78vh' }}>
+				<SimpleBar ref={messageContainerRef} className="chat-messages flex-grow-1 z-initial" style={{ height: '78vh' }}>
 				{
 					messages
 					&&
