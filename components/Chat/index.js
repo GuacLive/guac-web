@@ -730,7 +730,9 @@ function ChatComponent(props){
 							</div>
 						}
 						<div className="flex flex-row content-center items-center">
-							<input type="submit" value="Chat" onClick={sendMessage} disabled={!connectedStatus} className="white dib pv2 ph3 nowrap lh-solid pointer br2 ba b--transparent bg-green" />
+							<button type="submit" onClick={sendMessage} disabled={!connectedStatus} className="white dib pv2 ph3 nowrap lh-solid pointer br2 ba b--transparent bg-green" >
+								<FontAwesomeIcon icon={['far', 'paper-plane']}></FontAwesomeIcon>
+							</button>
 						</div>
 					</div>
 				</div>

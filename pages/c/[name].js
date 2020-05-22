@@ -96,9 +96,7 @@ function ChannelPage(props){
 			// Remove panel
 			if(p.delete.checked){
 				props.channel.data.panels = props.channel.data.panels.filter(p => {
-					var currP = refs[i] && refs[i].current;
-					var currP_id = currP.dataset['id'];
-					return currP_id !== panel_id;
+					return p.panel_id !== panel_id;
 				})
 			}
 		})
