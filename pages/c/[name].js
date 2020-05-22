@@ -74,7 +74,7 @@ function ChannelPage(props){
 
 	const editPanel = async (i) => {
 		var p = refs[i] && refs[i].current;
-		var panel_id  = p.dataset['id'];
+		var panel_id = p.dataset['id'];
 	
 		await fetch(API_URL + '/panels', {
 			headers: {
@@ -87,12 +87,20 @@ function ChannelPage(props){
 				panel_id,
 				title: p.title.value,
 				description: p.description.value,
-				deleted: p.delete.checked
+				delete: p.delete.checked
 			})
 		})
 		.then(response => response.json())
 		.then(r => {
 			console.log('editPanel', r);
+			// Remove panel
+			if(p.delete.checked){
+				stream.panels = stream.panels.filter(p => {
+					var currP = refs[i] && refs[i].current;
+					var currP_id = currP.dataset['id'];
+					return currP_id !== panel_id;
+				})
+			}
 		})
 		.catch(error => console.error(error));
 	};
@@ -378,7 +386,7 @@ function ChannelPage(props){
 										<textarea name="description" rows="10" className="input-reset bn pa3 w-100 bg-white br2" defaultValue={panel.description} placeholder={i18n._(t`Description`)} />
 
 										<label htmlFor="delete" className="primary"><Trans>Delete</Trans>:</label>
-										<input name="delete" type="checkbox" className="input-reset bn pa3 w-100 bg-white br2" placeholder={i18n._(t`Delete`)} />
+										<input name="delete" type="checkbox" />
 
 										<input type="submit" value={i18n._(t`Edit panel`)} onClick={() => editPanel(i)} className="link color-inherit db pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" />
 									</form>
