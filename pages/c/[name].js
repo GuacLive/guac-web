@@ -87,7 +87,7 @@ function ChannelPage(props){
 				panel_id,
 				title: p.title.value,
 				description: p.description.value,
-				deleted: p.delete.checked
+				delete: p.delete.checked
 			})
 		})
 		.then(response => response.json())
@@ -378,7 +378,7 @@ function ChannelPage(props){
 										<textarea name="description" rows="10" className="input-reset bn pa3 w-100 bg-white br2" defaultValue={panel.description} placeholder={i18n._(t`Description`)} />
 
 										<label htmlFor="delete" className="primary"><Trans>Delete</Trans>:</label>
-										<input name="delete" type="checkbox" className="input-reset bn pa3 w-100 bg-white br2" placeholder={i18n._(t`Delete`)} />
+										<input name="delete" type="checkbox" />
 
 										<input type="submit" value={i18n._(t`Edit panel`)} onClick={() => editPanel(i)} className="link color-inherit db pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" />
 									</form>
