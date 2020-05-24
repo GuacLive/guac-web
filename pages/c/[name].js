@@ -70,7 +70,9 @@ function ChannelPage(props){
 		site,
 		authentication
 	} = props;
-	let isMe = authentication.user && authentication.user.id && channel.data.user.id === authentication.user.id;
+	let isMe = (authentication.user && authentication.user.id )
+		&& 
+		(channel.data && channel.data.user && channel.data.user.id === authentication.user.id);
 
 	const editPanel = async (i) => {
 		var p = refs[i] && refs[i].current;
