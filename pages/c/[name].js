@@ -437,7 +437,9 @@ function ChannelPage(props){
 	}
 
 	var refs = useMemo(
-		() => Array.from({length: channel.data.panels.length}).map(() => React.createRef()),
+		() => Array.from({
+			length: channel.data && channel.data.panels ? channel.data.panels.length : 0
+		}).map(() => React.createRef()),
 		[]
 	);
 	if(channel.loading) return (<Trans>Loading...</Trans>);
@@ -462,7 +464,7 @@ function ChannelPage(props){
 		meta.push({
 			name: 'robots',
 			content: 'noindex, nofollow, noarchive'
-		})
+		});
 	}
 
 	let followed = site.myFollowed && site.myFollowed.find((u) => {
