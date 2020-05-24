@@ -113,7 +113,7 @@ const MyApp = (props) => {
 		</ErrorBoundary>
 	);
 };
-MyApp.getInitialProps = wrapper.getInitialAppProps(async appContext => {
+MyApp.getInitialProps = async appContext => {
 	const { ctx }  = appContext;
 	const uuidv4 = require('uuid/v4');
 	const nonce = uuidv4();
@@ -178,5 +178,5 @@ MyApp.getInitialProps = wrapper.getInitialAppProps(async appContext => {
 		hasThemeCookie: !!getCookie('site-mode', ctx.req),
 		locale
 	};
-});
+};
 export default wrapper.withRedux(MyApp);

@@ -521,16 +521,14 @@ function ChannelPage(props){
 		</Fragment>
 	)
 }
-ChannelPage.getInitialProps = wrapper.getInitialPageProps(
-		async ({store, isServer, pathname, query, req}) => {
-			const { channel, site } = store.getState()
-			console.log('yes', store);
-			log('info', 'Channel', query.name);
-			//if(channel.loading){
-				await store.dispatch(actions.fetchChannel(query.name));
-			//}
-			return {...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})};
-	}
-);
+ChannelPage.getInitialProps = async ({store, isServer, pathname, query, req}) => {
+	const { channel, site } = store.getState()
+	console.log('yes', store);
+	log('info', 'Channel', query.name);
+	//if(channel.loading){
+		await store.dispatch(actions.fetchChannel(query.name));
+	//}
+	return {...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})};
+};
 
 export default connect(state => state)(ChannelPage)
