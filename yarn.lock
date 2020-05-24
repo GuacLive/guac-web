@@ -1375,45 +1375,31 @@
     ts-essentials "6.0.5"
 
 "@flopflip/react-broadcast@^10.1.16-next.0":
-  version "10.1.16-next.22"
-  resolved "https://registry.yarnpkg.com/@flopflip/react-broadcast/-/react-broadcast-10.1.16-next.22.tgz#61c1f224fa8d50b135798b0258f1900209b42fe4"
-  integrity sha512-fSeZEC9HG91I3ZtHOGY2kScb+Bi5dE2URPPrb3d1yfRY4Rn7FL4b5zs8YJaXCKi1zcsGF5yZ1xztkyoO4eidDg==
+  version "10.2.0"
+  resolved "https://registry.yarnpkg.com/@flopflip/react-broadcast/-/react-broadcast-10.2.0.tgz#52af08b34bf97a043e89a5c4825ae2cde5dfa485"
+  integrity sha512-VmvOJwtU39T3KkwQzAv1jPWADZAv0wwRNt1ZbGV6kVx6D8o3SGtY49Bg1PljYh8IDlFzP++Uw64rZLc73yNCiQ==
   dependencies:
     "@babel/runtime" "7.9.6"
-    "@flopflip/react" "9.1.13-next.22+3e39df1"
-    "@flopflip/types" "2.5.2"
+    "@flopflip/react" "^9.1.15"
+    "@flopflip/types" "^2.5.2"
     lodash "4.17.15"
 
 "@flopflip/react-redux@^10.1.15-next.0":
-  version "10.1.16"
-  resolved "https://registry.yarnpkg.com/@flopflip/react-redux/-/react-redux-10.1.16.tgz#fc6234efa8a3163c2c0e535d5fe0aa2baee3506a"
-  integrity sha512-J0J7fFQCOodX9Kisuqerr0fdaVMp4co9+FaNmRnrXavPs8n2xmfv/CAwWboi12Jpo09UsJcqG/Ehh7xPYgJ2fg==
+  version "10.2.0"
+  resolved "https://registry.yarnpkg.com/@flopflip/react-redux/-/react-redux-10.2.0.tgz#4af15ac809eac8cb5221717240242342804dc661"
+  integrity sha512-44nGRLbw8fMEu0vi0RC+o0PjWnoswiuErP8/PqHcUm935CBFDD/6p+yGcXco3A5Mh9qaI+2zTVTl9ZG/s/f/SQ==
   dependencies:
     "@babel/runtime" "7.9.6"
-    "@flopflip/react" "^9.1.14"
+    "@flopflip/react" "^9.1.15"
     "@flopflip/types" "^2.5.3"
     "@types/react-redux" "7.1.9"
     lodash "4.17.15"
     ts-essentials "6.0.5"
 
-"@flopflip/react@9.1.13-next.22+3e39df1":
-  version "9.1.13-next.22"
-  resolved "https://registry.yarnpkg.com/@flopflip/react/-/react-9.1.13-next.22.tgz#4026728ed39b74074bc9fbae481d960b12061fe7"
-  integrity sha512-9IYBoQlU9ekqiNsQI83knClTzHcw/yI37Uqb4yOcqVeJmf8R06Z8QSrbtrPmYdeNXS/ccaL3Ipxd9Pc1/elhCw==
-  dependencies:
-    "@babel/runtime" "7.9.6"
-    "@types/react-is" "16.7.1"
-    deepmerge "4.2.2"
-    lodash "4.17.15"
-    react-fast-compare "3.0.2"
-    react-is "16.13.1"
-    tiny-warning "1.0.3"
-    ts-essentials "6.0.4"
-
-"@flopflip/react@^9.1.13-next.0", "@flopflip/react@^9.1.14":
-  version "9.1.14"
-  resolved "https://registry.yarnpkg.com/@flopflip/react/-/react-9.1.14.tgz#4078449716e6ee5a0f77f4eb2c7e30e463750ace"
-  integrity sha512-SVGLb8Yc/zsBVmcssJL+tWvBwI2QVzKnys7o/3xsCLx/BREUL7+ifmNnSEOCdUFVHFQCa03CxkhGzbvFKxvkiQ==
+"@flopflip/react@^9.1.13-next.0", "@flopflip/react@^9.1.15":
+  version "9.1.15"
+  resolved "https://registry.yarnpkg.com/@flopflip/react/-/react-9.1.15.tgz#574b3e3d86832c01ffac101ed4645da4bdd95884"
+  integrity sha512-7s5mU9b6hDz4XKYJl8+6rcMZAXkUWIeKOLktr59DSkWwBy9itBd0D947Xp3jq+vVv0mQ219OJaYlbpEeb4p0AQ==
   dependencies:
     "@babel/runtime" "7.9.6"
     "@types/react-is" "16.7.1"
@@ -1437,14 +1423,7 @@
     tiny-warning "1.0.3"
     ts-essentials "6.0.5"
 
-"@flopflip/types@2.5.2":
-  version "2.5.2"
-  resolved "https://registry.yarnpkg.com/@flopflip/types/-/types-2.5.2.tgz#0ac74232f0b41967971e49b4662637df8e4bd9e5"
-  integrity sha512-MGcB10G8eZdGPklW0dRW1GV7j5g/I07haRNu09l1dxKtl/nf1+WXLvgHjLypx93BOGENseQX00XXforMumABwg==
-  dependencies:
-    ts-essentials "6.0.4"
-
-"@flopflip/types@^2.5.3":
+"@flopflip/types@^2.5.2", "@flopflip/types@^2.5.3":
   version "2.5.3"
   resolved "https://registry.yarnpkg.com/@flopflip/types/-/types-2.5.3.tgz#281bc08fb6c49eb3607b2b3163e7e490e26b4165"
   integrity sha512-menPa53JOzW4FOG6Wdzjq1/GvNkT8UFvqsFx/DYm1P64IBGBave2LrPVON+IiUTS+FuRZKlWv8qjWIrmryMfyA==
@@ -10948,11 +10927,6 @@ react-error-overlay@^6.0.7:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.7.tgz#1dcfb459ab671d53f660a991513cb2f0a0553108"
   integrity sha512-TAv1KJFh3RhqxNvhzxj6LeT5NWklP6rDr2a0jaTfsZ5wSZWHOGeqQyejUp3xxLfPt2UpyJEcVQB/zyPcmonNFA==
 
-react-fast-compare@3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.0.2.tgz#8b0bfa93a049ec1eef9d54ab5e5c6036c317144d"
-  integrity sha512-1fBw8Efm6fb1blbRorZcO3OqzWgxYWxXzlaNeqEVXcrDdyFzeqygrPVU6qrPuqnqYMpUJVkQBdDgDJQTmCXp+Q==
-
 react-fast-compare@3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.1.1.tgz#0becf31e3812fa70dc231e259f40d892d4767900"
@@ -11352,9 +11326,9 @@ regexpu-core@^4.7.0:
     unicode-match-property-value-ecmascript "^1.2.0"
 
 regjsgen@^0.5.1:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/regjsgen/-/regjsgen-0.5.1.tgz#48f0bf1a5ea205196929c0d9798b42d1ed98443c"
-  integrity sha512-5qxzGZjDs9w4tzT3TPhCJqWdCc3RLYwy9J2NB0nm5Lz+S273lvWcpjaTGHsT1dc6Hhfq41uSEOw8wBmxrKOuyg==
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/regjsgen/-/regjsgen-0.5.2.tgz#92ff295fb1deecbf6ecdab2543d207e91aa33733"
+  integrity sha512-OFFT3MfrH90xIW8OOSyUrk6QHD5E9JOTeGodiJeBS3J6IwlgzJMNE/1bZklWz5oTg+9dCMyEetclvCVXOPoN3A==
 
 regjsparser@^0.6.4:
   version "0.6.4"
@@ -12919,11 +12893,6 @@ ts-easing@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/ts-easing/-/ts-easing-0.2.0.tgz#c8a8a35025105566588d87dbda05dd7fbfa5a4ec"
   integrity sha512-Z86EW+fFFh/IFB1fqQ3/+7Zpf9t2ebOAxNI/V6Wo7r5gqiqtxmgTlQ1qbqQcjLKYeSHPTsEmvlJUDg/EuL0uHQ==
-
-ts-essentials@6.0.4:
-  version "6.0.4"
-  resolved "https://registry.yarnpkg.com/ts-essentials/-/ts-essentials-6.0.4.tgz#d36055bf0a7620b1338da6aafd2268787e208aab"
-  integrity sha512-ZtU9zgSnn8DcAxDZY1DJF8rnxsen8M0IVkO7dVB5fTEOVs7o/0RA4V6i99PIg99bpX81Sgb0FCLjQqD5Ufz3rQ==
 
 ts-essentials@6.0.5:
   version "6.0.5"
