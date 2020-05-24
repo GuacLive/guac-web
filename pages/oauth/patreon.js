@@ -17,32 +17,30 @@ function OauthPatreonPage(props){
 }
 
 // we can't use getServerSideProps, because we are using withAUth HOC
-OauthPatreonPage.getInitialProps = wrapper.getInitialPageProps(
-	async ({store, res, isServer, pathname, query, req}) => {
-		const state = store.getState();
-		const r = await fetch(`${API_URL}/oauth/patreon?code=${query.code}`, {
-			method: 'GET',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json',
+OauthPatreonPage.getInitialProps = async ({store, res, isServer, pathname, query, req}) => {
+	const state = store.getState();
+	const r = await fetch(`${API_URL}/oauth/patreon?code=${query.code}`, {
+		method: 'GET',
+		headers: {
+			Accept: 'application/json',
+			'Content-Type': 'application/json',
 				'Authorization': `Bearer ${state.authentication.token}`,
-			}
-		});
-		const oauthResponse = await r.json();
-		console.log('oauthResponse', oauthResponse);
-		if(oauthResponse && oauthResponse.statusCode === 200){
-			if(res){
-				res.setHeader('Location', '/settings');
-				res.statusCode = 302;
-				res.end();
-			}
 		}
-		return {
-			props: {
-				oauthResponse
-			}, // will be passed to the page component as props
-		};
+	});
+	const oauthResponse = await r.json();
+	console.log('oauthResponse', oauthResponse);
+	if(oauthResponse && oauthResponse.statusCode === 200){
+		if(res){
+			res.setHeader('Location', '/settings');
+			res.statusCode = 302;
+			res.end();
+		}
 	}
-);
+	return {
+		props: {
+			oauthResponse
+		}, // will be passed to the page component as props
+	};
+};
 	
 export default connect(state => state)(withAuth(OauthPatreonPage))
