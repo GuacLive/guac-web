@@ -281,7 +281,7 @@ function ChannelPage(props){
 									</Tooltip>
 								}
 								<ToggleFeature flag="subscribeButton">
-									{stream.type == 'PARTNER' && <GuacButton color="green" onClick={(e) => {setShowSub(!showSub); e.preventDefault(); return true;}}><Trans>Subscribe</Trans></GuacButton>}
+									{stream.subEnabled && <GuacButton color="green" onClick={(e) => {setShowSub(!showSub); e.preventDefault(); return true;}}><Trans>Subscribe</Trans></GuacButton>}
 								</ToggleFeature>
 								{isMe &&
 									<GuacButton color="dark-gray" title="Edit stream" onClick={editStream}>
