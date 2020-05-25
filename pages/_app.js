@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { wrapper } from '../store/configureStore';
 
-import { ConfigureFlopFlip } from '@flopflip/react-redux';
+import { ConfigureFlopFlip } from '@flopflip/react-broadcast';
 import adapter from '@flopflip/splitio-adapter';
 
 import PageLayout from '../components/layout/PageLayout';
@@ -37,6 +37,8 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faBan, faBars, faCheck, faCheckCircle, faClock, faHourglass, faHome, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog, faMinusCircle, faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 
 import { faSmileWink, faImage, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
+
+import EXPERIMENTS from '!../experiments.json'; // eslint-disable-line no-unused-vars
 
 // We need to put these here, since Next only allows global.css in _app
 import '../css/style.css';
@@ -96,7 +98,7 @@ const MyApp = (props) => {
 
 	return (
 		<ErrorBoundary>
-			<ConfigureFlopFlip adapter={adapter} adapterArgs={{
+			<ConfigureFlopFlip adapter={adapter} defaultFlags={EXPERIMENTS} adapterArgs={{
 				authorizationKey: process.env.SPLIT_IO_KEY,
 				debug: true,
 				onFlagsStateChange: () => {

@@ -12,8 +12,6 @@ import { Trans, t } from '@lingui/macro';
 
 import { useDispatch } from 'react-redux';
 
-import { wrapper } from '../../store/configureStore';
-
 import prettyMilliseconds from 'pretty-ms';
 import {
 	Tooltip,
@@ -43,7 +41,7 @@ import Image from '../../components/Image';
 
 import Switch from 'react-switch';
 
-import { ToggleFeature } from '@flopflip/react-redux';
+import { ToggleFeature } from '@flopflip/react-broadcast';
 import { useLingui } from '@lingui/react';
 
 import { kFormatter } from '../../utils';

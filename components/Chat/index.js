@@ -24,7 +24,7 @@ import UrlEmbedder from '../../utils/UrlEmbedder';
 
 import Image from '../Image';
 
-import { ToggleFeature } from '@flopflip/react-redux';
+import { ToggleFeature } from '@flopflip/react-broadcast';
 
 import log from '../../utils/log';
 
