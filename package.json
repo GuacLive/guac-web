@@ -22,7 +22,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
     "@flopflip/localstorage-adapter": "^1.7.3",
     "@flopflip/react": "^9.1.15",
-    "@flopflip/react-broadcast": "^10.12.0",
+    "@flopflip/react-broadcast": "^10.2.0",
     "@flopflip/react-redux": "^10.2.0",
     "@flopflip/splitio-adapter": "^1.8.3",
     "@fortawesome/fontawesome-svg-core": "^1.2.26-1",

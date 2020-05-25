@@ -1363,7 +1363,7 @@
   resolved "https://registry.yarnpkg.com/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.2.41.tgz#4e470c25a99fa0b1f629f1c5ef180a318d399fd0"
   integrity sha512-XcdMT5PSZHiuf7LJIhzKIe+RyYa25S3LHRRvLnZc6iFjwXkrSDJ8J/HWO6VT8d2ZTbawp3VcLEjRF/VN8glCrA==
 
-"@flopflip/localstorage-adapter@^1.7.2-next.0":
+"@flopflip/localstorage-adapter@^1.7.3":
   version "1.7.3"
   resolved "https://registry.yarnpkg.com/@flopflip/localstorage-adapter/-/localstorage-adapter-1.7.3.tgz#4ffe54f427bfc04cee292fbddad2bc401dfdaf9b"
   integrity sha512-z0OZYmyK6EXPlyvEvk/D/ZLNWBAmC6xGZZmeNM73zv04z1OvZ8O49IYXcJr5DIJ24FcH79FwLHAx/MoNSMOXAw==
@@ -1374,7 +1374,7 @@
     tiny-warning "1.0.3"
     ts-essentials "6.0.5"
 
-"@flopflip/react-broadcast@^10.1.16-next.0":
+"@flopflip/react-broadcast@^10.2.0":
   version "10.2.0"
   resolved "https://registry.yarnpkg.com/@flopflip/react-broadcast/-/react-broadcast-10.2.0.tgz#52af08b34bf97a043e89a5c4825ae2cde5dfa485"
   integrity sha512-VmvOJwtU39T3KkwQzAv1jPWADZAv0wwRNt1ZbGV6kVx6D8o3SGtY49Bg1PljYh8IDlFzP++Uw64rZLc73yNCiQ==
@@ -1384,7 +1384,7 @@
     "@flopflip/types" "^2.5.2"
     lodash "4.17.15"
 
-"@flopflip/react-redux@^10.1.15-next.0":
+"@flopflip/react-redux@^10.2.0":
   version "10.2.0"
   resolved "https://registry.yarnpkg.com/@flopflip/react-redux/-/react-redux-10.2.0.tgz#4af15ac809eac8cb5221717240242342804dc661"
   integrity sha512-44nGRLbw8fMEu0vi0RC+o0PjWnoswiuErP8/PqHcUm935CBFDD/6p+yGcXco3A5Mh9qaI+2zTVTl9ZG/s/f/SQ==
@@ -1396,7 +1396,7 @@
     lodash "4.17.15"
     ts-essentials "6.0.5"
 
-"@flopflip/react@^9.1.13-next.0", "@flopflip/react@^9.1.15":
+"@flopflip/react@^9.1.15":
   version "9.1.15"
   resolved "https://registry.yarnpkg.com/@flopflip/react/-/react-9.1.15.tgz#574b3e3d86832c01ffac101ed4645da4bdd95884"
   integrity sha512-7s5mU9b6hDz4XKYJl8+6rcMZAXkUWIeKOLktr59DSkWwBy9itBd0D947Xp3jq+vVv0mQ219OJaYlbpEeb4p0AQ==
@@ -1410,7 +1410,7 @@
     tiny-warning "1.0.3"
     ts-essentials "6.0.5"
 
-"@flopflip/splitio-adapter@^1.8.2-next.0":
+"@flopflip/splitio-adapter@^1.8.3":
   version "1.8.3"
   resolved "https://registry.yarnpkg.com/@flopflip/splitio-adapter/-/splitio-adapter-1.8.3.tgz#609cc83dfa5229bc5c31b670c0823c688ed16141"
   integrity sha512-CsLO7MN5Xzbu/GBVzzyJlKaPNV1yWQRyvSaAU+a1cc9YigIPqAoT1KKVro5OhLgDQ/L75zAbr1Gvj9V+VeQtQA==
