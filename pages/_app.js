@@ -98,10 +98,6 @@ const MyApp = (props) => {
 		<ErrorBoundary>
 			<ConfigureFlopFlip adapter={adapter} adapterArgs={{
 				authorizationKey: process.env.SPLIT_IO_KEY,
-				debug: true,
-				onFlagsStateChange: () => {
-					console.log('onFlagsStateChange', arguments);
-				},
 				user: {
 					key: authentication.user && authentication.user.name
 				}
