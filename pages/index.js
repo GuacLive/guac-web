@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 
-import { ToggleFeature } from '@flopflip/react-broadcast';
+import { ToggleFeature } from '@flopflip/react-redux';
 
 import dynamic from 'next/dynamic'
 
