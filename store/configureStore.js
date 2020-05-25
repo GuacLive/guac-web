@@ -1,10 +1,5 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 
-import {
-	flopflipReducer,
-	FLOPFLIP_STATE_SLICE
-} from '@flopflip/react-redux';
-  
 import {createWrapper} from 'next-redux-wrapper';
 
 import createSentryMiddleware from "redux-sentry-middleware";
@@ -45,7 +40,6 @@ const middlewares = [
 ];
 
 const storeEnhancers = [];
-storeEnhancers[FLOPFLIP_STATE_SLICE] = flopflipReducer;
 console.log('NODE_ENV: ', process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'development') {
 	middlewares.push(logger);
