@@ -1,4 +1,5 @@
 // Use the SentryWebpack plugin to upload the source maps during build step
+const webpack = require('webpack');
 const SentryWebpackPlugin = require('@sentry/webpack-plugin')
 const { SENTRY_DSN, SENTRY_ORG, SENTRY_PROJECT, SENTRY_AUTH_TOKEN } = process.env
 
@@ -35,6 +36,12 @@ module.exports = withTM(withOffline({
 				}
 			]
 		});
+		
+		config.plugins.push(
+			new webpack.DefinePlugin({
+				'process.env.SENTRY_RELEASE': JSON.stringify(buildId),
+			})
+		);
 
 		if(SENTRY_DSN && SENTRY_ORG && SENTRY_PROJECT && SENTRY_AUTH_TOKEN && process.env.NODE_E !== 'development'){
 			config.plugins.push(
@@ -61,7 +68,6 @@ module.exports = withTM(withOffline({
 		SENTRY_ORG: process.env.SENTRY_ORG,
 		SENTRY_PROJECT: process.env.SENTRY_PROJECT,
 		SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
-		SENTRY_RELEASE: pkg.version,
 		SPLIT_IO_KEY: process.env.SPLIT_IO_KEY,
 		PATREON_CLIENT_ID: process.env.PATREON_CLIENT_ID,
 		PATREON_REDIRECT_URI: process.env.PATREON_REDIRECT_URI,
