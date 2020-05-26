@@ -37,9 +37,9 @@ msgstr "Til slutt, sørg for at keyframe interval er satt til <0>1</0>."
 msgid "Breaking the law"
 msgstr "Å bryte loven"
 
-#: components/layout/PageLayout.js:259
-#: components/layout/PageLayout.js:259
-#: components/layout/PageLayout.js:260
+#: components/layout/PageLayout.js:263
+#: components/layout/PageLayout.js:263
+#: components/layout/PageLayout.js:264
 #: pages/categories.js:28
 msgid "Browse"
 msgstr "Utforsk"
@@ -56,9 +56,9 @@ msgstr "Kanal"
 msgid "Channel not found"
 msgstr "Kanal ikke funnet"
 
-#: components/layout/PageLayout.js:253
-#: components/layout/PageLayout.js:253
-#: components/layout/PageLayout.js:254
+#: components/layout/PageLayout.js:257
+#: components/layout/PageLayout.js:257
+#: components/layout/PageLayout.js:258
 #: pages/channels.js:50
 msgid "Channels"
 msgstr "Kanaler"
@@ -222,7 +222,7 @@ msgstr "Trakassering og mobbing"
 msgid "Hate Speech"
 msgstr "Hatprat"
 
-#: components/layout/PageLayout.js:248
+#: components/layout/PageLayout.js:252
 msgid "Home"
 msgstr "Hjem"
 
@@ -248,9 +248,9 @@ msgstr "Direktesendinger"
 msgid "Loading..."
 msgstr "Laster..."
 
-#: components/layout/PageLayout.js:276
-#: components/layout/PageLayout.js:276
-#: components/layout/PageLayout.js:277
+#: components/layout/PageLayout.js:280
+#: components/layout/PageLayout.js:280
+#: components/layout/PageLayout.js:281
 #: pages/auth/activate.js:38
 #: pages/auth/login.js:49
 #: pages/auth/register.js:80
@@ -397,9 +397,9 @@ msgstr "Vis bare direkte"
 msgid "Show user list"
 msgstr "Vis liste over brukere"
 
-#: components/layout/PageLayout.js:283
-#: components/layout/PageLayout.js:283
-#: components/layout/PageLayout.js:284
+#: components/layout/PageLayout.js:287
+#: components/layout/PageLayout.js:287
+#: components/layout/PageLayout.js:288
 #: pages/auth/login.js:67
 #: pages/auth/register.js:59
 msgid "Sign up"
@@ -442,11 +442,10 @@ msgid "Subscribe"
 msgstr "Abonnér"
 
 #: pages/index.js:172
-msgid "Support us and get perks"
-msgstr "Støtt oss og få fordeler"
+#~ msgid "Support us and get perks"
+#~ msgstr "Støtt oss og få fordeler"
 
-#: components/layout/PageLayout.js:197
-#: components/layout/PageLayout.js:198
+#: components/layout/PageLayout.js:202
 msgid "Support us on patreon!"
 msgstr "Støtt oss på patreon!"
 

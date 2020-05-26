@@ -160,15 +160,6 @@ class IndexPage extends Component {
 									</div>
 								}
 								<div className="pa3 pa4-l db">
-									<iframe
-										src="https://www.patreon.com/platform/iframe?widget=become-patron-button&creatorID=19057109"
-										scrolling="no"
-										allowtransparency="true"
-										frameBorder="0"
-										className="patreon-widget"
-										title={i18n._(t`Support us on patreon!`)}
-										style={{display: 'block', height: '35px', verticalAlign: 'top'}}
-									/>
 									<a href="https://discord.gg/k6MJSAj">
 										<img src="https://discordapp.com/api/guilds/564909420199411732/widget.png?style=banner2" alt="Discord server invite image" />
 										<span className="dn">Discord server invite</span>
