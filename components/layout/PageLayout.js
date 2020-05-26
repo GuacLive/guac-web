@@ -175,8 +175,8 @@ function PageLayout(props){
 				</nav>
 				<footer className="flex bg-near-black white ph4 ph2-m mb5">
 					<div className="f6 flex flex-column flex-grow-1">
-						<span className="dib mr4 mr5-ns ttu tracked">© {(new Date()).getFullYear()} guac.live</span>
-						<span className="dib mr4 mr5-ns f7 silver">v{process.env.SENTRY_RELEASE}</span>
+						<span className="dib mr4 ttu tracked">© {(new Date()).getFullYear()} guac.live</span>
+						<span className="dib mr4 f7 silver">v{process.env.SENTRY_RELEASE}</span>
 						<div className="flex flex-row h-100 flex-grow-1">
 							<Link href="/terms">
 								<a className="link white hover-light-purple mr2"><Trans>Terms</Trans></a>
