@@ -53,6 +53,7 @@ module.exports = withTM(withOffline({
 				})
 			);
 		}
+		config.devtool = config.devtool || 'source-map';
 
 		return config;
 	},
