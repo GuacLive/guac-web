@@ -200,7 +200,7 @@ function PageLayout(props){
 							frameBorder="0"
 							className="patreon-widget"
 							title={i18n._(t`Support us on patreon!`)}
-							style={{display: 'block', height: '35px', verticalAlign: 'top'}}
+							style={{display: 'flex', width: '11rem', height: '35px', verticalAlign: 'middle'}}
 						/>
 						<LangSwitcher />
 					</div>
