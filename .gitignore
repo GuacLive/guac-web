@@ -64,3 +64,4 @@ config/
 yarn-error.log
 locale/_build/
 .now
+.vercel
