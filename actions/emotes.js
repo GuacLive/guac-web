@@ -1,5 +1,3 @@
-import fetch from 'cross-fetch';
-
 export const fetchEmotes = (channel) => async (dispatch) => {
 	let result = [];
 	await fetch('//emotes.guac.live/index.json')
