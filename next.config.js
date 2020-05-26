@@ -2,7 +2,6 @@
 const SentryWebpackPlugin = require('@sentry/webpack-plugin')
 const { SENTRY_DSN, SENTRY_ORG, SENTRY_PROJECT, SENTRY_AUTH_TOKEN } = process.env
 
-const webpack = require('webpack');
 const withOffline = require('next-offline');
 const pkg = require('./package.json');
 const withTM = require('next-transpile-modules')(['react-giphy-searchbox']);
@@ -37,12 +36,7 @@ module.exports = withTM(withOffline({
 			]
 		});
 
-		config.plugins.push(
-			new webpack.DefinePlugin({
-				'process.env.SENTRY_RELEASE': JSON.stringify(buildId),
-			})
-		);
-		if(SENTRY_DSN && SENTRY_ORG && SENTRY_PROJECT && SENTRY_AUTH_TOKEN && process.env.NODE_ENV !== 'development'){
+		if(SENTRY_DSN && SENTRY_ORG && SENTRY_PROJECT && SENTRY_AUTH_TOKEN && process.env.NODE_E !== 'development'){
 			config.plugins.push(
 				new SentryWebpackPlugin({
 					release: pkg.version,
@@ -53,7 +47,6 @@ module.exports = withTM(withOffline({
 			);
 		}
 
-		config.devtool = config.devtool || 'source-map';
 		return config;
 	},
 	target: 'serverless',
@@ -68,9 +61,10 @@ module.exports = withTM(withOffline({
 		SENTRY_ORG: process.env.SENTRY_ORG,
 		SENTRY_PROJECT: process.env.SENTRY_PROJECT,
 		SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
+		SENTRY_RELEASE: pkg.version,
 		SPLIT_IO_KEY: process.env.SPLIT_IO_KEY,
 		PATREON_CLIENT_ID: process.env.PATREON_CLIENT_ID,
-		PATREON_REDIRECT_URI: process.env.PATREON_REDIRECT_URI
+		PATREON_REDIRECT_URI: process.env.PATREON_REDIRECT_URI,
 	},
 	transformManifest: manifest => ['/'].concat(manifest), // add the homepage to the cache
 	// Trying to set NODE_ENV=production when running yarn dev causes a build-time error so we
@@ -91,7 +85,7 @@ module.exports = withTM(withOffline({
 		reactMode: 'concurrent',
 		workerThreads: true,
 		pageEnv: true,
-		measureFid: true,
+		productionBrowserSourceMaps: true,
 	},
 	future: {
 		excludeDefaultMomentLocales: true,
