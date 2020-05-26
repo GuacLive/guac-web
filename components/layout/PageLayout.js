@@ -177,18 +177,31 @@ function PageLayout(props){
 					<div className="f6 flex flex-column flex-grow-1">
 						<span className="dib mr4 mr5-ns ttu tracked">© {(new Date()).getFullYear()} guac.live</span>
 						<span className="dib mr4 mr5-ns f7 silver">v{process.env.SENTRY_RELEASE}</span>
-						<Link href="/terms">
-							<a className="link white-80 hover-light-purple"><Trans>Terms</Trans></a>
-						</Link>
-						<Link href="/privacy">
-							<a className="link white-80 hover-gold"> <Trans>Privacy</Trans> </a>
-						</Link>
-						<Link href="/dmca">
-							<a className="link white-80 hover-red"> <Trans>DMCA</Trans> </a>
-						</Link>
+						<div className="flex flex-row h-100 flex-grow-1">
+							<Link href="/terms">
+								<a className="link white hover-light-purple mr2"><Trans>Terms</Trans></a>
+							</Link>
+							<span className="white-80 mr2">&middot;</span>
+							<Link href="/privacy">
+								<a className="link white hover-gold mr2"> <Trans>Privacy</Trans> </a>
+							</Link>
+							<span className="white-80 mr2">&middot;</span>
+							<Link href="/dmca">
+								<a className="link white hover-red mr2"> <Trans>DMCA</Trans> </a>
+							</Link>
+						</div>
 						<Link href="#">
 							<a className="link white-80 hover-green"> contact@guac.live </a>
 						</Link>
+						<iframe
+							src="https://www.patreon.com/platform/iframe?widget=become-patron-button&creatorID=19057109"
+							scrolling="no"
+							allowtransparency="true"
+							frameBorder="0"
+							className="patreon-widget"
+							title={i18n._(t`Support us on patreon!`)}
+							style={{display: 'block', height: '35px', verticalAlign: 'top'}}
+						/>
 						<LangSwitcher />
 					</div>
 				</footer>

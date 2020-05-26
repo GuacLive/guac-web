@@ -166,7 +166,7 @@ class IndexPage extends Component {
 										allowtransparency="true"
 										frameBorder="0"
 										className="patreon-widget"
-										title="Patreon Widget" 
+										title={i18n._(t`Support us on patreon!`)}
 										style={{display: 'block', height: '35px', verticalAlign: 'top'}}
 									/>
 									<a href="https://discord.gg/k6MJSAj">
