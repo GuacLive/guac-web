@@ -1,7 +1,6 @@
 {
     "version": 2,
     "public": false,
-    "name": "guac-web",
     "regions": ["arn"],
     "routes": [
       {

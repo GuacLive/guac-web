@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Trans } from '@lingui/macro';
 
-import initialize from '../utils/initialize';
 class Error extends Component {
 	static async getInitialProps(ctx){
 		const {res, err} = ctx;
