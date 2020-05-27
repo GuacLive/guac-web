@@ -1,7 +1,7 @@
 {
     "version": 2,
     "public": false,
-    "regions": ["arn"],
+    "regions": ["lhr"],
     "routes": [
       {
         "src": "^/service-worker.js$",
