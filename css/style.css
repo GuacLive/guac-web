@@ -288,6 +288,11 @@ input:focus {
 }
 
 /* Chat */
+.site-component-chat {
+    max-height: 100%;
+    height: calc(100vh - 65px);
+}
+
 .chat-header {
 	height: 4rem;
 }
