@@ -58,7 +58,7 @@ function ChatComponent(props){
 	const messageContainerRef = useRef();
 
 	// CC0 public domain sound from http://www.freesound.org/people/pan14/sounds/263133/
-	const notificationSound = typeof Audio === 'function' && new Audio('/sounds/notification.wav');
+	const notificationSound = typeof Audio == 'undefined' ? null : new Audio();
 
 	const goToBottom = useCallback(() => {
 		if(
@@ -296,8 +296,10 @@ function ChatComponent(props){
 							notificationSound.loop = false;
 							notificationSound.currentTime = 0;
 							try{
-									notificationSound.play();
-							}catch(e){}
+						if(notifySound){
+							if(USER_REGEX.test(msg.content.trim())){
+								if(notificationSound) notificationSound.play().then();
+							}
 						}
 					}
 					return (
@@ -578,6 +580,13 @@ function ChatComponent(props){
 	};
 	// If token or connected status changes, join with the new one
 	useEffect(connect, [authentication.token, connectedStatus]);
+
+	useEffect(() => {
+		if(notificationSound){
+			notificationSound.src = '/sounds/notification.wav';
+			notificationSound.volume = 1;
+		}
+	}, []);
 
 	const ChatInput = (
 		<>
