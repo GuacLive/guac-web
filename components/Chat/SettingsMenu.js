@@ -50,7 +50,7 @@ function SettingsMenu(props){
 								<Switch
 									id="switch-notifysound"
 									onChange={handleNotifySound}
-									checked={checked}
+									checked={notifySound}
 									uncheckedIcon={false}
 									checkedIcon={false}
 								/>
