@@ -576,7 +576,7 @@ function ChatComponent(props){
 
 	const ChatInput = (
 		<>
-			<div className="chat-input pr4 pl4 pb4">
+			<div className="chat-input pa2">
 					<div className="relative">
 						<ReactTextareaAutocomplete
 							value={message}
