@@ -370,11 +370,11 @@ input:focus {
 	color: var(--white);
 }
 .chat-message-badges__badge[data-badge='staff'] {
-	background: rgb(1, 255, 112);
+	background: var(--green);
 	color: var(--white);
 }
 .chat-message-badges__badge[data-badge='admin'] {
-	background: rgb(1, 255, 112);
+	background: var(--green);
 	color: var(--white);
 }
 
