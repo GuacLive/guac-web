@@ -495,7 +495,7 @@ function ChatComponent(props){
 						return a.time > b.time;
 					}).forEach((msg) => {
 						msg.msgs.time = msg.time;
-						handleMessage(msg.user, msg.id, msg.msgs);
+						handleMessage(msg.user, msg.id, Object.freeze(msg.msgs));
 					});
 				}
 				setHydrated(true);
