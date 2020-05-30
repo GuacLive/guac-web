@@ -58,7 +58,7 @@ function ChatComponent(props){
 	const messageContainerRef = useRef();
 
 	// CC0 public domain sound from http://www.freesound.org/people/pan14/sounds/263133/
-	const notificationSound = typeof Audio === 'function' && new Audio('/sounds/notification.wav');
+	const notificationSound = typeof Audio == 'undefined' ? null : new Audio();
 
 	const goToBottom = useCallback(() => {
 		if(
@@ -289,15 +289,13 @@ function ChatComponent(props){
 				case 'text':
 					// Text is found, set emoteOnly to false
 					if(emoteOnly && msg.content) emoteOnly = false;
-					// If highlighted and hydrated, play audio clip
-					if(me && me.name && hydrated){
+					// If me and not a hydrated message
+					if(me && me.name && !messages.time){
 						var USER_REGEX = new RegExp(`@${me.name}\\b`, 'gi');
-						if(USER_REGEX.test(msg.content) && notificationSound){
-							notificationSound.loop = false;
-							notificationSound.currentTime = 0;
-							try{
-									notificationSound.play();
-							}catch(e){}
+						if(notifySound){
+							if(USER_REGEX.test(msg.content.trim())){
+								if(notificationSound) notificationSound.play().then();
+							}
 						}
 					}
 					return (
@@ -497,7 +495,7 @@ function ChatComponent(props){
 						return a.time > b.time;
 					}).forEach((msg) => {
 						msg.msgs.time = msg.time;
-						handleMessage(msg.user, msg.id, msg.msgs);
+						handleMessage(msg.user, msg.id, Object.freeze(msg.msgs));
 					});
 				}
 				setHydrated(true);
@@ -578,6 +576,13 @@ function ChatComponent(props){
 	};
 	// If token or connected status changes, join with the new one
 	useEffect(connect, [authentication.token, connectedStatus]);
+
+	useEffect(() => {
+		if(notificationSound){
+			notificationSound.src = '/sounds/notification.wav';
+			notificationSound.volume = 1;
+		}
+	}, []);
 
 	const ChatInput = (
 		<>

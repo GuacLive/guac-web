@@ -354,10 +354,31 @@ input:focus {
 	margin-left: .2em;
 	margin-right: .2em;
 	min-width: 1.8rem;
-	height: 1.8rem;
+	max-height: 1.8rem;
 	border-radius: 0.2rem;
+
+	text-align: center;
 }
 
+/* Background color for chat badges */
+.chat-message-badges__badge[data-badge='broadcaster'] {
+	background: rgb(233, 25, 22);
+	color: var(--white);
+}
+.chat-message-badges__badge[data-badge='moderator'] {
+	background: rgb(0, 173, 3);
+	color: var(--white);
+}
+.chat-message-badges__badge[data-badge='staff'] {
+	background: rgb(1, 255, 112);
+	color: var(--white);
+}
+.chat-message-badges__badge[data-badge='admin'] {
+	background: rgb(1, 255, 112);
+	color: var(--white);
+}
+
+/* Icons for chat badges */
 .chat-message-badges__badge::before {
 	display: none;
 	display: inline-block;
@@ -373,21 +394,18 @@ input:focus {
 	/* Video */
 	content: "\f03d";
 }
-
 .chat-message-badges__badge[data-badge='moderator']::before {
 	font-family: "Font Awesome 5 Free";
 	font-weight: 400;
 	/* Shield-alt */
 	content: "\f3ed";
 }
-
 .chat-message-badges__badge[data-badge='staff']::before {
 	font-family: "Font Awesome 5 Free";
 	font-weight: 400;
 	/* Wrench */
 	content: "\f0ad";
 }
-
 /* Currently same as staff icon */
 .chat-message-badges__badge[data-badge='admin']::before {
 	font-family: "Font Awesome 5 Free";
@@ -396,6 +414,7 @@ input:focus {
 	content: "\f0ad";
 }
 
+/* Chat input */
 .chat-input textarea {
 	resize: vertical;
 	max-height: 160px;
