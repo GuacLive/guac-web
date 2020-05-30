@@ -41,6 +41,7 @@ var users = new Map();
 var me = null;
 var privileged = [];
 var hasPrivilege = false;
+const MAX_MESSAGE_LENGTH = 240;
 function ChatComponent(props){
 	const dispatch = useDispatch();
 	const [connectedStatus, setConnectedStatus] = useState(false);
@@ -234,6 +235,10 @@ function ChatComponent(props){
 			return false;
 		}
 	}
+	
+	const setFormattedMessage = text => {
+		text && text.length > MAX_MESSAGE_LENGTH ? setMessage(text.slice(0, MAX_MESSAGE_LENGTH)) : setMessage(text);
+	};	
 
 	const handleSys = (msg) => {
 		let entry = {
@@ -261,7 +266,7 @@ function ChatComponent(props){
 		let self = this;
 		let entry;
 		let writeMessage = ((message) => {
-			setMessage(message);
+			setFormattedMessage(message);
 		}).bind(self);
 		if(!user || !messages) return;
 		// Create new instance of urlembedder
@@ -406,7 +411,7 @@ function ChatComponent(props){
 					</span>
 					<span className="chat-message-user b dib">
 						<a onClick={() => {
-							setMessage(`${message} @${user.name}`);
+							setFormattedMessage(`${message} @${user.name}`);
 							setLastMessage(`${message} @${user.name}`);
 						}} href="#" className="link color-inherit" style={{color: `#${user.color}`}}>{user.name}</a>{'\u00A0'}
 					</span>
@@ -419,7 +424,7 @@ function ChatComponent(props){
 	}
 
 	const writeMessage = (event) => {
-		setMessage(event.target.value);
+		setFormattedMessage(event.target.value);
 		if(event.target.value) setLastMessage(event.target.value);
 	}
 
@@ -453,7 +458,7 @@ function ChatComponent(props){
 		}
 		
 		// empty the message box
-		setMessage('');
+		setFormattedMessage('');
 	}
 
 	const handleDelete = (msgID) => {
@@ -576,7 +581,7 @@ function ChatComponent(props){
 
 	const ChatInput = (
 		<>
-			<div className="chat-input pr4 pl4 pb4">
+			<div className="chat-input pa2">
 					<div className="relative">
 						<ReactTextareaAutocomplete
 							value={message}
@@ -592,6 +597,10 @@ function ChatComponent(props){
 							innerRef={textarea => {
 								textarea = textarea;
 							}}
+							autoCorrect="off"
+							autoCapitalize="off"
+							spellCheck="true"
+							onChange={event => setFormattedMessage(event.target.value)}
 							onKeyDown={event => lastMessageHandler(event)}
 							onCut={event => lastMessageHandler(event)}
 							textAreaComponent={{ component: AutoTextarea, ref: "innerRef" }}
@@ -693,7 +702,7 @@ function ChatComponent(props){
 												// Select text to type - if it is custom type the id, otherwise type emoji.
 												const text = emoji.custom ? emoji.id : emoji.native;
 										
-												setMessage(`${message} ${text}`);
+												setFormattedMessage(`${message} ${text}`);
 												setLastMessage(`${message} ${text}`);
 											}}
 										/>
@@ -706,7 +715,7 @@ function ChatComponent(props){
 											darkMode={darkMode}
 											onEntrySelect={entry => {
 													log('info', 'Chat', 'GifSelector entry', entry);
-													setMessage(`${entry.images.original.url}`);
+													setFormattedMessage(`${entry.images.original.url}`);
 													setLastMessage(`${entry.images.original.url}`);
 												}}
 										/>
@@ -715,6 +724,9 @@ function ChatComponent(props){
 								</div>
 							</div>
 						</div>
+					</div>
+					<div className="flex flex-row">
+						<span className="f7 primary order-2 ml-auto mr2">{message.length}/{MAX_MESSAGE_LENGTH}</span>
 					</div>
 					<div className="flex justify-between">
 						<div className="flex flex-row">
@@ -755,7 +767,7 @@ function ChatComponent(props){
 					)
 					: null
 				}
-				<SimpleBar ref={messageContainerRef} className="chat-messages flex-grow-1 z-initial" style={{ height: '78vh' }}>
+				<SimpleBar ref={messageContainerRef} className="chat-messages flex-grow-1 z-initial h-100">
 				{
 					messages
 					&&
