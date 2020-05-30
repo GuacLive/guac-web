@@ -751,22 +751,23 @@ function ChatComponent(props){
 			</>
 		);
 	return (
-		<>
-			<div className="flex flex-column flex-grow-1 flex-nowrap overflow-hidden">
-				{
-					!isOverlay ?
+		<>	
+			{
+				!isOverlay ?
 					(
-					<div className="chat-header items-center bb b--white-05 bg-black-50 flex flex-shrink-0 w-100 justify-center pl3 pr3">
-						<div className="items-center flex primary">
-							<h5 className="f6 b ttu tracked"><Trans>Stream Chat</Trans></h5>
+						<div className="chat-header items-center bb b--white-05 bg-black-50 flex flex-shrink-0 w-100 justify-center pl3 pr3">
+							<div className="items-center flex primary">
+								<h5 className="f6 b ttu tracked"><Trans>Stream Chat</Trans></h5>
+							</div>
+							<div className="absolute mr3 right-0 primary">
+								<ViewerList users={users} darkMode={darkMode} />
+							</div>
 						</div>
-						<div className="absolute mr3 right-0 primary">
-							<ViewerList users={users} darkMode={darkMode} />
-						</div>
-					</div>
 					)
 					: null
-				}
+			}
+			<div className="flex flex-column flex-grow-1 flex-nowrap overflow-hidden">
+
 				<SimpleBar ref={messageContainerRef} className="chat-messages flex-grow-1 z-initial h-100">
 				{
 					messages
@@ -782,15 +783,15 @@ function ChatComponent(props){
 					})
 				}
 				</SimpleBar>
-				<div className="flex justify-center relative pointer" style={{height: '0'}}>
+			</div>
+			<div className="flex justify-center relative pointer" style={{height: '0'}}>
 				{
 					showFAB ?
-							<div className="absolute br2 bottom-0 flex justify-center items-center pv3 ph4 mb3 bg-black-50 white b" onClick={goToBottom}>
-								<div><Trans>More messages below.</Trans></div>
-							</div> 
-						: null
-				}
-				</div>
+						<div className="absolute br2 bottom-0 flex justify-center items-center pv3 ph4 mb3 bg-black-50 white b" onClick={goToBottom}>
+							<div><Trans>More messages below.</Trans></div>
+						</div> 
+					: null
+			}
 			</div>
 			{ !isOverlay ? ChatInput : null}
 		</>

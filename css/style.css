@@ -290,7 +290,7 @@ input:focus {
 /* Chat */
 .site-component-chat {
     max-height: 100%;
-    height: calc(100vh - 65px);
+    height: calc(100vh - 105px);
 }
 
 .chat-header {
