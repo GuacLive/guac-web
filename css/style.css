@@ -354,7 +354,7 @@ input:focus {
 	margin-left: .2em;
 	margin-right: .2em;
 	min-width: 1.8rem;
-	height: 1.8rem;
+	max-height: 1.8rem;
 	border-radius: 0.2rem;
 
 	text-align: center;
