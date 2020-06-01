@@ -98,7 +98,7 @@ function PageLayout(props){
 		<aside className="fixed flex flex-column vh-100 flex-shrink-1 mv2-l site-component-sidebar bg-near-black">
 			<div className="flex flex-column h-100">
 				<nav className="flex flex-column h-100 relative">
-					<span className="f5 b inline-flex ph3 light-gray">
+					<span className="f5 b ph3 light-gray">
 						<Trans>Followed Channels</Trans>
 					</span>
 					<SimpleBar className="flex-shrink-0 h-100 relative">
