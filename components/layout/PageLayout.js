@@ -98,7 +98,7 @@ function PageLayout(props){
 		<aside className="fixed flex flex-column vh-100 flex-shrink-1 mv2-l site-component-sidebar bg-near-black">
 			<div className="flex flex-column h-100">
 				<nav className="flex flex-column h-100 relative">
-					<span className="f5 b inline-flex ph3 light-gray">
+					<span className="f5 b ph3 light-gray">
 						<Trans>Followed Channels</Trans>
 					</span>
 					<SimpleBar className="flex-shrink-0 h-100 relative">
@@ -174,10 +174,10 @@ function PageLayout(props){
 					</SimpleBar>
 				</nav>
 				<footer className="flex bg-near-black white ph4 ph2-m mb5">
-					<div className="f6 flex flex-column flex-grow-1">
+					<div className="f6 flex flex-column flex-grow-1" style={{flexFlow:'row wrap'}}>
 						<span className="dib mr4 ttu tracked">© {(new Date()).getFullYear()} guac.live</span>
 						<span className="dib mr4 f7 silver">v{process.env.SENTRY_RELEASE}</span>
-						<div className="flex flex-row h-100 flex-grow-1">
+						<div className="flex flex-row flex-grow-1">
 							<Link href="/terms">
 								<a className="link white hover-light-purple mr2"><Trans>Terms</Trans></a>
 							</Link>

@@ -773,7 +773,8 @@ function ChatComponent(props){
 			}
 			<div className="flex flex-column flex-grow-1 flex-nowrap overflow-hidden">
 
-				<SimpleBar ref={messageContainerRef} className="chat-messages flex-grow-1 z-initial h-100">
+				<SimpleBar ref={messageContainerRef} className="chat-messages flex-grow-1 z-initial h-100"
+				style={{height: '0', flex: '1 1 auto'}}>
 				{
 					messages
 					&&
