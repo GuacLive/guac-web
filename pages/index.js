@@ -58,7 +58,14 @@ class IndexPage extends Component {
 							? `wss:${flvUrl}`
 							: flvUrl,
 						type: 'video/x-flv',
-						label: STREAMING_SERVER + `(FLV)`
+						label: 'Source (FLV)'
+					});
+				}
+				if(stream.urls.hls){
+					videoJsOptions.sources.push({
+						src: `${stream.servers[STREAMING_SERVER]}${streak.urls.hls}`,
+						type: 'application/x-mpegURL',
+						label: 'Auto (HLS)'
 					});
 				}
 				// Only HLS has quality options
@@ -67,7 +74,7 @@ class IndexPage extends Component {
 					videoJsOptions.sources.push({
 						src: stream.servers[STREAMING_SERVER] + `/live/${stream.user.name}/index${urlKey}.m3u8`,
 						type: 'application/x-mpegURL',
-						label: STREAMING_SERVER + `(${key})`
+						label: `${key} (HLS)`
 					});
 				});
 			}
