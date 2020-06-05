@@ -200,7 +200,7 @@ function ChannelPage(props){
 				}
 				if(stream.urls.hls){
 					videoJsOptions.sources.push({
-						src: `${stream.servers[STREAMING_SERVER]}${streak.urls.hls}`,
+						src: `${stream.servers[STREAMING_SERVER]}${stream.urls.hls}`,
 						type: 'application/x-mpegURL',
 						label: 'Auto (HLS)'
 					});
