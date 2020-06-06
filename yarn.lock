@@ -2594,6 +2594,11 @@
     semver "^7.3.2"
     tsutils "^3.17.1"
 
+"@vercel/next@^2.6.2":
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/@vercel/next/-/next-2.6.2.tgz#cca3f1e3e62382b0e16494aa896dda3f6edfa30c"
+  integrity sha512-gkrlF/+KsMxMWpMntOXmFLJSZJuAPOxieusUdYj4MMBfU9+r0qGrU9VUAC3oR62iW0UXt5SHrnX4k7Ub08fS3w==
+
 "@videojs/http-streaming@1.12.2":
   version "1.12.2"
   resolved "https://registry.yarnpkg.com/@videojs/http-streaming/-/http-streaming-1.12.2.tgz#9ee790ff5e83eb3aab08ba3c8e434ace92a16013"
