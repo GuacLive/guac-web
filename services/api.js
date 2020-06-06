@@ -21,7 +21,6 @@ export function callApi(endpoint, options = {}) {
 	);
 
 	const accessToken = opt.accessToken;
-	let shouldCache = opt.method === 'GET' && !accessToken;
 	let response = null;
 	const defaultHeaders = {
 		Accept: 'application/json',
@@ -29,9 +28,6 @@ export function callApi(endpoint, options = {}) {
 	};
 	if (accessToken) {
 		defaultHeaders.Authorization = 'Bearer ' + accessToken;
-	}
-	if (shouldCache) {
-		response = lscache.get(fullUrl);
 	}
 	if (opt.timeout) {
 		opt.signal = controller.signal;
@@ -59,7 +55,6 @@ export function callApi(endpoint, options = {}) {
 					clearTimeout(timeout);
 				});
 		}
-		if (shouldCache) lscache.set(fullUrl, response, TTL_MINUTES);
 	}
 	return response;
 }
