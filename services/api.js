@@ -8,6 +8,8 @@ const API_URL = process.env.API_URL;
 export function callApi(endpoint, options = {}) {
 	const opt = options;
 	opt.headers = opt.headers || {};
+	// Timeout to prevent SSR from locking up
+	opt.timeout = opt.timeout || typeof window === 'undefined' ? process.env.SSR_TIMEOUT : 0;
 	const fullUrl = (endpoint.indexOf(API_URL) === -1) ? API_URL + endpoint : endpoint;
 
 	const controller = new AbortController();
@@ -33,6 +35,10 @@ export function callApi(endpoint, options = {}) {
 	}
 	if (opt.timeout) {
 		opt.signal = controller.signal;
+	}
+	// Automatically whitelist if server
+	if (typeof window === 'undefined') {
+		defaultHeaders['x-guac-bypass'] = process.env.guac_whitelist_secret;
 	}
 	opt.headers = Object.assign(defaultHeaders, opt.headers);
 	if (response === null) {

@@ -61,6 +61,7 @@ module.exports = withTM(withOffline({
 	generateBuildId: async () => pkg.version,
 	poweredByHeader: false,
 	env: {
+		SSR_TIMEOUT: parseInt( process.env.SSR_TIMEOUT ) || 10 * 1000,
 		API_URL: process.env.API_URL || 'http://api.local.guac.live',
 		CHAT_URL: process.env.CHAT_URL || 'http://chat.local.guac.live',
 		VIEWER_API_URL: process.env.VIEWER_API_URL || 'http://viewer-api.local.guac.live',
