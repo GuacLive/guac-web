@@ -13,8 +13,12 @@
         "source": "/service-worker.js",
         "headers" : [
           {
-            "cache-control": "public, max-age=43200, immutable",
-            "Service-Worker-Allowed": "/"
+            "key": "Cache-Control",
+            "value": "public, max-age=43200, immutable"
+          },
+          {
+            "key": "Service-Worker-Allowed",
+            "value": "/"
           }
         ]
       }
