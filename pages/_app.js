@@ -164,7 +164,6 @@ MyApp.getInitialProps = async appContext => {
 		await ctx.store.dispatch(actions.fetchMyFollowed(
 			authentication.token
 		));
-		console.log('clap', site, authentication);
 	}
 
 	// Return some pageProps
