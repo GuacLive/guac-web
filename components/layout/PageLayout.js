@@ -9,7 +9,6 @@ import SimpleBar from 'simplebar-react';
 
 import * as actions from '../../actions';
 
-
 import { useLingui } from "@lingui/react";
 import { Trans, t } from '@lingui/macro';
 import LangSwitcher from '../LangSwitcher';
@@ -25,14 +24,19 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
 	Tooltip,
   } from 'react-tippy';
+
+import { useDispatch } from "react-redux";
+import { useInterval, useBoolean } from 'react-use';
   
 const mediaQueryList = typeof window !== 'undefined' 
 	&& window.matchMedia('screen and (min-width: 960px)');
 function PageLayout(props){
+	const dispatch = useDispatch();
 	const { i18n } = useLingui();
 	const [showSidebar, setShowSidebar] = useState(true);
 	const [overrideSidebar, setOverrideSidebar] = useState(false);
-
+	const [followingTimer, toggleFollowingTimer] = useBoolean(true);
+  
 	const updateViewport = () => {
 		if(
 			typeof document !== 'undefined'
@@ -87,8 +91,23 @@ function PageLayout(props){
 		}
 	}, [props.mode]);
 
-	let {children, isAuthenticated, user, followed} = props;
+	let {children, isAuthenticated, user} = props;
 	let title = props.title ? props.title : '';
+
+	useEffect(() => {
+		toggleFollowingTimer(true);
+	}, [user.token])
+
+	// Refetch following list every 60 seconds
+	useInterval(
+		async () => {
+			if(!user || !user.token) return;
+			await dispatch(actions.fetchMyFollowed(
+				user.token
+			));
+		},
+		followingTimer ? 60 * 1000 : null
+	);
 
 	if(props.skip){
 		return <Fragment>{children}</Fragment>;
@@ -103,16 +122,16 @@ function PageLayout(props){
 					</span>
 					<SimpleBar className="flex-shrink-0 h-100 relative">
 						{
-							(!followed ||
-								!followed.length)
+							(!props.followed ||
+								!props.followed.length)
 							&&
 							<div className="align-center flex-l dn flex-column relative ph4 pv2 white">
 								<Trans>Start following your favorite streamers to find them quickly!</Trans>
 							</div>
 						}
 						{
-							followed &&
-							[].concat(followed)
+							props.followed &&
+							[].concat(props.followed)
 								.sort((a, b) => {
 									if (a.live === b.live) {
 										return 1;
@@ -318,9 +337,10 @@ function PageLayout(props){
 const mapStateToProps = (state) => (
 	{
 		isAuthenticated: !!state.authentication.token,
+		user: state.authentication ? state.authentication.user : null,
 		mode: state.site.mode,
 		followed: state.site.myFollowed,
-		user: state.authentication && state.authentication.user
+		loading: state.site.loading
 	}
 );
 
