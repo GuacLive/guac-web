@@ -96,6 +96,7 @@
     "video.js": "npm:@bitwave/video.js",
     "videojs-errors": "^4.3.2",
     "videojs-hotkeys": "^0.2.25",
+    "videojs-mux": "^3.0.0",
     "videojs-overlay": "^2.1.4",
     "videojs-record": "^4.0.0",
     "videojs-theater-mode": "^1.0.0",

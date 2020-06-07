@@ -43,6 +43,7 @@ class IndexPage extends Component {
 			controls: true,
 			sources: [],
 			streamInfo: {
+				title: stream.title,
 				username: stream.user.name,
 				isChannel: false
 			}
