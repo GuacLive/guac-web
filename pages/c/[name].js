@@ -180,6 +180,8 @@ function ChannelPage(props){
 			controls: true,
 			sources: [],
 			streamInfo: {
+				viewer_user_id: authentication.user && authentication.user.id,
+				title: stream.title,
 				username: stream.user.name,
 				isChannel: true
 			}

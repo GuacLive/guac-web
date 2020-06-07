@@ -2,6 +2,8 @@ const videojs = require('video.js').default;
 import '@videojs/http-streaming';
 import 'videojs-errors';
 
+import mux from 'videojs-mux';
+
 import {useLingui} from '@lingui/react';
 
 import io from 'socket.io-client';
@@ -17,6 +19,7 @@ const VIEWER_API_URL = process.env.VIEWER_API_URL;
 var didCancel = false;
 var playbackAPISocket;
 function VideoPlayer(props) {
+	const playerInitTime = Date.now();
 	let player;
 	let videoNode;
 	const dispatch = useDispatch();
@@ -78,7 +81,22 @@ function VideoPlayer(props) {
 				},
 				persistvolume: {
 					namespace: 'guac-live'
-				}
+				},
+				mux: {
+					debug: true,
+					data: {
+						viewer_user_id: props.streamInfo.viewer_user_id,
+						env_key: 'nttpf0l7a8eq71c8oqmhd5r3a', // required
+						// Metadata
+						player_name: 'guac.live player', // ex: 'My Main Player'
+						player_init_time: playerInitTime, // ex: 1451606400000
+	
+						// Video Metadata (cleared with 'videochange' event)
+						video_id: props.streamInfo.username, // ex: 'abcd123'
+						video_title: props.streamInfo.title, // ex: 'My Great Video'
+						video_stream_type: props.live ? 'live' : 'on-demand', // 'live' or 'on-demand'
+					},
+				},
 			},
 			techOrder: ['chromecast', 'flvjs', 'html5'],
 			flvjs: {
@@ -124,12 +142,13 @@ function VideoPlayer(props) {
 			...props
 		};
 		
-		if(window && typeof window.MediaSource === 'undefined'){
+		if(typeof window !== 'undefined'){
 			videoJsOptions.html5 = {
 				hls: {
 					overrideNative: !videojs.browser.IS_SAFARI,
 					allowSeeksWithinUnsafeLiveWindow: true,
 					enableLowInitialPlaylist: true,
+					smoothQualityChange: true,
 					handlePartialData: true,	
 					liveSyncDurationCount: 1,
 					liveMaxLatencyDurationCount: 6,
