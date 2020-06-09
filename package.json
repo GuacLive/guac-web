@@ -1,6 +1,6 @@
 {
   "name": "guac-web",
-  "version": "1.5.35",
+  "version": "1.5.36",
   "description": "Main web ui for the Guac livestreaming platform",
   "repository": "GuacLive/guac-web",
   "author": {
@@ -93,7 +93,7 @@
     "typescript": "^3.9.0-dev.20200414",
     "url-loader": "^4.1.0",
     "vercel": "^19.0.1",
-    "video.js": "npm:@bitwave/video.js",
+    "video.js": "npm:@bitwave/video.js@^7.8.7",
     "videojs-errors": "^4.3.2",
     "videojs-hotkeys": "^0.2.25",
     "videojs-mux": "^3.0.0",
