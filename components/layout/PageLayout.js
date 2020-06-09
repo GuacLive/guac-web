@@ -141,6 +141,9 @@ function PageLayout(props){
 										return -1;
 									}
 								})
+								.sort((a, b) => {
+									return b.viewers - a.viewers;
+								})
 								.map((u) => {
 									return (
 										<Link key={'followed-' + u.username} href="/c/[name]" as={`/c/${u.username}`}>
@@ -177,7 +180,10 @@ function PageLayout(props){
 																{
 																	+u.live
 																		?
-																		<span className="ph2 bg-red f6 tc inline-flex truncate white flex-grow-1 lh-title mh3">LIVE</span>
+																		<span className="ph2 f6 tc inline-flex truncate white flex-grow-1 lh-title mh3">
+																			<span className="br-100 inline-flex f6 relative w1 h1 bg-red"></span>
+																			{u.viewers}
+																		</span>
 																		:
 																		<span className="ph2 f6 tc inline-flex truncate white flex-grow-1 lh-title mh3">Offline</span>
 																}
