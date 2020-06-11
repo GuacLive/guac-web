@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Switch from 'react-switch';
 
+import { Trans } from '@lingui/macro';
 import { connect } from 'react-redux';
 import { setCookie } from '../../utils/cookie';
 class DarkModeToggle extends Component {
@@ -28,18 +29,22 @@ class DarkModeToggle extends Component {
 
 	render() {
 		return (
-			<label className="flex flex-row self-center">
-				<Switch
-					onChange={this.handleChange}
-					checked={this.state.checked}
-					offColor="#212121"
-					onColor="#F1F1F1"
-					onHandleColor="#212121"
-					offHandleColor="#F1F1F1"
-					uncheckedIcon={<span>☀️</span>}
-					checkedIcon={<span>🌙</span>}
-				/>
-			</label>
+			<div className="flex items-center tw-relative pa2 relative w-100 link b white ph3 pointer" onClick={() => {this.handleChange(!this.state.checked)}}>
+				<div className="items-center flex flex-shrink-0 pr2">
+					<div className="items-center inline-flex">
+						<i className="fas fa-fw fa-moon"></i>
+					</div>
+				</div>
+				<div className="flex-grow-1 mr2"><Trans>Dark Mode</Trans></div>
+				<div className="flex flex-column">
+					<label className="flex flex-row self-center">
+						<Switch
+							onChange={this.handleChange}
+							checked={this.state.checked}
+						/>
+					</label>
+				</div>
+			</div>
 		);
 	}
 }

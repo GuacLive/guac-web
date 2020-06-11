@@ -16,7 +16,6 @@ import LangSwitcher from '../LangSwitcher';
 import Image from '../Image';
 
 import GuacButton from '../GuacButton';
-import DarkModeToggle from '../DarkModeToggle';
 import AccountMenu from './AccountMenu';
 import SearchBar from '../Search/SearchBar';
 
@@ -296,10 +295,9 @@ function PageLayout(props){
 						</nav>
 
 						<nav className="relative fw6 order-1 order-2-ns white">
-							<div id="account-menu" className="flex flex-nowrap h-100 items-stretch flex-grow-1" style={{WebkitAppRegion: 'no-drag'}}>
-								<div className="flex flex-row self-center overflow-x-visible">
-									<DarkModeToggle mode={props.mode} />
-									{
+							<div id="account-menu" className="items-center flex flex-grow-1 flex-shrink-1 w-100 justify-end" style={{WebkitAppRegion: 'no-drag'}}>
+								<div class="flex flex-nowrap">
+								{
 										!isAuthenticated &&
 										<GuacButton url="/auth/login">
 											<span className="dn db-l" title={i18n._(t`Log in`)}><Trans>Log in</Trans></span>
@@ -313,12 +311,10 @@ function PageLayout(props){
 											<span className="dn-l" title={i18n._(t`Sign up`)}><FontAwesomeIcon icon="user-plus" /></span>
 										</GuacButton>
 									}
-									{
-										isAuthenticated &&
-										user &&
-										<AccountMenu user={user} />
-									}
 								</div>
+								{
+									<AccountMenu user={user && Object.keys(user).length ? user : null} mode={props.mode} />
+								}
 							</div>
 						</nav>
 					</div>
