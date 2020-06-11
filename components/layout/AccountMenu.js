@@ -4,11 +4,13 @@ import { useState, useRef, Fragment } from 'react';
 
 import { useClickAway } from 'react-use';
 
-import { Trans } from '@lingui/macro';
+import { useLingui } from "@lingui/react";
+import { Trans, t } from '@lingui/macro';
 
 import Image from '../Image';
 
 function AccountMenu(props){
+	const { i18n } = useLingui();
 	const [isOpen, setIsOpen] = useState(false);
 	
 	const ref = useRef(null);
@@ -22,6 +24,19 @@ function AccountMenu(props){
 				<Image src={props.user.avatar || '//api.guac.live/avatars/unknown.png'} alt={props.user.name} shape="squircle" fit="cover" lazyload className="dim w2 w2-ns h2 h2-ns" />
 			</a>
 			<div ref={ref} data-details="" className="dropdown-menu primary absolute nowrap right-0 ba b--transparent shadow-1 br2 w5" style={{left: 'auto', display: isOpen ? 'block' : 'none', top: '100%'}}>
+				<div className="bg-green black ph3 pv1 br2 br--top">
+					<div className="flex items-center">
+						<Link href="/settings">
+							<a className="link ml0 mr3">
+								<Image src={props.user.avatar || '//api.guac.live/avatars/unknown.png'} alt={props.user.name} shape="squircle" fit="cover" lazyload className="dim w2 w2-ns h2 h2-ns" />
+							</a>
+						</Link>
+						<div>
+							<div className="f4 flex-grow-1">{props.user.name}</div>
+							<div className="f5 normal flex-grow-1">{props.user.can_stream ? i18n._(t`Streamer`) : i18n._(t`User`)}</div>
+						</div>
+					</div>
+				</div>
 				<ul className="list f6 mr0 ml0 mt0 mb0 pa3">
 					<li>
 						<Link href={props.user.can_stream ? `/c/${props.user.name}` : '/'}>
@@ -31,7 +46,7 @@ function AccountMenu(props){
 										<i className="fa fa-user"></i>
 									</div>
 								</div>
-								<div className="flex-grow-1">{props.user.name}</div>
+								<div className="flex-grow-1"><Trans>My Channel</Trans></div>
 							</a>
 						</Link>
 					</li>
