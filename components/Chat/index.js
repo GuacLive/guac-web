@@ -12,6 +12,7 @@ import AutoTextarea from 'react-autosize-textarea';
 
 import format from 'date-fns/format';
 
+import { useLingui } from "@lingui/react"
 import { Trans, t } from '@lingui/macro';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -43,6 +44,7 @@ var privileged = [];
 var hasPrivilege = false;
 const MAX_MESSAGE_LENGTH = 240;
 function ChatComponent(props){
+	const { i18n } = useLingui();
 	const dispatch = useDispatch();
 	const [connectedStatus, setConnectedStatus] = useState(false);
 	const [lastMessage, setLastMessage] = useState('');
@@ -589,6 +591,7 @@ function ChatComponent(props){
 			<div className="chat-input pa2">
 					<div className="relative">
 						<ReactTextareaAutocomplete
+							placeholder={i18n._(t`Send a message`)}
 							value={message}
 							onChange={writeMessage}
 							className="w-100 pa2 br2 input-reset ba db outline-transparent bg-transparent primary"

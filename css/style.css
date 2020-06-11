@@ -419,6 +419,11 @@ input:focus {
 	resize: vertical;
 	max-height: 160px;
 	min-height: 40px;
+	transition: box-shadow .1s ease-in,border .1s ease-in,background-color .1s ease-in;
+}
+.chat-input textarea:focus {
+	border-color: var(--green);
+	box-shadow: 0 0 6px -2px var(--green);
 }
 .emoji-mart-emoji-custom span {
 	background-repeat: no-repeat;
