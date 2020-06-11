@@ -279,7 +279,7 @@ msgstr "Flere meldinger under."
 
 #: components/layout/AccountMenu.js:49
 msgid "My Channel"
-msgstr ""
+msgstr "Min Kanal"
 
 #: components/Settings/Profile.js:37
 msgid "New password:"
