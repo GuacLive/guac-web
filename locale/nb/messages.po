@@ -13,15 +13,15 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: pages/index.js:142
+#: pages/index.js:150
 msgid "<0>Hi,<1/>Welcome to guac.live &mdash; live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 msgstr "<0>Hi,<1/>Velkommen til guac.live — direktestrømming-platformen. Vi er for tiden i beta.</0><2>Mens vi er i beta, så vil strømmeprivilegier bli gitt på invitasjonsbasis.<3/>Men, lag gjerne en konto og delta i chatten og det generelle fellesskapet!</2>"
 
-#: pages/c/[name].js:340
+#: pages/c/[name].js:349
 msgid "ABOUT"
 msgstr "OM"
 
-#: components/layout/AccountMenu.js:73
+#: components/layout/AccountMenu.js:88
 msgid "Admin"
 msgstr "Admin"
 
@@ -37,9 +37,9 @@ msgstr "Til slutt, sørg for at keyframe interval er satt til <0>1</0>."
 msgid "Breaking the law"
 msgstr "Å bryte loven"
 
-#: components/layout/PageLayout.js:263
-#: components/layout/PageLayout.js:263
-#: components/layout/PageLayout.js:264
+#: components/layout/PageLayout.js:288
+#: components/layout/PageLayout.js:288
+#: components/layout/PageLayout.js:289
 #: pages/categories.js:28
 msgid "Browse"
 msgstr "Utforsk"
@@ -52,13 +52,13 @@ msgstr "Kategori:"
 msgid "Channel"
 msgstr "Kanal"
 
-#: pages/c/[name].js:446
+#: pages/c/[name].js:455
 msgid "Channel not found"
 msgstr "Kanal ikke funnet"
 
-#: components/layout/PageLayout.js:257
-#: components/layout/PageLayout.js:257
-#: components/layout/PageLayout.js:258
+#: components/layout/PageLayout.js:282
+#: components/layout/PageLayout.js:282
+#: components/layout/PageLayout.js:283
 #: pages/channels.js:50
 msgid "Channels"
 msgstr "Kanaler"
@@ -101,24 +101,24 @@ msgstr "Opphavsrettsbeskyttet innhold"
 msgid "Counter-Notification"
 msgstr "Innsigelse"
 
-#: pages/c/[name].js:274
+#: pages/c/[name].js:283
 msgid "Create an account to follow this user"
 msgstr "Opprett en konto for å følge denne brukeren"
 
-#: components/layout/PageLayout.js:190
+#: components/layout/PageLayout.js:215
 msgid "DMCA"
 msgstr "DMCA"
 
-#: components/layout/AccountMenu.js:58
+#: components/layout/AccountMenu.js:73
 msgid "Dashboard"
 msgstr "Kontrollpanel"
 
-#: pages/c/[name].js:388
+#: pages/c/[name].js:397
 msgid "Delete"
 msgstr "Slett"
 
-#: pages/c/[name].js:385
-#: pages/c/[name].js:386
+#: pages/c/[name].js:394
+#: pages/c/[name].js:395
 msgid "Description"
 msgstr "Beskrivelse"
 
@@ -147,15 +147,15 @@ msgstr "Ikke engasjer deg eller oppmuntre andre til å engasjere seg i målrette
 msgid "E-mail"
 msgstr "E-post"
 
-#: pages/c/[name].js:289
+#: pages/c/[name].js:298
 msgid "Edit"
 msgstr "Endre"
 
-#: pages/c/[name].js:391
+#: pages/c/[name].js:400
 msgid "Edit panel"
 msgstr "Endre panel"
 
-#: pages/c/[name].js:366
+#: pages/c/[name].js:375
 msgid "Edit panels"
 msgstr "Endre paneler"
 
@@ -181,12 +181,12 @@ msgstr "Feilet verifisering"
 msgid "First, choose the streaming server closest to you:"
 msgstr "Først, velg strømmeserveren som er nærmest deg:"
 
-#: pages/c/[name].js:268
-#: pages/c/[name].js:280
+#: pages/c/[name].js:277
+#: pages/c/[name].js:289
 msgid "Follow"
 msgstr "Følg"
 
-#: components/layout/PageLayout.js:102
+#: components/layout/PageLayout.js:121
 msgid "Followed Channels"
 msgstr "Fulgte kanaler"
 
@@ -194,7 +194,7 @@ msgstr "Fulgte kanaler"
 #~ msgid "Followers"
 #~ msgstr "Følgere"
 
-#: pages/c/[name].js:267
+#: pages/c/[name].js:276
 msgid "Following"
 msgstr "Følger"
 
@@ -222,7 +222,7 @@ msgstr "Trakassering og mobbing"
 msgid "Hate Speech"
 msgstr "Hatprat"
 
-#: components/layout/PageLayout.js:252
+#: components/layout/PageLayout.js:277
 msgid "Home"
 msgstr "Hjem"
 
@@ -234,30 +234,30 @@ msgstr "Informasjon"
 msgid "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be &quot;repeat infringers&quot;. If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (&quot;DMCA&quot;) by providing Guac.live&#039;s Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
 msgstr "Det er vår policy å svare på klare merknader om påstått brudd på opphavsretten som er i samsvar med Digital Millennium Copyright Act. I tillegg vil vi straks avslutte uten varsel kontoene til de som bestemmes av oss å være &quot;gjentatte krenkere&quot;. Hvis du er opphavsrettseier eller en agent derav, og du tror at at innhold som ligger på nettstedet vårt (www.guac.live) krenker opphavsretten din, kan du sende inn et varsel i henhold til Digital Millennium Copyright Act (&quot;DMCA&quot;) by providing Guac.live&#039;s ved å gi Guac.lives utpekte copyrightagent følgende informasjon skriftlig (vennligst kontakt din advokat eller se 17 USC Seksjon 512 (c) (3) for å bekrefte disse kravene):"
 
-#: pages/index.js:159
+#: pages/index.js:167
 msgid "Join"
 msgstr "Bli med"
 
-#: pages/index.js:129
+#: pages/index.js:137
 msgid "Live streams"
 msgstr "Direktesendinger"
 
-#: components/Chat/index.js:585
+#: components/Chat/index.js:598
 #: components/Search/SearchBar.js:81
-#: pages/c/[name].js:445
+#: pages/c/[name].js:454
 msgid "Loading..."
 msgstr "Laster..."
 
-#: components/layout/PageLayout.js:280
-#: components/layout/PageLayout.js:280
-#: components/layout/PageLayout.js:281
+#: components/layout/PageLayout.js:305
+#: components/layout/PageLayout.js:305
+#: components/layout/PageLayout.js:306
 #: pages/auth/activate.js:38
 #: pages/auth/login.js:49
 #: pages/auth/register.js:80
 msgid "Log in"
 msgstr "Logg inn"
 
-#: components/layout/AccountMenu.js:86
+#: components/layout/AccountMenu.js:101
 msgid "Log out"
 msgstr "Logg ut"
 
@@ -273,9 +273,13 @@ msgstr "Håndter din tilkoblede kontoer og tjenester"
 msgid "Moderators in chat:"
 msgstr "Moderatorer i chat:"
 
-#: components/Chat/index.js:777
+#: components/Chat/index.js:800
 msgid "More messages below."
 msgstr "Flere meldinger under."
+
+#: components/layout/AccountMenu.js:49
+msgid "My Channel"
+msgstr ""
 
 #: components/Settings/Profile.js:37
 msgid "New password:"
@@ -293,7 +297,7 @@ msgstr "Ingen strømmenøkkel funnet, vennligst kontakt en administrator."
 msgid "Norwegian"
 msgstr "Norsk"
 
-#: components/Chat/index.js:728
+#: components/Chat/index.js:748
 msgid "Not connected to chat."
 msgstr "Ikke tilkoblet chat."
 
@@ -309,7 +313,7 @@ msgstr "Nå, bruk følgende strømmenøkkel:"
 msgid "Page not found"
 msgstr "Side ikke funnet"
 
-#: pages/c/[name].js:245
+#: pages/c/[name].js:254
 msgid "Partnered"
 msgstr "Partner"
 
@@ -339,7 +343,7 @@ msgstr "Pornografisk og seksuelt eksplisitt innhold er ikke tillatt i noen form,
 msgid "Pornographic/Sexually Explicit Content"
 msgstr "Pornografisk/seksuelt eksplisitt innhold"
 
-#: components/layout/PageLayout.js:186
+#: components/layout/PageLayout.js:211
 msgid "Privacy"
 msgstr "Personvern"
 
@@ -355,11 +359,11 @@ msgstr "Privat (vises ikke i kategorier, forsiden eller i søk):"
 msgid "Profile"
 msgstr "Profil"
 
-#: pages/c/[name].js:349
+#: pages/c/[name].js:358
 msgid "REPLAYS"
 msgstr "ARKIV"
 
-#: components/Chat/index.js:729
+#: components/Chat/index.js:749
 msgid "Reconnect"
 msgstr "Koble til"
 
@@ -371,6 +375,10 @@ msgstr "Husk meg"
 msgid "Search..."
 msgstr "Søk..."
 
+#: components/Chat/index.js:594
+msgid "Send a message"
+msgstr "Send en melding"
+
 #: pages/terms.js:23
 msgid "Serious threats of harm to public and personal safety aren't allowed. This includes specific threats of physical harm as well as threats of theft, vandalism, and other financial harm.<0/>We don’t allow the glorification of self-harm."
 msgstr "Seriøse trusler om skade til offentligheten og personlig sikkerhet er ikke tillatt. Dette inkluderer spesifikke trusler om fysisk skade og trusler om tyveri, vandalisme og annen finansiell skade.<0/>Vi tillater ikke glorifisering av selvskading."
@@ -380,7 +388,7 @@ msgid "Server error"
 msgstr "Server-feil"
 
 #: components/Chat/SettingsMenu.js:36
-#: components/layout/AccountMenu.js:46
+#: components/layout/AccountMenu.js:61
 #: pages/settings.js:22
 msgid "Settings"
 msgstr "Innstillinger"
@@ -397,9 +405,9 @@ msgstr "Vis bare direkte"
 msgid "Show user list"
 msgstr "Vis liste over brukere"
 
-#: components/layout/PageLayout.js:287
-#: components/layout/PageLayout.js:287
-#: components/layout/PageLayout.js:288
+#: components/layout/PageLayout.js:312
+#: components/layout/PageLayout.js:312
+#: components/layout/PageLayout.js:313
 #: pages/auth/login.js:67
 #: pages/auth/register.js:59
 msgid "Sign up"
@@ -413,11 +421,11 @@ msgstr "Lyd-varsel når nevnt i chat"
 msgid "Staff in chat:"
 msgstr "Staff i chat:"
 
-#: components/layout/PageLayout.js:110
+#: components/layout/PageLayout.js:129
 msgid "Start following your favorite streamers to find them quickly!"
 msgstr "Begynn å følge dine favoritt-strømmere for å finne dem raskt!"
 
-#: components/Chat/index.js:749
+#: components/Chat/index.js:768
 msgid "Stream Chat"
 msgstr "Strømmechat"
 
@@ -433,11 +441,15 @@ msgstr "Strømmeforhåndsvisning"
 msgid "Stream settings"
 msgstr "Strømmeinnstillinger"
 
+#: components/layout/AccountMenu.js:36
+msgid "Streamer"
+msgstr "Strømmer"
+
 #: pages/admin/index.js:53
 msgid "Streaming permissions"
 msgstr "Strømmetillatelse"
 
-#: pages/c/[name].js:284
+#: pages/c/[name].js:293
 msgid "Subscribe"
 msgstr "Abonnér"
 
@@ -445,7 +457,7 @@ msgstr "Abonnér"
 #~ msgid "Support us and get perks"
 #~ msgstr "Støtt oss og få fordeler"
 
-#: components/layout/PageLayout.js:202
+#: components/layout/PageLayout.js:227
 msgid "Support us on patreon!"
 msgstr "Støtt oss på patreon!"
 
@@ -453,7 +465,7 @@ msgstr "Støtt oss på patreon!"
 msgid "Switch language"
 msgstr "Bytt språk"
 
-#: components/layout/PageLayout.js:182
+#: components/layout/PageLayout.js:207
 msgid "Terms"
 msgstr "Vilkår"
 
@@ -489,8 +501,8 @@ msgstr "Time ut brukeren i x sekunder"
 msgid "Timestamps"
 msgstr "Tidsmerking"
 
-#: pages/c/[name].js:382
-#: pages/c/[name].js:383
+#: pages/c/[name].js:391
+#: pages/c/[name].js:392
 msgid "Title"
 msgstr "Tittel"
 
@@ -502,7 +514,11 @@ msgstr "Fjern utestenging av bruker"
 msgid "Unknown error"
 msgstr "Ukjent feil"
 
-#: pages/c/[name].js:429
+#: components/layout/AccountMenu.js:36
+msgid "User"
+msgstr "Bruker"
+
+#: pages/c/[name].js:438
 msgid "User has been banned"
 msgstr "Brukeren har blitt utestengt"
 
@@ -539,7 +555,7 @@ msgstr "Vil du endre fargen din? <0>Join vår Patreon!</0>"
 msgid "We will review every reported user on a case-by-case basis, and give <0>warnings</0> or <1>temporary/permanent bans</1> depending on the severity of the case."
 msgstr "Vi vil gjennomgå alle rapporterte brukere fra sak til sak, og gi <0>advarsler</0> eller <1>midlertidige/permanente utestengelser</1> basert på alvorlighetsgraden til saken."
 
-#: pages/index.js:140
+#: pages/index.js:148
 msgid "Welcome to guac.live"
 msgstr "Velkommen til guac.live"
 
@@ -575,11 +591,11 @@ msgstr "Kontoen din er opprettet. Vennligst sjekk din e-post for å verifisere k
 msgid "Your e-mail has been verified."
 msgstr "E-posten din har blitt verifisert."
 
-#: pages/c/[name].js:432
+#: pages/c/[name].js:441
 msgid "has been banned from the site."
 msgstr "har blitt utestengt fra dette nettstedet."
 
-#: pages/index.js:80
+#: pages/index.js:88
 msgid "is live"
 msgstr "sender direkte"
 
@@ -587,7 +603,7 @@ msgstr "sender direkte"
 msgid "message"
 msgstr "melding"
 
-#: pages/index.js:119
+#: pages/index.js:127
 msgid "no streams are online"
 msgstr "ingen aktive direktesendinger"
 
