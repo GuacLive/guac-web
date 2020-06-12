@@ -25,17 +25,20 @@ function ViewerList(props){
 		return user;
 	});
 
+	const broadcaster = users.filter((u) => {
+		return u && u.badges && u.badges[0] && u.badges[0].id === 'broadcaster';
+	});
 	const staff = users.filter((u) => {
-		return u && u.type && u.type === 'staff';
+		return u && u.type && u.type === 'staff' && !broadcaster.find((b) => u.id == b.id);
 	});
 	const mods = users.filter((u) => {
-		return u && u.type &&  u.type !== 'staff' && u.type === 'moderator';
+		return u && u.type &&  u.type !== 'staff' && u.type === 'moderator' && !broadcaster.find((b) => u.id == b.id);
 	});
 	const supporters = users.filter((u) => {
-		return u && !u.anon && u.type !== 'staff' && u.type !== 'moderator' && u.isPatreon;
+		return u && !u.anon && u.type !== 'staff' && u.type !== 'moderator' && u.isPatreon && !broadcaster.find((b) => u.id == b.id);
 	});
 	const usrs = users.filter((u) => {
-		return u && !u.anon && u.type !== 'staff' && u.type !== 'moderator' && !u.isPatreon;
+		return u && !u.anon && u.type !== 'staff' && u.type !== 'moderator' && !u.isPatreon && !broadcaster.find((b) => u.id == b.id);
 	});
 
 	return (
@@ -54,6 +57,25 @@ function ViewerList(props){
 			<div className="absolute top-2 right-2 fr pv2 ph2 h-100 w5 z-3">
 				{isOpen &&
 					<div className={`pa2 ba b--gray br2 ${props.darkMode ? 'bg-near-black' : 'bg-white'} ${props.darkMode ? 'near-white' : 'near-black'}`}>
+						{
+							broadcaster
+							&&
+							broadcaster.length > 0
+							&&
+							<div className="db bb b--gray pb4">
+								<span className="f5 b tracked mt0 mb3"><Trans>Broadcaster:</Trans></span>
+								<ul className="pa0 ma0 list">
+									{
+										broadcaster &&
+										broadcaster.map((u) => {
+											return (
+												<li key={`broadcaster_${u.name}`} className="flex flex-grow-1" style={{color: `#${u.color}`}}>{u.name}</li>
+											);
+										})
+									}
+								</ul>
+							</div>
+						}
 						{
 							staff
 							&&
