@@ -53,7 +53,7 @@ module.exports = withTM(withOffline({
 				})
 			);
 		}
-		config.devtool = 'cheap-module-source-map';
+		config.devtool = false;
 
 		return config;
 	},
