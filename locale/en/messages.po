@@ -25,7 +25,7 @@ msgstr "<0>Hi,<1/>Welcome to guac.live &mdash; live streaming platform. We are c
 msgid "ABOUT"
 msgstr "ABOUT"
 
-#: components/layout/AccountMenu.js:88
+#: components/layout/AccountMenu.js:96
 msgid "Admin"
 msgstr "Admin"
 
@@ -41,9 +41,13 @@ msgstr "At last, make sure keyframe interval is set to <0>1</0>."
 msgid "Breaking the law"
 msgstr "Breaking the law"
 
+#: components/Chat/ViewerList.js:66
+msgid "Broadcaster:"
+msgstr "Broadcaster:"
+
+#: components/layout/PageLayout.js:287
+#: components/layout/PageLayout.js:287
 #: components/layout/PageLayout.js:288
-#: components/layout/PageLayout.js:288
-#: components/layout/PageLayout.js:289
 #: pages/categories.js:28
 msgid "Browse"
 msgstr "Browse"
@@ -60,9 +64,9 @@ msgstr "Channel"
 msgid "Channel not found"
 msgstr "Channel not found"
 
+#: components/layout/PageLayout.js:281
+#: components/layout/PageLayout.js:281
 #: components/layout/PageLayout.js:282
-#: components/layout/PageLayout.js:282
-#: components/layout/PageLayout.js:283
 #: pages/channels.js:50
 msgid "Channels"
 msgstr "Channels"
@@ -109,11 +113,15 @@ msgstr "Counter-Notification"
 msgid "Create an account to follow this user"
 msgstr "Create an account to follow this user"
 
-#: components/layout/PageLayout.js:215
+#: components/layout/PageLayout.js:214
 msgid "DMCA"
 msgstr "DMCA"
 
-#: components/layout/AccountMenu.js:73
+#: components/DarkModeToggle/index.js:38
+msgid "Dark Mode"
+msgstr "Dark Mode"
+
+#: components/layout/AccountMenu.js:79
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -194,7 +202,7 @@ msgstr "Follow"
 #~ msgid "Follow ({0})"
 #~ msgstr "Follow ({0})"
 
-#: components/layout/PageLayout.js:121
+#: components/layout/PageLayout.js:120
 msgid "Followed Channels"
 msgstr "Followed Channels"
 
@@ -238,7 +246,7 @@ msgstr "Harassment & Bullying"
 msgid "Hate Speech"
 msgstr "Hate Speech"
 
-#: components/layout/PageLayout.js:277
+#: components/layout/PageLayout.js:276
 msgid "Home"
 msgstr "Home"
 
@@ -268,16 +276,16 @@ msgstr "Live streams"
 msgid "Loading..."
 msgstr "Loading..."
 
-#: components/layout/PageLayout.js:305
-#: components/layout/PageLayout.js:305
-#: components/layout/PageLayout.js:306
+#: components/layout/PageLayout.js:303
+#: components/layout/PageLayout.js:303
+#: components/layout/PageLayout.js:304
 #: pages/auth/activate.js:38
 #: pages/auth/login.js:49
 #: pages/auth/register.js:80
 msgid "Log in"
 msgstr "Log in"
 
-#: components/layout/AccountMenu.js:101
+#: components/layout/AccountMenu.js:114
 msgid "Log out"
 msgstr "Log out"
 
@@ -289,7 +297,7 @@ msgstr "Manage"
 msgid "Manage your connected accounts and services"
 msgstr "Manage your connected accounts and services"
 
-#: components/Chat/ViewerList.js:82
+#: components/Chat/ViewerList.js:104
 msgid "Moderators in chat:"
 msgstr "Moderators in chat:"
 
@@ -297,7 +305,7 @@ msgstr "Moderators in chat:"
 msgid "More messages below."
 msgstr "More messages below."
 
-#: components/layout/AccountMenu.js:49
+#: components/layout/AccountMenu.js:55
 msgid "My Channel"
 msgstr "My Channel"
 
@@ -347,7 +355,7 @@ msgstr "Password"
 msgid "Patreon Status: Not a Patron"
 msgstr "Patreon Status: Not a Patron"
 
-#: components/Chat/ViewerList.js:101
+#: components/Chat/ViewerList.js:123
 msgid "Patreon supporters:"
 msgstr "Patreon supporters:"
 
@@ -363,7 +371,7 @@ msgstr "Pornographic and sexually explicit content is not permitted in any form,
 msgid "Pornographic/Sexually Explicit Content"
 msgstr "Pornographic/Sexually Explicit Content"
 
-#: components/layout/PageLayout.js:211
+#: components/layout/PageLayout.js:210
 msgid "Privacy"
 msgstr "Privacy"
 
@@ -408,7 +416,7 @@ msgid "Server error"
 msgstr "Server error"
 
 #: components/Chat/SettingsMenu.js:36
-#: components/layout/AccountMenu.js:61
+#: components/layout/AccountMenu.js:67
 #: pages/settings.js:22
 msgid "Settings"
 msgstr "Settings"
@@ -425,9 +433,9 @@ msgstr "Show only live"
 msgid "Show user list"
 msgstr "Show user list"
 
-#: components/layout/PageLayout.js:312
-#: components/layout/PageLayout.js:312
-#: components/layout/PageLayout.js:313
+#: components/layout/PageLayout.js:310
+#: components/layout/PageLayout.js:310
+#: components/layout/PageLayout.js:311
 #: pages/auth/login.js:67
 #: pages/auth/register.js:59
 msgid "Sign up"
@@ -437,11 +445,11 @@ msgstr "Sign up"
 msgid "Sound when highlighted"
 msgstr "Sound when highlighted"
 
-#: components/Chat/ViewerList.js:63
+#: components/Chat/ViewerList.js:85
 msgid "Staff in chat:"
 msgstr "Staff in chat:"
 
-#: components/layout/PageLayout.js:129
+#: components/layout/PageLayout.js:128
 msgid "Start following your favorite streamers to find them quickly!"
 msgstr "Start following your favorite streamers to find them quickly!"
 
@@ -461,7 +469,7 @@ msgstr "Stream preview"
 msgid "Stream settings"
 msgstr "Stream settings"
 
-#: components/layout/AccountMenu.js:36
+#: components/layout/AccountMenu.js:39
 msgid "Streamer"
 msgstr "Streamer"
 
@@ -477,7 +485,7 @@ msgstr "Subscribe"
 #~ msgid "Support us and get perks"
 #~ msgstr "Support us and get perks"
 
-#: components/layout/PageLayout.js:227
+#: components/layout/PageLayout.js:226
 msgid "Support us on patreon!"
 msgstr "Support us on patreon!"
 
@@ -489,7 +497,7 @@ msgstr "Support us on patreon!"
 msgid "Switch language"
 msgstr "Switch language"
 
-#: components/layout/PageLayout.js:207
+#: components/layout/PageLayout.js:206
 msgid "Terms"
 msgstr "Terms"
 
@@ -542,7 +550,7 @@ msgstr "Unban user"
 msgid "Unknown error"
 msgstr "Unknown error"
 
-#: components/layout/AccountMenu.js:36
+#: components/layout/AccountMenu.js:39
 msgid "User"
 msgstr "User"
 
@@ -563,11 +571,11 @@ msgstr "Username"
 msgid "Username:"
 msgstr "Username:"
 
-#: components/Chat/ViewerList.js:50
+#: components/Chat/ViewerList.js:53
 msgid "Users in chat"
 msgstr "Users in chat"
 
-#: components/Chat/ViewerList.js:120
+#: components/Chat/ViewerList.js:142
 msgid "Users in chat:"
 msgstr "Users in chat:"
 

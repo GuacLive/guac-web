@@ -83,13 +83,17 @@ module.exports = withTM(withOffline({
 	dontAutoRegisterSw: true,
 	generateSw: false,
 	workboxOpts: {
-		exclude: [/.+error\.js$/, /\.map$/],
+        exclude: [
+			/build-manifest\.json$/,
+			/react-loadable-manifest\.json$/
+		],
 		swDest: 'static/service-worker.js',
 		swSrc: './utils/service-worker.js',
 		maximumFileSizeToCacheInBytes: 3e7 /*30mb*/
 	},
 	reactStrictMode: true,
 	experimental: {
+		modern: true,
 		plugins: true,
 		sprFlushToDisk: true,
 		reactMode: 'concurrent',
