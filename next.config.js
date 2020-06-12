@@ -90,12 +90,12 @@ module.exports = withTM(withOffline({
 	},
 	reactStrictMode: true,
 	experimental: {
-		granularChunks: true,
 		plugins: true,
 		sprFlushToDisk: true,
 		reactMode: 'concurrent',
 		workerThreads: true,
 		pageEnv: true,
+		optionalCatchAll: true,
 		productionBrowserSourceMaps: false,
 	},
 	future: {
