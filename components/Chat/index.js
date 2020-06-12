@@ -704,6 +704,7 @@ function ChatComponent(props){
 										customPickerEmotes &&
 										customPickerEmotes.length > 0 &&
 										<EmojiSelector
+											channel={channel && channel.data && channel.data.user && channel.data.user.name}
 											emotes={customPickerEmotes} 
 											darkMode={darkMode}
 											onSelect={emoji => {
