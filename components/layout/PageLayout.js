@@ -296,7 +296,7 @@ function PageLayout(props){
 
 						<nav className="relative fw6 order-1 order-2-ns white">
 							<div id="account-menu" className="items-center flex flex-grow-1 flex-shrink-1 w-100 justify-end" style={{WebkitAppRegion: 'no-drag'}}>
-								<div class="flex flex-nowrap">
+								<div className="flex flex-nowrap">
 								{
 										!isAuthenticated &&
 										<GuacButton url="/auth/login">

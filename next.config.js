@@ -53,7 +53,7 @@ module.exports = withTM(withOffline({
 				})
 			);
 		}
-		config.devtool = config.devtool || 'source-map';
+		config.devtool = false;
 
 		return config;
 	},
@@ -62,7 +62,7 @@ module.exports = withTM(withOffline({
 	poweredByHeader: false,
 	env: {
 		// DEBUG is used in socket.io
-		DEBUG: process.env.NODE_ENV === 'development',
+		//DEBUG: process.env.NODE_ENV === 'development',
 		SSR_TIMEOUT: parseInt( process.env.SSR_TIMEOUT ) || 10 * 1000,
 		API_URL: process.env.API_URL || 'http://api.local.guac.live',
 		CHAT_URL: process.env.CHAT_URL || 'http://chat.local.guac.live',
@@ -83,19 +83,20 @@ module.exports = withTM(withOffline({
 	dontAutoRegisterSw: true,
 	generateSw: false,
 	workboxOpts: {
+		exclude: [/.+error\.js$/, /\.map$/],
 		swDest: 'static/service-worker.js',
 		swSrc: './utils/service-worker.js',
 		maximumFileSizeToCacheInBytes: 3e7 /*30mb*/
 	},
 	reactStrictMode: true,
 	experimental: {
-		granularChunks: true,
 		plugins: true,
 		sprFlushToDisk: true,
 		reactMode: 'concurrent',
 		workerThreads: true,
 		pageEnv: true,
-		productionBrowserSourceMaps: true,
+		optionalCatchAll: true,
+		productionBrowserSourceMaps: false,
 	},
 	future: {
 		excludeDefaultMomentLocales: true,
