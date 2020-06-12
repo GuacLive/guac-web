@@ -93,6 +93,7 @@ module.exports = withTM(withOffline({
 	},
 	reactStrictMode: true,
 	experimental: {
+		modern: true,
 		plugins: true,
 		sprFlushToDisk: true,
 		reactMode: 'concurrent',
