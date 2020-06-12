@@ -21,6 +21,11 @@ function EmojiSelector(props){
 		setIsOpen(!isOpen);
 	};
 
+	var nameCapitalized;
+	if(props.channel){
+		nameCapitalized = props.channel.charAt(0).toUpperCase() + props.channel.slice(1);
+	}
+
 	return (
 		<div ref={ref} className="chat-input__buttons__emote inline-flex items-center justify-center mr2">
 			<FontAwesomeIcon icon={['far', 'smile-wink']} onClick={handleToggleClick} />
@@ -37,6 +42,7 @@ function EmojiSelector(props){
 						data={twitterData}
 						include={[
 							'recent',
+							`custom-${nameCapitalized}`,
 							'custom-Global',
 							'custom-Twitch',
 							'custom-BetterTTV',
