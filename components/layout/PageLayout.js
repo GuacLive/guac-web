@@ -17,6 +17,7 @@ import Image from '../Image';
 
 import GuacButton from '../GuacButton';
 import AccountMenu from './AccountMenu';
+import NotificationsMenu from './NotificationsMenu';
 import SearchBar from '../Search/SearchBar';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -297,7 +298,11 @@ function PageLayout(props){
 						<nav className="relative fw6 order-1 order-2-ns white">
 							<div id="account-menu" className="items-center flex flex-grow-1 flex-shrink-1 w-100 justify-end" style={{WebkitAppRegion: 'no-drag'}}>
 								<div className="flex flex-nowrap">
-								{
+									{
+										isAuthenticated &&
+										<NotificationsMenu />
+									}
+									{
 										!isAuthenticated &&
 										<GuacButton url="/auth/login">
 											<span className="dn db-l" title={i18n._(t`Log in`)}><Trans>Log in</Trans></span>

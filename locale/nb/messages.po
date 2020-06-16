@@ -41,9 +41,9 @@ msgstr "Å bryte loven"
 msgid "Broadcaster:"
 msgstr "Direktestrømmer:"
 
-#: components/layout/PageLayout.js:287
-#: components/layout/PageLayout.js:287
 #: components/layout/PageLayout.js:288
+#: components/layout/PageLayout.js:288
+#: components/layout/PageLayout.js:289
 #: pages/categories.js:28
 msgid "Browse"
 msgstr "Utforsk"
@@ -60,9 +60,9 @@ msgstr "Kanal"
 msgid "Channel not found"
 msgstr "Kanal ikke funnet"
 
-#: components/layout/PageLayout.js:281
-#: components/layout/PageLayout.js:281
 #: components/layout/PageLayout.js:282
+#: components/layout/PageLayout.js:282
+#: components/layout/PageLayout.js:283
 #: pages/channels.js:50
 msgid "Channels"
 msgstr "Kanaler"
@@ -84,9 +84,9 @@ msgstr "Klient-feil"
 msgid "Color"
 msgstr "Farge"
 
-#: pages/categories.js:28
-#~ msgid "Coming soon."
-#~ msgstr "Kommer snart."
+#: components/layout/NotificationsMenu.js:25
+msgid "Coming soon."
+msgstr "Kommer snart."
 
 #: components/Settings/Connections.js:109
 msgid "Connect"
@@ -109,7 +109,7 @@ msgstr "Innsigelse"
 msgid "Create an account to follow this user"
 msgstr "Opprett en konto for å følge denne brukeren"
 
-#: components/layout/PageLayout.js:214
+#: components/layout/PageLayout.js:215
 msgid "DMCA"
 msgstr "DMCA"
 
@@ -194,7 +194,7 @@ msgstr "Først, velg strømmeserveren som er nærmest deg:"
 msgid "Follow"
 msgstr "Følg"
 
-#: components/layout/PageLayout.js:120
+#: components/layout/PageLayout.js:121
 msgid "Followed Channels"
 msgstr "Fulgte kanaler"
 
@@ -230,7 +230,7 @@ msgstr "Trakassering og mobbing"
 msgid "Hate Speech"
 msgstr "Hatprat"
 
-#: components/layout/PageLayout.js:276
+#: components/layout/PageLayout.js:277
 msgid "Home"
 msgstr "Hjem"
 
@@ -256,9 +256,9 @@ msgstr "Direktesendinger"
 msgid "Loading..."
 msgstr "Laster..."
 
-#: components/layout/PageLayout.js:303
-#: components/layout/PageLayout.js:303
-#: components/layout/PageLayout.js:304
+#: components/layout/PageLayout.js:308
+#: components/layout/PageLayout.js:308
+#: components/layout/PageLayout.js:309
 #: pages/auth/activate.js:38
 #: pages/auth/login.js:49
 #: pages/auth/register.js:80
@@ -281,7 +281,7 @@ msgstr "Håndter din tilkoblede kontoer og tjenester"
 msgid "Moderators in chat:"
 msgstr "Moderatorer i chat:"
 
-#: components/Chat/index.js:800
+#: components/Chat/index.js:801
 msgid "More messages below."
 msgstr "Flere meldinger under."
 
@@ -305,7 +305,7 @@ msgstr "Ingen strømmenøkkel funnet, vennligst kontakt en administrator."
 msgid "Norwegian"
 msgstr "Norsk"
 
-#: components/Chat/index.js:748
+#: components/Chat/index.js:749
 msgid "Not connected to chat."
 msgstr "Ikke tilkoblet chat."
 
@@ -351,7 +351,7 @@ msgstr "Pornografisk og seksuelt eksplisitt innhold er ikke tillatt i noen form,
 msgid "Pornographic/Sexually Explicit Content"
 msgstr "Pornografisk/seksuelt eksplisitt innhold"
 
-#: components/layout/PageLayout.js:210
+#: components/layout/PageLayout.js:211
 msgid "Privacy"
 msgstr "Personvern"
 
@@ -371,7 +371,7 @@ msgstr "Profil"
 msgid "REPLAYS"
 msgstr "ARKIV"
 
-#: components/Chat/index.js:749
+#: components/Chat/index.js:750
 msgid "Reconnect"
 msgstr "Koble til"
 
@@ -413,9 +413,9 @@ msgstr "Vis bare direkte"
 msgid "Show user list"
 msgstr "Vis liste over brukere"
 
-#: components/layout/PageLayout.js:310
-#: components/layout/PageLayout.js:310
-#: components/layout/PageLayout.js:311
+#: components/layout/PageLayout.js:315
+#: components/layout/PageLayout.js:315
+#: components/layout/PageLayout.js:316
 #: pages/auth/login.js:67
 #: pages/auth/register.js:59
 msgid "Sign up"
@@ -429,11 +429,11 @@ msgstr "Lyd-varsel når nevnt i chat"
 msgid "Staff in chat:"
 msgstr "Staff i chat:"
 
-#: components/layout/PageLayout.js:128
+#: components/layout/PageLayout.js:129
 msgid "Start following your favorite streamers to find them quickly!"
 msgstr "Begynn å følge dine favoritt-strømmere for å finne dem raskt!"
 
-#: components/Chat/index.js:768
+#: components/Chat/index.js:769
 msgid "Stream Chat"
 msgstr "Strømmechat"
 
@@ -465,7 +465,7 @@ msgstr "Abonnér"
 #~ msgid "Support us and get perks"
 #~ msgstr "Støtt oss og få fordeler"
 
-#: components/layout/PageLayout.js:226
+#: components/layout/PageLayout.js:227
 msgid "Support us on patreon!"
 msgstr "Støtt oss på patreon!"
 
@@ -473,7 +473,7 @@ msgstr "Støtt oss på patreon!"
 msgid "Switch language"
 msgstr "Bytt språk"
 
-#: components/layout/PageLayout.js:206
+#: components/layout/PageLayout.js:207
 msgid "Terms"
 msgstr "Vilkår"
 
