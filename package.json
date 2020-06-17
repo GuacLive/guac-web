@@ -41,6 +41,7 @@
     "@silvermine/videojs-quality-selector": "^1.2.4",
     "@vercel/next": "^2.6.8-canary.0",
     "@videojs/http-streaming": "^2.0.0",
+    "@videojs/vhs-utils": "2.2.0",
     "@webscopeio/react-textarea-autocomplete": "^4.6.3",
     "@zeit/next-source-maps": "^0.0.4-canary.1",
     "abort-controller": "^3.0.0",

@@ -2658,19 +2658,19 @@
     mux.js "5.6.5"
     video.js "^6 || ^7"
 
-"@videojs/vhs-utils@^1.0.0", "@videojs/vhs-utils@^1.1.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@videojs/vhs-utils/-/vhs-utils-1.3.0.tgz#04fe402f603af9a5df4b88881fabba0cf13814c2"
-  integrity sha512-oiqXDtHQqDPun7JseWkirUHGrgdYdeF12goUut5z7vwAj4DmUufEPFJ4xK5hYGXGFDyDhk2rSFOR122Ze6qXyQ==
+"@videojs/vhs-utils@2.2.0", "@videojs/vhs-utils@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@videojs/vhs-utils/-/vhs-utils-2.2.0.tgz#4c8402e54c333a0d1c241499788b5210f3f808d4"
+  integrity sha512-Mtq+doRlbNvis9TyI5kfOg+Vg8aHGXkSXiuNwnkcimqyaP3wO/s/iEVKPcmRUySKivjaWktjdEFVXYfaP+/HTg==
   dependencies:
     "@babel/runtime" "^7.5.5"
     global "^4.3.2"
     url-toolkit "^2.1.6"
 
-"@videojs/vhs-utils@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@videojs/vhs-utils/-/vhs-utils-2.2.0.tgz#4c8402e54c333a0d1c241499788b5210f3f808d4"
-  integrity sha512-Mtq+doRlbNvis9TyI5kfOg+Vg8aHGXkSXiuNwnkcimqyaP3wO/s/iEVKPcmRUySKivjaWktjdEFVXYfaP+/HTg==
+"@videojs/vhs-utils@^1.0.0", "@videojs/vhs-utils@^1.1.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@videojs/vhs-utils/-/vhs-utils-1.3.0.tgz#04fe402f603af9a5df4b88881fabba0cf13814c2"
+  integrity sha512-oiqXDtHQqDPun7JseWkirUHGrgdYdeF12goUut5z7vwAj4DmUufEPFJ4xK5hYGXGFDyDhk2rSFOR122Ze6qXyQ==
   dependencies:
     "@babel/runtime" "^7.5.5"
     global "^4.3.2"
