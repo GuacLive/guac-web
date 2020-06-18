@@ -74,6 +74,7 @@
     "pretty-ms": "^7.0.0",
     "react": "0.0.0-experimental-33c3af284",
     "react-autosize-textarea": "^6",
+    "react-countdown-circle-timer": "^2.2.0",
     "react-dom": "0.0.0-experimental-33c3af284",
     "react-giphy-searchbox": "^1.4.0",
     "react-process-string": "^1.2.0",
