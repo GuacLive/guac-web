@@ -50,6 +50,11 @@ body {
 	min-height: -webkit-fill-available;
 }
 
+::selection {
+    background-color: var(--green);
+    color: var(--white);
+}
+
 #__next, body, html {
     touch-action: manipulation!important;
 }
