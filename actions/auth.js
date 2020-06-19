@@ -1,6 +1,6 @@
-import { callApi } from '../services/api';
+import { callApi } from 'services/api';
 
-import { setCookie, removeCookie } from '../utils/cookie';
+import { setCookie, removeCookie } from 'utils/cookie';
 
 // gets token from the api and stores it in the redux store and in cookie
 export const authenticate = (username, password) => async (dispatch) => {

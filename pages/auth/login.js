@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 import { Trans } from '@lingui/macro';
 
-import * as actions from '../../actions';
+import * as actions from 'actions';
 
 class LoginPage extends Component {
 	constructor(props){

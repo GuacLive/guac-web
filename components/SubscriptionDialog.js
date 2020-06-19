@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Trans } from '@lingui/macro';
 
-import { callApi } from '../services/api';
+import { callApi } from 'services/api';
 function SubscriptionDialog(props){
 	const dispatch = useDispatch();
 	const channel = useSelector(state => state.channel);

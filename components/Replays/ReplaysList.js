@@ -8,7 +8,7 @@ import Image from '../Image';
 
 import { Trans } from '@lingui/macro';
 
-import * as actions from '../../actions';
+import * as actions from 'actions';
 function ReplaysList(props){
 	const dispatch = useDispatch();
 	const channel = useSelector(state => state.channel);

@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 
 import SimpleBar from 'simplebar-react';
 
-import * as actions from '../../actions';
+import * as actions from 'actions';
 
 import { useLingui } from "@lingui/react";
 import { Trans, t } from '@lingui/macro';

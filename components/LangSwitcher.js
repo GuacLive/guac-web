@@ -2,8 +2,8 @@ import Router from 'next/router'
 import {useLingui} from '@lingui/react'
 import {Trans} from '@lingui/macro'
 
-import {setCookie} from '../utils/cookie';
-import {activate, availableLanguageNames} from '../utils/i18n';
+import {setCookie} from 'utils/cookie';
+import {activate, availableLanguageNames} from 'utils/i18n';
 
 const availableLanguages = Object.keys(availableLanguageNames)
 
