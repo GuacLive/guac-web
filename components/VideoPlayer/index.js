@@ -8,7 +8,7 @@ import io from 'socket.io-client';
 
 import {useEffect,useState} from 'react';
 
-import log from '../../utils/log';
+import log from 'utils/log';
 
 import { useDispatch } from 'react-redux';
 

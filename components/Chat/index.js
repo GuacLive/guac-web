@@ -21,19 +21,19 @@ import EmojiSelector from './EmojiSelector';
 import GifSelector from './GifSelector';
 import SettingsMenu from './SettingsMenu';
 
-import UrlEmbedder from '../../utils/UrlEmbedder';
+import UrlEmbedder from 'utils/UrlEmbedder';
 
 import Image from '../Image';
 
 import { ToggleFeature } from '@flopflip/react-redux';
 
-import log from '../../utils/log';
+import log from 'utils/log';
 
-import * as actions from '../../actions';
+import * as actions from 'actions';
 
 import useLocalStorage from 'react-use/lib/useLocalStorage';
 
-import { callApi } from '../../services/api';
+import { callApi } from 'services/api';
 
 import commands from './commands';
 import ViewerList from './ViewerList';

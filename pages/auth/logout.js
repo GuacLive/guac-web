@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import Router from 'next/router';
 
-import * as actions from '../../actions';
+import * as actions from 'actions';
 
 class LogoutPage extends Component {
 	constructor(props){

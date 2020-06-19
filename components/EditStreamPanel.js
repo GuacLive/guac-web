@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import { Trans } from '@lingui/macro';
 
-import * as actions from '../actions';
+import * as actions from 'actions';
 
 class EditStreamPanel extends Component {
 	constructor(props){

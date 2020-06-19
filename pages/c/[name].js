@@ -21,7 +21,7 @@ import Chat from '../../components/Chat'
 import GuacButton from '../../components/GuacButton'
 
 let VideoPlayer = dynamic(
-	() => /* webpackChunkName: 'VideoPlayer' */import('../../components/VideoPlayer'),
+	() => /* webpackChunkName: 'VideoPlayer' */import('components/VideoPlayer'),
 	{
 		ssr: false,
 		loading: () => <div className="w-100 h-100 bg-black white content-box" style={{'paddingTop': '56.25%'}} />
@@ -34,23 +34,23 @@ import io from 'socket.io-client';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import * as actions from '../../actions';
+import * as actions from 'actions';
 
-import log from '../../utils/log';
-import Image from '../../components/Image';
+import log from 'utils/log';
+import Image from 'components/Image';
 
 import Switch from 'react-switch';
 
 import { ToggleFeature } from '@flopflip/react-redux';
 import { useLingui } from '@lingui/react';
 
-import { kFormatter } from '../../utils';
+import { kFormatter } from 'utils';
 
-import ReactMarkdown from '../../components/ReactMarkdown';
+import ReactMarkdown from 'components/ReactMarkdown';
 
-const ReplaysList = dynamic(() => import('../../components/Replays/ReplaysList'));
-const EditStreamPanel = dynamic(() => import('../../components/EditStreamPanel'));
-const SubscriptionDialog = dynamic(() => import('../../components/SubscriptionDialog'));
+const ReplaysList = dynamic(() => import('components/Replays/ReplaysList'));
+const EditStreamPanel = dynamic(() => import('components/EditStreamPanel'));
+const SubscriptionDialog = dynamic(() => import('components/SubscriptionDialog'));
 
 const STREAMING_SERVER = 'eu';
 const API_URL = process.env.API_URL;

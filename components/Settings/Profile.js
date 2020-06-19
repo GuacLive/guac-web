@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLingui } from '@lingui/react';
 import { Trans, t } from '@lingui/macro';
-import * as actions from '../../actions';
+import * as actions from 'actions';
 function ProfileComponent(props){
 	const { i18n } = useLingui();
 	const dispatch = useDispatch();

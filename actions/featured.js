@@ -1,6 +1,4 @@
-import { callApi } from '../services/api';
-
-import { arrayToQueryString, isObjEmpty } from '../utils';
+import { callApi } from 'services/api';
 
 export function resetFeatured() {
 	return {

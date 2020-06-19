@@ -3,7 +3,7 @@ import Switch from 'react-switch';
 
 import { Trans } from '@lingui/macro';
 import { connect } from 'react-redux';
-import { setCookie } from '../../utils/cookie';
+import { setCookie } from 'utils/cookie';
 class DarkModeToggle extends Component {
 	constructor(props) {
 		super();
