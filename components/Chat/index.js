@@ -231,12 +231,12 @@ function ChatComponent(props){
 			}, 20);
 		}
 		if(event.key == 'Enter' && event.target.value){
-			if(event.target.value.trim() != '')[
+			if(event.target.value.trim() != ''){
 				setLastMessage(event.target.value);
 				sendMessage();
 				event.preventDefault();
 				return false;
-			]
+			}
 		}
 	}
 	
