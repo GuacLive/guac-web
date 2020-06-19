@@ -67,6 +67,7 @@ export default class Image extends React.Component {
                     flexible={this.props.flexible}
                     sources={this.props.sources}
                     onError={this.onError}
+                    loading={props.lazyload ? 'lazy' : 'eager'}
                 />
             </div> :
             <SuperImage
@@ -82,6 +83,7 @@ export default class Image extends React.Component {
                 flexible={this.props.flexible}
                 sources={this.props.sources}
                 onError={this.onError}
+                loading={props.lazyload ? 'lazy' : 'eager'}
             />
         );
     }
