@@ -57,6 +57,7 @@ export default class Image extends React.Component {
             <div className={`GuacImage -flexible${this.props.shape ? ` -${this.props.shape}` : ''}`} data-emote-code={this.props['data-emote-code']}            >
                 <SuperImage
                     className={this.props.className}
+                    data-emote-code={this.props['data-emote-code']}
                     src={this.state.src}
                     width={this.props.width}
                     height={this.props.height}
@@ -67,7 +68,7 @@ export default class Image extends React.Component {
                     flexible={this.props.flexible}
                     sources={this.props.sources}
                     onError={this.onError}
-                    loading={props.lazyload ? 'lazy' : 'eager'}
+                    loading={this.props.lazyload ? 'lazy' : 'eager'}
                 />
             </div> :
             <SuperImage
@@ -83,7 +84,7 @@ export default class Image extends React.Component {
                 flexible={this.props.flexible}
                 sources={this.props.sources}
                 onError={this.onError}
-                loading={props.lazyload ? 'lazy' : 'eager'}
+                loading={this.props.lazyload ? 'lazy' : 'eager'}
             />
         );
     }
