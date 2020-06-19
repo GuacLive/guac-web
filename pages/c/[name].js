@@ -162,7 +162,7 @@ function ChannelPage(props){
 							document.documentElement.classList.remove('theater-mode');
 						}
 					}catch(e){}
-				}, 3000);
+				}, Math.floor(Math.random() * (3500 - 4000 + 1) + 4000));
 			});
 		}
 		return function cleanup(){
