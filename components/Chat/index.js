@@ -583,6 +583,7 @@ function ChatComponent(props){
 		if(notificationSound){
 			notificationSound.src = '/sounds/notification.wav';
 			notificationSound.volume = 1;
+			notificationSound.muted = false;
 		}
 	}, []);
 
