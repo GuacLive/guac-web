@@ -231,10 +231,12 @@ function ChatComponent(props){
 			}, 20);
 		}
 		if(event.key == 'Enter' && event.target.value){
-			setLastMessage(event.target.value);
-			sendMessage();
-			event.preventDefault();
-			return false;
+			if(event.target.value.trim() != '')[
+				setLastMessage(event.target.value);
+				sendMessage();
+				event.preventDefault();
+				return false;
+			]
 		}
 	}
 	
@@ -431,6 +433,8 @@ function ChatComponent(props){
 	const sendMessage = () => {
 		let self = this;
 		let msg = message;
+
+		if(!msg) return;
 
 		// If this is a command
 		if(msg.slice(0,1) === '/'){
