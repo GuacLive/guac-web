@@ -1,4 +1,4 @@
-import React, {Component, Fragment, useEffect, useState, useMemo} from 'react'
+import React, {Component, Fragment, useEffect, useState, useMemo, useRef} from 'react'
 
 import {useUpdateEffect} from 'react-use';
 
@@ -11,8 +11,6 @@ import dynamic from 'next/dynamic'
 import { Trans, t } from '@lingui/macro';
 
 import { useDispatch } from 'react-redux';
-
-import { wrapper } from '../../store/configureStore';
 
 import prettyMilliseconds from 'pretty-ms';
 import {
@@ -62,6 +60,10 @@ function ChannelPage(props){
 	const [showModal, setShowModal] = useState(false);
 	const [showSub, setShowSub] = useState(false);
 	const [editPanelState, showEditPanel] = useState(false);
+
+	const newPanelTitle = useRef('');
+	const newPanelDescription = useRef('');
+
 	const dispatch = useDispatch();
 	const { i18n } = useLingui();
 
@@ -73,6 +75,28 @@ function ChannelPage(props){
 	let isMe = (authentication.user && authentication.user.id )
 		&& 
 		(channel.data && channel.data.user && channel.data.user.id === authentication.user.id);
+
+	const addPanel = async (title, description) => {
+		console.log('addPanel', title, description, newPanelTitle, newPanelDescription);
+		await fetch(API_URL + '/panels', {
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${authentication.user.token}`,
+			},
+			method: 'POST',
+			body: JSON.stringify({
+				title,
+				description
+			})
+		})
+		.then(response => response.json())
+		.then(r => {
+			console.log('addPanel result', r);
+			dispatch(actions.fetchChannel(channel.data.name));
+		})
+		.catch(error => console.error(error));
+	};
 
 	const editPanel = async (i) => {
 		var p = refs[i] && refs[i].current;
@@ -375,6 +399,25 @@ function ChannelPage(props){
 									<span className="ml2"><Trans>Edit panels</Trans></span>
 								</div>
 							</div>
+						}
+						{
+							stream
+							&&
+							stream.panels
+							&&
+							editPanelState
+							&&
+							isMe
+							&&
+							<form onSubmit={e => e.preventDefault()} className="db w-100 w-third-ns mr1 mb1 word-wrap">
+								<label htmlFor="title" className="primary"><Trans>Title</Trans>:</label>
+								<input ref={newPanelTitle} name="title" type="text" className="input-reset bn pa3 w-100 bg-white br2" placeholder={i18n._(t`Title`)} />
+
+								<label htmlFor="description" className="primary"><Trans>Description</Trans>:</label>
+								<textarea ref={newPanelDescription} name="description" rows="10" className="input-reset bn pa3 w-100 bg-white br2" placeholder={i18n._(t`Description`)} />
+
+								<input type="submit" value={i18n._(t`Add panel`)} onClick={() => addPanel(newPanelTitle.current.value, newPanelDescription.current.value)} className="link color-inherit db pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" />
+							</form>
 						}
 						{
 							stream
