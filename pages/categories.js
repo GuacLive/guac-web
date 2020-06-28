@@ -8,6 +8,7 @@ import { Trans } from '@lingui/macro';
 
 import Link from 'next/link';
 
+import Image from '../components/Image';
 class CategoriesPage extends Component {
 	static async getInitialProps({store}) {
 		const { categories } = store.getState()
@@ -29,10 +30,13 @@ class CategoriesPage extends Component {
 					<div className="site-component-categories flex flex-row flex-wrap w-100" style={{flexGrow: 1}}>
 					{categories.data && categories.data.map((category) => {
 						return (
-							<div className="site-component-categories_category w-100 pa2" key={`category_${category.category_id}`}>
+							<div className="site-component-categories_category w-33 pa2" key={`category_${category.category_id}`}>
+								<Link href={`/category/[id}`} href={`/category/${category.category_id}`}>
+									<a><Image src={`/img/categories/${category.category_id}.jpg`} className="w5 h5" shape="rounded" fit="cover"  lazyload /></a>
+								</Link>
 								<div className="pa2">
 									<Link href={`/category/[id}`} href={`/category/${category.category_id}`}>
-										<a className="f5 db link green">{category.name}</a>
+										<a className="f3 db link green">{category.name}</a>
 									</Link>
 								</div>
 							</div>
