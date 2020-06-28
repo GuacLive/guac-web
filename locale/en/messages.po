@@ -21,9 +21,13 @@ msgstr "<0>Hi,<1/>Welcome to guac.live &mdash; live streaming platform. We are c
 #~ msgid "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 #~ msgstr "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 
-#: pages/c/[name].js:349
+#: pages/c/[name].js:373
 msgid "ABOUT"
 msgstr "ABOUT"
+
+#: pages/c/[name].js:419
+msgid "Add panel"
+msgstr "Add panel"
 
 #: components/layout/AccountMenu.js:96
 msgid "Admin"
@@ -60,7 +64,7 @@ msgstr "Category:"
 msgid "Channel"
 msgstr "Channel"
 
-#: pages/c/[name].js:455
+#: pages/c/[name].js:498
 msgid "Channel not found"
 msgstr "Channel not found"
 
@@ -82,6 +86,10 @@ msgstr "Chat commands:"
 #: pages/_error.js:18
 msgid "Client error"
 msgstr "Client error"
+
+#: components/Chat/index.js:790
+msgid "Collapse"
+msgstr "Collapse"
 
 #: components/Settings/Profile.js:34
 #: components/Settings/Profile.js:35
@@ -109,7 +117,7 @@ msgstr "Copyrighted Content"
 msgid "Counter-Notification"
 msgstr "Counter-Notification"
 
-#: pages/c/[name].js:283
+#: pages/c/[name].js:307
 msgid "Create an account to follow this user"
 msgstr "Create an account to follow this user"
 
@@ -125,12 +133,14 @@ msgstr "Dark Mode"
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: pages/c/[name].js:397
+#: pages/c/[name].js:440
 msgid "Delete"
 msgstr "Delete"
 
-#: pages/c/[name].js:394
-#: pages/c/[name].js:395
+#: pages/c/[name].js:416
+#: pages/c/[name].js:417
+#: pages/c/[name].js:437
+#: pages/c/[name].js:438
 msgid "Description"
 msgstr "Description"
 
@@ -159,15 +169,15 @@ msgstr "Do not engage, or encourage others to engage, in any targeted abuse or h
 msgid "E-mail"
 msgstr "E-mail"
 
-#: pages/c/[name].js:298
+#: pages/c/[name].js:322
 msgid "Edit"
 msgstr "Edit"
 
-#: pages/c/[name].js:400
+#: pages/c/[name].js:443
 msgid "Edit panel"
 msgstr "Edit panel"
 
-#: pages/c/[name].js:375
+#: pages/c/[name].js:399
 msgid "Edit panels"
 msgstr "Edit panels"
 
@@ -185,6 +195,10 @@ msgstr "English"
 msgid "Error"
 msgstr "Error"
 
+#: components/Chat/index.js:790
+msgid "Expand"
+msgstr "Expand"
+
 #: components/Settings/Connections.js:103
 msgid "Failed to verify"
 msgstr "Failed to verify"
@@ -193,8 +207,8 @@ msgstr "Failed to verify"
 msgid "First, choose the streaming server closest to you:"
 msgstr "First, choose the streaming server closest to you:"
 
-#: pages/c/[name].js:277
-#: pages/c/[name].js:289
+#: pages/c/[name].js:301
+#: pages/c/[name].js:313
 msgid "Follow"
 msgstr "Follow"
 
@@ -214,7 +228,7 @@ msgstr "Followed Channels"
 #~ msgid "Followers · {0}"
 #~ msgstr "Followers · {0}"
 
-#: pages/c/[name].js:276
+#: pages/c/[name].js:300
 msgid "Following"
 msgstr "Following"
 
@@ -270,9 +284,9 @@ msgstr "Join"
 msgid "Live streams"
 msgstr "Live streams"
 
-#: components/Chat/index.js:598
+#: components/Chat/index.js:604
 #: components/Search/SearchBar.js:81
-#: pages/c/[name].js:454
+#: pages/c/[name].js:497
 msgid "Loading..."
 msgstr "Loading..."
 
@@ -301,7 +315,7 @@ msgstr "Manage your connected accounts and services"
 msgid "Moderators in chat:"
 msgstr "Moderators in chat:"
 
-#: components/Chat/index.js:801
+#: components/Chat/index.js:825
 msgid "More messages below."
 msgstr "More messages below."
 
@@ -325,7 +339,7 @@ msgstr "No streaming key found, please contact an admin."
 msgid "Norwegian"
 msgstr "Norwegian"
 
-#: components/Chat/index.js:749
+#: components/Chat/index.js:755
 msgid "Not connected to chat."
 msgstr "Not connected to chat."
 
@@ -341,7 +355,7 @@ msgstr "Now, use the following stream key:"
 msgid "Page not found"
 msgstr "Page not found"
 
-#: pages/c/[name].js:254
+#: pages/c/[name].js:278
 msgid "Partnered"
 msgstr "Partnered"
 
@@ -387,11 +401,11 @@ msgstr "Private (don't show in categories, frontpage or search):"
 msgid "Profile"
 msgstr "Profile"
 
-#: pages/c/[name].js:358
+#: pages/c/[name].js:382
 msgid "REPLAYS"
 msgstr "REPLAYS"
 
-#: components/Chat/index.js:750
+#: components/Chat/index.js:756
 msgid "Reconnect"
 msgstr "Reconnect"
 
@@ -403,7 +417,7 @@ msgstr "Remember me"
 msgid "Search..."
 msgstr "Search..."
 
-#: components/Chat/index.js:594
+#: components/Chat/index.js:600
 msgid "Send a message"
 msgstr "Send a message"
 
@@ -453,7 +467,7 @@ msgstr "Staff in chat:"
 msgid "Start following your favorite streamers to find them quickly!"
 msgstr "Start following your favorite streamers to find them quickly!"
 
-#: components/Chat/index.js:769
+#: components/Chat/index.js:775
 msgid "Stream Chat"
 msgstr "Stream Chat"
 
@@ -477,7 +491,7 @@ msgstr "Streamer"
 msgid "Streaming permissions"
 msgstr "Streaming permissions"
 
-#: pages/c/[name].js:293
+#: pages/c/[name].js:317
 msgid "Subscribe"
 msgstr "Subscribe"
 
@@ -533,8 +547,10 @@ msgstr "Time out user for x seconds"
 msgid "Timestamps"
 msgstr "Timestamps"
 
-#: pages/c/[name].js:391
-#: pages/c/[name].js:392
+#: pages/c/[name].js:413
+#: pages/c/[name].js:414
+#: pages/c/[name].js:434
+#: pages/c/[name].js:435
 msgid "Title"
 msgstr "Title"
 
@@ -554,7 +570,7 @@ msgstr "Unknown error"
 msgid "User"
 msgstr "User"
 
-#: pages/c/[name].js:438
+#: pages/c/[name].js:481
 msgid "User has been banned"
 msgstr "User has been banned"
 
@@ -627,7 +643,7 @@ msgstr "Your account is now registered. Please check your e-mail to verify your 
 msgid "Your e-mail has been verified."
 msgstr "Your e-mail has been verified."
 
-#: pages/c/[name].js:441
+#: pages/c/[name].js:484
 msgid "has been banned from the site."
 msgstr "has been banned from the site."
 
