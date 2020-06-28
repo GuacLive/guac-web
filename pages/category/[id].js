@@ -37,19 +37,21 @@ class CategoryPage extends Component {
 		return (
 			<Fragment>
 				<div className="w-100 pv3 ph3-l">
-					<h2 className="f2 tracked mt0 mb3">
-					{
-						thisCategory
-						&& thisCategory[0]
-						?
-						thisCategory[0].name
-						: `Category ${category_id}`
-					}
-					</h2>
+					<div className="flex pa4 cover" style={{'text-shadow': '1px 1px 1px #000', background:`url(/img/categories/${category_id}.jpg) no-repeat 100%`}}>
+						<h2 className="f2 tracked mt0 mb3">
+						{
+							thisCategory
+							&& thisCategory[0]
+							?
+							thisCategory[0].name
+							: `Category ${category_id}`
+						}
+						</h2>
+					</div>
 					<div className="site-component-channels flex flex-row flex-wrap w-80" style={{flexGrow: 1}}>
 					{channels.data && channels.data.map((channel) => {
 						return (
-							<div className="site-component-channels__channel w-33 pa2" key={`channel_${channel.id}`}>
+							<div className="site-component-channels__channel w-100 pa2" key={`channel_${channel.id}`}>
 								<Link href={`/c/[name]`} as={`/c/${channel.name}`}>
 									<a><Image src={channel.thumbnail} shape="rounded" fit="contain" flexible lazyload /></a>
 								</Link>
