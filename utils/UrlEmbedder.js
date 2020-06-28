@@ -19,7 +19,7 @@ export default class UrlEmbedder {
 		// Giphy
 		let config = [{
             regex: self.GIPHY_REGEX,
-            fn: (key, result) => <img key={key} src={result[0]} alt="GIF from Giphy" title="GIF from Giphy" className="flex mw5" />
+            fn: (key, result) => <img key={key} src={result[0]} alt="GIF from Giphy" title="GIF from Giphy" className="flex mw5 mt1" />
 		},
 		{
             regex: USER_REGEX,
