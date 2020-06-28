@@ -53,6 +53,7 @@ function ChatComponent(props){
 	const [customPickerEmotes, setCustomPickerEmotes] = useState(false);
 	const [emotesStatus, setEmotesStatus] = useState(false);
 	const [hydrated, setHydrated] = useState(false);
+	const [visible, setVisible] = useState(true);
 
 	const [showFAB, setShowFAB] = useState(false);
   
@@ -765,24 +766,42 @@ function ChatComponent(props){
 			</>
 		);
 	return (
-		<>	
+		<div className={`w-100 ${!isOverlay && 'w-30-ns'} h-100 flex-l dn flex-column flex-grow-1 flex-shrink-1 flex-nowrap`}>	
 			{
 				!isOverlay ?
 					(
-						<div className="chat-header items-center bb b--white-05 bg-black-50 flex flex-shrink-0 w-100 justify-center pl3 pr3">
-							<div className="items-center flex primary">
+						<div className={`chat-header relative ${visible ? 'items-center bb b--white-05 bg-black-50 flex flex-shrink-0 w-100 justify-center pl3 pr3' : ''}`}>
+							<div className={`${visible ? 'flex' : 'dn'} items-center primary`}>
 								<h5 className="f6 b ttu tracked"><Trans>Stream Chat</Trans></h5>
 							</div>
-							<div className="absolute mr3 right-0 primary">
+							<div className={`absolute left-0 primary`} style={{
+								'left': visible ? '0' : '-3.5rem',
+								'top': visible ? 'auto' : '1rem',
+								'z-index': '2'
+							}}>
+								<div className="inline-flex items-center justify-center mr2">
+									<a
+										href="#"
+										onClick={(e) => {
+											e && e.preventDefault();
+											setVisible(!visible);
+										}}
+										className="link color-inherit ph2 br2 bg-animate hover-bg-dark-gray outline-none"
+										title={i18n._(visible ? t`Collapse` : t`Expand`)}
+									>
+										<FontAwesomeIcon icon={visible ? 'caret-square-left' : 'caret-square-right'} fixedWidth />
+									</a>
+								</div>
+							</div>
+							<div className={`${visible ? 'db' : 'dn'} absolute mr3 right-0 primary`}>
 								<ViewerList users={users} darkMode={darkMode} />
 							</div>
 						</div>
 					)
 					: null
 			}
-			<div className="flex flex-column flex-grow-1 flex-nowrap overflow-hidden">
-
-				<SimpleBar ref={messageContainerRef} className="chat-messages flex-grow-1 z-initial h-100"
+			<div className={`${visible ? 'flex' : 'dn'} flex flex-column flex-grow-1 flex-nowrap overflow-hidden`}>
+				<SimpleBar ref={messageContainerRef} className={`chat-messages flex-grow-1 z-initial h-100 ${visible ? '' : 'dn'}`}
 				style={{height: '0', flex: '1 1 auto'}}>
 				{
 					messages
@@ -799,7 +818,7 @@ function ChatComponent(props){
 				}
 				</SimpleBar>
 			</div>
-			<div className="flex justify-center relative pointer" style={{height: '0'}}>
+			<div className={`${visible ? 'flex' : 'dn'} justify-center relative pointer`} style={{height: '0'}}>
 				{
 					showFAB ?
 						<div className="absolute br2 bottom-0 flex justify-center items-center pv3 ph4 mb3 bg-black-50 white b" onClick={goToBottom}>
@@ -808,8 +827,8 @@ function ChatComponent(props){
 					: null
 			}
 			</div>
-			{ !isOverlay ? ChatInput : null}
-		</>
+			{ !isOverlay && visible ? ChatInput : null}
+		</div>
 	);
 }
 export default ChatComponent;
