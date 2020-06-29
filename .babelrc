@@ -3,6 +3,7 @@
 	  "next/babel"
 	],
 	"plugins": [
+      "inline-react-svg",
 	  "macros",
 	  "@babel/plugin-proposal-object-rest-spread",
 	  "@babel/plugin-proposal-class-properties"
