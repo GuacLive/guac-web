@@ -108,7 +108,8 @@
     "@lingui/cli": "^3.0.0-12",
     "@lingui/loader": "^3.0.0-12",
     "@lingui/macro": "^3.0.0-12",
-    "babel-plugin-add-module-exports": "^1.0.0"
+    "babel-plugin-add-module-exports": "^1.0.0",
+    "babel-plugin-inline-react-svg": "^1.1.1"
   },
   "resolutions": {
     "workbox-webpack-plugin": "^5.1.3"

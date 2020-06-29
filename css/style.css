@@ -172,6 +172,10 @@ input:focus {
 	word-wrap: break-word;
 }
 
+.guac-logo path {
+    fill: currentColor;
+}
+
 .GuacImage {
     display: inline-block;
     overflow: hidden;

@@ -20,6 +20,8 @@ import AccountMenu from './AccountMenu';
 import NotificationsMenu from './NotificationsMenu';
 import SearchBar from '../Search/SearchBar';
 
+import GuacLogo from '../../public/img/guac-text.svg';
+
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
 	Tooltip,
@@ -259,7 +261,7 @@ function PageLayout(props){
 						<div className="dn flex-l flex-shrink-0 items-center pointer">
 							<Link href="/">
 								<a className="inline-flex pa2 content-box">
-									<Image className="h2" src="/img/header-logo.png" alt="guac.live" />
+									<GuacLogo className="guac-logo green h2" alt="guac.live" />
 								</a>
 							</Link>
 						</div>
