@@ -16,9 +16,9 @@ import prettyMilliseconds from 'pretty-ms';
 import {
 	Tooltip,
   } from 'react-tippy';
-import Chat from '../../components/Chat'
+import Chat from 'components/Chat'
 
-import GuacButton from '../../components/GuacButton'
+import GuacButton from 'components/GuacButton'
 
 let VideoPlayer = dynamic(
 	() => /* webpackChunkName: 'VideoPlayer' */import('components/VideoPlayer'),
