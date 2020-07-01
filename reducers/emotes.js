@@ -5,7 +5,7 @@ const initialState = {
 	data: {}
 };
 
-export default function(state = initialState, action) {
+export default function emotesReducer(state = initialState, action) {
 	switch (action.type) {
 		case 'FETCH_EMOTES_REQUEST':
 			return Object.assign({}, state, {

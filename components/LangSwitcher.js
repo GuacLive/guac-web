@@ -7,7 +7,7 @@ import {activate, availableLanguageNames} from 'utils/i18n';
 
 const availableLanguages = Object.keys(availableLanguageNames)
 
-export default () => {
+const LangSwitcher = () => {
 	const { i18n } = useLingui();
 	function onSubmit(evt) {
 		evt.preventDefault();
@@ -39,4 +39,5 @@ export default () => {
 			</button>
 		</form>
 	);
-}
+};
+export default LangSwitcher;

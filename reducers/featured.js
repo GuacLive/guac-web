@@ -7,7 +7,7 @@ const initialState = {
 	data: []
 };
 
-export default function(state = initialState, action) {
+export default function featuredReducer(state = initialState, action) {
 	switch (action.type) {
 		case 'FETCH_FEATURED_REQUEST':
 			return Object.assign({}, state, {

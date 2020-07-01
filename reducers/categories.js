@@ -6,7 +6,7 @@ const initialState = {
 	data: null
 };
 
-export default function(state = initialState, action) {
+export default function categoriesReducer(state = initialState, action) {
 	switch (action.type) {
 		case 'FETCH_CATEGORIES_REQUEST':
 			return Object.assign({}, state, {

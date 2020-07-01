@@ -6,7 +6,7 @@ const initialState = {
 	data: null,
 };
 
-export default function(state = initialState, action) {
+export default function channelsReducer(state = initialState, action) {
 	switch (action.type) {
 		case 'FETCH_CHANNELS_REQUEST':
 			return Object.assign({}, state, {

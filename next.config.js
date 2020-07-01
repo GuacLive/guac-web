@@ -7,7 +7,7 @@ const withOffline = require('next-offline');
 const pkg = require('./package.json');
 const withTM = require('next-transpile-modules')(['react-giphy-searchbox']);
 module.exports = withTM(withOffline({
-	webpack(config, {isServer, buildId}) {
+	webpack(config, {isServer, buildId, dev}) {
 		if (!isServer) {
 			config.resolve.alias['@sentry/node'] = '@sentry/browser';
 			config.node = {
@@ -53,7 +53,10 @@ module.exports = withTM(withOffline({
 				})
 			);
 		}
-		config.devtool = false;
+		
+		if(!dev){
+			config.devtool = false;
+		}   
 
 		return config;
 	},
