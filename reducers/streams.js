@@ -6,7 +6,7 @@ const initialState = {
 	data: []
 };
 
-export default function(state = initialState, action) {
+export default function streamsReducer(state = initialState, action) {
 	switch (action.type) {
 		case 'FETCH_STREAMS_REQUEST':
 			return Object.assign({}, state, {

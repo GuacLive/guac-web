@@ -9,7 +9,7 @@ const initialState = {
 	private: false
 };
 
-export default function(state = initialState, action) {
+export default function streamingReducer(state = initialState, action) {
 	switch (action.type) {
 		case 'SET_CATEGORY_REQUEST':
 			return Object.assign({}, state, {

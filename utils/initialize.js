@@ -3,7 +3,7 @@ import * as actions from '../actions';
 import { getCookie } from '../utils/cookie';
 
 // checks if the page is being loaded on the server, and if so, get auth token from the cookie:
-export default function({store, pathname, query, req}) {
+const initialize = function({store, pathname, query, req}) {
 	const isServer = typeof window === 'undefined';
 
 	if(isServer){
@@ -20,4 +20,5 @@ export default function({store, pathname, query, req}) {
 			}, 0);
 		}
 	}
-}
+};
+export default initialize;

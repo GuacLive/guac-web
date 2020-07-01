@@ -7,7 +7,7 @@ const initialState = {
 	mode: null
 };
 
-export default function(state = initialState, action) {
+export default function siteReducer(state = initialState, action) {
 	switch (action.type) {
 		case 'FETCH_MY_FOLLOWED_REQUEST':
 			return Object.assign({}, state, {

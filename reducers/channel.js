@@ -8,7 +8,7 @@ const initialState = {
 	isFollowing: null
 };
 
-export default function(state = initialState, action) {
+export default function channelReducer(state = initialState, action) {
 	switch (action.type) {
 		case 'FETCH_CHANNEL_REQUEST':
 			return Object.assign({}, state, {

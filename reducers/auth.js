@@ -8,7 +8,7 @@ const initialState = {
 	user: {}
 };
 
-export default function(state = initialState, action) {
+export default function authReducer(state = initialState, action) {
 	switch (action.type) {
 		case 'AUTHENTICATE_REQUEST':
 		case 'REGISTER_REQUEST':
