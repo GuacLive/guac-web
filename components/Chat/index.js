@@ -20,6 +20,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import EmojiSelector from './EmojiSelector';
 import GifSelector from './GifSelector';
 import SettingsMenu from './SettingsMenu';
+import UserCard from './UserCard';
 
 import UrlEmbedder from 'utils/UrlEmbedder';
 
@@ -56,6 +57,7 @@ function ChatComponent(props){
 	const [visible, setVisible] = useState(true);
 
 	const [showFAB, setShowFAB] = useState(false);
+	const [userCard, setUserCard] = useState(false);
   
 	const lastMessageRef = useRef();
 	const messageContainerRef = useRef();
@@ -414,8 +416,15 @@ function ChatComponent(props){
 					</span>
 					<span className="chat-message-user b dib">
 						<a onClick={() => {
-							setFormattedMessage(`${message} @${user.name}`);
-							setLastMessage(`${message} @${user.name}`);
+							setUserCard({
+								user,
+								msgID,
+								onClose: () => {setUserCard(null)},
+								mention: () => {
+									setFormattedMessage(`${message} @${user.name}`);
+									setLastMessage(`${message} @${user.name}`);
+								}
+							});
 						}} href="#" className="link color-inherit" style={{color: `#${user.color}`}}>{user.name}</a>{'\u00A0'}
 					</span>
 					<span className={`chat-message-content db ${emoteOnly ? 'chat-message-content__emote-only' : 'chat-message-content__with-text'}`}>{output}</span>
@@ -818,6 +827,7 @@ function ChatComponent(props){
 				}
 				</SimpleBar>
 			</div>
+			{userCard && <UserCard darkMode={darkMode} {...userCard} />}
 			<div className={`${visible ? 'flex' : 'dn'} justify-center relative pointer`} style={{height: '0'}}>
 				{
 					showFAB ?
