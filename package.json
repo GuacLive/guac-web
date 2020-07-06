@@ -1,6 +1,6 @@
 {
   "name": "guac-web",
-  "version": "1.5.52",
+  "version": "1.5.53",
   "description": "Main web ui for the Guac livestreaming platform",
   "repository": "GuacLive/guac-web",
   "author": {
@@ -42,7 +42,7 @@
     "@vercel/next": "^2.6.8-canary.0",
     "@videojs/http-streaming": "^2.0.0",
     "@videojs/vhs-utils": "2.2.0",
-    "@webscopeio/react-textarea-autocomplete": "^4.6.3",
+    "@webscopeio/react-textarea-autocomplete": "^4.7.0",
     "@zeit/next-source-maps": "^0.0.4-canary.1",
     "abort-controller": "^3.0.0",
     "babel-core": "7.0.0-bridge.0",
@@ -68,7 +68,7 @@
     "path-match": "^1.2.4",
     "postcss-css-variables": "^0.17.0",
     "postcss-import": "^12.0.1",
-    "postcss-nested": "^4.1.2",
+    "postcss-nested": "^4.2.2",
     "postcss-preset-env": "^6.7.0",
     "postcss-url": "9",
     "pretty-ms": "^7.0.0",
