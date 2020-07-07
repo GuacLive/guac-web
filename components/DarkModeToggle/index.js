@@ -40,6 +40,7 @@ class DarkModeToggle extends Component {
 					<label className="flex flex-row self-center">
 						<Switch
 							onChange={this.handleChange}
+							onColor="#19a974"
 							checked={this.state.checked}
 						/>
 					</label>

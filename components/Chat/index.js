@@ -786,7 +786,7 @@ function ChatComponent(props){
 							<div className={`absolute left-0 primary`} style={{
 								'left': visible ? '0' : '-3.5rem',
 								'top': visible ? 'auto' : '1rem',
-								'z-index': '2'
+								'zIndex': '2'
 							}}>
 								<div className="inline-flex items-center justify-center mr2">
 									<a
