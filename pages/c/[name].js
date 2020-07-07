@@ -392,6 +392,7 @@ function ChannelPage(props){
 								<div className="flex primary">
 									<Switch
 										onChange={() => showEditPanel(!editPanelState)}
+										onColor="#19a974"
 										checked={editPanelState}
 										uncheckedIcon={<span></span>}
 										className="flex-column"

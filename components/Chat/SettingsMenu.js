@@ -41,6 +41,7 @@ function SettingsMenu(props){
 									checked={checked}
 									uncheckedIcon={false}
 									checkedIcon={false}
+									onColor="#19a974"
 								/>
 								<span id="switch-timestamps-label" className="ml2">
 								<Trans>Timestamps</Trans>
@@ -53,6 +54,7 @@ function SettingsMenu(props){
 									checked={notifySound}
 									uncheckedIcon={false}
 									checkedIcon={false}
+									onColor="#19a974"
 								/>
 								<span id="switch-notifysound-label" className="ml2">
 								<Trans>Sound when highlighted</Trans>
