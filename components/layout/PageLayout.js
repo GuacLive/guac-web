@@ -252,6 +252,12 @@ function PageLayout(props){
 				<meta property="twitter:creator" content="@datagutt" key="twitter:creator" />
 				<meta property="twitter:description" content="guac is a live streaming platform." key="twitter:description" />
 				<meta property="twitter:image" content="https://guac.live/img/header-logo.png" key="twitter:image" />
+				
+				<meta
+					name="viewport"
+					content="width=device-width,initial-scale=1,minimal-ui"
+				/>
+
 				<meta name="description" content="guac is a live streaming platform." key="description" />
 				<meta name="theme-color" key="theme-color" content="#19a974" />
 			</Head>
