@@ -53,7 +53,7 @@ class CategoryPage extends Component {
 						return (
 							<div className="site-component-channels__channel w-100 pa2" key={`channel_${channel.id}`}>
 								<Link href={`/c/[name]`} as={`/c/${channel.name}`}>
-									<a><Image src={channel.thumbnail} shape="rounded" fit="contain" flexible lazyload /></a>
+									<a><Image src={channel.thumbnail} shape="rounded" fit="contain" lazyload /></a>
 								</Link>
 								<div className="pa2">
 									<span className="f5 db link green">
