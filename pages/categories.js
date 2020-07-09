@@ -32,7 +32,7 @@ class CategoriesPage extends Component {
 						return (
 							<div className="site-component-categories_category w-33 pa2" key={`category_${category.category_id}`}>
 								<Link href={`/category/[id}`} href={`/category/${category.category_id}`}>
-									<a><Image src={`/img/categories/${category.category_id}.jpg`} className="w5 h5" shape="rounded" fit="cover"  lazyload /></a>
+									<a><Image src={`/img/categories/${category.category_id}.jpg`} className="w5 h5" shape="rounded" fit="cover" lazyload /></a>
 								</Link>
 								<div className="pa2">
 									<Link href={`/category/[id}`} href={`/category/${category.category_id}`}>
