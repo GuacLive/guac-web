@@ -32,7 +32,7 @@ function ViewerList(props){
 		return u && u.type && u.type === 'staff' && !broadcaster.find((b) => u.id == b.id);
 	});
 	const mods = users.filter((u) => {
-		return u && u.type &&  u.type !== 'staff' && u.type === 'moderator' && !broadcaster.find((b) => u.id == b.id);
+		return u && u.type && u.type !== 'staff' && u.type === 'moderator' && !broadcaster.find((b) => u.id == b.id);
 	});
 	const supporters = users.filter((u) => {
 		return u && !u.anon && u.type !== 'staff' && u.type !== 'moderator' && u.isPatreon && !broadcaster.find((b) => u.id == b.id);
