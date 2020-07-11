@@ -200,7 +200,7 @@ function PageLayout(props){
 						}
 					</SimpleBar>
 				</nav>
-				<footer className="flex bg-near-black white ph4 ph2-m mb5">
+				<footer className="flex white ph4 ph2-m mb5">
 					<div className="f6 flex flex-column flex-grow-1" style={{flexFlow:'row wrap'}}>
 						<span className="dib mr4 ttu tracked">© {(new Date()).getFullYear()} guac.live</span>
 						<span className="dib mr4 f7 silver">v{process.env.SENTRY_RELEASE}</span>
