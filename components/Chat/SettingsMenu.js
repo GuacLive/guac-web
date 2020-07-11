@@ -31,7 +31,7 @@ function SettingsMenu(props){
 			<FontAwesomeIcon icon='cog' onClick={handleToggleClick} className="primary" />
 			<div className="absolute right-0 fr pv2 ph2" style={{'bottom': '11rem'}}>
 				{isOpen &&
-					<div className="pa1 ba b--gray br2 bg-white near-black">
+					<div className={`pa1 ba b--gray br2 ${props.darkMode ? 'bg-near-black' : 'bg-white'} ${props.darkMode ? 'near-white' : 'near-black'}`}>
 						<div className="relative h5 w5 ml1 mb2">
 							<span className="f3 b tracked mt0 mb3"><Trans>Settings</Trans></span>
 							<label className="db pv2 ph2">
