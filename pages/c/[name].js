@@ -250,7 +250,7 @@ function ChannelPage(props){
 					<VideoPlayer { ...videoJsOptions } live={stream.live}></VideoPlayer>
 				</div>
 				<div
-					className="site-component-channel__info dib w-100 bg-black-50"
+					className="site-component-channel__info dib w-100 bt b--dark-gray"
 					onMouseEnter={(e) => {
 						if (e && e.target) e.target.classList.add('active');
 					}}
@@ -362,12 +362,12 @@ function ChannelPage(props){
 				</div>
 				{showSub && <SubscriptionDialog />}
 				{showModal && <div className="db pa2 bg-black-50 primary"><EditStreamPanel /></div>}
-				<div className="site-component-profile__tabs flex items-center bb b--gray" style={{height:'48px'}}>
+				<div className="site-component-profile__tabs flex items-center" style={{height:'48px'}}>
 					<a 
 						href="#"
 						onClick={() => {setTab(0);return true;}}
 						className={
-							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer ${tab == 0 ? 'primary' : 'gray'} hover-primary link`
+							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 0 ? 'primary b--gray' : 'gray b--transparent'} hover-primary link`
 						}
 					>
 						<Trans>ABOUT</Trans>
@@ -376,7 +376,7 @@ function ChannelPage(props){
 						href="#"
 						onClick={() => {setTab(1);return true;}}
 						className={
-							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer ${tab == 1 ? 'primary' : 'gray'} hover-primary link`
+							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 1 ? 'primary b--gray' : 'gray b--transparent'} hover-primary link`
 						}
 					>
 						<Trans>REPLAYS</Trans>
