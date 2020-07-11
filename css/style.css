@@ -79,11 +79,12 @@ input:focus {
 
 :root {
 	--site-background: #f4f5f7;
+	--bar-background: #1d1d1d;
 	--site-text: var(--black);
 	--highlight-color: rgba(255,255,255,0);
 
 	--slick-dot-color: black;
-	--chat-message-background: var(--site-background);
+	--chat-message-background: transparent;
 	--chat-message-background-odd: var(--black-20);
 	--chat-message-text: var(--black);
 	--chat-message-link: var(--green);
@@ -95,17 +96,20 @@ input:focus {
 }
 
 .guac-skin-dark {
-	--site-background: #2a2a2a;
+	--site-background: #151515;
 	--site-text: var(--white);
 	--highlight-color: rgba(0,0,0,0);
 
 	--slick-dot-color: white;
-	--chat-message-background: var(--black-20);
-	--chat-message-background-odd: var(--black-40);
+	--chat-message-background-odd: var(--black-50);
 	--chat-message-text: var(--white);
 	--chat-message-link: var(--light-green);
 
 	--dropdown-background: var(--near-black);
+}
+
+.bg-bar {
+	background: var(--bar-background);
 }
 
 /* For chat OBS overlay */

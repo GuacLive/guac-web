@@ -116,7 +116,7 @@ function PageLayout(props){
 	}
 
 	const SideBarComponent = (
-		<aside className="fixed flex flex-column vh-100 flex-shrink-1 mv2-l site-component-sidebar bg-near-black">
+		<aside className="fixed flex flex-column vh-100 flex-shrink-1 mv2-l site-component-sidebar bg-bar">
 			<div className="flex flex-column h-100">
 				<nav className="flex flex-column h-100 relative">
 					<span className="f5 b ph3 light-gray">
@@ -200,7 +200,7 @@ function PageLayout(props){
 						}
 					</SimpleBar>
 				</nav>
-				<footer className="flex bg-near-black white ph4 ph2-m mb5">
+				<footer className="flex white ph4 ph2-m mb5">
 					<div className="f6 flex flex-column flex-grow-1" style={{flexFlow:'row wrap'}}>
 						<span className="dib mr4 ttu tracked">© {(new Date()).getFullYear()} guac.live</span>
 						<span className="dib mr4 f7 silver">v{process.env.SENTRY_RELEASE}</span>
@@ -262,7 +262,7 @@ function PageLayout(props){
 				<meta name="theme-color" key="theme-color" content="#19a974" />
 			</Head>
 			<main className="w-100 h-100 flex flex-column flex-nowrap justify-between items-start page-wrapper">
-				<header className="site-component-header z-5 w-100 fixed ph3 pv2 bg-near-black ml-auto flex-shrink-0">
+				<header className="site-component-header z-5 w-100 fixed ph3 pv2 bg-bar ml-auto flex-shrink-0">
 					<div className="h-100 flex items-stretch flex-nowrap">
 						<div className="dn flex-l flex-shrink-0 items-center pointer">
 							<Link href="/">

@@ -141,7 +141,7 @@ class IndexPage extends Component {
 					flag='guacWelcome'
 				>
 					<section className="ph4-l pv5">
-						<article className="center-l br2 ba b--transparent bg-black-50">
+						<article className="center-l br2 ba b--transparent bg-black-40">
 							<div className="db w-100">
 								<div className="pa3 pa4-ns db v-mid">
 									<div>
