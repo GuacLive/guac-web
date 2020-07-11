@@ -754,7 +754,7 @@ function ChatComponent(props){
 					</div>
 					<div className="flex justify-between">
 						<div className="flex flex-row">
-							<SettingsMenu chatSettings={chatSettings} />
+							<SettingsMenu darkMode={darkMode} chatSettings={chatSettings} />
 						</div>
 						{
 							!connectedStatus &&
