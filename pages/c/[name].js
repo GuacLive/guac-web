@@ -297,8 +297,8 @@ function ChannelPage(props){
 						</div>
 						<div className="flex flex-column flex-grow-0 flex-shrink-0 justify-start ma3">
 							<div className="items-center flex flex-nowrap justify-end mb3">
-								{stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={follow}><Trans>Following</Trans> ({kFormatter(stream.followers)})</GuacButton>}
-								{!stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="white" onClick={follow}><Trans>Follow</Trans> ({kFormatter(stream.followers)})</GuacButton>}
+								{stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="dark-gray" onClick={follow}><span className="white"><Trans>Following</Trans> ({kFormatter(stream.followers)})</span></GuacButton>}
+								{!stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="dark-gray" onClick={follow}><span className="white"><Trans>Follow</Trans> ({kFormatter(stream.followers)})</span></GuacButton>}
 								{
 									!authentication.token
 									&&
@@ -310,7 +310,7 @@ function ChannelPage(props){
 										theme="transparent"
 										style={{'display': 'flex !important'}}
 									>
-										<GuacButton color="white" onClick={follow}><Trans>Follow</Trans> ({kFormatter(stream.followers)})</GuacButton>
+										<GuacButton color="dark-gray" onClick={follow}><span className="white"><Trans>Follow</Trans> ({kFormatter(stream.followers)})</span></GuacButton>
 									</Tooltip>
 								}
 								<ToggleFeature flag="subscribeButton">
@@ -319,7 +319,6 @@ function ChannelPage(props){
 								{isMe &&
 									<GuacButton color="dark-gray" title="Edit stream" onClick={editStream}>
 										<FontAwesomeIcon icon="edit" fixedWidth className="white" />
-										<span className="white"><Trans>Edit</Trans></span>
 									</GuacButton>
 								}
 							</div>
