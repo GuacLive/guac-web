@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useLayoutEffect, useCallback } from 'react';
+import { Fragment, useState, useRef, forwardRef, useEffect, useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import useUpdateEffect from 'react-use/lib/useUpdateEffect';
@@ -8,7 +8,7 @@ import io from 'socket.io-client';
 import SimpleBar from 'simplebar-react';
 
 import ReactTextareaAutocomplete from '@webscopeio/react-textarea-autocomplete';
-import AutoTextarea from 'react-autosize-textarea';
+import TextareaAutosize from 'react-textarea-autosize';
 
 import format from 'date-fns/format';
 
@@ -64,7 +64,7 @@ function ChatComponent(props){
 
 	// CC0 public domain sound from http://www.freesound.org/people/pan14/sounds/263133/
 	const notificationSound = typeof Audio == 'undefined' ? null : new Audio();
-
+	  
 	const goToBottom = useCallback(() => {
 		if(
 			lastMessageRef && lastMessageRef.current
@@ -291,7 +291,7 @@ function ChatComponent(props){
 					if(Object.keys(emotes).indexOf(msg.content) == -1) return null;
 					let emote = emotes[msg.content];
 					return (
-						<React.Fragment key={'c-' + i + '-' + (new Date).getTime()}><Image className="chat-message-content__emote dib" data-emote-code={msg.content} src={emote.url} alt={'Emote: ' + msg.content} title={msg.content + ' by ' + emote.provider} />{i !== messages.length -1 && '\u00A0'}</React.Fragment>
+						<Fragment key={'c-' + i + '-' + (new Date).getTime()}><Image className="chat-message-content__emote dib" data-emote-code={msg.content} src={emote.url} alt={'Emote: ' + msg.content} title={msg.content + ' by ' + emote.provider} />{i !== messages.length -1 && '\u00A0'}</Fragment>
 					);
 				case 'text':
 					// Text is found, set emoteOnly to false
@@ -306,7 +306,7 @@ function ChatComponent(props){
 						}
 					}
 					return (
-						<React.Fragment key={'u-' + i + '-'  + (new Date).getTime()}>{embed.format(msg.content)}{i !== messages.length -1 ? '\u00A0' : ''}</React.Fragment>
+						<Fragment key={'u-' + i + '-'  + (new Date).getTime()}>{embed.format(msg.content)}{i !== messages.length -1 ? '\u00A0' : ''}</Fragment>
 					);
 				default:
 					return false;
@@ -626,7 +626,7 @@ function ChatComponent(props){
 							onChange={event => setFormattedMessage(event.target.value)}
 							onKeyDown={event => lastMessageHandler(event)}
 							onCut={event => lastMessageHandler(event)}
-							textAreaComponent={{ component: AutoTextarea, ref: "innerRef" }}
+							textAreaComponent={{ component: TextareaAutosize, ref: 'ref'}}
 							minChar={2}
 							rows={1}
 							disabled={!connectedStatus}
