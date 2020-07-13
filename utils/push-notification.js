@@ -4,15 +4,17 @@ import log from './log';
 import {callApi} from '../services/api';
 
 export const initializeFirebase = (callback) => {
-	firebase.initializeApp({
-		apiKey: "AIzaSyD3-rCPel0soeKLL5699DY3_5nQRIq5L4Y",
-		authDomain: "guac-197816.firebaseapp.com",
-		databaseURL: "https://guac-197816.firebaseio.com",
-		projectId: "guac-197816",
-		storageBucket: "guac-197816.appspot.com",
-		messagingSenderId: "910957898129",
-		appId: "1:910957898129:web:a63ea17f08eb6a65"
-	});
+	if (!firebase.apps || !firebase.apps.length){
+		firebase.initializeApp({
+			apiKey: "AIzaSyD3-rCPel0soeKLL5699DY3_5nQRIq5L4Y",
+			authDomain: "guac-197816.firebaseapp.com",
+			databaseURL: "https://guac-197816.firebaseio.com",
+			projectId: "guac-197816",
+			storageBucket: "guac-197816.appspot.com",
+			messagingSenderId: "910957898129",
+			appId: "1:910957898129:web:a63ea17f08eb6a65"
+		});
+	}
 	if(navigator.serviceWorker){
 		return navigator.serviceWorker
 		.register(`/service-worker.js?${__NEXT_DATA__.buildId}`)
