@@ -474,11 +474,11 @@ input:focus {
 
 .rta__entity {
 	background: transparent;
-	color: #fff;
+	color: var(--site-text);
 }
 .rta__entity--selected {
     background-color: var(--bar-background);
-    color: #fff;
+	color: var(--site-text);
 }
 .rta__item:not(:last-child) {
 	border-bottom-color: transparent;
