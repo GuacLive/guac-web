@@ -1,4 +1,4 @@
-import { Fragment, useState, useRef, forwardRef, useEffect, useCallback } from 'react';
+import { Fragment, useState, useRef, useEffect, useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import useUpdateEffect from 'react-use/lib/useUpdateEffect';
@@ -612,7 +612,9 @@ function ChatComponent(props){
 							className="w-100 pa2 br2 input-reset ba db outline-transparent bg-transparent primary"
 							loadingComponent={() => <Trans>Loading...</Trans>}
 							style={{
-								'paddingRight': '6rem'
+								'height': 'auto',
+								'flex': '1 1',
+								'paddingRight': '6rem',
 							}}
 							ref={rta => {
 								rta = rta;
@@ -627,31 +629,27 @@ function ChatComponent(props){
 							onKeyDown={event => lastMessageHandler(event)}
 							onCut={event => lastMessageHandler(event)}
 							textAreaComponent={{ component: TextareaAutosize, ref: 'ref'}}
-							minChar={2}
+							movePopupAsYouType={true}
+							minChar={0}
 							rows={1}
 							disabled={!connectedStatus}
+							dropdownClassName="chat-dropdown"
 							trigger={{
 								'@': {
 									dataProvider: token => {
-										if(!token || !token.length){
-											return [...users.values()]
-											.map((user) => {
-												return {
-													name: user.name,
-													char: user.name
-												}
-											});
-										}
 										return [...users.values()]
 										.filter(user => {
-											if(user
-												&& user.name
-												&& user.name.search(new RegExp(token, "i")) !== -1
-												&& !user.anon){
-												return user.name;
+											if(!token) return true;
+											if(
+											  user.name !== undefined &&
+											  user.name.toLowerCase().indexOf(token.toLowerCase()) !== -1
+											){
+											  return true;
+											}else{
+											  return false;
 											}
-											return null;
 										})
+										.slice(0, 10)
 										.map(user => {
 											return {
 												name: user.name,
@@ -673,23 +671,15 @@ function ChatComponent(props){
 								},
 								':': {
 									dataProvider: token => {
-										if(!token || !token.length){
-											return Object.keys(emotes)
-											.map((name) => {
-												return {
-													name,
-													char: name,
-													img: `<Image src=${emotes[name].url} />`
-												}
-											});
-										}
 										return Object.keys(emotes)
 										.filter(name => {
+											if(!token) return true;
 											if(name.search(new RegExp(token, "i")) !== -1){
-												return name;
+												return true;
 											}
-											return null;
+											return false;
 										})
+										.slice(0, 10)
 										.map(name => {
 											return {
 												name,
@@ -709,7 +699,58 @@ function ChatComponent(props){
 										}
 										return null;
 									}
-								}
+								},
+								'/': {
+									dataProvider: (token) => {
+										// Only show autocomplete for commands if / is first character
+										if(message &&
+											message.indexOf('/') !== 0){
+											return [];
+										}
+
+										const selectedCommands = [...commands.keys()].filter(
+											(c) => c.indexOf(token) !== -1,
+										);
+
+										// sort alphabetically unless the you're matching the first char
+										selectedCommands.sort((a, b) => {
+											let nameA = a.toLowerCase();
+											let nameB = b.toLowerCase();
+											if(nameA.indexOf(token) === 0){
+												nameA = `0${nameA}`;
+											}
+											if(nameB.indexOf(token) === 0){
+												nameB = `0${nameB}`;
+											}
+											if(nameA < nameB){
+												return -1;
+											}
+											if(nameA > nameB){
+												return 1;
+											}
+
+											return 0;
+										});
+
+										return selectedCommands.slice(0, 10).map(name => {
+											return {
+												name,
+												char: name
+											};
+										});
+									},
+									component: ({ entity: {name} }) => <div>{name}</div>,
+									output: (item) => {
+										if(item && item.name){
+											return {
+												key: item.name,
+												text: `/${item.name}`,
+												caretPosition: 'next',
+											};
+										}
+										return null;
+									}
+								},
 							}}
 						/>
 						<div className="chat-input__buttons absolute bottom-0 right-0 primary">
