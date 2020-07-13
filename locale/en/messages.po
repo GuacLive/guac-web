@@ -21,7 +21,7 @@ msgstr "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are curre
 #~ msgid "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 #~ msgstr "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 
-#: pages/c/[name].js:373
+#: pages/c/[name].js:372
 msgid "ABOUT"
 msgstr "ABOUT"
 
@@ -49,9 +49,9 @@ msgstr "Breaking the law"
 msgid "Broadcaster:"
 msgstr "Broadcaster:"
 
-#: components/layout/PageLayout.js:290
-#: components/layout/PageLayout.js:290
-#: components/layout/PageLayout.js:291
+#: components/layout/PageLayout.js:296
+#: components/layout/PageLayout.js:296
+#: components/layout/PageLayout.js:297
 #: pages/categories.js:29
 msgid "Browse"
 msgstr "Browse"
@@ -68,9 +68,9 @@ msgstr "Channel"
 msgid "Channel not found"
 msgstr "Channel not found"
 
-#: components/layout/PageLayout.js:284
-#: components/layout/PageLayout.js:284
-#: components/layout/PageLayout.js:285
+#: components/layout/PageLayout.js:290
+#: components/layout/PageLayout.js:290
+#: components/layout/PageLayout.js:291
 #: pages/channels.js:50
 msgid "Channels"
 msgstr "Channels"
@@ -174,8 +174,8 @@ msgid "E-mail"
 msgstr "E-mail"
 
 #: pages/c/[name].js:322
-msgid "Edit"
-msgstr "Edit"
+#~ msgid "Edit"
+#~ msgstr "Edit"
 
 #: pages/c/[name].js:443
 msgid "Edit panel"
@@ -265,7 +265,7 @@ msgstr "Harassment & Bullying"
 msgid "Hate Speech"
 msgstr "Hate Speech"
 
-#: components/layout/PageLayout.js:279
+#: components/layout/PageLayout.js:285
 msgid "Home"
 msgstr "Home"
 
@@ -295,9 +295,9 @@ msgstr "Live streams"
 msgid "Loading..."
 msgstr "Loading..."
 
-#: components/layout/PageLayout.js:310
-#: components/layout/PageLayout.js:310
-#: components/layout/PageLayout.js:311
+#: components/layout/PageLayout.js:316
+#: components/layout/PageLayout.js:316
+#: components/layout/PageLayout.js:317
 #: pages/auth/activate.js:38
 #: pages/auth/login.js:49
 #: pages/auth/register.js:80
@@ -414,7 +414,7 @@ msgstr "Private (don't show in categories, frontpage or search):"
 msgid "Profile"
 msgstr "Profile"
 
-#: pages/c/[name].js:382
+#: pages/c/[name].js:381
 msgid "REPLAYS"
 msgstr "REPLAYS"
 
@@ -460,15 +460,15 @@ msgstr "Show only live"
 msgid "Show user list"
 msgstr "Show user list"
 
-#: components/layout/PageLayout.js:317
-#: components/layout/PageLayout.js:317
-#: components/layout/PageLayout.js:318
+#: components/layout/PageLayout.js:323
+#: components/layout/PageLayout.js:323
+#: components/layout/PageLayout.js:324
 #: pages/auth/login.js:67
 #: pages/auth/register.js:59
 msgid "Sign up"
 msgstr "Sign up"
 
-#: components/Chat/SettingsMenu.js:58
+#: components/Chat/SettingsMenu.js:60
 msgid "Sound when highlighted"
 msgstr "Sound when highlighted"
 
@@ -556,7 +556,7 @@ msgstr "Threats, Violence & Harm"
 msgid "Time out user for x seconds"
 msgstr "Time out user for x seconds"
 
-#: components/Chat/SettingsMenu.js:46
+#: components/Chat/SettingsMenu.js:47
 msgid "Timestamps"
 msgstr "Timestamps"
 

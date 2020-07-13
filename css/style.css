@@ -446,8 +446,45 @@ input:focus {
 	min-width: 340px;
 	width: 100% !important;
 }
-/* Player embed */
 
+.chat-dropdown {
+	display: flex;
+	flex-direction: column;
+
+    position: absolute;
+    right: 0;
+    left: 0;
+
+	width: calc(100% - 20px);
+	max-height: 360px;
+	overflow-y: auto;
+	z-index: 9999;
+    border-radius: 4px 4px 0 0;
+	margin: 0 10px;
+
+    overflow-y: auto;
+    overflow-y: overlay;
+}
+
+.rta__list {
+	border-radius: 4px 4px 0 0;
+	background-color: var(--site-background);
+	border-color: var(--mid-gray);
+}
+
+.rta__entity {
+	background: transparent;
+	color: var(--site-text);
+}
+.rta__entity--selected {
+    background-color: var(--bar-background);
+	color: var(--site-text);
+}
+.rta__item:not(:last-child) {
+	border-bottom-color: transparent;
+}
+
+/* Player embed */
 .player-embed {
     position: absolute;
     top: 0;
@@ -521,6 +558,8 @@ html.theater-mode .site-component-channel__info .guac-btn {
 .chat-message-content img + img.chat-message-content__emote[data-emote-code="cvMask"] {
 }
 
+
+/* Settings */
 .settings-row:not(:first-child):not(.settings-row--focused) {
     border-top: 1px solid rgba(255, 255, 255, .1);
 }

@@ -17,7 +17,7 @@ msgstr ""
 msgid "<0>Hi,<1/>Welcome to guac.live &mdash; live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 msgstr "<0>Hi,<1/>Velkommen til guac.live — direktestrømming-platformen. Vi er for tiden i beta.</0><2>Mens vi er i beta, så vil strømmeprivilegier bli gitt på invitasjonsbasis.<3/>Men, lag gjerne en konto og delta i chatten og det generelle fellesskapet!</2>"
 
-#: pages/c/[name].js:373
+#: pages/c/[name].js:372
 msgid "ABOUT"
 msgstr "OM"
 
@@ -45,9 +45,9 @@ msgstr "Å bryte loven"
 msgid "Broadcaster:"
 msgstr "Direktestrømmer:"
 
-#: components/layout/PageLayout.js:290
-#: components/layout/PageLayout.js:290
-#: components/layout/PageLayout.js:291
+#: components/layout/PageLayout.js:296
+#: components/layout/PageLayout.js:296
+#: components/layout/PageLayout.js:297
 #: pages/categories.js:29
 msgid "Browse"
 msgstr "Utforsk"
@@ -64,9 +64,9 @@ msgstr "Kanal"
 msgid "Channel not found"
 msgstr "Kanal ikke funnet"
 
-#: components/layout/PageLayout.js:284
-#: components/layout/PageLayout.js:284
-#: components/layout/PageLayout.js:285
+#: components/layout/PageLayout.js:290
+#: components/layout/PageLayout.js:290
+#: components/layout/PageLayout.js:291
 #: pages/channels.js:50
 msgid "Channels"
 msgstr "Kanaler"
@@ -170,8 +170,8 @@ msgid "E-mail"
 msgstr "E-post"
 
 #: pages/c/[name].js:322
-msgid "Edit"
-msgstr "Endre"
+#~ msgid "Edit"
+#~ msgstr "Endre"
 
 #: pages/c/[name].js:443
 msgid "Edit panel"
@@ -249,7 +249,7 @@ msgstr "Trakassering og mobbing"
 msgid "Hate Speech"
 msgstr "Hatprat"
 
-#: components/layout/PageLayout.js:279
+#: components/layout/PageLayout.js:285
 msgid "Home"
 msgstr "Hjem"
 
@@ -275,9 +275,9 @@ msgstr "Direktesendinger"
 msgid "Loading..."
 msgstr "Laster..."
 
-#: components/layout/PageLayout.js:310
-#: components/layout/PageLayout.js:310
-#: components/layout/PageLayout.js:311
+#: components/layout/PageLayout.js:316
+#: components/layout/PageLayout.js:316
+#: components/layout/PageLayout.js:317
 #: pages/auth/activate.js:38
 #: pages/auth/login.js:49
 #: pages/auth/register.js:80
@@ -394,7 +394,7 @@ msgstr "Privat (vises ikke i kategorier, forsiden eller i søk):"
 msgid "Profile"
 msgstr "Profil"
 
-#: pages/c/[name].js:382
+#: pages/c/[name].js:381
 msgid "REPLAYS"
 msgstr "ARKIV"
 
@@ -440,15 +440,15 @@ msgstr "Vis bare direkte"
 msgid "Show user list"
 msgstr "Vis liste over brukere"
 
-#: components/layout/PageLayout.js:317
-#: components/layout/PageLayout.js:317
-#: components/layout/PageLayout.js:318
+#: components/layout/PageLayout.js:323
+#: components/layout/PageLayout.js:323
+#: components/layout/PageLayout.js:324
 #: pages/auth/login.js:67
 #: pages/auth/register.js:59
 msgid "Sign up"
 msgstr "Registrer"
 
-#: components/Chat/SettingsMenu.js:58
+#: components/Chat/SettingsMenu.js:60
 msgid "Sound when highlighted"
 msgstr "Lyd-varsel når nevnt i chat"
 
@@ -532,7 +532,7 @@ msgstr "Trusler, vold og skade"
 msgid "Time out user for x seconds"
 msgstr "Time ut brukeren i x sekunder"
 
-#: components/Chat/SettingsMenu.js:46
+#: components/Chat/SettingsMenu.js:47
 msgid "Timestamps"
 msgstr "Tidsmerking"
 
