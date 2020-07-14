@@ -466,6 +466,14 @@ input:focus {
     overflow-y: overlay;
 }
 
+/* Force positioning of autocomplete */
+.chat-dropdown[style] {
+	bottom: 100% !important;
+	left: 0 !important;
+	top: auto !important;
+	position: absolute;
+}
+
 .rta__list {
 	border-radius: 4px 4px 0 0;
 	background-color: var(--site-background);
@@ -478,7 +486,7 @@ input:focus {
 }
 .rta__entity--selected {
     background-color: var(--bar-background);
-	color: var(--site-text);
+	color: #fff;
 }
 .rta__item:not(:last-child) {
 	border-bottom-color: transparent;
