@@ -732,16 +732,25 @@ function ChatComponent(props){
 											return 0;
 										});
 
-										return selectedCommands.slice(0, 10).map(name => {
+										return selectedCommands.slice(0, 10)
+										.map(name => {
 											let c = commands.get(name);
 											let usage = c && c.usage;
 											let description = c && c.description;
 											return {
 												name,
 												usage,
+												c,
 												description, 
 												char: name
 											};
+										})
+										.filter((obj) => {
+											if(obj.c && obj.c.privileged){
+												return hasPrivilege;
+											}else{
+												return true;
+											}
 										});
 									},
 									component: ({ entity }) => <div>
