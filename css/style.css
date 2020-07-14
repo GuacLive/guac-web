@@ -486,7 +486,7 @@ input:focus {
 }
 .rta__entity--selected {
     background-color: var(--bar-background);
-	color: var(--site-text);
+	color: #fff;
 }
 .rta__item:not(:last-child) {
 	border-bottom-color: transparent;

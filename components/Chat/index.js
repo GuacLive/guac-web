@@ -450,10 +450,10 @@ function ChatComponent(props){
 		if(msg.slice(0,1) === '/'){
 			let args = msg.split(' ');
 			let command = args.shift().slice(1);
-			let commandClass;
+			let commandObj;
 			log('info', 'Chat', 'We got a command', args, command);
-			if(commandClass = commands.get(command)){
-				let command = new commandClass(socket, channel, me, authentication.token, hasPrivilege, users);
+			if(commandObj = commands.get(command)){
+				let command = new commandObj.func(socket, channel, me, authentication.token, hasPrivilege, users);
 				command.run(args);
 			}
 		}else{
@@ -733,17 +733,27 @@ function ChatComponent(props){
 										});
 
 										return selectedCommands.slice(0, 10).map(name => {
+											let c = commands.get(name);
+											let usage = c && c.usage;
+											let description = c && c.description;
 											return {
 												name,
+												usage,
+												description, 
 												char: name
 											};
 										});
 									},
-									component: ({ entity: {name} }) => <div>{name}</div>,
+									component: ({ entity }) => <div>
+										<div><b>/{entity.name}</b> {entity.usage}</div>
+										<div>{entity.description}</div>
+									</div>,
 									output: (item) => {
 										if(item && item.name){
 											return {
 												key: item.name,
+												usage: item.usage,
+												description: item.description,
 												text: `/${item.name}`,
 												caretPosition: 'next',
 											};
