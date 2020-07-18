@@ -17,7 +17,7 @@ class CategoryPage extends Component {
 		if(categories.loading){
 			await store.dispatch(actions.fetchCategories());
 		}
-		await store.dispatch(actions.fetchChannels(true, query.id));
+		await store.dispatch(actions.fetchChannels(1, query.id));
 		return {
 			...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {}),
 			category_id: query.id

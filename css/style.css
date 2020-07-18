@@ -244,6 +244,13 @@ input:focus {
 	margin-bottom: calc(var(--spacing-extra-large) + var(--spacing-small));
 	left: 256px;
 }
+.site-component-spotlight {
+    padding: calc(var(--vh, 1vh) * 50 * .05) 0;
+}
+.site-component-spotlight > div {
+    min-height: 555px;
+}
+
 @media (--breakpoint-large) {
 	.site-component-sidebar {
 		/*width: 24rem !important;*/
