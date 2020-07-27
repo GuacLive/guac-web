@@ -1,6 +1,6 @@
 {
   "name": "guac-web",
-  "version": "1.5.65",
+  "version": "1.5.66",
   "description": "Main web ui for the Guac livestreaming platform",
   "repository": "GuacLive/guac-web",
   "author": {
@@ -63,7 +63,7 @@
     "next-offline": "^5",
     "next-redux-wrapper": "^6.0.2",
     "next-server": "^9.0.6-canary.0",
-    "next-transpile-modules": "https://github.com/migatech2015/next-transpile-modules",
+    "next-transpile-modules": "^4",
     "nuka-carousel": "4.7.0",
     "path-match": "^1.2.4",
     "postcss-css-variables": "^0.17.0",
