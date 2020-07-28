@@ -1,12 +1,6 @@
 import React, {Component, Fragment} from 'react'
-import dynamic from 'next/dynamic'
 
-let Chat = dynamic(
-	() => /* webpackChunkName: 'VideoPlayer' */import('../../components/Chat'),
-	{
-		ssr: false,
-	}
-);
+import Chat from 'components/Chat';
 
 import {connect} from 'react-redux';
 
@@ -63,7 +57,11 @@ class ChatPage extends Component {
                         )
                     })}
 				</NextHead>
-				<Chat channel={channel.data.name} />
+				<div className="w-100 min-vh-100 flex flex-nowrap black">			
+					<div className="site-component-chat w-100 w-70-ns h-100 flex flex-nowrap flex-column flex-grow-1 overflow-hidden relative">
+						<Chat channel={channel.data.name} />
+					</div>
+				</div>
 			</Fragment>
 		)
 	}
