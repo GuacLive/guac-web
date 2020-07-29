@@ -145,6 +145,7 @@ function ChatComponent(props){
 	const useChatHydration = true;
 
 	const isOverlay = props.overlay ? true : false;
+	const isPopout = props.popout ? true : false;
 
 	// Redux
 	const authentication = useSelector(state => state.authentication);
@@ -835,7 +836,7 @@ function ChatComponent(props){
 			</>
 		);
 	return (
-		<div className={`w-100 ${!isOverlay && 'w-30-ns'} h-100 flex-l dn flex-column flex-grow-1 flex-shrink-1 flex-nowrap`}>	
+		<div className={`w-100 ${!isOverlay && !isPopout && 'w-30-ns'} h-100 flex-l dn flex-column flex-grow-1 flex-shrink-1 flex-nowrap`}>	
 			{
 				!isOverlay ?
 					(
