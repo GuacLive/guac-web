@@ -59,7 +59,7 @@ class ChatPage extends Component {
 				</NextHead>
 				<main class="w-100 h-100 flex flex-column flex-nowrap justify-between items-start page-wrapper">
 					<div className="w-100 min-vh-100 flex flex-nowrap black">			
-						<div className="site-component-chat w-100 w-70-ns h-100 min-vh-100 flex flex-nowrap flex-column flex-grow-1 overflow-hidden relative">
+						<div className="site-component-chat w-100 h-100 min-vh-100 flex flex-nowrap flex-column flex-grow-1 overflow-hidden relative">
 							<Chat channel={channel.data.name} popout={true} />
 						</div>
 					</div>
