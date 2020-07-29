@@ -836,7 +836,7 @@ function ChatComponent(props){
 			</>
 		);
 	return (
-		<div className={`w-100 ${!isOverlay && !isPopout && 'w-30-ns'} h-100 flex-l dn flex-column flex-grow-1 flex-shrink-1 flex-nowrap`}>	
+		<div className={`w-100 ${!isOverlay && !isPopout && 'w-30-ns'} h-100 ${!isOverlay && !isPopout ? 'flex-l dn' : 'flex'} flex-column flex-grow-1 flex-shrink-1 flex-nowrap`}>	
 			{
 				!isOverlay ?
 					(
