@@ -500,8 +500,7 @@ input:focus {
 	left: 0;
 
 	width: calc(100% - 20px);
-	max-height: 360px;
-	overflow-y: auto;
+	max-height: calc(100vh - 230px);
 	z-index: 9999;
 	border-radius: 4px 4px 0 0;
 	margin: 0 10px;
