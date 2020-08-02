@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Head from 'next/head'
 
-import { Fragment, useState, useEffect, useLayoutEffect } from 'react';
+import {Fragment, useState, useEffect, useLayoutEffect} from 'react';
 
 import {connect} from 'react-redux';
 
@@ -9,8 +9,8 @@ import SimpleBar from 'simplebar-react';
 
 import * as actions from 'actions';
 
-import { useLingui } from "@lingui/react";
-import { Trans, t } from '@lingui/macro';
+import {useLingui} from "@lingui/react";
+import {Trans, t} from '@lingui/macro';
 import LangSwitcher from '../LangSwitcher';
 
 import Image from '../Image';
@@ -25,24 +25,23 @@ import GuacLogo from '../../public/img/guac-text.svg';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
 	Tooltip,
-  } from 'react-tippy';
+} from 'react-tippy';
 
-import { useDispatch } from "react-redux";
-import { useInterval, useBoolean } from 'react-use';
-  
-const mediaQueryList = typeof window !== 'undefined' 
+import {useDispatch} from "react-redux";
+import {useInterval, useBoolean} from 'react-use';
+
+const mediaQueryList = typeof window !== 'undefined'
 	&& window.matchMedia('screen and (min-width: 960px)');
-function PageLayout(props){
+function PageLayout(props) {
 	const dispatch = useDispatch();
-	const { i18n } = useLingui();
+	const {i18n} = useLingui();
 	const [showSidebar, setShowSidebar] = useState(true);
-	const [overrideSidebar, setOverrideSidebar] = useState(false);
 	const [followingTimer, toggleFollowingTimer] = useBoolean(true);
-  
+
 	const updateViewport = () => {
-		if(
+		if (
 			typeof document !== 'undefined'
-		){
+		) {
 			let vh = window.innerHeight * 0.01;
 			document.documentElement.style.setProperty('--vh', `${vh}px`);
 		}
@@ -51,32 +50,32 @@ function PageLayout(props){
 	const updateDimensions = (evt) => {
 		let ssb = evt && evt.matches;
 		// If media query is now matching, reset overriden sidebar
-		if(showSidebar === true && showSidebar !== ssb){
+		if (showSidebar === true && showSidebar !== ssb) {
 			ssb = false;
 		}
 		console.log('updateDimensions', evt);
-		if(
+		if (
 			typeof document !== 'undefined'
 			&& document.documentElement
 			&& document.documentElement.classList
-		){
-			if(showSidebar || overrideSidebar){
+		) {
+			if (showSidebar) {
 				document.documentElement.classList.add('toggled-sidebar');
-			}else{
+			} else {
 				document.documentElement.classList.remove('toggled-sidebar');
 			}
 		}
 		setShowSidebar(ssb);
 	};
 
-	if(process.browser){
+	if (process.browser) {
 		useLayoutEffect(() => {
 			// This a hack to fix vh
 			updateViewport();
 			window.addEventListener('resize', updateViewport);
-	
+
 			// This is the logic that handles sidebar
-			if(mediaQueryList){
+			if (mediaQueryList) {
 				mediaQueryList.addListener(updateDimensions);
 			}
 			updateDimensions(mediaQueryList);
@@ -88,8 +87,8 @@ function PageLayout(props){
 	}
 
 	useEffect(() => {
-		if(props.mode){
-			if(document) document.documentElement.className = `guac-skin-${props.mode}`;
+		if (props.mode) {
+			if (document) document.documentElement.className = `guac-skin-${props.mode}`;
 		}
 	}, [props.mode]);
 
@@ -103,7 +102,7 @@ function PageLayout(props){
 	// Refetch following list every 60 seconds
 	useInterval(
 		async () => {
-			if(!user || !user.token) return;
+			if (!user || !user.token) return;
 			await dispatch(actions.fetchMyFollowed(
 				user.token
 			));
@@ -111,7 +110,7 @@ function PageLayout(props){
 		followingTimer ? 60 * 1000 : null
 	);
 
-	if(props.skip){
+	if (props.skip) {
 		return <Fragment>{children}</Fragment>;
 	}
 
@@ -119,10 +118,36 @@ function PageLayout(props){
 		<aside className="fixed flex flex-column vh-100 flex-shrink-1 mv2-l site-component-sidebar bg-bar">
 			<div className="flex flex-column h-100">
 				<nav className="flex flex-column h-100 relative">
-					<span className="f5 b ph3 light-gray">
+					<div className="flex flex-column flex-shrink-0 relative pv2">
+						<Link href="/">
+							<a className="items-center flex flex-nowrap ph3 pv2 hover-bg-dark-gray bg-animate link truncate white hover-light-green">
+								<div className="w-100 truncate flex-grow-1 b lh-title">
+									<span title={i18n._(t`Home`)} className="inline-flex ml3"><FontAwesomeIcon icon="home" /></span>
+									<span title={i18n._(t`Home`)} className="inline-flex ml3"><Trans>Home</Trans></span>
+								</div>
+							</a>
+						</Link>
+						<Link href="/channels">
+							<a className="items-center flex flex-nowrap ph3 pv2 hover-bg-dark-gray bg-animate link truncate white hover-light-green">
+								<div className="w-100 truncate flex-grow-1 b lh-title">
+									<span title={i18n._(t`Channels`)} className="inline-flex ml3"><FontAwesomeIcon icon="search" /></span>
+									<span title={i18n._(t`Channels`)} className="inline-flex ml3"><Trans>Channels</Trans></span>
+								</div>
+							</a>
+						</Link>
+						<Link href="/categories">
+							<a className="items-center flex flex-nowrap ph3 pv2 hover-bg-dark-gray bg-animate link truncate white hover-light-green">
+								<div className="w-100 truncate flex-grow-1 b lh-title">
+									<span title={i18n._(t`Browse`)} className="inline-flex ml3"><FontAwesomeIcon icon="gamepad" /></span>
+									<span title={i18n._(t`Browse`)} className="inline-flex ml3"><Trans>Browse</Trans></span>
+								</div>
+							</a>
+						</Link>
+					</div>
+					<div className="flex f5 b ph3 light-gray">
 						<Trans>Followed Channels</Trans>
-					</span>
-					<SimpleBar className="flex-shrink-0 h-100 relative">
+					</div>
+					<SimpleBar className="flex flex-grow-1 relative h-100">
 						{
 							(!props.followed ||
 								!props.followed.length)
@@ -168,7 +193,7 @@ function PageLayout(props){
 															className={`ba ${+u.live ? 'b--red' : 'b--transparent'} v-mid w2 h2`}
 														/>
 													</div>
-													<div className="dn flex-l justify-between truncate w-100">
+													<div className="flex justify-between truncate w-100">
 														<div className="site-component-fMetadata truncate w-100 ml3">
 															<div className="site-component-fUser__name flex items-center">
 																<span className="truncate white flex-grow-1 b lh-title">{u.username}</span>
@@ -201,7 +226,7 @@ function PageLayout(props){
 					</SimpleBar>
 				</nav>
 				<footer className="flex white ph4 ph2-m mb5">
-					<div className="f6 flex flex-column flex-grow-1" style={{flexFlow:'row wrap'}}>
+					<div className="f6 flex flex-column flex-grow-1" style={{flexFlow: 'row wrap'}}>
 						<span className="dib mr4 ttu tracked">© {(new Date()).getFullYear()} guac.live</span>
 						<span className="dib mr4 f7 silver">v{process.env.SENTRY_RELEASE}</span>
 						<div className="flex flex-row flex-grow-1">
@@ -252,7 +277,7 @@ function PageLayout(props){
 				<meta property="twitter:creator" content="@datagutt" key="twitter:creator" />
 				<meta property="twitter:description" content="guac is a live streaming platform." key="twitter:description" />
 				<meta property="twitter:image" content="https://guac.live/img/header-logo.png" key="twitter:image" />
-				
+
 				<meta
 					name="viewport"
 					content="width=device-width,initial-scale=1,minimal-ui"
@@ -264,39 +289,22 @@ function PageLayout(props){
 			<main className="w-100 h-100 flex flex-column flex-nowrap justify-between items-start page-wrapper">
 				<header className="site-component-header z-5 w-100 fixed ph3 pv2 bg-bar ml-auto flex-shrink-0">
 					<div className="h-100 flex items-stretch flex-nowrap">
-						<div className="dn flex-l flex-shrink-0 items-center pointer">
+						<div className="flex flex-shrink-0 items-center pointer">
+							<div className="dib v-mid tc flex-shrink-0 pointer pa2 transition-transform white" onClick={
+								() => {
+									setShowSidebar(!showSidebar)
+								}
+							}>
+								<FontAwesomeIcon icon="bars" fixedWidth />
+							</div>
 							<Link href="/">
 								<a className="inline-flex pa2 content-box">
 									<GuacLogo className="guac-logo green h2" alt="guac.live" />
 								</a>
 							</Link>
 						</div>
-						<div className="dn-l flex-shrink-0 pointer pa2 transition-transform white" onClick={
-							() => {
-								setOverrideSidebar(!overrideSidebar)
-							}
-						}>
-							<FontAwesomeIcon icon="bars" />
-						</div>
 						<nav className="items-stretch flex flex-grow-1 flex-nowrap flex-shrink-0">
 							<div className="items-stretch flex flex-nowrap flex-shrink-0">
-								<Link href="/">
-									<a className="flex pa3 pa0-l center nowrap items-center b link white hover-light-green">
-										<span className="dn-l" title={i18n._(t`Home`)}><FontAwesomeIcon icon="home" /></span>
-									</a>
-								</Link>
-								<Link href="/channels">
-									<a className="flex pa3 center nowrap items-center b link white hover-light-green">
-										<span className="dn db-l" title={i18n._(t`Channels`)}><Trans>Channels</Trans></span>
-										<span className="dn-l" title={i18n._(t`Channels`)}><FontAwesomeIcon icon="search" /></span>
-									</a>
-								</Link>
-								<Link href="/categories">
-									<a className="flex pa3 center nowrap items-center b link white hover-light-green">
-										<span className="dn db-l" title={i18n._(t`Browse`)}><Trans>Browse</Trans></span>
-										<span className="dn-l" title={i18n._(t`Browse`)}><FontAwesomeIcon icon="gamepad" /></span>
-									</a>
-								</Link>
 							</div>
 							<div className="w-100 self-center dn db-l flex-grow-1">
 								<SearchBar />
@@ -334,13 +342,13 @@ function PageLayout(props){
 				</header>
 				<div className="w-100 min-vh-100 flex flex-row items-start">
 					{
-						(overrideSidebar || showSidebar)
+						(showSidebar)
 							?
 							SideBarComponent
 							:
 							null
 					}
-					<div className="w-100 flex flex-column items-start pl7-l site-component-main">
+					<div className={`w-100 flex flex-column items-start ${showSidebar ? 'pl7-l' : 'pl2-l'} site-component-main`}>
 						{children}
 					</div>
 				</div>
