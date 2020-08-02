@@ -4,29 +4,32 @@
 @import 'emoji-mart/css/emoji-mart.css';
 @import '@webscopeio/react-textarea-autocomplete/style.css';
 @import 'react-tippy/dist/tippy.css';
+
 /* Custom properties */
 * {
 	box-sizing: border-box;
 }
 
-html, .sans-serif {
+html,
+.sans-serif {
 	font-family: -apple-system,
-	BlinkMacSystemFont,
-	'Segoe UI',
-	Roboto,
-	'Helvetica Neue',
-	Arial,
-	'Noto Sans',
-	sans-serif,
-	'Apple Color Emoji',
-	'Segoe UI Emoji',
-	'Segoe UI Symbol',
-	'Noto Color Emoji';
+		BlinkMacSystemFont,
+		'Segoe UI',
+		Roboto,
+		'Helvetica Neue',
+		Arial,
+		'Noto Sans',
+		sans-serif,
+		'Apple Color Emoji',
+		'Segoe UI Emoji',
+		'Segoe UI Symbol',
+		'Noto Color Emoji';
 	line-height: 1.5;
-	
+
 }
 
-@media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 2dppx) {
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+screen and (min-resolution: 2dppx) {
 	html {
 		-moz-osx-font-smoothing: grayscale;
 		-webkit-font-smoothing: antialiased;
@@ -36,12 +39,12 @@ html, .sans-serif {
 html {
 	line-height: 1.5;
 	margin: 0;
-	
-    text-rendering: optimizeLegibility;
+
+	text-rendering: optimizeLegibility;
 	-webkit-tap-highlight-color: var(--highlight-color);
 
 	transition: color var(--animation-duration) var(--animation-timing),
-	background var(--animation-duration) var(--animation-timing);
+		background var(--animation-duration) var(--animation-timing);
 }
 
 body {
@@ -51,12 +54,14 @@ body {
 }
 
 ::selection {
-    background-color: var(--green);
-    color: var(--white);
+	background-color: var(--green);
+	color: var(--white);
 }
 
-#__next, body, html {
-    touch-action: manipulation!important;
+#__next,
+body,
+html {
+	touch-action: manipulation !important;
 }
 
 .hover-b--blue:hover {
@@ -67,7 +72,7 @@ body {
 	border-color: var(--green);
 }
 
-.hover-primary:hover, 
+.hover-primary:hover,
 .hover-primary:focus {
 	color: var(--site-text) !important;
 }
@@ -81,14 +86,14 @@ input:focus {
 	--site-background: #f4f5f7;
 	--bar-background: #1d1d1d;
 	--site-text: var(--black);
-	--highlight-color: rgba(255,255,255,0);
+	--highlight-color: rgba(255, 255, 255, 0);
 
 	--slick-dot-color: black;
 	--chat-message-background: transparent;
 	--chat-message-background-odd: var(--black-20);
 	--chat-message-text: var(--black);
 	--chat-message-link: var(--green);
-	
+
 	--dropdown-background: var(--near-black);
 
 	--animation-duration: 450ms;
@@ -98,7 +103,7 @@ input:focus {
 .guac-skin-dark {
 	--site-background: #151515;
 	--site-text: var(--white);
-	--highlight-color: rgba(0,0,0,0);
+	--highlight-color: rgba(0, 0, 0, 0);
 
 	--slick-dot-color: white;
 	--chat-message-background-odd: var(--black-50);
@@ -114,13 +119,14 @@ input:focus {
 
 /* For chat OBS overlay */
 .overlay-wrapper {
-	--site-background: rgba(0,0,0,0);
+	--site-background: rgba(0, 0, 0, 0);
 	--site-text: var(--black);
 	--chat-message-background: var(--black-20);
 	--chat-message-background-odd: var(--black-40);
 	--chat-message-text: var(--white);
 	--chat-message-link: var(--light-green);
 }
+
 /* Set background and text color for whole page*/
 .page-wrapper,
 .overlay-wrapper {
@@ -128,36 +134,46 @@ input:focus {
 	color: var(--site-text);
 
 	transition: color var(--animation-duration) var(--animation-timing),
-	background var(--animation-duration) var(--animation-timing);
+		background var(--animation-duration) var(--animation-timing);
 }
+
 .overlay-wrapper .chat-messages {
-	height: 100vh !important; /* Fallback for browsers that do not support Custom Properties */
-	height: calc(var(--vh, 1vh) * 100) !important;  
+	height: 100vh !important;
+	/* Fallback for browsers that do not support Custom Properties */
+	height: calc(var(--vh, 1vh) * 100) !important;
 }
 
 
 /* Hack for viewport */
 .vh-100 {
-	height: 100vh; /* Fallback for browsers that do not support Custom Properties */
-	height: calc(var(--vh, 1vh) * 100);  
+	height: 100vh;
+	/* Fallback for browsers that do not support Custom Properties */
+	height: calc(var(--vh, 1vh) * 100);
 }
+
 .min-vh-100 {
-	min-height: 100vh; /* Fallback for browsers that do not support Custom Properties */
-	min-height: calc(var(--vh, 1vh) * 100);  
+	min-height: 100vh;
+	/* Fallback for browsers that do not support Custom Properties */
+	min-height: calc(var(--vh, 1vh) * 100);
 }
+
 .primary {
 	color: var(--site-text);
 }
+
 .primary-80 {
 	color: var(--black-80);
 }
-.primary-50{
+
+.primary-50 {
 	color: var(--black-50);
 }
+
 .guac-skin-dark .primary-80 {
 	color: var(--white-80);
 }
-.guac-skin-dark .primary-50{
+
+.guac-skin-dark .primary-50 {
 	color: var(--white-50);
 }
 
@@ -177,47 +193,48 @@ input:focus {
 }
 
 .guac-logo path {
-    fill: currentColor;
+	fill: currentColor;
 }
 
 .GuacImage {
-    display: inline-block;
-    overflow: hidden;
-    max-width: 100%;
-    vertical-align: middle
+	display: inline-block;
+	overflow: hidden;
+	max-width: 100%;
+	vertical-align: middle
 }
 
 .GuacImage.-rounded {
-    border-radius: 3px
+	border-radius: 3px
 }
 
 .GuacImage.-circle {
-    border-radius: 50%
+	border-radius: 50%
 }
 
 .GuacImage.-squircle {
-    border-radius: 35%
+	border-radius: 35%
 }
 
 .GuacImage.is-error {
-    background: #111
+	background: #111
 }
 
 .GuacImage.-flexible {
-    position: relative;
-    width: 100%
+	position: relative;
+	width: 100%
 }
 
 .GuacImage.-flexible:before {
-    display: block;
-    padding-bottom: 56.25%;
-    content: ""
+	display: block;
+	padding-bottom: 56.25%;
+	content: ""
 }
 
-.GuacImage.-flexible div,.GuacImage.-flexible img {
-    position: absolute;
-    top: 0;
-    left: 0
+.GuacImage.-flexible div,
+.GuacImage.-flexible img {
+	position: absolute;
+	top: 0;
+	left: 0
 }
 
 .dropdown-menu {
@@ -229,26 +246,18 @@ input:focus {
 }
 
 .site-component-sidebar {
-    top: 64px;
-    transform: translateX(0%);
+	top: 64px;
+	transform: translateX(0%);
 	max-height: calc(100% - 0px);
 	width: 256px;
+
+	-webkit-transition: width .3s ease-out;
+	transition: width .3s ease-out;
 }
 
 .site-component-sidebar {
 	/*width: 24rem !important;*/
 	z-index: 20;
-}
-.site-component-main {
-	margin-top: calc(var(--spacing-extra-large) + var(--spacing-small));
-	margin-bottom: calc(var(--spacing-extra-large) + var(--spacing-small));
-	left: 256px;
-}
-.site-component-spotlight {
-    padding: calc(var(--vh, 1vh) * 50 * .05) 0;
-}
-.site-component-spotlight > div {
-    min-height: 555px;
 }
 
 @media (--breakpoint-large) {
@@ -258,59 +267,78 @@ input:focus {
 	}
 }
 
+.site-component-main {
+	margin-top: calc(var(--spacing-extra-large) + var(--spacing-small));
+	margin-bottom: calc(var(--spacing-extra-large) + var(--spacing-small));
+	left: 256px;
+
+	-webkit-transition: padding-left .3s ease-out;
+	transition: padding-left .3s ease-out;
+}
+
+/* Frontpage spotlight */
+.site-component-spotlight {
+	padding: calc(var(--vh, 1vh) * 50 * .05) 0;
+}
+
+.site-component-spotlight>div {
+	min-height: 555px;
+}
+
+/* Scrollbar */
 .simplebar-horizontal.simplebar-track .simplebar-scrollbar {
-    height: 7px;
-    min-height: 0;
-    min-width: 10px;
-    right: auto;
-    top: 2px;
-    width: auto
+	height: 7px;
+	min-height: 0;
+	min-width: 10px;
+	right: auto;
+	top: 2px;
+	width: auto
 }
 
 .simplebar-scroll-content {
-    max-height: inherit !important;
+	max-height: inherit !important;
 }
 
 .simplebar-track {
-    will-change: opacity;
+	will-change: opacity;
 }
 
 .simplebar-track .simplebar-scrollbar:before {
-    -webkit-transition: opacity .2s linear;
-    background: #000;
-    background-clip: padding-box;
-    border-radius: 7px;
-    min-height: 10px;
-    opacity: 0;
-    transition: opacity .2s linear;
-    width: 7px;
-    box-shadow: 0 0 1px 1px hsla(0,0%,100%,.25);
+	-webkit-transition: opacity .2s linear;
+	background: #000;
+	background-clip: padding-box;
+	border-radius: 7px;
+	min-height: 10px;
+	opacity: 0;
+	transition: opacity .2s linear;
+	width: 7px;
+	box-shadow: 0 0 1px 1px hsla(0, 0%, 100%, .25);
 }
 
 .guac-skin-dark .simplebar-track .simplebar-scrollbar:before {
-    background: #1f1f23;
+	background: #1f1f23;
 }
 
 .guac-skin-light .simplebar-track .simplebar-scrollbar:before {
-    background: #000;
+	background: #000;
 }
 
 .simplebar-track .simplebar-scrollbar.simplebar-visible:before {
-    opacity: .7;
+	opacity: .7;
 }
 
 .simplebar-track.simplebar-vertical .simplebar-scrollbar {
-    width: .6rem;
+	width: .6rem;
 }
 
 .simplebar-track.simplebar-horizontal .simplebar-scrollbar {
-    height: .6rem;
+	height: .6rem;
 }
 
 /* Chat */
 .site-component-chat {
-    max-height: 100%;
-    height: calc(100vh - 105px);
+	max-height: 100%;
+	height: calc(100vh - 105px);
 }
 
 .chat-header {
@@ -343,24 +371,24 @@ input:focus {
 
 .chat-message-content a {
 	color: var(--chat-message-link);
-    transition: color .15s ease-in;
-    text-decoration: none;
+	transition: color .15s ease-in;
+	text-decoration: none;
 }
 
 .chat-message-content a:hover {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 .chat-message-content__emote,
 .chat-input .rta__entity img {
-    min-width: 20px;
-    vertical-align: middle;
+	min-width: 20px;
+	vertical-align: middle;
 }
 
 /* Set max height if the message also has text, or if in emote picker */
 .chat-message-content__with-text .chat-message-content__emote,
 .chat-input .rta__entity img {
-    height: 28px;
+	height: 28px;
 }
 
 .chat-message-badges {
@@ -369,6 +397,7 @@ input:focus {
 	align-items: center;
 	margin-left: -.2em;
 }
+
 .chat-message-badges__badge {
 	display: inline-block;
 	margin-left: .2em;
@@ -385,14 +414,17 @@ input:focus {
 	background: rgb(233, 25, 22);
 	color: var(--white);
 }
+
 .chat-message-badges__badge[data-badge='moderator'] {
 	background: rgb(0, 173, 3);
 	color: var(--white);
 }
+
 .chat-message-badges__badge[data-badge='staff'] {
 	background: var(--green);
 	color: var(--white);
 }
+
 .chat-message-badges__badge[data-badge='admin'] {
 	background: var(--green);
 	color: var(--white);
@@ -414,18 +446,21 @@ input:focus {
 	/* Video */
 	content: "\f03d";
 }
+
 .chat-message-badges__badge[data-badge='moderator']::before {
 	font-family: "Font Awesome 5 Free";
 	font-weight: 400;
 	/* Shield-alt */
 	content: "\f3ed";
 }
+
 .chat-message-badges__badge[data-badge='staff']::before {
 	font-family: "Font Awesome 5 Free";
 	font-weight: 400;
 	/* Wrench */
 	content: "\f0ad";
 }
+
 /* Currently same as staff icon */
 .chat-message-badges__badge[data-badge='admin']::before {
 	font-family: "Font Awesome 5 Free";
@@ -439,12 +474,14 @@ input:focus {
 	resize: vertical;
 	max-height: 160px;
 	min-height: 40px;
-	transition: box-shadow .1s ease-in,border .1s ease-in,background-color .1s ease-in;
+	transition: box-shadow .1s ease-in, border .1s ease-in, background-color .1s ease-in;
 }
+
 .chat-input textarea:focus {
 	border-color: var(--green);
 	box-shadow: 0 0 6px -2px var(--green);
 }
+
 .emoji-mart-emoji-custom span {
 	background-repeat: no-repeat;
 }
@@ -458,19 +495,19 @@ input:focus {
 	display: flex;
 	flex-direction: column;
 
-    position: absolute;
-    right: 0;
-    left: 0;
+	position: absolute;
+	right: 0;
+	left: 0;
 
 	width: calc(100% - 20px);
 	max-height: 360px;
 	overflow-y: auto;
 	z-index: 9999;
-    border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
 	margin: 0 10px;
 
-    overflow-y: auto;
-    overflow-y: overlay;
+	overflow-y: auto;
+	overflow-y: overlay;
 }
 
 /* Force positioning of autocomplete */
@@ -491,22 +528,24 @@ input:focus {
 	background: transparent;
 	color: var(--site-text);
 }
+
 .rta__entity--selected {
-    background-color: var(--bar-background);
+	background-color: var(--bar-background);
 	color: #fff;
 }
+
 .rta__item:not(:last-child) {
 	border-bottom-color: transparent;
 }
 
 /* Player embed */
 .player-embed {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
 }
 
 /* Theater mode */
@@ -517,6 +556,7 @@ html.theater-mode footer,
 html.theater-mode header {
 	display: none;
 }
+
 html.theater-mode .site-component-main {
 	/* verbose af */
 	padding-top: 0;
@@ -529,10 +569,12 @@ html.theater-mode .site-component-main {
 	margin-left: 0;
 	margin-right: 0;
 }
+
 html.theater-mode .site-component-channel__player,
 html.theater-mode .site-component-chat {
 	height: 100vh !important;
 }
+
 html.theater-mode .site-component-channel__info {
 	position: absolute;
 	top: 0;
@@ -545,36 +587,36 @@ html.theater-mode .site-component-channel__info {
 	opacity: 0;
 	color: var(--site-text);
 }
+
 html.theater-mode .site-component-channel__info.active {
 	opacity: .8
 }
+
 html.theater-mode .site-component-channel__info .guac-btn {
 	color: var(--black) !important;
 }
 
 /* Chat overlay emotes */
 /* IceCold */
-.chat-message-content img + img.chat-message-content__emote[data-emote-code="IceCold"] {
-}
+.chat-message-content img+img.chat-message-content__emote[data-emote-code="IceCold"] {}
+
 /* SoSnowy */
-.chat-message-content img + img.chat-message-content__emote[data-emote-code="SoSnowy"] {
-}
-/* SantaHat */
-.chat-message-content img + img.chat-message-content__emote[data-emote-code="TopHat"],
-.chat-message-content img + img.chat-message-content__emote[data-emote-code="CandyCane"],
-.chat-message-content img + img.chat-message-content__emote[data-emote-code="ReinDeer"] {
-}
+.chat-message-content img+img.chat-message-content__emote[data-emote-code="SoSnowy"] {}
 
 /* SantaHat */
-.chat-message-content + img + img.chat-message-content__emote[data-emote-code="SantaHat"] {
-}
+.chat-message-content img+img.chat-message-content__emote[data-emote-code="TopHat"],
+.chat-message-content img+img.chat-message-content__emote[data-emote-code="CandyCane"],
+.chat-message-content img+img.chat-message-content__emote[data-emote-code="ReinDeer"] {}
+
+/* SantaHat */
+.chat-message-content+img+img.chat-message-content__emote[data-emote-code="SantaHat"] {}
+
 /* cvHazmat, cvMask */
-.chat-message-content img + img.chat-message-content__emote[data-emote-code="cvHazmat"],
-.chat-message-content img + img.chat-message-content__emote[data-emote-code="cvMask"] {
-}
+.chat-message-content img+img.chat-message-content__emote[data-emote-code="cvHazmat"],
+.chat-message-content img+img.chat-message-content__emote[data-emote-code="cvMask"] {}
 
 
 /* Settings */
 .settings-row:not(:first-child):not(.settings-row--focused) {
-    border-top: 1px solid rgba(255, 255, 255, .1);
+	border-top: 1px solid rgba(255, 255, 255, .1);
 }

@@ -84,7 +84,7 @@ function ChatComponent(props){
 					}
 					setShowFAB(false);
 				}
-			}, 1000);
+			}, 250);
 		}
 	}, [
 		lastMessageRef, messageContainerRef
