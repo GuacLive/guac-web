@@ -2052,10 +2052,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@next/react-dev-overlay@9.5.2-canary.1":
-  version "9.5.2-canary.1"
-  resolved "https://registry.yarnpkg.com/@next/react-dev-overlay/-/react-dev-overlay-9.5.2-canary.1.tgz#1ac1a6987435f90c192cec6bce2f89667533fd37"
-  integrity sha512-HDhNmaPyccTJqYU2tQOsvA+wtqzoeK4Tp7k6FZsuQz8C4sow66iuvWpT7Giq0mgI4cuaIeAzuHkM+dgIcxe/xQ==
+"@next/react-dev-overlay@9.5.2-canary.2":
+  version "9.5.2-canary.2"
+  resolved "https://registry.yarnpkg.com/@next/react-dev-overlay/-/react-dev-overlay-9.5.2-canary.2.tgz#01a07efc245037f8274338efbdb4cf700c0dfa13"
+  integrity sha512-OOnBv29LcbLjfgHnxmgcGgnLP2dihJ2gyLJIY/6hQDTlrhCrr8hd9lpkKCoBUpp2WB+rRyaQUHqL61BfP9bW0A==
   dependencies:
     "@babel/code-frame" "7.8.3"
     ally.js "1.4.1"
@@ -2068,10 +2068,10 @@
     stacktrace-parser "0.1.10"
     strip-ansi "6.0.0"
 
-"@next/react-refresh-utils@9.5.2-canary.1":
-  version "9.5.2-canary.1"
-  resolved "https://registry.yarnpkg.com/@next/react-refresh-utils/-/react-refresh-utils-9.5.2-canary.1.tgz#075c22f7a6deefed556ca71301a491629fce3e59"
-  integrity sha512-0XPNmYWUjDE8GEWp06rMNCCoji+HKYH5cf2jMvxLYi9dJuWZPi1gZ+FmyUJ2BiajJ+2z/wmD+Xkyn+KSJ7qOzg==
+"@next/react-refresh-utils@9.5.2-canary.2":
+  version "9.5.2-canary.2"
+  resolved "https://registry.yarnpkg.com/@next/react-refresh-utils/-/react-refresh-utils-9.5.2-canary.2.tgz#780b67d648351beca95d0fee40b280cb5d5324c1"
+  integrity sha512-DPtz48Uu/2hsbKd9HqVE4kwjOCpeZp1Qh0ItVdpor3o2aOcFsXPUecVNORaWyNtBPiaqSnhr3N8nqUujzKRoWg==
 
 "@nodelib/fs.stat@^1.1.2":
   version "1.1.3"
@@ -3132,9 +3132,9 @@ acorn@^6.0.1, acorn@^6.0.4, acorn@^6.2.1, acorn@^6.4.1:
   integrity sha512-ZVA9k326Nwrj3Cj9jlh3wGFutC2ZornPNARZwsNYqQYgN0EsV2d53w5RN/co65Ohn4sUAUtb1rSUAOD6XN9idA==
 
 acorn@^7.1.0, acorn@^7.1.1:
-  version "7.3.1"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.3.1.tgz#85010754db53c3fbaf3b9ea3e083aa5c5d147ffd"
-  integrity sha512-tLc0wSnatxAQHVHUapaHdz72pi9KUyHjq5KyHjGg9Y8Ifdc79pTh2XvI6I1/chZbnM7QtNKzh66ooDogPZSleA==
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.4.0.tgz#e1ad486e6c54501634c6c397c5c121daa383607c"
+  integrity sha512-+G7P8jJmCHr+S+cLfQxygbWhXy+8YTVGzAkpEbcLo2mLoL7tij/VG41QSHACSf5QgYRhMZYHuNc6drJaO0Da+w==
 
 address@1.1.2, address@^1.0.1:
   version "1.1.2"
@@ -5707,9 +5707,9 @@ ejs@^2.6.1:
   integrity sha512-7vmuyh5+kuUyJKePhQfRQBhXV5Ce+RnaeeQArKu1EAMpL3WbgMt5WG6uQZpEVvYSSsxMXRKOewtDk9RaTKXRlA==
 
 electron-to-chromium@^1.3.378, electron-to-chromium@^1.3.488:
-  version "1.3.516"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.516.tgz#03ec071b061e462b786bf7e7ce226fd7ab7cf1f6"
-  integrity sha512-WDM5AAQdOrvLqSX8g3Zd5AujBXfMxf96oeZkff0U2HF5op3tjShE+on2yay3r1UD4M9I3p0iHpAS4+yV8U8A9A==
+  version "1.3.517"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.517.tgz#891995c711f748db14946b86661db7a5c87a16c3"
+  integrity sha512-8wucrMsmXxeBxaM3TPg+YiwIJwPd1IZMudOj1XytmkP3UPXRagMhO9vo4nzzbSWeq91N1zhfUhJW2u9/MVhPxw==
 
 elliptic@^6.0.0, elliptic@^6.5.2:
   version "6.5.3"
@@ -7730,9 +7730,9 @@ is-directory@^0.3.1:
   integrity sha1-YTObbyR1/Hcv2cnYP1yFddwVSuE=
 
 is-docker@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/is-docker/-/is-docker-2.0.0.tgz#2cb0df0e75e2d064fe1864c37cdeacb7b2dcf25b"
-  integrity sha512-pJEdRugimx4fBMra5z2/5iRdZ63OhYV0vr0Dwm5+xtW4D1FvRkB8hamMIhnWfyJeDdyr/aa7BDyNbtG38VxgoQ==
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/is-docker/-/is-docker-2.1.0.tgz#25dc043e4fdc3cf969d622735e05a86ba9952e2b"
+  integrity sha512-mB2WygGsSeoXtLKpSYzP6sa0Z9DyU9ZyKlnvuZWxCociaI0qsF8u12sR72DFTX236g1u6oWSWYFuUk09nGQEjg==
 
 is-extendable@^0.1.0, is-extendable@^0.1.1:
   version "0.1.1"
@@ -9565,9 +9565,9 @@ next-transpile-modules@^4:
     slash "^3.0.0"
 
 next@^v9.5.2-canary.1:
-  version "9.5.2-canary.1"
-  resolved "https://registry.yarnpkg.com/next/-/next-9.5.2-canary.1.tgz#4837796f0407d1527d4d49091617974110f8ed7a"
-  integrity sha512-3EwSl6RjH4QH67h5tHHL4Kir1JiXMkpjo/o7xFK3NVHJYZkRKNsFDJhgLJlVOMYjFn69fPkIAqgpmRVd2NbPkA==
+  version "9.5.2-canary.2"
+  resolved "https://registry.yarnpkg.com/next/-/next-9.5.2-canary.2.tgz#5135c69c4448c935282f350e4fa36b0963684533"
+  integrity sha512-ObnIuxedAjrSKhbeSd+L30SXapPYP8lnff/A//oAZItiNUZO/IQvwuOztXYEqkkar0TxFdsgSjuP37dj/wtm0w==
   dependencies:
     "@ampproject/toolbox-optimizer" "2.5.14"
     "@babel/code-frame" "7.8.3"
@@ -9587,8 +9587,8 @@ next@^v9.5.2-canary.1:
     "@babel/preset-typescript" "7.9.0"
     "@babel/runtime" "7.9.6"
     "@babel/types" "7.9.6"
-    "@next/react-dev-overlay" "9.5.2-canary.1"
-    "@next/react-refresh-utils" "9.5.2-canary.1"
+    "@next/react-dev-overlay" "9.5.2-canary.2"
+    "@next/react-refresh-utils" "9.5.2-canary.2"
     ast-types "0.13.2"
     babel-plugin-syntax-jsx "6.18.0"
     babel-plugin-transform-define "2.0.0"
@@ -13737,9 +13737,9 @@ typescript@3.9.3:
   integrity sha512-D/wqnB2xzNFIcoBG9FG8cXRDjiqSTbG2wd8DMZeQyJlP1vfTkIxH4GKveWaEBYySKIg+USu+E+EDIR47SqnaMQ==
 
 typescript@^4.0.0-dev.20200615:
-  version "4.0.0-dev.20200802"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.0.0-dev.20200802.tgz#86fffba0179b9b92056b7d8071595817e1028a09"
-  integrity sha512-f3bIybKgfROeHxnprAh+Za3R9uO2uCSkfbEGY69v6ZmZvxNCLy8OOQYNZNJQYRFyMwfhzngW6iK+VUgxmZZrsA==
+  version "4.0.0-dev.20200803"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.0.0-dev.20200803.tgz#ea8b0e9fb2ee3085598ff200c8568f04f4cbb2ba"
+  integrity sha512-f/jDkFqCs0gbUd5MCUijO9u3AOMx1x1HdRDDHSidlc6uPVEkRduxjeTFhIXbGutO7ivzv+aC2sxH+1FQwsyBcg==
 
 underscore@1.8.3:
   version "1.8.3"
@@ -14133,9 +14133,9 @@ videojs-font@3.2.0:
   integrity sha512-g8vHMKK2/JGorSfqAZQUmYYNnXmfec4MLhwtEFS+mMs2IDY398GLysy6BH6K+aS1KMNu/xWZ8Sue/X/mdQPliA==
 
 videojs-hotkeys@^0.2.25:
-  version "0.2.26"
-  resolved "https://registry.yarnpkg.com/videojs-hotkeys/-/videojs-hotkeys-0.2.26.tgz#e877986231ec200ef68c5c53fe0403fcfb94477d"
-  integrity sha512-/QSjdpzF8aoC4idtQeGDbyeoOgMmmJWlzKZSTtCkNKinT09QMxrczys35q9EiCQXJApIsHGZ5i28mGVCe1gLQw==
+  version "0.2.27"
+  resolved "https://registry.yarnpkg.com/videojs-hotkeys/-/videojs-hotkeys-0.2.27.tgz#0df97952b9dff0e6cc1cf8a439fed7eac9c73f01"
+  integrity sha512-pwtm1QocRmzJy1PWQsmFVHyeldYHHpLdeATK3FsFHVMmNpz6CROkAn8TFy2UILr8Ghgq134K8jEKNue8HWpudQ==
 
 videojs-ie8@1.1.2:
   version "1.1.2"
