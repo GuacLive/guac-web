@@ -101,8 +101,9 @@ module.exports = withTM(withOffline({
 		reactMode: 'concurrent',
 		workerThreads: true,
 		pageEnv: true,
-		optionalCatchAll: true,
 		productionBrowserSourceMaps: false,
+		optimizeFonts: true,
+		scrollRestoration: true
 	},
 	future: {
 		excludeDefaultMomentLocales: true,
