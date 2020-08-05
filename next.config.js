@@ -55,7 +55,7 @@ module.exports = withTM(withOffline({
 		}
 		
 		if(!dev){
-			config.devtool = false;
+			//config.devtool = false;
 		}   
 
 		return config;
