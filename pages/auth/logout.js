@@ -16,7 +16,7 @@ class LogoutPage extends Component {
 			actions.deauthenticate()
 		)
 		.then(() => {
-			Router.push('/');
+			if(typeof window !== 'undefined') window.location.href = '/';
 		});
 	}
 
