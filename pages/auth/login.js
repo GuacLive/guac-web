@@ -21,7 +21,8 @@ function LoginPage(props){
 	useEffect(() => {
 		// Find out why auth.token is not always set
 		if(auth.token || auth.user.username){
-			Router.push('/');
+			//Router.push('/');
+			if(typeof window !== 'undefined') window.location.href = '/';
 		}
 	}, [auth.token, auth.user.username])
 
