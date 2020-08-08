@@ -177,10 +177,11 @@ function PageLayout(props) {
 											<a className="site-component-fUser link white">
 												<Tooltip
 													// options
-													title={u.title}
+													title={u.title || i18n._(t`No stream title`)}
 													position="right"
 													trigger="mouseenter"
 													theme="transparent"
+													unmountHTMLWhenHide={true}
 													className="items-center flex flex-nowrap ph3 pv2 hover-bg-dark-gray bg-animate"
 													style={{'display': 'flex !important'}}
 												>
