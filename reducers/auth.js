@@ -29,7 +29,7 @@ export default function authReducer(state = initialState, action) {
 			return {
 				...state,
 				statusCode: action.statusCode,
-				token: action.token,
+				token: action.token || action.jwtToken,
 				user: action.user,
 				loading: false,
 				error: false,
