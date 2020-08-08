@@ -16,7 +16,7 @@ class LogoutPage extends Component {
 			actions.deauthenticate()
 		)
 		.then(() => {
-			Router.reload();
+			Router.push('/');
 		});
 	}
 
