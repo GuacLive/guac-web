@@ -34,6 +34,8 @@ import io from 'socket.io-client/dist/socket.io.slim';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { useRouter } from 'next/router';
+
 import * as actions from 'actions';
 
 import log from 'utils/log';
@@ -56,6 +58,7 @@ const STREAMING_SERVER = 'eu';
 const API_URL = process.env.API_URL;
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
 function ChannelPage(props){
+	const router = useRouter()
 	const [tab, setTab] = useState(0);
 	const [showModal, setShowModal] = useState(false);
 	const [showSub, setShowSub] = useState(false);
@@ -130,18 +133,39 @@ function ChannelPage(props){
 	};
 
 	useEffect(() => {
+		const tabQuery = router.query.tab;
+		if(!tabQuery) return;
+		if(typeof tabQuery === 'string' ){
+			switch(tabQuery){
+				// Replays
+				case 'replay':
+				case 'replays':
+				case 'archive':
+				case 'archives':
+					setTab(1);
+					console.log(`replay tab`);
+				break;
+				// Failsafe
+				default:
+					setTab(0);
+				break;
+			}
+		}
+	}, [router.query])
+
+	useEffect(() => {
 		let channelAPISocket, didCancel = false;
 		
 		if(!didCancel){
 			channelAPISocket = io(`${VIEWER_API_URL}/channel`);
 			channelAPISocket.on('connect', () => {
-				if (!channel || !channel.data || !channel.data.name) return;
+				if(!channel || !channel.data || !channel.data.name) return;
 				channelAPISocket.emit('join', {
 					name: channel.data.name
 				});
 			});
 			channelAPISocket.on('disconnect', () => {
-				if (!channel || !channel.data || !channel.data.name) return;
+				if(!channel || !channel.data || !channel.data.name) return;
 				channelAPISocket.emit('leave', {
 					name: channel.data.name
 				});
