@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux';
 
+import Router from 'next/router';
 import Link from 'next/link'
 
 import { Trans } from '@lingui/macro';
@@ -19,13 +20,13 @@ class LoginPage extends Component {
 
 	componentDidMount() {
 		if(this.props.redirect){
-			window.location.href = '/';
+			Router.push('/');
 		}
 	}
 
-	componentDidUpdate(prevProps) {
+	componentDidUpdate() {
 		if(this.props.redirect){
-			window.location.href = '/';
+			Router.push('/');
 		}
 	}
 
@@ -36,7 +37,7 @@ class LoginPage extends Component {
 			actions.authenticate(this.refs.username.value, this.refs.password.value)
 		)
 		.then(() => {
-			if(this.props.authentication.statusCode === 200) window.location.href = '/';
+			if(this.props.authentication.statusCode === 200) Router.push('/');
 		});
 	}
 
