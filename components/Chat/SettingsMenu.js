@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import useLocalStorage from 'react-use/lib/useLocalStorage';
 
 import Switch from 'react-switch';

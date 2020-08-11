@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import {useState, useRef} from 'react';
 
 import {useLingui} from "@lingui/react"
 import {Trans, t} from '@lingui/macro';
@@ -7,7 +7,6 @@ import { useClickAway } from 'react-use';
 
 import { useSelector } from 'react-redux';
 
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import GuacButton from 'components/GuacButton';
 
 function UserCard(props) {

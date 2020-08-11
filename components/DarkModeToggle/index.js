@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import Switch from 'react-switch';
 
 import { Trans } from '@lingui/macro';
