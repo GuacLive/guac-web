@@ -34,7 +34,7 @@ function SettingsMenu(props){
 					<div className={`pa1 ba b--gray br2 ${props.darkMode ? 'bg-near-black' : 'bg-white'} ${props.darkMode ? 'near-white' : 'near-black'}`}>
 						<div className="relative h5 w5 ml1 mb2">
 							<span className="f3 b tracked mt0 mb3"><Trans>Settings</Trans></span>
-							<label className="db pv2 ph2">
+							<label htmlFor="switch-timestamps" className="items-center flex flex-nowrap ph3 pv2 bg-animate link truncate pointer">
 								<Switch
 									id="switch-timestamps"
 									onChange={handleTimestampsOption}
@@ -47,7 +47,7 @@ function SettingsMenu(props){
 								<Trans>Timestamps</Trans>
 								</span>
 							</label>
-							<label className="db pv2 ph2">
+							<label htmlFor="switch-notifysound" className="items-center flex flex-nowrap ph3 pv2 bg-animate link truncate pointer">
 								<Switch
 									id="switch-notifysound"
 									onChange={handleNotifySound}
@@ -60,6 +60,13 @@ function SettingsMenu(props){
 								<Trans>Sound when highlighted</Trans>
 								</span>
 							</label>
+							<a href={`/chat/${props.channel}`} onClick={() => {
+								if(typeof window !== 'undefined'){
+									window.open('/chat/' + props.channel, 'popup', 'width=500,height=800');
+								}
+							}} target="popup" className="ml2 items-center flex flex-nowrap ph3 pv2 bg-animate link truncate pointer primary">
+								<Trans>Pop-out chat</Trans>
+							</a>
 						</div>
 					</div>
 				}
