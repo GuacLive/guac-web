@@ -112,6 +112,6 @@
     "babel-plugin-inline-react-svg": "^1.1.1"
   },
   "resolutions": {
-    "workbox-webpack-plugin": "^5.1.3"
+    "workbox-webpack-plugin": "^6.0.0-alpha.2"
   }
 }
