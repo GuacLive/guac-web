@@ -12756,13 +12756,13 @@ simplebar-core@^1.0.0:
     core-js "^3.6.5"
     lodash-es "^4.17.15"
 
-simplebar-react@^3.0.0-beta.1:
-  version "3.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/simplebar-react/-/simplebar-react-3.0.0-beta.2.tgz#677414ae3ae66e338a550b8229a90ca007371f98"
-  integrity sha512-t3C+oMQbH7rrVElq02PTBscKIu3I5HMmK6wGu6dy46EYiErGbJwrh7N4QMUA/L5HRbzXCpFTvYTqkXX4g5RniA==
+simplebar-react@3.0.0-beta.1:
+  version "3.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/simplebar-react/-/simplebar-react-3.0.0-beta.1.tgz#30b9a6cce15c6c32152fafd9eaeda05020dec59c"
+  integrity sha512-UvfYRQzvtPqX0zUtnv46TOCGpbr6Qf45T6iHO8fhv8zWDhmfW/oFoY5FTdhTiRUax8UAdzd1KVMn+twCktwfdg==
   dependencies:
     prop-types "^15.6.1"
-    simplebar-core "^1.0.0"
+    simplebar "^6.0.0-beta.1"
 
 simplebar@6.0.0-beta.1:
   version "6.0.0-beta.1"
@@ -12773,6 +12773,17 @@ simplebar@6.0.0-beta.1:
     core-js "^3.6.5"
     lodash "^4.17.15"
     lodash-es "^4.17.15"
+
+simplebar@^6.0.0-beta.1:
+  version "6.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/simplebar/-/simplebar-6.0.0-beta.2.tgz#129f1656929b51a5305ebfb25149b5e8013854a0"
+  integrity sha512-BtOpcybdxUch69iCq/jJJoTGQHcNdEW6DSHt5zJrTt8aXUWvYq6B8m47l7oTyVoc6YH+FEawu/SjeohwmfG+tg==
+  dependencies:
+    "@babel/runtime" "^7.10.2"
+    can-use-dom "^0.1.0"
+    core-js "^3.6.5"
+    lodash-es "^4.17.15"
+    simplebar-core "^1.0.0"
 
 sisteransi@^1.0.4:
   version "1.0.5"
