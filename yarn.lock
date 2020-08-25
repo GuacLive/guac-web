@@ -12764,16 +12764,15 @@ simplebar-react@^3.0.0-beta.1:
     prop-types "^15.6.1"
     simplebar-core "^1.0.0"
 
-simplebar@^6.0.0-beta.1:
-  version "6.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/simplebar/-/simplebar-6.0.0-beta.2.tgz#129f1656929b51a5305ebfb25149b5e8013854a0"
-  integrity sha512-BtOpcybdxUch69iCq/jJJoTGQHcNdEW6DSHt5zJrTt8aXUWvYq6B8m47l7oTyVoc6YH+FEawu/SjeohwmfG+tg==
+simplebar@6.0.0-beta.1:
+  version "6.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/simplebar/-/simplebar-6.0.0-beta.1.tgz#b940779f1e9c86b34ab166af911ff4cd0008a387"
+  integrity sha512-uV/htWwT5oMYKdCmQWFbZe0faEWs/Hl3b0m1COuay4XGC22V2zzsncG3J3bni8WaOztOR7DuvbpJ1WbrveGDFg==
   dependencies:
-    "@babel/runtime" "^7.10.2"
     can-use-dom "^0.1.0"
     core-js "^3.6.5"
+    lodash "^4.17.15"
     lodash-es "^4.17.15"
-    simplebar-core "^1.0.0"
 
 sisteransi@^1.0.4:
   version "1.0.5"
