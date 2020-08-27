@@ -54,6 +54,9 @@ const ReplaysList = dynamic(() => import('components/Replays/ReplaysList'));
 const EditStreamPanel = dynamic(() => import('components/EditStreamPanel'));
 const SubscriptionDialog = dynamic(() => import('components/SubscriptionDialog'));
 
+const FollowersList = dynamic(() => import('components/FollowersList'));
+const FollowingList = dynamic(() => import('components/FollowingList'));
+
 const STREAMING_SERVER = 'eu';
 const API_URL = process.env.API_URL;
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
@@ -420,7 +423,7 @@ function ChannelPage(props){
 							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 3 ? 'primary b--gray' : 'gray b--transparent'} hover-primary link`
 						}
 					>
-						<span><Trans>FOLLOWING</Trans> &middot; 0</span>
+						<span><Trans>FOLLOWING</Trans></span>
 					</a>
 				</div>
 				{
@@ -514,11 +517,13 @@ function ChannelPage(props){
 				{
 					tab == 2 &&
 					<div className="site-component-followers flex flex-wrap justify-center w-100 primary">
+						<FollowersList />
 					</div>
 				}
 				{
 					tab == 3 &&
 					<div className="site-component-following flex flex-wrap justify-center w-100 primary">
+						<FollowingList />
 					</div>
 				}
     		</Fragment>
