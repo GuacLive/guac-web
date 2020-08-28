@@ -10,7 +10,7 @@ import dynamic from 'next/dynamic'
 
 import { Trans, t } from '@lingui/macro';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import prettyMilliseconds from 'pretty-ms';
 import {
@@ -74,10 +74,12 @@ function ChannelPage(props){
 	const { i18n } = useLingui();
 
 	const {
-		channel,
-		site,
 		authentication
 	} = props;
+
+	const channel = useSelector(state => state.channel);
+	const site = useSelector(state => state.site);
+
 	let isMe = (authentication.user && authentication.user.id )
 		&& 
 		(channel.data && channel.data.user && channel.data.user.id === authentication.user.id);
@@ -324,8 +326,8 @@ function ChannelPage(props){
 						</div>
 						<div className="flex flex-column flex-grow-0 flex-shrink-0 justify-start ma3">
 							<div className="items-center flex flex-nowrap justify-end mb3">
-								{stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="dark-gray" onClick={follow}><span className="white"><Trans>Following</Trans> ({kFormatter(stream.followers)})</span></GuacButton>}
-								{!stream.isFollowed && authentication.token && !stream.isMe && <GuacButton color="dark-gray" onClick={follow}><span className="white"><Trans>Follow</Trans> ({kFormatter(stream.followers)})</span></GuacButton>}
+								{channel.isFollowing && authentication.token && !stream.isMe && <GuacButton color="dark-gray" onClick={follow}><span className="white"><Trans>Following</Trans> ({kFormatter(stream.followers)})</span></GuacButton>}
+								{!channel.isFollowing && authentication.token && !stream.isMe && <GuacButton color="dark-gray" onClick={follow}><span className="white"><Trans>Follow</Trans> ({kFormatter(stream.followers)})</span></GuacButton>}
 								{
 									!authentication.token
 									&&
@@ -580,9 +582,7 @@ function ChannelPage(props){
 		return u && u.to_id === channel.data.user.id;
 	});
 
-	let isFollowed;
-	channel.isFollowing = followed && followed.to_id === channel.data.user.id;
-	isFollowed = channel.data.isFollowed = channel.isFollowing;
+	if(channel.isFollowing == null) channel.isFollowing = followed && followed.to_id === channel.data.user.id;
 	channel.data.isMe = isMe;
 
 	return (
