@@ -68,6 +68,11 @@ function FollowingList(props){
                             );
                         })
                     }
+                    {
+                        following &&
+                        following.length == 0 &&
+                        <span><Trans>This streamer is not following anyone :)</Trans></span>
+                    }
                 </ul>
             </div>);
 }

@@ -66,6 +66,11 @@ function FollowersList(props){
                             );
                         })
                     }
+                    {
+                        followers &&
+                        followers.length == 0 &&
+                        <span><Trans>This streamer does not have any followers :(</Trans></span>
+                    }
                 </ul>
             </div>);
 }
