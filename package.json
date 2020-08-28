@@ -1,6 +1,6 @@
 {
   "name": "guac-web",
-  "version": "1.5.80",
+  "version": "1.5.81",
   "description": "Main web ui for the Guac livestreaming platform",
   "repository": "GuacLive/guac-web",
   "author": {
@@ -87,8 +87,8 @@
     "redux-logger": "^4.0.0",
     "redux-sentry-middleware": "^0.1.8",
     "redux-thunk": "^2.3.0",
-    "simplebar": "^6.0.0-beta.1",
-    "simplebar-react": "^3.0.0-beta.1",
+    "simplebar": "6.0.0-beta.1",
+    "simplebar-react": "3.0.0-beta.1",
     "socket.io-client": "^2.3.0",
     "super-image": "^2.4.0",
     "tachyons": "^4",

@@ -54,6 +54,9 @@ const ReplaysList = dynamic(() => import('components/Replays/ReplaysList'));
 const EditStreamPanel = dynamic(() => import('components/EditStreamPanel'));
 const SubscriptionDialog = dynamic(() => import('components/SubscriptionDialog'));
 
+const FollowersList = dynamic(() => import('components/FollowersList'));
+const FollowingList = dynamic(() => import('components/FollowingList'));
+
 const STREAMING_SERVER = 'eu';
 const API_URL = process.env.API_URL;
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
@@ -388,7 +391,7 @@ function ChannelPage(props){
 				<div className="site-component-profile__tabs flex items-center" style={{height:'48px'}}>
 					<a 
 						href="#"
-						onClick={() => {setTab(0);return true;}}
+						onClick={(e) => {setTab(0);e&&e.preventDefault();return true;}}
 						className={
 							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 0 ? 'primary b--gray' : 'gray b--transparent'} hover-primary link`
 						}
@@ -397,12 +400,30 @@ function ChannelPage(props){
 					</a>
 					<a 
 						href="#"
-						onClick={() => {setTab(1);return true;}}
+						onClick={(e) => {setTab(1);e&&e.preventDefault();return true;}}
 						className={
 							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 1 ? 'primary b--gray' : 'gray b--transparent'} hover-primary link`
 						}
 					>
 						<Trans>REPLAYS</Trans>
+					</a>
+					<a 
+						href="#"
+						onClick={(e) => {setTab(2);e&&e.preventDefault();return true;}}
+						className={
+							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 2 ? 'primary b--gray' : 'gray b--transparent'} hover-primary link`
+						}
+					>
+						<span><Trans>FOLLOWERS</Trans> &middot; {channel.data.followers}</span>
+					</a>
+					<a 
+						href="#"
+						onClick={(e) => {setTab(3);e&&e.preventDefault();return true;}}
+						className={
+							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 3 ? 'primary b--gray' : 'gray b--transparent'} hover-primary link`
+						}
+					>
+						<span><Trans>FOLLOWING</Trans></span>
 					</a>
 				</div>
 				{
@@ -491,6 +512,18 @@ function ChannelPage(props){
 					tab == 1 &&
 					<div className="site-component-replays flex flex-wrap justify-center w-100 primary">
 						<ReplaysList />
+					</div>
+				}
+				{
+					tab == 2 &&
+					<div className="site-component-followers flex flex-wrap justify-center w-100 primary">
+						<FollowersList />
+					</div>
+				}
+				{
+					tab == 3 &&
+					<div className="site-component-following flex flex-wrap justify-center w-100 primary">
+						<FollowingList />
 					</div>
 				}
     		</Fragment>
@@ -601,13 +634,9 @@ function ChannelPage(props){
 		</Fragment>
 	)
 }
-ChannelPage.getInitialProps = async ({store, isServer, pathname, query, req}) => {
-	const { channel, site } = store.getState()
-	console.log('yes', store);
+ChannelPage.getInitialProps = async ({store, query}) => {
 	log('info', 'Channel', query.name);
-	//if(channel.loading){
-		await store.dispatch(actions.fetchChannel(query.name));
-	//}
+	await store.dispatch(actions.fetchChannel(query.name));
 	return {...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})};
 };
 
