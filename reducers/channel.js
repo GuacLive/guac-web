@@ -24,10 +24,19 @@ export default function channelReducer(state = initialState, action) {
 		case 'FETCH_CHANNEL_SUCCESS':
 			return setChannel(state, action.statusCode, action.data, action.viewers);
 		case 'FOLLOW_SUCCESS':
+			console.log('FOLLOW_SUCCESS', action.statusCode, action.statusMessage)
+			let isFollowing = null;
+			if(action.statusCode == 200){
+				if(action.statusMessage == 'Person followed'){
+					isFollowing = true;
+				}else if(action.statusMessage == 'Person unfollowed'){
+					isFollowing = false;
+				}
+			}
 			return {
 				...state,
 				// omegalul
-				isFollowing: (action.statusCode == 200 && action.statusMessage == 'Person followed')
+				isFollowing
 			};
 		case 'SET_CHANNEL_VIEWERS':
 			return setChannelViewers(state, action.viewers);

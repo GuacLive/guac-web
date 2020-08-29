@@ -12,6 +12,20 @@ export default class UrlEmbedder {
 		this.username = username;
 	}
 
+    resolveYoutubeUrl(url) {
+        const videoId = YOUTUBE_REGEX.exec(url);
+
+        return videoId && videoId.length > 1 ?
+            `https://www.youtube.com/embed/${videoId[1]}?autoplay=1&loop=1&controls=2&rel=0` :
+            `${url}?autoplay=1&loop=1&controls=2&rel=0`
+    }
+
+    resolveYoutubeThumbnail(url) {
+        const videoId = YOUTUBE_REGEX.exec(url);
+
+        return videoId ? `https://img.youtube.com/vi/${videoId[1]}/hqdefault.jpg` : '';
+	}
+
 	format(str){
 		if(!str) return;
 		const self = this;

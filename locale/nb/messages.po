@@ -17,11 +17,11 @@ msgstr ""
 msgid "<0>Hi,<1/>Welcome to guac.live &mdash; live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 msgstr "<0>Hi,<1/>Velkommen til guac.live — direktestrømming-platformen. Vi er for tiden i beta.</0><2>Mens vi er i beta, så vil strømmeprivilegier bli gitt på invitasjonsbasis.<3/>Men, lag gjerne en konto og delta i chatten og det generelle fellesskapet!</2>"
 
-#: pages/c/[name].js:396
+#: pages/c/[name].js:399
 msgid "ABOUT"
 msgstr "OM"
 
-#: pages/c/[name].js:443
+#: pages/c/[name].js:464
 msgid "Add panel"
 msgstr "Legg til panel"
 
@@ -60,7 +60,7 @@ msgstr "Kategori:"
 msgid "Channel"
 msgstr "Kanal"
 
-#: pages/c/[name].js:522
+#: pages/c/[name].js:555
 msgid "Channel not found"
 msgstr "Kanal ikke funnet"
 
@@ -83,7 +83,7 @@ msgstr "Chat-kommandoer:"
 msgid "Client error"
 msgstr "Klient-feil"
 
-#: components/Chat/UserCard.js:80
+#: components/Chat/UserCard.js:79
 msgid "Close"
 msgstr "Lukk"
 
@@ -117,7 +117,7 @@ msgstr "Opphavsrettsbeskyttet innhold"
 msgid "Counter-Notification"
 msgstr "Innsigelse"
 
-#: pages/c/[name].js:331
+#: pages/c/[name].js:334
 msgid "Create an account to follow this user"
 msgstr "Opprett en konto for å følge denne brukeren"
 
@@ -133,14 +133,14 @@ msgstr "Mørk modus"
 msgid "Dashboard"
 msgstr "Kontrollpanel"
 
-#: pages/c/[name].js:464
+#: pages/c/[name].js:485
 msgid "Delete"
 msgstr "Slett"
 
-#: pages/c/[name].js:440
-#: pages/c/[name].js:441
 #: pages/c/[name].js:461
 #: pages/c/[name].js:462
+#: pages/c/[name].js:482
+#: pages/c/[name].js:483
 msgid "Description"
 msgstr "Beskrivelse"
 
@@ -173,11 +173,11 @@ msgstr "E-post"
 #~ msgid "Edit"
 #~ msgstr "Endre"
 
-#: pages/c/[name].js:467
+#: pages/c/[name].js:488
 msgid "Edit panel"
 msgstr "Endre panel"
 
-#: pages/c/[name].js:423
+#: pages/c/[name].js:444
 msgid "Edit panels"
 msgstr "Endre paneler"
 
@@ -190,7 +190,7 @@ msgid "English"
 msgstr "Engelsk"
 
 #: components/Settings/Profile.js:30
-#: pages/auth/login.js:51
+#: pages/auth/login.js:44
 #: pages/auth/register.js:61
 msgid "Error"
 msgstr "Feil"
@@ -198,6 +198,14 @@ msgstr "Feil"
 #: components/Chat/index.js:860
 msgid "Expand"
 msgstr "Utvid"
+
+#: pages/c/[name].js:417
+msgid "FOLLOWERS"
+msgstr "FØLGERE"
+
+#: pages/c/[name].js:426
+msgid "FOLLOWING"
+msgstr "FØLGER"
 
 #: components/Settings/Connections.js:103
 msgid "Failed to verify"
@@ -207,8 +215,8 @@ msgstr "Feilet verifisering"
 msgid "First, choose the streaming server closest to you:"
 msgstr "Først, velg strømmeserveren som er nærmest deg:"
 
-#: pages/c/[name].js:325
-#: pages/c/[name].js:337
+#: pages/c/[name].js:328
+#: pages/c/[name].js:340
 msgid "Follow"
 msgstr "Følg"
 
@@ -220,12 +228,20 @@ msgstr "Fulgte kanaler"
 #~ msgid "Followers"
 #~ msgstr "Følgere"
 
-#: components/Chat/UserCard.js:53
-#: pages/c/[name].js:324
+#: components/FollowersList.js:56
+msgid "Followers:"
+msgstr "Følgere:"
+
+#: components/Chat/UserCard.js:52
+#: pages/c/[name].js:327
 msgid "Following"
 msgstr "Følger"
 
-#: pages/auth/login.js:68
+#: components/FollowingList.js:60
+msgid "Following:"
+msgstr "Følger:"
+
+#: pages/auth/login.js:61
 #: pages/auth/register.js:81
 msgid "Forgot your password?"
 msgstr "Glemt ditt passord?"
@@ -273,7 +289,7 @@ msgstr "Bli med"
 
 #: components/Chat/index.js:614
 #: components/Search/SearchBar.js:81
-#: pages/c/[name].js:521
+#: pages/c/[name].js:554
 msgid "Loading..."
 msgstr "Laster..."
 
@@ -281,7 +297,7 @@ msgstr "Laster..."
 #: components/layout/PageLayout.js:325
 #: components/layout/PageLayout.js:326
 #: pages/auth/activate.js:38
-#: pages/auth/login.js:49
+#: pages/auth/login.js:42
 #: pages/auth/register.js:80
 msgid "Log in"
 msgstr "Logg inn"
@@ -298,7 +314,7 @@ msgstr "Håndter"
 msgid "Manage your connected accounts and services"
 msgstr "Håndter din tilkoblede kontoer og tjenester"
 
-#: components/Chat/UserCard.js:70
+#: components/Chat/UserCard.js:69
 msgid "Mention"
 msgstr "Nevn"
 
@@ -322,6 +338,10 @@ msgstr "Min Kanal"
 msgid "New password:"
 msgstr "Nytt passord:"
 
+#: components/FollowersList.js:58
+msgid "Next"
+msgstr "Neste"
+
 #: components/Replays/ReplaysList.js:46
 msgid "No replays available."
 msgstr "Ingen arkiverte videoer tilgjengelig."
@@ -342,7 +362,7 @@ msgstr "Norsk"
 msgid "Not connected to chat."
 msgstr "Ikke tilkoblet chat."
 
-#: components/Chat/UserCard.js:53
+#: components/Chat/UserCard.js:52
 msgid "Not following"
 msgstr "Følger ikke"
 
@@ -354,16 +374,21 @@ msgstr "Varsel om krenkelse"
 msgid "Now, use the following stream key:"
 msgstr "Nå, bruk følgende strømmenøkkel:"
 
+#: components/FollowersList.js:57
+#: components/FollowingList.js:61
+msgid "Page"
+msgstr "Side"
+
 #: pages/_error.js:27
 msgid "Page not found"
 msgstr "Side ikke funnet"
 
-#: pages/c/[name].js:302
+#: pages/c/[name].js:305
 msgid "Partnered"
 msgstr "Partner"
 
 #: components/Settings/Profile.js:38
-#: pages/auth/login.js:58
+#: pages/auth/login.js:51
 #: pages/auth/register.js:72
 msgid "Password"
 msgstr "Passord"
@@ -380,6 +405,10 @@ msgstr "Patreon-støttere:"
 msgid "Permanently ban user"
 msgstr "Utesteng brukeren permanent"
 
+#: components/Chat/SettingsMenu.js:68
+msgid "Pop-out chat"
+msgstr "Popp-ut chat"
+
 #: pages/index.js:168
 msgid "Popular channels"
 msgstr "Populære kanaler"
@@ -391,6 +420,10 @@ msgstr "Pornografisk og seksuelt eksplisitt innhold er ikke tillatt i noen form,
 #: pages/terms.js:16
 msgid "Pornographic/Sexually Explicit Content"
 msgstr "Pornografisk/seksuelt eksplisitt innhold"
+
+#: components/FollowersList.js:59
+msgid "Previous"
+msgstr "Forrige"
 
 #: components/layout/PageLayout.js:239
 msgid "Privacy"
@@ -408,7 +441,7 @@ msgstr "Privat (vises ikke i kategorier, forsiden eller i søk):"
 msgid "Profile"
 msgstr "Profil"
 
-#: pages/c/[name].js:405
+#: pages/c/[name].js:408
 msgid "REPLAYS"
 msgstr "ARKIV"
 
@@ -416,7 +449,7 @@ msgstr "ARKIV"
 msgid "Reconnect"
 msgstr "Koble til"
 
-#: pages/auth/login.js:61
+#: pages/auth/login.js:54
 msgid "Remember me"
 msgstr "Husk meg"
 
@@ -457,7 +490,7 @@ msgstr "Vis liste over brukere"
 #: components/layout/PageLayout.js:332
 #: components/layout/PageLayout.js:332
 #: components/layout/PageLayout.js:333
-#: pages/auth/login.js:67
+#: pages/auth/login.js:60
 #: pages/auth/register.js:59
 msgid "Sign up"
 msgstr "Registrer"
@@ -498,7 +531,7 @@ msgstr "Strømmer"
 msgid "Streaming permissions"
 msgstr "Strømmetillatelse"
 
-#: pages/c/[name].js:341
+#: pages/c/[name].js:344
 msgid "Subscribe"
 msgstr "Abonnér"
 
@@ -534,6 +567,14 @@ msgstr "Denne siden er scuffed og uferdig LOL"
 msgid "This page requires you to be logged in."
 msgstr "Denne siden krever at du er logget inn."
 
+#: components/FollowersList.js:72
+msgid "This streamer does not have any followers :("
+msgstr "Denne strømmeren har ingen følgere :("
+
+#: components/FollowingList.js:74
+msgid "This streamer is not following anyone :)"
+msgstr "Denne strømmeren følger ingen :)"
+
 #: pages/auth/activate.js:33
 msgid "This verification token is not valid."
 msgstr "Denne verifiseringskoden er ikke gyldig."
@@ -550,10 +591,10 @@ msgstr "Time ut brukeren i x sekunder"
 msgid "Timestamps"
 msgstr "Tidsmerking"
 
-#: pages/c/[name].js:437
-#: pages/c/[name].js:438
 #: pages/c/[name].js:458
 #: pages/c/[name].js:459
+#: pages/c/[name].js:479
+#: pages/c/[name].js:480
 msgid "Title"
 msgstr "Tittel"
 
@@ -569,7 +610,7 @@ msgstr "Ukjent feil"
 msgid "User"
 msgstr "Bruker"
 
-#: pages/c/[name].js:505
+#: pages/c/[name].js:538
 msgid "User has been banned"
 msgstr "Brukeren har blitt utestengt"
 
@@ -577,7 +618,7 @@ msgstr "Brukeren har blitt utestengt"
 #~ msgid "User settings"
 #~ msgstr "Brukerinnstillinger"
 
-#: pages/auth/login.js:54
+#: pages/auth/login.js:47
 #: pages/auth/register.js:64
 msgid "Username"
 msgstr "Brukernavn"
@@ -646,7 +687,7 @@ msgstr "Kontoen din er opprettet. Vennligst sjekk din e-post for å verifisere k
 msgid "Your e-mail has been verified."
 msgstr "E-posten din har blitt verifisert."
 
-#: pages/c/[name].js:508
+#: pages/c/[name].js:541
 msgid "has been banned from the site."
 msgstr "har blitt utestengt fra dette nettstedet."
 
@@ -661,6 +702,11 @@ msgstr "melding"
 #: pages/index.js:97
 msgid "no streams are online"
 msgstr "ingen aktive direktesendinger"
+
+#: components/FollowersList.js:57
+#: components/FollowingList.js:61
+msgid "of"
+msgstr "av"
 
 #: pages/dashboard.js:132
 msgid "seconds"

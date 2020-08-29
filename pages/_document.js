@@ -1,4 +1,4 @@
-import Document, {Head, Main, NextScript} from 'next/document';
+import Document, {Html, Head, Main, NextScript} from 'next/document';
 import * as Sentry from '@sentry/node';
 
 process.on('unhandledRejection', (err) => {
@@ -26,7 +26,7 @@ export default class MyDocument extends Document {
 		let event = 'window.sa_event=window.sa_event||function(){a=[].slice.call(arguments);sa_event.q?sa_event.q.push(a):sa_event.q=[a]};';
 		//let perf = 'hydrationMetrics&&hydrationMetrics.onInputDelay&&performance&&hydrationMetrics.onInputDelay(function(e,n){sa_event("event",{eventCategory:"Perf Metrics",eventAction:"first-input-delay",eventLabel:n.type,eventValue:Math.round(e),nonInteraction:!0})});';
 		return (
-			<html lang={this.props.locale} data-cast-api-enabled="true" id="guac" className={this.props.mode === 'dark' ? 'guac-skin-dark' : 'guac-skin-light'}>
+			<Html lang={this.props.locale} data-cast-api-enabled="true" id="guac" className={this.props.mode === 'dark' ? 'guac-skin-dark' : 'guac-skin-light'}>
 				<Head nonce={nonce}>
 					<script async defer type="text/javascript" src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1" nonce={this.props.nonce}></script>
 					<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.13.0/css/solid.css" integrity="sha384-fZFUEa75TqnWs6kJuLABg1hDDArGv1sOKyoqc7RubztZ1lvSU7BS+rc5mwf1Is5a" crossOrigin="anonymous" />
@@ -56,7 +56,7 @@ export default class MyDocument extends Document {
 					<script async defer src="https://cheese.guac.live/app.js" nonce={nonce}></script>
 					<noscript><img src="https://cheese.guac.live/image.gif" alt="" /></noscript>
 				</body>
-			</html>
+			</Html>
 		)
 	}
 }
