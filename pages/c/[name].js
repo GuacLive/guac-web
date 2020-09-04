@@ -316,7 +316,7 @@ function ChannelPage(props){
 								</h2>
 								<div className="flex flex-column mb3 mt2">
 									<span className="f5 primary">
-										<span className="truncate b line-clamp-2" style={{wordWrap: 'break-word'}}>{stream.title}</span>
+										<span className="truncate b line-clamp-2" style={{wordWrap: 'break-word'}} title={stream.title}>{stream.title}</span>
 										<div>
 											<Link href="/category/[id]" as={`/category/${stream.category_id}`}><a className="primary-50 hover-primary link">{stream.category_name}</a></Link>
 										</div>
