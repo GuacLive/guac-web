@@ -324,9 +324,11 @@ function ChatComponent(props){
 		// 1) The user has privileges
 		// 2) The message is not your own
 		// 3) The sender of the message does not have privileges
+		// 4) The sender of the message is not the broadcaster
 		let showModTools = hasPrivilege &&
 			(me && me.name !== user.name) &&
-			(privileged && privileged.indexOf(user.id) === -1);
+			(privileged && privileged.indexOf(user.id) === -1) &&
+			channel.data.user.id !== user.id;
 		entry = {
 			user,
 			msgID,
