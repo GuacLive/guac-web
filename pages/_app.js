@@ -40,7 +40,7 @@ import { faSmileWink, faImage, faPaperPlane } from '@fortawesome/free-regular-sv
 
 // We need to put these here, since Next only allows global.css in _app
 import '../css/style.css';
-import 'simplebar/dist/simplebar.css';
+import 'simplebar-react/dist/simplebar.min.css';
 if(typeof document !== 'undefined'){
 	require('!style-loader!css-loader!video.js/dist/video-js.css')
 }
