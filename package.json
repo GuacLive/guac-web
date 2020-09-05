@@ -72,7 +72,7 @@
     "postcss-preset-env": "^6.7.0",
     "postcss-url": "9",
     "pretty-ms": "^7.0.0",
-    "react": "^0.0.0-experimental-94c0244ba",
+    "react": "^0.14.0",
     "react-dom": "^0.0.0-experimental-94c0244ba",
     "react-giphy-searchbox": "^1.4.0",
     "react-process-string": "^1.2.0",
