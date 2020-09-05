@@ -510,6 +510,16 @@ function ChatComponent(props){
 			// Add channel owner to privileged
 			privileged.push(channel.data.user.id);
 		}
+		// Set hasPrivilege
+		if(authentication.user){
+			me = authentication.user;
+			if(
+				channel.data.user.name === me.name
+				|| (privileged && privileged.indexOf(me.id) > -1)
+			){
+				hasPrivilege = true;
+			}
+		}
 		if(useChatHydration){
 			callApi(`/messages/${channel && channel.data && channel.data.user.name}`)
 			.then(res => res.json())
