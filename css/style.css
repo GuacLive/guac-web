@@ -385,6 +385,9 @@ input:focus {
 	vertical-align: middle;
 }
 
+.chat-message-content__emote-only .chat-message-content__emote {
+	max-height: 48px;
+}
 /* Set max height if the message also has text, or if in emote picker */
 .chat-message-content__with-text .chat-message-content__emote,
 .chat-input .rta__entity img {
