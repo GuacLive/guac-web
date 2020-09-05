@@ -504,6 +504,12 @@ function ChatComponent(props){
 	useEffect(() => {
 		if(!emotesStatus) return;
 		if(hydrated) return;
+		// Set initial privileged (to not break mod tools when hydrated)
+		if(channel.data && privileged.length === 0){
+			privileged = channel.data.mods;
+			// Add channel owner to privileged
+			privileged.push(channel.data.user.id);
+		}
 		if(useChatHydration){
 			callApi(`/messages/${channel && channel.data && channel.data.user.name}`)
 			.then(res => res.json())
