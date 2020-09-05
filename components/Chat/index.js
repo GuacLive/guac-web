@@ -324,9 +324,11 @@ function ChatComponent(props){
 		// 1) The user has privileges
 		// 2) The message is not your own
 		// 3) The sender of the message does not have privileges
+		// 4) The sender of the message is not the broadcaster
 		let showModTools = hasPrivilege &&
 			(me && me.name !== user.name) &&
-			(privileged && privileged.indexOf(user.id) === -1);
+			(privileged && privileged.indexOf(user.id) === -1) &&
+			channel.data.user.id !== user.id;
 		entry = {
 			user,
 			msgID,
@@ -501,6 +503,22 @@ function ChatComponent(props){
 	useEffect(() => {
 		if(!emotesStatus) return;
 		if(hydrated) return;
+		// Set initial privileged (to not break mod tools when hydrated)
+		if(channel.data && privileged.length === 0){
+			privileged = channel.data.mods;
+			// Add channel owner to privileged
+			privileged.push(channel.data.user.id);
+		}
+		// Set hasPrivilege
+		if(authentication.user){
+			me = authentication.user;
+			if(
+				channel.data.user.name === me.name
+				|| (privileged && privileged.indexOf(me.id) > -1)
+			){
+				hasPrivilege = true;
+			}
+		}
 		if(useChatHydration){
 			callApi(`/messages/${channel && channel.data && channel.data.user.name}`)
 			.then(res => res.json())
