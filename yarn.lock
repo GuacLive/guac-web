@@ -12640,6 +12640,14 @@ simple-swizzle@^0.2.2:
   dependencies:
     is-arrayish "^0.3.1"
 
+simplebar-core@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/simplebar-core/-/simplebar-core-1.0.1.tgz#3241b1ce1b2bd921231f7c47a8c5e5c86d974caf"
+  integrity sha512-05kcRUfF7IrbeHNjqVVNBVyiiRod4K/CWKYE9uzR8ECl0h3QykcbRJ2/LXdpXxCu4qEITiakufqDNSBzsi7Myg==
+  dependencies:
+    can-use-dom "^0.1.0"
+    lodash-es "^4.17.15"
+
 simplebar-core@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/simplebar-core/-/simplebar-core-1.0.2.tgz#5f23abd96d7b80078de267d81ddbd517116c074b"
