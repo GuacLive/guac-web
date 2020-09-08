@@ -546,13 +546,10 @@ function ChatComponent(props){
 	useEffect(() => {
 		setCustomPickerEmotes(Object.keys(emotes).map(
 			(name) => ({
-				key: name,
-				name,
-				imageUrl: emotes[name].url,
-				text: name,
-				short_names: [name],
-				keywords: [name],
-				customCategory: emotes[name].provider
+				name: name,
+				url: emotes[name].url,
+				shortcodes: [name],
+				category: emotes[name].provider
 			})
 		));
 	}, [emotesStatus]);
@@ -801,12 +798,14 @@ function ChatComponent(props){
 											channel={channel && channel.data && channel.data.user && channel.data.user.name}
 											emotes={customPickerEmotes} 
 											darkMode={darkMode}
-											onSelect={emoji => {
+											onSelect={(emoji, setIsOpen) => {
+												console.log('onSelect', emoji);
 												// Select text to type - if it is custom type the id, otherwise type emoji.
-												const text = emoji.custom ? emoji.id : emoji.native;
+												const text = emoji.url ? emoji.name : emoji.unicode;
 										
-												setFormattedMessage(`${message} ${text}`);
-												setLastMessage(`${message} ${text}`);
+												setFormattedMessage(`${message} ${text} `);
+												setLastMessage(`${message} ${text} `);
+												setIsOpen(false);
 											}}
 										/>
 									}
