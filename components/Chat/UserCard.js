@@ -66,7 +66,7 @@ console.log('UserCard props', props);
 						}
 					</div>
 					<div className="flex flex-row items-start align-center justify-between w-100">
-						<GuacButton color="green" onClick={props.mention}><Trans>Mention</Trans></GuacButton>
+						<button className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green guac-btn" onClick={props.mention}><Trans>Mention</Trans></button>
 					</div>
 					<div className="mr2 mt2 right-0 top-0 absolute">
 						<a
