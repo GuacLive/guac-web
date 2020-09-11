@@ -39,8 +39,6 @@ import { callApi } from 'services/api';
 import commands from './commands';
 import ViewerList from './ViewerList';
 
-require('@webscopeio/react-textarea-autocomplete/style.css');
-
 var socket = null;
 var users = new Map();
 var me = null;
