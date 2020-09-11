@@ -14129,6 +14129,13 @@ videojs-ie8@1.1.2:
   dependencies:
     es5-shim "^4.5.1"
 
+videojs-landscape-fullscreen@^11.1.0:
+  version "11.1.0"
+  resolved "https://registry.yarnpkg.com/videojs-landscape-fullscreen/-/videojs-landscape-fullscreen-11.1.0.tgz#75f457e8b39a9bed06fcbc5b6bb9d437d09a1de0"
+  integrity sha512-uOZft+FvaF7VmglGTOLMZdrnuCpga5ZMk+ykahE0WVHKI7dibDufD8e/s9TUaRHOP1Xl1B42rQW4H9yByHf0bQ==
+  dependencies:
+    global "^4.4.0"
+
 videojs-mux@^3.0.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/videojs-mux/-/videojs-mux-3.1.1.tgz#857efaaade9634a31dcb4b751e182f3805e62e65"

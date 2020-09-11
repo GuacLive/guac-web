@@ -86,6 +86,11 @@ function VideoPlayer(props) {
 				}
 			},
 			techOrder: ['chromecast', 'flvjs', 'html5'],
+			fullscreen: {
+				enterOnRotate: true,
+				alwaysInLandscapeMode: true,
+				iOS: true
+			},
 			flvjs: {
 				mediaDataSource: {
 					isLive: true,
@@ -168,6 +173,7 @@ function VideoPlayer(props) {
 			reloadWebComponents: true
 		});
 		require('videojs-hotkeys');
+		require('videojs-landscape-fullscreen');
 		// instantiate Video.js
 		player = videojs(videoNode, videoJsOptions, function onPlayerReady() {
 			log('info', 'VideoPlayer', 'onPlayerReady', this);
@@ -246,17 +252,6 @@ function VideoPlayer(props) {
 				player.fill(false);
 			}
 		});
-
-		// If browser is Android, automatically go fullscreen on play tap
-		if(player.bigPlayButton && player.bigPlayButton.one){
-			player.bigPlayButton.one('tap', function () {
-				if(videojs.browser.IS_ANDROID){
-					try{
-						player.requestFullscreen();
-					}catch(e){}
-				}
-			});
-		}
 
 		// Specify how to clean up after this effect:
 		return function cleanup() {
