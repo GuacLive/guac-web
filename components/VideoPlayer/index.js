@@ -12,6 +12,10 @@ import log from 'utils/log';
 
 import { useDispatch } from 'react-redux';
 
+if(typeof document !== 'undefined'){
+	require('!style-loader!css-loader!video.js/dist/video-js.css')
+}
+
 const OFFLINE_POSTER = '/img/offline-poster.png';
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
 var didCancel = false;

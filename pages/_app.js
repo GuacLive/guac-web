@@ -41,9 +41,6 @@ import { faSmileWink, faImage, faPaperPlane } from '@fortawesome/free-regular-sv
 // We need to put these here, since Next only allows global.css in _app
 import '../css/style.css';
 import 'simplebar-react/dist/simplebar.min.css';
-if(typeof document !== 'undefined'){
-	require('!style-loader!css-loader!video.js/dist/video-js.css')
-}
 library.add(faBan, faBars, faBell, faCheck, faCheckCircle, faClock, faCaretSquareLeft, faCaretSquareRight, faHourglass, faHome, faImage, faPaperPlane, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog, faMinusCircle, faTrash, faEdit);
 function I18nWatchLocale({children}) {
 	const {i18n} = useLingui()
