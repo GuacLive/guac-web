@@ -173,7 +173,7 @@ function VideoPlayer(props) {
 			reloadWebComponents: true
 		});
 		require('videojs-hotkeys');
-		require('videojs-landscape-fullscreen');
+		require('../../public/videojs-landscape-fullscreen.min');
 		// instantiate Video.js
 		player = videojs(videoNode, videoJsOptions, function onPlayerReady() {
 			log('info', 'VideoPlayer', 'onPlayerReady', this);
