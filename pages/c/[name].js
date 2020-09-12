@@ -546,7 +546,7 @@ function ChannelPage(props){
 								stream.user &&
 								stream.user.lastBan &&
 								stream.user.lastBan.time &&
-								<div><b><Trans>Time of ban</Trans></b>:&nbsp;{stream.user.lastBan.time}</div>
+								<div><b><Trans>Time of ban</Trans></b>:&nbsp;{new Date(stream.user.lastBan.time).toLocaleString()}</div>
 							}
 							{
 								stream.user &&
