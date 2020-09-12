@@ -536,12 +536,26 @@ function ChannelPage(props){
 		let stream = props.channel.data;
 		return (
 			<Fragment key={stream.user.id}>
-				<div className="site-component-banned flex flex-column flex-wrap w-100">
-					<h3 className="f3 red ma0"><Trans>User has been banned</Trans></h3>
-					<img src="https://cdn.frankerfacez.com/emoticon/269642/4" className="db w4" />
-					<p className="primary">
-						{stream.user.name}&nbsp;<Trans>has been banned from the site.</Trans>
-					</p>
+				<div className="site-component-banned flex flex-column flex-wrap center-l br2 ba b--transparent bg-black-40 ">
+					<div className="pa3 pa4-ns db v-mid">
+						<h3 className="f3 tracked mt0 mb3 red"><Trans>User has been banned</Trans></h3>
+						<img src="/img/coffindance.gif" className="db w5" />
+						<h4 class="f4 primary">{stream.user.name}&nbsp;<Trans>has been banned from the site.</Trans></h4>
+						<p className="primary ma0">
+							{
+								stream.user &&
+								stream.user.lastBan &&
+								stream.user.lastBan.time &&
+								<div><b><Trans>Time of ban</Trans></b>:&nbsp;{stream.user.lastBan.time}</div>
+							}
+							{
+								stream.user &&
+								stream.user.lastBan &&
+								stream.user.lastBan.reason &&
+								<div><b><Trans>Reason</Trans></b>:&nbsp;{stream.user.lastBan.reason}</div>
+							}
+						</p>
+					</div>
 				</div>
 			</Fragment>
 		);
