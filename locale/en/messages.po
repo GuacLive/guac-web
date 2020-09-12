@@ -21,11 +21,11 @@ msgstr "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are curre
 #~ msgid "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 #~ msgstr "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 
-#: pages/c/[name].js:399
+#: pages/c/[name].js:401
 msgid "ABOUT"
 msgstr "ABOUT"
 
-#: pages/c/[name].js:464
+#: pages/c/[name].js:466
 msgid "Add panel"
 msgstr "Add panel"
 
@@ -64,7 +64,7 @@ msgstr "Category:"
 msgid "Channel"
 msgstr "Channel"
 
-#: pages/c/[name].js:555
+#: pages/c/[name].js:571
 msgid "Channel not found"
 msgstr "Channel not found"
 
@@ -91,7 +91,7 @@ msgstr "Client error"
 msgid "Close"
 msgstr "Close"
 
-#: components/Chat/index.js:860
+#: components/Chat/index.js:879
 msgid "Collapse"
 msgstr "Collapse"
 
@@ -121,7 +121,7 @@ msgstr "Copyrighted Content"
 msgid "Counter-Notification"
 msgstr "Counter-Notification"
 
-#: pages/c/[name].js:334
+#: pages/c/[name].js:336
 msgid "Create an account to follow this user"
 msgstr "Create an account to follow this user"
 
@@ -137,14 +137,14 @@ msgstr "Dark Mode"
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: pages/c/[name].js:485
+#: pages/c/[name].js:487
 msgid "Delete"
 msgstr "Delete"
 
-#: pages/c/[name].js:461
-#: pages/c/[name].js:462
-#: pages/c/[name].js:482
-#: pages/c/[name].js:483
+#: pages/c/[name].js:463
+#: pages/c/[name].js:464
+#: pages/c/[name].js:484
+#: pages/c/[name].js:485
 msgid "Description"
 msgstr "Description"
 
@@ -177,11 +177,11 @@ msgstr "E-mail"
 #~ msgid "Edit"
 #~ msgstr "Edit"
 
-#: pages/c/[name].js:488
+#: pages/c/[name].js:490
 msgid "Edit panel"
 msgstr "Edit panel"
 
-#: pages/c/[name].js:444
+#: pages/c/[name].js:446
 msgid "Edit panels"
 msgstr "Edit panels"
 
@@ -199,15 +199,15 @@ msgstr "English"
 msgid "Error"
 msgstr "Error"
 
-#: components/Chat/index.js:860
+#: components/Chat/index.js:879
 msgid "Expand"
 msgstr "Expand"
 
-#: pages/c/[name].js:417
+#: pages/c/[name].js:419
 msgid "FOLLOWERS"
 msgstr "FOLLOWERS"
 
-#: pages/c/[name].js:426
+#: pages/c/[name].js:428
 msgid "FOLLOWING"
 msgstr "FOLLOWING"
 
@@ -219,8 +219,8 @@ msgstr "Failed to verify"
 msgid "First, choose the streaming server closest to you:"
 msgstr "First, choose the streaming server closest to you:"
 
-#: pages/c/[name].js:328
-#: pages/c/[name].js:340
+#: pages/c/[name].js:330
+#: pages/c/[name].js:342
 msgid "Follow"
 msgstr "Follow"
 
@@ -245,7 +245,7 @@ msgid "Followers:"
 msgstr "Followers:"
 
 #: components/Chat/UserCard.js:52
-#: pages/c/[name].js:327
+#: pages/c/[name].js:329
 msgid "Following"
 msgstr "Following"
 
@@ -307,9 +307,9 @@ msgstr "Join"
 #~ msgid "Live streams"
 #~ msgstr "Live streams"
 
-#: components/Chat/index.js:614
+#: components/Chat/index.js:633
 #: components/Search/SearchBar.js:81
-#: pages/c/[name].js:554
+#: pages/c/[name].js:570
 msgid "Loading..."
 msgstr "Loading..."
 
@@ -346,7 +346,7 @@ msgstr "Moderators in chat:"
 msgid "More"
 msgstr "More"
 
-#: components/Chat/index.js:896
+#: components/Chat/index.js:915
 msgid "More messages below."
 msgstr "More messages below."
 
@@ -378,7 +378,7 @@ msgstr "No streaming key found, please contact an admin."
 msgid "Norwegian"
 msgstr "Norwegian"
 
-#: components/Chat/index.js:825
+#: components/Chat/index.js:844
 msgid "Not connected to chat."
 msgstr "Not connected to chat."
 
@@ -403,7 +403,7 @@ msgstr "Page"
 msgid "Page not found"
 msgstr "Page not found"
 
-#: pages/c/[name].js:305
+#: pages/c/[name].js:307
 msgid "Partnered"
 msgstr "Partnered"
 
@@ -461,11 +461,15 @@ msgstr "Private (don't show in categories, frontpage or search):"
 msgid "Profile"
 msgstr "Profile"
 
-#: pages/c/[name].js:408
+#: pages/c/[name].js:410
 msgid "REPLAYS"
 msgstr "REPLAYS"
 
-#: components/Chat/index.js:826
+#: pages/c/[name].js:555
+msgid "Reason"
+msgstr "Reason"
+
+#: components/Chat/index.js:845
 msgid "Reconnect"
 msgstr "Reconnect"
 
@@ -477,7 +481,7 @@ msgstr "Remember me"
 msgid "Search..."
 msgstr "Search..."
 
-#: components/Chat/index.js:610
+#: components/Chat/index.js:629
 msgid "Send a message"
 msgstr "Send a message"
 
@@ -527,7 +531,7 @@ msgstr "Staff in chat:"
 msgid "Start following your favorite streamers to find them quickly!"
 msgstr "Start following your favorite streamers to find them quickly!"
 
-#: components/Chat/index.js:845
+#: components/Chat/index.js:864
 msgid "Stream Chat"
 msgstr "Stream Chat"
 
@@ -551,7 +555,7 @@ msgstr "Streamer"
 msgid "Streaming permissions"
 msgstr "Streaming permissions"
 
-#: pages/c/[name].js:344
+#: pages/c/[name].js:346
 msgid "Subscribe"
 msgstr "Subscribe"
 
@@ -607,6 +611,10 @@ msgstr "This verification token is not valid."
 msgid "Threats, Violence & Harm"
 msgstr "Threats, Violence & Harm"
 
+#: pages/c/[name].js:549
+msgid "Time of ban"
+msgstr "Time of ban"
+
 #: pages/dashboard.js:132
 msgid "Time out user for x seconds"
 msgstr "Time out user for x seconds"
@@ -615,10 +623,10 @@ msgstr "Time out user for x seconds"
 msgid "Timestamps"
 msgstr "Timestamps"
 
-#: pages/c/[name].js:458
-#: pages/c/[name].js:459
-#: pages/c/[name].js:479
-#: pages/c/[name].js:480
+#: pages/c/[name].js:460
+#: pages/c/[name].js:461
+#: pages/c/[name].js:481
+#: pages/c/[name].js:482
 msgid "Title"
 msgstr "Title"
 
@@ -638,7 +646,7 @@ msgstr "Unknown error"
 msgid "User"
 msgstr "User"
 
-#: pages/c/[name].js:538
+#: pages/c/[name].js:541
 msgid "User has been banned"
 msgstr "User has been banned"
 
@@ -715,7 +723,7 @@ msgstr "Your account is now registered. Please check your e-mail to verify your 
 msgid "Your e-mail has been verified."
 msgstr "Your e-mail has been verified."
 
-#: pages/c/[name].js:541
+#: pages/c/[name].js:543
 msgid "has been banned from the site."
 msgstr "has been banned from the site."
 
