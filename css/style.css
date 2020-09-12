@@ -3,6 +3,8 @@
 
 @import 'react-tippy/dist/tippy.css';
 
+@import '@webscopeio/react-textarea-autocomplete/style.css';
+
 /* Custom properties */
 * {
 	box-sizing: border-box;
