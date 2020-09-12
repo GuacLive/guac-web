@@ -156,7 +156,7 @@ MyApp.getInitialProps = async appContext => {
 	}
 	// Fetch my followed
 	const {site, authentication} = ctx.store.getState()
-	if(site.loading && authentication.token){
+	if(site.loading && authentication && authentication.token){
 		// Fetch followed
 		await ctx.store.dispatch(actions.fetchMyFollowed(
 			authentication.token
