@@ -1658,10 +1658,10 @@
     protobufjs "^6.9.0"
     yargs "^15.3.1"
 
-"@guaclive/flv.js@1.7.1":
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/@guaclive/flv.js/-/flv.js-1.7.1.tgz#08c6e96e4b8f2882d484e84982c90b1095a135fa"
-  integrity sha512-9LV5IH1XcqkZYJ9OV9wkEm9+sLt2p/RjPObx5Efa1cWDudgnxgcaFK7emC4fKs/Pl+8sg6TvpwaADoUF9S8IRQ==
+"@guaclive/flv.js@^1.7.2":
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/@guaclive/flv.js/-/flv.js-1.7.2.tgz#143e91c8e61fcac4399182dbc88889cbd2759ff2"
+  integrity sha512-y7yFiFG7P/YEOns+WL1b6TaRKW6WsNGMCmt0cxcDvcpPfkj8mtCbsegKJp0EF7UBPKECMe/IAlYlW2m/qz268w==
   dependencies:
     "@babel/core" "^7.8.3"
     es6-promise "^4.2.5"

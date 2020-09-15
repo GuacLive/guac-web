@@ -21,7 +21,7 @@ function NotificationsMenu(props){
 			<a className="db link pv2 ph3 color-inherit" href="#!" onClick={() => setIsOpen(!isOpen)}>
 				<FontAwesomeIcon icon="bell" />
 			</a>
-			<div ref={ref} data-details="" className="dropdown-menu primary absolute nowrap right-0 ba b--transparent shadow-1 br2 w5" style={{left: 'auto', display: isOpen ? 'block' : 'none', top: '100%'}}>
+			<div ref={ref} data-details="" className="dropdown-menu color-inherit absolute nowrap right-0 ba b--transparent shadow-1 br2 w5" style={{left: 'auto', display: isOpen ? 'block' : 'none', top: '100%'}}>
 				<div className="f5 b pa3"><Trans>Coming soon.</Trans></div>
 			</div>
 		</div>

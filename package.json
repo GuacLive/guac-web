@@ -1,6 +1,6 @@
 {
   "name": "guac-web",
-  "version": "1.5.89",
+  "version": "1.5.90",
   "description": "Main web ui for the Guac livestreaming platform",
   "repository": "GuacLive/guac-web",
   "author": {
@@ -31,7 +31,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.13.0",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
-    "@guaclive/flv.js": "1.7.1",
+    "@guaclive/flv.js": "^1.7.2",
     "@lingui/core": "^3.0.0-12",
     "@lingui/react": "^3.0.0-12",
     "@sentry/browser": "^5.15.5",
