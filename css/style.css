@@ -433,6 +433,11 @@ input:focus {
 	color: var(--white);
 }
 
+.chat-message-badges__badge[data-badge='patron'] {
+	background: var(--pink);
+	color: var(--white);
+}
+
 /* Icons for chat badges */
 .chat-message-badges__badge::before {
 	display: none;
@@ -470,6 +475,13 @@ input:focus {
 	font-weight: 400;
 	/* Wrench */
 	content: "\f0ad";
+}
+
+.chat-message-badges__badge[data-badge='patron']::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 400;
+	/* Patreon logo */
+	content: "\f3d9";
 }
 
 /* Chat input */
