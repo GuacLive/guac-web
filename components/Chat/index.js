@@ -358,7 +358,7 @@ function ChatComponent(props){
 												}
 											}
 										}}
-										style={{'cursor': badge.url ? 'crosshair' : 'default'}}
+										style={{'cursor': badge.url ? 'pointer' : 'default'}}
 									>
 									</span>
 								);
