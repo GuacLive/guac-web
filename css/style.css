@@ -478,7 +478,7 @@ input:focus {
 }
 
 .chat-message-badges__badge[data-badge='patron']::before {
-	font-family: "Font Awesome 5 Free";
+	font-family: "Font Awesome 5 Brands";
 	font-weight: 400;
 	/* Patreon logo */
 	content: "\f3d9";
