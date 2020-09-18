@@ -351,6 +351,14 @@ function ChatComponent(props){
 										data-badge={badge.id}
 										title={badge.label}
 										key={'b-' + user.id + '-' + badge.id + (new Date).getTime()}
+										onClick={() => {
+											if(badge.url){
+												if(typeof window !== 'undefined'){
+													window.open(badge.url, '_ blank');
+												}
+											}
+										}}
+										style={{'cursor': badge.url ? 'crosshair' : 'default'}}
 									>
 									</span>
 								);
