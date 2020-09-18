@@ -35,10 +35,10 @@ function ViewerList(props){
 		return u && u.type && u.type !== 'staff' && u.type === 'moderator' && !broadcaster.find((b) => u.id == b.id);
 	});
 	const supporters = users.filter((u) => {
-		return u && !u.anon && u.type !== 'staff' && u.type !== 'moderator' && u.isPatreon && !broadcaster.find((b) => u.id == b.id);
+		return u && !u.anon && u.type !== 'staff' && u.type !== 'moderator' && u.isPatron && !broadcaster.find((b) => u.id == b.id);
 	});
 	const usrs = users.filter((u) => {
-		return u && !u.anon && u.type !== 'staff' && u.type !== 'moderator' && !u.isPatreon && !broadcaster.find((b) => u.id == b.id);
+		return u && !u.anon && u.type !== 'staff' && u.type !== 'moderator' && !u.isPatron && !broadcaster.find((b) => u.id == b.id);
 	});
 
 	return (
