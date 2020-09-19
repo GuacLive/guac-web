@@ -150,6 +150,14 @@ function ChannelPage(props){
 					setTab(1);
 					console.log(`replay tab`);
 				break;
+				case 'followers':
+					setTab(2);
+					console.log(`followers tab`);
+				break;
+				case 'following':
+					setTab(3);
+					console.log(`following tab`);
+				break;
 				// Failsafe
 				default:
 					setTab(0);
