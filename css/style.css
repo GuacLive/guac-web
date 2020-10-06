@@ -357,6 +357,7 @@ input:focus {
 
 .chat-message-time {
 	margin-right: .5rem;
+	font-variant-numeric: tabular-nums;
 }
 
 .chat-message-user {
