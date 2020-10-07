@@ -435,7 +435,7 @@ input:focus {
 }
 
 .chat-message-badges__badge[data-badge='patron'] {
-	background: var(--pink);
+	background: rgb(255, 66, 77);
 	color: var(--white);
 }
 
