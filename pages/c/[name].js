@@ -132,6 +132,7 @@ function ChannelPage(props){
 				props.channel.data.panels = props.channel.data.panels.filter(p => {
 					return p.panel_id !== panel_id;
 				})
+				dispatch(actions.fetchChannel(channel.data.name));
 			}
 		})
 		.catch(error => console.error(error));

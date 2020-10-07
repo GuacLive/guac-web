@@ -357,6 +357,7 @@ input:focus {
 
 .chat-message-time {
 	margin-right: .5rem;
+	font-variant-numeric: tabular-nums;
 }
 
 .chat-message-user {
@@ -434,7 +435,7 @@ input:focus {
 }
 
 .chat-message-badges__badge[data-badge='patron'] {
-	background: var(--pink);
+	background: rgb(255, 66, 77);
 	color: var(--white);
 }
 
@@ -633,4 +634,34 @@ html.theater-mode .site-component-channel__info .guac-btn {
 /* Settings */
 .settings-row:not(:first-child):not(.settings-row--focused) {
 	border-top: 1px solid rgba(255, 255, 255, .1);
+}
+
+/* Categories */
+.item-preview {
+    position: relative;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    overflow: hidden;
+    background-color: hsla(0,0%,100%,.08);
+    border-radius: 2px;
+}
+	
+.item-preview .GuacImage {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: -webkit-transform .4s;
+    transition: transform .4s;
+	transition: transform .4s,-webkit-transform .4s;
+	-webkit-transform-origin: center;
+    -ms-transform-origin: center;
+    transform-origin: center;
+}
+
+.item-preview .GuacImage:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
 }

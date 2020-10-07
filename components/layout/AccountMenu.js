@@ -83,6 +83,22 @@ function AccountMenu(props){
 						</>
 					}
 					{
+					(props.user)
+					&&
+						<li>
+							<Link href="/subscriptions">
+								<a className="flex items-center tw-relative pa2 relative w-100 link b hover-blue white ph3">
+									<div className="items-center flex flex-shrink-0 pr2">
+										<div className="items-center inline-flex">
+											<i className="fas fa-fw fa-star"></i>
+										</div>
+									</div>
+									<div className="flex-grow-1"><Trans>Subscriptions</Trans></div>
+								</a>
+							</Link>
+						</li> 
+					}
+					{
 					(props.user && (props.user.type === 'staff' || props.user.type === 'admin'))
 					&&
 						<li>
