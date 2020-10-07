@@ -30,16 +30,16 @@ class CategoriesPage extends Component {
 					<div className="site-component-categories flex flex-row flex-wrap w-100" style={{flexGrow: 1}}>
 					{categories.data && categories.data.map((category) => {
 						return (
-							<div className="site-component-categories_category w-33 pa2" key={`category_${category.category_id}`}>
-								<Link href={`/category/[id}`} href={`/category/${category.category_id}`}>
-									<a><Image src={`/img/categories/${category.category_id}.jpg`} className="w5 h5" shape="rounded" fit="cover" lazyload /></a>
-								</Link>
-								<div className="pa2">
-									<Link href={`/category/[id}`} href={`/category/${category.category_id}`}>
+							<Link href={`/category/[id}`} href={`/category/${category.category_id}`}>
+								<a className="site-component-categories_category flex flex-column flex-grow-0 flex-shrink-0 overflow-hidden w-20 pa2 no-underline" key={`category_${category.category_id}`}>
+									<div className="item-preview">
+										<Image src={`/img/categories/${category.category_id}.jpg`} className="w5 h5" shape="rounded" fit="cover" lazyload />
+									</div>
+									<div className="flex flex-grow-1 flex-shrink-1 pa2">
 										<a className="f3 db link green">{category.name}</a>
-									</Link>
-								</div>
-							</div>
+									</div>
+								</a>
+							</Link>
 						);
 					})}
 					</div>
