@@ -165,8 +165,11 @@ function IndexPage(props){
 				</div>
 			: null}
 			<div className="site-component-popular w-100 pa2 relative bg-black-20">
-				<h3 className="ma0 pa3"><Trans>Popular channels</Trans> <Link href="/channels"><a className="ml3 ph3 pv1 link primary-80 bg-black-30 20"><Trans>More</Trans> <small className="fa fa-chevron-right"></small></a></Link></h3>
+				<h3 className="ma0 pa3"><Trans>Popular live channels</Trans> <Link href="/channels"><a className="ml3 ph3 pv1 link primary-80 bg-black-30 20"><Trans>More</Trans> <small className="fa fa-chevron-right"></small></a></Link></h3>
 				{renderStreams(featured)}
+			</div>
+			<div className="site-component-popular w-100 pa2 relative">
+				<h3 className="ma0 pa3"><Trans>Popular categories</Trans> <Link href="/categories"><a className="ml3 ph3 pv1 link primary-80 bg-black-30 20"><Trans>More</Trans> <small className="fa fa-chevron-right"></small></a></Link></h3>
 			</div>
 			<ToggleFeature
 				flag='guacWelcome'
@@ -214,8 +217,11 @@ function IndexPage(props){
 IndexPage.getInitialProps = async ({store}) => {
 	// we can dispatch from here too
 	//store.dispatch({type: 'SET_FEATURED'});
-	const { channel, featured } = store.getState()
+	const { categories, featured } = store.getState()
 	console.log('featured1', featured);
+	if(categories.loading){
+		await store.dispatch(actions.fetchCategories());
+	}
 	if(featured.loading){
 		await store.dispatch(actions.fetchFeatured());
 	}
