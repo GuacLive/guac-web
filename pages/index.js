@@ -157,13 +157,13 @@ function IndexPage(props){
 	}*/
 	return (
 		<Fragment>
-			<div className="site-component-spotlight justify-center flex flex-row pa2 w-100">
-				{featured.statusCode == 200
+			{featured.statusCode == 200
 				&& featured.data
 				&& featured.data.length > 0
-				? renderTopStream(featured.data[0]) : null
-			}
-			</div>
+				? <div className="site-component-spotlight justify-center flex flex-row pa2 w-100">
+				{renderTopStream(featured.data[0]) }
+				</div>
+			: null}
 			<div className="site-component-popular w-100 pa2 relative bg-black-20">
 				<h3 className="ma0 pa3"><Trans>Popular channels</Trans> <Link href="/channels"><a className="ml3 ph3 pv1 link primary-80 bg-black-30 20"><Trans>More</Trans> <small className="fa fa-chevron-right"></small></a></Link></h3>
 				{renderStreams(featured)}
