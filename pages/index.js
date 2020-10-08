@@ -162,7 +162,7 @@ function IndexPage(props){
 						return (
 							<Link href={`/category/[id}`} href={`/category/${category.category_id}`}>
 								<a className="flex flex-column flex-grow-0 flex-shrink-0 overflow-hidden w5 pa2 no-underline" key={`category_${category.category_id}`}>
-									<div className="item-preview aspect-ratio aspect-ratio--16x9">
+									<div className="item-preview aspect-ratio aspect-ratio--16x9 z-1">
 										<Image src={category.cover ? category.cover : `/img/categories/${category.category_id}.jpg`} className="aspect-ratio--object" shape="rounded" fit="cover" lazyload />
 									</div>
 									<div className="flex flex-grow-1 flex-shrink-1 pa2">
