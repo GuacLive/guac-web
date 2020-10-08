@@ -251,9 +251,9 @@ IndexPage.getInitialProps = async ({store}) => {
 	//store.dispatch({type: 'SET_FEATURED'});
 	const { categories, featured } = store.getState()
 	console.log('featured1', featured);
-	if(categories.loading){
+	//if(categories.loading){
 		await store.dispatch(actions.fetchCategories());
-	}
+	//}
 	if(featured.loading){
 		await store.dispatch(actions.fetchFeatured());
 	}
