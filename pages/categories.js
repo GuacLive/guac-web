@@ -33,7 +33,7 @@ class CategoriesPage extends Component {
 							<Link href={`/category/[id}`} href={`/category/${category.category_id}`}>
 								<a className="site-component-categories_category flex flex-column flex-grow-0 flex-shrink-0 overflow-hidden w-20 pa2 no-underline" key={`category_${category.category_id}`}>
 									<div className="item-preview">
-										<Image src={`/img/categories/${category.category_id}.jpg`} className="w5 h5" shape="rounded" fit="cover" lazyload />
+										<Image src={category.cover ? category.cover : `/img/categories/${category.category_id}.jpg`} className="w5 h5" shape="rounded" fit="cover" lazyload />
 									</div>
 									<div className="flex flex-grow-1 flex-shrink-1 pa2">
 										<a className="f3 db link green">{category.name}</a>
