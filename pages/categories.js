@@ -36,7 +36,7 @@ class CategoriesPage extends Component {
 										<Image src={category.cover ? category.cover : `/img/categories/${category.category_id}.jpg`} className="aspect-ratio--object" shape="rounded" fit="cover" lazyload />
 									</div>
 									<div className="flex flex-grow-1 flex-shrink-1 pa2">
-										<a className="f3 db link green">{category.name}</a>
+										<a className="f3 db link green truncate">{category.name}</a>
 									</div>
 								</a>
 							</Link>
