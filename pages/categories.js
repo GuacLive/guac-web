@@ -12,9 +12,9 @@ import Image from '../components/Image';
 class CategoriesPage extends Component {
 	static async getInitialProps({store}) {
 		const { categories } = store.getState()
-		if(categories.loading){
+		//if(categories.loading){
 			await store.dispatch(actions.fetchCategories());
-		}
+		//}
 		return {
 			...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})
 		};
