@@ -13,8 +13,11 @@ import * as actions from '../actions';
 import { Trans } from '@lingui/macro'
 
 import Link from 'next/link';
+import Image from '../components/Image';
 
-import Chat from '../components/Chat';
+let Chat = dynamic(
+	() => import('../components/Chat')
+);
 
 let VideoPlayer = dynamic(
 	() => import('../components/VideoPlayer'),
@@ -148,8 +151,36 @@ function IndexPage(props){
 		return null
 	}
 
-	const {channel, featured} = props;
+	const renderCategories = (categories) => {
+		if(categories.statusCode == 200
+			&& categories.data
+			&& categories.data.length > 0){
+				categories.data = categories.data.slice(0, 5);
+			return (
+				<div className="w-100 flex flex-wrap">
+					{categories.data.map((category) => {
+						return (
+							<Link href={`/category/[id}`} href={`/category/${category.category_id}`}>
+								<a className="flex flex-column flex-grow-0 flex-shrink-0 overflow-hidden w5 pa2 no-underline" key={`category_${category.category_id}`}>
+									<div className="item-preview aspect-ratio aspect-ratio--16x9">
+										<Image src={category.cover ? category.cover : `/img/categories/${category.category_id}.jpg`} className="aspect-ratio--object" shape="rounded" fit="cover" lazyload />
+									</div>
+									<div className="flex flex-grow-1 flex-shrink-1 pa2">
+										<a className="f3 db link green truncate">{category.name}</a>
+									</div>
+								</a>
+							</Link>
+						);
+					})}
+				</div>
+			);
+		}
+		return null;
+	};
+
+	const {categories, channel, featured} = props;
 	if (featured.loading) return null;
+	if (categories.loading) return null;
 
 	/*if (channel.loading && featured.data && featured.data[0]) {
 		dispatch(actions.fetchChannel(featured.data[0].name));
@@ -170,6 +201,7 @@ function IndexPage(props){
 			</div>
 			<div className="site-component-popular w-100 pa2 relative">
 				<h3 className="ma0 pa3"><Trans>Popular categories</Trans> <Link href="/categories"><a className="ml3 ph3 pv1 link primary-80 bg-black-30 20"><Trans>More</Trans> <small className="fa fa-chevron-right"></small></a></Link></h3>
+				{renderCategories(categories)}
 			</div>
 			<ToggleFeature
 				flag='guacWelcome'
