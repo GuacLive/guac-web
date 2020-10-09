@@ -27,10 +27,6 @@ function UserCard(props) {
 console.log('UserCard props', props);
 	if(!props.user) return null;
 
-	let followed = myFollowed && myFollowed.find((u) => {
-		return u && u.to_id === props.user.id;
-	});
-
 	let msg = document &&
 		typeof document.querySelector === 'function' &&
 		document.querySelector(`[data-id="${props.msgID}"]`);
@@ -47,9 +43,6 @@ console.log('UserCard props', props);
 				<div className={`flex flex-column h-100 w-100 items-start flex-grow-1 content-start pa2 ba b--gray br2 ${props.darkMode ? 'bg-near-black' : 'bg-white'} ${props.darkMode ? 'near-white' : 'near-black'}`}>
 					<div className="inline-flex pr5">
 						<span className="line-clamp-2 break-word f4">{props.user.name}</span>
-					</div>
-					<div className="inline-flex pr5">
-						<span className="f5">{ followed ? <Trans>Following</Trans> : <Trans>Not following</Trans>}</span>
 					</div>
 					<div className="flex align-center mb2">
 						{
