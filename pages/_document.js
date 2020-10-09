@@ -50,6 +50,7 @@ export default class MyDocument extends Document {
 					<script type="text/javascript" dangerouslySetInnerHTML={{__html: quant}} nonce={nonce}></script>
 					<script type="text/javascript" dangerouslySetInnerHTML={{__html: event}} nonce={nonce}></script>
 					<script type="text/javascript" dangerouslySetInnerHTML={{__html: darkMode}} nonce={nonce}></script>
+					<script type="application/ld+json" dangerouslySetInnerHTML={{__html: '[{"@context":"http://schema.org","@graph":{"sameAs":["https://www.facebook.com/guaclive/","https://twitter.com/guaclive"],"@type":"Organization","@id":"https://guac.live/","name":"guac.live","url":"https://guac.live/"}}]'}}></script>
 					<style type="text/css" nonce={nonce} dangerouslySetInnerHTML={{__html: quantCSS}}></style>
 				</Head>
 				<body className="sans-serif">
