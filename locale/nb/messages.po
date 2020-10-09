@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: pages/index.js:184
+#: pages/index.js:216
 msgid "<0>Hi,<1/>Welcome to guac.live &mdash; live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 msgstr "<0>Hi,<1/>Velkommen til guac.live — direktestrømming-platformen. Vi er for tiden i beta.</0><2>Mens vi er i beta, så vil strømmeprivilegier bli gitt på invitasjonsbasis.<3/>Men, lag gjerne en konto og delta i chatten og det generelle fellesskapet!</2>"
 
@@ -25,7 +25,7 @@ msgstr "OM"
 msgid "Add panel"
 msgstr "Legg til panel"
 
-#: components/layout/AccountMenu.js:96
+#: components/layout/AccountMenu.js:112
 msgid "Admin"
 msgstr "Admin"
 
@@ -48,9 +48,17 @@ msgstr "Direktestrømmer:"
 #: components/layout/PageLayout.js:141
 #: components/layout/PageLayout.js:142
 #: components/layout/PageLayout.js:142
-#: pages/categories.js:29
+#: pages/categories.js:73
 msgid "Browse"
 msgstr "Utforsk"
+
+#: pages/category/[id].js:65
+msgid "Category"
+msgstr "Kategori"
+
+#: pages/category/[id].js:48
+msgid "Category not found"
+msgstr "Kategori ikke funnet"
 
 #: components/EditStreamPanel.js:60
 msgid "Category:"
@@ -83,7 +91,7 @@ msgstr "Chat-kommandoer:"
 msgid "Client error"
 msgstr "Klient-feil"
 
-#: components/Chat/UserCard.js:79
+#: components/Chat/UserCard.js:72
 msgid "Close"
 msgstr "Lukk"
 
@@ -236,7 +244,6 @@ msgstr "Fulgte kanaler"
 msgid "Followers:"
 msgstr "Følgere:"
 
-#: components/Chat/UserCard.js:52
 #: pages/c/[name].js:338
 msgid "Following"
 msgstr "Følger"
@@ -283,7 +290,7 @@ msgstr "Informasjon"
 msgid "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be &quot;repeat infringers&quot;. If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (&quot;DMCA&quot;) by providing Guac.live&#039;s Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
 msgstr "Det er vår policy å svare på klare merknader om påstått brudd på opphavsretten som er i samsvar med Digital Millennium Copyright Act. I tillegg vil vi straks avslutte uten varsel kontoene til de som bestemmes av oss å være &quot;gjentatte krenkere&quot;. Hvis du er opphavsrettseier eller en agent derav, og du tror at at innhold som ligger på nettstedet vårt (www.guac.live) krenker opphavsretten din, kan du sende inn et varsel i henhold til Digital Millennium Copyright Act (&quot;DMCA&quot;) ved å gi Guac.lives utpekte copyrightagent følgende informasjon skriftlig (vennligst kontakt din advokat eller se 17 USC Seksjon 512 (c) (3) for å bekrefte disse kravene):"
 
-#: pages/index.js:201
+#: pages/index.js:233
 msgid "Join"
 msgstr "Bli med"
 
@@ -310,7 +317,7 @@ msgstr "Laster..."
 msgid "Log in"
 msgstr "Logg inn"
 
-#: components/layout/AccountMenu.js:114
+#: components/layout/AccountMenu.js:130
 msgid "Log out"
 msgstr "Logg ut"
 
@@ -322,7 +329,7 @@ msgstr "Håndter"
 msgid "Manage your connected accounts and services"
 msgstr "Håndter din tilkoblede kontoer og tjenester"
 
-#: components/Chat/UserCard.js:69
+#: components/Chat/UserCard.js:62
 msgid "Mention"
 msgstr "Nevn"
 
@@ -330,8 +337,8 @@ msgstr "Nevn"
 msgid "Moderators in chat:"
 msgstr "Moderatorer i chat:"
 
-#: pages/index.js:168
-#: pages/index.js:172
+#: pages/index.js:199
+#: pages/index.js:203
 msgid "More"
 msgstr "Flere"
 
@@ -372,8 +379,8 @@ msgid "Not connected to chat."
 msgstr "Ikke tilkoblet chat."
 
 #: components/Chat/UserCard.js:52
-msgid "Not following"
-msgstr "Følger ikke"
+#~ msgid "Not following"
+#~ msgstr "Følger ikke"
 
 #: pages/dmca.js:12
 msgid "Notification of Infringement"
@@ -418,11 +425,11 @@ msgstr "Utesteng brukeren permanent"
 msgid "Pop-out chat"
 msgstr "Popp-ut chat"
 
-#: pages/index.js:172
+#: pages/index.js:203
 msgid "Popular categories"
 msgstr "Populære kategorier"
 
-#: pages/index.js:168
+#: pages/index.js:199
 msgid "Popular live channels"
 msgstr "Populære direkte kanaler"
 
@@ -560,6 +567,7 @@ msgstr ""
 msgid "Subscribe"
 msgstr "Abonnér"
 
+#: components/layout/AccountMenu.js:96
 #: pages/subscriptions.js:25
 msgid "Subscriptions"
 msgstr "Abonnementer"
@@ -676,7 +684,8 @@ msgstr "Verifiser"
 msgid "Want to customize your color? <0>Join our Patreon!</0>"
 msgstr "Vil du endre fargen din? <0>Join vår Patreon!</0>"
 
-#: pages/index.js:125
+#: pages/category/[id].js:94
+#: pages/index.js:128
 msgid "Watch"
 msgstr "Se"
 
@@ -684,7 +693,7 @@ msgstr "Se"
 msgid "We will review every reported user on a case-by-case basis, and give <0>warnings</0> or <1>temporary/permanent bans</1> depending on the severity of the case."
 msgstr "Vi vil gjennomgå alle rapporterte brukere fra sak til sak, og gi <0>advarsler</0> eller <1>midlertidige/permanente utestengelser</1> basert på alvorlighetsgraden til saken."
 
-#: pages/index.js:182
+#: pages/index.js:214
 msgid "Welcome to guac.live"
 msgstr "Velkommen til guac.live"
 
@@ -728,11 +737,15 @@ msgstr "har blitt utestengt fra dette nettstedet."
 #~ msgid "is live"
 #~ msgstr "sender direkte"
 
+#: pages/category/[id].js:88
+msgid "is playing"
+msgstr "spiller"
+
 #: pages/dashboard.js:134
 msgid "message"
 msgstr "melding"
 
-#: pages/index.js:97
+#: pages/index.js:100
 msgid "no streams are online"
 msgstr "ingen aktive direktesendinger"
 

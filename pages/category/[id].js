@@ -4,36 +4,48 @@ import {connect} from 'react-redux';
 
 import * as actions from '../../actions';
 
-import { Trans } from '@lingui/macro';
+import { Trans, t } from '@lingui/macro';
 
 import Link from 'next/link';
 
 import GuacButton from '../../components/GuacButton';
 import Image from '../../components/Image';
+import {i18n} from '@lingui/core';
 
+const API_URL = process.env.API_URL;
 class CategoryPage extends Component {
 	static async getInitialProps({store, query}) {
 		const { categories } = store.getState()
+		var category;
 		if(categories.loading){
 			await store.dispatch(actions.fetchCategories());
 		}
+		await fetch(API_URL + '/category', {
+			method: 'post',
+			Accept: 'application/json',
+			'Content-Type': 'application/json',
+			body: JSON.stringify({
+				category_id: query.id
+			})
+		})
+		.then(response => response.json())
+		.then(r => {
+			category = r;
+		});
 		await store.dispatch(actions.fetchChannels(1, query.id));
 		return {
 			...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {}),
-			category_id: query.id
+			category_id: query.id,
+			category
 		};
 	}
 
 	render() {
-		const { channels, category_id, categories } = this.props;
+		const { channels, category_id, category } = this.props;
 		if(channels.loading) return null;
-		let thisCategory = category_id
-		&& categories
-		&& categories.data
-		&& categories.data.filter((category) => {
-			return category.category_id == category_id;
-		});
+		let thisCategory = category && category.data;
 		console.log(thisCategory);
+		if(category && category.data && category.data.length === 0) return (<Trans>Category not found</Trans>);
 		return (
 			<Fragment>
 				<div className="w-100 pv3 ph3-l">
@@ -42,7 +54,7 @@ class CategoryPage extends Component {
 								'background': thisCategory[0] && thisCategory[0].cover ? `url(${thisCategory[0].cover})` : `url(/img/categories/${category_id}.jpg) no-repeat 100%`,
 								'backgroundPosition': '50%',
 								'backgroundRepeat': 'no-repeat',
-								'webkitMaskImage': 'linear-gradient(0deg,#0e0e10,rgba(14,14,16,.25)),linear-gradient(90deg,#0e0e10,rgba(14,14,16,.25))'
+								'WebkitMaskImage': 'linear-gradient(0deg,#0e0e10,rgba(14,14,16,.25)),linear-gradient(90deg,#0e0e10,rgba(14,14,16,.25))'
 							}}>
 						<h2 className="f2 tracked mt0 mb3">
 						{
@@ -50,7 +62,7 @@ class CategoryPage extends Component {
 							&& thisCategory[0]
 							?
 							thisCategory[0].name
-							: `Category ${category_id}`
+							: `${i18n._(t`Category`)}${category_id}`
 						}
 						</h2>
 					</div>
@@ -73,13 +85,13 @@ class CategoryPage extends Component {
 													<a className="link color-inherit b">{channel.name}</a>
 												</Link>
 												<br />
-												is playing&nbsp;
+												<Trans>is playing</Trans>&nbsp;
 												<Link href={`/category/${channel.category_id}`}>
 												<a className="link color-inherit b">{channel.category_name}</a>
 											</Link>
 										</p>
 									</span>
-									<GuacButton url={`/c/${channel.name}`} color="dark-green">Watch</GuacButton>
+									<GuacButton url={`/c/${channel.name}`} color="dark-green"><Trans>Watch</Trans></GuacButton>
 								</div>
 							</div>
 						);
