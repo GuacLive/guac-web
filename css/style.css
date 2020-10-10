@@ -278,7 +278,7 @@ input:focus {
 
 /* Frontpage spotlight */
 .site-component-spotlight>div {
-	padding: calc(var(--vh, 1vh) * 50 * .05) 0;
+	/*padding: calc(var(--vh, 1vh) * 50 * .05) 0;*/
 	
     flex: 0 0 100%;
     max-width: 100%;
