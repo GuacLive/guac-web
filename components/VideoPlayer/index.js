@@ -78,7 +78,7 @@ function VideoPlayer(props) {
 			suppressNotSupportedError: true,
 			plugins: {
 				chromecast: {
-					appId: '50E3A992',
+					appId: '9FCAFA48',
 					addButtonToControlBar: false, // Defaults to true
 				},
 				persistvolume: {
