@@ -277,8 +277,23 @@ input:focus {
 }
 
 /* Frontpage spotlight */
-.site-component-spotlight {
+.site-component-spotlight>div {
 	padding: calc(var(--vh, 1vh) * 50 * .05) 0;
+	
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+@media (min-width: 1904px) {
+	.site-component-spotlight>div {
+		flex: 0 0 66.6666666667%;
+		max-width: 66.6666666667%;
+	}
+}
+@media (min-width: 960px) {
+	.site-component-spotlight>div {
+    	flex: 0 0 83.3333333333%;
+		max-width: 83.3333333333%;
+	}
 }
 
 .site-component-spotlight>div {
