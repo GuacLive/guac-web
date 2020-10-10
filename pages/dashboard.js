@@ -25,6 +25,7 @@ class DashboardPage extends Component {
 
 	static async getInitialProps({store, isServer, pathname, query, req}){
 		const { streaming, channel, authentication } = store.getState()
+		await store.dispatch(actions.fetchCategories());
 		if(streaming.loading){
 			await store.dispatch(actions.fetchStreaming(authentication.token));
 		}
