@@ -3,7 +3,7 @@ import { Fragment, useState, useRef, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import useUpdateEffect from 'react-use/lib/useUpdateEffect';
 
-import io from 'socket.io-client/dist/socket.io';
+import io from 'socket.io-client/dist/socket.io.js';
 
 import SimpleBar from 'simplebar-react';
 
