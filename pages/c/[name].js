@@ -30,7 +30,7 @@ let VideoPlayer = dynamic(
 
 import {connect} from 'react-redux';
 
-import io from 'socket.io-client/dist/socket.io.js';
+import io from 'socket.io-client/dist/socket.io.slim';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

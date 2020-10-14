@@ -4,7 +4,7 @@ import 'videojs-errors';
 
 import {useLingui} from '@lingui/react';
 
-import io from 'socket.io-client/dist/socket.io.js';
+import io from 'socket.io-client/dist/socket.io.slim';
 
 import {useEffect,useState} from 'react';
 
