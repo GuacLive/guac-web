@@ -166,7 +166,7 @@ function IndexPage(props){
 										<Image src={category.cover ? category.cover : `/img/categories/${category.category_id}.jpg`} className="aspect-ratio--object" shape="rounded" fit="cover" lazyload />
 									</div>
 									<div className="flex flex-grow-1 flex-shrink-1 pa2">
-										<a className="f3 db link green truncate">{category.name}</a>
+										<span className="f3 db link green truncate">{category.name}</span>
 									</div>
 								</a>
 							</Link>

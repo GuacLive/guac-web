@@ -20,12 +20,10 @@ export async function activate(locale){
 	var catalog; 
 	try{
 		catalog =  await import(
-			/* webpackMode: "lazy", webpackChunkName: "locale/[request]" */
 			`../locale/${locale || 'en'}/messages.js`
 		);
 	}catch(e){
 		catalog = await import(
-			/* webpackMode: "lazy", webpackChunkName: "locale/[request]" */
 			`../locale/en/messages.js`
 		);
 	}

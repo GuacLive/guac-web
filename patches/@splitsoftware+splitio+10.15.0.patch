@@ -1,0 +1,15 @@
+diff --git a/node_modules/@splitsoftware/splitio/es/utils/settings/index.js b/node_modules/@splitsoftware/splitio/es/utils/settings/index.js
+index f5dc658..d9fc9db 100644
+--- a/node_modules/@splitsoftware/splitio/es/utils/settings/index.js
++++ b/node_modules/@splitsoftware/splitio/es/utils/settings/index.js
+@@ -24,8 +24,9 @@ import mode from './mode';
+ import validateSplitFilters from '../inputValidation/splitFilters';
+ import { API } from '../../utils/logger';
+ import { STANDALONE_MODE, STORAGE_MEMORY, CONSUMER_MODE, OPTIMIZED } from '../../utils/constants';
+-import { version } from '../../../package.json';
++import packageInfo from '../../../package.json';
+ import validImpressionsMode from './impressionsMode';
++const version = packageInfo.version;
+ var eventsEndpointMatcher = /^\/(testImpressions|metrics|events)/;
+ var authEndpointMatcher = /^\/auth/;
+ var streamingEndpointMatcher = /^\/(sse|event-stream)/;
