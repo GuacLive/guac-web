@@ -1,12 +1,12 @@
 import { useState, useRef } from 'react';
 
-import { NimblePicker } from 'emoji-mart';
+import { NimblePicker } from 'emoji-mart/dist-es/index';
 import twitterData from 'emoji-mart/data/twitter.json';
 
 import { useClickAway } from 'react-use';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-require('emoji-mart/css/emoji-mart.css');
+import 'emoji-mart/css/emoji-mart.css';
 
 function EmojiSelector(props){
 	const [isOpen, setIsOpen] = useState(false);

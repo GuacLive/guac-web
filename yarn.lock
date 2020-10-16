@@ -2121,6 +2121,14 @@
     "@babel/runtime" "^7.11.2"
     "@lingui/core" "3.0.0-18"
 
+"@module-federation/next-transpile-modules@^4.2.1":
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/@module-federation/next-transpile-modules/-/next-transpile-modules-4.2.1.tgz#e53467d62e8c65f3bbbdf75985f6aa33ecc945c3"
+  integrity sha512-FmvsznjxLyTh4pYW2gxeJaGO4CUb+pDWACPqUdlfFGYf1ly8kH/cvUg2IgL/LEJFPyRxdtIYUk2YMvdf2nBMrA==
+  dependencies:
+    micromatch "^4.0.2"
+    slash "^3.0.0"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
