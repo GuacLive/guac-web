@@ -10,6 +10,8 @@ import Spinner from 'react-svg-spinner';
 
 import Image from '../components/Image';
 
+import { debounce } from 'underscore';
+
 const API_URL = process.env.API_URL;
 function CategoriesPage(props) {
 	var categories = props.cat;
@@ -44,7 +46,7 @@ function CategoriesPage(props) {
     const loadMore = useCallback((entries) => {
         const target = entries[0];
         if (target.isIntersecting && nextCategories) {
-            !isFetching && fetchCategories()
+            !isFetching && debounce(fetchCategories, 500)
         }
     }, [isFetching, categories.data, fetchCategories]);
 
