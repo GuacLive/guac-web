@@ -51,7 +51,8 @@ export default class Image extends React.Component {
 
     renderImage = function() {
         var e = 'browser' === this.title,
-            r = this.props.fit && e && isObjectFitSupported;
+            r = this.props.fit && e && isObjectFitSupported,
+            isLoadingSupported = typeof HTMLImageElement !== 'undefined' && 'loading' in HTMLImageElement.prototype;
 
         return (this.props.flexible ?
             <div className={`GuacImage -flexible${this.props.shape ? ` -${this.props.shape}` : ''}`} data-emote-code={this.props['data-emote-code']}            >
@@ -68,7 +69,7 @@ export default class Image extends React.Component {
                     flexible={this.props.flexible}
                     sources={this.props.sources}
                     onError={this.onError}
-                    loading={this.props.lazyload ? 'lazy' : 'eager'}
+                    loading={isLoadingSupported && (this.props.lazyload ? 'lazy' : 'eager')}
                 />
             </div> :
             <SuperImage
@@ -84,7 +85,7 @@ export default class Image extends React.Component {
                 flexible={this.props.flexible}
                 sources={this.props.sources}
                 onError={this.onError}
-                loading={this.props.lazyload ? 'lazy' : 'eager'}
+                loading={isLoadingSupported && (this.props.lazyload ? 'lazy' : 'eager')}
             />
         );
     }
