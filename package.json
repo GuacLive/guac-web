@@ -1,6 +1,6 @@
 {
   "name": "guac-web",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "description": "Main web ui for the Guac livestreaming platform",
   "repository": "GuacLive/guac-web",
   "author": {
@@ -43,6 +43,7 @@
     "@guaclive/flv.js": "^1.7.2",
     "@lingui/core": "^3.0.0-12",
     "@lingui/react": "^3.0.0-12",
+    "@module-federation/next-transpile-modules": "^4.2.1",
     "@sentry/browser": "^5.15.5",
     "@sentry/node": "^5.15.5",
     "@sentry/webpack-plugin": "^1.13.0",

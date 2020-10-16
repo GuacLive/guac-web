@@ -1,6 +1,8 @@
 import { useState, useRef } from 'react';
 
-import ReactGiphySearchbox from 'react-giphy-searchbox';
+import { ReactGiphySearchbox } from 'react-giphy-searchbox/es/index';
+
+import 'react-giphy-searchbox/es/index.module.css';
 
 import { useClickAway } from 'react-use';
 
