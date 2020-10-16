@@ -17,8 +17,10 @@ import { Trans, t } from '@lingui/macro';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import EmojiSelector from './EmojiSelector';
-import GifSelector from './GifSelector';
+import dynamic from 'next/dynamic'
+
+const EmojiSelector = dynamic(() => import('./EmojiSelector'));
+const GifSelector = dynamic(() => import('./GifSelector'));
 import SettingsMenu from './SettingsMenu';
 import UserCard from './UserCard';
 

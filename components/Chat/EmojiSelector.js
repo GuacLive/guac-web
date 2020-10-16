@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 
-import { NimblePicker } from 'emoji-mart/dist-es/index';
+import { NimblePicker } from 'emoji-mart';
 import twitterData from 'emoji-mart/data/twitter.json';
 
 import { useClickAway } from 'react-use';
