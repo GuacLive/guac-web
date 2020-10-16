@@ -114,7 +114,8 @@
     "videojs-overlay": "^2.1.4",
     "videojs-record": "^4.0.0",
     "videojs-theater-mode": "^1.0.0",
-    "viewport-observer": "^2.3.0"
+    "viewport-observer": "^2.3.0",
+    "webpack": "^5.1.0"
   },
   "devDependencies": {
     "@lingui/cli": "^3.0.0-12",
