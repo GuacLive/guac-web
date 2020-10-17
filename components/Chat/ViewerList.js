@@ -38,7 +38,7 @@ function ViewerList(props){
 		return u && !u.anon && u.type !== 'staff' && (u.badges && u.badges[0] && u.badges[0].id !== 'moderator') && u.isPatron && !broadcaster.find((b) => u.id == b.id);
 	});
 	const usrs = users.filter((u) => {
-		return u && !u.anon && u.type !== 'staff' && (u.badges && u.badges[0] && u.badges[0].id !== 'moderator') && !u.isPatron && !broadcaster.find((b) => u.id == b.id);
+		return u && !u.anon && u.type !== 'staff' && (!u.badges || !u.badges[0] || u.badges[0].id !== 'moderator') && !u.isPatron && !broadcaster.find((b) => u.id == b.id);
 	});
 
 	return (
