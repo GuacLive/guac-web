@@ -871,7 +871,7 @@ function ChatComponent(props){
 			</>
 		);
 	return (
-		<div className={`w-100 ${!isOverlay && !isPopout && 'w-30-ns'} h-100 ${!isOverlay && !isPopout ? 'flex-l dn' : 'flex'} flex-column flex-grow-1 flex-shrink-1 flex-nowrap`}>	
+		<div className={`w-100 ${!isOverlay && !isPopout && 'w-30-ns'} h-100 flex flex-column flex-grow-1 flex-shrink-1 flex-nowrap`}>	
 			{
 				!isOverlay ?
 					(
@@ -879,7 +879,7 @@ function ChatComponent(props){
 							<div className={`${visible ? 'flex' : 'dn'} items-center primary`}>
 								<h5 className="f6 b ttu tracked"><Trans>Stream Chat</Trans></h5>
 							</div>
-							<div className={`absolute left-0 primary`} style={{
+							<div className={`absolute left-0 primary ${isPopout && 'dn'}`} style={{
 								'left': visible ? '0' : '-3.5rem',
 								'top': visible ? 'auto' : '1rem',
 								'zIndex': '2'
