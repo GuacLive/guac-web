@@ -42,8 +42,7 @@ import commands from './commands';
 import ViewerList from './ViewerList';
 
 var socket = null;
-var users = new Map();
-var me = null;
+
 var privileged = [];
 var hasPrivilege = false;
 const MAX_MESSAGE_LENGTH = 240;
@@ -67,7 +66,17 @@ function ChatComponent(props){
 
 	// CC0 public domain sound from http://www.freesound.org/people/pan14/sounds/263133/
 	const notificationSound = typeof Audio == 'undefined' ? null : new Audio();
+	
+	if(notificationSound){
+		notificationSound.src = '/sounds/notification.wav';
+		notificationSound.volume = 1;
+		notificationSound.muted = false;
+	}
 	  
+	const [users, setUsers] = useState(new Map());
+
+	const [me, setMe] = useState(null);
+
 	const goToBottom = useCallback(() => {
 		if(
 			lastMessageRef && lastMessageRef.current
@@ -203,10 +212,10 @@ function ChatComponent(props){
 			users.set(user.name, user);
 			if(typeof privileged !== 'object') return;
 			if(authentication.user && user.name === authentication.user.name){
-				me = authentication.user;
+				setMe(authentication.user);
 				if(
-					channel.data.user.name === me.name
-					|| (privileged && privileged.indexOf(me.id) > -1)
+					channel.data.user.name === authentication.user.name
+					|| (privileged && privileged.indexOf(authentication.user.id) > -1)
 				){
 					hasPrivilege = true;
 				}
@@ -282,7 +291,7 @@ function ChatComponent(props){
 		if(!user || !messages) return;
 		// Create new instance of urlembedder
 		// Use username as parameter because we also use this for highlighting
-		const embed = new UrlEmbedder(me && me.name ? me.name : null);
+		const embed = new UrlEmbedder(authentication.user && authentication.user.name ? authentication.user.name : null);
 
 		// Assume this is an emote-only  by default
 		let emoteOnly = true;
@@ -301,8 +310,8 @@ function ChatComponent(props){
 					// Text is found, set emoteOnly to false
 					if(emoteOnly && msg.content) emoteOnly = false;
 					// If me and not a hydrated message
-					if(me && me.name && !messages.time){
-						var USER_REGEX = new RegExp(`@${me.name}\\b`, 'gi');
+					if(authentication.user && authentication.user.name && !messages.time){
+						var USER_REGEX = new RegExp(`@${authentication.user.name}\\b`, 'gi');
 						if(notifySound){
 							if(USER_REGEX.test(msg.content.trim())){
 								if(notificationSound) notificationSound.play().then();
@@ -329,7 +338,7 @@ function ChatComponent(props){
 		// 3) The sender of the message does not have privileges
 		// 4) The sender of the message is not the broadcaster
 		let showModTools = hasPrivilege &&
-			(me && me.name !== user.name) &&
+			(authentication.user && authentication.user.name !== user.name) &&
 			(privileged && privileged.indexOf(user.id) === -1) &&
 			channel.data.user.id !== user.id;
 		entry = {
@@ -521,11 +530,10 @@ function ChatComponent(props){
 			privileged.push(channel.data.user.id);
 		}
 		// Set hasPrivilege
-		if(authentication.user){
-			me = authentication.user;
+		if(authentication.user){;
 			if(
-				channel.data.user.name === me.name
-				|| (privileged && privileged.indexOf(me.id) > -1)
+				channel.data.user.name === authentication.user.name
+				|| (privileged && privileged.indexOf(authentication.user.id) > -1)
 			){
 				hasPrivilege = true;
 			}
@@ -613,6 +621,9 @@ function ChatComponent(props){
 				socket.off('disconnect');
 				//socket.leave();
 				socket.disconnect();
+				//users = new Map();
+				privileged = [];
+				hasPrivilege = false;
 				setConnectedStatus(false);
 			}
 		};
@@ -622,14 +633,6 @@ function ChatComponent(props){
 	};
 	// If token or connected status changes, join with the new one
 	useEffect(connect, [authentication.token, connectedStatus]);
-
-	useEffect(() => {
-		if(notificationSound){
-			notificationSound.src = '/sounds/notification.wav';
-			notificationSound.volume = 1;
-			notificationSound.muted = false;
-		}
-	}, []);
 
 	const ChatInput = (
 		<>
