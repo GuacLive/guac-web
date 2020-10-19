@@ -1,8 +1,17 @@
 import processString from 'react-process-string';
 import Linkify from 'linkifyjs/react';
+
+import {
+	Tooltip
+} from 'react-tippy';
+
 function htmlDecode(input){
-	var doc = new DOMParser().parseFromString(input, "text/html");
-	return doc.documentElement.textContent;
+	try{
+		var doc = new DOMParser().parseFromString(input, 'text/html');
+		return doc.documentElement.textContent;
+	}catch(e){
+		return input;
+	}
 }
 export default class UrlEmbedder {
 	GIPHY_REGEX = /https?:\/\/(\?|media[0-9]{0,61}\.giphy\.com\/media\/([^ /\n]+)\/giphy\.gif|i\.giphy\.com\/([^ /\n]+)\.gif|giphy\.com\/gifs\/(?:.*-)?([^ /\n]+))/i
@@ -33,7 +42,20 @@ export default class UrlEmbedder {
 		// Giphy
 		let config = [{
             regex: self.GIPHY_REGEX,
-            fn: (key, result) => <img key={key} src={result[0]} alt="GIF from Giphy" title="GIF from Giphy" className="flex mw5 mt1" />
+            fn: (key, result) => {
+				return (
+					<Tooltip
+						// options
+						title={`GIF from Giphy`}
+						position="top"
+						trigger="mouseenter"
+						className="mw5 mt1"
+						style={{display: 'flex !important'}}
+					>
+						<img key={key} src={result[0]} alt="GIF from Giphy" className="flex mw5" />
+					</Tooltip>
+				);
+			}
 		},
 		{
             regex: USER_REGEX,
