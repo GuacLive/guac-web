@@ -113,6 +113,9 @@ class AdminStreamPage extends Component {
 											let stream = d[0];
 											let publisher = d[1] && d[1].publisher;
 											let subscribers = [];
+											if(!stream || !publisher){
+												return (null);
+											}
 											if(d[1] && d[1].subscribers){
 												subscribers = d[1].subscribers.filter((sub) => {
 													// Ignore clients that are likely to be FFMPEG transcoding processes

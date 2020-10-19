@@ -298,18 +298,20 @@ function ChannelPage(props){
 				>
 					<div className="flex content-between">
 						<div className="items-start flex flex-grow-1 flex-shrink-1 justify-start pa3">
-							<div className="justify-center items-center flex-shrink-0">
-								<Image
-									src={stream.user.avatar || '//api.guac.live/avatars/unknown.png'}
-									alt={stream.name}
-									shape="squircle"
-									fit="cover"
-									className={`ba ${+stream.live ? 'b--red' : 'b--transparent'} v-mid w3 h3`}
-								/>
-							</div>
+							<Link href="/c/[name]" as={`/c/${stream.user.name}`}>
+								<a className="justify-center items-center flex-shrink-0">
+									<Image
+										src={stream.user.avatar || '//api.guac.live/avatars/unknown.png'}
+										alt={stream.name}
+										shape="squircle"
+										fit="cover"
+										className={`ba ${+stream.live ? 'b--red' : 'b--transparent'} v-mid w3 h3`}
+									/>
+								</a>
+							</Link>
 							<div className="ml2">
 								<h2 className='f3 tracked ma0 dib primary items-center flex'>
-									{stream.user.name}
+									<Link href="/c/[name]" as={`/c/${stream.user.name}`}><a className="primary link">{stream.user.name}</a></Link>
 									{stream.type == 'PARTNER' &&
 										<Tooltip
 											// options
