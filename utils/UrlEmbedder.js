@@ -13,6 +13,7 @@ function htmlDecode(input){
 		return input;
 	}
 }
+
 export default class UrlEmbedder {
 	GIPHY_REGEX = /https?:\/\/(\?|media[0-9]{0,61}\.giphy\.com\/media\/([^ /\n]+)\/giphy\.gif|i\.giphy\.com\/([^ /\n]+)\.gif|giphy\.com\/gifs\/(?:.*-)?([^ /\n]+))/i
 	YOUTUBE_REGEX = /(https?:\/\/)?(www.)?(youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/watch\?feature=player_embedded&v=)([A-Za-z0-9_-]*)(&\S+)?(\?\S+)?/
@@ -21,18 +22,16 @@ export default class UrlEmbedder {
 		this.username = username;
 	}
 
-    resolveYoutubeUrl(url) {
-        const videoId = YOUTUBE_REGEX.exec(url);
-
-        return videoId && videoId.length > 1 ?
-            `https://www.youtube.com/embed/${videoId[1]}?autoplay=1&loop=1&controls=2&rel=0` :
-            `${url}?autoplay=1&loop=1&controls=2&rel=0`
+    resolveYoutubeUrl(videoId) {
+        return videoId && videoId.length > 3 ?
+            `https://www.youtube.com/embed/${videoId[4]}?autoplay=0&loop=0&controls=2&rel=0` :
+            ''
     }
 
-    resolveYoutubeThumbnail(url) {
-        const videoId = YOUTUBE_REGEX.exec(url);
-
-        return videoId ? `https://img.youtube.com/vi/${videoId[1]}/hqdefault.jpg` : '';
+    resolveYoutubeThumbnail(videoId) {
+		return videoId && videoId.length > 3 ? 
+			`https://img.youtube.com/vi/${videoId[4]}/hqdefault.jpg` :
+			''
 	}
 
 	format(str){
@@ -54,6 +53,16 @@ export default class UrlEmbedder {
 					>
 						<img key={key} src={result[0]} alt="GIF from Giphy" className="flex mw5" />
 					</Tooltip>
+				);
+			}
+		},
+		{
+            regex: self.YOUTUBE_REGEX,
+            fn: (key, result) => {
+				return (
+					<div className="aspect-ratio aspect-ratio--16x9 mt1">
+						<iframe src={this.resolveYoutubeUrl(result)} className="aspect-ratio--object" frameBorder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowFullScreen={true}></iframe>
+				  	</div>
 				);
 			}
 		},
