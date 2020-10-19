@@ -15,8 +15,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import prettyMilliseconds from 'pretty-ms';
 import {
 	Tooltip,
-  } from 'react-tippy';
-import Chat from 'components/Chat'
+  } from 'react-tippy'
+  ;
+let Chat = dynamic(
+	() => /* webpackChunkName: 'Chat' */import('components/Chat')
+);
 
 import GuacButton from 'components/GuacButton'
 
@@ -66,6 +69,7 @@ function ChannelPage(props){
 	const [showModal, setShowModal] = useState(false);
 	const [showSub, setShowSub] = useState(false);
 	const [editPanelState, showEditPanel] = useState(false);
+	const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' && window.matchMedia ? window.matchMedia('screen and (max-width: 30em)').matches : false);
 
 	const newPanelTitle = useRef('');
 	const newPanelDescription = useRef('');
@@ -79,10 +83,29 @@ function ChannelPage(props){
 
 	const channel = useSelector(state => state.channel);
 	const site = useSelector(state => state.site);
-
+	
 	let isMe = (authentication.user && authentication.user.id )
 		&& 
 		(channel.data && channel.data.user && channel.data.user.id === authentication.user.id);
+
+	useEffect(() => {
+		if(typeof window !== 'undefined' && window.matchMedia){
+			window.matchMedia('screen and (max-width: 30em)').addEventListener('change', (e) => {
+				setIsMobile(e.matches)
+			});
+		}
+	}, []);
+
+	useEffect(() => {
+		// If chat tab is NOT open, and we hitting mobile breakpoint, change tab
+		if(isMobile && tab === 0){
+			setTab(-1);
+		}
+		// If chat tab is open, and we are no longer hitting mobile breakpoint, change tab
+		if(!isMobile && tab === -1){
+			setTab(0);
+		}
+	}, [isMobile])
 
 	const addPanel = async (title, description) => {
 		console.log('addPanel', title, description, newPanelTitle, newPanelDescription);
@@ -296,7 +319,7 @@ function ChannelPage(props){
 						if (e && e.target) e.target.classList.remove('active');
 					}}
 				>
-					<div className="flex content-between">
+					<div className="dn flex-ns content-between">
 						<div className="items-start flex flex-grow-1 flex-shrink-1 justify-start pa3">
 							<Link href="/c/[name]" as={`/c/${stream.user.name}`}>
 								<a className="justify-center items-center flex-shrink-0">
@@ -404,6 +427,15 @@ function ChannelPage(props){
 				<div className="site-component-profile__tabs flex items-center" style={{height:'48px'}}>
 					<a 
 						href="#"
+						onClick={(e) => {setTab(-1);e&&e.preventDefault();return true;}}
+						className={
+							`${isMobile ? 'flex' : 'dn'} items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == -1 ? 'primary b--gray' : 'gray b--transparent'} hover-primary link`
+						}
+					>
+						<span><Trans>CHAT</Trans></span>
+					</a>
+					<a 
+						href="#"
 						onClick={(e) => {setTab(0);e&&e.preventDefault();return true;}}
 						className={
 							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 0 ? 'primary b--gray' : 'gray b--transparent'} hover-primary link`
@@ -439,6 +471,12 @@ function ChannelPage(props){
 						<span><Trans>FOLLOWING</Trans></span>
 					</a>
 				</div>
+				{
+					tab == -1 &&
+					<div className="site-component-mobile-chat flex flex-column w-100">
+						<Chat channel={channel.data.name} popout={true} />
+					</div>
+				}
 				{
 					tab == 0 &&
 					<div className="site-component-panels flex flex-wrap justify-center w-100">
@@ -624,7 +662,7 @@ function ChannelPage(props){
 					);
 				})}
 			</NextHead>
-			<div className="w-100 min-vh-100 flex flex-nowrap black">			
+			<div className={`w-100 ${isMobile ? 'vh-100 max-vh-100' : 'min-vh-100'} flex flex-nowrap black`}>			
 				<div className="site-component-channel w-100 w-70-ns h-100 flex flex-column flex-grow-1 overflow-hidden relative">
 						{
 						channel 
@@ -642,17 +680,17 @@ function ChannelPage(props){
 				</div>
 				<aside className="site-component-chat flex flex-nowrap">
 					{
-						channel
+						(channel
 						&&
 						channel.data
 						&&
 						channel.data.user
 						&&
-						channel.data.user.banned
+						channel.data.user.banned)
 						?
 						null
 						:
-						<Chat channel={channel.data.name} />
+						!isMobile && <Chat channel={channel.data.name} />
 					}
 				</aside>
 			</div>
