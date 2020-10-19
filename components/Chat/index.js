@@ -17,7 +17,11 @@ import { Trans, t } from '@lingui/macro';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import dynamic from 'next/dynamic'
+import {
+	Tooltip
+} from 'react-tippy'
+
+import dynamic from 'next/dynamic';
 
 const EmojiSelector = dynamic(() => import('./EmojiSelector'));
 const GifSelector = dynamic(() => import('./GifSelector'));
@@ -304,7 +308,17 @@ function ChatComponent(props){
 					if(Object.keys(emotes).indexOf(msg.content) == -1) return null;
 					let emote = emotes[msg.content];
 					return (
-						<Fragment key={'c-' + i + '-' + (new Date).getTime()}><Image className="chat-message-content__emote dib" data-emote-code={msg.content} src={emote.url} alt={'Emote: ' + msg.content} title={msg.content + ' by ' + emote.provider} />{i !== messages.length -1 && '\u00A0'}</Fragment>
+						<Fragment key={'c-' + i + '-' + (new Date).getTime()}>
+							<Tooltip
+								// options
+								title={`${msg.content} ${i18n._(t`by`)} ${emote.provider}`}
+								position="top"
+								trigger="mouseenter"
+							>
+							<Image className="chat-message-content__emote dib" data-emote-code={msg.content} src={emote.url} alt={'Emote: ' + msg.content} />
+							</Tooltip>
+							{i !== messages.length -1 && '\u00A0'}
+						</Fragment>
 					);
 				case 'text':
 					// Text is found, set emoteOnly to false
@@ -360,21 +374,27 @@ function ChatComponent(props){
 							user.badges &&
 							user.badges.map((badge) => {
 								return (
-									<span 
-										className="chat-message-badges__badge"
-										data-badge={badge.id}
+									<Tooltip
+										// options
 										title={badge.label}
+										position="top"
+										trigger="mouseenter"
 										key={'b-' + user.id + '-' + badge.id + (new Date).getTime()}
-										onClick={() => {
-											if(badge.url){
-												if(typeof window !== 'undefined'){
-													window.open(badge.url, '_ blank');
-												}
-											}
-										}}
-										style={{'cursor': badge.url ? 'pointer' : 'default'}}
 									>
-									</span>
+										<span
+											className="chat-message-badges__badge"
+											data-badge={badge.id}
+											onClick={() => {
+												if(badge.url){
+													if(typeof window !== 'undefined'){
+														window.open(badge.url, '_ blank');
+													}
+												}
+											}}
+											style={{'cursor': badge.url ? 'pointer' : 'default'}}
+										>
+										</span>
+									</Tooltip>
 								);
 							})
 						}
