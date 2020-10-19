@@ -20,24 +20,24 @@ function ViewerList(props){
 		setIsOpen(!isOpen);
 	};
 
-	const users = [...props.users].map((args) => {
+	var users = [...props.users].map((args) => {
 		let user = args[1];
 		return user;
 	});
 
-	const broadcaster = users.filter((u) => {
+	var broadcaster = users.filter((u) => {
 		return u && u.badges && u.badges[0] && u.badges[0].id === 'broadcaster';
 	});
-	const staff = users.filter((u) => {
+	var staff = users.filter((u) => {
 		return u && u.type && u.type === 'staff' && !broadcaster.find((b) => u.id == b.id);
 	});
-	const mods = users.filter((u) => {
+	var mods = users.filter((u) => {
 		return u && u.type && u.type !== 'staff' && (u.badges && u.badges[0] && u.badges[0].id === 'moderator') && !broadcaster.find((b) => u.id == b.id);
 	});
-	const supporters = users.filter((u) => {
+	var supporters = users.filter((u) => {
 		return u && !u.anon && u.type !== 'staff' && (u.badges && u.badges[0] && u.badges[0].id !== 'moderator') && u.isPatron && !broadcaster.find((b) => u.id == b.id);
 	});
-	const usrs = users.filter((u) => {
+	var usrs = users.filter((u) => {
 		return u && !u.anon && u.type !== 'staff' && (!u.badges || !u.badges[0] || u.badges[0].id !== 'moderator') && !u.isPatron && !broadcaster.find((b) => u.id == b.id);
 	});
 
