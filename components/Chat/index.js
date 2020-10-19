@@ -314,7 +314,10 @@ function ChatComponent(props){
 						var USER_REGEX = new RegExp(`@${authentication.user.name}\\b`, 'gi');
 						if(notifySound){
 							if(USER_REGEX.test(msg.content.trim())){
-								if(notificationSound) notificationSound.play().then();
+								if(notificationSound){
+									notificationSound.currentTime = 0;
+									notificationSound.play().then();
+								}
 							}
 						}
 					}
