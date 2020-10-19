@@ -56,6 +56,8 @@ Sentry.init({
 		/127\.0\.0\.1:4001\/isrunning/i, // Cacaoweb
 		/webappstoolbarba\.texthelp\.com\//i,
 		/metrics\.itunes\.apple\.com\.edgesuite\.net\//i,
+		// Remove errors from vercel subdomain (these are preview deployments)
+		/.vercel\.app/i
 	  ],	
 });
 
