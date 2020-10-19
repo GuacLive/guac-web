@@ -652,7 +652,7 @@ function ChannelPage(props){
 						?
 						null
 						:
-						(<Chat channel={channel.data.name} />)
+						<Chat channel={channel.data.name} />
 					}
 				</aside>
 			</div>
