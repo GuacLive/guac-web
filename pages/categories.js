@@ -46,7 +46,7 @@ function CategoriesPage(props) {
     const loadMore = useCallback((entries) => {
         const target = entries[0];
         if (target.isIntersecting && nextCategories) {
-            !isFetching && debounce(fetchCategories, 1000)
+            !isFetching && debounce(fetchCategories, 700)()
         }
     }, [isFetching, categories.data, fetchCategories]);
 

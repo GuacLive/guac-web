@@ -1,0 +1,103 @@
+diff --git a/node_modules/@lingui/core/LICENSE b/node_modules/@lingui/core/LICENSE
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/README.md b/node_modules/@lingui/core/README.md
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/cjs/context.d.ts b/node_modules/@lingui/core/cjs/context.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/cjs/context.d.ts.map b/node_modules/@lingui/core/cjs/context.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/cjs/core.development.js b/node_modules/@lingui/core/cjs/core.development.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/cjs/core.development.js.map b/node_modules/@lingui/core/cjs/core.development.js.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/cjs/core.production.min.js b/node_modules/@lingui/core/cjs/core.production.min.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/cjs/core.production.min.js.map b/node_modules/@lingui/core/cjs/core.production.min.js.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/cjs/dev.development.js b/node_modules/@lingui/core/cjs/dev.development.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/cjs/dev.development.js.map b/node_modules/@lingui/core/cjs/dev.development.js.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/cjs/dev.production.min.js b/node_modules/@lingui/core/cjs/dev.production.min.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/cjs/dev.production.min.js.map b/node_modules/@lingui/core/cjs/dev.production.min.js.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/cjs/dev/compile.d.ts b/node_modules/@lingui/core/cjs/dev/compile.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/cjs/dev/compile.d.ts.map b/node_modules/@lingui/core/cjs/dev/compile.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/cjs/dev/index.d.ts b/node_modules/@lingui/core/cjs/dev/index.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/cjs/dev/index.d.ts.map b/node_modules/@lingui/core/cjs/dev/index.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/cjs/dev/loadLocaleData.d.ts b/node_modules/@lingui/core/cjs/dev/loadLocaleData.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/cjs/dev/loadLocaleData.d.ts.map b/node_modules/@lingui/core/cjs/dev/loadLocaleData.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/cjs/essentials.d.ts b/node_modules/@lingui/core/cjs/essentials.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/cjs/essentials.d.ts.map b/node_modules/@lingui/core/cjs/essentials.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/cjs/eventEmitter.d.ts b/node_modules/@lingui/core/cjs/eventEmitter.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/cjs/eventEmitter.d.ts.map b/node_modules/@lingui/core/cjs/eventEmitter.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/cjs/formats.d.ts b/node_modules/@lingui/core/cjs/formats.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/cjs/formats.d.ts.map b/node_modules/@lingui/core/cjs/formats.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/cjs/i18n.d.ts b/node_modules/@lingui/core/cjs/i18n.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/cjs/i18n.d.ts.map b/node_modules/@lingui/core/cjs/i18n.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/cjs/index.d.ts b/node_modules/@lingui/core/cjs/index.d.ts
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/cjs/index.d.ts.map b/node_modules/@lingui/core/cjs/index.d.ts.map
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/esm/index.js b/node_modules/@lingui/core/esm/index.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@lingui/core/index.js b/node_modules/@lingui/core/index.js
+old mode 100644
+new mode 100755
+index 41e3842..52b9a14
+--- a/node_modules/@lingui/core/index.js
++++ b/node_modules/@lingui/core/index.js
+@@ -1,5 +1,7 @@
++var core;
+ if (process.env.NODE_ENV === "production") {
+-  module.exports = require("./cjs/core.production.min.js")
++   core = require("./cjs/core.production.min.js")
+ } else {
+-  module.exports = require("./cjs/core.development.js")
++   core = require("./cjs/core.development.js")
+ }
++export default core;
