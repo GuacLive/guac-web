@@ -13,12 +13,12 @@ class DMCAPage extends Component {
 				<p><Trans>It is our policy to respond to clear notices of
 	alleged copyright infringement that comply with the Digital Millennium
 	Copyright Act. In addition, we will promptly terminate without notice
-	the accounts of those determined by us to be &quot;repeat
-	infringers&quot;. If you are a copyright owner or an agent thereof, and
+	the accounts of those determined by us to be "repeat
+	infringers". If you are a copyright owner or an agent thereof, and
 	you believe that any content hosted on our web site
 	(www.guac.live) infringes your copyrights, then you may submit a
 	notification pursuant to the Digital Millennium Copyright Act
-	(&quot;DMCA&quot;) by providing Guac.live&#039;s Designated
+	("DMCA") by providing Guac.lives Designated
 	Copyright Agent with the following information in writing (please
 	consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to
 	confirm these requirements):</Trans></p>

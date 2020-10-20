@@ -21,11 +21,11 @@ msgstr "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are curre
 #~ msgid "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 #~ msgstr "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 
-#: pages/c/[name].js:410
+#: pages/c/[name].js:444
 msgid "ABOUT"
 msgstr "ABOUT"
 
-#: pages/c/[name].js:475
+#: pages/c/[name].js:515
 msgid "Add panel"
 msgstr "Add panel"
 
@@ -33,7 +33,7 @@ msgstr "Add panel"
 msgid "Admin"
 msgstr "Admin"
 
-#: pages/dashboard.js:121
+#: pages/dashboard.js:122
 msgid "At last, make sure keyframe interval is set to <0>1</0>."
 msgstr "At last, make sure keyframe interval is set to <0>1</0>."
 
@@ -52,9 +52,13 @@ msgstr "Broadcaster:"
 #: components/layout/PageLayout.js:141
 #: components/layout/PageLayout.js:142
 #: components/layout/PageLayout.js:142
-#: pages/categories.js:73
+#: pages/categories.js:75
 msgid "Browse"
 msgstr "Browse"
+
+#: pages/c/[name].js:435
+msgid "CHAT"
+msgstr "CHAT"
 
 #: pages/category/[id].js:65
 msgid "Category"
@@ -72,7 +76,7 @@ msgstr "Category:"
 msgid "Channel"
 msgstr "Channel"
 
-#: pages/c/[name].js:580
+#: pages/c/[name].js:620
 msgid "Channel not found"
 msgstr "Channel not found"
 
@@ -87,7 +91,7 @@ msgstr "Channels"
 #~ msgid "Chat Paused Due To Scroll"
 #~ msgstr "Chat Paused Due To Scroll"
 
-#: pages/dashboard.js:126
+#: pages/dashboard.js:127
 msgid "Chat commands:"
 msgstr "Chat commands:"
 
@@ -99,7 +103,7 @@ msgstr "Client error"
 msgid "Close"
 msgstr "Close"
 
-#: components/Chat/index.js:887
+#: components/Chat/index.js:915
 msgid "Collapse"
 msgstr "Collapse"
 
@@ -129,7 +133,7 @@ msgstr "Copyrighted Content"
 msgid "Counter-Notification"
 msgstr "Counter-Notification"
 
-#: pages/c/[name].js:345
+#: pages/c/[name].js:370
 msgid "Create an account to follow this user"
 msgstr "Create an account to follow this user"
 
@@ -145,14 +149,14 @@ msgstr "Dark Mode"
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: pages/c/[name].js:496
+#: pages/c/[name].js:536
 msgid "Delete"
 msgstr "Delete"
 
-#: pages/c/[name].js:472
-#: pages/c/[name].js:473
-#: pages/c/[name].js:493
-#: pages/c/[name].js:494
+#: pages/c/[name].js:512
+#: pages/c/[name].js:513
+#: pages/c/[name].js:533
+#: pages/c/[name].js:534
 msgid "Description"
 msgstr "Description"
 
@@ -185,11 +189,11 @@ msgstr "E-mail"
 #~ msgid "Edit"
 #~ msgstr "Edit"
 
-#: pages/c/[name].js:499
+#: pages/c/[name].js:539
 msgid "Edit panel"
 msgstr "Edit panel"
 
-#: pages/c/[name].js:455
+#: pages/c/[name].js:495
 msgid "Edit panels"
 msgstr "Edit panels"
 
@@ -211,15 +215,15 @@ msgstr "English"
 msgid "Error"
 msgstr "Error"
 
-#: components/Chat/index.js:887
+#: components/Chat/index.js:915
 msgid "Expand"
 msgstr "Expand"
 
-#: pages/c/[name].js:428
+#: pages/c/[name].js:462
 msgid "FOLLOWERS"
 msgstr "FOLLOWERS"
 
-#: pages/c/[name].js:437
+#: pages/c/[name].js:471
 msgid "FOLLOWING"
 msgstr "FOLLOWING"
 
@@ -227,12 +231,12 @@ msgstr "FOLLOWING"
 msgid "Failed to verify"
 msgstr "Failed to verify"
 
-#: pages/dashboard.js:110
+#: pages/dashboard.js:111
 msgid "First, choose the streaming server closest to you:"
 msgstr "First, choose the streaming server closest to you:"
 
-#: pages/c/[name].js:339
-#: pages/c/[name].js:351
+#: pages/c/[name].js:364
+#: pages/c/[name].js:376
 msgid "Follow"
 msgstr "Follow"
 
@@ -256,7 +260,7 @@ msgstr "Followed Channels"
 msgid "Followers:"
 msgstr "Followers:"
 
-#: pages/c/[name].js:338
+#: pages/c/[name].js:363
 msgid "Following"
 msgstr "Following"
 
@@ -280,7 +284,7 @@ msgstr "Forgot your password?"
 #~ msgid "Games"
 #~ msgstr "Games"
 
-#: pages/dashboard.js:107
+#: pages/dashboard.js:108
 msgid "Get started with streaming"
 msgstr "Get started with streaming"
 
@@ -307,8 +311,12 @@ msgstr "Information"
 #~ msgstr "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be \"repeat infringers\". If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (\"DMCA\") by providing Guac.live's Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
 
 #: pages/dmca.js:13
-msgid "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be &quot;repeat infringers&quot;. If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (&quot;DMCA&quot;) by providing Guac.live&#039;s Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
-msgstr "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be &quot;repeat infringers&quot;. If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (&quot;DMCA&quot;) by providing Guac.live&#039;s Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
+msgid "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be \"repeat infringers\". If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (\"DMCA\") by providing Guac.lives Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
+msgstr "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be \"repeat infringers\". If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (\"DMCA\") by providing Guac.lives Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
+
+#: pages/dmca.js:13
+#~ msgid "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be &quot;repeat infringers&quot;. If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (&quot;DMCA&quot;) by providing Guac.live&#039;s Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
+#~ msgstr "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be &quot;repeat infringers&quot;. If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (&quot;DMCA&quot;) by providing Guac.live&#039;s Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
 
 #: pages/index.js:233
 msgid "Join"
@@ -322,9 +330,9 @@ msgstr "Length:"
 #~ msgid "Live streams"
 #~ msgstr "Live streams"
 
-#: components/Chat/index.js:641
+#: components/Chat/index.js:669
 #: components/Search/SearchBar.js:81
-#: pages/c/[name].js:579
+#: pages/c/[name].js:619
 msgid "Loading..."
 msgstr "Loading..."
 
@@ -362,7 +370,7 @@ msgstr "Moderators in chat:"
 msgid "More"
 msgstr "More"
 
-#: components/Chat/index.js:923
+#: components/Chat/index.js:951
 msgid "More messages below."
 msgstr "More messages below."
 
@@ -386,7 +394,7 @@ msgstr "No replays available."
 msgid "No stream title"
 msgstr "No stream title"
 
-#: pages/dashboard.js:118
+#: pages/dashboard.js:119
 msgid "No streaming key found, please contact an admin."
 msgstr "No streaming key found, please contact an admin."
 
@@ -394,7 +402,7 @@ msgstr "No streaming key found, please contact an admin."
 msgid "Norwegian"
 msgstr "Norwegian"
 
-#: components/Chat/index.js:852
+#: components/Chat/index.js:880
 msgid "Not connected to chat."
 msgstr "Not connected to chat."
 
@@ -406,7 +414,7 @@ msgstr "Not connected to chat."
 msgid "Notification of Infringement"
 msgstr "Notification of Infringement"
 
-#: pages/dashboard.js:118
+#: pages/dashboard.js:119
 msgid "Now, use the following stream key:"
 msgstr "Now, use the following stream key:"
 
@@ -419,7 +427,7 @@ msgstr "Page"
 msgid "Page not found"
 msgstr "Page not found"
 
-#: pages/c/[name].js:316
+#: pages/c/[name].js:341
 msgid "Partnered"
 msgstr "Partnered"
 
@@ -437,7 +445,7 @@ msgstr "Patreon Status: Not a Patron"
 msgid "Patreon supporters:"
 msgstr "Patreon supporters:"
 
-#: pages/dashboard.js:134
+#: pages/dashboard.js:135
 msgid "Permanently ban user"
 msgstr "Permanently ban user"
 
@@ -485,15 +493,15 @@ msgstr "Private (don't show in categories, frontpage or search):"
 msgid "Profile"
 msgstr "Profile"
 
-#: pages/c/[name].js:419
+#: pages/c/[name].js:453
 msgid "REPLAYS"
 msgstr "REPLAYS"
 
-#: pages/c/[name].js:564
+#: pages/c/[name].js:604
 msgid "Reason"
 msgstr "Reason"
 
-#: components/Chat/index.js:853
+#: components/Chat/index.js:881
 msgid "Reconnect"
 msgstr "Reconnect"
 
@@ -505,7 +513,7 @@ msgstr "Remember me"
 msgid "Search..."
 msgstr "Search..."
 
-#: components/Chat/index.js:637
+#: components/Chat/index.js:665
 msgid "Send a message"
 msgstr "Send a message"
 
@@ -523,7 +531,7 @@ msgstr "Server error"
 msgid "Settings"
 msgstr "Settings"
 
-#: pages/dashboard.js:128
+#: pages/dashboard.js:129
 msgid "Show help command"
 msgstr "Show help command"
 
@@ -531,7 +539,7 @@ msgstr "Show help command"
 msgid "Show only live"
 msgstr "Show only live"
 
-#: pages/dashboard.js:129
+#: pages/dashboard.js:130
 msgid "Show user list"
 msgstr "Show user list"
 
@@ -559,7 +567,7 @@ msgstr "Start date:"
 msgid "Start following your favorite streamers to find them quickly!"
 msgstr "Start following your favorite streamers to find them quickly!"
 
-#: components/Chat/index.js:872
+#: components/Chat/index.js:900
 msgid "Stream Chat"
 msgstr "Stream Chat"
 
@@ -567,11 +575,11 @@ msgstr "Stream Chat"
 msgid "Stream Manager"
 msgstr "Stream Manager"
 
-#: pages/dashboard.js:99
+#: pages/dashboard.js:100
 msgid "Stream preview"
 msgstr "Stream preview"
 
-#: pages/dashboard.js:103
+#: pages/dashboard.js:104
 msgid "Stream settings"
 msgstr "Stream settings"
 
@@ -587,7 +595,7 @@ msgstr "Streaming permissions"
 msgid "Subbed to:"
 msgstr "Subbed to:"
 
-#: pages/c/[name].js:355
+#: pages/c/[name].js:380
 msgid "Subscribe"
 msgstr "Subscribe"
 
@@ -648,11 +656,11 @@ msgstr "This verification token is not valid."
 msgid "Threats, Violence & Harm"
 msgstr "Threats, Violence & Harm"
 
-#: pages/c/[name].js:558
+#: pages/c/[name].js:598
 msgid "Time of ban"
 msgstr "Time of ban"
 
-#: pages/dashboard.js:132
+#: pages/dashboard.js:133
 msgid "Time out user for x seconds"
 msgstr "Time out user for x seconds"
 
@@ -660,14 +668,14 @@ msgstr "Time out user for x seconds"
 msgid "Timestamps"
 msgstr "Timestamps"
 
-#: pages/c/[name].js:469
-#: pages/c/[name].js:470
-#: pages/c/[name].js:490
-#: pages/c/[name].js:491
+#: pages/c/[name].js:509
+#: pages/c/[name].js:510
+#: pages/c/[name].js:530
+#: pages/c/[name].js:531
 msgid "Title"
 msgstr "Title"
 
-#: pages/dashboard.js:135
+#: pages/dashboard.js:136
 msgid "Unban user"
 msgstr "Unban user"
 
@@ -683,7 +691,7 @@ msgstr "Unknown error"
 msgid "User"
 msgstr "User"
 
-#: pages/c/[name].js:550
+#: pages/c/[name].js:590
 msgid "User has been banned"
 msgstr "User has been banned"
 
@@ -733,7 +741,7 @@ msgstr "Welcome to guac.live"
 msgid "When you choose to connect your Patreon account, the profile information connected to your Patreon account, including your name, may be used by guac.live.<0/>You will be able to use patreon specific perks depending on which tier you pledged. guac.live will not publicly display your Patreon account information."
 msgstr "When you choose to connect your Patreon account, the profile information connected to your Patreon account, including your name, may be used by guac.live.<0/>You will be able to use patreon specific perks depending on which tier you pledged. guac.live will not publicly display your Patreon account information."
 
-#: pages/dashboard.js:95
+#: pages/dashboard.js:96
 msgid "You do not have permission to stream"
 msgstr "You do not have permission to stream"
 
@@ -761,7 +769,11 @@ msgstr "Your account is now registered. Please check your e-mail to verify your 
 msgid "Your e-mail has been verified."
 msgstr "Your e-mail has been verified."
 
-#: pages/c/[name].js:552
+#: components/Chat/index.js:314
+msgid "by"
+msgstr "by"
+
+#: pages/c/[name].js:592
 msgid "has been banned from the site."
 msgstr "has been banned from the site."
 
@@ -773,7 +785,7 @@ msgstr "has been banned from the site."
 msgid "is playing"
 msgstr "is playing"
 
-#: pages/dashboard.js:134
+#: pages/dashboard.js:135
 msgid "message"
 msgstr "message"
 
@@ -794,15 +806,15 @@ msgstr "of"
 #~ msgid "playing <0>{0}</0>"
 #~ msgstr "playing <0>{0}</0>"
 
-#: pages/dashboard.js:132
+#: pages/dashboard.js:133
 msgid "seconds"
 msgstr "seconds"
 
-#: pages/dashboard.js:130
 #: pages/dashboard.js:131
 #: pages/dashboard.js:132
 #: pages/dashboard.js:133
 #: pages/dashboard.js:134
 #: pages/dashboard.js:135
+#: pages/dashboard.js:136
 msgid "user"
 msgstr "user"
