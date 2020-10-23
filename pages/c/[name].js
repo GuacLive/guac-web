@@ -92,7 +92,11 @@ function ChannelPage(props){
 		if(typeof window !== 'undefined' && window.matchMedia){
 			let media = window.matchMedia('screen and (max-width: 30em)');
 			if(media && media.addEventListener){
-				window.matchMedia('screen and (max-width: 30em)').addEventListener('change', (e) => {
+				media.addEventListener('change', (e) => {
+					setIsMobile(e.matches)
+				});
+			}else if(media.addListener){
+				media.addListener('change', (e) => {
 					setIsMobile(e.matches)
 				});
 			}
