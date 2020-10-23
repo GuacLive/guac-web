@@ -96,7 +96,7 @@ function ChannelPage(props){
 					setIsMobile(e.matches)
 				});
 			}else if(media.addListener){
-				media.addListener('change', (e) => {
+				media.addListener((e) => {
 					setIsMobile(e.matches)
 				});
 			}
