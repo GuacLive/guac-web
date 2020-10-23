@@ -90,9 +90,12 @@ function ChannelPage(props){
 
 	useEffect(() => {
 		if(typeof window !== 'undefined' && window.matchMedia){
-			window.matchMedia('screen and (max-width: 30em)').addEventListener('change', (e) => {
-				setIsMobile(e.matches)
-			});
+			let media = window.matchMedia('screen and (max-width: 30em)');
+			if(media && media.addEventListener){
+				window.matchMedia('screen and (max-width: 30em)').addEventListener('change', (e) => {
+					setIsMobile(e.matches)
+				});
+			}
 		}
 	}, []);
 
