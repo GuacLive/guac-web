@@ -71,6 +71,8 @@ function ChannelPage(props){
 	const [editPanelState, showEditPanel] = useState(false);
 	const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' && window.matchMedia ? window.matchMedia('screen and (max-width: 30em)').matches : false);
 
+	const [timer, setTimer] = useState(null);
+
 	const newPanelTitle = useRef('');
 	const newPanelDescription = useRef('');
 
@@ -113,6 +115,17 @@ function ChannelPage(props){
 			setTab(0);
 		}
 	}, [isMobile])
+
+	
+	useEffect(() => {
+		const timerFunc = () => {
+			if(!channel || !channel.data || !channel.data.live) return;
+			setTimer(timer + 1000);
+		};
+
+		const timeout = setTimeout(timerFunc, 1000);
+		return () => clearTimeout(timeout);
+	});
 
 	const addPanel = async (title, description) => {
 		console.log('addPanel', title, description, newPanelTitle, newPanelDescription);
@@ -200,6 +213,10 @@ function ChannelPage(props){
 	useEffect(() => {
 		let channelAPISocket, didCancel = false;
 		
+		let now = new Date().getTime();
+		let liveAt = channel && channel.data && channel.data.liveAt ? new Date(channel.data.liveAt) : 0;
+		setTimer(now - liveAt);
+
 		if(!didCancel){
 			channelAPISocket = io(`${VIEWER_API_URL}/channel`);
 			channelAPISocket.on('connect', () => {
@@ -310,8 +327,6 @@ function ChannelPage(props){
 				});
 			}
 		}
-		let now = new Date().getTime();
-		let liveAt = stream && stream.liveAt ? new Date(stream.liveAt) : 0;
     	return (
     		<Fragment key={stream.user.id}>
 				<div className="site-component-channel__player">
@@ -414,7 +429,7 @@ function ChannelPage(props){
 											<FontAwesomeIcon icon='clock' />
 											&nbsp;
 											{
-												prettyMilliseconds(now - liveAt, {
+												timer > 0 && prettyMilliseconds(timer, {
 													unitCount: 3,
 													formatSubMilliseconds: false,
 													separateMilliseconds: false,
