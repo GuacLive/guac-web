@@ -431,7 +431,9 @@ input:focus {
 	min-width: 20px;
 	vertical-align: middle;
 }
-
+.chat-message-content > div > div{
+	display: inline-block;
+}
 .chat-message-content__emote-only .chat-message-content__emote {
 	max-height: 48px;
 }
