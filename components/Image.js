@@ -55,7 +55,7 @@ export default class Image extends React.Component {
                     onError={this.onError}
                     loading={isLoadingSupported ? (this.props.lazyload ? 'lazy' : 'eager') : undefined}
                     unsized={true}
-                    unoptimized={this.state.src === BLANK_IMAGE}
+                    unoptimized={!this.state.src || this.state.src === BLANK_IMAGE}
                 />
             </div> :
             <NextImage
@@ -72,7 +72,7 @@ export default class Image extends React.Component {
                 onError={this.onError}
                 loading={isLoadingSupported ? (this.props.lazyload ? 'lazy' : 'eager') : undefined}
                 unsized={true}
-                unoptimized={this.state.src === BLANK_IMAGE}
+                unoptimized={!this.state.src || this.state.src === BLANK_IMAGE}
                 />
         );
     }
