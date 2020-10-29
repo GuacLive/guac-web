@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import NextImage from 'next/image'
 
-const BLANK_IMAGE = './img/blank.png';
+const BLANK_IMAGE = '/img/blank.png';
 
 const t = typeof window !== 'undefined' && new window.Image;
 export default class Image extends React.Component {
