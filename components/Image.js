@@ -21,7 +21,6 @@ export default class Image extends React.Component {
     };
 
     state = {
-        src: BLANK_IMAGE,
         error: false
     };
 
