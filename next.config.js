@@ -53,7 +53,11 @@ module.exports = withTM(withOffline({
 		
 		if(!dev){
 			//config.devtool = false;
-		}   
+		}  
+
+		config.images = {
+			domains: ['guac.live', 'api.guac.live', 'media.rawg.io']
+		}
 
 		return config;
 	},
