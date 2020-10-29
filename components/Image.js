@@ -78,6 +78,13 @@ export default class Image extends React.Component {
     createImageUrl(e) {
         var r = e.src,
             n = e.proxy;
+        if(r.indexOf('%2F%2F')){
+            if(typeof window !== 'undefined' && window.location && window.location.protocol){
+                r = window.location.protocol + r;
+            }else{
+                r = 'https:' + r;
+            }
+        }
         return r;
     }
     
