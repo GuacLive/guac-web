@@ -50,9 +50,9 @@ export default class Image extends React.Component {
                     height={this.props.height}
                     alt={this.props.alt}
                     title={this.props.title}
-                    style={{'objectFit':this.props.fit, ...this.props.style}}
                     flexible={this.props.flexible}
                     onError={this.onError}
+                    className={`fit-${fit || 'contain'}`}
                     loading={isLoadingSupported ? (this.props.lazyload ? 'lazy' : 'eager') : undefined}
                     unsized={true}
                     unoptimized={!this.state.src || this.state.src === BLANK_IMAGE}
@@ -67,9 +67,9 @@ export default class Image extends React.Component {
                 height={this.props.height}
                 alt={this.props.alt}
                 title={this.props.title}
-                style={{'objectFit':this.props.fit, ...this.props.style}}
                 flexible={this.props.flexible}
                 onError={this.onError}
+                className={`fit-${fit || 'contain'}`}
                 loading={isLoadingSupported ? (this.props.lazyload ? 'lazy' : 'eager') : undefined}
                 unsized={true}
                 unoptimized={!this.state.src || this.state.src === BLANK_IMAGE}

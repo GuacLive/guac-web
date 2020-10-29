@@ -194,6 +194,23 @@ input:focus {
 	}
 }
 
+.fit-cover {
+	object-fit: cover;
+}
+
+.fit-fill {
+	object-fit: fill;
+}
+
+.fit-contain {
+	object-fit: contain;
+}
+
+.fit-scale-down {
+	object-fit: 'scale-down';
+}
+  
+
 .word-wrap {
 	word-wrap: break-word;
 }
