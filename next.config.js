@@ -93,7 +93,7 @@ module.exports = withTM(withOffline({
 	},
 	reactStrictMode: true,
 	images: {
-		domains: ['guac.live', 'api.guac.live', 'media.rawg.io']
+		domains: ['guac.live', 'api.guac.live', 'media.rawg.io', 'stream.guac.live', '//api.guac.live', '//stream.guac.live']
 	},
 	experimental: {
 		plugins: true,
