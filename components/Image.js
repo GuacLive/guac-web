@@ -43,7 +43,7 @@ export default class Image extends React.Component {
             <div className={`GuacImage -flexible${this.props.shape ? ` -${this.props.shape}` : ''}`} data-emote-code={this.props['data-emote-code']}            >
                 <NextImage
                     key={this.state.src}
-                    className={this.props.className}
+                    className={`fit-${this.props.fit || 'contain'} ${this.props.className}`}
                     data-emote-code={this.props['data-emote-code']}
                     src={this.state.src}
                     width={this.props.width}
@@ -60,7 +60,7 @@ export default class Image extends React.Component {
             </div> :
             <NextImage
                 key={this.state.src}
-                className={`GuacImage ${this.props.shape ? ` -${this.props.shape}` : ''} ${this.props.className}`}
+                className={`GuacImage ${this.props.shape ? ` -${this.props.shape}` : ''} fit-${this.props.fit || 'contain'} ${this.props.className}`}
                 data-emote-code={this.props['data-emote-code']}
                 src={this.state.src}
                 width={this.props.width}
@@ -69,7 +69,6 @@ export default class Image extends React.Component {
                 title={this.props.title}
                 flexible={this.props.flexible}
                 onError={this.onError}
-                className={`fit-${this.props.fit || 'contain'}`}
                 loading={isLoadingSupported ? (this.props.lazyload ? 'lazy' : 'eager') : undefined}
                 unsized={true}
                 unoptimized={!this.state.src || this.state.src === BLANK_IMAGE}
