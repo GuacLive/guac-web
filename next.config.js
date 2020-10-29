@@ -53,10 +53,6 @@ module.exports = withTM(withOffline({
 		
 		if(!dev){
 			//config.devtool = false;
-		}  
-
-		config.images = {
-			domains: ['guac.live', 'api.guac.live', 'media.rawg.io']
 		}
 
 		return config;
@@ -96,6 +92,9 @@ module.exports = withTM(withOffline({
 		maximumFileSizeToCacheInBytes: 3e7 /*30mb*/
 	},
 	reactStrictMode: true,
+	images: {
+		domains: ['guac.live', 'api.guac.live', 'media.rawg.io']
+	},
 	experimental: {
 		plugins: true,
 		sprFlushToDisk: true,
