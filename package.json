@@ -41,7 +41,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@guaclive/flv.js": "^1.7.2",
-    "@lingui/core": "^3.0.0-12",
+    "@lingui/core": "^3.0.0",
     "@lingui/react": "^3.0.0-12",
     "@module-federation/next-transpile-modules": "^4.2.1",
     "@sentry/browser": "^5.15.5",
@@ -99,8 +99,8 @@
     "redux-logger": "^4.0.0",
     "redux-sentry-middleware": "^0.1.8",
     "redux-thunk": "^2.3.0",
-    "simplebar": "6.0.0-beta.3",
-    "simplebar-react": "3.0.0-beta.4",
+    "simplebar": "6.0.0-beta.8",
+    "simplebar-react": "3.0.0-beta.8",
     "socket.io-client": "^2.3.0",
     "super-image": "^2.4.0",
     "tachyons": "^4",
@@ -119,15 +119,15 @@
     "webpack": "^5.1.0"
   },
   "devDependencies": {
-    "@lingui/cli": "^3.0.0-12",
-    "@lingui/loader": "^3.0.0-12",
-    "@lingui/macro": "^3.0.0-12",
+    "@lingui/cli": "^3.0.0",
+    "@lingui/loader": "^3.0.0",
+    "@lingui/macro": "^3.0.0",
     "babel-plugin-add-module-exports": "^1.0.0",
     "babel-plugin-inline-react-svg": "^1.1.1"
   },
   "resolutions": {
     "webpack": "^5.1.0",
-    "simplebar-core": "1.0.1",
+    "simplebar-core": "1.0.5",
     "workbox-webpack-plugin": "^6.0.0-alpha.3"
   }
 }
