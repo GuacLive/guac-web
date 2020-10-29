@@ -74,7 +74,7 @@ function IndexPage(props){
 		}
 
     	return (
-			<div key={stream.user.id} className="bg-black-50 primary flex flex-wrap justify-end w-90">
+			<div key={'stream_' + stream.user.id} className="bg-black-50 primary flex flex-wrap justify-end w-90">
 				<div className="flex-grow-1 self-center h-100">
 					<div className="flex flex-row flex-grow-1">
 						<Link href="/c/[name]" as={`/c/${stream.name}`}>
@@ -160,7 +160,7 @@ function IndexPage(props){
 				<div className="w-100 flex flex-wrap">
 					{categories.data.map((category) => {
 						return (
-							<Link href={`/category/[id}`} href={`/category/${category.category_id}`}>
+							<Link key={`category_${category.category_id}`} href={`/category/[id}`} href={`/category/${category.category_id}`}>
 								<a className="flex flex-column flex-grow-0 flex-shrink-0 overflow-hidden w5 pa2 no-underline" key={`category_${category.category_id}`}>
 									<div className="item-preview aspect-ratio aspect-ratio--16x9 z-1">
 										<Image src={category.cover ? category.cover : `/img/categories/${category.category_id}.jpg`} className="aspect-ratio--object" shape="rounded" fit="cover" lazyload />

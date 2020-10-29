@@ -5,7 +5,7 @@ const { SENTRY_DSN, SENTRY_ORG, SENTRY_PROJECT, SENTRY_AUTH_TOKEN } = process.en
 
 const withOffline = require('next-offline');
 const pkg = require('./package.json');
-const withTM = require('@module-federation/next-transpile-modules')(['react-giphy-searchbox', '@lingui/core'],  { unstable_webpack5: true });
+const withTM = require('@module-federation/next-transpile-modules')(['react-giphy-searchbox'],  { unstable_webpack5: true });
 module.exports = withTM(withOffline({
 	webpack(config, {isServer, buildId, dev}) {
 		if (!isServer) {
@@ -53,7 +53,7 @@ module.exports = withTM(withOffline({
 		
 		if(!dev){
 			//config.devtool = false;
-		}   
+		}
 
 		return config;
 	},
@@ -92,6 +92,9 @@ module.exports = withTM(withOffline({
 		maximumFileSizeToCacheInBytes: 3e7 /*30mb*/
 	},
 	reactStrictMode: true,
+	images: {
+		domains: ['guac.live', 'api.guac.live', 'media.rawg.io', 'stream.guac.live', 'cdn.frankerfacez.com', 'static-cdn.jtvnw.net', 'cdn.betterttv.net', 'ggpht.com', 'yt3.ggpht.com']
+	},
 	experimental: {
 		plugins: true,
 		sprFlushToDisk: true,

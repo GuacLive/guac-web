@@ -1,15 +1,10 @@
-import 'intersection-observer';
-import ViewportObserver from 'viewport-observer';
 import PropTypes from 'prop-types';
 
-import SuperImage from 'super-image';
+import NextImage from 'next/image'
 
-const BLANK_IMAGE = 'data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=';
-const ROOT_MARGIN = '200px 0px';
+const BLANK_IMAGE = '/img/blank.png';
 
 const t = typeof window !== 'undefined' && new window.Image;
-const isObjectFitSupported = t && 'object-fit' in t.style;
-const isIntersectionObserverSupported = typeof window !== 'undefined' && 'IntersectionObserver' in window;
 export default class Image extends React.Component {
     static propTypes = { 
         src: PropTypes.string,
@@ -23,27 +18,19 @@ export default class Image extends React.Component {
         crop: PropTypes.bool,
         lazyload: PropTypes.bool,
         flexible: PropTypes.bool,
-        sources: PropTypes.arrayOf(PropTypes.shape({
-            srcSet: PropTypes.string,
-            sizes: PropTypes.string,
-            media: PropTypes.string,
-            type: PropTypes.string
-        }))
+        priority: PropTypes.bool
     };
 
     state = {
-        src: BLANK_IMAGE,
         error: false
     };
 
     constructor(props){
         super(props);
-        if(!props.lazyload){
-            this.state = {
-                ...this.state,
-                src: this.createImageUrl(this.props)
-            };
-        }
+        this.state = {
+            ...this.state,
+            src: this.createImageUrl(this.props)
+        };
         this.onEnter = this.onEnter.bind(this);
         this.onError = this.onError.bind(this);
         this.createImageUrl = this.createImageUrl.bind(this);
@@ -51,48 +38,57 @@ export default class Image extends React.Component {
 
     renderImage = function() {
         var e = 'browser' === this.title,
-            r = this.props.fit && e && isObjectFitSupported,
             isLoadingSupported = typeof HTMLImageElement !== 'undefined' && 'loading' in HTMLImageElement.prototype;
 
         return (this.props.flexible ?
             <div className={`GuacImage -flexible${this.props.shape ? ` -${this.props.shape}` : ''}`} data-emote-code={this.props['data-emote-code']}            >
-                <SuperImage
-                    className={this.props.className}
+                <NextImage
+                    key={this.state.src}
+                    className={`fit-${this.props.fit || 'contain'} ${this.props.className}`}
                     data-emote-code={this.props['data-emote-code']}
                     src={this.state.src}
                     width={this.props.width}
                     height={this.props.height}
                     alt={this.props.alt}
                     title={this.props.title}
-                    fit={this.props.fit}
-                    fitFallback={r}
                     flexible={this.props.flexible}
-                    sources={this.props.sources}
                     onError={this.onError}
+                    className={`fit-${this.props.fit || 'contain'}`}
                     loading={isLoadingSupported ? (this.props.lazyload ? 'lazy' : 'eager') : undefined}
+                    unsized={true}
+                    unoptimized={!this.state.src || this.state.src === BLANK_IMAGE}
+                    priority={this.props.priority}
                 />
             </div> :
-            <SuperImage
-                className={`GuacImage ${this.props.shape ? ` -${this.props.shape}` : ''} ${this.props.className}`}
+            <NextImage
+                key={this.state.src}
+                className={`GuacImage ${this.props.shape ? ` -${this.props.shape}` : ''} fit-${this.props.fit || 'contain'} ${this.props.className}`}
                 data-emote-code={this.props['data-emote-code']}
                 src={this.state.src}
                 width={this.props.width}
                 height={this.props.height}
                 alt={this.props.alt}
                 title={this.props.title}
-                fit={this.props.fit}
-                fitFallback={r}
                 flexible={this.props.flexible}
-                sources={this.props.sources}
                 onError={this.onError}
                 loading={isLoadingSupported ? (this.props.lazyload ? 'lazy' : 'eager') : undefined}
-            />
+                unsized={true}
+                unoptimized={!this.state.src || this.state.src === BLANK_IMAGE}
+                priority={this.props.priority}
+                />
         );
     }
 
     createImageUrl(e) {
         var r = e.src,
             n = e.proxy;
+        if(r.indexOf('//') === 0){
+            if(typeof window !== 'undefined' && window.location && window.location.protocol){
+                r = window.location.protocol + r;
+            }else{
+                r = 'https:' + r;
+            }
+        }
         return r;
     }
     
@@ -103,9 +99,6 @@ export default class Image extends React.Component {
     }
 
     onEnter(){
-        if(this.viewportObserver){
-            this.viewportObserver.dispose();
-        }
         return this.setState({
             src: this.createImageUrl(this.props)
         });
@@ -118,10 +111,6 @@ export default class Image extends React.Component {
         })
     }
 
-    componentDidMount() {
-        if(!isIntersectionObserverSupported) this.replaceImage()
-    }
-
     componentDidUpdate(prevProps, prevState) {
         if(this.props.src !== prevProps.src){
             this.setState({
@@ -130,21 +119,7 @@ export default class Image extends React.Component {
         }
     }
 
-    componentWillUnmount() {
-        if(this.viewportObserver){
-            this.viewportObserver.unobserve(this.refs.img);
-            this.viewportObserver = null;
-        }
-    }
-
     render() {
-        return this.props.lazyload ? <ViewportObserver
-            ref={this.viewportObserver}
-            rootMargin={ROOT_MARGIN}
-            onEnter={this.onEnter}
-        >
-        {this.renderImage()}
-        </ViewportObserver>
-        : this.renderImage()
+        return this.renderImage()
     }
 }

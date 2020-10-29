@@ -79,7 +79,7 @@ function CategoriesPage(props) {
 							<Link href={`/category/[id}`} href={`/category/${category.category_id}`} key={`category_${category.category_id}`}>
 								<a className="site-component-categories_category flex flex-column flex-grow-0 flex-shrink-0 overflow-hidden w-20-l w-80-m w-100 pa2 no-underline">
 									<div className="item-preview aspect-ratio aspect-ratio--16x9 z-1">
-										<Image src={category.cover ? category.cover : `/img/categories/${category.category_id}.jpg`} className="aspect-ratio--object" shape="rounded" fit="cover" lazyload />
+										<Image priority={true} src={category.cover ? category.cover : `/img/categories/${category.category_id}.jpg`} className="aspect-ratio--object" shape="rounded" fit="cover" />
 									</div>
 									<div className="flex flex-grow-1 flex-shrink-1 pa2">
 										<span className="f3 db link green truncate">{category.name}</span>

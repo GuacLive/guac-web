@@ -40,6 +40,7 @@ export default class MyDocument extends Document {
 					<link rel="preconnect" href="https://api.guac.live/" />
 					<link rel="preconnect" href="https://stream.guac.live/" />
 					<link rel="preconnect" href="https://emotes.guac.live/" />
+					<link rel="preconnect" href="https://media.rawg.io/" />
 
 					<meta charSet='utf-8' />
 					<meta name="apple-mobile-web-app-capable" content="yes" />
