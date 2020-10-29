@@ -694,8 +694,8 @@ html.theater-mode .site-component-channel__info .guac-btn {
 }
 	
 .item-preview .GuacImage {
-    /*top: 0;
-    left: 0;*/
+    top: 0;
+    left: 0;
     width: 100%;
 	height: 100%;
 
