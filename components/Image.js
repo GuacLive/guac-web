@@ -1,15 +1,11 @@
-import 'intersection-observer';
-import ViewportObserver from 'viewport-observer';
 import PropTypes from 'prop-types';
 
-import SuperImage from 'super-image';
+import NextImage from 'next/image'
 
 const BLANK_IMAGE = 'data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=';
-const ROOT_MARGIN = '200px 0px';
 
 const t = typeof window !== 'undefined' && new window.Image;
 const isObjectFitSupported = t && 'object-fit' in t.style;
-const isIntersectionObserverSupported = typeof window !== 'undefined' && 'IntersectionObserver' in window;
 export default class Image extends React.Component {
     static propTypes = { 
         src: PropTypes.string,
@@ -22,13 +18,7 @@ export default class Image extends React.Component {
         //proxy: PropTypes.oneOf(h),
         crop: PropTypes.bool,
         lazyload: PropTypes.bool,
-        flexible: PropTypes.bool,
-        sources: PropTypes.arrayOf(PropTypes.shape({
-            srcSet: PropTypes.string,
-            sizes: PropTypes.string,
-            media: PropTypes.string,
-            type: PropTypes.string
-        }))
+        flexible: PropTypes.bool
     };
 
     state = {
@@ -56,7 +46,8 @@ export default class Image extends React.Component {
 
         return (this.props.flexible ?
             <div className={`GuacImage -flexible${this.props.shape ? ` -${this.props.shape}` : ''}`} data-emote-code={this.props['data-emote-code']}            >
-                <SuperImage
+                <NextImage
+                    key={this.state.src}
                     className={this.props.className}
                     data-emote-code={this.props['data-emote-code']}
                     src={this.state.src}
@@ -67,12 +58,12 @@ export default class Image extends React.Component {
                     fit={this.props.fit}
                     fitFallback={r}
                     flexible={this.props.flexible}
-                    sources={this.props.sources}
                     onError={this.onError}
                     loading={isLoadingSupported ? (this.props.lazyload ? 'lazy' : 'eager') : undefined}
                 />
             </div> :
-            <SuperImage
+            <NextImage
+                key={this.state.src}
                 className={`GuacImage ${this.props.shape ? ` -${this.props.shape}` : ''} ${this.props.className}`}
                 data-emote-code={this.props['data-emote-code']}
                 src={this.state.src}
@@ -83,7 +74,6 @@ export default class Image extends React.Component {
                 fit={this.props.fit}
                 fitFallback={r}
                 flexible={this.props.flexible}
-                sources={this.props.sources}
                 onError={this.onError}
                 loading={isLoadingSupported ? (this.props.lazyload ? 'lazy' : 'eager') : undefined}
             />
@@ -103,9 +93,6 @@ export default class Image extends React.Component {
     }
 
     onEnter(){
-        if(this.viewportObserver){
-            this.viewportObserver.dispose();
-        }
         return this.setState({
             src: this.createImageUrl(this.props)
         });
@@ -118,10 +105,6 @@ export default class Image extends React.Component {
         })
     }
 
-    componentDidMount() {
-        if(!isIntersectionObserverSupported) this.replaceImage()
-    }
-
     componentDidUpdate(prevProps, prevState) {
         if(this.props.src !== prevProps.src){
             this.setState({
@@ -130,21 +113,7 @@ export default class Image extends React.Component {
         }
     }
 
-    componentWillUnmount() {
-        if(this.viewportObserver){
-            this.viewportObserver.unobserve(this.refs.img);
-            this.viewportObserver = null;
-        }
-    }
-
     render() {
-        return this.props.lazyload ? <ViewportObserver
-            ref={this.viewportObserver}
-            rootMargin={ROOT_MARGIN}
-            onEnter={this.onEnter}
-        >
-        {this.renderImage()}
-        </ViewportObserver>
-        : this.renderImage()
+        return this.renderImage()
     }
 }
