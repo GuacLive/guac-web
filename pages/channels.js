@@ -23,9 +23,9 @@ class ChannelsPage extends Component {
 		this.handleChange = this.handleChange.bind(this);
 	}
 
-	async getInitialProps({store}) {
+	static async getInitialProps({store}) {
 		const { channels } = store.getState()
-		await store.dispatch(actions.fetchChannels(this.state.onlyLive, ''));
+		await store.dispatch(actions.fetchChannels(1, ''));
 		return {
 			...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})
 		};
