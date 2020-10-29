@@ -315,7 +315,7 @@ function ChatComponent(props){
 								position="top"
 								trigger="mouseenter"
 							>
-							<Image className="chat-message-content__emote dib" data-emote-code={msg.content} src={emote.url} alt={'Emote: ' + msg.content} />
+							<Image className="chat-message-content__emote dib" unoptimized={true} data-emote-code={msg.content} src={emote.url} alt={'Emote: ' + msg.content} />
 							</Tooltip>
 							{i !== messages.length -1 && '\u00A0'}
 						</Fragment>
