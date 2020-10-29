@@ -17,7 +17,8 @@ export default class Image extends React.Component {
         //proxy: PropTypes.oneOf(h),
         crop: PropTypes.bool,
         lazyload: PropTypes.bool,
-        flexible: PropTypes.bool
+        flexible: PropTypes.bool,
+        priority: PropTypes.bool
     };
 
     state = {
@@ -56,6 +57,7 @@ export default class Image extends React.Component {
                     loading={isLoadingSupported ? (this.props.lazyload ? 'lazy' : 'eager') : undefined}
                     unsized={true}
                     unoptimized={!this.state.src || this.state.src === BLANK_IMAGE}
+                    priority={this.props.priority}
                 />
             </div> :
             <NextImage
@@ -72,6 +74,7 @@ export default class Image extends React.Component {
                 loading={isLoadingSupported ? (this.props.lazyload ? 'lazy' : 'eager') : undefined}
                 unsized={true}
                 unoptimized={!this.state.src || this.state.src === BLANK_IMAGE}
+                priority={this.props.priority}
                 />
         );
     }
