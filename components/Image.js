@@ -2,10 +2,9 @@ import PropTypes from 'prop-types';
 
 import NextImage from 'next/image'
 
-const BLANK_IMAGE = 'data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=';
+const BLANK_IMAGE = './img/blank.gif';
 
 const t = typeof window !== 'undefined' && new window.Image;
-const isObjectFitSupported = t && 'object-fit' in t.style;
 export default class Image extends React.Component {
     static propTypes = { 
         src: PropTypes.string,
@@ -28,12 +27,10 @@ export default class Image extends React.Component {
 
     constructor(props){
         super(props);
-        if(!props.lazyload){
-            this.state = {
-                ...this.state,
-                src: this.createImageUrl(this.props)
-            };
-        }
+        this.state = {
+            ...this.state,
+            src: this.createImageUrl(this.props)
+        };
         this.onEnter = this.onEnter.bind(this);
         this.onError = this.onError.bind(this);
         this.createImageUrl = this.createImageUrl.bind(this);
@@ -41,7 +38,6 @@ export default class Image extends React.Component {
 
     renderImage = function() {
         var e = 'browser' === this.title,
-            r = this.props.fit && e && isObjectFitSupported,
             isLoadingSupported = typeof HTMLImageElement !== 'undefined' && 'loading' in HTMLImageElement.prototype;
 
         return (this.props.flexible ?
@@ -56,10 +52,10 @@ export default class Image extends React.Component {
                     alt={this.props.alt}
                     title={this.props.title}
                     fit={this.props.fit}
-                    fitFallback={r}
                     flexible={this.props.flexible}
                     onError={this.onError}
                     loading={isLoadingSupported ? (this.props.lazyload ? 'lazy' : 'eager') : undefined}
+                    unsized={true}
                 />
             </div> :
             <NextImage
@@ -72,11 +68,11 @@ export default class Image extends React.Component {
                 alt={this.props.alt}
                 title={this.props.title}
                 fit={this.props.fit}
-                fitFallback={r}
                 flexible={this.props.flexible}
                 onError={this.onError}
                 loading={isLoadingSupported ? (this.props.lazyload ? 'lazy' : 'eager') : undefined}
-            />
+                unsized={true}
+                />
         );
     }
 
