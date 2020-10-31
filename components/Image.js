@@ -55,7 +55,7 @@ export default class Image extends React.Component {
                     onError={this.onError}
                     className={`fit-${this.props.fit || 'contain'}`}
                     loading={isLoadingSupported ? (this.props.lazyload ? 'lazy' : 'eager') : undefined}
-                    unsized={true}
+                    unsized={!this.props.width && ! this.props.height ? true : false}
                     unoptimized={this.props.unoptimized || (!this.state.src || this.state.src === BLANK_IMAGE)}
                     priority={this.props.priority}
                 />
@@ -72,7 +72,7 @@ export default class Image extends React.Component {
                 flexible={this.props.flexible}
                 onError={this.onError}
                 loading={isLoadingSupported ? (this.props.lazyload ? 'lazy' : 'eager') : undefined}
-                unsized={true}
+                unsized={!this.props.width && ! this.props.height ? true : false}
                 unoptimized={this.props.unoptimized || (!this.state.src || this.state.src === BLANK_IMAGE)}
                 priority={this.props.priority}
                 />

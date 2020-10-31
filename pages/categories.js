@@ -66,7 +66,7 @@ function CategoriesPage(props) {
         }
 
         // clean up on willUnMount
-        return () => observer.unobserve(loader.current);
+        return () => {if(loader && loader.current) observer.unobserve(loader.current);}
     }, [loader, loadMore]);
 
 	return (
