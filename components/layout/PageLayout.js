@@ -122,7 +122,7 @@ function PageLayout(props) {
 						<Link href="/">
 							<a className="items-center flex flex-nowrap ph3 pv2 hover-bg-dark-gray bg-animate link truncate white hover-light-green">
 								<div className="w-100 truncate flex-grow-1 b lh-title">
-									<span title={i18n._(t`Home`)} className="inline-flex ml3"><FontAwesomeIcon icon="home" /></span>
+									<span title={i18n._(t`Home`)} className="inline-flex ml3" aria-hidden={true}><FontAwesomeIcon icon="home" /></span>
 									<span title={i18n._(t`Home`)} className="inline-flex ml3"><Trans>Home</Trans></span>
 								</div>
 							</a>
@@ -130,7 +130,7 @@ function PageLayout(props) {
 						<Link href="/channels">
 							<a className="items-center flex flex-nowrap ph3 pv2 hover-bg-dark-gray bg-animate link truncate white hover-light-green">
 								<div className="w-100 truncate flex-grow-1 b lh-title">
-									<span title={i18n._(t`Channels`)} className="inline-flex ml3"><FontAwesomeIcon icon="search" /></span>
+									<span title={i18n._(t`Channels`)} className="inline-flex ml3" aria-hidden={true}><FontAwesomeIcon icon="search" /></span>
 									<span title={i18n._(t`Channels`)} className="inline-flex ml3"><Trans>Channels</Trans></span>
 								</div>
 							</a>
@@ -138,7 +138,7 @@ function PageLayout(props) {
 						<Link href="/categories">
 							<a className="items-center flex flex-nowrap ph3 pv2 hover-bg-dark-gray bg-animate link truncate white hover-light-green">
 								<div className="w-100 truncate flex-grow-1 b lh-title">
-									<span title={i18n._(t`Browse`)} className="inline-flex ml3"><FontAwesomeIcon icon="gamepad" /></span>
+									<span title={i18n._(t`Browse`)} className="inline-flex ml3" aria-hidden={true}><FontAwesomeIcon icon="gamepad" /></span>
 									<span title={i18n._(t`Browse`)} className="inline-flex ml3"><Trans>Browse</Trans></span>
 								</div>
 							</a>
@@ -299,7 +299,7 @@ function PageLayout(props) {
 								<FontAwesomeIcon icon="bars" fixedWidth />
 							</div>
 							<Link href="/">
-								<a className="inline-flex pa2 content-box">
+								<a className="inline-flex pa2 content-box" alt="Logo">
 									<GuacLogo className="guac-logo green h2" alt="guac.live" />
 								</a>
 							</Link>
