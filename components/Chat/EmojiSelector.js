@@ -28,7 +28,7 @@ function EmojiSelector(props){
 	}
 
 	return (
-		<div ref={ref} className="chat-input__buttons__emote inline-flex items-center justify-center mr2">
+		<div ref={ref} className="chat-input__buttons__emote inline-flex items-center justify-center">
 			<FontAwesomeIcon icon={['far', 'smile-wink']} onClick={handleToggleClick} />
 			<span className="absolute right-0 fr bottom-2 pv2">
 				{isOpen &&

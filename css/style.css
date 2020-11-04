@@ -443,6 +443,31 @@ input:focus {
 	height: 28px;
 }
 
+.chat-input__buttons__gif,
+.chat-input__buttons__emote {
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	align-items: center;
+	background-color: transparent;
+	border-radius: .4rem;
+	display: inline-flex;
+	justify-content: center;
+	user-select: none;
+	vertical-align: middle !important;
+    width: 2rem;
+    height: 2rem;
+}
+
+.chat-input__buttons__gif:hover,
+.chat-input__buttons__emote:hover {
+    background-color: hsla(0,0%,0%,.2);
+}
+
+.guac-skin-dark .chat-input__buttons__gif:hover,
+.guac-skin-dark .chat-input__buttons__emote:hover {
+    background-color: hsla(0,0%,100%,.2);
+}
+
 .chat-message-badges {
 	display: inline-flex;
 	vertical-align: text-top;
