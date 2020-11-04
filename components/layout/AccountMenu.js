@@ -21,7 +21,7 @@ function AccountMenu(props){
 
 	return (
 		<div className="items-stretch flex flex-grow-1 h-100 pl2 relative">
-			<a className="db link pv2 ph3 color-inherit" href="#!" onClick={() => setIsOpen(!isOpen)}>
+			<a alt="Account menu" className="db link pv2 ph3 color-inherit" href="#!" onClick={() => setIsOpen(!isOpen)}>
 				<Image src={props.user && props.user.avatar || '//api.guac.live/avatars/unknown.png'} alt={props.user ? props.user.name : null} shape="squircle" fit="cover" lazyload className="dim w2 w2-ns h2 h2-ns" />
 			</a>
 			<div ref={ref} data-details="" className="dropdown-menu primary absolute nowrap right-0 ba b--transparent shadow-1 br2 w5" style={{left: 'auto', display: isOpen ? 'block' : 'none', top: '100%'}}>
