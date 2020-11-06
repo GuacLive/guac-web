@@ -8,6 +8,7 @@ import withAuth from '../utils/withAuth';
 import * as actions from '../actions';
 
 import EditStreamPanel from '../components/EditStreamPanel';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 let VideoPlayer = dynamic(
 	() => /* webpackChunkName: 'VideoPlayer' */import('../components/VideoPlayer'),
@@ -21,6 +22,9 @@ const STREAMING_SERVER = 'eu';
 class DashboardPage extends Component {
 	constructor(props){
 		super(props);
+		this.state = {
+			showStreamkey: false
+		}
 	}
 
 	static async getInitialProps({store, isServer, pathname, query, req}){
@@ -33,9 +37,6 @@ class DashboardPage extends Component {
 			await store.dispatch(actions.fetchChannel(authentication.user.name));
 		}
     }
-
-	componentDidMount(){
-	}
 
     renderStream(){
 		const {
@@ -86,6 +87,7 @@ class DashboardPage extends Component {
 
 	render(){
 		const {streaming, categories, channel} = this.props;
+		const { showStreamkey } = this.state;
 		const auth = this.props.authentication;
 		if(auth.loading) return null;
 		if(auth.error) throw auth.error;
@@ -94,6 +96,7 @@ class DashboardPage extends Component {
 		if(categories.error) throw categories.error;
 		if(streaming.error) throw streaming.error;
 		if(auth && auth.user && !auth.user.can_stream) return <p><Trans>You do not have permission to stream</Trans></p>;
+		const streamkey = `${auth.user.name}?token=${streaming.key}`;
 		return (
 			<div className="flex flex-row flex-wrap w-100">
 				<div className="w-50 pa3">
@@ -116,7 +119,17 @@ class DashboardPage extends Component {
 							</ul>
 						</li>
 						<li>
-							{streaming && streaming.key ? <p><Trans>Now, use the following stream key:</Trans> <b>{auth.user.name}?token={streaming.key}</b></p> : <p style={{color: 'red'}}><Trans>No streaming key found, please contact an admin.</Trans></p>}
+							{streaming && streaming.key ?
+								<>
+								<p><Trans>Now, use the following stream key:</Trans></p>
+								<div className="db">
+									<input className="input-reset bn pa3 w-50 bg-white br2" type={showStreamkey ? 'text' : 'password'} readOnly value={streamkey || undefined} />
+									<span className="link inline-flex flex-nowrap ph3 pv2 hover-bg-dark-gray bg-animate color-inherit" onClick={() => this.setState({showStreamkey: !this.state.showStreamkey})}><FontAwesomeIcon icon={this.state.showStreamkey ? 'eye' : 'eye-slash'} /></span>
+								</div>
+								</>
+								:
+								<p style={{color: 'red'}}><Trans>No streaming key found, please contact an admin.</Trans></p>
+							}
 						</li>
 						<li>
 							<p><Trans>At last, make sure keyframe interval is set to <b>1</b>.</Trans></p>

@@ -185,13 +185,15 @@ function PageLayout(props) {
 													className="items-center flex flex-nowrap ph3 pv2 hover-bg-dark-gray bg-animate"
 													style={{'display': 'flex !important'}}
 												>
-													<div className="items-center flex-shrink-0">
+													<div className="items-center flex-shrink-0 relative w2 h2">
 														<Image
-															src={u.avatar || '//api.guac.live/avatars/unknown.png'}
+															src={u.avatar || 'https://api.guac.live/avatars/unknown.png'}
 															alt={u.username}
+															width={70}
+															height={70}
 															shape="squircle"
 															fit="cover"
-															className={`ba ${+u.live ? 'b--red' : 'b--transparent'} v-mid w2 h2`}
+															className={`ba ${+u.live ? 'b--red' : 'b--transparent'} v-mid`}
 														/>
 													</div>
 													<div className="flex justify-between truncate w-100">
