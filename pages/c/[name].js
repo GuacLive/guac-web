@@ -345,13 +345,15 @@ function ChannelPage(props){
 						<div className="items-start flex flex-grow-1 flex-shrink-1 justify-start pa3">
 							<Link href="/c/[name]" as={`/c/${stream.user.name}`}>
 								<a className="justify-center items-center flex-shrink-0">
+									<div className="relative v-mid w3 h3">
 									<Image
 										src={stream.user.avatar || '//api.guac.live/avatars/unknown.png'}
 										alt={stream.name}
 										shape="squircle"
 										fit="cover"
-										className={`ba ${+stream.live ? 'b--red' : 'b--transparent'} v-mid w3 h3`}
+										className={`ba ${+stream.live ? 'b--red' : 'b--transparent'} v-mid`}
 									/>
+									</div>
 								</a>
 							</Link>
 							<div className="ml2">

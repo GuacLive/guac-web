@@ -8,8 +8,8 @@ const t = typeof window !== 'undefined' && new window.Image;
 export default class Image extends React.Component {
     static propTypes = { 
         src: PropTypes.string,
-        width: PropTypes.string,
-        height: PropTypes.string,
+        width: PropTypes.number,
+        height: PropTypes.number,
         className: PropTypes.string,
         alt: PropTypes.string,
         fit: PropTypes.oneOf(['contain', 'cover']),
@@ -39,12 +39,13 @@ export default class Image extends React.Component {
     renderImage = function() {
         var e = 'browser' === this.title,
             isLoadingSupported = typeof HTMLImageElement !== 'undefined' && 'loading' in HTMLImageElement.prototype;
-
+console.log('aaa', this.props, this.state);
         return (this.props.flexible ?
             <div className={`GuacImage -flexible${this.props.shape ? ` -${this.props.shape}` : ''}`} data-emote-code={this.props['data-emote-code']}            >
                 <NextImage
                     key={this.state.src}
-                    className={`fit-${this.props.fit || 'contain'} ${this.props.className}`}
+                    className={this.props.className}
+                    objectFit={this.props.fit || 'contain'}
                     data-emote-code={this.props['data-emote-code']}
                     src={this.state.src}
                     width={this.props.width}
@@ -55,14 +56,15 @@ export default class Image extends React.Component {
                     onError={this.onError}
                     className={`fit-${this.props.fit || 'contain'}`}
                     loading={isLoadingSupported ? (this.props.lazyload ? 'lazy' : 'eager') : undefined}
-                    unsized={!this.props.width && ! this.props.height ? true : false}
+                    layout={!this.props.width && ! this.props.height ? 'fill' : this.props.layout}
                     unoptimized={this.props.unoptimized || (!this.state.src || this.state.src === BLANK_IMAGE)}
                     priority={this.props.priority}
                 />
             </div> :
             <NextImage
                 key={this.state.src}
-                className={`GuacImage ${this.props.shape ? ` -${this.props.shape}` : ''} fit-${this.props.fit || 'contain'} ${this.props.className}`}
+                className={`GuacImage ${this.props.shape ? ` -${this.props.shape}` : ''} ${this.props.className}`}
+                objectFit={this.props.fit || 'contain'}
                 data-emote-code={this.props['data-emote-code']}
                 src={this.state.src}
                 width={this.props.width}
@@ -72,7 +74,7 @@ export default class Image extends React.Component {
                 flexible={this.props.flexible}
                 onError={this.onError}
                 loading={isLoadingSupported ? (this.props.lazyload ? 'lazy' : 'eager') : undefined}
-                unsized={!this.props.width && ! this.props.height ? true : false}
+                layout={!this.props.width && ! this.props.height ? 'fill' : this.props.layout}
                 unoptimized={this.props.unoptimized || (!this.state.src || this.state.src === BLANK_IMAGE)}
                 priority={this.props.priority}
                 />
