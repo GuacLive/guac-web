@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import NextImage from 'next/image'
 
-const BLANK_IMAGE = '/img/blank.png';
+const BLANK_IMAGE = 'data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=';
 
 const t = typeof window !== 'undefined' && new window.Image;
 export default class Image extends React.Component {
@@ -39,7 +39,6 @@ export default class Image extends React.Component {
     renderImage = function() {
         var e = 'browser' === this.title,
             isLoadingSupported = typeof HTMLImageElement !== 'undefined' && 'loading' in HTMLImageElement.prototype;
-console.log('aaa', this.props, this.state);
         return (this.props.flexible ?
             <div className={`GuacImage -flexible${this.props.shape ? ` -${this.props.shape}` : ''}`} data-emote-code={this.props['data-emote-code']}            >
                 <NextImage
@@ -84,7 +83,7 @@ console.log('aaa', this.props, this.state);
     createImageUrl(e) {
         var r = e.src,
             n = e.proxy;
-        if(r.indexOf('//') === 0){
+        if(r !== BLANK_IMAGE && r.indexOf('//') === 0){
             if(typeof window !== 'undefined' && window.location && window.location.protocol){
                 r = window.location.protocol + r;
             }else{
