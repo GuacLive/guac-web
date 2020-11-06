@@ -322,14 +322,6 @@ function PageLayout(props) {
 										<NotificationsMenu />
 									}
 									{
-										isAuthenticated &&
-										<div className="items-stretch flex flex-grow-1 h-100 relative">
-											<Link className="db link pv2 ph3 color-inherit" href="/dashboard">
-												<FontAwesomeIcon icon="video" />
-											</Link>
-										</div>
-									}
-									{
 										!isAuthenticated &&
 										<GuacButton url="/auth/login">
 											<span className="dn db-l" title={i18n._(t`Log in`)}><Trans>Log in</Trans></span>
@@ -344,6 +336,14 @@ function PageLayout(props) {
 										</GuacButton>
 									}
 								</div>
+								{
+									isAuthenticated &&
+									<div className="items-stretch flex flex-grow-1 h-100 pl2 relative">
+										<Link className="db link pv2 ph3 color-inherit" href="/dashboard">
+											<FontAwesomeIcon icon="video" />
+										</Link>
+									</div>
+								}
 								{
 									<AccountMenu user={user && Object.keys(user).length ? user : null} mode={props.mode} />
 								}
