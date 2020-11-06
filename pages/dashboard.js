@@ -122,7 +122,7 @@ class DashboardPage extends Component {
 							{streaming && streaming.key ?
 								<>
 								<p><Trans>Now, use the following stream key:</Trans></p>
-								<div className="dib">
+								<div className="db">
 									<input className="input-reset bn pa3 w-50 bg-white br2" type={showStreamkey ? 'text' : 'password'} readOnly value={streamkey || undefined} />
 									<span className="link inline-flex flex-nowrap ph3 pv2 hover-bg-dark-gray bg-animate color-inherit" onClick={() => this.setState({showStreamkey: !this.state.showStreamkey})}><FontAwesomeIcon icon={this.state.showStreamkey ? 'eye' : 'eye-slash'} /></span>
 								</div>
