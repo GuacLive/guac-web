@@ -137,6 +137,7 @@ function VideoPlayer(props) {
 		if(typeof window !== 'undefined'){
 			videoJsOptions.html5 = {
 				vhs: {
+					experimentalBufferBasedABR: true,
 					overrideNative: !videojs.browser.IS_SAFARI,
 					allowSeeksWithinUnsafeLiveWindow: true,
 					enableLowInitialPlaylist: true,
