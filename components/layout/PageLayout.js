@@ -339,8 +339,8 @@ function PageLayout(props) {
 								{
 									isAuthenticated &&
 									<div className="items-stretch flex flex-grow-1 h-100 pl2 relative">
-										<Link className="db link pv2 ph3 color-inherit" href="/dashboard">
-											<FontAwesomeIcon icon="video" />
+										<Link href="/dashboard">
+											<a className="db link pv2 ph3 color-inherit"><FontAwesomeIcon icon="video" /></a>
 										</Link>
 									</div>
 								}
