@@ -99,15 +99,15 @@ class DashboardPage extends Component {
 		const streamkey = `${auth.user.name}?token=${streaming.key}`;
 		return (
 			<div className="flex flex-row flex-wrap w-100">
-				<div className="w-50 pa3">
+				<div className="w-100 w-50-ns pa3">
 					<h2 className="f2 tracked mt0 mb3"><Trans>Stream preview</Trans></h2>
 					{ this.renderStream() }
 				</div>
-				<div className="w-50 pa3">
+				<div className="w-100 w-50-ns pa3">
 					<h2 className="f2 tracked mt0 mb3"><Trans>Stream settings</Trans></h2>
 					<EditStreamPanel />
 				</div>
-				<div className="w-50 pa3">
+				<div className="w-100 w-50-ns pa3">
 					<h2 className="f2 tracked mt0 mb3"><Trans>Get started with streaming</Trans></h2>
 					<ol>
 						<li>
@@ -136,7 +136,7 @@ class DashboardPage extends Component {
 						</li>
 					</ol>
 				</div>
-				<div className="w-50 pa3">
+				<div className="w-100 w-50-ns pa3">
 					<h2 className="f2 tracked mt0 mb3"><Trans>Chat commands:</Trans></h2>
 					<ul>
 						<li><b>/help</b> - <Trans>Show help command</Trans></li>
