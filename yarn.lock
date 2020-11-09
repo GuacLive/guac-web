@@ -1946,20 +1946,20 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@next/env@10.0.2-canary.3":
-  version "10.0.2-canary.3"
-  resolved "https://registry.yarnpkg.com/@next/env/-/env-10.0.2-canary.3.tgz#18b4c78a94c6c863f9db02863ad18ccf2a631603"
-  integrity sha512-oDeSSkkKbUEa18Dl1SY2hT+WojHj2BVHFXDccRhAJfiEHZRvyGFz9m4u4YR0GdBMCt8+4ePAs4HQqVqdr4e/iw==
+"@next/env@10.0.2-canary.5":
+  version "10.0.2-canary.5"
+  resolved "https://registry.yarnpkg.com/@next/env/-/env-10.0.2-canary.5.tgz#dc3afe3bb66ea197e3088bff7b7269ee9656f958"
+  integrity sha512-PHUtTR5JlXulgyftdj9Nz3dPhbMTU5EC2pwr/+JvHY5RLFRfE33L8gWlVnihXwnR9dIMGl+dCehjhjEgjEoA7w==
 
-"@next/polyfill-module@10.0.2-canary.3":
-  version "10.0.2-canary.3"
-  resolved "https://registry.yarnpkg.com/@next/polyfill-module/-/polyfill-module-10.0.2-canary.3.tgz#8c3db43511996f673146b6b74a46eadf169c1842"
-  integrity sha512-HbfB6omIZTrCDSHBjmfiYlBZgQLb0n2yNU67RjACC7obhRYqyNV6rFb4kiWazE5l5E6BZmLmElEPDLpEeI8xLQ==
+"@next/polyfill-module@10.0.2-canary.5":
+  version "10.0.2-canary.5"
+  resolved "https://registry.yarnpkg.com/@next/polyfill-module/-/polyfill-module-10.0.2-canary.5.tgz#b8303bc0530096334202635e4881e322525a0750"
+  integrity sha512-wzUwx6Nm2qzsL37gGAnA2dGv/LWBxi7wzWasYZU1hvyonxmxv05tTpWU5Uixtklxr70AxUl5ebkb65RNonyZ0Q==
 
-"@next/react-dev-overlay@10.0.2-canary.3":
-  version "10.0.2-canary.3"
-  resolved "https://registry.yarnpkg.com/@next/react-dev-overlay/-/react-dev-overlay-10.0.2-canary.3.tgz#838f8f0a9decd64737a83c157a18726637b5dfc3"
-  integrity sha512-tCRpoTcb/r/5tSewBmKOtYRRWa75VXE/xv43VbJfmiFNySu8GFwZopkOgjOZTRbW9oev/vaxUIMFEzMcCr4PDQ==
+"@next/react-dev-overlay@10.0.2-canary.5":
+  version "10.0.2-canary.5"
+  resolved "https://registry.yarnpkg.com/@next/react-dev-overlay/-/react-dev-overlay-10.0.2-canary.5.tgz#1b072fe44197799435512052a860338ed4888ec3"
+  integrity sha512-TDtXHIIwzhPy132a4ZCxC8K9TkXkWu2rtiu2dT9222enfnBjm4zY60a1e3V9F8JJnywL0GjLsXcjwGnQ6uoWyA==
   dependencies:
     "@babel/code-frame" "7.10.4"
     ally.js "1.4.1"
@@ -1972,10 +1972,10 @@
     stacktrace-parser "0.1.10"
     strip-ansi "6.0.0"
 
-"@next/react-refresh-utils@10.0.2-canary.3":
-  version "10.0.2-canary.3"
-  resolved "https://registry.yarnpkg.com/@next/react-refresh-utils/-/react-refresh-utils-10.0.2-canary.3.tgz#7ce0f436a0b32a4972b48674c292c6b0db12133c"
-  integrity sha512-ASf9aaVxn/925WE9k48uSTx76e5C1XHUlZU86UyPSdJInNSk5aa5j3G06NhheuRXQXIiG2hw0EyEzxY70v9BXg==
+"@next/react-refresh-utils@10.0.2-canary.5":
+  version "10.0.2-canary.5"
+  resolved "https://registry.yarnpkg.com/@next/react-refresh-utils/-/react-refresh-utils-10.0.2-canary.5.tgz#2ad6e6fbf87d5b561acd8a23b595a0d29f18ba12"
+  integrity sha512-5vKNUvOWWJ/OtlQwqRK9AjJtV7UYgffWD3ewMiK0S5SOEAUPEWZPB9bZIW6RV6q21L4ZmaUmo4wdWrw8L6Uh/A==
 
 "@nodelib/fs.stat@^1.1.2":
   version "1.1.3"
@@ -9500,18 +9500,18 @@ next-transpile-modules@4.1.0:
     micromatch "^4.0.2"
     slash "^3.0.0"
 
-next@^10.0.2-canary.2:
-  version "10.0.2-canary.3"
-  resolved "https://registry.yarnpkg.com/next/-/next-10.0.2-canary.3.tgz#769bce0ad4568e5989635c2bd0b335d6f88beed4"
-  integrity sha512-53FTF037qWZxAVXXvR8ccV4kT4nfpatChrk1++MjqPUW0/+9GTh3JCu7cTuOd8YoQCqA8CzNLbM16zMIakR6qA==
+next@^10.0.2-canary.5:
+  version "10.0.2-canary.5"
+  resolved "https://registry.yarnpkg.com/next/-/next-10.0.2-canary.5.tgz#51a53dcdc665c332f4fe8eb18f9b826faee463da"
+  integrity sha512-AkM+68bJU/H9wrprNV695cT+Zv4PeJAYX4vzdoWSkjwPdlzqXIzewzJ/ymcPxGk+GOmqPgEcd90D/ucljQwS6w==
   dependencies:
     "@ampproject/toolbox-optimizer" "2.7.0-alpha.1"
     "@babel/runtime" "7.12.5"
     "@hapi/accept" "5.0.1"
-    "@next/env" "10.0.2-canary.3"
-    "@next/polyfill-module" "10.0.2-canary.3"
-    "@next/react-dev-overlay" "10.0.2-canary.3"
-    "@next/react-refresh-utils" "10.0.2-canary.3"
+    "@next/env" "10.0.2-canary.5"
+    "@next/polyfill-module" "10.0.2-canary.5"
+    "@next/react-dev-overlay" "10.0.2-canary.5"
+    "@next/react-refresh-utils" "10.0.2-canary.5"
     ast-types "0.13.2"
     babel-plugin-transform-define "2.0.0"
     babel-plugin-transform-react-remove-prop-types "0.4.24"
