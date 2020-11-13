@@ -62,6 +62,7 @@ const sendTokenToServer = (fcmToken, jwtToken) => {
 export const initializePush = async(jwtToken) => {
 	const messaging = firebase.messaging();
 	console.log('whoopwhoop', messaging);
+	if(typeof Notification === 'undefined') return;
 	Notification
 		.requestPermission()
 		.then(() => {
