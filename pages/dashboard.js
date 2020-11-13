@@ -152,7 +152,7 @@ class DashboardPage extends Component {
 						<li><b>/mod <i><Trans>user</Trans></i></b></li>
 						<li><b>/unmod <i><Trans>user</Trans></i></b></li>
 						<li><b>/timeout <i><Trans>user</Trans></i> <i><Trans>seconds</Trans></i></b> - <Trans>Time out user for x seconds</Trans></li>
-						<li><b>/timeout <i><Trans>user</Trans></i> <i>0</i></b> - Remove timeout for user</li>
+						<li><b>/timeout <i><Trans>user</Trans></i> <i>0</i></b> - <Trans>Remove timeout for user</Trans></li>
 						<li><b>/ban <i><Trans>user</Trans></i> <i><Trans>message</Trans></i></b> - <Trans>Permanently ban user</Trans></li>
 						<li><b>/unban <i><Trans>user</Trans></i></b> - <Trans>Unban user</Trans></li>
 					</ul>
