@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { Trans, t } from '@lingui/macro';
 
+import Link from 'next/link';
+
 import { formatDistanceToNowStrict } from 'date-fns'
 
 import withAuth from '../utils/withAuth';
