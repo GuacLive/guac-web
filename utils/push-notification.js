@@ -59,28 +59,14 @@ const sendTokenToServer = (fcmToken, jwtToken) => {
 	}
 };
 
-export const initializePush = (jwtToken) => {
+export const initializePush = async(jwtToken) => {
 	const messaging = firebase.messaging();
 	console.log('whoopwhoop', messaging);
-	messaging
+	if(typeof Notification === 'undefined') return;
+	Notification
 		.requestPermission()
 		.then(() => {
 			log('success', 'Firebase', 'Notifications are permitted');
-			return messaging.getToken();
-		})
-		.then(fcmToken => {
-			// Token already sent
-			if(
-				typeof localStorage !== 'undefined'
-				&& localStorage.getItem
-				&& localStorage.getItem('fcmToken')
-				&& localStorage.getItem('fcmToken') === fcmToken
-			){
-				log('success', 'Firebase', 'Token already sent to server, no need to resend');
-				return;
-			}
-			localStorage.setItem('fcmToken', fcmToken);
-			sendTokenToServer(fcmToken, jwtToken);
 		})
 		.catch(error => {
 			if(error.code === 'messaging/permission-blocked'){
@@ -89,9 +75,16 @@ export const initializePush = (jwtToken) => {
 				log('error', 'Firebase', 'Error', error);
 			}
 		});
-		messaging.onTokenRefresh(() => {
-			let fcmToken = messaging.getToken();
-			localStorage.setItem('fcmToken', fcmToken);
-			sendTokenToServer(fcmToken, jwtToken);
-		});
+		const fcmToken = await messaging.getToken();
+		if(
+			typeof localStorage !== 'undefined'
+			&& localStorage.getItem
+			&& localStorage.getItem('fcmToken')
+			&& localStorage.getItem('fcmToken') === fcmToken
+		){
+			log('success', 'Firebase', 'Token already sent to server, no need to resend');
+			return;
+		}
+		localStorage.setItem('fcmToken', fcmToken);
+		sendTokenToServer(fcmToken, jwtToken);
 }

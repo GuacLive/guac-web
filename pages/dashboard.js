@@ -19,6 +19,8 @@ let VideoPlayer = dynamic(
 );
 
 const STREAMING_SERVER = 'eu';
+
+const handleFocus = (event) => event.target.select();
 class DashboardPage extends Component {
 	constructor(props){
 		super(props);
@@ -123,7 +125,13 @@ class DashboardPage extends Component {
 								<>
 								<p><Trans>Now, use the following stream key:</Trans></p>
 								<div className="db">
-									<input className="input-reset bn pa3 w-50 bg-white br2" type={showStreamkey ? 'text' : 'password'} readOnly value={streamkey || undefined} />
+									<input 
+										className="input-reset bn pa3 w-50 bg-white br2"
+										type={showStreamkey ? 'text' : 'password'}
+										readOnly
+										value={streamkey || undefined}
+										onFocus={handleFocus}
+									/>
 									<span className="link inline-flex flex-nowrap ph3 pv2 hover-bg-dark-gray bg-animate color-inherit" onClick={() => this.setState({showStreamkey: !this.state.showStreamkey})}><FontAwesomeIcon icon={this.state.showStreamkey ? 'eye' : 'eye-slash'} /></span>
 								</div>
 								</>
@@ -144,7 +152,7 @@ class DashboardPage extends Component {
 						<li><b>/mod <i><Trans>user</Trans></i></b></li>
 						<li><b>/unmod <i><Trans>user</Trans></i></b></li>
 						<li><b>/timeout <i><Trans>user</Trans></i> <i><Trans>seconds</Trans></i></b> - <Trans>Time out user for x seconds</Trans></li>
-						<li><b>/timeout <i><Trans>user</Trans></i> <i>0</i></b> - Remove timeout for user</li>
+						<li><b>/timeout <i><Trans>user</Trans></i> <i>0</i></b> - <Trans>Remove timeout for user</Trans></li>
 						<li><b>/ban <i><Trans>user</Trans></i> <i><Trans>message</Trans></i></b> - <Trans>Permanently ban user</Trans></li>
 						<li><b>/unban <i><Trans>user</Trans></i></b> - <Trans>Unban user</Trans></li>
 					</ul>

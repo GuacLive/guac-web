@@ -1,7 +1,9 @@
 module.exports = {
 	locales: ['en', 'nb'],
 	sourceLocale: 'en',
-	fallbackLocale: 'en',
+	fallbackLocales: {
+		default: 'en'
+    },
 	compileNamespace: 'cjs',
 	format: 'po',
 	extractBabelOptions: {

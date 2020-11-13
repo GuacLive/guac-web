@@ -1,5 +1,5 @@
-importScripts('https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js');
-importScripts('https://www.gstatic.com/firebasejs/7.16.0/firebase-messaging.js');
+importScripts('https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/8.0.1/firebase-messaging.js');
 
 import {registerRoute} from 'workbox-routing';
 import {precacheAndRoute, cleanupOutdatedCaches} from 'workbox-precaching';
@@ -95,7 +95,7 @@ self.addEventListener('install', function(event) {
   event.waitUntil(self.skipWaiting());
 });
 
-messaging.setBackgroundMessageHandler(payload => {
+messaging.onBackgroundMessage(payload => {
     notificationPayload = payload;
 
 	// eslint-disable-next-line no-console
