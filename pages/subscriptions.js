@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { Trans, t } from '@lingui/macro';
 
+import { formatDistanceToNowStrict } from 'date-fns'
+
 import withAuth from '../utils/withAuth';
 
 function monthDiff(d1, d2){
@@ -27,13 +29,16 @@ function SubscriptionsPage(props){
 					{
 						result.data &&
 						result.data.map((sub, i) => {
-							let subLength = monthDiff(new Date(sub.start_date), new Date(sub.expiration_date));
+							let subLength = formatDistanceToNowStrict(new Date(sub.start_date), {
+								unit: 'month',
+								roundingMethod: 'ceil'
+							});
 							return (
 								<div key={`sub_${i}`} className="pa2">
-									<p><Trans>Subbed to:</Trans> {sub.channel_stream_id}</p>
+									<p><Trans>Subbed to:</Trans> <Link href={`/c/${sub.channel_user_name}`}>{sub.channel_user_name}</Link></p>
 									<p><Trans>Start date:</Trans> {sub.start_date}</p>
 									<p><Trans>End date:</Trans> {sub.expiration_date}</p>
-									<p><Trans>Length:</Trans> {subLength}</p>
+									<p><Trans>Current Sub-Streak:</Trans> {subLength}</p>
 								</div>
 							);
 						})
