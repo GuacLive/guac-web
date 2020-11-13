@@ -30,7 +30,7 @@ function SubscriptionsPage(props){
 							let subLength = monthDiff(new Date(sub.start_date), new Date(sub.expiration_date));
 							return (
 								<div key={`sub_${i}`} className="pa2">
-									<p><Trans>Subbed to:</Trans> {channel_stream_id}</p>
+									<p><Trans>Subbed to:</Trans> {sub.channel_stream_id}</p>
 									<p><Trans>Start date:</Trans> {sub.start_date}</p>
 									<p><Trans>End date:</Trans> {sub.expiration_date}</p>
 									<p><Trans>Length:</Trans> {subLength}</p>
