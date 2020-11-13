@@ -27,7 +27,7 @@ function SubscriptionsPage(props){
 					{
 						result.data &&
 						result.data.map((sub, i) => {
-							let subLength = monthDiff(new Date(sub.start_date) - new Date(sub.expiration_date));
+							let subLength = monthDiff(new Date(sub.start_date), new Date(sub.expiration_date));
 							return (
 								<div key={`sub_${i}`} className="pa2">
 									<p><Trans>Subbed to:</Trans> {channel_stream_id}</p>
