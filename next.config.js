@@ -103,7 +103,9 @@ module.exports = withTM(withOffline({
 		pageEnv: true,
 		productionBrowserSourceMaps: false,
 		optimizeFonts: false,
-		scrollRestoration: true
+		optimizeImages: true,
+		scrollRestoration: true,
+		topLevelAwait: true
 	},
 	future: {
 		excludeDefaultMomentLocales: true,
