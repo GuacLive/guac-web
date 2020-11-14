@@ -49,7 +49,7 @@ export const fetchEmotes = (channel) => async (dispatch) => {
 	})
 	.catch(() => {});
 
-	await fetch('https://api.frankerfacez.com/v1/room/datagutt')
+	await fetch('https://api2.frankerfacez.com/v1/room/datagutt')
 	.then(async response => {
 		const data = await response.json();
 
@@ -64,7 +64,7 @@ export const fetchEmotes = (channel) => async (dispatch) => {
 	})
 	.catch(() => {});
 	
-	await fetch('https://api.frankerfacez.com/v1/set/global')
+	await fetch('https://api2.frankerfacez.com/v1/set/global')
 	.then(async response => {
 		const data = await response.json();
 
