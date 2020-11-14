@@ -4,7 +4,7 @@ import 'videojs-errors';
 
 import {useLingui} from '@lingui/react';
 
-import io from 'socket.io-client/dist/socket.io.slim';
+import io from 'socket.io-client';
 
 import {useEffect,useState} from 'react';
 
@@ -34,6 +34,7 @@ function VideoPlayer(props) {
 		if(!didCancel){
 			playbackAPISocket = io(`${VIEWER_API_URL}/playback`, {
 				'transports': ['websocket'],
+				withCredentials: true,
 				/*'reconnection': true,
 				'reconnectionDelay': 1000,
 				'reconnectionDelayMax': 5000,

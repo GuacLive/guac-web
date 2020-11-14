@@ -30,8 +30,6 @@ import UserCard from './UserCard';
 
 import UrlEmbedder from 'utils/UrlEmbedder';
 
-import Image from '../Image';
-
 import { ToggleFeature } from '@flopflip/react-redux';
 
 import log from 'utils/log';
@@ -608,7 +606,8 @@ function ChatComponent(props){
 				'reconnectionDelayMax': 5000,
 				'reconnectionAttempts': 5,
 				'forceNew': true,
-				'transports': ['websocket']
+				'transports': ['websocket'],
+				withCredentials: true
 			});
 			socket.on('join', userJoin);
 			socket.on('leave', userLeave);
