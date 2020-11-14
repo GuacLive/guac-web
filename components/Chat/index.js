@@ -608,7 +608,8 @@ function ChatComponent(props){
 				'reconnectionDelayMax': 5000,
 				'reconnectionAttempts': 5,
 				'forceNew': true,
-				'transports': ['websocket']
+				'transports': ['websocket'],
+				withCredentials: true
 			});
 			socket.on('join', userJoin);
 			socket.on('leave', userLeave);
