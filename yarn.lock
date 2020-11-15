@@ -1934,20 +1934,20 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@next/env@10.0.2-canary.14":
-  version "10.0.2-canary.14"
-  resolved "https://registry.yarnpkg.com/@next/env/-/env-10.0.2-canary.14.tgz#c3491c884b3a00bb4ac9e3c16099871153e505ac"
-  integrity sha512-YIO5+pKXOEOScPwLoe9bg09e3jFNJcIo7mDXAdES/pn3Cn0RfUFQyW4SA8A125Yo6qAypFIKqQ/T+Y9Ejn3daA==
+"@next/env@10.0.2-canary.17":
+  version "10.0.2-canary.17"
+  resolved "https://registry.yarnpkg.com/@next/env/-/env-10.0.2-canary.17.tgz#8bf37393ee4eee4a5f17f315c02c62923345a8c7"
+  integrity sha512-+GPxI2b9zpFNfiWWhBvEhx/k3E874oHeZklzSUDkaJ1GVACqoObxmmWr/24iYgAYl/DnrDtvN8MMOa9cc//Nzw==
 
-"@next/polyfill-module@10.0.2-canary.14":
-  version "10.0.2-canary.14"
-  resolved "https://registry.yarnpkg.com/@next/polyfill-module/-/polyfill-module-10.0.2-canary.14.tgz#e6fbb0b788f72982baa369d1110e1fb4b7c2d034"
-  integrity sha512-IYBeuFZdecTy6yyPY8nR37EiLBMK4yNaOVG1HINgNo6aJ6BJzoeSokLI+hdwVc4N6HoLs9EnETrrAbjQrjwejw==
+"@next/polyfill-module@10.0.2-canary.17":
+  version "10.0.2-canary.17"
+  resolved "https://registry.yarnpkg.com/@next/polyfill-module/-/polyfill-module-10.0.2-canary.17.tgz#695edec29f2140887916b38960178ef6897de05f"
+  integrity sha512-TUI6l5i6qbtil23sS67Pekn6MWw+bI0mkPm9N5EquDwUC9IXRPzyifoShjvFo1+C1G8+NJlcX7ij/3WT7AWK+A==
 
-"@next/react-dev-overlay@10.0.2-canary.14":
-  version "10.0.2-canary.14"
-  resolved "https://registry.yarnpkg.com/@next/react-dev-overlay/-/react-dev-overlay-10.0.2-canary.14.tgz#e36992c585ef9f8385c24ced55b65d02170e26e9"
-  integrity sha512-HZLJyfr0OFz00MoImpK0s5DPRwkVPQTk5awu9KiXpoFABOJ5/1VBfjFeH6KdV/VEctireAcci32wbJEG6UPizg==
+"@next/react-dev-overlay@10.0.2-canary.17":
+  version "10.0.2-canary.17"
+  resolved "https://registry.yarnpkg.com/@next/react-dev-overlay/-/react-dev-overlay-10.0.2-canary.17.tgz#b96539ef534581e3b07ca3e51ce69dc787d8ab45"
+  integrity sha512-kBh1Dc2VhJBm6Ym26V5T4cAsxYOdR+nRXmUc4vePj48ksTEtxmwc0PzlFnk/8Jm4hh2oit7WjZYTdz1+Xhog+g==
   dependencies:
     "@babel/code-frame" "7.10.4"
     ally.js "1.4.1"
@@ -1960,10 +1960,10 @@
     stacktrace-parser "0.1.10"
     strip-ansi "6.0.0"
 
-"@next/react-refresh-utils@10.0.2-canary.14":
-  version "10.0.2-canary.14"
-  resolved "https://registry.yarnpkg.com/@next/react-refresh-utils/-/react-refresh-utils-10.0.2-canary.14.tgz#ad52c10b4bc9b74d64d5a11f8df1867cea989e9d"
-  integrity sha512-dOwwT8r9n4WdSWNHnp1taQvOtwWlRYHe9IDeWVJfsSsghusZA312pP5suD8022MYmi2Okk5QrX53qCvI6o6tSA==
+"@next/react-refresh-utils@10.0.2-canary.17":
+  version "10.0.2-canary.17"
+  resolved "https://registry.yarnpkg.com/@next/react-refresh-utils/-/react-refresh-utils-10.0.2-canary.17.tgz#7252c23dabe65b75a5dcaf19fef6dd54869da002"
+  integrity sha512-4tLZsqsPys0YQQNTCQSXNkJGvc+g34psTyCensQdCeEr0mJ/M/E9EZ3bIXoqFFKEyizPJc76Qu8o6uUHDZ2SBQ==
 
 "@nodelib/fs.stat@^1.1.2":
   version "1.1.3"
@@ -2597,9 +2597,9 @@
   integrity sha512-ZF2+wy7J1okgF984AR3nBV/u0DqsDK+TFe2U5ucPUrM9pFlVdWi88FZY2OTrH0ke5dgGXanJQlfW28PvlOAUbA==
 
 "@vercel/next@^2.6.8-canary.0":
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/@vercel/next/-/next-2.7.0.tgz#151762bfcca35839da062e3cf8be74c3d4765bef"
-  integrity sha512-bR1JknJrMJpNWkxChnnq+qSG4y6L2Wki1zXe1JttraP4aS8C3p2iRsy8Hm1u5Wpzcfw99WOo7lTFSg3JBmj9Yw==
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/@vercel/next/-/next-2.7.1.tgz#657cf0a1c833ff036e8aa44f70b87fa8258607c0"
+  integrity sha512-nzhh5UGQEr5qwySZO0VDEyRcPJu+IHcuPFvTdCnauOAGP08+fVFms25BmxmisrRO7KkZDUt68D+NzQRBkKooqw==
 
 "@vercel/node@1.7.3":
   version "1.7.3"
@@ -3963,9 +3963,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001035, caniuse-lite@^1.0.30001093, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001113, caniuse-lite@^1.0.30001154, caniuse-lite@^1.0.30001157:
-  version "1.0.30001157"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001157.tgz#2d11aaeb239b340bc1aa730eca18a37fdb07a9ab"
-  integrity sha512-gOerH9Wz2IRZ2ZPdMfBvyOi3cjaz4O4dgNwPGzx8EhqAs4+2IL/O+fJsbt+znSigujoZG8bVcIAUM/I/E5K3MA==
+  version "1.0.30001158"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001158.tgz#fce86d321369603c2bc855ee0e901a7f49f8310b"
+  integrity sha512-s5loVYY+yKpuVA3HyW8BarzrtJvwHReuzugQXlv1iR3LKSReoFXRm86mT6hT7PEF5RxW+XQZg+6nYjlywYzQ+g==
 
 capture-exit@^2.0.0:
   version "2.0.0"
@@ -5490,9 +5490,9 @@ ejs@^2.6.1:
   integrity sha512-7vmuyh5+kuUyJKePhQfRQBhXV5Ce+RnaeeQArKu1EAMpL3WbgMt5WG6uQZpEVvYSSsxMXRKOewtDk9RaTKXRlA==
 
 electron-to-chromium@^1.3.378, electron-to-chromium@^1.3.585, electron-to-chromium@^1.3.591:
-  version "1.3.595"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.595.tgz#e8a9e7c6919963419f892ea981d7b3438ccb834d"
-  integrity sha512-JpaBIhdBkF9FLG7x06ONfe0f5bxPrxRcq0X+Sc8vsCt+OPWIzxOD+qM71NEHLGbDfN9Q6hbtHRv4/dnvcOxo6g==
+  version "1.3.596"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.596.tgz#c7ed98512c7ff36ddcbfed9e54e6355335c35257"
+  integrity sha512-nLO2Wd2yU42eSoNJVQKNf89CcEGqeFZd++QsnN2XIgje1s/19AgctfjLIbPORlvcCO8sYjLwX4iUgDdusOY8Sg==
 
 elliptic@^6.5.3:
   version "6.5.3"
@@ -5702,7 +5702,7 @@ escape-html@~1.0.3:
   resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
   integrity sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
 
-escape-string-regexp@2.0.0:
+escape-string-regexp@2.0.0, escape-string-regexp@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz#a30304e99daa32e23b2fd20f51babd07cffca344"
   integrity sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==
@@ -8965,9 +8965,9 @@ map-visit@^1.0.0:
     object-visit "^1.0.0"
 
 marked@^1.1.0:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/marked/-/marked-1.2.3.tgz#58817ba348a7c9398cb94d40d12e0d08df83af57"
-  integrity sha512-RQuL2i6I6Gn+9n81IDNGbL0VHnta4a+8ZhqvryXEniTb/hQNtf3i26hi1XWUhzb9BgVyWHKR3UO8MaHtKoYibw==
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-1.2.4.tgz#94e99230b03496c9383b1322ac51bc17dd388a1d"
+  integrity sha512-6x5TFGCTKSQBLTZtOburGxCxFEBJEGYVLwCMTBCxzvyuisGcC20UNzDSJhCr/cJ/Kmh6ulfJm10g6WWEAJ3kvg==
 
 md5.js@^1.3.4:
   version "1.3.5"
@@ -9339,7 +9339,7 @@ nano-css@^5.2.1:
     stacktrace-js "^2.0.0"
     stylis "3.5.0"
 
-nanoid@^3.1.12:
+nanoid@^3.1.16:
   version "3.1.16"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.16.tgz#b21f0a7d031196faf75314d7c65d36352beeef64"
   integrity sha512-+AK8MN0WHji40lj8AEuwLOvLSbWYApQpre/aFJZD71r43wVRLrOYS4FmJOPQYon1TqB462RzrrxlfA74XRES8w==
@@ -9437,17 +9437,17 @@ next-transpile-modules@4.1.0:
     slash "^3.0.0"
 
 next@^10.0.2-canary.5:
-  version "10.0.2-canary.14"
-  resolved "https://registry.yarnpkg.com/next/-/next-10.0.2-canary.14.tgz#c0350952efce8d82d27c8aac428543561236eb58"
-  integrity sha512-yfO1zd67y14173TOie24pvupiFqa7H+m3AMGSgorTUfSZONpiCl3i9pWut7aPxL59TFVX8bf92X+GZ6mpYN+Dg==
+  version "10.0.2-canary.17"
+  resolved "https://registry.yarnpkg.com/next/-/next-10.0.2-canary.17.tgz#71d74d9a06b4770e282325f0c7f7550ba9de9e3f"
+  integrity sha512-ZGccudRXlX3KugdC1hPCGuVU5Rw2kEcwOilOuNr3zWvD1KvEFIVeM7+hiX5QgNr3S2yoLTOLWbi+sQF5lJVVaA==
   dependencies:
     "@ampproject/toolbox-optimizer" "2.7.0-alpha.1"
     "@babel/runtime" "7.12.5"
     "@hapi/accept" "5.0.1"
-    "@next/env" "10.0.2-canary.14"
-    "@next/polyfill-module" "10.0.2-canary.14"
-    "@next/react-dev-overlay" "10.0.2-canary.14"
-    "@next/react-refresh-utils" "10.0.2-canary.14"
+    "@next/env" "10.0.2-canary.17"
+    "@next/polyfill-module" "10.0.2-canary.17"
+    "@next/react-dev-overlay" "10.0.2-canary.17"
+    "@next/react-refresh-utils" "10.0.2-canary.17"
     ast-types "0.13.2"
     babel-plugin-transform-define "2.0.0"
     babel-plugin-transform-react-remove-prop-types "0.4.24"
@@ -9468,7 +9468,7 @@ next@^10.0.2-canary.5:
     node-html-parser "1.4.9"
     path-browserify "1.0.1"
     pnp-webpack-plugin "1.6.4"
-    postcss "8.1.1"
+    postcss "8.1.7"
     process "0.11.10"
     prop-types "15.7.2"
     raw-body "2.4.1"
@@ -11061,14 +11061,14 @@ postcss@7.0.32:
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
-postcss@8.1.1:
-  version "8.1.1"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.1.1.tgz#c3a287dd10e4f6c84cb3791052b96a5d859c9389"
-  integrity sha512-9DGLSsjooH3kSNjTZUOt2eIj2ZTW0VI2PZ/3My+8TC7KIbH2OKwUlISfDsf63EP4aiRUt3XkEWMWvyJHvJelEg==
+postcss@8.1.7:
+  version "8.1.7"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.1.7.tgz#ff6a82691bd861f3354fd9b17b2332f88171233f"
+  integrity sha512-llCQW1Pz4MOPwbZLmOddGM9eIJ8Bh7SZ2Oj5sxZva77uVaotYDsYTch1WBTNu7fUY0fpWp0fdt7uW40D4sRiiQ==
   dependencies:
     colorette "^1.2.1"
     line-column "^1.0.2"
-    nanoid "^3.1.12"
+    nanoid "^3.1.16"
     source-map "^0.6.1"
 
 postcss@^6.0.8:
@@ -12146,9 +12146,9 @@ rollup-plugin-terser@^7.0.0:
     terser "^5.0.0"
 
 rollup@^2.25.0:
-  version "2.33.1"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.33.1.tgz#802795164164ee63cd47769d8879c33ec8ae0c40"
-  integrity sha512-uY4O/IoL9oNW8MMcbA5hcOaz6tZTMIh7qJHx/tzIJm+n1wLoY38BLn6fuy7DhR57oNFLMbDQtDeJoFURt5933w==
+  version "2.33.2"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.33.2.tgz#c4c76cd405a7605e6ebe90976398c46d4c2ea166"
+  integrity sha512-QPQ6/fWCrzHtSXkI269rhKaC7qXGghYBwXU04b1JsDZ6ibZa3DJ9D1SFAYRMgx1inDg0DaTbb3N4Z1NK/r3fhw==
   optionalDependencies:
     fsevents "~2.1.2"
 
@@ -12870,9 +12870,11 @@ stack-generator@^2.0.5:
     stackframe "^1.1.1"
 
 stack-utils@^1.0.1:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/stack-utils/-/stack-utils-1.0.2.tgz#33eba3897788558bebfc2db059dc158ec36cebb8"
-  integrity sha512-MTX+MeG5U994cazkjd/9KNAapsHnibjMLnfXodlkXw76JEea0UiNzrqidzo1emMwk7w5Qhc9jd4Bn9TBb1MFwA==
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/stack-utils/-/stack-utils-1.0.3.tgz#db7a475733b5b8bf6521907b18891d29006f7751"
+  integrity sha512-WldO+YmqhEpjp23eHZRhOT1NQF51STsbxZ+/AdpFD+EhheFxAe5d0WoK4DQVJkSHacPrJJX3OqRAl9CgHf78pg==
+  dependencies:
+    escape-string-regexp "^2.0.0"
 
 stackframe@^1.1.1:
   version "1.2.0"
