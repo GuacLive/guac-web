@@ -245,9 +245,7 @@ function PageLayout(props) {
 								<a className="link white hover-red mr2"> <Trans>DMCA</Trans> </a>
 							</Link>
 						</div>
-						<Link href="#">
-							<a className="link white-80 hover-green"> contact@guac.live </a>
-						</Link>
+						<a href="mailto:contact@guac.live" className="link white-80 hover-green"> contact@guac.live </a>
 						<iframe
 							src="https://www.patreon.com/platform/iframe?widget=become-patron-button&creatorID=19057109"
 							scrolling="no"
