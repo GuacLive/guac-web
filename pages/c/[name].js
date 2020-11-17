@@ -253,11 +253,10 @@ function ChannelPage(props){
 		return function cleanup(){
 			didCancel = true;
 			if(channelAPISocket){
-				channelAPISocket.emit('disconnect');
+				channelAPISocket.disconnect();
 				channelAPISocket.removeAllListeners();
 				channelAPISocket.off('connect');
 				channelAPISocket.off('disconnect');
-				channelAPISocket.disconnect();
 			}
 		};
 	}, []);
