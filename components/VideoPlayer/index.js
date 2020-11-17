@@ -262,11 +262,10 @@ function VideoPlayer(props) {
 				player.dispose();
 			}
 			if(playbackAPISocket){
-				playbackAPISocket.emit('disconnect');
+				playbackAPISocket.disconnect();
 				playbackAPISocket.removeAllListeners();
 				playbackAPISocket.off('connect');
 				playbackAPISocket.off('disconnect');
-				playbackAPISocket.disconnect();
 			}
 		};
 	  }, []);

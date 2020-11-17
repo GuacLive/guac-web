@@ -637,12 +637,11 @@ function ChatComponent(props){
 		return function cleanup(){
       		didCancel = true;
 			if(socket){
-				socket.emit('disconnect');
+				socket.disconnect();
 				socket.removeAllListeners();
 				socket.off('connect');
 				socket.off('disconnect');
 				//socket.leave();
-				socket.disconnect();
 				//users = new Map();
 				privileged = [];
 				hasPrivilege = false;
