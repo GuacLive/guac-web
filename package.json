@@ -89,6 +89,7 @@
     "react-process-string": "^1.2.0",
     "react-redux": "^7.2.0",
     "react-scripts": "^3.4.1",
+    "react-select-search": "^2.2.1",
     "react-svg-spinner": "^1.0.4",
     "react-switch": "^5.0.1",
     "react-textarea-autosize": "^8.2.0",

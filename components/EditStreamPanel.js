@@ -3,12 +3,15 @@ import {connect} from 'react-redux';
 
 import { Trans } from '@lingui/macro';
 
+import SelectSearch from 'react-select-search/dist/cjs';
+
 import * as actions from 'actions';
 
+import { callApi } from 'services/api';
 class EditStreamPanel extends Component {
 	constructor(props){
 		super(props);
-		this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	async componentDidMount(){
@@ -26,9 +29,9 @@ class EditStreamPanel extends Component {
 		e.preventDefault();
 		// yay uncontrolled forms!
 		console.log(this.refs);
-		if(streaming.category !== this.refs.category.value){
+		if(streaming.category !== this.state.category){
 			this.props.dispatch(
-				actions.setCategory(this.props.authentication.token, this.refs.category.value)
+				actions.setCategory(this.props.authentication.token, this.state.category)
 			);
 		}
 		if(streaming.title !== this.refs.title.value){
@@ -44,7 +47,7 @@ class EditStreamPanel extends Component {
     }
 
 	render(){
-		const {streaming, categories} = this.props;
+		const {streaming, channel, categories} = this.props;
 		const auth = this.props.authentication;
 		if(auth.loading) return null;
 		if(auth.error) throw auth.error;
@@ -58,26 +61,43 @@ class EditStreamPanel extends Component {
                     categories.data &&
                     <>
                         <label htmlFor="category"><Trans>Category:</Trans></label>
-                        <select
+                        <SelectSearch
                             name="category"
-                            className="input-reset bn pa3 w-100 bg-white br2"
-                            ref="category"
-                            placeholder="Select category"
-                            value={streaming.category}
-                        >
-                            {
-                                categories.data.map((category) => {
-                                    return (
-                                        <option
-                                            key={`category_${category.category_id}`}
-                                            value={category.category_id}
-                                        >
-                                            {category.name}
-                                        </option>
-                                    );
-                                })
+                            placeholder="Search category"
+                            value={channel.data.category_id}
+                            options={
+                                categories.data ? categories.data.map((data) => ({
+                                    value: data.category_id,
+                                    name: data.name
+                                })) : []
                             }
-                        </select>
+                            onChange={(category) => {
+                                this.setState({
+                                    category
+                                });
+                            }}
+                            getOptions={(term) => {
+                                return new Promise((resolve, reject) => {
+                                    fetch(process.env.API_URL + '/search/categories', {
+                                        Accept: 'application/json',
+                                        'Content-Type': 'application/json',
+                                        method: 'POST',
+                                        body: JSON.stringify({
+                                            term
+                                        })
+                                    })
+                                    .then(response => response.json())
+                                    .then(searchResults => {
+                                        resolve(searchResults.data.map((data) => ({
+                                            value: data.category_id,
+                                            name: data.category_name
+                                        })))
+                                    })
+                                    .catch(reject);
+                                }
+                            )}}
+                            search
+                        />
                     </>
                 }
                 <label htmlFor="private"><Trans>Private (don't show in categories, frontpage or search):</Trans></label>
