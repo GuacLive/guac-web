@@ -79,7 +79,7 @@ function PageLayout(props) {
 				if(mediaQueryList.addEventListener){
 					mediaQueryList.addEventListener('change', updateDimensions);
 				}else if(mediaQueryList.addListener){
-					mediaQueryList.addListener('change', updateDimensions);
+					mediaQueryList.addListener(updateDimensions);
 				}
 			}
 			updateDimensions(mediaQueryList);
@@ -88,7 +88,7 @@ function PageLayout(props) {
 				if(mediaQueryList.removeEventListener){
 					mediaQueryList.removeEventListener('change', updateDimensions);
 				}else if(mediaQueryList.removeListener){
-					mediaQueryList.removeListener('change', updateDimensions);
+					mediaQueryList.removeListener(updateDimensions);
 				}
 			};
 		}, []);
