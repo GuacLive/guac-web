@@ -76,12 +76,20 @@ function PageLayout(props) {
 
 			// This is the logic that handles sidebar
 			if (mediaQueryList) {
-				mediaQueryList.addEventListener('change', updateDimensions);
+				if(mediaQueryList.addEventListener){
+					mediaQueryList.addEventListener('change', updateDimensions);
+				}else if(mediaQueryList.addListener){
+					mediaQueryList.addListener('change', updateDimensions);
+				}
 			}
 			updateDimensions(mediaQueryList);
 			return () => {
 				window.removeEventListener('resize', updateViewport);
-				mediaQueryList.removeEventListener('change', updateDimensions);
+				if(mediaQueryList.removeEventListener){
+					mediaQueryList.removeEventListener('change', updateDimensions);
+				}else if(mediaQueryList.removeListener){
+					mediaQueryList.removeListener('change', updateDimensions);
+				}
 			};
 		}, []);
 	}
