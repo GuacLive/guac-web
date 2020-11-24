@@ -33,8 +33,6 @@ let VideoPlayer = dynamic(
 
 import {connect} from 'react-redux';
 
-import io from 'socket.io-client';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { useRouter } from 'next/router';
@@ -53,6 +51,8 @@ import { kFormatter } from 'utils';
 
 import ReactMarkdown from 'components/ReactMarkdown';
 
+import useChannelSocket from 'hooks/useChannelSocket';
+
 const ReplaysList = dynamic(() => import('components/Replays/ReplaysList'));
 const EditStreamPanel = dynamic(() => import('components/EditStreamPanel'));
 const SubscriptionDialog = dynamic(() => import('components/SubscriptionDialog'));
@@ -62,7 +62,6 @@ const FollowingList = dynamic(() => import('components/FollowingList'));
 
 const STREAMING_SERVER = 'eu';
 const API_URL = process.env.API_URL;
-const VIEWER_API_URL = process.env.VIEWER_API_URL;
 function ChannelPage(props){
 	const router = useRouter()
 	const [tab, setTab] = useState(0);
@@ -211,55 +210,10 @@ function ChannelPage(props){
 	}, [router.query])
 
 	useEffect(() => {
-		let channelAPISocket, didCancel = false;
-		
 		let now = new Date().getTime();
 		let liveAt = channel && channel.data && channel.data.liveAt ? new Date(channel.data.liveAt) : 0;
 		setTimer(now - liveAt);
-
-		if(!didCancel){
-			channelAPISocket = io(`${VIEWER_API_URL}/channel`);
-			channelAPISocket.on('connect', () => {
-				if(!channel || !channel.data || !channel.data.name) return;
-				channelAPISocket.emit('join', {
-					name: channel.data.name
-				});
-			});
-			channelAPISocket.on('disconnect', () => {
-				if(!channel || !channel.data || !channel.data.name) return;
-				channelAPISocket.emit('leave', {
-					name: channel.data.name
-				});
-			});
-			channelAPISocket.on('reload', () => {
-				window.location.reload();
-			});
-			channelAPISocket.on('redirect', (url) => {
-				window.location = url;
-			});
-			channelAPISocket.on('live', (liveBoolean) => {
-				console.log(`socket sent live: ${liveBoolean}`);
-				setTimeout(async () => {
-					try{
-						dispatch(actions.fetchChannel(channel.data.name));
-						// If no longer live, go out of theater mode
-						if(!liveBoolean){
-							document.documentElement.classList.remove('theater-mode');
-						}
-					}catch(e){}
-				}, Math.floor(Math.random() * (4000 - 2500 + 1) + 2500));
-			});
-		}
-		return function cleanup(){
-			didCancel = true;
-			if(channelAPISocket){
-				channelAPISocket.disconnect();
-				channelAPISocket.removeAllListeners();
-				channelAPISocket.off('connect');
-				channelAPISocket.off('disconnect');
-			}
-		};
-	}, []);
+	}, [])
 
 	useUpdateEffect(() => {
 		if(!showEditPanel){
@@ -642,6 +596,22 @@ function ChannelPage(props){
 	if(channel.loading) return (<Trans>Loading...</Trans>);
 	if(!channel.data) return (<Trans>Channel not found</Trans>);
 	if(channel.error) throw channel.error;
+
+	const channelAPISocket = useChannelSocket(channel);
+	
+	useEffect(() => {
+		if(channelAPISocket){
+			console.log('ye', channelAPISocket);
+			channelAPISocket.on('reload', () => {
+				log('info', 'Channel', 'Socket', `Asked to reload page`);
+				window.location.reload();
+			});
+			channelAPISocket.on('redirect', (url) => {
+				log('info', 'Channel', 'Socket', `Asked to redirect to ${url}`);
+				window.location = url;
+			});
+		}
+	}, [channelAPISocket]);
 
 	const meta = [
 		{property: 'og:title', content: `${channel.data.name} &middot; guac.live`},
