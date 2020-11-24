@@ -8,19 +8,17 @@ import log from 'utils/log';
 
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
 export default function useChannelSocket(channel){
-	console.log('useChannelSocket', channel);
 	let [channelAPISocket, setChannelAPISocket] = useState(null);
 	const dispatch = useDispatch();
 	useEffect(() => {
 		let didCancel = false;
 
 		if(!didCancel){
-		log('info', 'Channel', 'Socket', `Connecting`);
+			log('info', 'Channel', 'Socket', `Connecting`);
 			setChannelAPISocket(io(`${VIEWER_API_URL}/channel`));
 		}
 		return function cleanup() {
 			didCancel = true;
-			console.log('cleanup');
 			setChannelAPISocket(null);
 		};
 	}, []);
