@@ -16,30 +16,26 @@ import NextHead from 'next/head';
 import * as actions from '../../actions';
 
 import log from '../../utils/log';
+import useChannelSocket from 'hooks/useChannelSocket';
 
 const STREAMING_SERVER = 'eu';
-class EmbedPage extends Component {
-	static async getInitialProps({store, isServer, pathname, query, req}){
-		const { channel } = store.getState()
-		log('info', 'Channel', query.name);
-		//if(channel.loading){
-			await store.dispatch(actions.fetchChannel(query.name));
-		//}
-		return {...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})};
-	}
-
-    renderStream = () => {
+function EmbedPage(props){
+	const renderStream = () => {
 		const {
-			channel
-		} = this.props;
+			channel,
+			authentication
+		} = props;
 		let stream = channel.data;
 
-		let videoJsOptions = { 
+		let videoJsOptions = {
 			autoplay: true,
 			controls: true,
 			sources: [],
 			streamInfo: {
-				username: stream.user.name
+				viewer_user_id: authentication.user && authentication.user.id,
+				title: stream.title,
+				username: stream.user.name,
+				isChannel: true
 			}
 		};
 
@@ -50,10 +46,17 @@ class EmbedPage extends Component {
 				if(stream.urls.flv){
 					videoJsOptions.sources.push({
 						src: typeof window === 'object' && 'WebSocket' in window
-							? `${window.location.protocol === 'https:' ? 'wss' : 'ws'}:${flvUrl}`
+							? `wss:${flvUrl}`
 							: flvUrl,
 						type: 'video/x-flv',
-						label: STREAMING_SERVER + `(FLV)`
+						label: 'Source (FLV)'
+					});
+				}
+				if(stream.urls.hls){
+					videoJsOptions.sources.push({
+						src: `${stream.servers[STREAMING_SERVER]}${stream.urls.hls}`,
+						type: 'application/x-mpegURL',
+						label: 'Auto (HLS)'
 					});
 				}
 				// Only HLS has quality options
@@ -62,63 +65,69 @@ class EmbedPage extends Component {
 					videoJsOptions.sources.push({
 						src: stream.servers[STREAMING_SERVER] + `/live/${stream.user.name}/index${urlKey}.m3u8`,
 						type: 'application/x-mpegURL',
-						label: STREAMING_SERVER + `(${key})`
+						label: `${key} (HLS)`
 					});
 				});
 			}
 		}
 
-    	return (
-			<div class="player-embed">
-                <VideoPlayer { ...videoJsOptions } live={stream.live} fill={true}></VideoPlayer>
-            </div>
-    	);
-    }
-
-	render() {
-		const {
-            channel
-		} = this.props;
-
-		if(channel.loading) return null;
-		if(!channel.data) return null;
-        if(channel.error) throw channel.error;
-
-		const meta = [
-			{property: 'og:title', hid: 'og:title', content: `${channel.data.name} &middot; guac.live`},
-			{property: 'og:description', hid: 'og:description', content: `Watch ${channel.data.name} stream ${channel.data.category_name} on guac`},
-			{property: 'og:image', hid: 'og:image', content: channel.data.user.avatar || '//guac.live/img/header-logo.png'},
-			{name: 'author', content: channel.data.name},
-			{name: 'description', hid: 'description', content: `Watch ${channel.data.name} stream ${channel.data.category_name} on guac`},
-			{name: 'profile:username', content: channel.data.name},
-			{property: 'twitter:card', content: 'summary_large_image'},
-			{property: 'twitter:site', content: '@GuacLive'},
-			{property: 'twitter:title', content: (channel.data.title || '').substring(0, 70)},
-			{property: 'twitter:description', content: `Watch ${channel.data.name} stream ${channel.data.category_name} on guac`},
-			{property: 'twitter:image', content: channel.data.user.avatar || '//guac.live/img/header-logo.png'},  
-		];
-		// Add meta noindex, nofollow if channel is private
-		if(channel.data && channel.data.private){
-			meta.push({
-				name: 'robots',
-				content: 'noindex, nofollow, noarchive'
-			})
-		}
-
 		return (
-			<Fragment>
-                <NextHead>
-                    <title>{channel.data.name} &middot; guac.live</title>
-                    { meta && meta.map((m) => {
-                        return (
-                            <meta name={m.name} content={m.content} key={m.name} />
-                        )
-                    })}
-					<link rel="alternate" type="application/json+oembed" href={`/api/oembed?format=json&url=https%3A%2F%guac.live%2Fc%2F${channel.data.name}`} title={channel.data.name} />
-                </NextHead>
-                {this.renderStream()}
-			</Fragment>
-		)
+			<div className="player-embed">
+				<VideoPlayer {...videoJsOptions} live={stream.live} fill={true}></VideoPlayer>
+			</div>
+		);
 	}
+
+	const {
+		channel
+	} = props;
+
+	if(channel.loading) return null;
+	if(!channel.data) return null;
+	if(channel.error) throw channel.error;
+
+	const channelAPISocket = useChannelSocket(channel);
+
+	const meta = [
+		{property: 'og:title', hid: 'og:title', content: `${channel.data.name} &middot; guac.live`},
+		{property: 'og:description', hid: 'og:description', content: `Watch ${channel.data.name} stream ${channel.data.category_name} on guac`},
+		{property: 'og:image', hid: 'og:image', content: channel.data.user.avatar || '//guac.live/img/header-logo.png'},
+		{name: 'author', content: channel.data.name},
+		{name: 'description', hid: 'description', content: `Watch ${channel.data.name} stream ${channel.data.category_name} on guac`},
+		{name: 'profile:username', content: channel.data.name},
+		{property: 'twitter:card', content: 'summary_large_image'},
+		{property: 'twitter:site', content: '@GuacLive'},
+		{property: 'twitter:title', content: (channel.data.title || '').substring(0, 70)},
+		{property: 'twitter:description', content: `Watch ${channel.data.name} stream ${channel.data.category_name} on guac`},
+		{property: 'twitter:image', content: channel.data.user.avatar || '//guac.live/img/header-logo.png'},
+	];
+	// Add meta noindex, nofollow if channel is private
+	if (channel.data && channel.data.private) {
+		meta.push({
+			name: 'robots',
+			content: 'noindex, nofollow, noarchive'
+		})
+	}
+
+	return (
+		<Fragment>
+			<NextHead>
+				<title>{channel.data.name} &middot; guac.live</title>
+				{meta && meta.map((m) => {
+					return (
+						<meta name={m.name} content={m.content} key={m.name} />
+					)
+				})}
+				<link rel="alternate" type="application/json+oembed" href={`/api/oembed?format=json&url=https%3A%2F%guac.live%2Fc%2F${channel.data.name}`} title={channel.data.name} />
+			</NextHead>
+			{renderStream()}
+		</Fragment>
+	)
 }
+
+EmbedPage.getInitialProps = async ({store, query}) => {
+	log('info', 'Channel', query.name);
+	await store.dispatch(actions.fetchChannel(query.name));
+	return {...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})};
+};
 export default connect(state => state)(EmbedPage)
