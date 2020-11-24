@@ -924,6 +924,15 @@ function ChatComponent(props){
 					: null
 			}
 			<div className={`${visible ? 'flex' : 'dn'} flex flex-column flex-grow-1 flex-nowrap overflow-hidden`}>
+				{
+					!connectedStatus
+					&&
+					<div className="flex ph3 f4 tc relative h-100 w-100 white">
+						<div className="absolute justify-center items-center">
+							<p className="pa0 ma0"><Trans>Loading</Trans>&hellip;</p>
+						</div>
+					</div>
+				}
 				<SimpleBar ref={messageContainerRef} className={`chat-messages flex-grow-1 z-initial h-100 ${visible ? '' : 'dn'}`}
 				style={{height: '0', flex: '1 1 auto'}}>
 				{

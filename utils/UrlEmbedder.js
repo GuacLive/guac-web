@@ -60,7 +60,7 @@ export default class UrlEmbedder {
             regex: self.YOUTUBE_REGEX,
             fn: (key, result) => {
 				return (
-					<div className="aspect-ratio aspect-ratio--16x9 mt1">
+					<div className="aspect-ratio aspect-ratio--16x9 mt1" key={key}>
 						<iframe src={this.resolveYoutubeUrl(result)} className="aspect-ratio--object" frameBorder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowFullScreen={true}></iframe>
 				  	</div>
 				);
@@ -78,6 +78,6 @@ export default class UrlEmbedder {
 		}catch(e){}
 		// Process giphy regex and replace with JSX img element
 		str = processString(config)(str);
-		return <Linkify>{str}</Linkify>;
+		return <Linkify key={'linkify' + (new Date).getTime() + (Math.random()*1000)}>{str}</Linkify>;
 	}
 }
