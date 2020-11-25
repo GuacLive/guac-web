@@ -8,7 +8,7 @@ import log from 'utils/log';
 
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
 export default function useChannelSocket(channel){
-	let [channelAPISocket, setChannelAPISocket] = useState(null);
+	const [channelAPISocket, setChannelAPISocket] = useState(null);
 	const dispatch = useDispatch();
 	useEffect(() => {
 		let didCancel = false;
