@@ -75,16 +75,18 @@ export const initializePush = async(jwtToken) => {
 				log('error', 'Firebase', 'Error', error);
 			}
 		});
-		const fcmToken = await messaging.getToken();
-		if(
-			typeof localStorage !== 'undefined'
-			&& localStorage.getItem
-			&& localStorage.getItem('fcmToken')
-			&& localStorage.getItem('fcmToken') === fcmToken
-		){
-			log('success', 'Firebase', 'Token already sent to server, no need to resend');
-			return;
-		}
-		localStorage.setItem('fcmToken', fcmToken);
-		sendTokenToServer(fcmToken, jwtToken);
+		try{
+			const fcmToken = await messaging.getToken();
+			if(
+				typeof localStorage !== 'undefined'
+				&& localStorage.getItem
+				&& localStorage.getItem('fcmToken')
+				&& localStorage.getItem('fcmToken') === fcmToken
+			){
+				log('success', 'Firebase', 'Token already sent to server, no need to resend');
+				return;
+			}
+			localStorage.setItem('fcmToken', fcmToken);
+			sendTokenToServer(fcmToken, jwtToken);
+		}catch(e){}
 }

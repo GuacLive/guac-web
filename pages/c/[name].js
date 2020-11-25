@@ -84,6 +84,8 @@ function ChannelPage(props){
 
 	const channel = useSelector(state => state.channel);
 	const site = useSelector(state => state.site);
+
+	const channelAPISocket = useChannelSocket(channel);
 	
 	let isMe = (authentication.user && authentication.user.id )
 		&& 
@@ -587,17 +589,6 @@ function ChannelPage(props){
 		);
 	}
 
-	var refs = useMemo(
-		() => Array.from({
-			length: channel.data && channel.data.panels ? channel.data.panels.length : 0
-		}).map(() => React.createRef()),
-		[]
-	);
-	const channelAPISocket = useChannelSocket(channel);
-	if(channel.loading) return (<Trans>Loading...</Trans>);
-	if(!channel.data) return (<Trans>Channel not found</Trans>);
-	if(channel.error) throw channel.error;
-
 	
 	useEffect(() => {
 		if(channelAPISocket){
@@ -612,6 +603,16 @@ function ChannelPage(props){
 			});
 		}
 	}, [channelAPISocket]);
+
+	var refs = useMemo(
+		() => Array.from({
+			length: channel.data && channel.data.panels ? channel.data.panels.length : 0
+		}).map(() => React.createRef()),
+		[]
+	);
+	if(channel.loading) return (<Trans>Loading...</Trans>);
+	if(!channel.data) return (<Trans>Channel not found</Trans>);
+	if(channel.error) throw channel.error;
 
 	const meta = [
 		{property: 'og:title', content: `${channel.data.name} &middot; guac.live`},

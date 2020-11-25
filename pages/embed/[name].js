@@ -26,6 +26,7 @@ function EmbedPage(props){
 			authentication
 		} = props;
 		let stream = channel.data;
+		const channelAPISocket = useChannelSocket(channel);
 
 		let videoJsOptions = {
 			autoplay: true,
@@ -83,7 +84,6 @@ function EmbedPage(props){
 	} = props;
 
 
-	const channelAPISocket = useChannelSocket(channel);
 	if(channel.loading) return null;
 	if(!channel.data) return null;
 	if(channel.error) throw channel.error;
