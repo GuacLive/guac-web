@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { useState, useRef, Fragment } from 'react';
+import { useState, useRef } from 'react';
 
 import { useClickAway } from 'react-use';
 
@@ -10,6 +10,7 @@ import { Trans, t } from '@lingui/macro';
 import Image from '../Image';
 
 import DarkModeToggle from '../DarkModeToggle';
+import LangSwitcher from 'components/LangSwitcher';
 function AccountMenu(props){
 	const { i18n } = useLingui();
 	const [isOpen, setIsOpen] = useState(false);
@@ -118,6 +119,9 @@ function AccountMenu(props){
 					}
 					<li>
 						<DarkModeToggle mode={props.mode} />
+					</li>
+					<li>
+						<LangSwitcher mode={props.mode} />
 					</li>
 					{
 						props.user &&
