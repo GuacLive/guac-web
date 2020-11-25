@@ -82,11 +82,11 @@ function EmbedPage(props){
 		channel
 	} = props;
 
+
+	const channelAPISocket = useChannelSocket(channel);
 	if(channel.loading) return null;
 	if(!channel.data) return null;
 	if(channel.error) throw channel.error;
-
-	const channelAPISocket = useChannelSocket(channel);
 
 	const meta = [
 		{property: 'og:title', hid: 'og:title', content: `${channel.data.name} &middot; guac.live`},

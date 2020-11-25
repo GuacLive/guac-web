@@ -593,11 +593,11 @@ function ChannelPage(props){
 		}).map(() => React.createRef()),
 		[]
 	);
+	const channelAPISocket = useChannelSocket(channel);
 	if(channel.loading) return (<Trans>Loading...</Trans>);
 	if(!channel.data) return (<Trans>Channel not found</Trans>);
 	if(channel.error) throw channel.error;
 
-	const channelAPISocket = useChannelSocket(channel);
 	
 	useEffect(() => {
 		if(channelAPISocket){
