@@ -78,6 +78,6 @@ export default class UrlEmbedder {
 		}catch(e){}
 		// Process giphy regex and replace with JSX img element
 		str = processString(config)(str);
-		return <Linkify key={'linkify' + (new Date).getTime() + (Math.random()*1000)}>{str}</Linkify>;
+		return <Linkify className="linkify" key={'linkify' + (new Date).getTime() + (Math.random()*1000)}>{str}</Linkify>;
 	}
 }
