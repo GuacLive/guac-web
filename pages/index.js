@@ -155,7 +155,7 @@ function IndexPage(props){
 		if(categories.statusCode == 200
 			&& categories.data
 			&& categories.data.length > 0){
-				categories.data = categories.data.slice(0, 5);
+				categories.data = categories.data.slice(0, 6);
 			return (
 				<div className="w-100 flex flex-wrap">
 					{categories.data.map((category) => {
