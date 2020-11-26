@@ -50,7 +50,7 @@ class CategoryPage extends Component {
 			<Fragment>
 				<div className="w-100 pv3 ph3-l">
 					<div className="flex pa4 cover" style={{
-								'textShadow': '1px 1px 1px #000',
+								'textShadow': '1px 1px 0 #333, -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333, 2px 2px 5px rgb(0 0 0 / 65%)',
 								'background': thisCategory[0] && thisCategory[0].cover ? `url(${thisCategory[0].cover})` : `url(/img/categories/${category_id}.jpg) no-repeat 100%`,
 								'backgroundPosition': '50%',
 								'backgroundRepeat': 'no-repeat',
