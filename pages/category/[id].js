@@ -51,7 +51,7 @@ class CategoryPage extends Component {
 				<div className="w-100 pv3 ph3-l">
 					<div className="flex pa4 cover" style={{
 								'textShadow': '1px 1px 0 #333, -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333, 2px 2px 5px rgb(0 0 0 / 65%)',
-								'background': `linear-gradient(rgba(15, 15, 15, 0), rgb(21, 21, 21)), linear-gradient(rgba(21, 21, 21, 0.8), rgba(21, 21, 21, 0.5)), url(${thisCategory[0] && thisCategory[0].cover ? '/img/categories/' : category_id + '.jpg'})`,
+								'background': `linear-gradient(rgba(15, 15, 15, 0), rgb(21, 21, 21)), linear-gradient(rgba(21, 21, 21, 0.8), rgba(21, 21, 21, 0.5)), url(${thisCategory[0] && thisCategory[0].cover ? thisCategory[0].cover : '/img/categories/' + category_id + '.jpg'})`,
 								'backgroundPosition': '50%',
 								'backgroundRepeat': 'no-repeat',
 							}}>
