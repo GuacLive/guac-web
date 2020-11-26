@@ -268,19 +268,6 @@ input:focus {
 	top: 0;
 }
 
-.account-menu-avatar:after {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    border-left: 3px solid transparent;
-    border-top: 3px solid transparent;
-    border-right: 3px solid #a8b3ae;
-    border-right-color: var(--light-silver);
-    border-bottom: 3px solid #a8b3ae;
-    border-bottom-color: var(--light-silver);
-    content: "";
-}
-
 .site-component-sidebar {
 	top: 64px;
 	transform: translateX(0%);
