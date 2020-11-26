@@ -746,3 +746,12 @@ html.theater-mode .site-component-channel__info .guac-btn {
     -ms-transform: scale(1.1);
     transform: scale(1.1);
 }
+
+/* Links */
+.linkify a {
+	color: var(--blue);
+	text-decoration: none;
+}
+.linkify a:hover {
+	text-decoration: underline;
+}

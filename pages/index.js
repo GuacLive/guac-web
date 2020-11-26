@@ -155,7 +155,7 @@ function IndexPage(props){
 		if(categories.statusCode == 200
 			&& categories.data
 			&& categories.data.length > 0){
-				categories.data = categories.data.slice(0, 5);
+				categories.data = categories.data.slice(0, 6);
 			return (
 				<div className="w-100 flex flex-wrap">
 					{categories.data.map((category) => {
@@ -163,7 +163,7 @@ function IndexPage(props){
 							<Link key={`category_${category.category_id}`} href={`/category/[id}`} href={`/category/${category.category_id}`}>
 								<a className="flex flex-column flex-grow-0 flex-shrink-0 overflow-hidden w5 pa2 no-underline" key={`category_${category.category_id}`}>
 									<div className="item-preview aspect-ratio aspect-ratio--16x9 z-1">
-										<Image alt={category.name} src={category.cover ? category.cover : `/img/categories/${category.category_id}.jpg`} width={640} height={480} className="aspect-ratio--object" shape="rounded" fit="cover" priority={true} />
+										<Image alt={category.name} src={category.cover ? category.cover : `/img/categories/${category.category_id}.jpg`} width={600} height={400} className="aspect-ratio--object" shape="rounded" fit="cover" priority={true} />
 									</div>
 									<div className="flex flex-grow-1 flex-shrink-1 pa2">
 										<span className="f3 db link green truncate">{category.name}</span>

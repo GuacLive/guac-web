@@ -5,7 +5,7 @@ function renderMarkdown(data) {
 	const imgRenderer = renderer.image;
 	renderer.link = (href, title, text) => {
 		const html = linkRenderer.call(renderer, href, title, text);
-		return html.replace(/^<a /, '<a target="_blank" rel="ugc" ');
+		return `<span class="linkify">${html.replace(/^<a /, '<a target="_blank" rel="ugc" ')}</span>`;
 	};
 	const domainRe = /https?:\/\/((?:[\w\d-]+\.)+[\w\d]{2,})/i;
 	const approvedDomains = [
