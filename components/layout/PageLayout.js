@@ -261,7 +261,7 @@ function PageLayout(props) {
 							frameBorder="0"
 							className="patreon-widget"
 							title={i18n._(t`Support us on patreon!`)}
-							style={{display: 'flex', width: '11rem', height: '35px', verticalAlign: 'middle'}}
+							style={{display: 'flex', width: '11rem', height: '45px', verticalAlign: 'middle'}}
 						/>
 					</div>
 				</footer>
