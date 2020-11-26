@@ -191,7 +191,7 @@ function IndexPage(props){
 			<ToggleFeature
 				flag='guacWelcome'
 			>
-				<section className="pv3 ml-auto mr-auto db-m db-l dn">
+				<section className="pv3 ml-auto mr-auto db-l dn">
 					<article className="flex flex-row pa2 relative bg-dark-green ba b--transparent br3">
 						<div className="ph3 ph4-ns flex flex-column" style={{
 							flex: '50%'
