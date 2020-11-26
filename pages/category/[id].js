@@ -51,10 +51,9 @@ class CategoryPage extends Component {
 				<div className="w-100 pv3 ph3-l">
 					<div className="flex pa4 cover" style={{
 								'textShadow': '1px 1px 0 #333, -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333, 2px 2px 5px rgb(0 0 0 / 65%)',
-								'background': thisCategory[0] && thisCategory[0].cover ? `url(${thisCategory[0].cover})` : `url(/img/categories/${category_id}.jpg) no-repeat 100%`,
+								'background': thisCategory[0] && thisCategory[0].cover ? `url(${thisCategory[0].cover})` : `inear-gradient(rgba(15, 15, 15, 0), rgb(21, 21, 21)), linear-gradient(rgba(21, 21, 21, 0.8), rgba(21, 21, 21, 0.5)), url(/img/categories/${category_id}.jpg)`,
 								'backgroundPosition': '50%',
 								'backgroundRepeat': 'no-repeat',
-								'WebkitMaskImage': 'linear-gradient(0deg,#0e0e10,rgba(14,14,16,.25)),linear-gradient(90deg,#0e0e10,rgba(14,14,16,.25))'
 							}}>
 						<h2 className="f2 tracked mt0 mb3">
 						{
