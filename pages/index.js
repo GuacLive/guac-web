@@ -188,6 +188,46 @@ function IndexPage(props){
 	}*/
 	return (
 		<Fragment>
+			<ToggleFeature
+				flag='guacWelcome'
+			>
+				<section className="pv3 ml-auto mr-auto db-m db-l dn">
+					<article className="flex flex-row pa2 relative bg-dark-green ba b--transparent br3">
+						<div className="ph3 ph4-ns flex flex-column" style={{
+							flex: '50%'
+						}}>
+							<div>
+								<h2 className="f2 tracked mt0 mb3"><Trans>Welcome to guac.live</Trans></h2>
+								<span className="measure lh-copy mv0">
+									<Trans>
+										<p>
+											Hi,<br />
+											Welcome to guac.live &mdash; live streaming platform. We are currently in beta.</p>
+										<p>
+											While we are in beta, streaming privileges will be given on a invite-only basis.
+											<br />
+											But, feel free to make an account and participate in the chat and general community!
+											</p>
+									</Trans>
+								</span>
+								{
+									(!props.authentication.token)
+									&&
+									<div className="db v-mid">
+										<GuacButton color="black" url="/auth/login"><Trans>Join</Trans></GuacButton>
+									</div>
+								}
+							</div>
+						</div>
+						<div className="ph3 ph4-ns flex flex-row justify-end self-start h-100 v-mid">
+							<a href="https://discord.gg/k6MJSAj">
+								<img src="https://discordapp.com/api/guilds/564909420199411732/widget.png?style=banner3" alt="Discord server invite image" />
+								<span className="dn">Discord server invite</span>
+							</a>
+						</div>
+					</article>
+				</section>
+			</ToggleFeature>
 			{featured.statusCode == 200
 				&& featured.data
 				&& featured.data.length > 0
@@ -203,46 +243,6 @@ function IndexPage(props){
 				<h3 className="ma0 pa3"><Trans>Popular categories</Trans> <Link href="/categories"><a className="ml3 ph3 pv1 link primary-80 bg-black-30 20"><Trans>More</Trans> <small className="fa fa-chevron-right"></small></a></Link></h3>
 				{renderCategories(categories)}
 			</div>
-			<ToggleFeature
-				flag='guacWelcome'
-			>
-				<section className="ph4-l pv5">
-					<article className="center-l br2 ba b--transparent bg-black-40">
-						<div className="db w-100">
-							<div className="pa3 pa4-ns db v-mid">
-								<div>
-									<h2 className="f2 tracked mt0 mb3"><Trans>Welcome to guac.live</Trans></h2>
-									<span className="measure lh-copy mv0">
-										<Trans>
-											<p>
-												Hi,<br />
-											Welcome to guac.live &mdash; live streaming platform. We are currently in beta.</p>
-											<p>
-												While we are in beta, streaming privileges will be given on a invite-only basis.
-											<br />
-											But, feel free to make an account and participate in the chat and general community!
-											</p>
-										</Trans>
-									</span>
-								</div>
-							</div>
-							{
-								(!props.authentication.token)
-								&&
-								<div className="pa3 pa4-l db v-mid black">
-									<GuacButton color="light-green" url="/auth/login"><Trans>Join</Trans></GuacButton>
-								</div>
-							}
-							<div className="pa3 pa4-l db">
-								<a href="https://discord.gg/k6MJSAj">
-									<img src="https://discordapp.com/api/guilds/564909420199411732/widget.png?style=banner2" alt="Discord server invite image" />
-									<span className="dn">Discord server invite</span>
-								</a>
-							</div>
-						</div>
-					</article>
-				</section>
-			</ToggleFeature>
 		</Fragment>
 	)
 };
