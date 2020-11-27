@@ -81,7 +81,7 @@ function CategoriesPage(props) {
 									<div className="item-preview aspect-ratio aspect-ratio--16x9 z-1">
 										<Image alt={category.name} priority={currentPage == 1} src={category.cover ? category.cover : `/img/categories/${category.category_id}.jpg`} className="aspect-ratio--object" shape="rounded" fit="cover" />
 									</div>
-									<div className="flex flex-grow-1 flex-shrink-1 pa2">
+									<div className="flex flex-grow-1 flex-shrink-1 mt2">
 										<span className="f3 db link green truncate">{category.name}</span>
 									</div>
 								</a>

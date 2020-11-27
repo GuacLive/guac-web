@@ -165,7 +165,7 @@ function IndexPage(props){
 									<div className="item-preview aspect-ratio aspect-ratio--16x9 z-1">
 										<Image alt={category.name} src={category.cover ? category.cover : `/img/categories/${category.category_id}.jpg`} width={600} height={400} className="aspect-ratio--object" shape="rounded" fit="cover" priority={true} />
 									</div>
-									<div className="flex flex-grow-1 flex-shrink-1 pa2">
+									<div className="flex flex-grow-1 flex-shrink-1 mt2">
 										<span className="f3 db link green truncate">{category.name}</span>
 									</div>
 								</a>
