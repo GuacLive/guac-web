@@ -601,8 +601,9 @@ function ChatComponent(props){
 		let didCancel = false;
 		if(!didCancel){
 			socket = io(CHAT_URL, {
+				'timeout': 2000,
 				'reconnection': true,
-				'reconnectionDelay': 1000,
+				'reconnectionDelay': 2000,
 				'reconnectionDelayMax': 5000,
 				'reconnectionAttempts': 5,
 				'forceNew': true,
