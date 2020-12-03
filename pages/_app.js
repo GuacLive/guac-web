@@ -9,9 +9,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { wrapper } from '../store/configureStore';
 
-import { ConfigureFlopFlip } from '@flopflip/react-redux';
-import adapter from '@flopflip/splitio-adapter';
-
 import PageLayout from '../components/layout/PageLayout';
 
 import { getCookie } from '../utils/cookie';
@@ -30,13 +27,15 @@ import { activate, isValidLocale } from '../utils/i18n';
 
 import { initializeFirebase, initializePush } from '../utils/push-notification';
 
-import ErrorBoundary from '../utils/ErrorBoundary';
+import ErrorBoundary from 'utils/ErrorBoundary';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 import { faBan, faBars, faBell, faCheck, faCheckCircle, faClock, faCaretSquareLeft, faCaretSquareRight, faHourglass, faHome, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog, faMinusCircle, faTrash, faEdit, faVideo, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 import { faSmileWink, faImage, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
+
+import FeaturesService from 'utils/FeaturesService';
 
 // We need to put these here, since Next only allows global.css in _app
 import '../css/style.css';
@@ -87,27 +86,20 @@ const MyApp = (props) => {
 		}
 	}, []);
 
-	const { Component, pageProps } = props;
+	const { Component, pageProps, featuresService } = props;
 
 	const skipLayoutDestinations = ['/embed/[name]', '/chat/[name]', '/overlay/[name]'];
 	const shouldSkip = props.pathname && skipLayoutDestinations.indexOf(props.pathname) > -1;
 
 	return (
 		<ErrorBoundary>
-			<ConfigureFlopFlip adapter={adapter} adapterArgs={{
-				authorizationKey: process.env.SPLIT_IO_KEY,
-				user: {
-					key: authentication.user && authentication.user.name
-				}
-			}}>
-				<I18nProvider i18n={i18n}>
-					<I18nWatchLocale>
-						<PageLayout skip={shouldSkip} nonce={props.nonce}>
-							<Component {...pageProps} {...{'log': log}} err={props.err}  />
-						</PageLayout>
-					</I18nWatchLocale>
-				</I18nProvider>
-			</ConfigureFlopFlip>
+			<I18nProvider i18n={i18n}>
+				<I18nWatchLocale>
+					<PageLayout skip={shouldSkip} nonce={props.nonce}>
+						<Component {...pageProps} {...{'log': log}} featuresService={featuresService} err={props.err} />
+					</PageLayout>
+				</I18nWatchLocale>
+			</I18nProvider>
 		</ErrorBoundary>
 	);
 };
@@ -164,6 +156,7 @@ MyApp.getInitialProps = async appContext => {
 		));
 	}
 
+	const featuresService = new FeaturesService();
 	// Return some pageProps
 	return {
 		// Call App getInitialProps
@@ -173,7 +166,8 @@ MyApp.getInitialProps = async appContext => {
 		mode,
 		nonce,
 		hasThemeCookie: !!getCookie('site-mode', ctx.req),
-		locale
+		locale,
+		featuresService
 	};
 };
 export default wrapper.withRedux(MyApp);

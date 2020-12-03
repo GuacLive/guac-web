@@ -44,7 +44,6 @@ import Image from 'components/Image';
 
 import Switch from 'react-switch';
 
-import { ToggleFeature } from '@flopflip/react-redux';
 import { useLingui } from '@lingui/react';
 
 import { kFormatter } from 'utils';
@@ -355,9 +354,7 @@ function ChannelPage(props){
 										<GuacButton color="dark-gray" onClick={follow}><span className="white"><Trans>Follow</Trans> ({kFormatter(stream.followers)})</span></GuacButton>
 									</Tooltip>
 								}
-								<ToggleFeature flag="subscribeButton">
-									{stream.subEnabled && <GuacButton color="green" onClick={(e) => {setShowSub(!showSub); e.preventDefault(); return true;}}><span className="white"><Trans>Subscribe</Trans></span></GuacButton>}
-								</ToggleFeature>
+								{stream.subEnabled && <GuacButton color="green" onClick={(e) => {setShowSub(!showSub); e.preventDefault(); return true;}}><span className="white"><Trans>Subscribe</Trans></span></GuacButton>}
 								{isMe &&
 									<GuacButton color="dark-gray" title="Edit stream" onClick={editStream}>
 										<FontAwesomeIcon icon="edit" fixedWidth className="white" />

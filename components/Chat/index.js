@@ -30,8 +30,6 @@ import UserCard from './UserCard';
 
 import UrlEmbedder from 'utils/UrlEmbedder';
 
-import { ToggleFeature } from '@flopflip/react-redux';
-
 import log from 'utils/log';
 
 import * as actions from 'actions';
@@ -846,9 +844,6 @@ function ChatComponent(props){
 											}}
 										/>
 									}
-									<ToggleFeature
-										flag='gifSelector'
-									>
 									{
 										<GifSelector
 											darkMode={darkMode}
@@ -859,7 +854,6 @@ function ChatComponent(props){
 												}}
 										/>
 									}
-									</ToggleFeature>
 								</div>
 							</div>
 						</div>
