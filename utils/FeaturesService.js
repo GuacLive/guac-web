@@ -42,7 +42,7 @@ export default class FeaturesService extends EventEmitter {
 			.then(data => {
 				this.emit('featuresLoaded', data);
 			}).catch(() => {
-				this.emit('featuresLoaded', data);
+				this.emit('featuresLoaded');
 			});
 	}
 	featuresLoaded(data) {
