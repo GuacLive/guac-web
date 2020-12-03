@@ -1,4 +1,13 @@
 const { EventEmitter } = require('events');
+
+const featuresFallback = {
+	'guacWelcome': {
+		'status': 'on'
+	},
+	'featureFallback': {
+		'status': 'on'
+	}
+};
 export default class FeaturesService extends EventEmitter {
 	constructor(features){
 		super();
@@ -28,17 +37,21 @@ export default class FeaturesService extends EventEmitter {
 		}
 	}
 	loadingFeatures() {
-		fetch(`https://static.guac.live/settings/features.json`)
-			.then(res => res.json())
+		fetch(`https://static.guac.live/settings/features.json`, {timeout: 5000})
+			.then(res => res ? res.json() : res)
 			.then(data => {
 				this.emit('featuresLoaded', data);
+			}).catch(() => {
+				this.emit('featuresLoaded');
 			});
 	}
 	featuresLoaded(data) {
 		this.loading = false;
-		if(Object.keys(data).length > 0){
+		if(data && Object.keys(data).length > 0){
 			this.features = data;
 			this.emit('featuresUpdate', data);
+		}else{
+			this.features = featuresFallback;
 		}
 	}
 	featuresUpdate(e) {
