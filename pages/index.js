@@ -1,7 +1,5 @@
 import React, {Component, Fragment} from 'react';
 
-import { ToggleFeature } from '@flopflip/react-redux';
-
 import dynamic from 'next/dynamic'
 
 import GuacButton from '../components/GuacButton'
@@ -14,6 +12,8 @@ import { Trans } from '@lingui/macro'
 
 import Link from 'next/link';
 import Image from '../components/Image';
+
+import FeaturesService from 'utils/FeaturesService';
 
 let Chat = dynamic(
 	() => import('../components/Chat')
@@ -178,7 +178,8 @@ function IndexPage(props){
 		return null;
 	};
 
-	const {categories, channel, featured} = props;
+	var featuresService = new FeaturesService(props.featuresService.features);
+	const {categories, channel, featured } = props;
 	if (featured.loading) return null;
 	if (categories.loading) return null;
 
@@ -188,9 +189,9 @@ function IndexPage(props){
 	}*/
 	return (
 		<Fragment>
-			<ToggleFeature
-				flag='guacWelcome'
-			>
+			{
+				featuresService &&
+				featuresService.checkOnGlobalFeatures('guacWelcome') &&
 				<section className="pv3 ml-auto mr-auto db-l dn">
 					<article className="flex flex-row pa2 relative bg-dark-green ba b--transparent br3">
 						<div className="ph3 ph4-ns flex flex-column" style={{
@@ -227,7 +228,7 @@ function IndexPage(props){
 						</div>
 					</article>
 				</section>
-			</ToggleFeature>
+			}
 			{featured.statusCode == 200
 				&& featured.data
 				&& featured.data.length > 0

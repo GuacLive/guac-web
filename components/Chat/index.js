@@ -30,8 +30,6 @@ import UserCard from './UserCard';
 
 import UrlEmbedder from 'utils/UrlEmbedder';
 
-import { ToggleFeature } from '@flopflip/react-redux';
-
 import log from 'utils/log';
 
 import * as actions from 'actions';
@@ -601,8 +599,9 @@ function ChatComponent(props){
 		let didCancel = false;
 		if(!didCancel){
 			socket = io(CHAT_URL, {
+				'timeout': 2000,
 				'reconnection': true,
-				'reconnectionDelay': 1000,
+				'reconnectionDelay': 2000,
 				'reconnectionDelayMax': 5000,
 				'reconnectionAttempts': 5,
 				'forceNew': true,
@@ -845,9 +844,6 @@ function ChatComponent(props){
 											}}
 										/>
 									}
-									<ToggleFeature
-										flag='gifSelector'
-									>
 									{
 										<GifSelector
 											darkMode={darkMode}
@@ -858,7 +854,6 @@ function ChatComponent(props){
 												}}
 										/>
 									}
-									</ToggleFeature>
 								</div>
 							</div>
 						</div>
