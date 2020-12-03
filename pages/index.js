@@ -183,7 +183,6 @@ function IndexPage(props){
 	if (featured.loading) return null;
 	if (categories.loading) return null;
 
-console.log('props', props);
 	/*if (channel.loading && featured.data && featured.data[0]) {
 		dispatch(actions.fetchChannel(featured.data[0].name));
 		return null;
