@@ -12,6 +12,8 @@ export default class FeaturesService extends EventEmitter {
 			}else{
 				this.loadingFeatures();
 			}
+		}else{
+			this.loading = false;
 		}
 	}
 	hydrate() {
