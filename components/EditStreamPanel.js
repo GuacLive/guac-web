@@ -29,7 +29,7 @@ class EditStreamPanel extends Component {
 		e.preventDefault();
 		// yay uncontrolled forms!
 		console.log(this.refs);
-		if(streaming.category !== this.state.category){
+		if(this.state.category && streaming.category !== this.state.category){
 			this.props.dispatch(
 				actions.setCategory(this.props.authentication.token, this.state.category)
 			);
