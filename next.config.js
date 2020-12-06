@@ -9,7 +9,10 @@ const withTM = require('@module-federation/next-transpile-modules')(['react-giph
 module.exports = withTM(withOffline({
 	webpack(config, {isServer, buildId, dev}) {
 		if (!isServer) {
-			config.resolve.alias['@sentry/node'] = '@sentry/browser';
+			config.resolve.alias = {
+				...config.resolve.alias,
+				'@sentry/node': '@sentry/browser'
+			};
 		}
 
 		config.module.rules.push({
