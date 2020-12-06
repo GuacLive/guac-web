@@ -108,7 +108,7 @@ module.exports = withTM(withOffline({
 		optimizeImages: true,
 		scrollRestoration: true,
 		topLevelAwait: true,
-		scriptLoader: true,
+		scriptLoader: false,
 		optimizeCss: false
 	},
 	future: {
