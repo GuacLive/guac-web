@@ -928,7 +928,7 @@ function ChatComponent(props){
 						</div>
 					</div>
 				}
-				<SimpleBar ref={messageContainerRef} className={`chat-messages flex-grow-1 z-initial h-100 ${visible ? '' : 'dn'}`}
+				<SimpleBar ref={messageContainerRef} className={`chat-messages flex-grow-1 z-initial h-100 snow-bg ${visible ? '' : 'dn'}`}
 				style={{height: '0', flex: '1 1 auto'}}>
 				{
 					messages
