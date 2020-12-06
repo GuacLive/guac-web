@@ -46,7 +46,7 @@
     "@module-federation/next-transpile-modules": "^4.2.1",
     "@sentry/browser": "^5.15.5",
     "@sentry/node": "^5.15.5",
-    "@sentry/webpack-plugin": "^1.13.0",
+    "@sentry/webpack-plugin": "^1.14.0",
     "@silvermine/videojs-chromecast": "^1.2.1",
     "@silvermine/videojs-quality-selector": "^1.2.4",
     "@vercel/next": "^2.6.8-canary.0",
