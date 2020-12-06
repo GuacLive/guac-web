@@ -11,7 +11,7 @@ module.exports = withTM(withOffline({
 		if (!isServer) {
 			config.resolve.alias = {
 				...config.resolve.alias,
-				'@sentry/node': '@sentry/browser'
+				'@sentry/node': require.resolve('@sentry/browser')
 			};
 		}
 
