@@ -1,5 +1,8 @@
 const { EventEmitter } = require('events');
 
+import parseISO from 'date-fns/parseISO';
+import isWithinInterval from 'date-fns/isWithinInterval';
+
 const featuresFallback = {
 	'guacWelcome': {
 		'status': 'on'
@@ -23,6 +26,9 @@ export default class FeaturesService extends EventEmitter {
 			}
 		}else{
 			this.loading = false;
+		}
+		if(process.browser){
+			window.featuresService = this;
 		}
 	}
 	hydrate() {
@@ -65,6 +71,15 @@ export default class FeaturesService extends EventEmitter {
 		return this.features &&
 			this.features[e] &&
 			'on' === this.features[e].status;
+	}
+	checkOnFeaturesDate(e) {
+		return this.features &&
+			this.features[e] &&
+			this.features[e].between &&
+			isWithinInterval(parseISO(new Date().toISOString()), {
+				start: parseISO(this.features[e].between.start),
+				end: parseISO(this.features[e].between.end)
+			});
 	}
 	getFeaturesConfigField(e, t) {
 		if(this.features &&
