@@ -55,6 +55,7 @@
     "can-autoplay": "^3.0.0",
     "classnames": "^2.2.6",
     "critters": "^0.0.6",
+    "css-loader": "^5.0.1",
     "date-fns": "^2.14.0",
     "emoji-mart": "3.0.0",
     "file-loader": "^6.0.0",
