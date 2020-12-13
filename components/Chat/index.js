@@ -656,7 +656,7 @@ function ChatComponent(props){
 	// If token or connected status changes, join with the new one
 	useEffect(connect, [authentication.token, connectedStatus]);
 
-	var featuresService = new FeaturesService();
+	var featuresService = new FeaturesService(props.featuresService.features);
 
 	const ChatInput = (
 		<>
