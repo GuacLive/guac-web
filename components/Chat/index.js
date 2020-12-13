@@ -41,6 +41,8 @@ import { callApi } from 'services/api';
 import commands from './commands';
 import ViewerList from './ViewerList';
 
+import FeaturesService from 'utils/FeaturesService';
+
 var socket = null;
 
 var privileged = [];
@@ -164,6 +166,14 @@ function ChatComponent(props){
 	const channel = useSelector(state => state.channel);
 	const emotes = useSelector(state => state.emotes.data);
 	const darkMode = useSelector(state => state.site.mode === 'dark');
+
+	var featuresService = new FeaturesService(
+		props.featuresService &&
+			props.featuresService.features
+			?
+			props.featuresService.features
+			: {}
+	);
 	
 	var [showTimestamps] = useLocalStorage('showTimestamps', true);
 	var [notifySound] = useLocalStorage('notifySound', true);
@@ -928,7 +938,7 @@ function ChatComponent(props){
 						</div>
 					</div>
 				}
-				<SimpleBar ref={messageContainerRef} className={`chat-messages flex-grow-1 z-initial h-100 snow-bg ${visible ? '' : 'dn'}`}
+				<SimpleBar ref={messageContainerRef} className={`chat-messages flex-grow-1 z-initial h-100 ${featuresService && featuresService.checkOnFeaturesDate('christmas') ? 'snow-bg' : 'test'} ${visible ? '' : 'dn'}`}
 				style={{height: '0', flex: '1 1 auto'}}>
 				{
 					messages

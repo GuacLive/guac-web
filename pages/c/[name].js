@@ -450,7 +450,7 @@ function ChannelPage(props){
 				{
 					tab == -1 &&
 					<div className="site-component-mobile-chat flex flex-column w-100">
-						<Chat channel={channel.data.name} popout={true} />
+						<Chat featuresService={props.featuresService} channel={channel.data.name} popout={true} />
 					</div>
 				}
 				{
@@ -682,7 +682,7 @@ function ChannelPage(props){
 						?
 						null
 						:
-						!isMobile && <Chat channel={channel.data.name} />
+						!isMobile && <Chat featuresService={props.featuresService} channel={channel.data.name} />
 					}
 				</aside>
 			</div>
