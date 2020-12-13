@@ -143,11 +143,8 @@ function VideoPlayer(props) {
 					allowSeeksWithinUnsafeLiveWindow: true,
 					enableLowInitialPlaylist: true,
 					smoothQualityChange: true,
-					handlePartialData: true,	
-					liveSyncDurationCount: 1,
-					liveMaxLatencyDurationCount: 6,
-					maxBufferSize: 10*1000*1000,
-					liveBackBufferLength: 0		  
+					handlePartialData: true,
+					handleManifestRedirects: true,
 				},
 				nativeVideoTracks: true,
 				nativeAudioTracks: true,
