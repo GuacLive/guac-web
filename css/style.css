@@ -512,6 +512,10 @@ input:focus {
 	color: var(--white);
 }
 
+.chat-message-badges__badge[data-badge='subscriber'] {
+	background: var(--purple);
+	color: var(--white);
+}
 /* Icons for chat badges */
 .chat-message-badges__badge::before {
 	display: none;
@@ -558,6 +562,12 @@ input:focus {
 	content: "\f3d9";
 }
 
+.chat-message-badges__badge[data-badge='subscriber']::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 400;
+	/* Patreon logo */
+	content: "\f005";
+}
 /* Chat input */
 .chat-input textarea {
 	resize: vertical;
