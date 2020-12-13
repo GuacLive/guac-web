@@ -124,8 +124,7 @@
     "babel-plugin-inline-react-svg": "^1.1.1"
   },
   "resolutions": {
-    "webpack": "^5.10.0",
-    "simplebar-core": "1.0.5",
+    "webpack": "^5.10.1",
     "workbox-webpack-plugin": "^6.0.2"
   }
 }
