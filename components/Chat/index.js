@@ -166,6 +166,14 @@ function ChatComponent(props){
 	const channel = useSelector(state => state.channel);
 	const emotes = useSelector(state => state.emotes.data);
 	const darkMode = useSelector(state => state.site.mode === 'dark');
+
+	var featuresService = new FeaturesService(
+		props.featuresService &&
+			props.featuresService.features
+			?
+			props.featuresService.features
+			: {}
+	);
 	
 	var [showTimestamps] = useLocalStorage('showTimestamps', true);
 	var [notifySound] = useLocalStorage('notifySound', true);
@@ -656,8 +664,6 @@ function ChatComponent(props){
 	// If token or connected status changes, join with the new one
 	useEffect(connect, [authentication.token, connectedStatus]);
 
-	var featuresService = new FeaturesService(props.featuresService.features);
-
 	const ChatInput = (
 		<>
 			<div className="chat-input pa2">
@@ -932,7 +938,7 @@ function ChatComponent(props){
 						</div>
 					</div>
 				}
-				<SimpleBar ref={messageContainerRef} className={`chat-messages flex-grow-1 z-initial h-100 ${featuresService && featuresService.checkOnFeaturesDate('christmas') ? 'snow-bg' : ''} ${visible ? '' : 'dn'}`}
+				<SimpleBar ref={messageContainerRef} className={`chat-messages flex-grow-1 z-initial h-100 ${featuresService && featuresService.checkOnFeaturesDate('christmas') ? 'snow-bg' : 'test'} ${visible ? '' : 'dn'}`}
 				style={{height: '0', flex: '1 1 auto'}}>
 				{
 					messages
