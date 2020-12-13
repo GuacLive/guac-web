@@ -92,7 +92,7 @@ function VideoPlayer(props) {
 				alwaysInLandscapeMode: true,
 				iOS: true
 			},
-			flvjs: {
+			flvjsConfig: {
 				mediaDataSource: {
 					isLive: true,
 					cors: true,
