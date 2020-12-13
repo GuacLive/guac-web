@@ -682,7 +682,7 @@ function ChannelPage(props){
 						?
 						null
 						:
-						!isMobile && <Chat channel={channel.data.name} />
+						!isMobile && <Chat featuresService={props.featuresService} channel={channel.data.name} />
 					}
 				</aside>
 			</div>
