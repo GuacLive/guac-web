@@ -380,7 +380,7 @@
 	transform-origin: 0px 0px;
 }
 
-video[poster]{
+.video-js:not(.vjs-playing):not(.vjs-paused) video[poster]{
     object-fit: cover !important;
 }
 .video-js .vjs-poster {
