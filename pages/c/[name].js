@@ -618,9 +618,12 @@ function ChannelPage(props){
 		{name: 'author', content: channel.data.name},
 		{name: 'description', content: `Watch ${channel.data.name} stream ${channel.data.category_name} on guac`},
 		{name: 'profile:username', content: channel.data.name},
-		{property: 'twitter:card', content: 'summary_large_image'},
+		{property: 'twitter:card', content: 'player'},
 		{property: 'twitter:site', content: '@GuacLive'},
 		{property: 'twitter:title', content: (channel.data.title || '').substring(0, 70)},
+		{property: 'twitter:player', content: `https://guac.live/embed/${channel.data.name}`},
+		{property: 'twitter:player:width', content: '360'},
+		{property: 'twitter:player:height', content: '200'},
 		{property: 'twitter:description', content: `Watch ${channel.data.name} stream ${channel.data.category_name} on guac`},
 		{property: 'twitter:image', content: channel.data.user.avatar || '//guac.live/img/header-logo.png'},  
 	];
