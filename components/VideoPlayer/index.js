@@ -123,7 +123,6 @@ function VideoPlayer(props) {
 					  'pictureInPictureToggle': {},
 
 					  'chromecastButton': {},
-					  'QualitySelector': {},
 
 					  'TheaterModeToggle': {
 						  elementToToggle: 'guac',
@@ -165,6 +164,7 @@ function VideoPlayer(props) {
 		require('videojs-theater-mode/dist/videojs.theaterMode.js');
 		require('../../videojs-flvjs.js');
 		require('../../videojs-persistvolume.js');
+		require('../../videojs-settings.js');
 		require('@silvermine/videojs-chromecast')(videojs, {
 			reloadWebComponents: true
 		});
@@ -195,6 +195,18 @@ function VideoPlayer(props) {
 		if(player.reloadSourceOnError){
 			player.reloadSourceOnError({
 				errorInterval: 10
+			});
+		}
+
+		// Settings
+		if(player.settings){
+			player.settings({
+				version: process.env.npm_package_version,
+				before: 'chromecastButton',
+				popout: true,
+				onPopout: () => {window.open(`/embed/${channel}` , '_blank');},
+				report: true,
+				onReport: () => {window.open(`/report/${channel}` , '_blank');}
 			});
 		}
 
