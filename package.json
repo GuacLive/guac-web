@@ -106,7 +106,7 @@
     "typescript": "^4.2.0-dev.20201211",
     "url-loader": "^4.1.0",
     "vercel": "^21.0.2-canary.2",
-    "video.js": "^7.9",
+    "video.js": "^7.11",
     "videojs-errors": "^4.3.2",
     "videojs-hotkeys": "^0.2.25",
     "videojs-landscape-fullscreen": "^11.1.0",
@@ -115,7 +115,7 @@
     "videojs-record": "^4.0.0",
     "videojs-theater-mode": "^1.0.0",
     "viewport-observer": "^2.3.0",
-    "webpack": "^5.10.0",
+    "webpack": "^5.10.1",
     "workbox-webpack-plugin": "^6.0.2"
   },
   "devDependencies": {
