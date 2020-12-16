@@ -223,7 +223,8 @@ input:focus {
 	display: inline-block;
 	overflow: hidden;
 	max-width: 100%;
-	vertical-align: middle
+	vertical-align: middle;
+	background-color: hsla(0, 0%, 100%, .08);
 }
 
 .GuacImage.-rounded {
