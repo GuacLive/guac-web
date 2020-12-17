@@ -338,10 +338,11 @@ function ChannelPage(props){
 						</div>
 						<div className="flex flex-column flex-grow-0 flex-shrink-0 justify-start ma3">
 							<div className="items-center flex flex-nowrap justify-end mb3">
-								{channel.isFollowing && authentication.token && !stream.isMe && <GuacButton color="dark-gray" onClick={follow}><span className="white"><Trans>Following</Trans> ({kFormatter(stream.followers)})</span></GuacButton>}
-								{!channel.isFollowing && authentication.token && !stream.isMe && <GuacButton color="dark-gray" onClick={follow}><span className="white"><Trans>Follow</Trans> ({kFormatter(stream.followers)})</span></GuacButton>}
+								{channel.isFollowing && authentication && authentication.token && !stream.isMe && <GuacButton color="dark-gray" onClick={follow}><span className="white"><Trans>Following</Trans> ({kFormatter(stream.followers)})</span></GuacButton>}
+								{!channel.isFollowing && authentication && authentication.token && !stream.isMe && <GuacButton color="dark-gray" onClick={follow}><span className="white"><Trans>Follow</Trans> ({kFormatter(stream.followers)})</span></GuacButton>}
 								{
-									!authentication.token
+									(!authentication ||
+									!authentication.token)
 									&&
 									<Tooltip
 										// options
