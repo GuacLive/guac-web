@@ -2645,10 +2645,10 @@
   resolved "https://registry.yarnpkg.com/@vercel/go/-/go-1.1.6.tgz#45ac3a6bd98a15b8bf1028b8c141a51fd971ac15"
   integrity sha512-swA2crS08fkPmw4UkR9yjmoL8FOCzuNHLFDqj8oM1V9ni610ibJ7Xk57jI8uyS7bTecQVh8VUxihb+SF0GT+aw==
 
-"@vercel/next@^2.7.6":
-  version "2.7.6"
-  resolved "https://registry.yarnpkg.com/@vercel/next/-/next-2.7.6.tgz#3b208b87fe67f4652b03b8d3b8eb3fe752b6df80"
-  integrity sha512-0CL9vjrXYegoQhtKf1N9DYwwwAni4fmAqFEdrYclLDJA5JN/9C5HUpUm+8SIb0fRuuOPOZlKiiOY/zn0CPvwVw==
+"@vercel/next@^2.7.7-canary.0":
+  version "2.7.7-canary.0"
+  resolved "https://registry.yarnpkg.com/@vercel/next/-/next-2.7.7-canary.0.tgz#3dc8387f33f9a71e5594315b18c160a7cdda69bc"
+  integrity sha512-eFdrxF5dXeYdOjsbLRbnaIklFWiH6XfsWwHYWtHNk+HscBlby58LngwTDJWlGpxdNeajwwj231CYZ7gIQ5PKsA==
 
 "@vercel/node@1.8.6-canary.0":
   version "1.8.6-canary.0"
@@ -2719,6 +2719,15 @@
     "@babel/runtime" "^7.5.5"
     global "^4.3.2"
     url-toolkit "^2.1.6"
+
+"@videojs/vhs-utils@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@videojs/vhs-utils/-/vhs-utils-3.0.0.tgz#998fda2a7519218a30759385d2048b1cd30eba36"
+  integrity sha512-HPgiaVB8/g7DooYFQ20uTinq4eNRHmIXGHHttK/Xwyvn19MfIpg9BfMNr9ywCvgHh0IUGrxt6P8AcmMO4xvxIA==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    global "^4.4.0"
+    url-toolkit "^2.2.1"
 
 "@videojs/xhr@2.5.1":
   version "2.5.1"
@@ -6472,7 +6481,7 @@ find-yarn-workspace-root@^1.2.1:
     fs-extra "^4.0.3"
     micromatch "^3.1.4"
 
-firebase@^8.2.0-canary.04f2e2485:
+firebase@^8.2.1-canary.1a8cb40ac:
   version "8.2.1"
   resolved "https://registry.yarnpkg.com/firebase/-/firebase-8.2.1.tgz#fd8eb523a4ca424030d8eb21c2795aa3c1d1031d"
   integrity sha512-u2dvRIbyHZ2g0dziHKwXvMBubTSf+fgJcijXyy7fXcFFPd3wbDaGlHz7Sc6saOnlJtzZAYmvZUXaIxnStKOOXg==
@@ -9454,7 +9463,7 @@ next-offline@^5:
     fs-extra "~8.1.0"
     workbox-webpack-plugin "^5.0.0"
 
-next-redux-wrapper@^6.0.2:
+next-redux-wrapper@6.0.2:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/next-redux-wrapper/-/next-redux-wrapper-6.0.2.tgz#b8dcd214e7b5cedd7a2a611ddb60422384d24374"
   integrity sha512-I9CnIYhQwI/qEoNdc9VAPjIyuq4rFFhCTa4rKhoDHWEVHGB1DXZy8TAyGpwvWizESd8IoTI/OKlP6bFpCbXsOw==
@@ -10639,10 +10648,10 @@ postcss-image-set-function@^3.0.1:
     postcss "^7.0.2"
     postcss-values-parser "^2.0.0"
 
-postcss-import@^13.0.0:
-  version "13.0.0"
-  resolved "https://registry.yarnpkg.com/postcss-import/-/postcss-import-13.0.0.tgz#d6960cd9e3de5464743b04dd8cd9d870662f8b8c"
-  integrity sha512-LPUbm3ytpYopwQQjqgUH4S3EM/Gb9QsaSPP/5vnoi+oKVy3/mIk2sc0Paqw7RL57GpScm9MdIMUypw2znWiBpg==
+postcss-import@^14.0.0:
+  version "14.0.0"
+  resolved "https://registry.yarnpkg.com/postcss-import/-/postcss-import-14.0.0.tgz#3ed1dadac5a16650bde3f4cdea6633b9c3c78296"
+  integrity sha512-gFDDzXhqr9ELmnLHgCC3TbGfA6Dm/YMb/UN8/f7Uuq4fL7VTk2vOIj6hwINEwbokEmp123bLD7a5m+E+KIetRg==
   dependencies:
     postcss-value-parser "^4.0.0"
     read-cache "^1.0.0"
@@ -11566,15 +11575,14 @@ react-dev-utils@^11.0.1:
     strip-ansi "6.0.0"
     text-table "0.2.0"
 
-react-dom@^0.0.0-experimental-4ead6b530:
-  version "0.0.0-fec00a869"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-0.0.0-fec00a869.tgz#f952e11a31e446c00e87603998d7780bc51bdbd9"
-  integrity sha512-atB5i2HgCvbvhtGXq9oaX/BCL2AFZjnccougU8S9eulRFNQbNrfGNwIcj04PRo3XU1ZsBw5syL/5l596UaolKA==
+react-dom@0.0.0-experimental-3310209d0:
+  version "0.0.0-experimental-3310209d0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-0.0.0-experimental-3310209d0.tgz#da24ddc969d34406d25210c88ba6d33c101532fa"
+  integrity sha512-5Ibs6pnu5rrEgq6gTVHjnMlIFiOFHpTeLbPcqPjnFnAX7WR06+rJK32lW5U13ktmpzqUdGruwE5oweWI7uPQhA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
-    prop-types "^15.6.2"
-    scheduler "0.0.0-fec00a869"
+    scheduler "0.0.0-experimental-3310209d0"
 
 react-error-overlay@^6.0.8:
   version "6.0.8"
@@ -11722,12 +11730,12 @@ react-svg-spinner@^1.0.4:
     prop-types "^15.7.2"
     react "^16.0.0"
 
-react-switch@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/react-switch/-/react-switch-5.0.1.tgz#449277f4c3aed5286fffd0f50d5cbc2a23330406"
-  integrity sha512-Pa5kvqRfX85QUCK1Jv0rxyeElbC3aNpCP5hV0LoJpU/Y6kydf0t4kRriQ6ZYA4kxWwAYk/cH51T4/sPzV9mCgQ==
+react-switch@^6.0.0-beta.0:
+  version "6.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/react-switch/-/react-switch-6.0.0-beta.0.tgz#dae7cadcb191b564c6a0e5fc18d343d81b3e3c7b"
+  integrity sha512-lB1aUw59dhoQh9ezC4nrtULjU1mjKLemKjIYW6PrdFWJzi5SAtnI4B2DpmXoqEPH7duBFBj7+q0xXWVOdUKn/g==
   dependencies:
-    prop-types "^15.6.2"
+    prop-types "^15.7.2"
 
 react-textarea-autosize@^8.2.0:
   version "8.3.0"
@@ -11770,15 +11778,13 @@ react-use@^15.1.0:
     ts-easing "^0.2.0"
     tslib "^2.0.0"
 
-react@^0.0.0-experimental-4ead6b530:
-  version "0.0.0-fec00a869"
-  resolved "https://registry.yarnpkg.com/react/-/react-0.0.0-fec00a869.tgz#1803f4f17cdd5adfdf614de2386c5fb5c84bbe91"
-  integrity sha512-FaS3ViFU4ag7cuhDHQgGK3DAdWaD8YFXzEbO/Qzz33Si7VEzRRdnyoegFwg7VkEKxR6CvCVP6revi9Tm3Gq+WQ==
+react@0.0.0-experimental-3310209d0:
+  version "0.0.0-experimental-3310209d0"
+  resolved "https://registry.yarnpkg.com/react/-/react-0.0.0-experimental-3310209d0.tgz#1421b0338fbb0c98bbe1ffcaaf88d101209d7194"
+  integrity sha512-TVDPZZ2rbxtbIlb3knyqXG1ij8veXpMTzxWmJC/+0POtKSE0HeUNVoQX8j0h0p0rHCKmAfT/mIZaoG9P0bJ+TA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
-    prop-types "^15.6.2"
-    scheduler "0.0.0-fec00a869"
 
 react@^16.0.0:
   version "16.14.0"
@@ -12384,10 +12390,10 @@ saxes@^5.0.0:
   dependencies:
     xmlchars "^2.2.0"
 
-scheduler@0.0.0-fec00a869:
-  version "0.0.0-fec00a869"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.0.0-fec00a869.tgz#e28ff1aa107e1d04d6e8901641b4fb1e3ba98577"
-  integrity sha512-0U25jnyBP6dRPYwaVW4WMYB0jJSYlrIHFmIuXv27X+KIHJr7vyE9gcFTqZ61NQTuxYLYepAHnUs4KgQEUDlI+g==
+scheduler@0.0.0-experimental-3310209d0:
+  version "0.0.0-experimental-3310209d0"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.0.0-experimental-3310209d0.tgz#228ef98604dd0dc6d5c594945277e28eae2118f1"
+  integrity sha512-TklIjh2ps3KbU8ZSDg96VUp56VZIb1tb3gy8Y16VKeg2Zf0q7FW+LhqT2gzmfN7OxZVUUHMzXilVVIHtV10gnA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -13997,7 +14003,7 @@ url-parse@^1.4.3:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
 
-url-toolkit@^2.1.6:
+url-toolkit@^2.1.6, url-toolkit@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/url-toolkit/-/url-toolkit-2.2.1.tgz#89009ed3d62a3574de079532a7266c14d2cc1c4f"
   integrity sha512-8+DzgrtDZYZGhHaAop5WGVghMdCfOLGbhcArsJD0qDll71FXa7EeKxi2hilPIscn2nwMz4PRjML32Sz4JTN0Xw==
