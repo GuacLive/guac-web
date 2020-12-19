@@ -49,6 +49,7 @@ module.exports = withTM(withOffline({
 					release: pkg.version,
 					include: '.next',
 					ignore: ['node_modules'],
+					stripPrefix: ['webpack://_N_E/'],
 					urlPrefix: '~/_next',
 				})
 			);
@@ -98,13 +99,13 @@ module.exports = withTM(withOffline({
 	images: {
 		domains: ['guac.live', 'api.guac.live', 'media.rawg.io', 'stream.guac.live', 'cdn.frankerfacez.com', 'static-cdn.jtvnw.net', 'cdn.betterttv.net', 'ggpht.com', 'yt3.ggpht.com']
 	},
+	productionBrowserSourceMaps: false,
 	experimental: {
 		plugins: true,
 		sprFlushToDisk: true,
 		reactMode: 'concurrent',
 		workerThreads: true,
 		pageEnv: true,
-		productionBrowserSourceMaps: false,
 		optimizeImages: true,
 		scrollRestoration: true,
 		topLevelAwait: true,
