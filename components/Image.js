@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 
 import NextImage from 'next/image'
 
+import React from 'react';
+
 const BLANK_IMAGE = 'data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=';
 
 const t = typeof window !== 'undefined' && new window.Image;
