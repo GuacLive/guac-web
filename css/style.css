@@ -307,6 +307,22 @@ input:focus {
     flex: 0 0 100%;
     max-width: 100%;
 }
+.site-component-spotlight .video-js.vjs-fill {
+    width: 100%;
+    height: 100% !important;
+}
+.site-component-spotlight .live-info {
+		position: absolute;
+		top: 0;
+		display: -webkit-flex;
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		width: 100%;
+		height: 120px;
+		background-image: linear-gradient(180deg,rgba(0,0,0,.8),transparent);
+		padding: var(--spacing-small);
+}
 @media (min-width: 1904px) {
 	.site-component-spotlight>div {
 		flex: 0 0 66.6666666667%;

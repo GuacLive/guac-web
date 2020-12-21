@@ -34,6 +34,7 @@ function IndexPage(props){
 			autoplay: true,
 			controls: true,
 			sources: [],
+			fill: true,
 			streamInfo: {
 				title: stream.title,
 				username: stream.user.name,
@@ -75,15 +76,50 @@ function IndexPage(props){
 
     	return (
 			<div key={'stream_' + stream.user.id} className="bg-black-50 primary flex flex-wrap justify-end w-90">
-				<div className="flex-grow-1 self-center h-100">
-					<div className="flex flex-row flex-grow-1">
-						<Link href="/c/[name]" as={`/c/${stream.name}`}>
-							<a className="link f4 b ma0 primary">
-								<span className="tracked b">{stream.name}</span>
-							</a>
-						</Link>
+				<div className="flex-grow-1 self-center h-100 relative">
+					<VideoPlayer { ...videoJsOptions } live={stream.live}></VideoPlayer>
+					<div className="live-info dn flex-ns content-between">
+						<div className="items-start flex flex-grow-1 flex-shrink-1 justify-start pa3">
+							<Link href="/c/[name]" as={`/c/${stream.user.name}`}>
+								<a className="justify-center items-center flex-shrink-0">
+									<div className="relative v-mid w3 h3">
+										<Image
+											src={stream.user.avatar || '//api.guac.live/avatars/unknown.png'}
+											alt={stream.name}
+											shape="squircle"
+											fit="cover"
+											className={`ba ${+stream.live ? 'b--red' : 'b--transparent'} v-mid`}
+										/>
+									</div>
+								</a>
+							</Link>
+							<div className="ml2">
+								<h2 className='f3 tracked ma0 dib primary items-center flex'>
+									<Link href="/c/[name]" as={`/c/${stream.user.name}`}><a className="primary link">{stream.user.name}</a></Link>
+									{stream.type == 'PARTNER' &&
+										<Tooltip
+											// options
+											title={i18n._(t`Partnered`)}
+											position="right"
+											trigger="mouseenter"
+											theme="transparent"
+											style={{'display': 'flex !important'}}
+										>
+											<FontAwesomeIcon icon='check-circle' fixedWidth className="f5" />
+										</Tooltip>
+									}
+								</h2>
+								<div className="flex flex-column mb3 mt2">
+									<span className="f5 primary">
+										<span className="truncate b line-clamp-2" style={{wordWrap: 'break-word'}} title={stream.title}>{stream.title}</span>
+										<div>
+											<Link href="/category/[id]" as={`/category/${stream.category_id}`}><a className="primary-50 hover-primary link">{stream.category_name}</a></Link>
+										</div>
+									</span>
+								</div>
+							</div>
+						</div>
 					</div>
-					<VideoPlayer { ...videoJsOptions } live={stream.live} fill={true}></VideoPlayer>
 				</div>
 				<div className="flex flex-shrink-1">
 					{!channel.loading && <Chat channel={stream.name} />}
