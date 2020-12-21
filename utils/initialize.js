@@ -12,9 +12,9 @@ const initialize = function({store, pathname, query, req}) {
 			if(token) store.dispatch(actions.reauthenticate(token));
 		}
 	}else{
-		const token = store.getState().authentication.token;
+		const auth = store.getState().authentication;
 
-		if(token && (pathname === '/auth/login' || pathname === '/auth/register')){
+		if(auth && auth.token && (pathname === '/auth/login' || pathname === '/auth/register')){
 			setTimeout(function() {
 				Router.push('/');
 			}, 0);

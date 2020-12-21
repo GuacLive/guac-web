@@ -6,7 +6,7 @@ const requireAuth = Page => class SecurePage extends React.Component {
 		if(ctx.store){
 			// server side
 			const { authentication	} = ctx.store.getState()
-			const isAuthenticated = authentication.token !== null;
+			const isAuthenticated = authentication && authentication.token !== null;
 			if(isAuthenticated){
 				redirect = false;
 			}else{
