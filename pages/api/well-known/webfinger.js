@@ -8,7 +8,7 @@ function getHostWithPort(host) {
 
 	return host;
 }
-export default function handler(req, res) {
+export default async function handler(req, res) {
 	// Remove 'acct:' from the beginning of the string
 	const nameWithHost = getHostWithPort(req.query.resource.substr(5))
 	const [name] = nameWithHost.split('@')
