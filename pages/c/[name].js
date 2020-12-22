@@ -656,6 +656,7 @@ function ChannelPage(props){
 						<meta property={m.property} content={m.content} key={m.property} />
 					);
 				})}
+				<link rel='alternate' type='application/activity+json' href={`${process.env.API_URL}/actor/${channel.data.name}`} />
 				<link rel="alternate" type="application/json+oembed" href={`/api/oembed?format=json&url=https%3A%2F%guac.live%2Fc%2F${channel.data.name}`} title={channel.data.name} />
 			</NextHead>
 			<div className={`w-100 ${isMobile ? 'vh-100 max-vh-100' : 'min-vh-100'} flex flex-nowrap black`}>			
