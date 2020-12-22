@@ -9,6 +9,11 @@ function getHostWithPort(host) {
 	return host;
 }
 export default async function handler(req, res) {
+	if(!req.query || !req.query.resource){
+		res.statusCode = 400
+		res.setHeader('Content-Type', 'application/json')
+		return res.end(JSON.stringify({error: 'Actor not provided'}));
+	}
 	// Remove 'acct:' from the beginning of the string
 	const nameWithHost = getHostWithPort(req.query.resource.substr(5))
 	const [name] = nameWithHost.split('@')
