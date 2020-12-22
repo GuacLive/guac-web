@@ -118,6 +118,7 @@ function EmbedPage(props){
 						<meta name={m.name} content={m.content} key={m.name} />
 					)
 				})}
+				<link rel='alternate' type='application/activity+json' href={`${process.env.API_URL}/actor/${channel.data.name}`} />
 				<link rel="alternate" type="application/json+oembed" href={`/api/oembed?format=json&url=https%3A%2F%guac.live%2Fc%2F${channel.data.name}`} title={channel.data.name} />
 			</NextHead>
 			{renderStream()}
