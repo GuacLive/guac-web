@@ -42,7 +42,7 @@ export default class Image extends React.Component {
         var e = 'browser' === this.title,
             isLoadingSupported = typeof HTMLImageElement !== 'undefined' && 'loading' in HTMLImageElement.prototype;
         return (this.props.flexible ?
-            <div className={`GuacImage -flexible${this.props.shape ? ` -${this.props.shape}` : ''}`} data-emote-code={this.props['data-emote-code']}            >
+            <div className={`GuacImage -flexible${this.props.shape ? ` -${this.props.shape}` : ''} ${this.state.error ? 'is-error' : ''}`} data-emote-code={this.props['data-emote-code']}            >
                 <NextImage
                     key={this.state.src}
                     className={this.props.className}
