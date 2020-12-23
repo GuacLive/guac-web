@@ -224,6 +224,10 @@ input:focus {
 	overflow: hidden;
 	max-width: 100%;
 	vertical-align: middle;
+}
+
+.GuacImage[src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="],
+.GuacImage img[src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="] {
 	background-color: hsla(0, 0%, 100%, .08);
 }
 
@@ -240,7 +244,7 @@ input:focus {
 }
 
 .GuacImage.is-error {
-	background: #111
+	background-color: hsla(0, 0%, 100%, .08);
 }
 
 .GuacImage.-flexible {
