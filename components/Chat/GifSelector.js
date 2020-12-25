@@ -31,6 +31,7 @@ function GifSelector(props){
 				{isOpen &&
 					<ReactGiphySearchbox
 					rating="r"
+					autoFocus={true}
 					wrapperClassName={`chat-gifselector pa1 ba b--gray br2 ${props.darkMode ? 'bg-near-black' : 'bg-white'} ${props.darkMode ? 'near-white' : 'near-black'}`}
 					masonryConfig={[
 						{ columns: 3, imageWidth: 110, gutter: 5 },
