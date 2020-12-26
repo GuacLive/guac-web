@@ -82,7 +82,7 @@
     "pretty-ms": "^7.0.0",
     "react": "0.0.0-experimental-4ead6b530",
     "react-dom": "0.0.0-experimental-4ead6b530",
-    "react-giphy-searchbox": "^1.4.0",
+    "react-giphy-searchbox": "^1.5.2",
     "react-process-string": "^1.2.0",
     "react-redux": "^7.2.0",
     "react-scripts": "^4.0.1",
