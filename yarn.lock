@@ -2677,7 +2677,7 @@
     mux.js "5.6.7"
     video.js "^6 || ^7"
 
-"@videojs/http-streaming@2.4.1", "@videojs/http-streaming@^2.3.0":
+"@videojs/http-streaming@2.4.1", "@videojs/http-streaming@^2.4.1":
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/@videojs/http-streaming/-/http-streaming-2.4.1.tgz#87b6c389d06e884190f50dc78ea482b733df9e79"
   integrity sha512-RnUgqGGNpS1JN8q3kah1jVwtfp71FuZcOSQEXnx336crSksx4yjkYneAk0MDOKf9usvBaKep27Yg+OGt08WvgQ==
@@ -2691,7 +2691,7 @@
     mux.js "5.7.0"
     video.js "^6 || ^7"
 
-"@videojs/vhs-utils@^2.2.1", "@videojs/vhs-utils@^2.3.0":
+"@videojs/vhs-utils@2.3.0", "@videojs/vhs-utils@^2.2.1", "@videojs/vhs-utils@^2.3.0":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@videojs/vhs-utils/-/vhs-utils-2.3.0.tgz#490a3a00dfc1b51d85d5dcf8f8361e2d4c4d1440"
   integrity sha512-ThSmm91S7tuIJ757ON50K4y7S/bvKN4+B0tu303gCOxaG57PoP1UvPfMQZ90XGhxwNgngexVojOqbBHhTvXVHQ==
@@ -2699,15 +2699,6 @@
     "@babel/runtime" "^7.5.5"
     global "^4.3.2"
     url-toolkit "^2.1.6"
-
-"@videojs/vhs-utils@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@videojs/vhs-utils/-/vhs-utils-3.0.0.tgz#998fda2a7519218a30759385d2048b1cd30eba36"
-  integrity sha512-HPgiaVB8/g7DooYFQ20uTinq4eNRHmIXGHHttK/Xwyvn19MfIpg9BfMNr9ywCvgHh0IUGrxt6P8AcmMO4xvxIA==
-  dependencies:
-    "@babel/runtime" "^7.12.5"
-    global "^4.4.0"
-    url-toolkit "^2.2.1"
 
 "@videojs/xhr@2.5.1":
   version "2.5.1"
@@ -13985,7 +13976,7 @@ url-parse@^1.4.3:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
 
-url-toolkit@^2.1.6, url-toolkit@^2.2.1:
+url-toolkit@^2.1.6:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/url-toolkit/-/url-toolkit-2.2.1.tgz#89009ed3d62a3574de079532a7266c14d2cc1c4f"
   integrity sha512-8+DzgrtDZYZGhHaAop5WGVghMdCfOLGbhcArsJD0qDll71FXa7EeKxi2hilPIscn2nwMz4PRjML32Sz4JTN0Xw==
