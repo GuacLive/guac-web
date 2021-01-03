@@ -250,7 +250,7 @@ function IndexPage(props){
 								{
 									(!props.authentication || !props.authentication.token)
 									&&
-									<div className="db v-mid">
+									<div className="db v-mid white">
 										<GuacButton color="black" url="/auth/login"><Trans>Join</Trans></GuacButton>
 									</div>
 								}
