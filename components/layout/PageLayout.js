@@ -7,11 +7,12 @@ import {connect} from 'react-redux';
 
 import SimpleBar from 'simplebar-react';
 
+import Modal from 'react-modal';
+
 import * as actions from 'actions';
 
 import {useLingui} from "@lingui/react";
 import {Trans, t} from '@lingui/macro';
-import LangSwitcher from '../LangSwitcher';
 
 import Image from '../Image';
 
@@ -30,8 +31,13 @@ import {
 import {useDispatch} from "react-redux";
 import {useInterval, useBoolean} from 'react-use';
 
+import LoginComponent from 'components/Auth';
+
 const mediaQueryList = typeof window !== 'undefined'
 	&& window.matchMedia('screen and (min-width: 960px)');
+
+
+Modal.setAppElement('#__next');
 function PageLayout(props) {
 	const dispatch = useDispatch();
 	const {i18n} = useLingui();
@@ -122,6 +128,16 @@ function PageLayout(props) {
 		return <Fragment>{children}</Fragment>;
 	}
 
+	const [authModalIsOpen, setAuthModalIsOpen] = useState(false);
+	const [authModalType, setAuthModalType] = useState(false);
+	function openAuthModal(type){
+		setAuthModalType(type);
+		setAuthModalIsOpen(true);
+	}
+    
+	function closeAuthModal(){
+		setAuthModalIsOpen(false);
+	}
 	const SideBarComponent = (
 		<aside className="fixed flex flex-column vh-100 flex-shrink-1 mv2-l site-component-sidebar bg-bar">
 			<div className="flex flex-column h-100">
@@ -268,6 +284,7 @@ function PageLayout(props) {
 			</div>
 		</aside>
 	);
+
 	return (
 		<Fragment>
 			<Head>
@@ -294,6 +311,33 @@ function PageLayout(props) {
 				<meta name="description" content="guac is a live streaming platform." key="description" />
 				<meta name="theme-color" key="theme-color" content="#19a974" />
 			</Head>
+			<Modal
+				isOpen={authModalIsOpen}
+				onRequestClose={closeAuthModal}
+				contentLabel={i18n._(t`Log in`)}
+				style={{
+					overlay: {
+						backgroundColor: 'rgba(0, 0, 0, 0.5)',
+						zIndex: '9999'
+					},
+					content: {
+						top: '50%',
+						left: '50%',
+						right: 'auto',
+						bottom: 'auto',
+						marginRight: '-50%',
+						transform: 'translate(-50%, -50%)',
+						background: 'var(--modal-background)',
+						borderColor: 'transparent',
+						borderRadius: '4px'
+					}
+				}}
+			>
+				<a className="link absolute primary z4 w2 h2 pointer" style={{
+					right: '12px'
+				}} onClick={closeAuthModal}>X</a>
+				<LoginComponent tab={authModalType == 'login' ? 0 : 1} />
+			</Modal>
 			<main className="w-100 h-100 flex flex-column flex-nowrap justify-between items-start page-wrapper">
 				<header className="site-component-header z-5 w-100 fixed ph3 pv2 bg-bar ml-auto flex-shrink-0">
 					<div className="h-100 flex items-stretch flex-nowrap">
@@ -328,14 +372,14 @@ function PageLayout(props) {
 									}
 									{
 										!isAuthenticated &&
-										<GuacButton url="/auth/login">
+										<GuacButton onClick={() => openAuthModal('login')}>
 											<span className="dn db-l" title={i18n._(t`Log in`)}><Trans>Log in</Trans></span>
 											<span className="dn-l" title={i18n._(t`Log in`)}><FontAwesomeIcon icon="sign-in-alt" /></span>
 										</GuacButton>
 									}
 									{
 										!isAuthenticated &&
-										<GuacButton url="/auth/register" color="green">
+										<GuacButton onClick={() => openAuthModal('register')}  color="green">
 											<span className="dn db-l" title={i18n._(t`Sign up`)}><Trans>Sign up</Trans></span>
 											<span className="dn-l" title={i18n._(t`Sign up`)}><FontAwesomeIcon icon="user-plus" /></span>
 										</GuacButton>

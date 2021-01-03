@@ -96,6 +96,8 @@ input:focus {
 
 	--dropdown-background: var(--near-black);
 
+	--modal-background: var(--near-white);
+
 	--animation-duration: 450ms;
 	--animation-timing: ease-in-out;
 }
@@ -111,6 +113,8 @@ input:focus {
 	--chat-message-link: var(--light-green);
 
 	--dropdown-background: var(--near-black);
+
+	--modal-background: var(--near-black);
 }
 
 .bg-bar {
