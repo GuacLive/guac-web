@@ -406,7 +406,7 @@ function ChannelPage(props){
 						href="#"
 						onClick={(e) => {setTab(-1);e&&e.preventDefault();return true;}}
 						className={
-							`${isMobile ? 'flex' : 'dn'} items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == -1 ? 'primary b--gray' : 'gray b--transparent'} hover-primary link`
+							`${isMobile ? 'flex' : 'dn'} items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == -1 ? 'green b--green' : 'primary b--transparent'} hover-dark-green link`
 						}
 					>
 						<span><Trans>CHAT</Trans></span>
@@ -415,7 +415,7 @@ function ChannelPage(props){
 						href="#"
 						onClick={(e) => {setTab(0);e&&e.preventDefault();return true;}}
 						className={
-							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 0 ? 'primary b--gray' : 'gray b--transparent'} hover-primary link`
+							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 0 ? 'green b--green' : 'primary b--transparent'} hover-dark-green link`
 						}
 					>
 						<Trans>ABOUT</Trans>
@@ -424,7 +424,7 @@ function ChannelPage(props){
 						href="#"
 						onClick={(e) => {setTab(1);e&&e.preventDefault();return true;}}
 						className={
-							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 1 ? 'primary b--gray' : 'gray b--transparent'} hover-primary link`
+							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 1 ? 'green b--green' : 'primary b--transparent'} hover-dark-green link`
 						}
 					>
 						<Trans>REPLAYS</Trans>
@@ -433,7 +433,7 @@ function ChannelPage(props){
 						href="#"
 						onClick={(e) => {setTab(2);e&&e.preventDefault();return true;}}
 						className={
-							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 2 ? 'primary b--gray' : 'gray b--transparent'} hover-primary link`
+							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 2 ? 'green b--green' : 'primary b--transparent'} hover-dark-green link`
 						}
 					>
 						<span><Trans>FOLLOWERS</Trans> &middot; {channel.data.followers}</span>
@@ -442,7 +442,7 @@ function ChannelPage(props){
 						href="#"
 						onClick={(e) => {setTab(3);e&&e.preventDefault();return true;}}
 						className={
-							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 3 ? 'primary b--gray' : 'gray b--transparent'} hover-primary link`
+							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 3 ? 'green b--green' : 'primary b--transparent'} hover-dark-green link`
 						}
 					>
 						<span><Trans>FOLLOWING</Trans></span>
