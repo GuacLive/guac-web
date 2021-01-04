@@ -140,7 +140,7 @@ function LoginComponent(props){
 						</>
 					}
 				</fieldset>
-				<div className="auth-modal-right absolute top-0 right-0 pl3 w4 h-100 bg-black cover br1 br--right br--left"
+				<div className="auth-modal-right dn db-l absolute top-0 right-0 pl3 w4 h-100 bg-black cover br1 br--right br--left"
 				style={{
 					'width': '260px'
 				}}>
