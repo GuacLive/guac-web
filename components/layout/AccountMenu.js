@@ -48,7 +48,7 @@ function AccountMenu(props){
 					{props.user &&
 						<>
 							<li>
-								<Link href={props.user.can_stream ? `/c/${props.user.name}` : '/'}>
+								<Link href={props.user.can_stream ? `/${props.user.name}` : '/'}>
 									<a className="flex items-center tw-relative pa2 relative w-100 link b hover-green white ph3">
 										<div className="items-center flex flex-shrink-0 pr2">
 											<div className="items-center inline-flex">

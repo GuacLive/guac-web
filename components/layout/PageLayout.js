@@ -197,7 +197,7 @@ function PageLayout(props) {
 								})
 								.map((u) => {
 									return (
-										<Link key={'followed-' + u.username} href="/c/[name]" as={`/c/${u.username}`}>
+										<Link key={'followed-' + u.username} href="/[channel]" as={`/${u.username}`}>
 											<a className="site-component-fUser link white">
 												<Tooltip
 													// options

@@ -69,18 +69,18 @@ class CategoryPage extends Component {
 					{channels.data && channels.data.map((channel) => {
 						return (
 							<div className="site-component-channels__channel w-100 pa2" key={`channel_${channel.id}`}>
-								<Link href={`/c/[name]`} as={`/c/${channel.name}`}>
+								<Link href={`/[channel]`} as={`/${channel.name}`}>
 									<a><Image src={channel.thumbnail} shape="rounded" fit="contain" lazyload /></a>
 								</Link>
 								<div className="pa2">
 									<span className="f5 db link green">
-										<Link href={`/c/[name]`} as={`/c/${channel.name}`}>
+										<Link href={`/[channel]`} as={`/${channel.name}`}>
 											<a className="link color-inherit">{channel.title}</a>
 										</Link>
 									</span>
 									<span className="f6 gray mv1">
 										<p>
-												<Link href={`/c/[name]`} as={`/c/${channel.name}`}>
+												<Link href={`/[channel]`} as={`/${channel.name}`}>
 													<a className="link color-inherit b">{channel.name}</a>
 												</Link>
 												<br />
@@ -90,7 +90,7 @@ class CategoryPage extends Component {
 											</Link>
 										</p>
 									</span>
-									<GuacButton url={`/c/${channel.name}`} color="dark-green"><Trans>Watch</Trans></GuacButton>
+									<GuacButton url={`/${channel.name}`} color="dark-green"><Trans>Watch</Trans></GuacButton>
 								</div>
 							</div>
 						);

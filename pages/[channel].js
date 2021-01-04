@@ -566,7 +566,7 @@ function ChannelPage(props){
 					<div className="pa3 pa4-ns db v-mid">
 						<h3 className="f3 tracked mt0 mb3 red"><Trans>User has been banned</Trans></h3>
 						<img src="/img/coffindance.gif" className="db w5" />
-						<h4 class="f4 primary">{stream.user.name}&nbsp;<Trans>has been banned from the site.</Trans></h4>
+						<h4 className="f4 primary">{stream.user.name}&nbsp;<Trans>has been banned from the site.</Trans></h4>
 						<p className="primary ma0">
 							{
 								stream.user &&
@@ -695,8 +695,8 @@ function ChannelPage(props){
 	)
 }
 ChannelPage.getInitialProps = async ({store, query}) => {
-	log('info', 'Channel', query.name);
-	await store.dispatch(actions.fetchChannel(query.name));
+	log('info', 'Channel', query.channel);
+	await store.dispatch(actions.fetchChannel(query.channel));
 	return {...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})};
 };
 
