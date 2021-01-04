@@ -62,7 +62,7 @@ const FollowingList = dynamic(() => import('components/FollowingList'));
 const STREAMING_SERVER = 'eu';
 const API_URL = process.env.API_URL;
 function ChannelPage(props){
-	const router = useRouter()
+	const router = useRouter();
 	const [tab, setTab] = useState(0);
 	const [showModal, setShowModal] = useState(false);
 	const [showSub, setShowSub] = useState(false);
@@ -609,8 +609,28 @@ function ChannelPage(props){
 		[]
 	);
 	if(channel.loading) return (<Trans>Loading...</Trans>);
-	if(!channel.data) return (<Trans>Channel not found</Trans>);
-	if(channel.error) throw channel.error;
+	if(!channel.data){
+		return (
+			<Fragment>
+				<NextHead>
+					<title>guac.live &middot; Page not found</title>
+				</NextHead>
+				<div className="flex flex-column justify-center items-center w-100 h-100 tc" style={{
+					flex: '1',
+					minHeight: '220px'
+				}}>
+					<em className="lh-title primary w5 f3 fw7 fs-normal"><Trans>Uh Ohhh...</Trans></em>
+					<p className="lh-copy primary-80 f5 tc pv2"><Trans>The page you were looking for does not exist.</Trans></p>
+					<a className="link white inline-flex items-center justify-center tc mw4 pv2 ph3 nowrap lh-solid pointer br2 ba b--transparent bg-dark-gray guac-btn"
+						href="#"
+						onClick={() => router.back()}>
+						<Trans>Go back</Trans>
+					</a>
+				</div>
+			</Fragment>
+		);
+	}
+	if(channel.error) return (<Trans>Unknown error</Trans>);
 
 	const meta = [
 		{property: 'og:title', content: `${channel.data.name} &middot; guac.live`},
@@ -695,6 +715,9 @@ function ChannelPage(props){
 	)
 }
 ChannelPage.getInitialProps = async ({store, query}) => {
+	if(!query || !query.channel){
+		return {notfound: true};
+	}
 	log('info', 'Channel', query.channel);
 	await store.dispatch(actions.fetchChannel(query.channel));
 	return {...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})};

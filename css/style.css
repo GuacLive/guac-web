@@ -59,9 +59,12 @@ body {
 }
 
 #__next,
+.page-wrapper,
+.site-component-main,
 body,
 html {
 	touch-action: manipulation !important;
+    height: 100%;
 }
 
 .hover-b--blue:hover {
@@ -133,11 +136,14 @@ input:focus {
 
 /* Set background and text color for whole page*/
 .page-wrapper,
-.overlay-wrapper {
+.overlay-wrapper,
+.site-component-main {
 	background: var(--site-background);
 	color: var(--site-text);
 
-	transition: color var(--animation-duration) var(--animation-timing),
+	-webkit-transition: padding-left .3s ease-out, color var(--animation-duration) var(--animation-timing),
+		background var(--animation-duration) var(--animation-timing);
+	transition: padding-left .3s ease-out, color var(--animation-duration) var(--animation-timing),
 		background var(--animation-duration) var(--animation-timing);
 }
 
@@ -303,9 +309,6 @@ input:focus {
 	margin-top: calc(var(--spacing-extra-large) + var(--spacing-small));
 	margin-bottom: calc(var(--spacing-extra-large) + var(--spacing-small));
 	left: 256px;
-
-	-webkit-transition: padding-left .3s ease-out;
-	transition: padding-left .3s ease-out;
 }
 
 /* Frontpage spotlight */
