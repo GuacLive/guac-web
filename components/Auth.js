@@ -137,7 +137,7 @@ function LoginComponent(props){
 					}
 				</fieldset>
 				<div className="auth-modal-right dn db-l absolute top-0 right-0 pl3 h-100 bg-black cover br1 br--right br--left">
-					<div className="flex flex-column justify-center h-100 primary">
+					<div className="flex flex-column justify-center h-100 white">
 						<p className="f3 ma0 lh-title"><Trans>Welcome to</Trans></p>
 						<p className="f2 ma0 lh-copy light-green">guac.live</p>
 					</div>
