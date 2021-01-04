@@ -232,6 +232,8 @@ input:focus {
 	fill: currentColor;
 }
 
+/* GuacImage component */
+
 .GuacImage {
 	display: inline-block;
 	overflow: hidden;
@@ -312,6 +314,21 @@ input:focus {
 	margin-top: calc(var(--spacing-extra-large) + var(--spacing-small));
 	margin-bottom: calc(var(--spacing-extra-large) + var(--spacing-small));
 	left: 256px;
+}
+
+/* Auth Modal */
+.auth-modal-right {
+	display: none;
+}
+@media (--breakpoint-large) {
+	.auth-modal-left {
+		width: 408px;
+		margin-right: 260px;
+	}
+	.auth-modal-right {
+		display: block;
+		width: 260px;
+	}
 }
 
 /* Frontpage spotlight */

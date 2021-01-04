@@ -65,11 +65,7 @@ function LoginComponent(props){
 	return (
 		<>
 			<form className="flex items-center justify-center pa4" onSubmit={tab === 0 ? handleLoginSubmit : handleRegisterSubmit}>
-				<fieldset className="auth-modal-left primary ba b--transparent ph0 mh0"
-				style={{
-					'width': '408px',
-					'marginRight': '260px'
-				}}>
+				<fieldset className="auth-modal-left primary ba b--transparent ph0 mh0">
 					<div className="tabs flex items-center" style={{height:'48px'}}>
 						<a 
 							href="#"
@@ -140,10 +136,7 @@ function LoginComponent(props){
 						</>
 					}
 				</fieldset>
-				<div className="auth-modal-right dn db-l absolute top-0 right-0 pl3 w4 h-100 bg-black cover br1 br--right br--left"
-				style={{
-					'width': '260px'
-				}}>
+				<div className="auth-modal-right dn db-l absolute top-0 right-0 pl3 h-100 bg-black cover br1 br--right br--left">
 					<div className="flex flex-column justify-center h-100 primary">
 						<p className="f3 ma0 lh-title"><Trans>Welcome to</Trans></p>
 						<p className="f2 ma0 lh-copy light-green">guac.live</p>
