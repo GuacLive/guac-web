@@ -372,14 +372,14 @@ function PageLayout(props) {
 									}
 									{
 										!isAuthenticated &&
-										<a class="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--transparent bg-transparent guac-btn" href="#" onClick={() => openAuthModal('login')}>
+										<a className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--transparent bg-transparent guac-btn" href="#" onClick={() => openAuthModal('login')}>
 											<span className="dn db-l" title={i18n._(t`Log in`)}><Trans>Log in</Trans></span>
 											<span className="dn-l" title={i18n._(t`Log in`)}><FontAwesomeIcon icon="sign-in-alt" /></span>
 										</a>
 									}
 									{
 										!isAuthenticated &&
-										<a class="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green guac-btn" href="#" onClick={() => openAuthModal('register')}  color="green">
+										<a className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green guac-btn" href="#" onClick={() => openAuthModal('register')}  color="green">
 											<span className="dn db-l" title={i18n._(t`Sign up`)}><Trans>Sign up</Trans></span>
 											<span className="dn-l" title={i18n._(t`Sign up`)}><FontAwesomeIcon icon="user-plus" /></span>
 										</a>
