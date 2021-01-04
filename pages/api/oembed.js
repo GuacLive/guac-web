@@ -15,7 +15,7 @@ export default function handler(req, res){
         author_name: id,
         provider_url: 'https://guac.live/',
         provider_name: 'guac.live',
-        author_url: `https://guac.live/c/${id}`,
+        author_url: `https://guac.live/${id}`,
         width: 480,
         height: 270,
         html: `<iframe src='https://guac.live/embed/${id}' width='480' height='270' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>`
