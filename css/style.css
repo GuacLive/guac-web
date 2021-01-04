@@ -52,6 +52,9 @@ body {
 	/* mobile viewport bug fix */
 	min-height: -webkit-fill-available;
 }
+body:not(.overlay) {
+	background-color: var(--site-background);
+}
 
 ::selection {
 	background-color: var(--green);

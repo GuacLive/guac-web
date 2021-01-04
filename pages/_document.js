@@ -19,12 +19,18 @@ export default class MyDocument extends Document {
 
 	render() {
 		const {nonce} = this.props;
+		const { page } = this.props.__NEXT_DATA__;
 		let shouldSkipQuant = `var skipLayoutDestinations=["embed","chat","overlay"],shouldSkip=window.location.pathname&&-1<skipLayoutDestinations.indexOf(window.location.pathname.split('/')[1]);`;
 		let quantCSS = `.qc-cmp2-container>a,.qc-cmp2-footer div button[mode="primary"]{background-color:#19a974!important}.qc-cmp2-footer div button[mode="secondary"]:hover{background:#19a974!important;border-color:transparent!important;color:inherit!important}.qc-cmp2-footer div button[mode="link"]:not(.qc-cmp2-link-active){color:#19a974!important}.qc-cmp2-footer div button[mode="secondary"]{color:#19a974!important;border-color:#19a974!important}.qc-cmp2-buttons-desktop button,.qc-cmp2-footer-links button,.qc-cmp2-summary-buttons button{align-items:center!important;justify-content:center!important}`;
 		let quant = `!function(){if(!shouldSkip){var e=window.location.hostname,t=document.createElement("script"),a=document.getElementsByTagName("script")[0],n="https://quantcast.mgr.consensu.org".concat("/choice/","ApXc11SvmTDme","/",e,"/choice.js"),i=0;t.async=!0,t.type="text/javascript",t.src=n,a.parentNode.insertBefore(t,a),function(){for(var e,t="__tcfapiLocator",a=[],n=window;n;){try{if(n.frames[t]){e=n;break}}catch(e){}if(n===window.top)break;n=n.parent}e||(function e(){var a=n.document,i=!!n.frames[t];if(!i)if(a.body){var o=a.createElement("iframe");o.style.cssText="display:none",o.name=t,a.body.appendChild(o)}else setTimeout(e,5);return!i}(),n.__tcfapi=function(){var e,t=arguments;if(!t.length)return a;if("setGdprApplies"===t[0])t.length>3&&2===t[2]&&"boolean"==typeof t[3]&&(e=t[3],"function"==typeof t[2]&&t[2]("set",!0));else if("ping"===t[0]){var n={gdprApplies:e,cmpLoaded:!1,cmpStatus:"stub"};"function"==typeof t[2]&&t[2](n)}else a.push(t)},n.addEventListener("message",function(e){var t="string"==typeof e.data,a={};try{a=t?JSON.parse(e.data):e.data}catch(e){}var n=a.__tcfapiCall;n&&window.__tcfapi(n.command,n.version,function(a,i){var o={__tcfapiReturn:{returnValue:a,success:i,callId:n.callId}};t&&(o=JSON.stringify(o)),e.source.postMessage(o,"*")},n.parameter)},!1))}();var o=function(){var e=arguments;typeof window.__uspapi!==o&&setTimeout(function(){void 0!==window.__uspapi&&window.__uspapi.apply(window.__uspapi,e)},500)};if(void 0===window.__uspapi){window.__uspapi=o;var s=setInterval(function(){i++,window.__uspapi===o&&i<3?console.warn("USP is not accessible"):clearInterval(s)},6e3)}}}();`;
 		let darkMode = 'function prefersDarkMode(){var e=window.CSS&&window.CSS.supports.bind(window.CSS)||window.supportsCSS;return!!(!!e&&(e("--f:0")||e("--f",0)))&&(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)}-1!==document.cookie.indexOf("site-mode=dark"),("dark"===localStorage.getItem("site_mode")||prefersDarkMode())&&document.querySelector("html").classList.replace("guac-skin-light","guac-skin-dark")';
 		let event = 'window.sa_event=window.sa_event||function(){a=[].slice.call(arguments);sa_event.q?sa_event.q.push(a):sa_event.q=[a]};';
 		//let perf = 'hydrationMetrics&&hydrationMetrics.onInputDelay&&performance&&hydrationMetrics.onInputDelay(function(e,n){sa_event("event",{eventCategory:"Perf Metrics",eventAction:"first-input-delay",eventLabel:n.type,eventValue:Math.round(e),nonInteraction:!0})});';
+		// Workaround for background-color being set on body
+		let bodyClassName = `sans-serif`;
+		if(page && page === '/overlay/[name]'){
+			bodyClassName += ' overlay';
+		}
 		return (
 			<Html lang={this.props.locale} data-cast-api-enabled="true" id="guac" className={this.props.mode === 'dark' ? 'guac-skin-dark' : 'guac-skin-light'}>
 				<Head nonce={nonce}>
@@ -56,7 +62,7 @@ export default class MyDocument extends Document {
 					<script type="application/ld+json" dangerouslySetInnerHTML={{__html: '[{"@context":"http://schema.org","@graph":{"sameAs":["https://www.facebook.com/guaclive/","https://twitter.com/guaclive"],"@type":"Organization","@id":"https://guac.live/","name":"guac.live","url":"https://guac.live/"}}]'}}></script>
 					<style type="text/css" nonce={nonce} dangerouslySetInnerHTML={{__html: quantCSS}}></style>
 				</Head>
-				<body className="sans-serif">
+				<body className={bodyClassName}>
 					<Main />
 					<NextScript nonce={nonce} />
 					<script async defer src="https://cheese.guac.live/app.js" nonce={nonce}></script>
