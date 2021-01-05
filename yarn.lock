@@ -9421,10 +9421,10 @@ next-offline@^5:
     fs-extra "~8.1.0"
     workbox-webpack-plugin "^5.0.0"
 
-next-redux-wrapper@^7.0.0-rc.1:
-  version "7.0.0-rc.1"
-  resolved "https://registry.yarnpkg.com/next-redux-wrapper/-/next-redux-wrapper-7.0.0-rc.1.tgz#c5c4d1feabf61200015f12f6fd1b3a92f28bb087"
-  integrity sha512-OA4x0fSKuV9uTrZYPPkccEmiUWxBuRLiN7plhGW59OumP3752g/DiCU+hwKMuz46Ye6taXe/z6YZcC8PDck+hA==
+next-redux-wrapper@6.0.2:
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/next-redux-wrapper/-/next-redux-wrapper-6.0.2.tgz#b8dcd214e7b5cedd7a2a611ddb60422384d24374"
+  integrity sha512-I9CnIYhQwI/qEoNdc9VAPjIyuq4rFFhCTa4rKhoDHWEVHGB1DXZy8TAyGpwvWizESd8IoTI/OKlP6bFpCbXsOw==
 
 next-server@^9.0.6-canary.0:
   version "9.0.6-canary.0"
