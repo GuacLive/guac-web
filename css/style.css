@@ -52,6 +52,9 @@ body {
 	/* mobile viewport bug fix */
 	min-height: -webkit-fill-available;
 }
+body:not(.overlay) {
+	background-color: var(--site-background);
+}
 
 ::selection {
 	background-color: var(--green);
@@ -59,9 +62,12 @@ body {
 }
 
 #__next,
+.page-wrapper,
+.site-component-main,
 body,
 html {
 	touch-action: manipulation !important;
+    height: 100%;
 }
 
 .hover-b--blue:hover {
@@ -96,6 +102,8 @@ input:focus {
 
 	--dropdown-background: var(--near-black);
 
+	--modal-background: var(--near-white);
+
 	--animation-duration: 450ms;
 	--animation-timing: ease-in-out;
 }
@@ -111,6 +119,8 @@ input:focus {
 	--chat-message-link: var(--light-green);
 
 	--dropdown-background: var(--near-black);
+
+	--modal-background: var(--near-black);
 }
 
 .bg-bar {
@@ -129,11 +139,14 @@ input:focus {
 
 /* Set background and text color for whole page*/
 .page-wrapper,
-.overlay-wrapper {
+.overlay-wrapper,
+.site-component-main {
 	background: var(--site-background);
 	color: var(--site-text);
 
-	transition: color var(--animation-duration) var(--animation-timing),
+	-webkit-transition: padding-left .3s ease-out, color var(--animation-duration) var(--animation-timing),
+		background var(--animation-duration) var(--animation-timing);
+	transition: padding-left .3s ease-out, color var(--animation-duration) var(--animation-timing),
 		background var(--animation-duration) var(--animation-timing);
 }
 
@@ -219,6 +232,8 @@ input:focus {
 	fill: currentColor;
 }
 
+/* GuacImage component */
+
 .GuacImage {
 	display: inline-block;
 	overflow: hidden;
@@ -299,9 +314,21 @@ input:focus {
 	margin-top: calc(var(--spacing-extra-large) + var(--spacing-small));
 	margin-bottom: calc(var(--spacing-extra-large) + var(--spacing-small));
 	left: 256px;
+}
 
-	-webkit-transition: padding-left .3s ease-out;
-	transition: padding-left .3s ease-out;
+/* Auth Modal */
+.auth-modal-right {
+	display: none;
+}
+@media (--breakpoint-large) {
+	.auth-modal-left {
+		width: 408px;
+		margin-right: 260px;
+	}
+	.auth-modal-right {
+		display: block;
+		width: 260px;
+	}
 }
 
 /* Frontpage spotlight */

@@ -80,7 +80,7 @@ function IndexPage(props){
 					<VideoPlayer { ...videoJsOptions } live={stream.live}></VideoPlayer>
 					<div className="live-info dn flex-ns content-between">
 						<div className="items-start flex flex-grow-1 flex-shrink-1 justify-start pa3">
-							<Link href="/c/[name]" as={`/c/${stream.user.name}`}>
+							<Link href="/[channel]" as={`/${stream.user.name}`}>
 								<a className="justify-center items-center flex-shrink-0">
 									<div className="relative v-mid w3 h3">
 										<Image
@@ -95,7 +95,7 @@ function IndexPage(props){
 							</Link>
 							<div className="ml2">
 								<h2 className='f3 tracked ma0 dib primary items-center flex'>
-									<Link href="/c/[name]" as={`/c/${stream.user.name}`}><a className="primary link">{stream.user.name}</a></Link>
+									<Link href="/[channel]" as={`/${stream.user.name}`}><a className="primary link">{stream.user.name}</a></Link>
 									{stream.type == 'PARTNER' &&
 										<Tooltip
 											// options
@@ -161,13 +161,13 @@ function IndexPage(props){
 										</div>
 									</div>
 									<div className="flex flex-column">
-										<GuacButton color="green" url={`/c/${channel.name}`}><Trans>Watch</Trans></GuacButton>
+										<GuacButton color="green" url={`/${channel.name}`}><Trans>Watch</Trans></GuacButton>
 									</div>
 								</div>
 								<div className="w-100">
 									<div className="aspect-ratio aspect-ratio--16x9">
 										<div className="flex flex-column justify-between aspect-ratio--object bg-center cover">
-											<Link href="/c/[name]" as={`/c/${channel.name}`}>
+											<Link href="/[channel]" as={`/${channel.name}`}>
 												<a className="link white pa2 w-100 flex justify-between f4 bg-black-70">{channel.title}</a>
 											</Link>
 											<div className="w-100 flex justify-between ph2 pt4 pb2 f5 grad-bot">
@@ -250,7 +250,7 @@ function IndexPage(props){
 								{
 									(!props.authentication || !props.authentication.token)
 									&&
-									<div className="db v-mid">
+									<div className="db v-mid white">
 										<GuacButton color="black" url="/auth/login"><Trans>Join</Trans></GuacButton>
 									</div>
 								}

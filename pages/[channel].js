@@ -62,7 +62,7 @@ const FollowingList = dynamic(() => import('components/FollowingList'));
 const STREAMING_SERVER = 'eu';
 const API_URL = process.env.API_URL;
 function ChannelPage(props){
-	const router = useRouter()
+	const router = useRouter();
 	const [tab, setTab] = useState(0);
 	const [showModal, setShowModal] = useState(false);
 	const [showSub, setShowSub] = useState(false);
@@ -401,12 +401,12 @@ function ChannelPage(props){
 				</div>
 				{showSub && <SubscriptionDialog />}
 				{showModal && <div className="db pa2 bg-black-50 primary"><EditStreamPanel /></div>}
-				<div className="site-component-profile__tabs flex items-center" style={{height:'48px'}}>
+				<div className="site-component-profile__tabs flex items-center ph3" style={{height:'48px'}}>
 					<a 
 						href="#"
 						onClick={(e) => {setTab(-1);e&&e.preventDefault();return true;}}
 						className={
-							`${isMobile ? 'flex' : 'dn'} items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == -1 ? 'primary b--gray' : 'gray b--transparent'} hover-primary link`
+							`${isMobile ? 'flex' : 'dn'} items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == -1 ? 'green b--green' : 'primary b--transparent'} hover-dark-green link`
 						}
 					>
 						<span><Trans>CHAT</Trans></span>
@@ -415,7 +415,7 @@ function ChannelPage(props){
 						href="#"
 						onClick={(e) => {setTab(0);e&&e.preventDefault();return true;}}
 						className={
-							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 0 ? 'primary b--gray' : 'gray b--transparent'} hover-primary link`
+							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 0 ? 'green b--green' : 'primary b--transparent'} hover-dark-green link`
 						}
 					>
 						<Trans>ABOUT</Trans>
@@ -424,7 +424,7 @@ function ChannelPage(props){
 						href="#"
 						onClick={(e) => {setTab(1);e&&e.preventDefault();return true;}}
 						className={
-							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 1 ? 'primary b--gray' : 'gray b--transparent'} hover-primary link`
+							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 1 ? 'green b--green' : 'primary b--transparent'} hover-dark-green link`
 						}
 					>
 						<Trans>REPLAYS</Trans>
@@ -433,7 +433,7 @@ function ChannelPage(props){
 						href="#"
 						onClick={(e) => {setTab(2);e&&e.preventDefault();return true;}}
 						className={
-							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 2 ? 'primary b--gray' : 'gray b--transparent'} hover-primary link`
+							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 2 ? 'green b--green' : 'primary b--transparent'} hover-dark-green link`
 						}
 					>
 						<span><Trans>FOLLOWERS</Trans> &middot; {channel.data.followers}</span>
@@ -442,7 +442,7 @@ function ChannelPage(props){
 						href="#"
 						onClick={(e) => {setTab(3);e&&e.preventDefault();return true;}}
 						className={
-							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 3 ? 'primary b--gray' : 'gray b--transparent'} hover-primary link`
+							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 3 ? 'green b--green' : 'primary b--transparent'} hover-dark-green link`
 						}
 					>
 						<span><Trans>FOLLOWING</Trans></span>
@@ -566,7 +566,7 @@ function ChannelPage(props){
 					<div className="pa3 pa4-ns db v-mid">
 						<h3 className="f3 tracked mt0 mb3 red"><Trans>User has been banned</Trans></h3>
 						<img src="/img/coffindance.gif" className="db w5" />
-						<h4 class="f4 primary">{stream.user.name}&nbsp;<Trans>has been banned from the site.</Trans></h4>
+						<h4 className="f4 primary">{stream.user.name}&nbsp;<Trans>has been banned from the site.</Trans></h4>
 						<p className="primary ma0">
 							{
 								stream.user &&
@@ -609,8 +609,28 @@ function ChannelPage(props){
 		[]
 	);
 	if(channel.loading) return (<Trans>Loading...</Trans>);
-	if(!channel.data) return (<Trans>Channel not found</Trans>);
-	if(channel.error) throw channel.error;
+	if(!channel.data){
+		return (
+			<Fragment>
+				<NextHead>
+					<title>guac.live &middot; Page not found</title>
+				</NextHead>
+				<div className="flex flex-column justify-center items-center w-100 h-100 tc" style={{
+					flex: '1',
+					minHeight: '220px'
+				}}>
+					<em className="lh-title primary w5 f3 fw7 fs-normal"><Trans>Uh Ohhh...</Trans></em>
+					<p className="lh-copy primary-80 f5 tc pv2"><Trans>The page you were looking for does not exist.</Trans></p>
+					<a className="link white inline-flex items-center justify-center tc mw4 pv2 ph3 nowrap lh-solid pointer br2 ba b--transparent bg-dark-gray guac-btn"
+						href="#"
+						onClick={() => router.back()}>
+						<Trans>Go back</Trans>
+					</a>
+				</div>
+			</Fragment>
+		);
+	}
+	if(channel.error) return (<Trans>Unknown error</Trans>);
 
 	const meta = [
 		{property: 'og:title', content: `${channel.data.name} &middot; guac.live`},
@@ -695,8 +715,11 @@ function ChannelPage(props){
 	)
 }
 ChannelPage.getInitialProps = async ({store, query}) => {
-	log('info', 'Channel', query.name);
-	await store.dispatch(actions.fetchChannel(query.name));
+	if(!query || !query.channel){
+		return {notfound: true};
+	}
+	log('info', 'Channel', query.channel);
+	await store.dispatch(actions.fetchChannel(query.channel));
 	return {...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})};
 };
 

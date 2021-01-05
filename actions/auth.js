@@ -18,7 +18,8 @@ export const authenticate = (username, password) => async (dispatch) => {
 	.then((json) => {
 		if (json.statusCode == 200) {
 			dispatch(Object.assign({
-				type: 'AUTHENTICATE_SUCCESS'
+				type: 'AUTHENTICATE_SUCCESS',
+				token: json.jwtToken
 			}, json));
 			setCookie('token', json.jwtToken);
 		} else {
@@ -74,14 +75,16 @@ export const register = (username, email, password) => async (dispatch) => {
 export const reauthenticate = (token) => async (dispatch) => {
 	if(!token) throw new Error('reauthenticate: no token provided')
 	/* TODO: Find out why this is required to make initialize work in dashboard */
-	dispatch({
-		type: 'AUTHENTICATE_SUCCESS',
-		statusCode: 200,
-		token: token
-	});
-	dispatch({
-		type: 'AUTHENTICATE_REQUEST'
-	});
+	await Promise.all([
+		dispatch({
+			type: 'AUTHENTICATE_SUCCESS',
+			statusCode: 200,
+			token: token
+		}),
+		dispatch({
+			type: 'AUTHENTICATE_REQUEST'
+		})
+	]);
 	return callApi('/tokenAuth', {
 		method: 'POST',
 		headers: {

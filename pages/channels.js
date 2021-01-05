@@ -57,22 +57,43 @@ class ChannelsPage extends Component {
 							/>
 						</label>
 					</div>
-					<div className="site-component-channels flex flex-row flex-wrap w-80" style={{flexGrow: 1}}>
+					{
+						channels.data &&
+						channels.data.length === 0 &&
+						<div className="flex flex-column justify-center items-center w-100 h-100 tc" style={{
+							flex: '1',
+							minHeight: '220px'
+						}}>
+							<img src="/img/sadge.png" className="flex pv3" />
+							<em className="lh-title primary w5 f3 fw7 fs-normal"><Trans>No channels live</Trans></em>
+							<p className="lh-copy primary-80 f5 tc pv2"><Trans>We can't find anyone live atm :(</Trans></p>
+							{
+								this.state.onlyLive &&
+								<a className="link white inline-flex items-center justify-center tc pv2 ph3 nowrap lh-solid pointer br2 ba b--transparent bg-dark-gray guac-btn"
+									href="#"
+									onClick={() => this.handleChange(0)}>
+									<Trans>View offline channels</Trans>
+								</a>
+							}
+						</div>
+					}
+					<div className="site-component-channels flex flex-row flex-wrap w-80 h-100" style={{flexGrow: 1}}>
+
 						{channels.data && channels.data.map((channel) => {
 							return (
 								<div className="site-component-channels__channel w-33 pa2" key={`channel_${channel.id}`}>
-									<Link href={`/c/[name]`} as={`/c/${channel.name}`}>
+									<Link href={`/[channel]`} as={`/${channel.name}`}>
 										<a><Image src={channel.thumbnail} shape="rounded" fit="contain" flexible lazyload /></a>
 									</Link>
 									<div className="pa2">
 										<span className="f5 db link green">
-											<Link href={`/c/[name]`} as={`/c/${channel.name}`}>
+											<Link href={`/[channel]`} as={`/${channel.name}`}>
 												<a className="link color-inherit">{channel.title}</a>
 											</Link>
 										</span>
 										<span className="f6 gray mv1">
 											<p>
-													<Link href={`/c/[name]`} as={`/c/${channel.name}`}>
+													<Link href={`/[channel]`} as={`/${channel.name}`}>
 														<a className="link color-inherit b">{channel.name}</a>
 													</Link>
 													<br />
@@ -82,7 +103,7 @@ class ChannelsPage extends Component {
 													</Link>
 											</p>
 										</span>
-										<GuacButton url={`/c/${channel.name}`} color="dark-green">Watch</GuacButton>
+										<GuacButton url={`/${channel.name}`} color="dark-green">Watch</GuacButton>
 									</div>
 								</div>
 							);
