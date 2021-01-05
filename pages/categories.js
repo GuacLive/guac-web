@@ -52,7 +52,7 @@ function CategoriesPage(props) {
 
     useEffect(() => {
         const options = {
-            root: null, // window by default
+            root: document.querySelector('.site-component-categories'), // window by default
             rootMargin: '0px',
             threshold: 0.25
         };

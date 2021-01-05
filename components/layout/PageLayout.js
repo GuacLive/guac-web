@@ -400,7 +400,7 @@ function PageLayout(props) {
 						</nav>
 					</div>
 				</header>
-				<div className="w-100 min-vh-100 flex flex-row items-start">
+				<div className="w-100 min-vh-100 flex flex-row items-start overflow-hidden">
 					{
 						(showSidebar)
 							?
@@ -408,7 +408,7 @@ function PageLayout(props) {
 							:
 							null
 					}
-					<div className={`w-100 flex flex-column items-start ${showSidebar ? 'pl7-l' : 'pl2-l'} site-component-main`}>
+					<div className={`w-100 flex flex-column items-start ${showSidebar ? 'pl7-l' : 'pl2-l'} site-component-main overflow-y-auto`}>
 						{children}
 					</div>
 				</div>
