@@ -341,7 +341,7 @@ function PageLayout(props) {
 			<main className="w-100 h-100 flex flex-column flex-nowrap justify-between items-start page-wrapper">
 				<header className="site-component-header z-5 w-100 fixed ph3 pv2 bg-bar ml-auto flex-shrink-0">
 					<div className="h-100 flex items-stretch flex-nowrap">
-						<div className="flex flex-shrink-0 items-center pointer">
+						<div className="flex flex-shrink-0 items-center pointer w-33-l">
 							<div className="dib v-mid tc flex-shrink-0 pointer pa2 transition-transform white" onClick={
 								() => {
 									setShowSidebar(!showSidebar)
