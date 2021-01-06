@@ -680,7 +680,7 @@ function ChannelPage(props){
 				<link rel="alternate" type="application/json+oembed" href={`/api/oembed?format=json&url=https%3A%2F%guac.live%2Fc%2F${channel.data.name}`} title={channel.data.name} />
 			</NextHead>
 			<div className={`w-100 ${isMobile ? 'vh-100 max-vh-100' : 'min-vh-100'} flex flex-nowrap black`}>			
-				<div className="site-component-channel w-100 w-70-ns h-100 flex flex-column flex-grow-1 overflow-hidden relative">
+				<div className="site-component-channel w-100 w-70-ns h-100 flex flex-column flex-grow-1 relative">
 						{
 						channel 
 						&&
