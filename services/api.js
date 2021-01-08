@@ -1,6 +1,6 @@
 import AbortController from 'abort-controller';
 
-const TTL_MINUTES = 5;
+import 'abortcontroller-polyfill/dist/polyfill-patch-fetch'
 
 const API_URL = process.env.API_URL;
 
@@ -11,10 +11,10 @@ export function callApi(endpoint, options = {}) {
 	opt.timeout = opt.timeout || typeof window === 'undefined' ? process.env.SSR_TIMEOUT : 0;
 	const fullUrl = (endpoint.indexOf(API_URL) === -1) ? API_URL + endpoint : endpoint;
 
-	const controller = new AbortController();
+	const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
 	const timeout = setTimeout(
 		() => {
-			controller.abort();
+			if(controller && controlle.abort) controller.abort();
 		},
 		opt.timeout,
 	);
@@ -29,7 +29,7 @@ export function callApi(endpoint, options = {}) {
 		defaultHeaders.Authorization = 'Bearer ' + accessToken;
 	}
 	if (opt.timeout) {
-		opt.signal = controller.signal;
+		if (controller.signal) opt.signal = controller.signal;
 	}
 	// Automatically whitelist if server
 	if (typeof window === 'undefined') {
