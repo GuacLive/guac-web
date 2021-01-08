@@ -84,9 +84,9 @@ class ChannelsPage extends Component {
 								<div className="site-component-channels__channel w-33 pa2" key={`channel_${channel.id}`}>
 									{
 										this.state.onlyLive
-										&& <Link href={`/[channel]`} as={`/${channel.name}`}>
+										? <Link href={`/[channel]`} as={`/${channel.name}`}>
 											<a><Image src={channel.thumbnail} shape="rounded" fit="contain" flexible lazyload /></a>
-										</Link>
+										</Link> : <></>
 									}
 									<div className="pa2">
 										<span className="f5 db link green">
