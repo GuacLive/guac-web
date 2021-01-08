@@ -58,6 +58,7 @@
     "critters": "^0.0.6",
     "css-loader": "^5.0.1",
     "date-fns": "^2.14.0",
+    "element-remove": "^1.0.4",
     "emoji-mart": "3.0.0",
     "file-loader": "^6.0.0",
     "firebase": "^8.2.1-canary.487f8e1d2",
