@@ -1,6 +1,6 @@
 {
   "name": "guac-web",
-  "version": "1.13.1",
+  "version": "1.13.2",
   "description": "Main web ui for the Guac livestreaming platform",
   "repository": "GuacLive/guac-web",
   "author": {
@@ -50,6 +50,7 @@
     "@webscopeio/react-textarea-autocomplete": "^4.7.0",
     "@zeit/next-source-maps": "^0.0.4-canary.1",
     "abort-controller": "^3.0.0",
+    "abortcontroller-polyfill": "^1.5.0",
     "babel-plugin-macros": "^3.0.1",
     "browserslist": "^4.12.0",
     "can-autoplay": "^3.0.0",
@@ -57,6 +58,7 @@
     "critters": "^0.0.6",
     "css-loader": "^5.0.1",
     "date-fns": "^2.14.0",
+    "element-remove": "^1.0.4",
     "emoji-mart": "3.0.0",
     "file-loader": "^6.0.0",
     "firebase": "^8.2.1-canary.487f8e1d2",

@@ -5,7 +5,7 @@ const { SENTRY_DSN, SENTRY_ORG, SENTRY_PROJECT, SENTRY_AUTH_TOKEN } = process.en
 
 const withOffline = require('next-offline');
 const pkg = require('./package.json');
-const withTM = require('next-transpile-modules')(['react-giphy-searchbox', 'simplebar-react'], { unstable_webpack5: true });
+const withTM = require('next-transpile-modules')(['react-giphy-searchbox', 'abort-controller', 'simplebar-react'], { unstable_webpack5: true });
 module.exports = withTM(withOffline({
 	webpack(config, {isServer, buildId, dev}) {
 		if (!isServer) {
