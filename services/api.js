@@ -1,5 +1,4 @@
 import AbortController from 'abort-controller';
-import lscache from 'lscache';
 
 const TTL_MINUTES = 5;
 

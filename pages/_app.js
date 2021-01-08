@@ -4,6 +4,7 @@ import { Fragment, useEffect } from 'react';
 
 import App from "next/app";
 
+import 'abortcontroller-polyfill/dist/polyfill-patch-fetch'
 
 import { useDispatch, useSelector } from 'react-redux';
 
