@@ -14,7 +14,7 @@ export function callApi(endpoint, options = {}) {
 	const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
 	const timeout = setTimeout(
 		() => {
-			if(controller && controlle.abort) controller.abort();
+			if(controller && controller.abort) controller.abort();
 		},
 		opt.timeout,
 	);
