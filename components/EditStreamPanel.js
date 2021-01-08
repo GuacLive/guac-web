@@ -29,17 +29,17 @@ class EditStreamPanel extends Component {
 		e.preventDefault();
 		// yay uncontrolled forms!
 		console.log(this.refs);
-		if(this.state.category && streaming.category !== this.state.category){
+		if(this.state.category && streaming && streaming.category !== this.state.category){
 			this.props.dispatch(
 				actions.setCategory(this.props.authentication.token, this.state.category)
 			);
 		}
-		if(streaming.title !== this.refs.title.value){
+		if(streaming && streaming.title !== this.refs.title.value){
 			this.props.dispatch(
 				actions.setTitle(this.props.authentication.token, this.refs.title.value)
 			);
 		}
-		if(streaming.private !== this.refs.private.checked){
+		if(streaming && streaming.private !== this.refs.private.checked){
 			this.props.dispatch(
 				actions.setPrivate(this.props.authentication.token, this.refs.private.checked)
 			);
@@ -88,6 +88,7 @@ class EditStreamPanel extends Component {
                                     })
                                     .then(response => response.json())
                                     .then(searchResults => {
+                                        if(!searchResults || !searchResults.data) resolve();
                                         resolve(searchResults.data.map((data) => ({
                                             value: data.category_id,
                                             name: data.category_name
