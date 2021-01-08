@@ -5,7 +5,6 @@ import { Fragment, useEffect } from 'react';
 import App from "next/app";
 // Polyfill
 import 'abortcontroller-polyfill/dist/polyfill-patch-fetch';
-require('element-remove');
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -44,6 +43,11 @@ import '../css/style.css';
 import 'simplebar-react/dist/simplebar.min.css';
 import '../css/select-search.css';
 library.add(faBan, faBars, faBell, faCheck, faCheckCircle, faClock, faCaretSquareLeft, faCaretSquareRight, faHourglass, faHome, faImage, faPaperPlane, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog, faMinusCircle, faTrash, faEdit, faVideo, faEye, faEyeSlash);
+
+// Polyfill (browser-only)
+if(typeof window !== 'undefined'){
+	require('element-remove');
+}
 function I18nWatchLocale({children}) {
 	const {i18n} = useLingui()
 
