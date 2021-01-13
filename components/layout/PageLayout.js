@@ -111,7 +111,7 @@ function PageLayout(props) {
 
 	useEffect(() => {
 		toggleFollowingTimer(true);
-	}, [user.token])
+	}, [user, user.token])
 
 	// Refetch following list every 60 seconds
 	useInterval(
@@ -419,7 +419,7 @@ function PageLayout(props) {
 
 const mapStateToProps = (state) => (
 	{
-		isAuthenticated: !!state.authentication.token,
+		isAuthenticated: state.authentication ? !!state.authentication.token : null,
 		user: state.authentication ? state.authentication.user : null,
 		mode: state.site.mode,
 		followed: state.site.myFollowed,
