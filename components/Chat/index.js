@@ -296,7 +296,7 @@ function ChatComponent(props){
 				<>
 					<span className="chat-message-user"></span>
 					<span className="chat-message-content green">
-						<Trans>{`Hi! Welcome to ${channel?.data?.user?.name}'s channel~`}</Trans>
+						<Trans>Hi! Welcome to {channel?.data?.user?.name}'s channel~</Trans>
 					</span>
 				</>
 			)
