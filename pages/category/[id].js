@@ -55,7 +55,7 @@ class CategoryPage extends Component {
 								'backgroundPosition': '50%',
 								'backgroundRepeat': 'no-repeat',
 							}}>
-						<h2 className="f2 tracked mt0 mb3">
+						<h2 className="f2 tracked mt0 mb3 white">
 						{
 							thisCategory
 							&& thisCategory[0]

@@ -288,6 +288,23 @@ function ChatComponent(props){
 		cleanup();
 	}
 
+	const handleWelcome = () => {
+		if(!channel?.data?.user?.name) return null;
+		let entry = {
+			user: null,
+			message: (
+				<>
+					<span className="chat-message-user"></span>
+					<span className="chat-message-content green">
+						<Trans>{`Hi! Welcome to ${channel?.data?.user?.name}'s channel~`}</Trans>
+					</span>
+				</>
+			)
+		};
+		setMessages(messages => messages.concat(entry));
+		cleanup();
+	}
+
 	const handleViewers = (viewers) => {
 		log('info', 'Chat', 'Chatters: ' + viewers);
 	}
@@ -626,6 +643,7 @@ function ChatComponent(props){
 			socket.on('privileged', handlePriv);
 			socket.on('viewers', handleViewers);
 			socket.on('delete', handleDelete);
+			socket.on('me', handleWelcome)
 			socket.on('connect', () => {
 				setConnectedStatus(true);
 			});

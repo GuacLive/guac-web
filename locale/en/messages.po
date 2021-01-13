@@ -103,7 +103,7 @@ msgstr "Client error"
 msgid "Close"
 msgstr "Close"
 
-#: components/Chat/index.js:918
+#: components/Chat/index.js:936
 msgid "Collapse"
 msgstr "Collapse"
 
@@ -219,7 +219,7 @@ msgstr "English"
 msgid "Error"
 msgstr "Error"
 
-#: components/Chat/index.js:918
+#: components/Chat/index.js:936
 msgid "Expand"
 msgstr "Expand"
 
@@ -303,6 +303,10 @@ msgstr "Harassment & Bullying"
 msgid "Hate Speech"
 msgstr "Hate Speech"
 
+#: components/Chat/index.js:299
+msgid "Hi! Welcome to {0}'s channel~"
+msgstr "Hi! Welcome to {0}'s channel~"
+
 #: components/layout/PageLayout.js:149
 #: components/layout/PageLayout.js:150
 #: components/layout/PageLayout.js:150
@@ -337,11 +341,11 @@ msgstr "Join"
 #~ msgid "Live streams"
 #~ msgstr "Live streams"
 
-#: components/Chat/index.js:937
+#: components/Chat/index.js:955
 msgid "Loading"
 msgstr "Loading"
 
-#: components/Chat/index.js:676
+#: components/Chat/index.js:694
 #: components/Search/SearchBar.js:81
 #: pages/[channel].js:611
 msgid "Loading..."
@@ -381,7 +385,7 @@ msgstr "Moderators in chat:"
 msgid "More"
 msgstr "More"
 
-#: components/Chat/index.js:963
+#: components/Chat/index.js:981
 msgid "More messages below."
 msgstr "More messages below."
 
@@ -397,7 +401,7 @@ msgstr "New password:"
 msgid "Next"
 msgstr "Next"
 
-#: pages/channels.js:69
+#: pages/channels.js:68
 msgid "No channels live"
 msgstr "No channels live"
 
@@ -417,7 +421,7 @@ msgstr "No streaming key found, please contact an admin."
 msgid "Norwegian"
 msgstr "Norwegian"
 
-#: components/Chat/index.js:883
+#: components/Chat/index.js:901
 msgid "Not connected to chat."
 msgstr "Not connected to chat."
 
@@ -500,7 +504,7 @@ msgstr "Privacy"
 msgid "Privacy Policy"
 msgstr "Privacy Policy"
 
-#: components/EditStreamPanel.js:103
+#: components/EditStreamPanel.js:104
 msgid "Private (don't show in categories, frontpage or search):"
 msgstr "Private (don't show in categories, frontpage or search):"
 
@@ -516,7 +520,7 @@ msgstr "REPLAYS"
 msgid "Reason"
 msgstr "Reason"
 
-#: components/Chat/index.js:884
+#: components/Chat/index.js:902
 msgid "Reconnect"
 msgstr "Reconnect"
 
@@ -532,7 +536,7 @@ msgstr "Remove timeout for user"
 msgid "Search..."
 msgstr "Search..."
 
-#: components/Chat/index.js:672
+#: components/Chat/index.js:690
 msgid "Send a message"
 msgstr "Send a message"
 
@@ -590,7 +594,7 @@ msgstr "Start date:"
 msgid "Start following your favorite streamers to find them quickly!"
 msgstr "Start following your favorite streamers to find them quickly!"
 
-#: components/Chat/index.js:903
+#: components/Chat/index.js:921
 msgid "Stream Chat"
 msgstr "Stream Chat"
 
@@ -752,7 +756,7 @@ msgstr "Users in chat:"
 msgid "Verify"
 msgstr "Verify"
 
-#: pages/channels.js:76
+#: pages/channels.js:75
 msgid "View offline channels"
 msgstr "View offline channels"
 
@@ -765,7 +769,7 @@ msgstr "Want to customize your color? <0>Join our Patreon!</0>"
 msgid "Watch"
 msgstr "Watch"
 
-#: pages/channels.js:70
+#: pages/channels.js:69
 msgid "We can't find anyone live atm :("
 msgstr "We can't find anyone live atm :("
 
@@ -813,7 +817,7 @@ msgstr "Your account is now registered. Please check your e-mail to verify your 
 msgid "Your e-mail has been verified."
 msgstr "Your e-mail has been verified."
 
-#: components/Chat/index.js:320
+#: components/Chat/index.js:337
 msgid "by"
 msgstr "by"
 
