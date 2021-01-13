@@ -43,7 +43,7 @@ export default class FeaturesService extends EventEmitter {
 		}
 	}
 	loadingFeatures() {
-		fetch(`https://static.guac.live/settings/features.json`, {timeout: 5000})
+		fetch(`${process.env.STATIC_URL}/settings/features.json`, {timeout: 5000})
 			.then(res => res ? res.json() : res)
 			.then(data => {
 				this.emit('featuresLoaded', data);
