@@ -68,6 +68,7 @@ module.exports = withTM(withOffline({
 		// DEBUG is used in socket.io
 		//DEBUG: process.env.NODE_ENV === 'development',
 		SSR_TIMEOUT: parseInt( process.env.SSR_TIMEOUT ) || 10 * 1000,
+		STATIC_URL: process.env.STATIC_URL || 'http://static.guac.live',
 		API_URL: process.env.API_URL || 'http://api.local.guac.live',
 		CHAT_URL: process.env.CHAT_URL || 'http://chat.local.guac.live',
 		VIEWER_API_URL: process.env.VIEWER_API_URL || 'http://viewer-api.local.guac.live',

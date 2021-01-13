@@ -37,6 +37,7 @@
   }],
   "build": {
     "env": {
+      "STATIC_URL": "@guac-static-url",
       "API_URL": "@guac-api-url",
       "CHAT_URL": "@guac-chat-url",
       "VIEWER_API_URL": "@guac-viewer-api-url",
