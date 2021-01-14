@@ -42,14 +42,16 @@ function SubscriptionDialog(props){
 							'item_name': plan.plan_name,
 							'item_number': plan.plan_id,
 							'currency_code': 'USD',
-							'amount': plan.price,
-							'tax': 0,
+							'a3': plan.price,
+							'p3': '1',
+							't3': 'M',
 							'notify_url': 'https://api.guac.live/payments/ipn',
 							'return': `https://guac.live/c/${channel.data.name}`,
 							'bn': 'guaclive_Subscribe_WPS_NO',
 							'charset': 'UTF-8',
-							'no_shipping': 1
-
+							'sra': 1,
+							'src': 1,
+							'modify': '1'
 						});
 
 						plans.push({
