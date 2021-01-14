@@ -50,7 +50,7 @@ function SubscriptionDialog(props){
 							'bn': 'guaclive_Subscribe_WPS_NO',
 							'charset': 'UTF-8',
 							'sra': 1,
-							'srt': 1
+							'src': 1
 						});
 
 						plans.push({
