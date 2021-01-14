@@ -36,7 +36,7 @@ function SubscriptionDialog(props){
 					res.data.plans.forEach((plan, i) => {
 						console.log('plan', plan);
 						const paypal_args = new URLSearchParams({
-							'cmd': '_xclick',
+							'cmd': '_xclick-subscriptions',
 							'business': plan.email,
 							'email': auth.user.email,
 							'item_name': plan.plan_name,
@@ -46,7 +46,7 @@ function SubscriptionDialog(props){
 							'tax': 0,
 							'notify_url': 'https://api.guac.live/payments/ipn',
 							'return': `https://guac.live/c/${channel.data.name}`,
-							'bn': 'guaclive',
+							'bn': 'guaclive_Subscribe_WPS_NO',
 							'charset': 'UTF-8',
 							'no_shipping': 1
 
