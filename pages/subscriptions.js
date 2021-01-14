@@ -41,6 +41,12 @@ function SubscriptionsPage(props){
 									<p><Trans>Start date:</Trans> {sub.start_date}</p>
 									<p><Trans>End date:</Trans> {sub.expiration_date}</p>
 									<p><Trans>Current Sub-Streak:</Trans> {subLength}</p>
+									
+									<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+										<input type="hidden" name="cmd" value="_subscr-find" />
+										<input type="hidden" name="alias" value={sub.channel_email} />
+										<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_unsubscribe_LG.gif" border="0" name="submit" alt="Unsubscribe" />
+									</form>
 								</div>
 							);
 						})
