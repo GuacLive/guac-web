@@ -59,6 +59,9 @@ module.exports = withTM(withOffline({
 			//config.devtool = false;
 		}
 
+		// Not sure why this is erroring
+		delete config.snapshot;
+
 		return config;
 	},
 	target: 'serverless',
