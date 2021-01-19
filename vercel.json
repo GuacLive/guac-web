@@ -50,9 +50,5 @@
       "PATREON_CLIENT_ID": "@guac-patreon-client-id",
       "PATREON_REDIRECT_URI": "@guac-patreon-redirect-uri"
     }
-  },
-  "builds": [{
-    "src": "package.json",
-    "use": "@vercel/next@canary"
-  }]
+  }
 }
