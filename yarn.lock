@@ -2648,17 +2648,17 @@
     "@typescript-eslint/types" "4.14.0"
     eslint-visitor-keys "^2.0.0"
 
-"@vercel/build-utils@2.7.0":
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-2.7.0.tgz#b187a4ad970352d81b8f5f974c215f1268867727"
-  integrity sha512-WyTjeFpIOfUTLWB+LrJEAbs03SKD0lcA26CMt2tzPF+jaGL/hjCcRxkZJhMSRUu3LAesjKtQ7zGUuFtV0l5S3w==
+"@vercel/build-utils@2.7.1-canary.0":
+  version "2.7.1-canary.0"
+  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-2.7.1-canary.0.tgz#0897cba32b627e329c1eec33e9a980a19383332d"
+  integrity sha512-90P0mk/LVwi2wjAuxNEGONFy2y4qWRKayGhifR6BHH397FSUfcptZpHYO/64HtJSG21pmMVfzDoCCNbazEPAsQ==
 
 "@vercel/go@1.1.7":
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/@vercel/go/-/go-1.1.7.tgz#bb2da049378a61861ee06575bc3b29639d5de1dc"
   integrity sha512-eNWXjOd6SVo7oOTQORZEt2eBfAKTHHgIZByuemrRMPybaOX/U3UeVb/kKjxijVNCr8Um6VlfurldTkB0LQ917w==
 
-"@vercel/next@^2.7.8-canary.0":
+"@vercel/next@^2.7.9":
   version "2.7.9"
   resolved "https://registry.yarnpkg.com/@vercel/next/-/next-2.7.9.tgz#e95c8099b21a42d86e8542ea439c7f5bc4e6369e"
   integrity sha512-I7u2IzRR3ssmvItLhx2lGPYrric2v74g+ArDBCxYwm1eGt9ARVIsg9/Q59U/0rjtv+DD8D24wjD+UW58uKfaJQ==
@@ -9512,7 +9512,7 @@ next-transpile-modules@6.0.0:
     enhanced-resolve "^5.3.2"
     pkg-dir "^5.0.0"
 
-next@^10.0.6-canary.3:
+next@^10.0.6-canary.4:
   version "10.0.6-canary.4"
   resolved "https://registry.yarnpkg.com/next/-/next-10.0.6-canary.4.tgz#f1da9683d67278dcceb6a71161a22d98589ed8f5"
   integrity sha512-M4ehUbHOreALYNX7fPupNKSk66eGPTJ3BMAR7b46dYZUI+xv0vgEAX7+YUr/GkFoz8nIxWJaMM80ovTwSRrj/A==
@@ -14248,12 +14248,12 @@ vendors@^1.0.0:
   resolved "https://registry.yarnpkg.com/vendors/-/vendors-1.0.4.tgz#e2b800a53e7a29b93506c3cf41100d16c4c4ad8e"
   integrity sha512-/juG65kTL4Cy2su4P8HjtkTxk6VmJDiOPBufWniqQ6wknac6jNiXS9vU+hO3wgusiyqWlzTbVHi0dyJqRONg3w==
 
-vercel@^21.0.2-canary.2:
-  version "21.1.0"
-  resolved "https://registry.yarnpkg.com/vercel/-/vercel-21.1.0.tgz#dd118bb89b1c2eee078437eac7f6f71ff4f80ea9"
-  integrity sha512-01NKN1V7oAq4oxkm7OPw/SNMsnF+UPX2OTgq5SxUKyZlz34aqvj+LvEjs4KWNGXFzTAelmuFze7VOObvmB7mug==
+vercel@^21.1.1-canary.0:
+  version "21.1.1-canary.0"
+  resolved "https://registry.yarnpkg.com/vercel/-/vercel-21.1.1-canary.0.tgz#9b4ed94c5ae293221e26423b680d91088157b537"
+  integrity sha512-aPUYbtpWRa5Mm7LdDsGMgp62X0niWvLCm3Imym+tKu47UdC388dYmC1uft6B0mQ8JVbjbKVEanrXuWZXgVSItA==
   dependencies:
-    "@vercel/build-utils" "2.7.0"
+    "@vercel/build-utils" "2.7.1-canary.0"
     "@vercel/go" "1.1.7"
     "@vercel/node" "1.9.0"
     "@vercel/python" "1.2.4"
