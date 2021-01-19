@@ -59,9 +59,6 @@ module.exports = withTM(withOffline({
 			//config.devtool = false;
 		}
 
-		// Not sure why this is erroring
-		delete config.snapshot;
-
 		return config;
 	},
 	target: 'serverless',
@@ -118,5 +115,6 @@ module.exports = withTM(withOffline({
 	},
 	future: {
 		excludeDefaultMomentLocales: true,
+		webpack5: true
 	},
 }))
