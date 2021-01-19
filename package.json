@@ -47,7 +47,7 @@
     "@sentry/webpack-plugin": "^1.14.0",
     "@silvermine/videojs-chromecast": "^1.2.1",
     "@silvermine/videojs-quality-selector": "^1.2.4",
-    "@vercel/next": "^2.7.8-canary.0",
+    "@vercel/next": "^2.7.9-canary.4",
     "@videojs/http-streaming": "^2.4.1",
     "@videojs/vhs-utils": "^2.3.0",
     "@webscopeio/react-textarea-autocomplete": "^4.7.0",
