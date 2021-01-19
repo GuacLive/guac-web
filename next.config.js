@@ -115,5 +115,6 @@ module.exports = withTM(withOffline({
 	},
 	future: {
 		excludeDefaultMomentLocales: true,
+		webpack5: true
 	},
 }))

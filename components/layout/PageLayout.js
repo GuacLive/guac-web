@@ -16,7 +16,6 @@ import {Trans, t} from '@lingui/macro';
 
 import Image from '../Image';
 
-import GuacButton from '../GuacButton';
 import AccountMenu from './AccountMenu';
 import NotificationsMenu from './NotificationsMenu';
 import SearchBar from '../Search/SearchBar';
@@ -419,8 +418,8 @@ function PageLayout(props) {
 
 const mapStateToProps = (state) => (
 	{
-		isAuthenticated: state.authentication ? !!state.authentication.token : null,
-		user: state.authentication ? state.authentication.user : null,
+		isAuthenticated: state.authentication && state.authentication.token ? true : false,
+		user: state.authentication ? state.authentication.user : {},
 		mode: state.site.mode,
 		followed: state.site.myFollowed,
 		loading: state.site.loading
