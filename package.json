@@ -10,7 +10,7 @@
   "browserslist": "defaults, IE >= 11, EDGE >= 14, Safari >= 11, Chrome >= 41, Firefox >= 52",
   "scripts": {
     "postinstall": "patch-package",
-    "now-build": "next build",
+    "vercel-build": "next build",
     "dev": "next",
     "deploy": "vercel",
     "ex": "NODE_ENV=development lingui extract",
