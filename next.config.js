@@ -111,7 +111,8 @@ module.exports = withTM(withOffline({
 		scrollRestoration: true,
 		topLevelAwait: true,
 		scriptLoader: true,
-		optimizeCss: false
+		optimizeCss: false,
+		scrollRestoration: true
 	},
 	future: {
 		excludeDefaultMomentLocales: true,
