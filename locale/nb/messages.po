@@ -576,7 +576,7 @@ msgstr "Strømming-håndtering"
 
 #: pages/dashboard.js:105
 msgid "Stream preview"
-msgstr "Strømmeforhåndsvisning"
+msgstr "Strøm"
 
 #: pages/dashboard.js:109
 msgid "Stream settings"
