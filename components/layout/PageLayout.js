@@ -105,7 +105,7 @@ function PageLayout(props) {
 
 	useEffect(() => {
 		toggleFollowingTimer(true);
-	}, [user, user.token])
+	}, [user && user.token])
 
 	// Refetch following list every 60 seconds
 	useInterval(
