@@ -118,7 +118,7 @@ function Stream(props){
 							<p><Trans>Now, use the following stream key:</Trans></p>
 							<div className="db">
 								<input 
-									className="input-reset bn pa3 w-50 bg-white br2"
+									className="input-reset bn pa3 w-80 bg-white br2"
 									type={showStreamkey ? 'text' : 'password'}
 									readOnly
 									value={streamkey || undefined}
