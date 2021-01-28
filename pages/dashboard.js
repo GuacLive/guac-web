@@ -31,10 +31,10 @@ function DashboardPage(props){
 						</li>
 					</ul>
 				</div>
-				<div className="flex flex-column flex-nowrap h-100 w-100 overflow-hidden relative">
+				<div className="flex flex-column flex-nowrap h-100 w-100 relative">
 					{tab == 0 && <StreamComponent />}
-					{tab == 1 && <p>Subscriptions</p>}
-					{tab == 2 && <p>Emotes</p>}
+					{tab == 1 && <Trans>Subscriptions</Trans>}
+					{tab == 2 && <Trans>Emotes</Trans>}
 				</div>
 			</div>
 		</div>
