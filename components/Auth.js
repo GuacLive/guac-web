@@ -101,9 +101,9 @@ function LoginComponent(props){
 								<input ref={password} className="fl f6 f5-l pa2 ba br2 input-reset w-100" type="password" name="password" id="password" />
 								<Link prefetch href=""><a href="" className="f6 link dim green db"><Trans>Forgot your password?</Trans></a></Link>
 							</div>
-							<div className="mv3">
+							{/*<div className="mv3">
 								<label className="pa0 ma0 lh-copy f6 pointer"><input type="checkbox" /> <Trans>Remember me</Trans></label>
-							</div>
+							</div>*/}
 							<div className="mv3">
 								<input className="link color-inherit db w-100 pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green guac-btn" type="submit" value={i18n._(t`Sign in`)} />
 							</div>
