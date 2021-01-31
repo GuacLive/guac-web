@@ -158,6 +158,7 @@ function PageLayout(props) {
 
 				<meta name="description" content="guac is a live streaming platform." key="description" />
 				<meta name="theme-color" key="theme-color" content="#19a974" />
+				<meta name="color-scheme" key="color-scheme" content="light dark"></meta>
 			</Head>
 			<Modal
 				isOpen={authModalIsOpen}
