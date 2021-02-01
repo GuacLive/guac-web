@@ -9,10 +9,7 @@ const withTM = require('next-transpile-modules')(['react-giphy-searchbox', 'abor
 module.exports = withTM(withOffline({
 	webpack(config, {isServer, buildId, dev}) {
 		if (!isServer) {
-			config.resolve.alias = {
-				...config.resolve.alias,
-				'@sentry/node': require.resolve('@sentry/browser')
-			};
+			config.resolve.alias['@sentry/node'] = '@sentry/browser'
 		}
 
 		config.module.rules.push({
