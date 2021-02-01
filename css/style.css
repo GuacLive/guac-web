@@ -12,22 +12,27 @@
 
 html,
 .sans-serif {
-	font-family: -apple-system,
-		BlinkMacSystemFont,
+	font-family: system-ui,
+		-apple-system,
 		'Segoe UI',
 		Roboto,
 		'Helvetica Neue',
 		Arial,
 		'Noto Sans',
+		'Liberation Sans',
 		sans-serif,
 		'Apple Color Emoji',
 		'Segoe UI Emoji',
 		'Segoe UI Symbol',
 		'Noto Color Emoji';
 	line-height: 1.5;
-
 }
 
+@media (prefers-reduced-motion: no-preference) {
+	:root {
+		scroll-behavior: smooth;
+	}
+}
 @media screen and (-webkit-min-device-pixel-ratio: 2),
 screen and (min-resolution: 2dppx) {
 	html {
