@@ -9569,13 +9569,13 @@ next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
-next-transpile-modules@6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/next-transpile-modules/-/next-transpile-modules-6.0.0.tgz#ba2d9c944de34a6e04c8834b6a06dbc4b28e4611"
-  integrity sha512-+Xdn4Upb8FeOXorzqVFyqww3kR9ML6S7y6Q3gFnoLdsqC5Jim3fwGNGTHENLOwedoKxcM6bCyRBuMYzyxru/wA==
+next-transpile-modules@6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/next-transpile-modules/-/next-transpile-modules-6.1.0.tgz#f5673044a9a955855733b15ab48ff12a05e5c5f4"
+  integrity sha512-IVjXHXnvr/n7liIe7SZcDbq3Gab4zltmKk7sC8zqn/L3TJt1V49W0OnUdtD/LRUdET3i34EfH/4p45SjgyQbNw==
   dependencies:
     enhanced-resolve "^5.3.2"
-    pkg-dir "^5.0.0"
+    escalade "^3.1.1"
 
 next@^10.0.7-canary.0:
   version "10.0.7-canary.0"
@@ -14637,7 +14637,7 @@ webpack-sources@^2.1.1:
     source-list-map "^2.0.1"
     source-map "^0.6.1"
 
-webpack@4.44.2, webpack@^5.15.0:
+webpack@4.44.2, webpack@^5.15.0, webpack@^5.19.0:
   version "5.19.0"
   resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.19.0.tgz#1a5fee84dd63557e68336b0774ac4a1c81aa2c73"
   integrity sha512-egX19vAQ8fZ4cVYtA9Y941eqJtcZAK68mQq87MMv+GTXKZOc3TpKBBxdGX+HXUYlquPxiluNsJ1VHvwwklW7CQ==
@@ -14942,7 +14942,7 @@ workbox-sw@^6.1.0:
   resolved "https://registry.yarnpkg.com/workbox-sw/-/workbox-sw-6.1.0.tgz#dfaca1029264af71f13a90fdfb16cf8d64ed0537"
   integrity sha512-e2jnIWSmNrpO9Psy4D6euDdRUW8FTXAdMxOj5O02gxa01fri1kfTSM9irDnTGKUiSGc+hlycsvzGdr8bnvzDiA==
 
-workbox-webpack-plugin@5.1.4, workbox-webpack-plugin@^5.0.0, workbox-webpack-plugin@^6.0.2:
+workbox-webpack-plugin@5.1.4, workbox-webpack-plugin@^5.0.0, workbox-webpack-plugin@^6.0.2, workbox-webpack-plugin@^6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/workbox-webpack-plugin/-/workbox-webpack-plugin-6.1.0.tgz#7090533aed07d000181f5686b5cc5f8c5fe36e06"
   integrity sha512-uRmImfQghNmNF/iyPJ+MS0o2Z9E6kExZRSZIDOhnf1v+Mw1ixxx3n9fuTvTuCDvrUksaXcVEkvhagr12kfkEYA==
