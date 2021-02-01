@@ -16,18 +16,12 @@ module.exports = withTM(withOffline({
 		}
 
 		config.module.rules.push({
-			test: /\.(png|svg|eot|otf|ttf|woff|woff2)$/,
-			dependency: { not: ['url'] }, 
-			use: {
-				loader: 'url-loader',
-				options: {
-					limit: 100000,
-					publicPath: './',
-					outputPath: 'static/',
-					name: '[name].[ext]'
-				}
-			},
-			type: 'javascript/auto'
+			test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+			type: 'asset/resource'
+		});
+		config.module.rules.push({
+			test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+			type: 'asset/inline'
 		});
 
 		config.module.rules.push({
