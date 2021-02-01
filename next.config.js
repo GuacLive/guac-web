@@ -17,6 +17,7 @@ module.exports = withTM(withOffline({
 
 		config.module.rules.push({
 			test: /\.(png|svg|eot|otf|ttf|woff|woff2)$/,
+			dependency: { not: ['url'] }, 
 			use: {
 				loader: 'url-loader',
 				options: {
@@ -25,7 +26,8 @@ module.exports = withTM(withOffline({
 					outputPath: 'static/',
 					name: '[name].[ext]'
 				}
-			}
+			},
+			type: 'javascript/auto'
 		});
 
 		config.module.rules.push({
