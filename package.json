@@ -132,7 +132,7 @@
     "babel-plugin-inline-react-svg": "^1.1.1"
   },
   "resolutions": {
-    "webpack": "^5.15.0",
-    "workbox-webpack-plugin": "^6.0.2"
+    "webpack": "^5.19.0",
+    "workbox-webpack-plugin": "^6.1.0"
   }
 }
