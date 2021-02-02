@@ -1,6 +1,6 @@
 {
   "name": "guac-web",
-  "version": "1.13.4",
+  "version": "1.13.6",
   "description": "Main web ui for the Guac livestreaming platform",
   "repository": "GuacLive/guac-web",
   "author": {
@@ -73,8 +73,7 @@
     "next": "10.0.6-canary.3",
     "next-offline": "^5",
     "next-redux-wrapper": "6.0.2",
-    "next-server": "^9.0.6-canary.0",
-    "next-transpile-modules": "6.0.0",
+    "next-transpile-modules": "6.1.0",
     "nuka-carousel": "^4.7.4",
     "patch-package": "^6.2.2",
     "path-match": "^1.2.4",
@@ -132,7 +131,7 @@
     "babel-plugin-inline-react-svg": "^1.1.1"
   },
   "resolutions": {
-    "webpack": "^5.15.0",
-    "workbox-webpack-plugin": "^6.0.2"
+    "webpack": "^5.19.0",
+    "workbox-webpack-plugin": "^6.1.0"
   }
 }

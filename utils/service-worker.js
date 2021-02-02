@@ -1,5 +1,5 @@
-importScripts('https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js');
-importScripts('https://www.gstatic.com/firebasejs/8.1.2/firebase-messaging.js');
+importScripts('https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/8.2.4/firebase-messaging.js');
 
 import {registerRoute} from 'workbox-routing';
 import {precacheAndRoute, cleanupOutdatedCaches} from 'workbox-precaching';
@@ -136,7 +136,7 @@ self.addEventListener('notificationclick', function(event) {
             type: 'window'
         })
         .then(function(clientList) {
-            let link = `/c/${notificationPayload.data.username}`;
+            let link = `/${notificationPayload.data.username}`;
             for(var i = 0; i < clientList.length; i++){
                 var client = clientList[i];
                 if(client.url == link && 'focus' in client)

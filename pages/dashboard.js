@@ -1,165 +1,44 @@
-import React, {Component} from 'react'
-import {connect} from 'react-redux';
-import dynamic from 'next/dynamic'
+import React, { useState } from 'react'
+import { connect } from 'react-redux';
 
-import { Trans } from '@lingui/macro';
+import { Trans, t } from '@lingui/macro';
 
 import withAuth from '../utils/withAuth';
-import * as actions from '../actions';
 
-import EditStreamPanel from '../components/EditStreamPanel';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import dynamic from 'next/dynamic';
+import Link from 'next/link';
 
-let VideoPlayer = dynamic(
-	() => /* webpackChunkName: 'VideoPlayer' */import('../components/VideoPlayer'),
-	{
-		ssr: false,
-		loading: () => <div className="w-100 h-100 bg-black white content-box" style={{'paddingTop': '56.25%'}} />
-	}
-);
+const StreamComponent = dynamic(() => import('../components/Dashboard/Stream'));
 
-const STREAMING_SERVER = 'eu';
-
-const handleFocus = (event) => event.target.select();
-class DashboardPage extends Component {
-	constructor(props){
-		super(props);
-		this.state = {
-			showStreamkey: false
-		}
-	}
-
-	static async getInitialProps({store, isServer, pathname, query, req}){
-		const { streaming, channel, authentication } = store.getState()
-		await store.dispatch(actions.fetchCategories());
-		if(streaming.loading){
-			await store.dispatch(actions.fetchStreaming(authentication.token));
-		}
-		if(channel.loading){
-			await store.dispatch(actions.fetchChannel(authentication.user.name));
-		}
-    }
-
-    renderStream(){
-		const {
-			channel
-		} = this.props;
-		let stream = channel.data;
-
-		let videoJsOptions = { 
-			autoplay: false,
-			controls: true,
-			sources: [],
-			streamInfo: {
-				username: stream.user.name
-			}
-		};
-
-		if(stream.live){
-			if(stream.urls){
-				// Prefer FLV if available, it has lower latency
-				let flvUrl = stream.servers[STREAMING_SERVER] + stream.urls.flv;
-				if(stream.urls.flv){
-					videoJsOptions.sources.push({
-						src: typeof window === 'object' && 'WebSocket' in window
-							? `${window.location.protocol === 'https:' ? 'wss' : 'ws'}:${flvUrl}`
-							: flvUrl,
-						type: 'video/x-flv',
-						label: STREAMING_SERVER + `(FLV)`
-					});
-				}
-				// Only HLS has quality options
-				Object.keys(stream.qualities).forEach((key) => {
-					let urlKey = stream.qualities[key];
-					videoJsOptions.sources.push({
-						src: stream.servers[STREAMING_SERVER] + `/live/${stream.user.name}/index${urlKey}.m3u8`,
-						type: 'application/x-mpegURL',
-						label: STREAMING_SERVER + `(${key})`
-					});
-				});
-			}
-		}
-
-    	return (
-			<div className="w-100 h-100 flex flex-column flex-grow-1 overflow-hidden relative">
-                <VideoPlayer { ...videoJsOptions } live={stream.live}></VideoPlayer>
-            </div>
-		);
-	}
-
-	render(){
-		const {streaming, categories, channel} = this.props;
-		const { showStreamkey } = this.state;
-		const auth = this.props.authentication;
-		if(auth.loading) return null;
-		if(auth.error) throw auth.error;
-		if(streaming.loading) return null;
-		if(channel.loading) return null;
-		if(categories.error) throw categories.error;
-		if(streaming.error) throw streaming.error;
-		if(auth && auth.user && !auth.user.can_stream) return <p><Trans>You do not have permission to stream</Trans></p>;
-		const streamkey = `${auth.user.name}?token=${streaming.key}`;
-		return (
-			<div className="flex flex-row flex-wrap w-100">
-				<div className="w-100 w-50-ns pa3">
-					<h2 className="f2 tracked mt0 mb3"><Trans>Stream preview</Trans></h2>
-					{ this.renderStream() }
-				</div>
-				<div className="w-100 w-50-ns pa3">
-					<h2 className="f2 tracked mt0 mb3"><Trans>Stream settings</Trans></h2>
-					<EditStreamPanel />
-				</div>
-				<div className="w-100 w-50-ns pa3">
-					<h2 className="f2 tracked mt0 mb3"><Trans>Get started with streaming</Trans></h2>
-					<ol>
-						<li>
-							<p><Trans>First, choose the streaming server closest to you:</Trans></p>
-							<ul className="list">
-								<li><b>London, Europe:</b> rtmp://lon.stream.guac.live:1935/live</li>
-								{/*<li><b>Oslo, Europe:</b> rtmp://osl1.stream.guac.live:1935/live</li>
-								<li><b>London, Europe:</b> rtmp://lon1.stream.guac.live:1935/live</li>*/}
-							</ul>
+function DashboardPage(props){
+	const auth = props.authentication;
+	const [tab, setTab] = useState(0);
+	if(auth.loading) return null;
+	return (
+		<div className="flex flex-nowrap h-100 w-100 mw7 pv3 ph3-l relative">
+			<div className="flex flex-column flex-grow-1 h-100 w-100 relative">
+				<div className="site-component-dashboard-tabs">
+					<h2 className="f2 tracked mt0 mb3"><Trans>Dashboard</Trans></h2>
+					<ul className="flex items-center bb b--gray w-100 list pl0">
+						<li className="dib f4 lh-copy">
+							<a onClick={() => {return setTab(0);}} className={`no-underline pointer ${tab == 0 ? 'primary': 'gray'} hover-primary link inline-flex pv2 mr4`}><Trans>Stream</Trans></a>
 						</li>
-						<li>
-							{streaming && streaming.key ?
-								<>
-								<p><Trans>Now, use the following stream key:</Trans></p>
-								<div className="db">
-									<input 
-										className="input-reset bn pa3 w-50 bg-white br2"
-										type={showStreamkey ? 'text' : 'password'}
-										readOnly
-										value={streamkey || undefined}
-										onFocus={handleFocus}
-									/>
-									<span className="link inline-flex flex-nowrap ph3 pv2 hover-bg-dark-gray bg-animate color-inherit" onClick={() => this.setState({showStreamkey: !this.state.showStreamkey})}><FontAwesomeIcon icon={this.state.showStreamkey ? 'eye' : 'eye-slash'} /></span>
-								</div>
-								</>
-								:
-								<p style={{color: 'red'}}><Trans>No streaming key found, please contact an admin.</Trans></p>
-							}
+						<li className="dib f4 lh-copy">
+							<a onClick={() => {return setTab(1);}} className={`no-underline pointer ${tab == 1 ? 'primary': 'gray'} hover-primary link inline-flex pv2 mr4`}><Trans>Subscriptions</Trans></a>
 						</li>
-						<li>
-							<p><Trans>At last, make sure keyframe interval is set to <b>1</b>.</Trans></p>
+						<li className="dib f4 lh-copy">
+							<a onClick={() => {return setTab(2);}} className={`no-underline pointer ${tab == 2 ? 'primary': 'gray'} hover-primary link inline-flex pv2 mr4`}><Trans>Emotes</Trans></a>
 						</li>
-					</ol>
-				</div>
-				<div className="w-100 w-50-ns pa3">
-					<h2 className="f2 tracked mt0 mb3"><Trans>Chat commands:</Trans></h2>
-					<ul>
-						<li><b>/help</b> - <Trans>Show help command</Trans></li>
-						<li><b>/users</b> - <Trans>Show user list</Trans></li>
-						<li><b>/mod <i><Trans>user</Trans></i></b></li>
-						<li><b>/unmod <i><Trans>user</Trans></i></b></li>
-						<li><b>/timeout <i><Trans>user</Trans></i> <i><Trans>seconds</Trans></i></b> - <Trans>Time out user for x seconds</Trans></li>
-						<li><b>/timeout <i><Trans>user</Trans></i> <i>0</i></b> - <Trans>Remove timeout for user</Trans></li>
-						<li><b>/ban <i><Trans>user</Trans></i> <i><Trans>message</Trans></i></b> - <Trans>Permanently ban user</Trans></li>
-						<li><b>/unban <i><Trans>user</Trans></i></b> - <Trans>Unban user</Trans></li>
 					</ul>
 				</div>
+				<div className="flex flex-column flex-nowrap h-100 w-100 relative">
+					{tab == 0 && <StreamComponent />}
+					{tab == 1 && <Trans>Subscriptions</Trans>}
+					{tab == 2 && <Trans>Emotes</Trans>}
+				</div>
 			</div>
-		)
-	}
+		</div>
+	);
 }
 
 export default connect(state => state)(withAuth(DashboardPage))

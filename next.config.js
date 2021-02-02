@@ -9,23 +9,16 @@ const withTM = require('next-transpile-modules')(['react-giphy-searchbox', 'abor
 module.exports = withTM(withOffline({
 	webpack(config, {isServer, buildId, dev}) {
 		if (!isServer) {
-			config.resolve.alias = {
-				...config.resolve.alias,
-				'@sentry/node': require.resolve('@sentry/browser')
-			};
+			config.resolve.alias['@sentry/node'] = '@sentry/browser'
 		}
 
 		config.module.rules.push({
-			test: /\.(png|svg|eot|otf|ttf|woff|woff2)$/,
-			use: {
-				loader: 'url-loader',
-				options: {
-					limit: 100000,
-					publicPath: './',
-					outputPath: 'static/',
-					name: '[name].[ext]'
-				}
-			}
+			test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+			type: 'asset/resource'
+		});
+		config.module.rules.push({
+			test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+			type: 'asset/inline'
 		});
 
 		config.module.rules.push({
@@ -100,7 +93,7 @@ module.exports = withTM(withOffline({
 	images: {
 		domains: ['guac.live', 'api.guac.live', 'media.rawg.io', 'stream.guac.live', 'cdn.frankerfacez.com', 'static-cdn.jtvnw.net', 'cdn.betterttv.net', 'ggpht.com', 'yt3.ggpht.com']
 	},
-	productionBrowserSourceMaps: false,
+	productionBrowserSourceMaps: true,
 	experimental: {
 		plugins: true,
 		sprFlushToDisk: true,
