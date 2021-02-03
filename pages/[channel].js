@@ -297,7 +297,7 @@ function ChannelPage(props){
 				>
 					<div className="dn flex-ns content-between">
 						<div className="items-start flex flex-grow-1 flex-shrink-1 justify-start pa3">
-							<Link href="/c/[name]" as={`/c/${stream.user.name}`}>
+							<Link href="/[channel]" as={`/${stream.user.name}`}>
 								<a className="justify-center items-center flex-shrink-0">
 									<div className="relative v-mid w3 h3">
 									<Image
@@ -312,7 +312,7 @@ function ChannelPage(props){
 							</Link>
 							<div className="ml2">
 								<h2 className='f3 tracked ma0 dib primary items-center flex'>
-									<Link href="/c/[name]" as={`/c/${stream.user.name}`}><a className="primary link">{stream.user.name}</a></Link>
+									<Link href="/[channel]" as={`/${stream.user.name}`}><a className="primary link">{stream.user.name}</a></Link>
 									{stream.type == 'PARTNER' &&
 										<Tooltip
 											// options
