@@ -181,7 +181,9 @@ function VideoPlayer(props) {
         canAutoplay.video().then((obj) => {
             if(obj.result === false){
                 if(player && typeof player.muted === 'function'){
-					player.muted(true);
+					try{
+						player.muted(true);
+					}catch(e){}
 				}
             }
 		});
