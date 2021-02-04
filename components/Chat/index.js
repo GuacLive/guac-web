@@ -561,13 +561,28 @@ function ChatComponent(props){
 	}
 
 	useEffect(() => {
-		if(!emotesStatus){
+		//if(!emotesStatus){
 			dispatch(actions.fetchEmotes(props.channel)).then(() => setEmotesStatus(true));
-		}
+		//}
 	}, [channel.data]);
 
 	useEffect(() => {
 		if(!emotesStatus) return;
+
+		// Set emote picker emotes
+		setCustomPickerEmotes(Object.keys(emotes).map(
+			(name) => ({
+				key: name,
+				name,
+				imageUrl: emotes[name].url,
+				text: name,
+				short_names: [name],
+				keywords: [name],
+				customCategory: emotes[name].provider
+			})
+		));
+	
+		// If already hydrated
 		if(hydrated) return;
 		// Set initial privileged (to not break mod tools when hydrated)
 		if(channel.data && privileged.length === 0){
@@ -608,19 +623,6 @@ function ChatComponent(props){
 		goToBottom();
 	}, [hydrated]);
 
-	useEffect(() => {
-		setCustomPickerEmotes(Object.keys(emotes).map(
-			(name) => ({
-				key: name,
-				name,
-				imageUrl: emotes[name].url,
-				text: name,
-				short_names: [name],
-				keywords: [name],
-				customCategory: emotes[name].provider
-			})
-		));
-	}, [emotesStatus]);
 	// Handle chat connection
 	useUpdateEffect(() => {
 		let didCancel = false;
