@@ -110,7 +110,7 @@
     "tachyons": "^4",
     "typescript": "^4.2.0-dev.20201211",
     "url-loader": "^4.1.0",
-    "vercel": "^21.1.1-canary.0",
+    "vercel": "^21.2.3-canary.0",
     "video.js": "^7.11",
     "videojs-errors": "^4.3.2",
     "videojs-hotkeys": "^0.2.25",
