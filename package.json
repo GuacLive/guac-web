@@ -120,7 +120,7 @@
     "videojs-record": "^4.0.0",
     "videojs-theater-mode": "^1.0.0",
     "viewport-observer": "^2.3.0",
-    "webpack": "^5.15.0",
+    "webpack": "^5.19.0",
     "workbox-webpack-plugin": "^6.0.2"
   },
   "devDependencies": {
