@@ -121,7 +121,7 @@ function IndexPage(props){
 						</div>
 					</div>
 				</div>
-				<div className="flex flex-shrink-1">
+				<div className="dn flex-l flex-shrink-1">
 					{!channel.loading && <Chat channel={stream.name} />}
 				</div>
     		</div>

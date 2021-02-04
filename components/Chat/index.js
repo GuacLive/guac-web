@@ -561,13 +561,28 @@ function ChatComponent(props){
 	}
 
 	useEffect(() => {
-		if(!emotesStatus){
-			dispatch(actions.fetchEmotes(channel && channel.data && channel.data.user.name)).then(() => setEmotesStatus(true));
-		}
+		//if(!emotesStatus){
+			dispatch(actions.fetchEmotes(props.channel)).then(() => setEmotesStatus(true));
+		//}
 	}, [channel.data]);
 
 	useEffect(() => {
 		if(!emotesStatus) return;
+
+		// Set emote picker emotes
+		setCustomPickerEmotes(Object.keys(emotes).map(
+			(name) => ({
+				key: name,
+				name,
+				imageUrl: emotes[name].url,
+				text: name,
+				short_names: [name],
+				keywords: [name],
+				customCategory: emotes[name].provider
+			})
+		));
+	
+		// If already hydrated
 		if(hydrated) return;
 		// Set initial privileged (to not break mod tools when hydrated)
 		if(channel.data && privileged.length === 0){
@@ -608,19 +623,6 @@ function ChatComponent(props){
 		goToBottom();
 	}, [hydrated]);
 
-	useEffect(() => {
-		setCustomPickerEmotes(Object.keys(emotes).map(
-			(name) => ({
-				key: name,
-				name,
-				imageUrl: emotes[name].url,
-				text: name,
-				short_names: [name],
-				keywords: [name],
-				customCategory: emotes[name].provider
-			})
-		));
-	}, [emotesStatus]);
 	// Handle chat connection
 	useUpdateEffect(() => {
 		let didCancel = false;
@@ -860,7 +862,7 @@ function ChatComponent(props){
 										customPickerEmotes &&
 										customPickerEmotes.length > 0 &&
 										<EmojiSelector
-											channel={channel && channel.data && channel.data.user && channel.data.user.name}
+											channel={props.channel}
 											emotes={customPickerEmotes} 
 											darkMode={darkMode}
 											onSelect={emoji => {

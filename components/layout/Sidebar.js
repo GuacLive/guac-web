@@ -79,10 +79,10 @@ function Sidebar(props){
                                                 trigger="mouseenter"
                                                 theme="transparent"
                                                 unmountHTMLWhenHide={true}
-                                                className="items-center flex flex-nowrap ph3 pv2 hover-bg-dark-gray bg-animate"
+                                                className="flex items-center ph3 pv2 hover-bg-dark-gray bg-animate"
                                                 style={{'display': 'flex !important'}}
                                             >
-                                                <div className="items-center flex-shrink-0 relative w2 h2">
+                                                <div className="items-center flex-shrink-0 relative w2 h2 mr2">
                                                     <Image
                                                         src={u.avatar || 'https://api.guac.live/avatars/unknown.png'}
                                                         alt={u.username}
@@ -93,29 +93,27 @@ function Sidebar(props){
                                                         className={`ba ${+u.live ? 'b--red' : 'b--transparent'} v-mid`}
                                                     />
                                                 </div>
-                                                <div className="flex justify-between truncate w-100">
-                                                    <div className="site-component-fMetadata truncate w-100 ml3">
-                                                        <div className="site-component-fUser__name flex items-center">
-                                                            <span className="truncate white flex-grow-1 b lh-title">{u.username}</span>
-                                                        </div>
-                                                        <div className="site-component-fUser__category pr2">
-                                                            <span className="f6 lh-title">{u.category_name}</span>
-                                                        </div>
-                                                    </div>
-                                                    <div className="site-component-fLive flex-shrink-0 ml2">
-                                                        <div className="flex items-center">
-                                                            {
-                                                                +u.live
-                                                                    ?
-                                                                    <span className="ph2 f6 tc inline-flex truncate white flex-grow-1 lh-title mh3">
-                                                                        <span className="br-100 inline-flex f6 relative w1 h1 bg-red"></span>
-                                                                        {u.viewers}
-                                                                    </span>
-                                                                    :
-                                                                    <span className="ph2 f6 tc inline-flex truncate white flex-grow-1 lh-title mh3">Offline</span>
-                                                            }
-                                                        </div>
-                                                    </div>
+                                                <div class="overflow-hidden" style={{
+                                                    '-webkit-box-flex': 1,
+                                                    '-ms-flex': 'auto',
+                                                    'flex': 'auto'
+                                                }}>
+                                                    <span class="inline-flex items-center v-mid white b lh-title w-100 white">
+                                                        <span class="truncate">{u.username}</span>
+                                                    </span>
+                                                    <div class="moon-gray f6 lh-copy truncate">{u.category_name}</div>
+                                                </div>
+                                                <div class="flex items-center justify-end">
+                                                    {
+                                                        +u.live
+                                                            ?
+                                                            <span className="ph2 f6 tc inline-flex truncate white flex-grow-1 lh-title">
+                                                                <span className="br-100 inline-flex f6 relative w1 h1 bg-red"></span>
+                                                                {u.viewers}
+                                                            </span>
+                                                            :
+                                                            <span className="ph2 f6 tc inline-flex truncate white flex-grow-1 lh-title">Offline</span>
+                                                    }
                                                 </div>
                                             </Tooltip>
                                         </a>
