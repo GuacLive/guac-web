@@ -562,7 +562,7 @@ function ChatComponent(props){
 
 	useEffect(() => {
 		if(!emotesStatus){
-			dispatch(actions.fetchEmotes(channel && channel.data && channel.data.user.name)).then(() => setEmotesStatus(true));
+			dispatch(actions.fetchEmotes(props.channel)).then(() => setEmotesStatus(true));
 		}
 	}, [channel.data]);
 
@@ -860,7 +860,7 @@ function ChatComponent(props){
 										customPickerEmotes &&
 										customPickerEmotes.length > 0 &&
 										<EmojiSelector
-											channel={channel && channel.data && channel.data.user && channel.data.user.name}
+											channel={props.channel}
 											emotes={customPickerEmotes} 
 											darkMode={darkMode}
 											onSelect={emoji => {
