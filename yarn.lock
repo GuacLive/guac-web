@@ -1883,20 +1883,20 @@
     "@babel/runtime" "^7.11.2"
     "@lingui/core" "^3.5.0"
 
-"@next/env@10.0.7-canary.3":
-  version "10.0.7-canary.3"
-  resolved "https://registry.yarnpkg.com/@next/env/-/env-10.0.7-canary.3.tgz#75ffb919684ebe24a47db838b696302edbf87745"
-  integrity sha512-5gP9L5A3EuxlaayJrRaKPIzuu6AGlWiYrLvjSfPoL/cNk/SqBxv/gOxTbXGiQo/xCIHa0l1Ywvda7aG0lK478A==
+"@next/env@10.0.7-canary.4":
+  version "10.0.7-canary.4"
+  resolved "https://registry.yarnpkg.com/@next/env/-/env-10.0.7-canary.4.tgz#f46613bc16687f180f05c475d22b857bd02267e6"
+  integrity sha512-U7VCVaCOzb3k1pSjHF98stv0ZrGy2i0M3t5ZUncufTOH0hQoURtSaz244U3/sKXa7Q48qQc6YCAFMe/V9cU+nA==
 
-"@next/polyfill-module@10.0.7-canary.3":
-  version "10.0.7-canary.3"
-  resolved "https://registry.yarnpkg.com/@next/polyfill-module/-/polyfill-module-10.0.7-canary.3.tgz#aa2738db166f9a4916635f3308a94febc3a6d255"
-  integrity sha512-5XgAoNjhCl6F+ptt7TYeUpXg9ciDlzZb3/XhiPvJty8OSVC0Sjyf9xwt1PJs2290Ftthr+JUFS8xCQ/5r9nNVQ==
+"@next/polyfill-module@10.0.7-canary.4":
+  version "10.0.7-canary.4"
+  resolved "https://registry.yarnpkg.com/@next/polyfill-module/-/polyfill-module-10.0.7-canary.4.tgz#caba2189e8d8727ab2ff88370c9993b4b8d3ab55"
+  integrity sha512-5l0lAWcRCY7hge56aCZ9d3w9sbD/ulLLbJKedYjf1sPi/7XUhBY7tYS9m9HJBVah8otz2Y3uRW85YFsBd3XPXg==
 
-"@next/react-dev-overlay@10.0.7-canary.3":
-  version "10.0.7-canary.3"
-  resolved "https://registry.yarnpkg.com/@next/react-dev-overlay/-/react-dev-overlay-10.0.7-canary.3.tgz#22f671caef4e61747205c5aee774a25b4285561f"
-  integrity sha512-GVniYRx/9hKznBEFr+ZJ4ZLtbi2Y8JTgg4uQKk7jn7AbwA45I/MRJH2652JLXRbex8WftPzz6RrcTzFNp9jk9A==
+"@next/react-dev-overlay@10.0.7-canary.4":
+  version "10.0.7-canary.4"
+  resolved "https://registry.yarnpkg.com/@next/react-dev-overlay/-/react-dev-overlay-10.0.7-canary.4.tgz#1099fdbf4149bbf19e4c1ddb1623fba69f517973"
+  integrity sha512-0NzlcUvcZbA0/PgIRUCraVRRzx2jhwxVwm5SHRI+YmTkmr3fn7v3fKRUQtybpvwreVpj9tNvudBFPGe4w89yMA==
   dependencies:
     "@babel/code-frame" "7.12.11"
     anser "1.4.9"
@@ -1910,10 +1910,10 @@
     stacktrace-parser "0.1.10"
     strip-ansi "6.0.0"
 
-"@next/react-refresh-utils@10.0.7-canary.3":
-  version "10.0.7-canary.3"
-  resolved "https://registry.yarnpkg.com/@next/react-refresh-utils/-/react-refresh-utils-10.0.7-canary.3.tgz#51367c434793a372a5098f8070a330a5a65218e1"
-  integrity sha512-YU9I+OgG62TiIzulZJB8DfwJEIloq+POtwe8FKdZ75DgvMDu6D28ccaFR0b7jIonq/ol41FGvZ2S7P4rqpVMng==
+"@next/react-refresh-utils@10.0.7-canary.4":
+  version "10.0.7-canary.4"
+  resolved "https://registry.yarnpkg.com/@next/react-refresh-utils/-/react-refresh-utils-10.0.7-canary.4.tgz#267743bfc3fa2f88d0925ba882dd93645966a5d1"
+  integrity sha512-fkHpuMoYK15wFvCtYX+GygRmog+v4M1X8tsKNNQiQpvZ+beOtUIwXdQ+JPbOkKwsMF018UrKPMkImTHabLDV2w==
 
 "@nodelib/fs.scandir@2.1.4":
   version "2.1.4"
@@ -2641,10 +2641,10 @@
     "@typescript-eslint/types" "4.14.2"
     eslint-visitor-keys "^2.0.0"
 
-"@vercel/build-utils@2.8.1-canary.0":
-  version "2.8.1-canary.0"
-  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-2.8.1-canary.0.tgz#9b3cbf405809ab9ac80c5e8f725f0dbba04eb490"
-  integrity sha512-xNC9bsXYkhjkXQ4RMTSUyYh4JPCJIFy7Sr1Gx8mCv9nRc6yu7TqEOeu16oJUO6IeBFS3XyfoKAwCDk7ElVhJfg==
+"@vercel/build-utils@2.8.1-canary.1":
+  version "2.8.1-canary.1"
+  resolved "https://registry.yarnpkg.com/@vercel/build-utils/-/build-utils-2.8.1-canary.1.tgz#c2775b6476c3c68f6acabaa69727f8380e380d87"
+  integrity sha512-Vtijy0dkO6ZfFQ1hbHp6In+TPhYcIl3/1plrLU+wZX+clFFH4b84z5xFHrZQHfbddoeKhYj3t/+iTomxAgWaCw==
 
 "@vercel/go@1.1.8":
   version "1.1.8"
@@ -2674,20 +2674,6 @@
   version "1.2.6-canary.0"
   resolved "https://registry.yarnpkg.com/@vercel/ruby/-/ruby-1.2.6-canary.0.tgz#5bad358895c46059344fd23a93066f63acb83462"
   integrity sha512-m9mIcnOrx/mdMUUr7Ns6/Atv82qgNhlhGLKsZOM/AsifqJqsFZB3/5K8MTEkYN36Bf5pjxh3rIWg9KveKuZUSQ==
-
-"@videojs/http-streaming@2.2.4":
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/@videojs/http-streaming/-/http-streaming-2.2.4.tgz#c71bb63dbc4749e35193c4c334430bd8ce728ec0"
-  integrity sha512-gzT46RpAEegOhMId/zZ6uXCVGDMPOv8qmoTykBuvd6/4lVM3lZ1ZJCq0kytAkisDuDKipy93gP46oZEtonlc/Q==
-  dependencies:
-    "@babel/runtime" "^7.5.5"
-    "@videojs/vhs-utils" "^2.2.1"
-    aes-decrypter "3.1.0"
-    global "^4.3.2"
-    m3u8-parser "4.5.0"
-    mpd-parser "0.14.0"
-    mux.js "5.6.7"
-    video.js "^6 || ^7"
 
 "@videojs/http-streaming@2.4.2":
   version "2.4.2"
@@ -5585,9 +5571,9 @@ ejs@^2.6.1:
   integrity sha512-7vmuyh5+kuUyJKePhQfRQBhXV5Ce+RnaeeQArKu1EAMpL3WbgMt5WG6uQZpEVvYSSsxMXRKOewtDk9RaTKXRlA==
 
 electron-to-chromium@^1.3.564, electron-to-chromium@^1.3.634, electron-to-chromium@^1.3.649:
-  version "1.3.653"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.653.tgz#1d98400eba330538a7fe169808c6bf9d83c44450"
-  integrity sha512-LehOhcl74u9fkV9Un6WahJ+Xh+0FZLCCDnKYis1Olx1DX2ugRww5PJicE65OG8yznMj8EOQZRcz6FSV1xKxqsA==
+  version "1.3.654"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.654.tgz#f1b82d59bdeafa65af75794356df54f92b41c4de"
+  integrity sha512-Zy2gc/c8KYFg2GkNr7Ruzh5tPEZpFm7EyXqZTFasm1YRDJtpyBRGaOuM0H3t6SuIP53qX4kNmtO9t0WjhBjE9A==
 
 element-remove@^1.0.4:
   version "1.0.4"
@@ -9325,16 +9311,6 @@ move-concurrently@^1.0.1:
     rimraf "^2.5.4"
     run-queue "^1.0.3"
 
-mpd-parser@0.14.0:
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/mpd-parser/-/mpd-parser-0.14.0.tgz#f666a80c1e284e46c6f76f010fc4f5292a021148"
-  integrity sha512-HqXQS3WLofcnYFcxv5oWdlciddUaEnN3NasXLVQ793mdnZRrinjz2Yk1DsUYPDYOUWf6ZBBqbFhaJT5LiT2ouA==
-  dependencies:
-    "@babel/runtime" "^7.5.5"
-    "@videojs/vhs-utils" "^2.2.1"
-    global "^4.3.2"
-    xmldom "^0.1.27"
-
 mpd-parser@0.15.0:
   version "0.15.0"
   resolved "https://registry.yarnpkg.com/mpd-parser/-/mpd-parser-0.15.0.tgz#2b4836e6bdbd92229110e31b189ed029535aea83"
@@ -9392,11 +9368,6 @@ mute-stream@0.0.8:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.8.tgz#1630c42b2251ff81e2a283de96a5497ea92e5e0d"
   integrity sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==
-
-mux.js@5.6.7:
-  version "5.6.7"
-  resolved "https://registry.yarnpkg.com/mux.js/-/mux.js-5.6.7.tgz#d39fc85cded5a1257de9f6eeb5cf1578c4a63eb8"
-  integrity sha512-YSr6B8MUgE4S18MptbY2XM+JKGbw9JDkgs7YkuE/T2fpDKjOhZfb/nD6vmsVxvLYOExWNaQn1UGBp6PGsnTtew==
 
 mux.js@5.8.0:
   version "5.8.0"
@@ -9513,17 +9484,17 @@ next-transpile-modules@^6:
     escalade "^3.1.1"
 
 next@^10.0.7-canary.3:
-  version "10.0.7-canary.3"
-  resolved "https://registry.yarnpkg.com/next/-/next-10.0.7-canary.3.tgz#1acbd39cd2580e1d730187a9256d618a094e2f81"
-  integrity sha512-s9a33DH+cNaHYcvfU+d0BaOgtOGQVexQBrbWdwZ1cWxWqvxjDybgWu70Zj9s5h+aJGjSDwwcodNfk2BcjH7rdg==
+  version "10.0.7-canary.4"
+  resolved "https://registry.yarnpkg.com/next/-/next-10.0.7-canary.4.tgz#fca79cf9a75875027bff92e776eebe7dae52e70e"
+  integrity sha512-uvoOai8S1GDzQLlqDHWDcB4XRpRhHJdY+e7Y7gIOLcNfoTHxx5+qS3/HR1McSDLnDT6E6TwhQdxbPxtcN0N6xQ==
   dependencies:
     "@ampproject/toolbox-optimizer" "2.7.1-alpha.0"
     "@babel/runtime" "7.12.5"
     "@hapi/accept" "5.0.1"
-    "@next/env" "10.0.7-canary.3"
-    "@next/polyfill-module" "10.0.7-canary.3"
-    "@next/react-dev-overlay" "10.0.7-canary.3"
-    "@next/react-refresh-utils" "10.0.7-canary.3"
+    "@next/env" "10.0.7-canary.4"
+    "@next/polyfill-module" "10.0.7-canary.4"
+    "@next/react-dev-overlay" "10.0.7-canary.4"
+    "@next/react-refresh-utils" "10.0.7-canary.4"
     "@opentelemetry/api" "0.14.0"
     ast-types "0.13.2"
     browserslist "4.16.1"
@@ -14170,12 +14141,12 @@ vendors@^1.0.0:
   resolved "https://registry.yarnpkg.com/vendors/-/vendors-1.0.4.tgz#e2b800a53e7a29b93506c3cf41100d16c4c4ad8e"
   integrity sha512-/juG65kTL4Cy2su4P8HjtkTxk6VmJDiOPBufWniqQ6wknac6jNiXS9vU+hO3wgusiyqWlzTbVHi0dyJqRONg3w==
 
-vercel@^21.1.1-canary.0:
-  version "21.2.2"
-  resolved "https://registry.yarnpkg.com/vercel/-/vercel-21.2.2.tgz#dbaa974ec114aa711ccd06167a2ce81adde5aae5"
-  integrity sha512-bLg1yY9lsO8JS8QP8i/J/sbsC9oL0RsU/K6Z/OseOScBBlBdVkY3iesEPAZ0ODXcpP6Fw6Jojw73E6K4RWj96A==
+vercel@^21.2.3-canary.0:
+  version "21.2.3-canary.0"
+  resolved "https://registry.yarnpkg.com/vercel/-/vercel-21.2.3-canary.0.tgz#59f35330e14ce047566dec2368c686d44970f452"
+  integrity sha512-PxbeKgMzUD0GlC/Aqvr8WX5rf8h6BTIOJdRxGmoFO/QzSxatV0mcIjZgjajQHy3GubvTShnooBxsiAff9M7W0A==
   dependencies:
-    "@vercel/build-utils" "2.8.1-canary.0"
+    "@vercel/build-utils" "2.8.1-canary.1"
     "@vercel/go" "1.1.8"
     "@vercel/node" "1.9.1-canary.0"
     "@vercel/python" "1.2.5-canary.1"
@@ -14191,13 +14162,13 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-video.js@>=7.0.5, "video.js@^6 || ^7":
-  version "7.10.2"
-  resolved "https://registry.yarnpkg.com/video.js/-/video.js-7.10.2.tgz#5156aabad7820e726d72ea6c32324059c68885a4"
-  integrity sha512-kJTTrqcQn2MhPzWR8zQs6W3HPJWpowO/ZGZcKt2dcJeJdJT0dEDLYtiFdjV37SylCmu66V0flRnV8cipbthveQ==
+video.js@>=7.0.5, "video.js@^6 || ^7", video.js@^7.11:
+  version "7.11.4"
+  resolved "https://registry.yarnpkg.com/video.js/-/video.js-7.11.4.tgz#64300cb6def9f17ecba4808ae76ec7c10c952378"
+  integrity sha512-eT9n7YCugHyWNHI2gyK28XoozNmLiW4F9dRYEP6ET/JVmm7oXPhLeVfs5kqcRviquISqWsvsNmhK1b9vvZzyVA==
   dependencies:
     "@babel/runtime" "^7.9.2"
-    "@videojs/http-streaming" "2.2.4"
+    "@videojs/http-streaming" "2.4.2"
     "@videojs/xhr" "2.5.1"
     global "4.3.2"
     keycode "^2.2.0"
@@ -14219,20 +14190,6 @@ video.js@^5.2.1:
     videojs-swf "5.4.1"
     videojs-vtt.js "0.12.6"
     xhr "2.2.2"
-
-video.js@^7.11:
-  version "7.11.4"
-  resolved "https://registry.yarnpkg.com/video.js/-/video.js-7.11.4.tgz#64300cb6def9f17ecba4808ae76ec7c10c952378"
-  integrity sha512-eT9n7YCugHyWNHI2gyK28XoozNmLiW4F9dRYEP6ET/JVmm7oXPhLeVfs5kqcRviquISqWsvsNmhK1b9vvZzyVA==
-  dependencies:
-    "@babel/runtime" "^7.9.2"
-    "@videojs/http-streaming" "2.4.2"
-    "@videojs/xhr" "2.5.1"
-    global "4.3.2"
-    keycode "^2.2.0"
-    safe-json-parse "4.0.0"
-    videojs-font "3.2.0"
-    videojs-vtt.js "^0.15.2"
 
 videojs-errors@^4.3.2:
   version "4.3.2"
