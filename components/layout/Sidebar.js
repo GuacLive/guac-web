@@ -93,17 +93,17 @@ function Sidebar(props){
                                                         className={`ba ${+u.live ? 'b--red' : 'b--transparent'} v-mid`}
                                                     />
                                                 </div>
-                                                <div class="overflow-hidden" style={{
-                                                    '-webkit-box-flex': 1,
-                                                    '-ms-flex': 'auto',
+                                                <div className="overflow-hidden" style={{
+                                                    'WebkitBoxFlex': 1,
+                                                    'msFlex': 'auto',
                                                     'flex': 'auto'
                                                 }}>
-                                                    <span class="inline-flex items-center v-mid white b lh-title w-100 white">
-                                                        <span class="truncate">{u.username}</span>
+                                                    <span className="inline-flex items-center v-mid white b lh-title w-100 white">
+                                                        <span className="truncate">{u.username}</span>
                                                     </span>
-                                                    <div class="moon-gray f6 lh-copy truncate">{u.category_name}</div>
+                                                    <div className="moon-gray f6 lh-copy truncate">{u.category_name}</div>
                                                 </div>
-                                                <div class="flex items-center justify-end">
+                                                <div className="flex items-center justify-end">
                                                     {
                                                         +u.live
                                                             ?
