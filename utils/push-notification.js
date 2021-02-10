@@ -4,6 +4,9 @@ import log from './log';
 import {callApi} from '../services/api';
 
 export const initializeFirebase = (callback) => {
+	if(process.env.NODE_ENV === 'development'){
+		return;
+	}
 	if (!firebase.apps || !firebase.apps.length){
 		firebase.initializeApp({
 			apiKey: "AIzaSyD3-rCPel0soeKLL5699DY3_5nQRIq5L4Y",
