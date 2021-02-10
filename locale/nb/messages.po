@@ -29,7 +29,7 @@ msgstr "Legg til panel"
 msgid "Admin"
 msgstr "Admin"
 
-#: pages/dashboard.js:143
+#: components/Dashboard/Stream.js:135
 msgid "At last, make sure keyframe interval is set to <0>1</0>."
 msgstr "Til slutt, sørg for at keyframe interval er satt til <0>1</0>."
 
@@ -45,9 +45,9 @@ msgstr "Å bryte loven"
 msgid "Broadcaster:"
 msgstr "Direktestrømmer:"
 
-#: components/layout/PageLayout.js:165
-#: components/layout/PageLayout.js:166
-#: components/layout/PageLayout.js:166
+#: components/layout/Sidebar.js:38
+#: components/layout/Sidebar.js:39
+#: components/layout/Sidebar.js:39
 #: pages/categories.js:75
 msgid "Browse"
 msgstr "Utforsk"
@@ -76,9 +76,9 @@ msgstr "Kanal"
 #~ msgid "Channel not found"
 #~ msgstr "Kanal ikke funnet"
 
-#: components/layout/PageLayout.js:157
-#: components/layout/PageLayout.js:158
-#: components/layout/PageLayout.js:158
+#: components/layout/Sidebar.js:30
+#: components/layout/Sidebar.js:31
+#: components/layout/Sidebar.js:31
 #: pages/channels.js:50
 msgid "Channels"
 msgstr "Kanaler"
@@ -87,7 +87,7 @@ msgstr "Kanaler"
 #~ msgid "Chat Paused Due To Scroll"
 #~ msgstr "Chat pauset pga. scrolling"
 
-#: pages/dashboard.js:148
+#: components/Dashboard/Stream.js:140
 msgid "Chat commands:"
 msgstr "Chat-kommandoer:"
 
@@ -99,12 +99,12 @@ msgstr "Klient-feil"
 msgid "Close"
 msgstr "Lukk"
 
-#: components/Chat/index.js:936
+#: components/Chat/index.js:938
 msgid "Collapse"
 msgstr "Kollaps"
 
-#: components/Settings/Profile.js:34
-#: components/Settings/Profile.js:35
+#: components/Settings/Profile.js:140
+#: components/Settings/Profile.js:141
 msgid "Color"
 msgstr "Farge"
 
@@ -137,7 +137,7 @@ msgstr "Opprett en konto for å følge denne brukeren"
 msgid "Current Sub-Streak:"
 msgstr "Nåværende sub-streak:"
 
-#: components/layout/PageLayout.js:269
+#: components/layout/Sidebar.js:140
 msgid "DMCA"
 msgstr "DMCA"
 
@@ -146,6 +146,7 @@ msgid "Dark Mode"
 msgstr "Mørk modus"
 
 #: components/layout/AccountMenu.js:82
+#: pages/dashboard.js:21
 msgid "Dashboard"
 msgstr "Kontrollpanel"
 
@@ -180,8 +181,12 @@ msgstr "Ikke delta i hatprat"
 msgid "Do not engage, or encourage others to engage, in any targeted abuse or harassment against any other user."
 msgstr "Ikke engasjer deg eller oppmuntre andre til å engasjere seg i målrettet misbruk eller trakassering mot andre brukere."
 
+#: components/PhotoDropzone.js:27
+msgid "Drag and drop image here<0/>Or<1/>Browse"
+msgstr "Dra og slipp bilde her<0/>eller<1/>Utforsk"
+
 #: components/Auth.js:123
-#: components/Settings/Profile.js:33
+#: components/Settings/Profile.js:139
 msgid "E-mail"
 msgstr "E-post"
 
@@ -197,9 +202,14 @@ msgstr "Endre panel"
 msgid "Edit panels"
 msgstr "Endre paneler"
 
-#: components/Settings/Profile.js:39
+#: components/Settings/Profile.js:145
 msgid "Edit user"
 msgstr "Endre bruker"
+
+#: pages/dashboard.js:30
+#: pages/dashboard.js:37
+msgid "Emotes"
+msgstr "Uttryksikoner"
 
 #: pages/subscriptions.js:42
 msgid "End date:"
@@ -211,11 +221,11 @@ msgstr "Engelsk"
 
 #: components/Auth.js:93
 #: components/Auth.js:116
-#: components/Settings/Profile.js:30
+#: components/Settings/Profile.js:82
 msgid "Error"
 msgstr "Feil"
 
-#: components/Chat/index.js:936
+#: components/Chat/index.js:938
 msgid "Expand"
 msgstr "Utvid"
 
@@ -231,7 +241,7 @@ msgstr "FØLGER"
 msgid "Failed to verify"
 msgstr "Feilet verifisering"
 
-#: pages/dashboard.js:116
+#: components/Dashboard/Stream.js:108
 msgid "First, choose the streaming server closest to you:"
 msgstr "Først, velg strømmeserveren som er nærmest deg:"
 
@@ -240,7 +250,7 @@ msgstr "Først, velg strømmeserveren som er nærmest deg:"
 msgid "Follow"
 msgstr "Følg"
 
-#: components/layout/PageLayout.js:172
+#: components/layout/Sidebar.js:45
 msgid "Followed Channels"
 msgstr "Fulgte kanaler"
 
@@ -271,7 +281,7 @@ msgstr "Glemt ditt passord?"
 #~ msgid "Games"
 #~ msgstr "Spill"
 
-#: pages/dashboard.js:113
+#: components/Dashboard/Stream.js:105
 msgid "Get started with streaming"
 msgstr "Start med strømming"
 
@@ -291,9 +301,9 @@ msgstr "Hatprat"
 msgid "Hi! Welcome to {0}'s channel~"
 msgstr "Hei! Velkommen til {0} sin kanal~"
 
-#: components/layout/PageLayout.js:149
-#: components/layout/PageLayout.js:150
-#: components/layout/PageLayout.js:150
+#: components/layout/Sidebar.js:22
+#: components/layout/Sidebar.js:23
+#: components/layout/Sidebar.js:23
 msgid "Home"
 msgstr "Hjem"
 
@@ -317,21 +327,21 @@ msgstr "Bli med"
 #~ msgid "Live streams"
 #~ msgstr "Direktesendinger"
 
-#: components/Chat/index.js:955
+#: components/Chat/index.js:957
 msgid "Loading"
 msgstr "Laster"
 
-#: components/Chat/index.js:694
+#: components/Chat/index.js:696
 #: components/Search/SearchBar.js:81
 #: pages/[channel].js:611
 msgid "Loading..."
 msgstr "Laster..."
 
 #: components/Auth.js:77
-#: components/layout/PageLayout.js:317
-#: components/layout/PageLayout.js:376
-#: components/layout/PageLayout.js:376
-#: components/layout/PageLayout.js:377
+#: components/layout/PageLayout.js:166
+#: components/layout/PageLayout.js:225
+#: components/layout/PageLayout.js:225
+#: components/layout/PageLayout.js:226
 #: pages/auth/activate.js:38
 msgid "Log in"
 msgstr "Logg inn"
@@ -361,15 +371,19 @@ msgstr "Moderatorer i chat:"
 msgid "More"
 msgstr "Flere"
 
-#: components/Chat/index.js:981
+#: components/Chat/index.js:983
 msgid "More messages below."
 msgstr "Flere meldinger under."
+
+#: components/Settings/Profile.js:100
+msgid "Must be JPEG, GIF or PNG, and cannot exceed 10MB."
+msgstr "Må være JPEG, GIF eller PNG, og kan ikke være over 10MB."
 
 #: components/layout/AccountMenu.js:58
 msgid "My Channel"
 msgstr "Min Kanal"
 
-#: components/Settings/Profile.js:37
+#: components/Settings/Profile.js:143
 msgid "New password:"
 msgstr "Nytt passord:"
 
@@ -385,11 +399,11 @@ msgstr "Ingen kanaler live"
 msgid "No replays available."
 msgstr "Ingen arkiverte videoer tilgjengelig."
 
-#: components/layout/PageLayout.js:204
+#: components/layout/Sidebar.js:77
 msgid "No stream title"
 msgstr "Ingen strømmetittel"
 
-#: pages/dashboard.js:139
+#: components/Dashboard/Stream.js:131
 msgid "No streaming key found, please contact an admin."
 msgstr "Ingen strømmenøkkel funnet, vennligst kontakt en administrator."
 
@@ -397,7 +411,7 @@ msgstr "Ingen strømmenøkkel funnet, vennligst kontakt en administrator."
 msgid "Norwegian"
 msgstr "Norsk"
 
-#: components/Chat/index.js:901
+#: components/Chat/index.js:903
 msgid "Not connected to chat."
 msgstr "Ikke tilkoblet chat."
 
@@ -409,7 +423,7 @@ msgstr "Ikke tilkoblet chat."
 msgid "Notification of Infringement"
 msgstr "Varsel om krenkelse"
 
-#: pages/dashboard.js:126
+#: components/Dashboard/Stream.js:118
 msgid "Now, use the following stream key:"
 msgstr "Nå, bruk følgende strømmenøkkel:"
 
@@ -428,7 +442,7 @@ msgstr "Partner"
 
 #: components/Auth.js:100
 #: components/Auth.js:127
-#: components/Settings/Profile.js:38
+#: components/Settings/Profile.js:144
 msgid "Password"
 msgstr "Passord"
 
@@ -440,7 +454,7 @@ msgstr "Patreon-status: Ikke en patron"
 msgid "Patreon supporters:"
 msgstr "Patreon-støttere:"
 
-#: pages/dashboard.js:156
+#: components/Dashboard/Stream.js:148
 msgid "Permanently ban user"
 msgstr "Utesteng brukeren permanent"
 
@@ -468,7 +482,7 @@ msgstr "Pornografisk/seksuelt eksplisitt innhold"
 msgid "Previous"
 msgstr "Forrige"
 
-#: components/layout/PageLayout.js:265
+#: components/layout/Sidebar.js:136
 msgid "Privacy"
 msgstr "Personvern"
 
@@ -492,23 +506,27 @@ msgstr "ARKIV"
 msgid "Reason"
 msgstr "Grunnlag"
 
-#: components/Chat/index.js:902
+#: components/Chat/index.js:904
 msgid "Reconnect"
 msgstr "Koble til"
 
 #: components/Auth.js:105
-msgid "Remember me"
-msgstr "Husk meg"
+#~ msgid "Remember me"
+#~ msgstr "Husk meg"
 
-#: pages/dashboard.js:155
+#: components/Dashboard/Stream.js:147
 msgid "Remove timeout for user"
 msgstr "Fjern timeout for bruker"
+
+#: components/Settings/Profile.js:134
+msgid "Save"
+msgstr "Lagre"
 
 #: components/Search/SearchBar.js:66
 msgid "Search..."
 msgstr "Søk..."
 
-#: components/Chat/index.js:690
+#: components/Chat/index.js:692
 msgid "Send a message"
 msgstr "Send en melding"
 
@@ -526,7 +544,7 @@ msgstr "Server-feil"
 msgid "Settings"
 msgstr "Innstillinger"
 
-#: pages/dashboard.js:150
+#: components/Dashboard/Stream.js:142
 msgid "Show help command"
 msgstr "Vis hjelp-kommandoen"
 
@@ -534,7 +552,7 @@ msgstr "Vis hjelp-kommandoen"
 msgid "Show only live"
 msgstr "Vis bare direkte"
 
-#: pages/dashboard.js:151
+#: components/Dashboard/Stream.js:143
 msgid "Show user list"
 msgstr "Vis liste over brukere"
 
@@ -544,9 +562,9 @@ msgstr "Logg inn"
 
 #: components/Auth.js:86
 #: components/Auth.js:134
-#: components/layout/PageLayout.js:383
-#: components/layout/PageLayout.js:383
-#: components/layout/PageLayout.js:384
+#: components/layout/PageLayout.js:232
+#: components/layout/PageLayout.js:232
+#: components/layout/PageLayout.js:233
 msgid "Sign up"
 msgstr "Registrer"
 
@@ -562,11 +580,15 @@ msgstr "Staff i chat:"
 msgid "Start date:"
 msgstr "Start-dato:"
 
-#: components/layout/PageLayout.js:180
+#: components/layout/Sidebar.js:53
 msgid "Start following your favorite streamers to find them quickly!"
 msgstr "Begynn å følge dine favoritt-strømmere for å finne dem raskt!"
 
-#: components/Chat/index.js:921
+#: pages/dashboard.js:24
+msgid "Stream"
+msgstr "Strøm"
+
+#: components/Chat/index.js:923
 msgid "Stream Chat"
 msgstr "Strømmechat"
 
@@ -574,11 +596,11 @@ msgstr "Strømmechat"
 msgid "Stream Manager"
 msgstr "Strømming-håndtering"
 
-#: pages/dashboard.js:105
+#: components/Dashboard/Stream.js:97
 msgid "Stream preview"
 msgstr "Strøm"
 
-#: pages/dashboard.js:109
+#: components/Dashboard/Stream.js:101
 msgid "Stream settings"
 msgstr "Strømmeinnstillinger"
 
@@ -599,6 +621,8 @@ msgid "Subscribe"
 msgstr "Abonnér"
 
 #: components/layout/AccountMenu.js:99
+#: pages/dashboard.js:27
+#: pages/dashboard.js:36
 #: pages/subscriptions.js:29
 msgid "Subscriptions"
 msgstr "Abonnementer"
@@ -607,7 +631,7 @@ msgstr "Abonnementer"
 #~ msgid "Support us and get perks"
 #~ msgstr "Støtt oss og få fordeler"
 
-#: components/layout/PageLayout.js:279
+#: components/layout/Sidebar.js:150
 msgid "Support us on patreon!"
 msgstr "Støtt oss på patreon!"
 
@@ -615,7 +639,7 @@ msgstr "Støtt oss på patreon!"
 msgid "Switch language"
 msgstr "Bytt språk"
 
-#: components/layout/PageLayout.js:261
+#: components/layout/Sidebar.js:132
 msgid "Terms"
 msgstr "Vilkår"
 
@@ -659,7 +683,7 @@ msgstr "Trusler, vold og skade"
 msgid "Time of ban"
 msgstr "Tidspunkt for utestengelse"
 
-#: pages/dashboard.js:154
+#: components/Dashboard/Stream.js:146
 msgid "Time out user for x seconds"
 msgstr "Time ut brukeren i x sekunder"
 
@@ -678,7 +702,7 @@ msgstr "Tittel"
 msgid "Uh Ohhh..."
 msgstr "Uh Ohhh..."
 
-#: pages/dashboard.js:157
+#: components/Dashboard/Stream.js:149
 msgid "Unban user"
 msgstr "Fjern utestenging av bruker"
 
@@ -686,6 +710,10 @@ msgstr "Fjern utestenging av bruker"
 #: pages/_error.js:41
 msgid "Unknown error"
 msgstr "Ukjent feil"
+
+#: components/Settings/Profile.js:105
+msgid "Update avatar"
+msgstr "Oppdater avatar"
 
 #: components/layout/AccountMenu.js:42
 msgid "User"
@@ -724,7 +752,7 @@ msgstr "Verifiser"
 msgid "View offline channels"
 msgstr "Vis offline kanaler"
 
-#: components/Settings/Profile.js:36
+#: components/Settings/Profile.js:142
 msgid "Want to customize your color? <0>Join our Patreon!</0>"
 msgstr "Vil du endre fargen din? <0>Join vår Patreon!</0>"
 
@@ -753,7 +781,7 @@ msgstr "Velkommen til guac.live"
 msgid "When you choose to connect your Patreon account, the profile information connected to your Patreon account, including your name, may be used by guac.live.<0/>You will be able to use patreon specific perks depending on which tier you pledged. guac.live will not publicly display your Patreon account information."
 msgstr "Når du velger å koble til din Patreon-konto, kan profilinformasjonen som er knyttet til din Patreon-konto, inkludert navnet ditt, brukes av guac.live.<0/>Du vil kunne bruke patreon-spesifikke fordeler, avhengig av hvilket tier du har valgt. guac.live viser ikke offentlig informasjon om Patreon-kontoen din."
 
-#: pages/dashboard.js:100
+#: components/Dashboard/Stream.js:92
 msgid "You do not have permission to stream"
 msgstr "Du har ikke tillatelse til å streame"
 
@@ -797,7 +825,7 @@ msgstr "har blitt utestengt fra dette nettstedet."
 msgid "is playing"
 msgstr "spiller"
 
-#: pages/dashboard.js:156
+#: components/Dashboard/Stream.js:148
 msgid "message"
 msgstr "melding"
 
@@ -810,15 +838,15 @@ msgstr "ingen aktive direktesendinger"
 msgid "of"
 msgstr "av"
 
-#: pages/dashboard.js:154
+#: components/Dashboard/Stream.js:146
 msgid "seconds"
 msgstr "sekunder"
 
-#: pages/dashboard.js:152
-#: pages/dashboard.js:153
-#: pages/dashboard.js:154
-#: pages/dashboard.js:155
-#: pages/dashboard.js:156
-#: pages/dashboard.js:157
+#: components/Dashboard/Stream.js:144
+#: components/Dashboard/Stream.js:145
+#: components/Dashboard/Stream.js:146
+#: components/Dashboard/Stream.js:147
+#: components/Dashboard/Stream.js:148
+#: components/Dashboard/Stream.js:149
 msgid "user"
 msgstr "bruker"
