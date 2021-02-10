@@ -291,9 +291,9 @@ IndexPage.getInitialProps = async ({store}) => {
 	//if(categories.loading){
 		await store.dispatch(actions.fetchCategories());
 	//}
-	if(featured.loading){
+	//if(featured.loading){
 		await store.dispatch(actions.fetchFeatured());
-	}
+	//}
 	try{
 		await store.dispatch(actions.fetchChannel(store.getState().featured.data[0].name));
 	}catch(e){}
