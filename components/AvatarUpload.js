@@ -94,7 +94,7 @@ export default function AvatarUpload(props){
                     }
                 }}
             >
-                <h3 className="f3 tracked mt0 mb3"><Trans>Upload Avatar</Trans></h3>
+                <h3 className="f3 tracked mt0 mb3 primary"><Trans>Upload Avatar</Trans></h3>
                 {files.length > 0 && (
                     <PhotoCropper
                         imageType={imageType}
