@@ -41,6 +41,10 @@ msgstr "At last, make sure keyframe interval is set to <0>1</0>."
 #~ msgid "At last, make sure keyframe interval is set to <0>2</0>."
 #~ msgstr "At last, make sure keyframe interval is set to <0>2</0>."
 
+#: pages/dashboard.js:28
+msgid "Brand"
+msgstr "Brand"
+
 #: pages/terms.js:26
 msgid "Breaking the law"
 msgstr "Breaking the law"
@@ -107,8 +111,8 @@ msgstr "Close"
 msgid "Collapse"
 msgstr "Collapse"
 
-#: components/Settings/Profile.js:140
-#: components/Settings/Profile.js:141
+#: components/Settings/Profile.js:38
+#: components/Settings/Profile.js:39
 msgid "Color"
 msgstr "Color"
 
@@ -150,7 +154,7 @@ msgid "Dark Mode"
 msgstr "Dark Mode"
 
 #: components/layout/AccountMenu.js:82
-#: pages/dashboard.js:21
+#: pages/dashboard.js:22
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -190,7 +194,7 @@ msgid "Drag and drop image here<0/>Or<1/>Browse"
 msgstr "Drag and drop image here<0/>Or<1/>Browse"
 
 #: components/Auth.js:123
-#: components/Settings/Profile.js:139
+#: components/Settings/Profile.js:37
 msgid "E-mail"
 msgstr "E-mail"
 
@@ -206,14 +210,14 @@ msgstr "Edit panel"
 msgid "Edit panels"
 msgstr "Edit panels"
 
-#: components/Settings/Profile.js:145
+#: components/Settings/Profile.js:43
 msgid "Edit user"
 msgstr "Edit user"
 
 #: pages/dashboard.js:30
 #: pages/dashboard.js:37
-msgid "Emotes"
-msgstr "Emotes"
+#~ msgid "Emotes"
+#~ msgstr "Emotes"
 
 #: pages/subscriptions.js:42
 msgid "End date:"
@@ -225,7 +229,7 @@ msgstr "English"
 
 #: components/Auth.js:93
 #: components/Auth.js:116
-#: components/Settings/Profile.js:82
+#: components/Settings/Profile.js:33
 msgid "Error"
 msgstr "Error"
 
@@ -399,7 +403,7 @@ msgstr "More"
 msgid "More messages below."
 msgstr "More messages below."
 
-#: components/Settings/Profile.js:100
+#: components/AvatarUpload.js:73
 msgid "Must be JPEG, GIF or PNG, and cannot exceed 10MB."
 msgstr "Must be JPEG, GIF or PNG, and cannot exceed 10MB."
 
@@ -407,7 +411,7 @@ msgstr "Must be JPEG, GIF or PNG, and cannot exceed 10MB."
 msgid "My Channel"
 msgstr "My Channel"
 
-#: components/Settings/Profile.js:143
+#: components/Settings/Profile.js:41
 msgid "New password:"
 msgstr "New password:"
 
@@ -466,7 +470,7 @@ msgstr "Partnered"
 
 #: components/Auth.js:100
 #: components/Auth.js:127
-#: components/Settings/Profile.js:144
+#: components/Settings/Profile.js:42
 msgid "Password"
 msgstr "Password"
 
@@ -546,7 +550,7 @@ msgstr "Reconnect"
 msgid "Remove timeout for user"
 msgstr "Remove timeout for user"
 
-#: components/Settings/Profile.js:134
+#: components/AvatarUpload.js:107
 msgid "Save"
 msgstr "Save"
 
@@ -612,7 +616,7 @@ msgstr "Start date:"
 msgid "Start following your favorite streamers to find them quickly!"
 msgstr "Start following your favorite streamers to find them quickly!"
 
-#: pages/dashboard.js:24
+#: pages/dashboard.js:25
 msgid "Stream"
 msgstr "Stream"
 
@@ -649,8 +653,8 @@ msgid "Subscribe"
 msgstr "Subscribe"
 
 #: components/layout/AccountMenu.js:99
-#: pages/dashboard.js:27
-#: pages/dashboard.js:36
+#: pages/dashboard.js:31
+#: pages/dashboard.js:38
 #: pages/subscriptions.js:29
 msgid "Subscriptions"
 msgstr "Subscriptions"
@@ -747,9 +751,14 @@ msgstr "Unban user"
 msgid "Unknown error"
 msgstr "Unknown error"
 
-#: components/Settings/Profile.js:105
+#: components/AvatarUpload.js:78
 msgid "Update avatar"
 msgstr "Update avatar"
+
+#: components/AvatarUpload.js:59
+#: components/AvatarUpload.js:97
+msgid "Upload Avatar"
+msgstr "Upload Avatar"
 
 #: components/layout/AccountMenu.js:42
 msgid "User"
@@ -788,7 +797,7 @@ msgstr "Verify"
 msgid "View offline channels"
 msgstr "View offline channels"
 
-#: components/Settings/Profile.js:142
+#: components/Settings/Profile.js:40
 msgid "Want to customize your color? <0>Join our Patreon!</0>"
 msgstr "Want to customize your color? <0>Join our Patreon!</0>"
 
@@ -817,6 +826,7 @@ msgstr "Welcome to guac.live"
 msgid "When you choose to connect your Patreon account, the profile information connected to your Patreon account, including your name, may be used by guac.live.<0/>You will be able to use patreon specific perks depending on which tier you pledged. guac.live will not publicly display your Patreon account information."
 msgstr "When you choose to connect your Patreon account, the profile information connected to your Patreon account, including your name, may be used by guac.live.<0/>You will be able to use patreon specific perks depending on which tier you pledged. guac.live will not publicly display your Patreon account information."
 
+#: components/Dashboard/Brand.js:22
 #: components/Dashboard/Stream.js:92
 msgid "You do not have permission to stream"
 msgstr "You do not have permission to stream"
