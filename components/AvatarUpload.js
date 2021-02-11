@@ -9,7 +9,7 @@ import PhotoCropper from 'components/PhotoCropper';
 import Image from 'components/Image';
 
 const API_URL = process.env.API_URL;
-export function AvatarUpload(props){
+export default function AvatarUpload(props){
 	const [files, setFiles] = useState([]);
 	const [image, setImage] = useState(null);
 	const [imageType, setImageType] = useState(null);
