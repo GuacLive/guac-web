@@ -4,6 +4,8 @@ import {useLingui} from '@lingui/react';
 import {Trans, t} from '@lingui/macro';
 import * as actions from 'actions';
 
+import AvatarUpload from 'components/AvatarUpload';
+
 function ProfileComponent(props) {
 	const {i18n} = useLingui();
 	const dispatch = useDispatch();
