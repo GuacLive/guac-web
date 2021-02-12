@@ -30,6 +30,7 @@ function EmbedPage(props){
 
 		let videoJsOptions = {
 			autoplay: true,
+			banner: stream.banner,
 			controls: true,
 			sources: [],
 			streamInfo: {
