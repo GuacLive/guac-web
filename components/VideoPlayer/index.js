@@ -16,7 +16,7 @@ if(typeof document !== 'undefined'){
 	require('!style-loader!css-loader!video.js/dist/video-js.css')
 }
 
-const OFFLINE_POSTER = '/img/offline-poster.png';
+const DEFAULT_OFFLINE_POSTER = '/img/offline-poster.png';
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
 var didCancel = false;
 var playbackAPISocket;
@@ -74,7 +74,7 @@ function VideoPlayer(props) {
 			responsive: true,
 			fill: props.fill,
 			language: i18n.locale || 'en',
-			poster: !props.live ? OFFLINE_POSTER : '',
+			poster: !props.live ? (props.banner ? props.banner : DEFAULT_OFFLINE_POSTER) : '',
 			inactivityTimeout: 1000,
 			suppressNotSupportedError: true,
 			plugins: {
