@@ -9,6 +9,8 @@ import * as actions from '../../actions';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
+import AvatarUpload from 'components/AvatarUpload';
+
 function Brand(props){
 	const dispatch  = useDispatch();
 	
