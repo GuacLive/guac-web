@@ -96,6 +96,7 @@ module.exports = withTM(withOffline({
 	experimental: {
 		plugins: true,
 		sprFlushToDisk: true,
+		conformance: true,
 		reactMode: 'concurrent',
 		workerThreads: true,
 		pageEnv: true,
