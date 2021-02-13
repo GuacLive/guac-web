@@ -2827,11 +2827,6 @@
   resolved "https://registry.yarnpkg.com/@yarnpkg/lockfile/-/lockfile-1.1.0.tgz#e77a97fbd345b76d83245edcd17d393b1b41fb31"
   integrity sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==
 
-"@zeit/next-source-maps@^0.0.4-canary.1":
-  version "0.0.4-canary.1"
-  resolved "https://registry.yarnpkg.com/@zeit/next-source-maps/-/next-source-maps-0.0.4-canary.1.tgz#5051ff8425e5f615da2d21dd08a99284fbb63d7d"
-  integrity sha512-SPQCLs7ToaqzQnqXqGSCoL7KTlnOAao+1F5hy7Hkuq85TjHsUC3eeLsmVrBIraIhXG/ARHmZ0JHOesPDtBfpzw==
-
 abab@^2.0.3:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.5.tgz#c0b678fb32d60fc1219c784d6a826fe385aeb79a"
@@ -9366,10 +9361,10 @@ next-offline@^5:
     fs-extra "~8.1.0"
     workbox-webpack-plugin "^5.0.0"
 
-next-redux-wrapper@6.0.2:
-  version "6.0.2"
-  resolved "https://registry.yarnpkg.com/next-redux-wrapper/-/next-redux-wrapper-6.0.2.tgz#b8dcd214e7b5cedd7a2a611ddb60422384d24374"
-  integrity sha512-I9CnIYhQwI/qEoNdc9VAPjIyuq4rFFhCTa4rKhoDHWEVHGB1DXZy8TAyGpwvWizESd8IoTI/OKlP6bFpCbXsOw==
+next-redux-wrapper@^7.0.0-rc.1:
+  version "7.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/next-redux-wrapper/-/next-redux-wrapper-7.0.0-rc.1.tgz#c5c4d1feabf61200015f12f6fd1b3a92f28bb087"
+  integrity sha512-OA4x0fSKuV9uTrZYPPkccEmiUWxBuRLiN7plhGW59OumP3752g/DiCU+hwKMuz46Ye6taXe/z6YZcC8PDck+hA==
 
 next-tick@~1.0.0:
   version "1.0.0"
@@ -11777,11 +11772,6 @@ readdirp@~3.5.0:
   dependencies:
     picomatch "^2.2.1"
 
-recordrtc@>=5.6.1, recordrtc@^5.6.1:
-  version "5.6.1"
-  resolved "https://registry.yarnpkg.com/recordrtc/-/recordrtc-5.6.1.tgz#da876700fa149bbb230df7591a020e2c43de01c8"
-  integrity sha512-UU7Fd9IIuz60TPq4GgL1qtgo2mzEZWzPxEraNe32eo4/ndjKmuj715HB7W1k63G09teM1dXJYubPEmLkQ/lq5Q==
-
 recursive-readdir@2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/recursive-readdir/-/recursive-readdir-2.2.2.tgz#9946fb3274e1628de6e36b2f6714953b4845094f"
@@ -12168,13 +12158,6 @@ rsvp@^4.8.4:
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-4.8.5.tgz#c8f155311d167f68f21e168df71ec5b083113734"
   integrity sha512-nfMOlASu9OnRJo1mbEk2cz0D56a1MBNrJ7orjRZQG10XDyuvwksKbuXNp6qa+kbn839HwjwhBzhFmdsaEAfauA==
 
-rtcpeerconnection-shim@^1.2.15:
-  version "1.2.15"
-  resolved "https://registry.yarnpkg.com/rtcpeerconnection-shim/-/rtcpeerconnection-shim-1.2.15.tgz#e7cc189a81b435324c4949aa3dfb51888684b243"
-  integrity sha512-C6DxhXt7bssQ1nHb154lqeL0SXz5Dx4RczXZu2Aa/L1NJFnEVDxFwCBo3fqtuljhHIGceg5JKBV4XJ0gW5JKyw==
-  dependencies:
-    sdp "^2.6.0"
-
 rtl-css-js@^1.14.0:
   version "1.14.0"
   resolved "https://registry.yarnpkg.com/rtl-css-js/-/rtl-css-js-1.14.0.tgz#daa4f192a92509e292a0519f4b255e6e3c076b7d"
@@ -12326,11 +12309,6 @@ screenfull@^5.0.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/screenfull/-/screenfull-5.1.0.tgz#85c13c70f4ead4c1b8a935c70010dfdcd2c0e5c8"
   integrity sha512-dYaNuOdzr+kc6J6CFcBrzkLCfyGcMg+gWkJ8us93IQ7y1cevhQAugFsaCdMHb6lw8KV3xPzSxzH7zM1dQap9mA==
-
-sdp@^2.12.0, sdp@^2.6.0:
-  version "2.12.0"
-  resolved "https://registry.yarnpkg.com/sdp/-/sdp-2.12.0.tgz#338a106af7560c86e4523f858349680350d53b22"
-  integrity sha512-jhXqQAQVM+8Xj5EjJGVweuEzgtGWb3tmEEpl3CLP3cStInSbVHSg0QWOGQzNq8pSID4JkpeV2mPqlMDLrm0/Vw==
 
 select-hose@^2.0.0:
   version "2.0.0"
@@ -12659,7 +12637,7 @@ snapdragon@^0.8.1:
     source-map-resolve "^0.5.0"
     use "^3.1.0"
 
-socket.io-client@3:
+socket.io-client@^3:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/socket.io-client/-/socket.io-client-3.1.1.tgz#43dfc3feddbb675b274a724f685d6b6af319b3e3"
   integrity sha512-BLgIuCjI7Sf3mDHunKddX9zKR/pbkP7IACM3sJS3jha+zJ6/pGKRV6Fz5XSBHCfUs9YzT8kYIqNwOOuFNLtnYA==
@@ -14064,20 +14042,6 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-video.js@>=7.0.5, "video.js@^6 || ^7", video.js@^7.11:
-  version "7.11.4"
-  resolved "https://registry.yarnpkg.com/video.js/-/video.js-7.11.4.tgz#64300cb6def9f17ecba4808ae76ec7c10c952378"
-  integrity sha512-eT9n7YCugHyWNHI2gyK28XoozNmLiW4F9dRYEP6ET/JVmm7oXPhLeVfs5kqcRviquISqWsvsNmhK1b9vvZzyVA==
-  dependencies:
-    "@babel/runtime" "^7.9.2"
-    "@videojs/http-streaming" "2.4.2"
-    "@videojs/xhr" "2.5.1"
-    global "4.3.2"
-    keycode "^2.2.0"
-    safe-json-parse "4.0.0"
-    videojs-font "3.2.0"
-    videojs-vtt.js "^0.15.2"
-
 video.js@^5.2.1:
   version "5.20.5"
   resolved "https://registry.yarnpkg.com/video.js/-/video.js-5.20.5.tgz#445cdae204bce459782d86a31b25a32afd6d8eff"
@@ -14092,6 +14056,20 @@ video.js@^5.2.1:
     videojs-swf "5.4.1"
     videojs-vtt.js "0.12.6"
     xhr "2.2.2"
+
+"video.js@^6 || ^7", video.js@^7.11:
+  version "7.11.4"
+  resolved "https://registry.yarnpkg.com/video.js/-/video.js-7.11.4.tgz#64300cb6def9f17ecba4808ae76ec7c10c952378"
+  integrity sha512-eT9n7YCugHyWNHI2gyK28XoozNmLiW4F9dRYEP6ET/JVmm7oXPhLeVfs5kqcRviquISqWsvsNmhK1b9vvZzyVA==
+  dependencies:
+    "@babel/runtime" "^7.9.2"
+    "@videojs/http-streaming" "2.4.2"
+    "@videojs/xhr" "2.5.1"
+    global "4.3.2"
+    keycode "^2.2.0"
+    safe-json-parse "4.0.0"
+    videojs-font "3.2.0"
+    videojs-vtt.js "^0.15.2"
 
 videojs-errors@^4.3.2:
   version "4.3.2"
@@ -14130,29 +14108,6 @@ videojs-landscape-fullscreen@^11.1.0:
   dependencies:
     global "^4.4.0"
 
-videojs-mux@^3.0.0:
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/videojs-mux/-/videojs-mux-3.1.4.tgz#f251da5b40e27a57f77624d7a8b361420c84170a"
-  integrity sha512-5ySvwlo1GUMzOEocwomicfS1uQbzBcQUuoAGu+N8psKAqeswsnyWoV0rgjgN6xCtEk7QMpcC1WwErTXXEq4diw==
-
-videojs-overlay@^2.1.4:
-  version "2.1.4"
-  resolved "https://registry.yarnpkg.com/videojs-overlay/-/videojs-overlay-2.1.4.tgz#5a103b25374dbb753eb87960d8360c2e8f39cc05"
-  integrity sha512-eonf+la2WHZJUvaZXtX1UtpwNRe8Zq5HUkBXgDX9zKOFQ9ppMio7LbYMBVKpei6BcqOOgdNVit1h7NGe6ySe3w==
-  dependencies:
-    global "^4.3.2"
-    video.js "^6 || ^7"
-
-videojs-record@^4.0.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/videojs-record/-/videojs-record-4.2.0.tgz#0135b0da7c67fb5984543348e3ba919f3ce34723"
-  integrity sha512-OonALuOFH4MWbZpo79o/5xVUUCbQe4GfDGU1PuXlNLbMl8Ebkogq4+SgzjYxbIInjWv+wcMfdCL4SBmAj6zmrg==
-  dependencies:
-    recordrtc ">=5.6.1"
-    video.js ">=7.0.5"
-    videojs-wavesurfer ">=3.5.0"
-    webrtc-adapter ">=7.7.0"
-
 videojs-swf@5.4.1:
   version "5.4.1"
   resolved "https://registry.yarnpkg.com/videojs-swf/-/videojs-swf-5.4.1.tgz#2077ef71c749f2c7823ef49babae4dd2acb08f87"
@@ -14179,14 +14134,6 @@ videojs-vtt.js@^0.15.2:
   integrity sha512-kEo4hNMvu+6KhPvVYPKwESruwhHC3oFis133LwhXHO9U7nRnx0RiJYMiqbgwjgazDEXHR6t8oGJiHM6wq5XlAw==
   dependencies:
     global "^4.3.1"
-
-videojs-wavesurfer@>=3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/videojs-wavesurfer/-/videojs-wavesurfer-3.5.0.tgz#97f20732717fad07cceb8accfe9aa2cc402e390e"
-  integrity sha512-E3vnA3xtuVOeNeOf4LSexq1/4YAJ59jFfCI/6f2GXz8ICOVmV1ntRSBeKf/vxyv+w1bpU4CAg3fiFuqFednQQQ==
-  dependencies:
-    video.js ">=7.0.5"
-    wavesurfer.js ">=4.4.0"
 
 viewport-observer@^2.3.0:
   version "2.3.0"
@@ -14241,11 +14188,6 @@ watchpack@^2.0.0:
   dependencies:
     glob-to-regexp "^0.4.1"
     graceful-fs "^4.1.2"
-
-wavesurfer.js@>=4.4.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/wavesurfer.js/-/wavesurfer.js-4.4.0.tgz#3ada357691455b89e88fff4489869b2bbd64dcef"
-  integrity sha512-R8knBQRY2FjMYGn0Tp+obv55sk494tEaCanM+rpqNmuAhwknan4BL7SIIevwL3QgDbH75R8XUiQVczhvo6XW+A==
 
 wbuf@^1.1.0, wbuf@^1.7.3:
   version "1.7.3"
@@ -14392,14 +14334,6 @@ webpack@4.44.2, webpack@^5.20.2:
     terser-webpack-plugin "^5.1.1"
     watchpack "^2.0.0"
     webpack-sources "^2.1.1"
-
-webrtc-adapter@>=7.7.0:
-  version "7.7.0"
-  resolved "https://registry.yarnpkg.com/webrtc-adapter/-/webrtc-adapter-7.7.0.tgz#e56ff25f925177ac553a7c49323ca4108d2b5f4d"
-  integrity sha512-7Bp9OBnx642oJRkom1tNAbeJjUadAq2rh5xLL9YXPw5hVyt2h4hHr5bcoPYDs1stp/mZHSPSQA34YISdnr0DBQ==
-  dependencies:
-    rtcpeerconnection-shim "^1.2.15"
-    sdp "^2.12.0"
 
 websocket-driver@0.6.5:
   version "0.6.5"
