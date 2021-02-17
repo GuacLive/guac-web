@@ -16,7 +16,7 @@ if(typeof document !== 'undefined'){
 	require('!style-loader!css-loader!video.js/dist/video-js.css')
 }
 
-const DEFAULT_OFFLINE_POSTER = '/img/offline-poster.png';
+const DEFAULT_OFFLINE_POSTER = '//cdn.guac.live/offline-banners/offline-banner.png';
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
 var didCancel = false;
 var playbackAPISocket;
@@ -63,7 +63,6 @@ function VideoPlayer(props) {
 			});
 		}
 	};
-	console.log('aaa', props);
 
 	useEffect(() => {
 		const canAutoplay = require('can-autoplay').default;
