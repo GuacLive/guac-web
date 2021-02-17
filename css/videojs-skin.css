@@ -260,11 +260,12 @@
 }
 
 .video-js:not(.vjs-playing):not(.vjs-paused) video[poster]{
-    object-fit: cover !important;
+    /*object-fit: cover !important;*/
 }
 .video-js .vjs-poster {
     /*background-size: cover !important;
     background-position: inherit !important;*/
+	background-repeat: no-repeat;
 }
 
 .video-js .vjs-chromecast-button .vjs-icon-placeholder
