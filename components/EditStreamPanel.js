@@ -7,7 +7,6 @@ import SelectSearch from 'react-select-search/dist/cjs';
 
 import * as actions from 'actions';
 
-import { callApi } from 'services/api';
 class EditStreamPanel extends Component {
 	constructor(props){
 		super(props);
@@ -52,6 +51,7 @@ class EditStreamPanel extends Component {
 		if(auth.loading) return null;
 		if(auth.error) throw auth.error;
 		if(categories.error) throw categories.error;
+		if(categories.loading) return null;
 		if(streaming.loading) return null;
 		return (
             <form className="measure" onSubmit={this.handleSubmit}>
@@ -78,6 +78,10 @@ class EditStreamPanel extends Component {
                             }}
                             getOptions={(term) => {
                                 return new Promise((resolve, reject) => {
+                                    if(!term) return resolve(categories.data.map((data) => ({
+                                        value: data.category_id,
+                                        name: data.name
+                                    })));
                                     fetch(process.env.API_URL + '/search/categories', {
                                         Accept: 'application/json',
                                         'Content-Type': 'application/json',
@@ -88,7 +92,7 @@ class EditStreamPanel extends Component {
                                     })
                                     .then(response => response.json())
                                     .then(searchResults => {
-                                        if(!searchResults || !searchResults.data) resolve();
+                                        if(!searchResults || !searchResults.data) return resolve([]);
                                         resolve(searchResults.data.map((data) => ({
                                             value: data.category_id,
                                             name: data.category_name
