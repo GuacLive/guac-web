@@ -263,8 +263,8 @@
     object-fit: cover !important;
 }
 .video-js .vjs-poster {
-    background-size: cover !important;
-    background-position: inherit !important;
+    /*background-size: cover !important;
+    background-position: inherit !important;*/
 }
 
 .video-js .vjs-chromecast-button .vjs-icon-placeholder
