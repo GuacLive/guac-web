@@ -6,7 +6,6 @@ import { Trans, t } from '@lingui/macro';
 import withAuth from '../utils/withAuth';
 
 import dynamic from 'next/dynamic';
-import Link from 'next/link';
 
 const StreamComponent = dynamic(() => import('../components/Dashboard/Stream'));
 const BrandComponent = dynamic(() => import('../components/Dashboard/Brand'));
