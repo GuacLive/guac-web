@@ -73,7 +73,7 @@
     "marked": "^2.0.0",
     "next": "^10.0.8-canary.0",
     "next-offline": "^5",
-    "next-redux-wrapper": "^7.0.0-rc.1",
+    "next-redux-wrapper": "6.0.2",
     "next-transpile-modules": "^6",
     "nuka-carousel": "^4.7.4",
     "patch-package": "^6.2.2",
