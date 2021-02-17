@@ -14,13 +14,14 @@ const BannerUpload = dynamic(() => import('components/BannerUpload'));
 
 function Brand(props){
 	const dispatch = useDispatch();
-	const streaming = useSelector(state => state.streaming);
-	const auth = useSelector(state => state.authentication);
 
 	useEffect(() => {
-		dispatch(actions.fetchStreaming(auth.token));
+		const {authentication} = props;
+		dispatch(actions.fetchStreaming(authentication.token));
 	}, []);
-
+	
+	const {streaming} = props;
+	const auth = props.authentication;
 	if(auth.loading) return null;
 	if(auth.error) throw auth.error;
 	if(streaming.loading) return null;
