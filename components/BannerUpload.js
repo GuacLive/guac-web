@@ -64,7 +64,9 @@ export default function BannerUpload(props){
                         src={currentBanner}
                         alt={i18n._(t`Profile Banner for ${props.user.name}`)}
                         fit="cover"
-                        className={`ba b--transparent v-mid`}
+                        width={220}
+                        height={124}
+                        className={`ba b--transparent br2 v-mid`}
                     />
                 </div>
             </div>
