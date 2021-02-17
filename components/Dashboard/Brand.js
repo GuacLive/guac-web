@@ -16,7 +16,8 @@ function Brand(props){
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(actions.fetchStreaming(auth.token));
+		const {authentication} = props;
+		dispatch(actions.fetchStreaming(authentication.token));
 	}, []);
 	
 	const {streaming} = props;
