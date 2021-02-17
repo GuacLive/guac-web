@@ -208,13 +208,13 @@ function ChannelPage(props){
 				break;
 			}
 		}
-	}, [router.query])
+	}, [router.query]);
 
 	useEffect(() => {
 		let now = new Date().getTime();
 		let liveAt = channel && channel.data && channel.data.liveAt ? new Date(channel.data.liveAt) : 0;
-		setTimer(now - liveAt);
-	}, [])
+		if(channel?.data?.live) setTimer(now - liveAt);
+	}, [channel.data.liveAt]);
 
 	useUpdateEffect(() => {
 		if(!showEditPanel){
@@ -240,6 +240,7 @@ function ChannelPage(props){
 
 		let videoJsOptions = { 
 			autoplay: true,
+			banner: stream.banner,
 			controls: true,
 			sources: [],
 			streamInfo: {

@@ -13,6 +13,10 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: components/BannerUpload.js:76
+msgid "1920 x 1080 is preferred"
+msgstr "1920 x 1080 is preferred"
+
 #: pages/index.js:216
 #~ msgid "<0>Hi,<1/>Welcome to guac.live &mdash; live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 #~ msgstr "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
@@ -21,11 +25,11 @@ msgstr ""
 msgid "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 msgstr "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 
-#: pages/[channel].js:421
+#: pages/[channel].js:422
 msgid "ABOUT"
 msgstr "ABOUT"
 
-#: pages/[channel].js:492
+#: pages/[channel].js:493
 msgid "Add panel"
 msgstr "Add panel"
 
@@ -40,6 +44,10 @@ msgstr "At last, make sure keyframe interval is set to <0>1</0>."
 #: pages/dashboard.js:119
 #~ msgid "At last, make sure keyframe interval is set to <0>2</0>."
 #~ msgstr "At last, make sure keyframe interval is set to <0>2</0>."
+
+#: pages/dashboard.js:27
+msgid "Brand"
+msgstr "Brand"
 
 #: pages/terms.js:26
 msgid "Breaking the law"
@@ -56,7 +64,7 @@ msgstr "Broadcaster:"
 msgid "Browse"
 msgstr "Browse"
 
-#: pages/[channel].js:412
+#: pages/[channel].js:413
 msgid "CHAT"
 msgstr "CHAT"
 
@@ -107,8 +115,8 @@ msgstr "Close"
 msgid "Collapse"
 msgstr "Collapse"
 
-#: components/Settings/Profile.js:140
-#: components/Settings/Profile.js:141
+#: components/Settings/Profile.js:38
+#: components/Settings/Profile.js:39
 msgid "Color"
 msgstr "Color"
 
@@ -133,7 +141,7 @@ msgstr "Copyrighted Content"
 msgid "Counter-Notification"
 msgstr "Counter-Notification"
 
-#: pages/[channel].js:349
+#: pages/[channel].js:350
 msgid "Create an account to follow this user"
 msgstr "Create an account to follow this user"
 
@@ -154,14 +162,14 @@ msgstr "Dark Mode"
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: pages/[channel].js:513
+#: pages/[channel].js:514
 msgid "Delete"
 msgstr "Delete"
 
-#: pages/[channel].js:489
 #: pages/[channel].js:490
-#: pages/[channel].js:510
+#: pages/[channel].js:491
 #: pages/[channel].js:511
+#: pages/[channel].js:512
 msgid "Description"
 msgstr "Description"
 
@@ -190,7 +198,7 @@ msgid "Drag and drop image here<0/>Or<1/>Browse"
 msgstr "Drag and drop image here<0/>Or<1/>Browse"
 
 #: components/Auth.js:123
-#: components/Settings/Profile.js:139
+#: components/Settings/Profile.js:37
 msgid "E-mail"
 msgstr "E-mail"
 
@@ -198,22 +206,22 @@ msgstr "E-mail"
 #~ msgid "Edit"
 #~ msgstr "Edit"
 
-#: pages/[channel].js:516
+#: pages/[channel].js:517
 msgid "Edit panel"
 msgstr "Edit panel"
 
-#: pages/[channel].js:472
+#: pages/[channel].js:473
 msgid "Edit panels"
 msgstr "Edit panels"
 
-#: components/Settings/Profile.js:145
+#: components/Settings/Profile.js:43
 msgid "Edit user"
 msgstr "Edit user"
 
 #: pages/dashboard.js:30
 #: pages/dashboard.js:37
-msgid "Emotes"
-msgstr "Emotes"
+#~ msgid "Emotes"
+#~ msgstr "Emotes"
 
 #: pages/subscriptions.js:42
 msgid "End date:"
@@ -225,7 +233,7 @@ msgstr "English"
 
 #: components/Auth.js:93
 #: components/Auth.js:116
-#: components/Settings/Profile.js:82
+#: components/Settings/Profile.js:33
 msgid "Error"
 msgstr "Error"
 
@@ -233,11 +241,11 @@ msgstr "Error"
 msgid "Expand"
 msgstr "Expand"
 
-#: pages/[channel].js:439
+#: pages/[channel].js:440
 msgid "FOLLOWERS"
 msgstr "FOLLOWERS"
 
-#: pages/[channel].js:448
+#: pages/[channel].js:449
 msgid "FOLLOWING"
 msgstr "FOLLOWING"
 
@@ -249,8 +257,8 @@ msgstr "Failed to verify"
 msgid "First, choose the streaming server closest to you:"
 msgstr "First, choose the streaming server closest to you:"
 
-#: pages/[channel].js:342
-#: pages/[channel].js:355
+#: pages/[channel].js:343
+#: pages/[channel].js:356
 msgid "Follow"
 msgstr "Follow"
 
@@ -274,7 +282,7 @@ msgstr "Followed Channels"
 msgid "Followers:"
 msgstr "Followers:"
 
-#: pages/[channel].js:341
+#: pages/[channel].js:342
 msgid "Following"
 msgstr "Following"
 
@@ -301,7 +309,7 @@ msgstr "Forgot your password?"
 msgid "Get started with streaming"
 msgstr "Get started with streaming"
 
-#: pages/[channel].js:627
+#: pages/[channel].js:628
 msgid "Go back"
 msgstr "Go back"
 
@@ -357,7 +365,7 @@ msgstr "Loading"
 
 #: components/Chat/index.js:696
 #: components/Search/SearchBar.js:81
-#: pages/[channel].js:611
+#: pages/[channel].js:612
 msgid "Loading..."
 msgstr "Loading..."
 
@@ -399,7 +407,11 @@ msgstr "More"
 msgid "More messages below."
 msgstr "More messages below."
 
-#: components/Settings/Profile.js:100
+#: components/BannerUpload.js:74
+msgid "Must be JPEG, GIF or PNG"
+msgstr "Must be JPEG, GIF or PNG"
+
+#: components/AvatarUpload.js:73
 msgid "Must be JPEG, GIF or PNG, and cannot exceed 10MB."
 msgstr "Must be JPEG, GIF or PNG, and cannot exceed 10MB."
 
@@ -407,7 +419,7 @@ msgstr "Must be JPEG, GIF or PNG, and cannot exceed 10MB."
 msgid "My Channel"
 msgstr "My Channel"
 
-#: components/Settings/Profile.js:143
+#: components/Settings/Profile.js:41
 msgid "New password:"
 msgstr "New password:"
 
@@ -460,13 +472,13 @@ msgstr "Page"
 msgid "Page not found"
 msgstr "Page not found"
 
-#: pages/[channel].js:319
+#: pages/[channel].js:320
 msgid "Partnered"
 msgstr "Partnered"
 
 #: components/Auth.js:100
 #: components/Auth.js:127
-#: components/Settings/Profile.js:144
+#: components/Settings/Profile.js:42
 msgid "Password"
 msgstr "Password"
 
@@ -518,7 +530,7 @@ msgstr "Privacy"
 msgid "Privacy Policy"
 msgstr "Privacy Policy"
 
-#: components/EditStreamPanel.js:104
+#: components/EditStreamPanel.js:108
 msgid "Private (don't show in categories, frontpage or search):"
 msgstr "Private (don't show in categories, frontpage or search):"
 
@@ -526,11 +538,15 @@ msgstr "Private (don't show in categories, frontpage or search):"
 msgid "Profile"
 msgstr "Profile"
 
-#: pages/[channel].js:430
+#: components/BannerUpload.js:65
+msgid "Profile Banner for {0}"
+msgstr "Profile Banner for {0}"
+
+#: pages/[channel].js:431
 msgid "REPLAYS"
 msgstr "REPLAYS"
 
-#: pages/[channel].js:581
+#: pages/[channel].js:582
 msgid "Reason"
 msgstr "Reason"
 
@@ -546,7 +562,8 @@ msgstr "Reconnect"
 msgid "Remove timeout for user"
 msgstr "Remove timeout for user"
 
-#: components/Settings/Profile.js:134
+#: components/AvatarUpload.js:107
+#: components/BannerUpload.js:104
 msgid "Save"
 msgstr "Save"
 
@@ -644,13 +661,13 @@ msgstr "Streaming permissions"
 msgid "Subbed to:"
 msgstr "Subbed to:"
 
-#: pages/[channel].js:358
+#: pages/[channel].js:359
 msgid "Subscribe"
 msgstr "Subscribe"
 
 #: components/layout/AccountMenu.js:99
-#: pages/dashboard.js:27
-#: pages/dashboard.js:36
+#: pages/dashboard.js:30
+#: pages/dashboard.js:37
 #: pages/subscriptions.js:29
 msgid "Subscriptions"
 msgstr "Subscriptions"
@@ -683,7 +700,7 @@ msgstr "Terms of use"
 msgid "The following content is <0>forbidden</0> on guac.live:"
 msgstr "The following content is <0>forbidden</0> on guac.live:"
 
-#: pages/[channel].js:623
+#: pages/[channel].js:624
 msgid "The page you were looking for does not exist."
 msgstr "The page you were looking for does not exist."
 
@@ -711,7 +728,7 @@ msgstr "This verification token is not valid."
 msgid "Threats, Violence & Harm"
 msgstr "Threats, Violence & Harm"
 
-#: pages/[channel].js:575
+#: pages/[channel].js:576
 msgid "Time of ban"
 msgstr "Time of ban"
 
@@ -723,14 +740,14 @@ msgstr "Time out user for x seconds"
 msgid "Timestamps"
 msgstr "Timestamps"
 
-#: pages/[channel].js:486
 #: pages/[channel].js:487
-#: pages/[channel].js:507
+#: pages/[channel].js:488
 #: pages/[channel].js:508
+#: pages/[channel].js:509
 msgid "Title"
 msgstr "Title"
 
-#: pages/[channel].js:622
+#: pages/[channel].js:623
 msgid "Uh Ohhh..."
 msgstr "Uh Ohhh..."
 
@@ -742,20 +759,35 @@ msgstr "Unban user"
 #~ msgid "Unfollow"
 #~ msgstr "Unfollow"
 
-#: pages/[channel].js:633
+#: pages/[channel].js:634
 #: pages/_error.js:41
 msgid "Unknown error"
 msgstr "Unknown error"
 
-#: components/Settings/Profile.js:105
+#: components/BannerUpload.js:75
+msgid "Up to 2MB"
+msgstr "Up to 2MB"
+
+#: components/AvatarUpload.js:78
 msgid "Update avatar"
 msgstr "Update avatar"
+
+#: components/AvatarUpload.js:59
+#: components/AvatarUpload.js:97
+msgid "Upload Avatar"
+msgstr "Upload Avatar"
+
+#: components/BannerUpload.js:60
+#: components/BannerUpload.js:82
+#: components/BannerUpload.js:101
+msgid "Upload Profile Banner"
+msgstr "Upload Profile Banner"
 
 #: components/layout/AccountMenu.js:42
 msgid "User"
 msgstr "User"
 
-#: pages/[channel].js:567
+#: pages/[channel].js:568
 msgid "User has been banned"
 msgstr "User has been banned"
 
@@ -788,7 +820,7 @@ msgstr "Verify"
 msgid "View offline channels"
 msgstr "View offline channels"
 
-#: components/Settings/Profile.js:142
+#: components/Settings/Profile.js:40
 msgid "Want to customize your color? <0>Join our Patreon!</0>"
 msgstr "Want to customize your color? <0>Join our Patreon!</0>"
 
@@ -817,6 +849,7 @@ msgstr "Welcome to guac.live"
 msgid "When you choose to connect your Patreon account, the profile information connected to your Patreon account, including your name, may be used by guac.live.<0/>You will be able to use patreon specific perks depending on which tier you pledged. guac.live will not publicly display your Patreon account information."
 msgstr "When you choose to connect your Patreon account, the profile information connected to your Patreon account, including your name, may be used by guac.live.<0/>You will be able to use patreon specific perks depending on which tier you pledged. guac.live will not publicly display your Patreon account information."
 
+#: components/Dashboard/Brand.js:28
 #: components/Dashboard/Stream.js:92
 msgid "You do not have permission to stream"
 msgstr "You do not have permission to stream"
@@ -849,7 +882,7 @@ msgstr "Your e-mail has been verified."
 msgid "by"
 msgstr "by"
 
-#: pages/[channel].js:569
+#: pages/[channel].js:570
 msgid "has been banned from the site."
 msgstr "has been banned from the site."
 

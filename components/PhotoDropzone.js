@@ -22,7 +22,7 @@ const PhotoDropzone = ({
         onDrop
     });
     return (
-        <div {...getRootProps({className: 'dropzone flex flex-column items-center pa2 br2 bg-dark-gray pointer'})}>
+        <div {...getRootProps({className: 'dropzone flex flex-column items-center pa2 br2 bg-dark-gray white pointer'})}>
             <input {...getInputProps()} />
             <span className="flex content-center items-center"><Trans>Drag and drop image here<br />Or<br/>Browse</Trans></span>
         </div>

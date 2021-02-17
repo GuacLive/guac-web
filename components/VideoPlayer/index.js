@@ -16,7 +16,7 @@ if(typeof document !== 'undefined'){
 	require('!style-loader!css-loader!video.js/dist/video-js.css')
 }
 
-const OFFLINE_POSTER = '/img/offline-poster.png';
+const DEFAULT_OFFLINE_POSTER = '//cdn.guac.live/offline-banners/offline-banner.png';
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
 var didCancel = false;
 var playbackAPISocket;
@@ -63,7 +63,6 @@ function VideoPlayer(props) {
 			});
 		}
 	};
-	console.log('aaa', props);
 
 	useEffect(() => {
 		const canAutoplay = require('can-autoplay').default;
@@ -74,7 +73,7 @@ function VideoPlayer(props) {
 			responsive: true,
 			fill: props.fill,
 			language: i18n.locale || 'en',
-			poster: !props.live ? OFFLINE_POSTER : '',
+			poster: !props.live ? (props.banner ? props.banner : DEFAULT_OFFLINE_POSTER) : '',
 			inactivityTimeout: 1000,
 			suppressNotSupportedError: true,
 			plugins: {
@@ -307,7 +306,7 @@ function VideoPlayer(props) {
 			<div className="player" data-vjs-player>
 				<video
 					ref={ node => videoNode = node }
-					className={`player-video video-js vjs-default-skin vjs-big-play-centered ${props.fill ? 'vjs-fill' : 'vjs-16-9'}`} poster={!props.live ? "/img/offline-poster.png" : ""}
+					className={`player-video video-js vjs-default-skin vjs-big-play-centered ${props.fill ? 'vjs-fill' : 'vjs-16-9'}`} 
 					controls
 					playsInline
 					preload="auto"

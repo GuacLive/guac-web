@@ -13,15 +13,19 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: components/BannerUpload.js:76
+msgid "1920 x 1080 is preferred"
+msgstr "1920 x 1080 er foretrukket"
+
 #: pages/index.js:239
 msgid "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 msgstr "<0>Hi,<1/>Velkommen til guac.live — direktestrømming-platformen. Vi er for tiden i beta.</0><2>Mens vi er i beta, så vil strømmeprivilegier bli gitt på invitasjonsbasis.<3/>Men, lag gjerne en konto og delta i chatten og det generelle fellesskapet!</2>"
 
-#: pages/[channel].js:421
+#: pages/[channel].js:422
 msgid "ABOUT"
 msgstr "OM"
 
-#: pages/[channel].js:492
+#: pages/[channel].js:493
 msgid "Add panel"
 msgstr "Legg til panel"
 
@@ -36,6 +40,10 @@ msgstr "Til slutt, sørg for at keyframe interval er satt til <0>1</0>."
 #: pages/dashboard.js:119
 #~ msgid "At last, make sure keyframe interval is set to <0>2</0>."
 #~ msgstr "Til slutt, sørg for at keyframe interval er satt til <0>2</0>"
+
+#: pages/dashboard.js:27
+msgid "Brand"
+msgstr "Merke"
 
 #: pages/terms.js:26
 msgid "Breaking the law"
@@ -52,7 +60,7 @@ msgstr "Direktestrømmer:"
 msgid "Browse"
 msgstr "Utforsk"
 
-#: pages/[channel].js:412
+#: pages/[channel].js:413
 msgid "CHAT"
 msgstr "CHAT"
 
@@ -103,8 +111,8 @@ msgstr "Lukk"
 msgid "Collapse"
 msgstr "Kollaps"
 
-#: components/Settings/Profile.js:140
-#: components/Settings/Profile.js:141
+#: components/Settings/Profile.js:38
+#: components/Settings/Profile.js:39
 msgid "Color"
 msgstr "Farge"
 
@@ -129,7 +137,7 @@ msgstr "Opphavsrettsbeskyttet innhold"
 msgid "Counter-Notification"
 msgstr "Innsigelse"
 
-#: pages/[channel].js:349
+#: pages/[channel].js:350
 msgid "Create an account to follow this user"
 msgstr "Opprett en konto for å følge denne brukeren"
 
@@ -150,14 +158,14 @@ msgstr "Mørk modus"
 msgid "Dashboard"
 msgstr "Kontrollpanel"
 
-#: pages/[channel].js:513
+#: pages/[channel].js:514
 msgid "Delete"
 msgstr "Slett"
 
-#: pages/[channel].js:489
 #: pages/[channel].js:490
-#: pages/[channel].js:510
+#: pages/[channel].js:491
 #: pages/[channel].js:511
+#: pages/[channel].js:512
 msgid "Description"
 msgstr "Beskrivelse"
 
@@ -186,7 +194,7 @@ msgid "Drag and drop image here<0/>Or<1/>Browse"
 msgstr "Dra og slipp bilde her<0/>eller<1/>Utforsk"
 
 #: components/Auth.js:123
-#: components/Settings/Profile.js:139
+#: components/Settings/Profile.js:37
 msgid "E-mail"
 msgstr "E-post"
 
@@ -194,22 +202,22 @@ msgstr "E-post"
 #~ msgid "Edit"
 #~ msgstr "Endre"
 
-#: pages/[channel].js:516
+#: pages/[channel].js:517
 msgid "Edit panel"
 msgstr "Endre panel"
 
-#: pages/[channel].js:472
+#: pages/[channel].js:473
 msgid "Edit panels"
 msgstr "Endre paneler"
 
-#: components/Settings/Profile.js:145
+#: components/Settings/Profile.js:43
 msgid "Edit user"
 msgstr "Endre bruker"
 
 #: pages/dashboard.js:30
 #: pages/dashboard.js:37
-msgid "Emotes"
-msgstr "Uttryksikoner"
+#~ msgid "Emotes"
+#~ msgstr "Uttryksikoner"
 
 #: pages/subscriptions.js:42
 msgid "End date:"
@@ -221,7 +229,7 @@ msgstr "Engelsk"
 
 #: components/Auth.js:93
 #: components/Auth.js:116
-#: components/Settings/Profile.js:82
+#: components/Settings/Profile.js:33
 msgid "Error"
 msgstr "Feil"
 
@@ -229,11 +237,11 @@ msgstr "Feil"
 msgid "Expand"
 msgstr "Utvid"
 
-#: pages/[channel].js:439
+#: pages/[channel].js:440
 msgid "FOLLOWERS"
 msgstr "FØLGERE"
 
-#: pages/[channel].js:448
+#: pages/[channel].js:449
 msgid "FOLLOWING"
 msgstr "FØLGER"
 
@@ -245,8 +253,8 @@ msgstr "Feilet verifisering"
 msgid "First, choose the streaming server closest to you:"
 msgstr "Først, velg strømmeserveren som er nærmest deg:"
 
-#: pages/[channel].js:342
-#: pages/[channel].js:355
+#: pages/[channel].js:343
+#: pages/[channel].js:356
 msgid "Follow"
 msgstr "Følg"
 
@@ -262,7 +270,7 @@ msgstr "Fulgte kanaler"
 msgid "Followers:"
 msgstr "Følgere:"
 
-#: pages/[channel].js:341
+#: pages/[channel].js:342
 msgid "Following"
 msgstr "Følger"
 
@@ -285,7 +293,7 @@ msgstr "Glemt ditt passord?"
 msgid "Get started with streaming"
 msgstr "Start med strømming"
 
-#: pages/[channel].js:627
+#: pages/[channel].js:628
 msgid "Go back"
 msgstr "Gå tilbake"
 
@@ -333,7 +341,7 @@ msgstr "Laster"
 
 #: components/Chat/index.js:696
 #: components/Search/SearchBar.js:81
-#: pages/[channel].js:611
+#: pages/[channel].js:612
 msgid "Loading..."
 msgstr "Laster..."
 
@@ -375,7 +383,11 @@ msgstr "Flere"
 msgid "More messages below."
 msgstr "Flere meldinger under."
 
-#: components/Settings/Profile.js:100
+#: components/BannerUpload.js:74
+msgid "Must be JPEG, GIF or PNG"
+msgstr "Må være JPEG, GIF eller PNG"
+
+#: components/AvatarUpload.js:73
 msgid "Must be JPEG, GIF or PNG, and cannot exceed 10MB."
 msgstr "Må være JPEG, GIF eller PNG, og kan ikke være over 10MB."
 
@@ -383,7 +395,7 @@ msgstr "Må være JPEG, GIF eller PNG, og kan ikke være over 10MB."
 msgid "My Channel"
 msgstr "Min Kanal"
 
-#: components/Settings/Profile.js:143
+#: components/Settings/Profile.js:41
 msgid "New password:"
 msgstr "Nytt passord:"
 
@@ -436,13 +448,13 @@ msgstr "Side"
 msgid "Page not found"
 msgstr "Side ikke funnet"
 
-#: pages/[channel].js:319
+#: pages/[channel].js:320
 msgid "Partnered"
 msgstr "Partner"
 
 #: components/Auth.js:100
 #: components/Auth.js:127
-#: components/Settings/Profile.js:144
+#: components/Settings/Profile.js:42
 msgid "Password"
 msgstr "Passord"
 
@@ -490,7 +502,7 @@ msgstr "Personvern"
 msgid "Privacy Policy"
 msgstr "Personvern"
 
-#: components/EditStreamPanel.js:104
+#: components/EditStreamPanel.js:108
 msgid "Private (don't show in categories, frontpage or search):"
 msgstr "Privat (vises ikke i kategorier, forsiden eller i søk):"
 
@@ -498,11 +510,15 @@ msgstr "Privat (vises ikke i kategorier, forsiden eller i søk):"
 msgid "Profile"
 msgstr "Profil"
 
-#: pages/[channel].js:430
+#: components/BannerUpload.js:65
+msgid "Profile Banner for {0}"
+msgstr "Profilbanner for {0}"
+
+#: pages/[channel].js:431
 msgid "REPLAYS"
 msgstr "ARKIV"
 
-#: pages/[channel].js:581
+#: pages/[channel].js:582
 msgid "Reason"
 msgstr "Grunnlag"
 
@@ -518,7 +534,8 @@ msgstr "Koble til"
 msgid "Remove timeout for user"
 msgstr "Fjern timeout for bruker"
 
-#: components/Settings/Profile.js:134
+#: components/AvatarUpload.js:107
+#: components/BannerUpload.js:104
 msgid "Save"
 msgstr "Lagre"
 
@@ -616,13 +633,13 @@ msgstr "Strømmetillatelse"
 msgid "Subbed to:"
 msgstr "Abonnert til:"
 
-#: pages/[channel].js:358
+#: pages/[channel].js:359
 msgid "Subscribe"
 msgstr "Abonnér"
 
 #: components/layout/AccountMenu.js:99
-#: pages/dashboard.js:27
-#: pages/dashboard.js:36
+#: pages/dashboard.js:30
+#: pages/dashboard.js:37
 #: pages/subscriptions.js:29
 msgid "Subscriptions"
 msgstr "Abonnementer"
@@ -651,7 +668,7 @@ msgstr "Vilkår for bruk"
 msgid "The following content is <0>forbidden</0> on guac.live:"
 msgstr "Følgende innhold er <0>forbudt</0> på guac.live:"
 
-#: pages/[channel].js:623
+#: pages/[channel].js:624
 msgid "The page you were looking for does not exist."
 msgstr "Siden du leter etter, eksisterer ikke."
 
@@ -679,7 +696,7 @@ msgstr "Denne verifiseringskoden er ikke gyldig."
 msgid "Threats, Violence & Harm"
 msgstr "Trusler, vold og skade"
 
-#: pages/[channel].js:575
+#: pages/[channel].js:576
 msgid "Time of ban"
 msgstr "Tidspunkt for utestengelse"
 
@@ -691,14 +708,14 @@ msgstr "Time ut brukeren i x sekunder"
 msgid "Timestamps"
 msgstr "Tidsmerking"
 
-#: pages/[channel].js:486
 #: pages/[channel].js:487
-#: pages/[channel].js:507
+#: pages/[channel].js:488
 #: pages/[channel].js:508
+#: pages/[channel].js:509
 msgid "Title"
 msgstr "Tittel"
 
-#: pages/[channel].js:622
+#: pages/[channel].js:623
 msgid "Uh Ohhh..."
 msgstr "Uh Ohhh..."
 
@@ -706,20 +723,35 @@ msgstr "Uh Ohhh..."
 msgid "Unban user"
 msgstr "Fjern utestenging av bruker"
 
-#: pages/[channel].js:633
+#: pages/[channel].js:634
 #: pages/_error.js:41
 msgid "Unknown error"
 msgstr "Ukjent feil"
 
-#: components/Settings/Profile.js:105
+#: components/BannerUpload.js:75
+msgid "Up to 2MB"
+msgstr "Opptil 2MB"
+
+#: components/AvatarUpload.js:78
 msgid "Update avatar"
 msgstr "Oppdater avatar"
+
+#: components/AvatarUpload.js:59
+#: components/AvatarUpload.js:97
+msgid "Upload Avatar"
+msgstr "Last opp avatar"
+
+#: components/BannerUpload.js:60
+#: components/BannerUpload.js:82
+#: components/BannerUpload.js:101
+msgid "Upload Profile Banner"
+msgstr "Last opp profilbanner"
 
 #: components/layout/AccountMenu.js:42
 msgid "User"
 msgstr "Bruker"
 
-#: pages/[channel].js:567
+#: pages/[channel].js:568
 msgid "User has been banned"
 msgstr "Brukeren har blitt utestengt"
 
@@ -752,7 +784,7 @@ msgstr "Verifiser"
 msgid "View offline channels"
 msgstr "Vis offline kanaler"
 
-#: components/Settings/Profile.js:142
+#: components/Settings/Profile.js:40
 msgid "Want to customize your color? <0>Join our Patreon!</0>"
 msgstr "Vil du endre fargen din? <0>Join vår Patreon!</0>"
 
@@ -781,6 +813,7 @@ msgstr "Velkommen til guac.live"
 msgid "When you choose to connect your Patreon account, the profile information connected to your Patreon account, including your name, may be used by guac.live.<0/>You will be able to use patreon specific perks depending on which tier you pledged. guac.live will not publicly display your Patreon account information."
 msgstr "Når du velger å koble til din Patreon-konto, kan profilinformasjonen som er knyttet til din Patreon-konto, inkludert navnet ditt, brukes av guac.live.<0/>Du vil kunne bruke patreon-spesifikke fordeler, avhengig av hvilket tier du har valgt. guac.live viser ikke offentlig informasjon om Patreon-kontoen din."
 
+#: components/Dashboard/Brand.js:28
 #: components/Dashboard/Stream.js:92
 msgid "You do not have permission to stream"
 msgstr "Du har ikke tillatelse til å streame"
@@ -813,7 +846,7 @@ msgstr "E-posten din har blitt verifisert."
 msgid "by"
 msgstr "av"
 
-#: pages/[channel].js:569
+#: pages/[channel].js:570
 msgid "has been banned from the site."
 msgstr "har blitt utestengt fra dette nettstedet."
 
