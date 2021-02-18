@@ -85,7 +85,7 @@ function VideoPlayer(props) {
 					namespace: 'guac-live'
 				}
 			},
-			techOrder: ['chromecast', 'flvjs', 'html5'],
+			techOrder: ['chromecast', 'html5'],
 			fullscreen: {
 				enterOnRotate: true,
 				alwaysInLandscapeMode: true,
