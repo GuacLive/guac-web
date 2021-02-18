@@ -28,7 +28,7 @@ export default function BannerUpload(props){
 	}, []);
 	
 	useEffect(() => {
-        setCurrentBanner(props.streaming.banner);
+        setCurrentBanner(streaming.banner);
     }, [streaming]);
 
 	function openModal(){
