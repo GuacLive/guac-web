@@ -10,12 +10,9 @@ const AvatarUpload = dynamic(() => import('components/AvatarUpload'));
 const BannerUpload = dynamic(() => import('components/BannerUpload'));
 
 function Brand(props){
-
 	const auth = props.authentication;
 	if(auth.loading) return null;
 	if(auth.error) throw auth.error;
-	if(streaming.loading) return null;
-    if(streaming.error) throw streaming.error;
 	if(auth && auth.user && !auth.user.can_stream) return <p><Trans>You do not have permission to stream</Trans></p>;
 	return (
         <div className="flex flex-row flex-wrap w-100">
