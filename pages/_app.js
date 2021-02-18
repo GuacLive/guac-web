@@ -58,6 +58,7 @@ function I18nWatchLocale({children}) {
 	// t`Macro`) won't be updated.
 	return <Fragment key={i18n.locale}>{children}</Fragment>
 }
+const skipLayoutDestinations = ['/embed/[name]', '/chat/[name]', '/overlay/[name]'];
 const MyApp = (props) => {
 	const dispatch = useDispatch();
 	const authentication = useSelector(state => state.authentication);
@@ -94,7 +95,6 @@ const MyApp = (props) => {
 
 	const { Component, pageProps, featuresService } = props;
 
-	const skipLayoutDestinations = ['/embed/[name]', '/chat/[name]', '/overlay/[name]'];
 	const shouldSkip = props.pathname && skipLayoutDestinations.indexOf(props.pathname) > -1;
 
 	return (
@@ -143,7 +143,12 @@ MyApp.getInitialProps = async appContext => {
 				ctx.res.setHeader('content-security-policy', csp);
 				ctx.res.setHeader('Cache-Control', 'public, max-age=0, s-maxage=0, must-revalidate');
 				ctx.res.setHeader('Referrer-Policy', 'no-referrer-when-downgrade');
+				ctx.res.setHeader('X-Content-Type-Options', 'nosniff');
 				ctx.res.setHeader('X-Powered-By', 'tacos');
+				// Only allow framing embeds
+				if(skipLayoutDestinations.indexOf(ctx.pathname) === -1){
+					ctx.res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+				}
 			}
 		}
 	}
