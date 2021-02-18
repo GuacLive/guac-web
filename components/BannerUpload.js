@@ -3,6 +3,9 @@ import React, {useEffect, useState} from 'react';
 import Modal from 'react-modal';
 import {Trans, t} from '@lingui/macro';
 
+import { useDispatch, useSelector } from 'react-redux';
+
+import * as actions from 'actions/';
 import PhotoDropzone from 'components/PhotoDropzone';
 
 import Image from 'components/Image';
@@ -13,9 +16,19 @@ export default function BannerUpload(props){
 	const [image, setImage] = useState(null);
 	const [imageType, setImageType] = useState(null);
 
-    const [currentBanner, setCurrentBanner] = useState(props.streaming && props.streaming.banner ? props.streaming.banner :  '//cdn.guac.live/offline-banners/offline-banner.png');
+    const [currentBanner, setCurrentBanner] = useState('//cdn.guac.live/offline-banners/offline-banner.png');
 
 	const [modalIsOpen, setModalIsOpen] = useState(false);
+
+    const streaming = useSelector(state => state.streaming);
+
+	useEffect(() => {
+		dispatch(actions.fetchStreaming(props.user.token));
+	}, []);
+	
+	useEffect(() => {
+        setCurrentBanner(props.streaming.banner);
+    }, [streaming]);
 
 	function openModal(){
 		setModalIsOpen(true);
