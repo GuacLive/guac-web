@@ -37,11 +37,13 @@
 
               if (!_recoverDecodingErrorDate || (now - _recoverDecodingErrorDate) > 2000) {
                   _recoverDecodingErrorDate = now;
-                  hls.recoverMediaError();
+                  console.log('FLV: Error (video)?')
+                  //hls.recoverMediaError();
               } else if (!_recoverAudioCodecErrorDate || (now - _recoverAudioCodecErrorDate) > 2000) {
                   _recoverAudioCodecErrorDate = now;
-                  hls.swapAudioCodec();
-                  hls.recoverMediaError();
+                  console.log('FLV: Error (audio)?')
+                  //hls.swapAudioCodec();
+                  //hls.recoverMediaError();
               } else {
                   console.error('Error loading media: File could not be played');
               }
