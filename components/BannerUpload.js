@@ -12,6 +12,7 @@ import Image from 'components/Image';
 
 const API_URL = process.env.API_URL;
 export default function BannerUpload(props){
+    const dispatch = useDispatch();
 	const [files, setFiles] = useState([]);
 	const [image, setImage] = useState(null);
 	const [imageType, setImageType] = useState(null);
