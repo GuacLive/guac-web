@@ -68,12 +68,6 @@ function ChatComponent(props){
 
 	// CC0 public domain sound from http://www.freesound.org/people/pan14/sounds/263133/
 	const notificationSound = typeof Audio == 'undefined' ? null : new Audio();
-	
-	if(notificationSound){
-		notificationSound.src = '/sounds/notification.wav';
-		notificationSound.volume = 1;
-		notificationSound.muted = false;
-	}
 	  
 	const [users, setUsers] = useState(new Map());
 
@@ -132,6 +126,13 @@ function ChatComponent(props){
 		}
 	}, [messages]);
 
+	useEffect(() => {
+		if(notificationSound){
+			notificationSound.src = '/sounds/notification.wav';
+			notificationSound.volume = 1;
+			notificationSound.muted = false;
+		}
+	}, []);
 	if(process.browser){
 		useEffect(() => {
 			if(messageContainerRef && messageContainerRef.current){

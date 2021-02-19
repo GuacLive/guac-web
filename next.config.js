@@ -36,7 +36,7 @@ module.exports = withTM(withOffline({
 			})
 		);
 
-		if(SENTRY_DSN && SENTRY_ORG && SENTRY_PROJECT && SENTRY_AUTH_TOKEN && process.env.NODE_E !== 'development'){
+		if(SENTRY_DSN && SENTRY_ORG && SENTRY_PROJECT && SENTRY_AUTH_TOKEN && process.env.NODE_ENV !== 'development'){
 			config.plugins.push(
 				new SentryWebpackPlugin({
 					release: pkg.version,
@@ -106,7 +106,7 @@ module.exports = withTM(withOffline({
 		scriptLoader: true,
 		optimizeFonts: true,
 		optimizeImages: true,
-		optimizeCss: true,
+		optimizeCss: process.env.NODE_ENV === 'production' ? true : false,
 		scrollRestoration: true
 	},
 	future: {
