@@ -58,6 +58,13 @@ export default function useChannelSocket(channel){
 							// If no longer live, go out of theater mode
 							if(!liveBoolean){
 								document.documentElement.classList.remove('theater-mode');
+								if(typeof window !== 'undefined' && window.videojs){
+									let player = window.videojs.getPlayers().streamplayer;
+									if(player){
+										player.src('');
+										player.reset();
+									}
+								}
 							}
 						}catch(e){}
 					}, Math.floor(Math.random() * (4000 - 2500 + 1) + 2500));
