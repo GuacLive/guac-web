@@ -66,6 +66,7 @@ module.exports = withTM(withOffline({
 		CHAT_URL: process.env.CHAT_URL || 'http://chat.local.guac.live',
 		VIEWER_API_URL: process.env.VIEWER_API_URL || 'http://viewer-api.local.guac.live',
 		GIPHY_API_KEY: process.env.GIPHY_API_KEY,
+		NEXT_PUBLIC_SENTRY_SERVER_ROOT_DIR: '/var/task',
 		SENTRY_DSN: process.env.SENTRY_DSN,
 		SENTRY_ORG: process.env.SENTRY_ORG,
 		SENTRY_PROJECT: process.env.SENTRY_PROJECT,
