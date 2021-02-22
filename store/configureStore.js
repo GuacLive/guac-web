@@ -10,6 +10,7 @@ import rootReducer from '../reducers';
 import logger from 'redux-logger';
 
 import * as Sentry from '@sentry/node';
+import { RewriteFrames } from '@sentry/integrations';
 
 const integrations = []
 if (
