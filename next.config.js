@@ -36,6 +36,16 @@ module.exports = withTM(withOffline({
 			})
 		);
 
+		// Define an environment variable so source code can check whether or not
+		// it's running on the server so we can correctly initialize Sentry
+		config.plugins.push(
+			new webpack.DefinePlugin({
+				'process.env.NEXT_IS_SERVER': JSON.stringify(
+					isServer.toString()
+				),
+			})
+		)
+
 		if(SENTRY_DSN && SENTRY_ORG && SENTRY_PROJECT && SENTRY_AUTH_TOKEN && process.env.NODE_ENV !== 'development'){
 			config.plugins.push(
 				new SentryWebpackPlugin({
@@ -66,6 +76,7 @@ module.exports = withTM(withOffline({
 		CHAT_URL: process.env.CHAT_URL || 'http://chat.local.guac.live',
 		VIEWER_API_URL: process.env.VIEWER_API_URL || 'http://viewer-api.local.guac.live',
 		GIPHY_API_KEY: process.env.GIPHY_API_KEY,
+		NEXT_PUBLIC_SENTRY_SERVER_ROOT_DIR: '/var/task',
 		SENTRY_DSN: process.env.SENTRY_DSN,
 		SENTRY_ORG: process.env.SENTRY_ORG,
 		SENTRY_PROJECT: process.env.SENTRY_PROJECT,
