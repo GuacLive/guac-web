@@ -41,7 +41,7 @@ module.exports = withTM(withOffline({
 		config.plugins.push(
 			new webpack.DefinePlugin({
 				'process.env.NEXT_IS_SERVER': JSON.stringify(
-					options.isServer.toString()
+					isServer.toString()
 				),
 			})
 		)
