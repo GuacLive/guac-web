@@ -10,6 +10,7 @@ import rootReducer from '../reducers';
 import logger from 'redux-logger';
 
 import * as Sentry from '@sentry/node';
+import { RewriteFrames } from '@sentry/integrations';
 
 const integrations = []
 if (
@@ -20,7 +21,7 @@ if (
   // maps starting with ~/_next map to files in Error.stack with path
   // app:///_next
   integrations.push(
-	new Sentry.Integrations.RewriteFrames({
+	new RewriteFrames({
 	  iteratee: (frame) => {
 		frame.filename = frame.filename.replace(
 		  process.env.NEXT_PUBLIC_SENTRY_SERVER_ROOT_DIR,
