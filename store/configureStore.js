@@ -20,7 +20,7 @@ if (
   // maps starting with ~/_next map to files in Error.stack with path
   // app:///_next
   integrations.push(
-	new RewriteFrames({
+	new Sentry.Integrations.RewriteFrames({
 	  iteratee: (frame) => {
 		frame.filename = frame.filename.replace(
 		  process.env.NEXT_PUBLIC_SENTRY_SERVER_ROOT_DIR,
