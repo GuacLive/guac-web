@@ -13,6 +13,7 @@ export default function channelReducer(state = initialState, action) {
 		case 'FETCH_CHANNEL_REQUEST':
 			return Object.assign({}, state, {
 				loading: true,
+				error: false
 			});
 		case 'FETCH_CHANNEL_FAILURE':
 			return Object.assign({}, state, {
@@ -52,6 +53,7 @@ function setChannel(state, statusCode, data, viewers) {
 		statusCode,
 		data,
 		viewers,
+		error: false,
 		loading: false
 	};
 }

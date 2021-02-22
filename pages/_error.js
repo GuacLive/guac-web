@@ -5,6 +5,7 @@ class Error extends Component {
 	static async getInitialProps(ctx){
 		const {res, err} = ctx;
 		const statusCode = res ? res.statusCode : err ? err.statusCode : null;
+		console.log('error', err);
 		return {
 			statusCode,
 			...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})

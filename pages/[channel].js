@@ -214,7 +214,7 @@ function ChannelPage(props){
 		let now = new Date().getTime();
 		let liveAt = channel && channel.data && channel.data.liveAt ? new Date(channel.data.liveAt) : 0;
 		if(channel?.data?.live) setTimer(now - liveAt);
-	}, [channel.data]);
+	}, [channel, channel.data]);
 
 	useUpdateEffect(() => {
 		if(!showEditPanel){
