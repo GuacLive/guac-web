@@ -42,7 +42,11 @@ function VideoPlayer(props) {
 			});
 			playbackAPISocket.on('connect', () => {
 				log('info', 'PlaybackAPI', `connected to ${channel}`);
-				setConnectedStatus(true);
+				if(!player.paused() && props.streamInfo.live){
+					playbackAPISocket.emit('join', {
+						name: channel
+					});
+				}
 			});
 			playbackAPISocket.on('viewerCount', (data) => {
 				log('info', 'PlaybackAPI', `connected to ${channel}`);
@@ -55,16 +59,13 @@ function VideoPlayer(props) {
 			});
 			playbackAPISocket.on('disconnect', () => {
 				log('info', 'PlaybackAPI', `left ${channel}`);
-				setConnectedStatus(false);
 			});
 			playbackAPISocket.on('reconnect', (attemptNumber) => {
 				if (attemptNumber > 5) {
 					console.log('We tried reconnecting for the 5th time, so disconnect.');
 					playbackAPISocket.disconnect();
-					setConnectedStatus(false);
 				} else {
 					log('info', 'PlaybackAPI', 'reconnect');
-					setConnectedStatus(true);
 				}
 			});
 		}
@@ -236,7 +237,9 @@ function VideoPlayer(props) {
 		player.on('pause', () => {
 			if(playbackAPISocket) {
 				if(playbackAPISocket.connected) {
-					playbackAPISocket.disconnect();
+					playbackAPISocket.emit('leave', {
+						name: channel
+					});
 				}
 			}
 		})
@@ -246,12 +249,17 @@ function VideoPlayer(props) {
 			}else if(!playbackAPISocket.connected){
 				playbackAPISocket.connect();
 			}
+			playbackAPISocket.emit('join', {
+				name: channel
+			});
 		});
 
 		player.on('error', (e) => {
 			if(playbackAPISocket){
 				if(playbackAPISocket.connected){
-					playbackAPISocket.disconnect();
+					playbackAPISocket.emit('leave', {
+						name: channel
+					});
 				}
 			}
 			if(e.code != 3){
@@ -285,26 +293,6 @@ function VideoPlayer(props) {
 			}
 		};
 	  }, []);
-	
-	
-	  useEffect(function joinOrLeavePlayback() {
-		console.log('useEffect', connectedStatus, channel, playbackAPISocket);
-		if(playbackAPISocket){
-			console.log('inside playbackAPISocket');
-			if(connectedStatus){
-				playbackAPISocket.emit('join', {
-					name: channel
-				});
-			}else{
-				playbackAPISocket.emit('leave', {
-					name: channel
-				});
-			}
-		}else{
-			console.log('playbackAPISocket is null');
-		}
-	}.bind(this), [connectedStatus]);
-
 
 	// wrap the player in a div with a `data-vjs-player` attribute
 	// so videojs won't create additional wrapper in the DOM
