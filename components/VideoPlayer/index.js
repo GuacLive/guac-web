@@ -16,11 +16,10 @@ if(typeof document !== 'undefined'){
 	require('!style-loader!css-loader!video.js/dist/video-js.css')
 }
 
+var playbackAPISocket;
 const DEFAULT_OFFLINE_POSTER = '//cdn.guac.live/offline-banners/offline-banner.png';
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
 function VideoPlayer(props) {
-	var playbackAPISocket;
-	var didCancel = false;
 	let player;
 	let videoNode;
 	const dispatch = useDispatch();
@@ -30,7 +29,7 @@ function VideoPlayer(props) {
 	var channel = props.streamInfo && props.streamInfo.username;
 	
 	function connectToPlaybackAPI() {
-		if(!didCancel){
+		if(!playbackAPISocket || !playbackAPISocket.connected){
 			playbackAPISocket = io(`${VIEWER_API_URL}/playback`, {
 				'timeout': 2000,
 				'reconnection': true,
@@ -47,7 +46,8 @@ function VideoPlayer(props) {
 			});
 			playbackAPISocket.on('viewerCount', (data) => {
 				log('info', 'PlaybackAPI', `connected to ${channel}`);
-				if(!data || data.channel !== channel) return;
+				log('info', 'PlaybackAPI', `${data.channel} === ${channel}?`)
+				if (!data || data.channel !== channel) return;
 				dispatch({
 					type: 'SET_CHANNEL_VIEWERS',
 					viewers: data.viewers
@@ -57,10 +57,12 @@ function VideoPlayer(props) {
 				log('info', 'PlaybackAPI', `left ${channel}`);
 				setConnectedStatus(false);
 			});
-			playbackAPISocket.on('reconnect', () => {
-				if(attemptNumber > 5){
-					socket.disconnect();
-				}else{
+			playbackAPISocket.on('reconnect', (attemptNumber) => {
+				if (attemptNumber > 5) {
+					console.log('We tried reconnecting for the 5th time, so disconnect.');
+					playbackAPISocket.disconnect();
+					setConnectedStatus(false);
+				} else {
 					log('info', 'PlaybackAPI', 'reconnect');
 					setConnectedStatus(true);
 				}
@@ -271,7 +273,6 @@ function VideoPlayer(props) {
 
 		// Specify how to clean up after this effect:
 		return function cleanup() {
-			didCancel = true;
 			if(player){
 				player.dispose();
 			}
