@@ -84,7 +84,8 @@ function ChannelPage(props){
 	const channel = useSelector(state => state.channel);
 	const site = useSelector(state => state.site);
 
-	const channelAPISocket = useChannelSocket(channel);
+	const channelAPISocket = useChannelSocket(channel?.data?.name);
+	var previousChannel = channel?.data?.name;
 	
 	let isMe = (authentication.user && authentication.user.id )
 		&& 
@@ -214,6 +215,12 @@ function ChannelPage(props){
 		let now = new Date().getTime();
 		let liveAt = channel && channel.data && channel.data.liveAt ? new Date(channel.data.liveAt) : 0;
 		if(channel?.data?.live) setTimer(now - liveAt);
+		if(channel?.data.name !== previousChannel){
+			if(channelAPISocket){
+				channelAPISocket.emit('setChannel', channel.data.name);
+			}
+		}
+		previousChannel = channel.data.name;
 	}, [channel, channel.data]);
 
 	useUpdateEffect(() => {

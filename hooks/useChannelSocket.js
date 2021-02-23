@@ -7,7 +7,9 @@ import { fetchChannel } from 'actions';
 import log from 'utils/log';
 
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
-export default function useChannelSocket(channel){
+export default function useChannelSocket(c){
+	const [channel, setChannel] = useState(c)
+
 	const [channelAPISocket, setChannelAPISocket] = useState(null);
 	const dispatch = useDispatch();
 	useEffect(() => {
@@ -27,18 +29,26 @@ export default function useChannelSocket(channel){
 
 		if(!didCancel){
 			if(channelAPISocket){
+				channelAPISocket.on('setChannel', (newChannel) => {
+					console.log('setChannel', channel, newChannel);
+					if(channel){
+						socket.leave(channel);
+						setChannel(newChannel);
+						socket.join(newChannel);
+					}
+				});
 				channelAPISocket.on('connect', () => {
-					if(!channel || !channel.data || !channel.data.name) return;
-					log('info', 'Channel', 'Socket', `Joining ${channel.data.name}`);
+					if(!channel) return;
+					log('info', 'Channel', 'Socket', `Joining ${channel}`);
 					channelAPISocket.emit('join', {
-						name: channel.data.name
+						name: channel
 					});
 				});
 				channelAPISocket.on('disconnect', () => {
-					if(!channel || !channel.data || !channel.data.name) return;
-					log('info', 'Channel', 'Socket', `Leaving ${channel.data.name}`);
+					if(!channel) return;
+					log('info', 'Channel', 'Socket', `Leaving ${channel}`);
 					channelAPISocket.emit('leave', {
-						name: channel.data.name
+						name: channel
 					});
 				});
 				channelAPISocket.on('reload', () => {
@@ -50,11 +60,11 @@ export default function useChannelSocket(channel){
 					window.location = url;
 				});
 				channelAPISocket.on('live', (liveBoolean) => {
-					log('info', 'Channel', 'Socket', `${channel.data.name} going ${liveBoolean ? 'live': 'offline'}`);
+					log('info', 'Channel', 'Socket', `${channel} going ${liveBoolean ? 'live': 'offline'}`);
 					setTimeout(async () => {
 						try {
-							log('info', 'Channel', 'Socket', `Refetching ${channel.data.name}`);
-							dispatch(fetchChannel(channel.data.name));
+							log('info', 'Channel', 'Socket', `Refetching ${channel}`);
+							dispatch(fetchChannel(channel));
 							// If no longer live, go out of theater mode
 							if(!liveBoolean){
 								document.documentElement.classList.remove('theater-mode');
