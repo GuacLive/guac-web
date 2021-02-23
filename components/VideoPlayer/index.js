@@ -312,7 +312,7 @@ function VideoPlayer(props) {
 					controls
 					playsInline
 					preload="auto"
-					autoplay="autoplay"
+					autoPlay="autoplay"
 					style={{'width': '100%'}}
 				></video>
 			</div>
