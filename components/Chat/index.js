@@ -949,7 +949,7 @@ function ChatComponent(props){
 					)
 					: null
 			}
-			<div className={`${visible ? 'flex' : 'dn'} flex flex-column flex-grow-1 flex-nowrap overflow-hidden`}>
+			<div className={`${visible ? 'flex' : 'dn'} flex-column flex-grow-1 flex-nowrap overflow-hidden`}>
 				{
 					!connectedStatus
 					&&
