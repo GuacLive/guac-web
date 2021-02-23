@@ -370,7 +370,14 @@ function ChannelPage(props){
 										<>
 											<FontAwesomeIcon icon='user' fixedWidth />
 											&nbsp;
-											{props.channel.viewers ? props.channel.viewers.toString() : 0}
+											{channel.viewers ? channel.viewers.toString() : 
+												(
+													channel &&
+													channel.data &&
+													channel.data.viewers
+													? channel.data.viewers.toString() : 0
+												)
+											}
 										</>
 										: ''
 									}

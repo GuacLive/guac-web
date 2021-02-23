@@ -86,9 +86,9 @@
     "postcss-url": "^10.1.1",
     "postinstall-postinstall": "^2.1.0",
     "pretty-ms": "^7.0.0",
-    "react": "^0.0.0-experimental-af3d52611",
+    "react": "^0.0.0-experimental-8af27aeed",
     "react-cropper": "^2.1.5",
-    "react-dom": "^0.0.0-experimental-af3d52611",
+    "react-dom": "^0.0.0-experimental-8af27aeed",
     "react-dropzone": "^11.3.1",
     "react-giphy-searchbox": "^1.5.2",
     "react-modal": "^3.12.1",
@@ -121,7 +121,7 @@
     "videojs-theater-mode": "^1.0.0",
     "viewport-observer": "^2.3.0",
     "webpack": "^5.20.2",
-    "workbox-webpack-plugin": "^6.0.2"
+    "workbox-webpack-plugin": "^6.1.0"
   },
   "devDependencies": {
     "@lingui/cli": "^3.5.1",

@@ -44,84 +44,79 @@ function Sidebar(props){
                 <div className="flex f5 b ph3 light-gray">
                     <Trans>Followed Channels</Trans>
                 </div>
-                <SimpleBar className="flex flex-grow-1 relative h-100">
-                    {
-                        (!props.followed ||
-                            !props.followed.length)
-                        &&
-                        <div className="align-center flex-l dn flex-column relative ph4 pv2 white">
-                            <Trans>Start following your favorite streamers to find them quickly!</Trans>
-                        </div>
-                    }
-                    {
-                        props.followed &&
-                        [].concat(props.followed)
-                            .sort((a, b) => {
-                                if (a.live === b.live) {
-                                    return 1;
-                                } else if (a.live) {
-                                    return 0;
-                                } else {
-                                    return -1;
-                                }
-                            })
-                            .sort((a, b) => {
-                                return b.viewers - a.viewers;
-                            })
-                            .map((u) => {
-                                return (
-                                    <Link key={'followed-' + u.username} href="/[channel]" as={`/${u.username}`}>
-                                        <a className="site-component-fUser link white">
-                                            <Tooltip
-                                                // options
-                                                title={u.title || i18n._(t`No stream title`)}
-                                                position="right"
-                                                trigger="mouseenter"
-                                                theme="transparent"
-                                                unmountHTMLWhenHide={true}
-                                                className="flex items-center ph3 pv2 hover-bg-dark-gray bg-animate"
-                                                style={{'display': 'flex !important'}}
-                                            >
-                                                <div className="items-center flex-shrink-0 relative w2 h2 mr2">
-                                                    <Image
-                                                        src={u.avatar || 'https://api.guac.live/avatars/unknown.png'}
-                                                        alt={u.username}
-                                                        width={70}
-                                                        height={70}
-                                                        shape="squircle"
-                                                        fit="cover"
-                                                        className={`ba ${+u.live ? 'b--red' : 'b--transparent'} v-mid`}
-                                                    />
-                                                </div>
-                                                <div className="overflow-hidden" style={{
-                                                    'WebkitBoxFlex': 1,
-                                                    'msFlex': 'auto',
-                                                    'flex': 'auto'
-                                                }}>
-                                                    <span className="inline-flex items-center v-mid white b lh-title w-100 white">
-                                                        <span className="truncate">{u.username}</span>
-                                                    </span>
-                                                    <div className="moon-gray f6 lh-copy truncate">{u.category_name}</div>
-                                                </div>
-                                                <div className="flex items-center justify-end">
-                                                    {
-                                                        +u.live
-                                                            ?
-                                                            <span className="ph2 f6 tc inline-flex truncate white flex-grow-1 lh-title">
-                                                                <span className="br-100 inline-flex f6 relative w1 h1 bg-red"></span>
-                                                                {u.viewers}
-                                                            </span>
-                                                            :
-                                                            <span className="ph2 f6 tc inline-flex truncate white flex-grow-1 lh-title">Offline</span>
-                                                    }
-                                                </div>
-                                            </Tooltip>
-                                        </a>
-                                    </Link>
-                                )
-                            })
-                    }
-                </SimpleBar>
+                <div className="flex flex-column flex-grow-1 flex-nowrap overflow-hidden">
+                    <SimpleBar className="flex-grow-1 h-100" style={{height: '0', flex: '1 1 auto'}}>
+                        {
+                            (!props.followed ||
+                                !props.followed.length)
+                            &&
+                            <div className="align-center flex-l dn flex-column relative ph4 pv2 white">
+                                <Trans>Start following your favorite streamers to find them quickly!</Trans>
+                            </div>
+                        }
+                        {
+                            props.followed &&
+                            [].concat(props.followed)
+                                .sort((a, b) => {
+                                    if(a.live === b.live)
+                                        return a.viewers-b.viewers;
+                                    return a.live ? -1 : 1;
+                                })
+                                .map((u) => {
+                                    return (
+                                        <Link key={'followed-' + u.username} href="/[channel]" as={`/${u.username}`}>
+                                            <a className="site-component-fUser link white">
+                                                <Tooltip
+                                                    // options
+                                                    title={u.title || i18n._(t`No stream title`)}
+                                                    position="right"
+                                                    trigger="mouseenter"
+                                                    theme="transparent"
+                                                    unmountHTMLWhenHide={true}
+                                                    className="flex items-center ph3 pv2 hover-bg-dark-gray bg-animate"
+                                                    style={{'display': 'flex !important'}}
+                                                >
+                                                    <div className="items-center flex-shrink-0 relative w2 h2 mr2">
+                                                        <Image
+                                                            src={u.avatar || 'https://api.guac.live/avatars/unknown.png'}
+                                                            alt={u.username}
+                                                            width={70}
+                                                            height={70}
+                                                            shape="squircle"
+                                                            fit="cover"
+                                                            className={`ba ${+u.live ? 'b--red' : 'b--transparent'} v-mid`}
+                                                        />
+                                                    </div>
+                                                    <div className="overflow-hidden" style={{
+                                                        'WebkitBoxFlex': 1,
+                                                        'msFlex': 'auto',
+                                                        'flex': 'auto'
+                                                    }}>
+                                                        <span className="inline-flex items-center v-mid white b lh-title w-100 white">
+                                                            <span className="truncate">{u.username}</span>
+                                                        </span>
+                                                        <div className="moon-gray f6 lh-copy truncate">{u.category_name}</div>
+                                                    </div>
+                                                    <div className="flex items-center justify-end">
+                                                        {
+                                                            +u.live
+                                                                ?
+                                                                <span className="ph2 f6 tc inline-flex truncate white flex-grow-1 lh-title">
+                                                                    <span className="br-100 inline-flex f6 relative w1 h1 bg-red"></span>
+                                                                    {u.viewers}
+                                                                </span>
+                                                                :
+                                                                <span className="ph2 f6 tc inline-flex truncate white flex-grow-1 lh-title">Offline</span>
+                                                        }
+                                                    </div>
+                                                </Tooltip>
+                                            </a>
+                                        </Link>
+                                    )
+                                })
+                        }
+                    </SimpleBar>
+                </div>
             </nav>
             <footer className="flex white ph4 ph2-m mb5">
                 <div className="f6 flex flex-column flex-grow-1" style={{flexFlow: 'row wrap'}}>
