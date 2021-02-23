@@ -18,10 +18,9 @@ if(typeof document !== 'undefined'){
 
 const DEFAULT_OFFLINE_POSTER = '//cdn.guac.live/offline-banners/offline-banner.png';
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
-var didCancel = false;
-var playbackAPISocket;
 function VideoPlayer(props) {
-	const playerInitTime = Date.now();
+	var playbackAPISocket;
+	var didCancel = false;
 	let player;
 	let videoNode;
 	const dispatch = useDispatch();
@@ -33,13 +32,14 @@ function VideoPlayer(props) {
 	function connectToPlaybackAPI() {
 		if(!didCancel){
 			playbackAPISocket = io(`${VIEWER_API_URL}/playback`, {
-				'transports': ['websocket'],
-				withCredentials: true,
-				/*'reconnection': true,
-				'reconnectionDelay': 1000,
+				'timeout': 2000,
+				'reconnection': true,
+				'reconnectionDelay': 2000,
 				'reconnectionDelayMax': 5000,
 				'reconnectionAttempts': 5,
-				'forceNew': true*/
+				'forceNew': true,
+				'transports': ['websocket'],
+				withCredentials: true
 			});
 			playbackAPISocket.on('connect', () => {
 				log('info', 'PlaybackAPI', `connected to ${channel}`);
@@ -58,8 +58,12 @@ function VideoPlayer(props) {
 				setConnectedStatus(false);
 			});
 			playbackAPISocket.on('reconnect', () => {
-				log('info', 'PlaybackAPI', 'reconnect');
-				setConnectedStatus(true);
+				if(attemptNumber > 5){
+					socket.disconnect();
+				}else{
+					log('info', 'PlaybackAPI', 'reconnect');
+					setConnectedStatus(true);
+				}
 			});
 		}
 	};
@@ -276,6 +280,7 @@ function VideoPlayer(props) {
 				playbackAPISocket.removeAllListeners();
 				playbackAPISocket.off('connect');
 				playbackAPISocket.off('disconnect');
+				setConnectedStatus(false);
 			}
 		};
 	  }, []);
@@ -294,6 +299,8 @@ function VideoPlayer(props) {
 					name: channel
 				});
 			}
+		}else{
+			console.log('playbackAPISocket is null');
 		}
 	}.bind(this), [connectedStatus]);
 
