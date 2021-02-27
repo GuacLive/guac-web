@@ -6,6 +6,8 @@ import GuacButton from '../components/GuacButton'
 
 import {connect, useDispatch} from 'react-redux';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import * as actions from '../actions';
 
 import { Trans, t } from '@lingui/macro'
