@@ -41,10 +41,11 @@ function EmbedPage(props){
 			}
 		};
 
+
 		if(stream.live){
 			if(stream.urls){
 				// Prefer FLV if available, it has lower latency
-				let flvUrl = stream.servers[STREAMING_SERVER] + stream.urls.flv;
+				let flvUrl = `${stream.streamServer}${stream.urls.flv}`,;
 				if(stream.urls.flv){
 					videoJsOptions.sources.push({
 						src: typeof window === 'object' && 'WebSocket' in window
@@ -56,7 +57,7 @@ function EmbedPage(props){
 				}
 				if(stream.urls.hls){
 					videoJsOptions.sources.push({
-						src: `${stream.servers[STREAMING_SERVER]}${stream.urls.hls}`,
+						src: `${stream.streamServer}${stream.urls.hls}`,
 						type: 'application/x-mpegURL',
 						label: 'Auto (HLS)'
 					});
@@ -65,7 +66,7 @@ function EmbedPage(props){
 				Object.keys(stream.qualities).forEach((key) => {
 					let urlKey = stream.qualities[key];
 					videoJsOptions.sources.push({
-						src: stream.servers[STREAMING_SERVER] + `/live/${stream.user.name}/index${urlKey}.m3u8`,
+						src: stream.streamServer + `/live/${stream.user.name}/index${urlKey}.m3u8`,
 						type: 'application/x-mpegURL',
 						label: `${key} (HLS)`
 					});
