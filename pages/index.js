@@ -6,9 +6,11 @@ import GuacButton from '../components/GuacButton'
 
 import {connect, useDispatch} from 'react-redux';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import * as actions from '../actions';
 
-import { Trans } from '@lingui/macro'
+import { Trans, t } from '@lingui/macro'
 
 import Link from 'next/link';
 import Image from '../components/Image';
@@ -26,7 +28,9 @@ let VideoPlayer = dynamic(
 		loading: () => <div className="w-100 h-100 bg-black white content-box" style={{'paddingTop': '56.25%'}} />
 	}
 );
-const STREAMING_SERVER = 'eu';
+import {
+	Tooltip,
+} from 'react-tippy';
 function IndexPage(props){
 	const dispatch = useDispatch();
     const renderStream = stream => {
@@ -41,11 +45,11 @@ function IndexPage(props){
 				isChannel: false
 			}
 		};
-
+		
 		if(stream.live){
 			if(stream.urls){
 				// Prefer FLV if available, it has lower latency
-				let flvUrl = stream.servers[STREAMING_SERVER] + stream.urls.flv;
+				let flvUrl = `${stream.streamServer}${stream.urls.flv}`;
 				if(stream.urls.flv){
 					videoJsOptions.sources.push({
 						src: typeof window === 'object' && 'WebSocket' in window
@@ -57,7 +61,7 @@ function IndexPage(props){
 				}
 				if(stream.urls.hls){
 					videoJsOptions.sources.push({
-						src: `${stream.servers[STREAMING_SERVER]}${stream.urls.hls}`,
+						src: `${stream.streamServer}${stream.urls.hls}`,
 						type: 'application/x-mpegURL',
 						label: 'Auto (HLS)'
 					});
@@ -66,7 +70,7 @@ function IndexPage(props){
 				Object.keys(stream.qualities).forEach((key) => {
 					let urlKey = stream.qualities[key];
 					videoJsOptions.sources.push({
-						src: stream.servers[STREAMING_SERVER] + `/live/${stream.user.name}/index${urlKey}.m3u8`,
+						src: stream.streamServer + `/live/${stream.user.name}/index${urlKey}.m3u8`,
 						type: 'application/x-mpegURL',
 						label: `${key} (HLS)`
 					});
@@ -99,7 +103,7 @@ function IndexPage(props){
 									{stream.type == 'PARTNER' &&
 										<Tooltip
 											// options
-											title={i18n._(t`Partnered`)}
+											title={t`Partnered`}
 											position="right"
 											trigger="mouseenter"
 											theme="transparent"
