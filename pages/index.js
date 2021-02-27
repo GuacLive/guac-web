@@ -8,7 +8,7 @@ import {connect, useDispatch} from 'react-redux';
 
 import * as actions from '../actions';
 
-import { Trans } from '@lingui/macro'
+import { Trans, t } from '@lingui/macro'
 
 import Link from 'next/link';
 import Image from '../components/Image';
@@ -101,7 +101,7 @@ function IndexPage(props){
 									{stream.type == 'PARTNER' &&
 										<Tooltip
 											// options
-											title={i18n._(t`Partnered`)}
+											title={t`Partnered`}
 											position="right"
 											trigger="mouseenter"
 											theme="transparent"
