@@ -47,7 +47,7 @@ function IndexPage(props){
 		if(stream.live){
 			if(stream.urls){
 				// Prefer FLV if available, it has lower latency
-				let flvUrl = `${stream.streamServer}${stream.urls.flv}`,;
+				let flvUrl = `${stream.streamServer}${stream.urls.flv}`;
 				if(stream.urls.flv){
 					videoJsOptions.sources.push({
 						src: typeof window === 'object' && 'WebSocket' in window
