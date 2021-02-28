@@ -1,4 +1,4 @@
-@import 'tachyons/src/tachyons';
+@import '@guaclive/tachyons/src/tachyons';
 @import 'videojs-skin.css';
 
 @import 'react-tippy/dist/tippy.css';
