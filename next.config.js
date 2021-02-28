@@ -12,6 +12,10 @@ module.exports = withTM(withOffline({
 			config.resolve.alias['@sentry/node'] = '@sentry/browser'
 		}
 
+		config.resolve.alias['react/jsx-dev-runtime'] = 'react/jsx-dev-runtime.js'
+		config.resolve.alias['react/jsx-runtime'] = 'react/jsx-runtime.js'
+
+
 		config.module.rules.push({
 			test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
 			type: 'asset/resource'
