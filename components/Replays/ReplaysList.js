@@ -33,6 +33,7 @@ function ReplaysList(props){
 				replays.data.length > 0
 				?
 				replays.data.map((replay, i) => {
+					return (
 					<div className="flex w-33 flex-grow-1 flex-nowrap pa1 bg-near-black white">
 						<Link href={replay.stream}>
 							<a><Image src={replay.thumbnail} shape="rounded" fit="contain" flexible lazyload /></a>
@@ -45,7 +46,7 @@ function ReplaysList(props){
 							</span>
 							<GuacButton url={replay.stream} color="dark-green">Watch replay</GuacButton>
 						</div>	
-					</div>
+					</div>)
 				})
 				: (<Trans>No replays available.</Trans>)
 			}
