@@ -12,10 +12,6 @@ module.exports = withTM(withOffline({
 			config.resolve.alias['@sentry/node'] = '@sentry/browser'
 		}
 
-		config.resolve.alias['react/jsx-dev-runtime'] = 'react/jsx-dev-runtime.js'
-		config.resolve.alias['react/jsx-runtime'] = 'react/jsx-runtime.js'
-
-
 		config.module.rules.push({
 			test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
 			type: 'asset/resource'
@@ -109,7 +105,6 @@ module.exports = withTM(withOffline({
 	},
 	productionBrowserSourceMaps: true,
 	experimental: {
-		plugins: true,
 		sprFlushToDisk: true,
 		conformance: true,
 		reactMode: 'concurrent',
@@ -122,7 +117,8 @@ module.exports = withTM(withOffline({
 		optimizeFonts: true,
 		optimizeImages: true,
 		optimizeCss: process.env.NODE_ENV === 'production' ? true : false,
-		scrollRestoration: true
+		scrollRestoration: true,
+		scriptLoader: true
 	},
 	future: {
 		excludeDefaultMomentLocales: true,
