@@ -47,7 +47,7 @@ export default function AvatarUpload(props){
 
     
 	useEffect(() => {
-        if(props.user.avatar) setCurrentAvarar(props.user.avatar);
+        if(props.user.avatar) setCurrentAvatar(props.user.avatar);
     }, [props.user]);
 
 	useEffect(() => {
