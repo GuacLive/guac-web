@@ -39,9 +39,14 @@ function ReplaysList(props){
 							<a><Image src={replay.thumbnail} shape="rounded" fit="contain" flexible lazyload /></a>
 						</Link>
 						<div className="pa2">
-							<span className="f5 db link green">
+							<span className="f6 db link green">
 								<Link href={replay.stream}>
-									<a className="link color-inherit">{format(new Date(replay.time), 'LLLL')}</a>
+									<a className="link color-inherit">{replay.streamName}</a>
+								</Link>
+							</span>
+							<span className="f4 db link green">
+								<Link href={replay.stream}>
+									<a className="link color-inherit">{format(new Date(replay.time), 'PPPP')}</a>
 								</Link>
 							</span>
 							<GuacButton url={replay.stream} color="dark-green">Watch replay</GuacButton>
