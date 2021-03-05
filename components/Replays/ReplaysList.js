@@ -4,13 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import format from 'date-fns/format';
 
-import Link from 'next/link'
-
 import Image from '../Image';
 
 import { Trans } from '@lingui/macro';
-
-import GuacButton from 'components/GuacButton';
 
 import * as actions from 'actions';
 function ReplaysList(props){
@@ -36,21 +32,21 @@ function ReplaysList(props){
 				replays.data.map((replay, i) => {
 					return (
 					<div className={`flex w-33 flex-grow-1 flex-nowrap pa1 ${darkMode ? 'bg-near-black' : 'bg-white'} white`}>
-						<Link href={replay.stream}>
+						<a href={replay.stream}>
 							<a><Image src={replay.thumbnail} shape="rounded" fit="contain" flexible lazyload /></a>
-						</Link>
+						</a>
 						<div className="pa2">
 							<span className="f6 db link primary-50">
-								<Link href={replay.stream}>
+								<a href={replay.stream}>
 									<a className="link color-inherit">{format(new Date(replay.time), 'PPPP')}</a>
-								</Link>
+								</a>
 							</span>
 							<span className="f4 db link green">
-								<Link href={replay.stream}>
+								<a href={replay.stream}>
 									<a className="link color-inherit">{replay.streamName}</a>
-								</Link>
+								</a>
 							</span>
-							<GuacButton url={replay.stream} color="dark-green">Watch replay</GuacButton>
+							<a href={replay.stream} className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--dark-green bg-dark-green guac-btn">Watch replay</a>
 						</div>	
 					</div>)
 				})
