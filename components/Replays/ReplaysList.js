@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import format from 'date-fns/format';
 
+import Link from 'next/link'
+
 import Image from '../Image';
 
 import { Trans } from '@lingui/macro';

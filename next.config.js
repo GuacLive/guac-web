@@ -12,10 +12,6 @@ module.exports = withTM(withOffline({
 			config.resolve.alias['@sentry/node'] = '@sentry/browser'
 		}
 
-		config.resolve.alias['react/jsx-dev-runtime'] = 'react/jsx-dev-runtime.js'
-		config.resolve.alias['react/jsx-runtime'] = 'react/jsx-runtime.js'
-
-
 		config.module.rules.push({
 			test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
 			type: 'asset/resource'
@@ -105,11 +101,10 @@ module.exports = withTM(withOffline({
 	},
 	reactStrictMode: true,
 	images: {
-		domains: ['guac.live', 'api.guac.live', 'cdn.guac.live', 'emotes.guac.live', 'stream.guac.live', 'media.rawg.io', 'cdn.frankerfacez.com', 'static-cdn.jtvnw.net', 'cdn.betterttv.net', 'ggpht.com', 'yt3.ggpht.com']
+		domains: ['guac.live', 'api.guac.live', 'cdn.guac.live', 'emotes.guac.live', 'lon.stream.guac.live', 'stream.guac.live', 'media.rawg.io', 'cdn.frankerfacez.com', 'static-cdn.jtvnw.net', 'cdn.betterttv.net', 'ggpht.com', 'yt3.ggpht.com']
 	},
 	productionBrowserSourceMaps: true,
 	experimental: {
-		plugins: true,
 		sprFlushToDisk: true,
 		conformance: true,
 		reactMode: 'concurrent',
@@ -121,7 +116,7 @@ module.exports = withTM(withOffline({
 		scriptLoader: true,
 		optimizeFonts: true,
 		optimizeImages: true,
-		optimizeCss: process.env.NODE_ENV === 'production' ? true : false,
+		optimizeCss: /*process.env.NODE_ENV === 'production' ? true :*/false,
 		scrollRestoration: true
 	},
 	future: {

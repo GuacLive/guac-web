@@ -14,6 +14,8 @@ export default function AvatarUpload(props){
 	const [image, setImage] = useState(null);
 	const [imageType, setImageType] = useState(null);
 
+    const [currentAvatar, setCurrentAvatar] = useState('//cdn.guac.live/profile-avatars/offline-avatar.png');
+
 	const [modalIsOpen, setModalIsOpen] = useState(false);
 
 	function openModal(){
@@ -37,10 +39,16 @@ export default function AvatarUpload(props){
 		.then(response => response.json())
 		.then(r => {
 			console.log('updateAvatar result', r);
+            if(r.avatar) setCurrentAvatar(r.avatar);
 			closeModal();
 		})
 		.catch(error => console.error(error));
 	}
+
+    
+	useEffect(() => {
+        if(props.user.avatar) setCurrentAvatar(props.user.avatar);
+    }, [props.user]);
 
 	useEffect(() => {
 		console.log('test');
@@ -60,7 +68,7 @@ export default function AvatarUpload(props){
             <div className="flex flex-row">
                 <div className="relative v-mid w3 h3">
                     <Image
-                        src={props.user.avatar || '//api.guac.live/avatars/unknown.png'}
+                        src={currentAvatar}
                         alt={props.user.name}
                         shape="squircle"
                         fit="cover"
