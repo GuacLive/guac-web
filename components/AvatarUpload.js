@@ -68,7 +68,7 @@ export default function AvatarUpload(props){
             <div className="flex flex-row">
                 <div className="relative v-mid w3 h3">
                     <Image
-                        src={props.user.avatar || '//api.guac.live/avatars/unknown.png'}
+                        src={currentAvatar}
                         alt={props.user.name}
                         shape="squircle"
                         fit="cover"
