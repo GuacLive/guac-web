@@ -37,14 +37,10 @@ function ReplaysList(props){
 						</a>
 						<div className="pa2">
 							<span className="f6 db link primary-50">
-								<a href={replay.stream}>
-									<a className="link color-inherit">{format(new Date(replay.time), 'PPPP')}</a>
-								</a>
+								<a href={replay.stream} className="link color-inherit">{format(new Date(replay.time), 'PPPP')}</a>
 							</span>
 							<span className="f4 db link green">
-								<a href={replay.stream}>
-									<a className="link color-inherit">{replay.streamName}</a>
-								</a>
+								<a href={replay.stream} className="link color-inherit">{replay.streamName}</a>
 							</span>
 							<a href={replay.stream} className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--dark-green bg-dark-green guac-btn">Watch replay</a>
 						</div>	
