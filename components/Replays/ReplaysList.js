@@ -38,7 +38,7 @@ function ReplaysList(props){
 						<div className="pa2">
 							<span className="f5 db link green">
 								<Link href={replay.stream}>
-									<a className="link color-inherit">{format(stream.time, 'LLLL')}</a>
+									<a className="link color-inherit">{format(replay.time, 'LLLL')}</a>
 								</Link>
 							</span>
 							<GuacButton url={replay.stream} color="dark-green">Watch replay</GuacButton>
