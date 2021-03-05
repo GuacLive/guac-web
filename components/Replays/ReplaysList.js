@@ -10,6 +10,8 @@ import Image from '../Image';
 
 import { Trans } from '@lingui/macro';
 
+import GuacButton from 'components/GuacButton';
+
 import * as actions from 'actions';
 function ReplaysList(props){
 	const dispatch = useDispatch();
