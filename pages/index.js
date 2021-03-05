@@ -154,7 +154,7 @@ function IndexPage(props){
 							<div className="w-100 flex flex-column bg-bar">
 								<div className="pa2 w-100 flex flex-row justify-between items-center">
 									<div className="flex items-center">
-										<div className="w3 h3 mr3 ba bw1 b--green bg-center cover br-100" style={{'backgroundImage': `url(${channel.user.avatar || '//api.guac.live/avatars/unknown.png'}`}}></div>
+										<div className="w3 h3 mr3 ba bw1 b--green bg-center cover br-100" style={{'backgroundImage': `url(${channel.user.avatar}`}}></div>
 										<div className="flex flex-column">
 											<Link href="/c/[name]" as={`/c/${channel.name}`}>
 												<a className="link white f4">{channel.name}</a>
@@ -170,7 +170,7 @@ function IndexPage(props){
 								</div>
 								<div className="w-100">
 									<div className="aspect-ratio aspect-ratio--16x9">
-										<div className="flex flex-column justify-between aspect-ratio--object bg-center cover">
+										<div className="flex flex-column justify-between aspect-ratio--object bg-center cover" style={{'backgroundImage': `url(${channel.thumbnail}`}}>
 											<Link href="/[channel]" as={`/${channel.name}`}>
 												<a className="link white pa2 w-100 flex justify-between f4 bg-black-70">{channel.title}</a>
 											</Link>
