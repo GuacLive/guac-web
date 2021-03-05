@@ -16,6 +16,7 @@ import * as actions from 'actions';
 function ReplaysList(props){
 	const dispatch = useDispatch();
 	const channel = useSelector(state => state.channel);
+	const darkMode = useSelector(state => state.site.mode === 'dark');
 
 	useEffect(() => {
 		dispatch(actions.fetchReplays(channel && channel.data && channel.data.name));
@@ -34,19 +35,19 @@ function ReplaysList(props){
 				?
 				replays.data.map((replay, i) => {
 					return (
-					<div className="flex w-33 flex-grow-1 flex-nowrap pa1 bg-near-black white">
+					<div className={`flex w-33 flex-grow-1 flex-nowrap pa1 ${darkMode ? 'bg-near-black' : 'bg-white'} white`}>
 						<Link href={replay.stream}>
 							<a><Image src={replay.thumbnail} shape="rounded" fit="contain" flexible lazyload /></a>
 						</Link>
 						<div className="pa2">
-							<span className="f6 db link green">
+							<span className="f6 db link primary-50">
 								<Link href={replay.stream}>
-									<a className="link color-inherit">{replay.streamName}</a>
+									<a className="link color-inherit">{format(new Date(replay.time), 'PPPP')}</a>
 								</Link>
 							</span>
 							<span className="f4 db link green">
 								<Link href={replay.stream}>
-									<a className="link color-inherit">{format(new Date(replay.time), 'PPPP')}</a>
+									<a className="link color-inherit">{replay.streamName}</a>
 								</Link>
 							</span>
 							<GuacButton url={replay.stream} color="dark-green">Watch replay</GuacButton>
