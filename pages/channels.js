@@ -81,32 +81,37 @@ class ChannelsPage extends Component {
 
 						{channels.data && channels.data.map((channel) => {
 							return (
-								<div className="site-component-channels__channel w-33 pa2" key={`channel_${channel.id}`}>
-									{
-										this.state.onlyLive
-										? <Link href={`/[channel]`} as={`/${channel.name}`}>
-											<a><Image src={`${channel.streamServer}/live/${channel.name}/thumbnail.jpg`} shape="rounded" fit="contain" flexible lazyload /></a>
-										</Link> : <></>
-									}
-									<div className="pa2">
-										<span className="f5 db link green">
-											<Link href={`/[channel]`} as={`/${channel.name}`}>
-												<a className="link color-inherit">{channel.title}</a>
-											</Link>
-										</span>
-										<span className="f6 gray mv1">
-											<p>
+								<div key={`channel_${channel.id}`} className="pa2 w-third-l w-100">
+									<div className="w-100 flex flex-column bg-bar">
+										<div className="pa2 w-100 flex flex-row justify-between items-center">
+											<div className="flex items-center">
+												<div className="w3 h3 mr3 ba bw1 b--green bg-center cover br-100" style={{'backgroundImage': `url(${channel.user.avatar}`}}></div>
+												<div className="flex flex-column">
 													<Link href={`/[channel]`} as={`/${channel.name}`}>
-														<a className="link color-inherit b">{channel.name}</a>
+														<a className="link white f4">{channel.name}</a>
 													</Link>
-													<br />
-													is playing&nbsp;
-													<Link href={`/category/[id}`} href={`/category/${channel.category_id}`}>
-														<a className="link color-inherit b">{channel.category_name}</a>
+													<Link href="/category/[id]" as={`/category/${channel.category_id}`}>
+														<a className="link white f5 mt2"><i className="fa fa-gamepad"></i> {channel.category_name}</a>
 													</Link>
-											</p>
-										</span>
-										<GuacButton url={`/${channel.name}`} color="dark-green">Watch</GuacButton>
+												</div>
+											</div>
+											<div className="flex flex-column">
+												<GuacButton color="green" url={`/${channel.name}`}><Trans>Watch</Trans></GuacButton>
+											</div>
+										</div>
+										<div className="w-100">
+											<div className="aspect-ratio aspect-ratio--16x9">
+												<div className="flex flex-column justify-between aspect-ratio--object bg-center cover" style={{'backgroundImage': channel.live ? `url(${channel.streamServer}/live/${channel.name}/thumbnail.jpg)` : ''}}>
+													<Link href="/[channel]" as={`/${channel.name}`}>
+														<a className="link white pa2 w-100 flex justify-between f4 bg-black-70">{channel.title}</a>
+													</Link>
+													<div className="w-100 flex justify-between ph2 pt4 pb2 f5 grad-bot">
+														{channel.live ? <span className="pv1 ph2 bg-black white br2"><i className="fa fa-circle red"></i> Live</span> : <></>}
+														{channel.live ? <span className="pv1 ph2 bg-black white br2"><i className="fa fa-eye"></i> {channel.viewers}</span> : <></>}
+													</div>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							);
