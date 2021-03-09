@@ -100,17 +100,17 @@ class ChannelsPage extends Component {
 										</div>
 										<div className="w-100">
 											<div className="aspect-ratio aspect-ratio--16x9">
-												<div className="flex flex-column justify-between aspect-ratio--object bg-center cover" style={{'backgroundImage': +channel.live ? `url(${channel.streamServer}/live/${channel.name}/thumbnail.jpg)` : `url(${channel.banner || DEFAULT_OFFLINE_POSTER})`}}>
-													<Link href="/[channel]" as={`/${channel.name}`}>
-														<a className="link white pa2 w-100 flex justify-between f4 bg-black-70">{channel.title}</a>
-													</Link>
-													<div className="w-100 flex justify-between ph2 pt4 pb2 f5 grad-bot">
-														{+channel.live ? 
-															<span className="pv1 ph2 bg-black white br2"><i className="fa fa-circle red"></i> <Trans>Live</Trans></span> : <span className="pv1 ph2 bg-black white br2"><Trans>Offline</Trans></span>
-														}
-														{+channel.live ? <span className="pv1 ph2 bg-black white br2"><i className="fa fa-eye"></i> {channel.viewers}</span> : <></>}
-													</div>
-												</div>
+												<Link href="/[channel]" as={`/${channel.name}`}>
+													<a className="link flex flex-column justify-between aspect-ratio--object bg-center cover" style={{'backgroundImage': +channel.live ? `url(${channel.streamServer}/live/${channel.name}/thumbnail.jpg)` : `url(${channel.banner || DEFAULT_OFFLINE_POSTER})`}}>
+														<span className="link white pa2 w-100 flex justify-between f4 bg-black-70">{channel.title || i18n._(t`No stream title`)}</span>
+														<div className="w-100 flex justify-between ph2 pt4 pb2 f5 grad-bot">
+															{+channel.live ?
+																<span className="pv1 ph2 bg-black white br2"><i className="fa fa-circle red"></i> <Trans>Live</Trans></span> : <span className="pv1 ph2 bg-black white br2"><Trans>Offline</Trans></span>
+															}
+															{+channel.live ? <span className="pv1 ph2 bg-black white br2"><i className="fa fa-eye"></i> {channel.viewers}</span> : <></>}
+														</div>
+													</a>
+												</Link>
 											</div>
 										</div>
 									</div>
