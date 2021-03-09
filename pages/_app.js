@@ -32,9 +32,9 @@ import ErrorBoundary from 'utils/ErrorBoundary';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 
-import { faBan, faBars, faBell, faCheck, faCheckCircle, faClock, faCaretSquareLeft, faCaretSquareRight, faHourglass, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog, faMinusCircle, faTrash, faEdit, faVideo, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { faBan, faBars, faBell, faCheck, faCheckCircle, faClock, faCaretSquareLeft, faCaretSquareRight, faHourglass, faHome, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog, faMinusCircle, faTrash, faEdit, faVideo, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
-import { faSmileWink, faImage, faHome, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
+import { faSmileWink, faImage, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 
 import FeaturesService from 'utils/FeaturesService';
 
