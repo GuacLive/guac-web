@@ -409,7 +409,7 @@ function ChannelPage(props){
 				</div>
 				{showSub && <SubscriptionDialog />}
 				{showModal && <div className="db pa2 bg-black-50 primary"><EditStreamPanel /></div>}
-				<div className="site-component-profile__tabs flex items-center ph3" style={{height:'48px'}}>
+				<div className="site-component-profile__tabs flex items-center ph3 overflow-y-scroll" style={{height:'48px'}}>
 					<a 
 						href="#"
 						onClick={(e) => {setTab(-1);e&&e.preventDefault();return true;}}
@@ -417,7 +417,7 @@ function ChannelPage(props){
 							`${isMobile ? 'flex' : 'dn'} items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == -1 ? 'green b--green' : 'primary b--transparent'} hover-dark-green link`
 						}
 					>
-						<span><Trans>CHAT</Trans></span>
+						<span className="truncate"><Trans>CHAT</Trans></span>
 					</a>
 					<a 
 						href="#"
@@ -426,7 +426,7 @@ function ChannelPage(props){
 							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 0 ? 'green b--green' : 'primary b--transparent'} hover-dark-green link`
 						}
 					>
-						<Trans>ABOUT</Trans>
+						<span className="truncate"><Trans>ABOUT</Trans></span>
 					</a>
 					<a 
 						href="#"
@@ -435,7 +435,7 @@ function ChannelPage(props){
 							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 1 ? 'green b--green' : 'primary b--transparent'} hover-dark-green link`
 						}
 					>
-						<Trans>REPLAYS</Trans>
+						<span className="truncate"><Trans>REPLAYS</Trans></span>
 					</a>
 					<a 
 						href="#"
@@ -444,7 +444,7 @@ function ChannelPage(props){
 							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 2 ? 'green b--green' : 'primary b--transparent'} hover-dark-green link`
 						}
 					>
-						<span><Trans>FOLLOWERS</Trans> &middot; {channel.data.followers}</span>
+						<span className="truncate"><Trans>FOLLOWERS</Trans> &middot; {channel.data.followers}</span>
 					</a>
 					<a 
 						href="#"
@@ -453,7 +453,7 @@ function ChannelPage(props){
 							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb ${tab == 3 ? 'green b--green' : 'primary b--transparent'} hover-dark-green link`
 						}
 					>
-						<span><Trans>FOLLOWING</Trans></span>
+						<span className="truncate"><Trans>FOLLOWING</Trans></span>
 					</a>
 				</div>
 				{
