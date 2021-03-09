@@ -10,36 +10,41 @@ import {
 	Tooltip,
 } from 'react-tippy';
 import Image from '../Image';
+
+import ActiveLink from 'components/ActiveLink';
+
 function Sidebar(props){
+    const linkClassName  = 'items-center flex flex-nowrap pv2 hover-bg-dark-gray bg-animate link truncate white';
+    const activeClassName = 'green';
     return (
         <aside className="fixed flex flex-column vh-100 flex-shrink-1 mv2-l site-component-sidebar bg-bar">
         <div className="flex flex-column h-100">
             <nav className="flex flex-column h-100 relative">
                 <div className="flex flex-column flex-shrink-0 relative pv2">
-                    <Link href="/">
-                        <a className="items-center flex flex-nowrap ph3 pv2 hover-bg-dark-gray bg-animate link truncate white hover-light-green">
+                    <ActiveLink activeClassName={activeClassName} href="/">
+                        <a className={linkClassName}>
                             <div className="w-100 truncate flex-grow-1 b lh-title">
                                 <span title={i18n._(t`Home`)} className="inline-flex ml3" aria-hidden={true}><FontAwesomeIcon icon="home" /></span>
                                 <span title={i18n._(t`Home`)} className="inline-flex ml3"><Trans>Home</Trans></span>
                             </div>
                         </a>
-                    </Link>
-                    <Link href="/channels">
-                        <a className="items-center flex flex-nowrap ph3 pv2 hover-bg-dark-gray bg-animate link truncate white hover-light-green">
+                    </ActiveLink>
+                    <ActiveLink activeClassName={activeClassName} href="/channels">
+                        <a className={linkClassName}>
                             <div className="w-100 truncate flex-grow-1 b lh-title">
                                 <span title={i18n._(t`Channels`)} className="inline-flex ml3" aria-hidden={true}><FontAwesomeIcon icon="search" /></span>
                                 <span title={i18n._(t`Channels`)} className="inline-flex ml3"><Trans>Channels</Trans></span>
                             </div>
                         </a>
-                    </Link>
-                    <Link href="/categories">
-                        <a className="items-center flex flex-nowrap ph3 pv2 hover-bg-dark-gray bg-animate link truncate white hover-light-green">
+                    </ActiveLink>
+                    <ActiveLink activeClassName={activeClassName} href="/categories">
+                        <a className={linkClassName}>
                             <div className="w-100 truncate flex-grow-1 b lh-title">
                                 <span title={i18n._(t`Browse`)} className="inline-flex ml3" aria-hidden={true}><FontAwesomeIcon icon="gamepad" /></span>
                                 <span title={i18n._(t`Browse`)} className="inline-flex ml3"><Trans>Browse</Trans></span>
                             </div>
                         </a>
-                    </Link>
+                    </ActiveLink>
                 </div>
                 <div className="flex f5 b ph3 light-gray">
                     <Trans>Followed Channels</Trans>
