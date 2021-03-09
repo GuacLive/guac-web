@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 
 import * as actions from '../actions';
 
-import { Trans } from '@lingui/macro';
+import { Trans, t } from '@lingui/macro';
 
 import Link from 'next/link';
 
@@ -40,7 +40,7 @@ class ChannelsPage extends Component {
 	}
 
 	render() {
-		const { channels } = this.props;
+		const { channels, i18n } = this.props;
 		if(channels.loading) return null;
 		return (
 			<Fragment>
