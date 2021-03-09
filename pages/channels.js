@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 
 import * as actions from '../actions';
 
-import { Trans } from '@lingui/macro';
+import { Trans, t } from '@lingui/macro';
 
 import Link from 'next/link';
 
@@ -12,8 +12,7 @@ import Switch from 'react-switch';
 
 import GuacButton from '../components/GuacButton';
 
-import Image from '../components/Image';
-
+const DEFAULT_OFFLINE_POSTER = '//cdn.guac.live/offline-banners/offline-banner.png';
 class ChannelsPage extends Component {
 	_isMounted = false;
 	state = {onlyLive: true};
@@ -24,7 +23,6 @@ class ChannelsPage extends Component {
 	}
 
 	static async getInitialProps({store}) {
-		const { channels } = store.getState()
 		await store.dispatch(actions.fetchChannels(1, ''));
 		return {
 			...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})
@@ -54,6 +52,7 @@ class ChannelsPage extends Component {
 							<Switch
 								onChange={this.handleChange}
 								checked={this.state.onlyLive}
+								onColor="#19a974"
 							/>
 						</label>
 					</div>
@@ -71,7 +70,7 @@ class ChannelsPage extends Component {
 								this.state.onlyLive &&
 								<a className="link white inline-flex items-center justify-center tc pv2 ph3 nowrap lh-solid pointer br2 ba b--transparent bg-dark-gray guac-btn"
 									href="#"
-									onClick={() => this.handleChange(0)}>
+									onClick={() => this.handleChange()}>
 									<Trans>View offline channels</Trans>
 								</a>
 							}
@@ -81,32 +80,39 @@ class ChannelsPage extends Component {
 
 						{channels.data && channels.data.map((channel) => {
 							return (
-								<div className="site-component-channels__channel w-33 pa2" key={`channel_${channel.id}`}>
-									{
-										this.state.onlyLive
-										? <Link href={`/[channel]`} as={`/${channel.name}`}>
-											<a><Image src={channel.thumbnail} shape="rounded" fit="contain" flexible lazyload /></a>
-										</Link> : <></>
-									}
-									<div className="pa2">
-										<span className="f5 db link green">
-											<Link href={`/[channel]`} as={`/${channel.name}`}>
-												<a className="link color-inherit">{channel.title}</a>
-											</Link>
-										</span>
-										<span className="f6 gray mv1">
-											<p>
+								<div key={`channel_${channel.id}`} className="pa2 w-third-l w-100">
+									<div className="w-100 flex flex-column bg-bar">
+										<div className="pa2 w-100 flex flex-row justify-between items-center">
+											<div className="flex items-center">
+												<div className={`w3 h3 mr3 ba bw1 ${+channel.live ? 'b--green' : 'b--red'} bg-center cover br-100`} style={{'backgroundImage': `url(${channel.avatar}`}}></div>
+												<div className="flex flex-column">
 													<Link href={`/[channel]`} as={`/${channel.name}`}>
-														<a className="link color-inherit b">{channel.name}</a>
+														<a className="link white f4">{channel.name}</a>
 													</Link>
-													<br />
-													is playing&nbsp;
-													<Link href={`/category/[id}`} href={`/category/${channel.category_id}`}>
-														<a className="link color-inherit b">{channel.category_name}</a>
+													<Link href="/category/[id]" as={`/category/${channel.category_id}`}>
+														<a className="link white f5 mt2"><i className="fa fa-gamepad"></i> {channel.category_name}</a>
 													</Link>
-											</p>
-										</span>
-										<GuacButton url={`/${channel.name}`} color="dark-green">Watch</GuacButton>
+												</div>
+											</div>
+											<div className="flex flex-column">
+												<GuacButton color="green" url={`/${channel.name}`}><Trans>Watch</Trans></GuacButton>
+											</div>
+										</div>
+										<div className="w-100">
+											<div className="aspect-ratio aspect-ratio--16x9">
+												<Link href="/[channel]" as={`/${channel.name}`}>
+													<a className="link flex flex-column justify-between aspect-ratio--object bg-center cover" style={{'backgroundImage': +channel.live ? `url(${channel.streamServer}/live/${channel.name}/thumbnail.jpg)` : `url(${channel.banner || DEFAULT_OFFLINE_POSTER})`}}>
+														<span className="link white pa2 w-100 flex justify-between f4 bg-black-70">{channel.title || t`No stream title`}</span>
+														<div className="w-100 flex justify-between ph2 pt4 pb2 f5 grad-bot">
+															{+channel.live ?
+																<span className="pv1 ph2 bg-black white br2"><i className="fa fa-circle red"></i> <Trans>Live</Trans></span> : <span className="pv1 ph2 bg-black white br2"><Trans>Offline</Trans></span>
+															}
+															{+channel.live ? <span className="pv1 ph2 bg-black white br2"><i className="fa fa-eye"></i> {channel.viewers}</span> : <></>}
+														</div>
+													</a>
+												</Link>
+											</div>
+										</div>
 									</div>
 								</div>
 							);

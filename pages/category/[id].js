@@ -68,10 +68,12 @@ class CategoryPage extends Component {
 					<div className="site-component-channels flex flex-row flex-wrap w-80" style={{flexGrow: 1}}>
 					{channels.data && channels.data.map((channel) => {
 						return (
-							<div className="site-component-channels__channel w-100 pa2" key={`channel_${channel.id}`}>
-								<Link href={`/[channel]`} as={`/${channel.name}`}>
-									<a><Image src={channel.thumbnail} shape="rounded" fit="contain" lazyload /></a>
-								</Link>
+							<div className="site-component-channels__channel w-100 w-third-l pa2" key={`channel_${channel.id}`}>
+								<div className="item-preview aspect-ratio aspect-ratio--16x9 z-1">
+									<Link href={`/[channel]`} as={`/${channel.name}`}>
+										<a><Image src={channel.thumbnail} className="aspect-ratio--object" shape="rounded" fit="cover" /></a>
+									</Link>
+								</div>
 								<div className="pa2">
 									<span className="f5 db link green">
 										<Link href={`/[channel]`} as={`/${channel.name}`}>
