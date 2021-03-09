@@ -44,6 +44,8 @@ import Image from 'components/Image';
 
 import Switch from 'react-switch';
 
+import SimpleBar from 'simplebar-react';
+
 import { useLingui } from '@lingui/react';
 
 import { kFormatter } from 'utils';
@@ -409,7 +411,7 @@ function ChannelPage(props){
 				</div>
 				{showSub && <SubscriptionDialog />}
 				{showModal && <div className="db pa2 bg-black-50 primary"><EditStreamPanel /></div>}
-				<div className="site-component-profile__tabs flex items-center ph3" style={{height:'48px'}}>
+				<SimpleBar forceVisible="x" className="site-component-profile__tabs flex items-center ph3" style={{height:'48px'}}>
 					<a 
 						href="#"
 						onClick={(e) => {setTab(-1);e&&e.preventDefault();return true;}}
@@ -455,7 +457,7 @@ function ChannelPage(props){
 					>
 						<span><Trans>FOLLOWING</Trans></span>
 					</a>
-				</div>
+				</SimpleBar>
 				{
 					tab == -1 &&
 					<div className="site-component-mobile-chat flex flex-column w-100">
