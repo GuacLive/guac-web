@@ -85,7 +85,7 @@ class ChannelsPage extends Component {
 									<div className="w-100 flex flex-column bg-bar">
 										<div className="pa2 w-100 flex flex-row justify-between items-center">
 											<div className="flex items-center">
-												<div className="w3 h3 mr3 ba bw1 b--green bg-center cover br-100" style={{'backgroundImage': `url(${channel.user.avatar}`}}></div>
+												<div className="w3 h3 mr3 ba bw1 b--green bg-center cover br-100" style={{'backgroundImage': `url(${channel.avatar}`}}></div>
 												<div className="flex flex-column">
 													<Link href={`/[channel]`} as={`/${channel.name}`}>
 														<a className="link white f4">{channel.name}</a>
@@ -101,7 +101,7 @@ class ChannelsPage extends Component {
 										</div>
 										<div className="w-100">
 											<div className="aspect-ratio aspect-ratio--16x9">
-												<div className="flex flex-column justify-between aspect-ratio--object bg-center cover" style={{'backgroundImage': channel.live ? `url(${channel.streamServer}/live/${channel.name}/thumbnail.jpg)` : ''}}>
+												<div className="flex flex-column justify-between aspect-ratio--object bg-center cover" style={{'backgroundImage': channel.live ? `url(${channel.streamServer}/live/${channel.name}/thumbnail.jpg)` : `url(${channel.banner})`}}>
 													<Link href="/[channel]" as={`/${channel.name}`}>
 														<a className="link white pa2 w-100 flex justify-between f4 bg-black-70">{channel.title}</a>
 													</Link>
