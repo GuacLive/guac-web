@@ -170,7 +170,7 @@ function IndexPage(props){
 								</div>
 								<div className="w-100">
 									<div className="aspect-ratio aspect-ratio--16x9">
-										<div className="flex flex-column justify-between aspect-ratio--object bg-center cover" style={{'backgroundImage': `url(${channel.streamServer}/${channel.name}/live/thumbnail.jpg)`}}>
+										<div className="flex flex-column justify-between aspect-ratio--object bg-center cover" style={{'backgroundImage': `url(${channel.streamServer}/live/${channel.name}/thumbnail.jpg)`}}>
 											<Link href="/[channel]" as={`/${channel.name}`}>
 												<a className="link white pa2 w-100 flex justify-between f4 bg-black-70">{channel.title}</a>
 											</Link>

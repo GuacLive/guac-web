@@ -85,7 +85,7 @@ class ChannelsPage extends Component {
 									{
 										this.state.onlyLive
 										? <Link href={`/[channel]`} as={`/${channel.name}`}>
-											<a><Image src={`${channel.streamServer}/${channel.name}/live/thumbnail.jpg`} shape="rounded" fit="contain" flexible lazyload /></a>
+											<a><Image src={`${channel.streamServer}/live/${channel.name}/thumbnail.jpg`} shape="rounded" fit="contain" flexible lazyload /></a>
 										</Link> : <></>
 									}
 									<div className="pa2">
