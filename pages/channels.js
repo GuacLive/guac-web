@@ -50,6 +50,7 @@ class ChannelsPage extends Component {
 							<Switch
 								onChange={this.handleChange}
 								checked={this.state.onlyLive}
+								onColor="#19a974"
 							/>
 						</label>
 					</div>
