@@ -42,8 +42,6 @@ import * as actions from 'actions';
 import log from 'utils/log';
 import Image from 'components/Image';
 
-import Switch from 'react-switch';
-
 import { useLingui } from '@lingui/react';
 
 import { kFormatter } from 'utils';
@@ -66,6 +64,7 @@ function ChannelPage(props){
 	const [tab, setTab] = useState(0);
 	const [showModal, setShowModal] = useState(false);
 	const [showSub, setShowSub] = useState(false);
+	const [addNewPanel, showAddNewPanel] = useState(false);
 	const [editPanelState, showEditPanel] = useState(false);
 	const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' && window.matchMedia ? window.matchMedia('screen and (max-width: 30em)').matches : false);
 
@@ -175,6 +174,7 @@ function ChannelPage(props){
 				props.channel.data.panels = props.channel.data.panels.filter(p => {
 					return p.panel_id !== panel_id;
 				})
+				showEditPanel(false);
 				dispatch(actions.fetchChannel(channel.data.name));
 			}
 		})
@@ -469,87 +469,93 @@ function ChannelPage(props){
 						'gridTemplateColumns': 'repeat(auto-fit, minmax(290px, 1fr))'
 					}}>
 						{
-							isMe
-							&&
-							<div className="db w-100 mt2 mr2 mb2 word-wrap">
-								<div className="flex primary">
-									<Switch
-										onChange={() => showEditPanel(!editPanelState)}
-										onColor="#19a974"
-										checked={editPanelState}
-										uncheckedIcon={<span></span>}
-										className="flex-column"
-									/>
-									<span className="ml2"><Trans>Edit panels</Trans></span>
-								</div>
-							</div>
-						}
-						{
 							stream
 							&&
 							stream.panels
-							&&
-							editPanelState
-							&&
-							isMe
-							&&
-							<form onSubmit={e => e.preventDefault()} className="relative w-100 h-100 flex flex-column">
-								<div className="pa2 flex-grow-1">
-									<label htmlFor="title" className="primary"><Trans>Title</Trans>:</label>
-									<input ref={newPanelTitle} name="title" type="text" className="input-reset bn pa3 w-100 bg-white br2" placeholder={i18n._(t`Title`)} />
-
-									<label htmlFor="description" className="primary"><Trans>Description</Trans>:</label>
-									<textarea ref={newPanelDescription} name="description" rows="10" className="input-reset bn pa3 w-100 bg-white br2" placeholder={i18n._(t`Description`)} />
-
-									<input type="submit" value={i18n._(t`Add panel`)} onClick={() => addPanel(newPanelTitle.current.value, newPanelDescription.current.value)} className="link color-inherit db pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" />
-								</div>
-							</form>
-						}
-						{
-							stream
-							&&
-							stream.panels
-							&&
-							editPanelState
-							&&
-							isMe
 							&&
 							stream.panels.map((panel, i) => {
 								return (
-									<form key={`editpanel_${panel.panel_id}_${i}`} ref={refs[i]} data-id={panel.panel_id} onSubmit={e => e.preventDefault()} className="relative w-100 h-100 flex flex-column">
+									<div key={`panel_${panel.panel_id}_${i}`} className="h-100 w-100 relative hide-child" style={{
+										minHeight: '2rem'
+									}}>
+									<div className="child mb2">
+										<button type="button" className="pa2 outline-0 br2 b--transparent outline-0 bg-green flex items-center justify-center z-3 right-0 top-0 absolute" onClick={() => {
+											if(editPanelState !== panel.panel_id){
+												showEditPanel(panel.panel_id)
+											}else{
+												showEditPanel(false);
+											}
+										}}>
+											<span className="flex items-center justify-center white" title={t`Edit panel`} alt={t`Edit panel`}>
+												<FontAwesomeIcon icon='edit' fixedWidth className="f5" />
+											</span>
+										</button>
+									</div>
+									<div className="site-component-panels__panel relative w-100 h-100 flex flex-column">
 										<div className="pa2 flex-grow-1">
-											<label htmlFor="title" className="primary"><Trans>Title</Trans>:</label>
-											<input name="title" type="text" className="input-reset bn pa3 w-100 bg-white br2" defaultValue={panel.title} placeholder={i18n._(t`Title`)} />
+											{
+												
+												(!editPanelState ||
+												editPanelState !== panel.panel_id) &&
+												<>
+													<span className="f2 primary tracked word-wrap">{panel.title}</span>
+													<ReactMarkdown className="mt1 primary word-wrap" source={panel.description} />
+												</>
+											}
+											{
+												editPanelState &&
+												editPanelState === panel.panel_id &&
+												<form key={`editpanel_${panel.panel_id}_${i}`} ref={refs[i]} data-id={panel.panel_id} onSubmit={e => e.preventDefault()}>
+													<label htmlFor="title" className="primary"><Trans>Title</Trans>:</label>
+													<input name="title" type="text" className="input-reset bn pa3 w-100 bg-white br2" defaultValue={panel.title} placeholder={i18n._(t`Title`)} />
 
-											<label htmlFor="description" className="primary"><Trans>Description</Trans>:</label>
-											<textarea name="description" rows="10" className="input-reset bn pa3 w-100 bg-white br2" defaultValue={panel.description} placeholder={i18n._(t`Description`)} />
+													<label htmlFor="description" className="primary"><Trans>Description</Trans>:</label>
+													<textarea name="description" rows="10" className="input-reset bn pa3 w-100 bg-white br2" defaultValue={panel.description} placeholder={i18n._(t`Description`)} />
 
-											<label htmlFor="delete" className="primary"><Trans>Delete</Trans>:</label>
-											<input name="delete" type="checkbox" />
+													<label htmlFor="delete" className="primary"><Trans>Delete</Trans>:</label>
+													<input name="delete" type="checkbox" />
 
-											<input type="submit" value={i18n._(t`Edit panel`)} onClick={() => editPanel(i)} className="link color-inherit db pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" />
-										</div>
-									</form>
-								);
-							})
-						}
-						{
-							stream
-							&&
-							stream.panels
-							&&
-							!editPanelState
-							&&
-							stream.panels.map((panel, i) => {
-								return (
-									<div key={`panel_${panel.panel_id}_${i}`} className="site-component-panels__panel relative w-100 h-100 flex flex-column">
-										<div className="pa2 flex-grow-1">
-											<span className="f2 primary tracked word-wrap">{panel.title}</span>
-											<ReactMarkdown className="mt1 primary word-wrap" source={panel.description} />
+													<input type="submit" value={i18n._(t`Edit panel`)} onClick={() => editPanel(i)} className="link color-inherit db pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" />
+												</form>
+											}
+											</div>
 										</div>
 									</div>
 								);
 							})
+						}
+						{
+							stream
+							&&
+							stream.panels
+							&&
+							isMe
+							&&
+							<div className="relative w-100 h-100 flex flex-column">
+								<button type="button" className="h3 br2 bg-dark-gray flex items-center justify-center b--transparent" onClick={
+									() => {
+										showAddNewPanel(!addNewPanel);
+									}
+								}>
+									<span className="flex items-center justify-center white">
+										<FontAwesomeIcon icon='plus' fixedWidth className="f5" /> <Trans>Add panel</Trans>
+									</span>
+								</button>
+								{
+									addNewPanel &&
+									<form onSubmit={e => e.preventDefault()}>
+										<div className="pa2 flex-grow-1">
+											<label htmlFor="title" className="primary"><Trans>Title</Trans>:</label>
+											<input ref={newPanelTitle} name="title" type="text" className="input-reset bn pa3 w-100 bg-white br2" placeholder={i18n._(t`Title`)} />
+
+											<label htmlFor="description" className="primary"><Trans>Description</Trans>:</label>
+											<textarea ref={newPanelDescription} name="description" rows="10" className="input-reset bn pa3 w-100 bg-white br2" placeholder={i18n._(t`Description`)} />
+
+											<input type="submit" value={i18n._(t`Add panel`)} onClick={() => addPanel(newPanelTitle.current.value, newPanelDescription.current.value)} className="link color-inherit db pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" />
+										</div>
+									</form>
+								}
+							</div>
 						}
 					</div>
 				}
