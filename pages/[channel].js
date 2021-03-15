@@ -215,12 +215,6 @@ function ChannelPage(props){
 		let liveAt = channel && channel.data && channel.data.liveAt ? new Date(channel.data.liveAt) : 0;
 		if(channel?.data?.live) setTimer(now - liveAt);
 	}, [channel, channel.data]);
-
-	useUpdateEffect(() => {
-		if(!showEditPanel){
-			dispatch(actions.fetchChannel(channel.data.name));
-		}
-	}, [showEditPanel])
 	
 	const editStream = async e => {
 		if(!channel || !channel.data || !channel.data.user) return false;
@@ -486,7 +480,7 @@ function ChannelPage(props){
 												showEditPanel(false);
 											}
 										}}>
-											<span className="flex items-center justify-center white" title={t`Edit panel`} alt={t`Edit panel`}>
+											<span className="flex items-center justify-center white" title={i18n._(t`Edit panel`)} alt={i18n._(t`Edit panel`)}>
 												<FontAwesomeIcon icon='edit' fixedWidth className="f5" />
 											</span>
 										</button>

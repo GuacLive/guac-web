@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/BannerUpload.js:76
+#: components/BannerUpload.js:92
 msgid "1920 x 1080 is preferred"
 msgstr "1920 x 1080 is preferred"
 
@@ -21,15 +21,16 @@ msgstr "1920 x 1080 is preferred"
 #~ msgid "<0>Hi,<1/>Welcome to guac.live &mdash; live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 #~ msgstr "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 
-#: pages/index.js:239
+#: pages/index.js:243
 msgid "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 msgstr "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 
-#: pages/[channel].js:422
+#: pages/[channel].js:429
 msgid "ABOUT"
 msgstr "ABOUT"
 
-#: pages/[channel].js:493
+#: pages/[channel].js:541
+#: pages/[channel].js:554
 msgid "Add panel"
 msgstr "Add panel"
 
@@ -57,14 +58,14 @@ msgstr "Breaking the law"
 msgid "Broadcaster:"
 msgstr "Broadcaster:"
 
-#: components/layout/Sidebar.js:38
-#: components/layout/Sidebar.js:39
-#: components/layout/Sidebar.js:39
+#: components/layout/Sidebar.js:43
+#: components/layout/Sidebar.js:44
+#: components/layout/Sidebar.js:44
 #: pages/categories.js:75
 msgid "Browse"
 msgstr "Browse"
 
-#: pages/[channel].js:413
+#: pages/[channel].js:420
 msgid "CHAT"
 msgstr "CHAT"
 
@@ -88,10 +89,10 @@ msgstr "Channel"
 #~ msgid "Channel not found"
 #~ msgstr "Channel not found"
 
-#: components/layout/Sidebar.js:30
-#: components/layout/Sidebar.js:31
-#: components/layout/Sidebar.js:31
-#: pages/channels.js:50
+#: components/layout/Sidebar.js:35
+#: components/layout/Sidebar.js:36
+#: components/layout/Sidebar.js:36
+#: pages/channels.js:48
 msgid "Channels"
 msgstr "Channels"
 
@@ -103,7 +104,7 @@ msgstr "Channels"
 msgid "Chat commands:"
 msgstr "Chat commands:"
 
-#: pages/_error.js:18
+#: pages/_error.js:19
 msgid "Client error"
 msgstr "Client error"
 
@@ -111,7 +112,7 @@ msgstr "Client error"
 msgid "Close"
 msgstr "Close"
 
-#: components/Chat/index.js:938
+#: components/Chat/index.js:939
 msgid "Collapse"
 msgstr "Collapse"
 
@@ -162,14 +163,14 @@ msgstr "Dark Mode"
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: pages/[channel].js:514
+#: pages/[channel].js:515
 msgid "Delete"
 msgstr "Delete"
 
-#: pages/[channel].js:490
-#: pages/[channel].js:491
-#: pages/[channel].js:511
 #: pages/[channel].js:512
+#: pages/[channel].js:513
+#: pages/[channel].js:551
+#: pages/[channel].js:552
 msgid "Description"
 msgstr "Description"
 
@@ -206,13 +207,15 @@ msgstr "E-mail"
 #~ msgid "Edit"
 #~ msgstr "Edit"
 
-#: pages/[channel].js:517
+#: pages/[channel].js:489
+#: pages/[channel].js:489
+#: pages/[channel].js:518
 msgid "Edit panel"
 msgstr "Edit panel"
 
 #: pages/[channel].js:473
-msgid "Edit panels"
-msgstr "Edit panels"
+#~ msgid "Edit panels"
+#~ msgstr "Edit panels"
 
 #: components/Settings/Profile.js:43
 msgid "Edit user"
@@ -237,15 +240,15 @@ msgstr "English"
 msgid "Error"
 msgstr "Error"
 
-#: components/Chat/index.js:938
+#: components/Chat/index.js:939
 msgid "Expand"
 msgstr "Expand"
 
-#: pages/[channel].js:440
+#: pages/[channel].js:447
 msgid "FOLLOWERS"
 msgstr "FOLLOWERS"
 
-#: pages/[channel].js:449
+#: pages/[channel].js:456
 msgid "FOLLOWING"
 msgstr "FOLLOWING"
 
@@ -266,7 +269,7 @@ msgstr "Follow"
 #~ msgid "Follow ({0})"
 #~ msgstr "Follow ({0})"
 
-#: components/layout/Sidebar.js:45
+#: components/layout/Sidebar.js:50
 msgid "Followed Channels"
 msgstr "Followed Channels"
 
@@ -309,7 +312,7 @@ msgstr "Forgot your password?"
 msgid "Get started with streaming"
 msgstr "Get started with streaming"
 
-#: pages/[channel].js:628
+#: pages/[channel].js:650
 msgid "Go back"
 msgstr "Go back"
 
@@ -321,13 +324,13 @@ msgstr "Harassment & Bullying"
 msgid "Hate Speech"
 msgstr "Hate Speech"
 
-#: components/Chat/index.js:299
+#: components/Chat/index.js:300
 msgid "Hi! Welcome to {0}'s channel~"
 msgstr "Hi! Welcome to {0}'s channel~"
 
-#: components/layout/Sidebar.js:22
-#: components/layout/Sidebar.js:23
-#: components/layout/Sidebar.js:23
+#: components/layout/Sidebar.js:27
+#: components/layout/Sidebar.js:28
+#: components/layout/Sidebar.js:28
 msgid "Home"
 msgstr "Home"
 
@@ -347,7 +350,7 @@ msgstr "It is our policy to respond to clear notices of alleged copyright infrin
 #~ msgid "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be &quot;repeat infringers&quot;. If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (&quot;DMCA&quot;) by providing Guac.live&#039;s Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
 #~ msgstr "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be &quot;repeat infringers&quot;. If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (&quot;DMCA&quot;) by providing Guac.live&#039;s Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
 
-#: pages/index.js:254
+#: pages/index.js:258
 msgid "Join"
 msgstr "Join"
 
@@ -355,17 +358,21 @@ msgstr "Join"
 #~ msgid "Length:"
 #~ msgstr "Length:"
 
+#: pages/channels.js:108
+msgid "Live"
+msgstr "Live"
+
 #: pages/index.js:137
 #~ msgid "Live streams"
 #~ msgstr "Live streams"
 
-#: components/Chat/index.js:957
+#: components/Chat/index.js:958
 msgid "Loading"
 msgstr "Loading"
 
-#: components/Chat/index.js:696
+#: components/Chat/index.js:697
 #: components/Search/SearchBar.js:81
-#: pages/[channel].js:612
+#: pages/[channel].js:634
 msgid "Loading..."
 msgstr "Loading..."
 
@@ -398,20 +405,20 @@ msgstr "Mention"
 msgid "Moderators in chat:"
 msgstr "Moderators in chat:"
 
-#: pages/index.js:276
 #: pages/index.js:280
+#: pages/index.js:284
 msgid "More"
 msgstr "More"
 
-#: components/Chat/index.js:983
+#: components/Chat/index.js:984
 msgid "More messages below."
 msgstr "More messages below."
 
-#: components/BannerUpload.js:74
+#: components/BannerUpload.js:90
 msgid "Must be JPEG, GIF or PNG"
 msgstr "Must be JPEG, GIF or PNG"
 
-#: components/AvatarUpload.js:73
+#: components/AvatarUpload.js:81
 msgid "Must be JPEG, GIF or PNG, and cannot exceed 10MB."
 msgstr "Must be JPEG, GIF or PNG, and cannot exceed 10MB."
 
@@ -427,15 +434,16 @@ msgstr "New password:"
 msgid "Next"
 msgstr "Next"
 
-#: pages/channels.js:68
+#: pages/channels.js:67
 msgid "No channels live"
 msgstr "No channels live"
 
-#: components/Replays/ReplaysList.js:46
+#: components/Replays/ReplaysList.js:49
 msgid "No replays available."
 msgstr "No replays available."
 
-#: components/layout/Sidebar.js:77
+#: components/layout/Sidebar.js:76
+#: pages/channels.js:105
 msgid "No stream title"
 msgstr "No stream title"
 
@@ -447,7 +455,7 @@ msgstr "No streaming key found, please contact an admin."
 msgid "Norwegian"
 msgstr "Norwegian"
 
-#: components/Chat/index.js:903
+#: components/Chat/index.js:904
 msgid "Not connected to chat."
 msgstr "Not connected to chat."
 
@@ -463,16 +471,21 @@ msgstr "Notification of Infringement"
 msgid "Now, use the following stream key:"
 msgstr "Now, use the following stream key:"
 
+#: pages/channels.js:108
+msgid "Offline"
+msgstr "Offline"
+
 #: components/FollowersList.js:57
 #: components/FollowingList.js:61
 msgid "Page"
 msgstr "Page"
 
-#: pages/_error.js:27
+#: pages/_error.js:28
 msgid "Page not found"
 msgstr "Page not found"
 
 #: pages/[channel].js:320
+#: pages/index.js:106
 msgid "Partnered"
 msgstr "Partnered"
 
@@ -498,7 +511,7 @@ msgstr "Permanently ban user"
 msgid "Pop-out chat"
 msgstr "Pop-out chat"
 
-#: pages/index.js:280
+#: pages/index.js:284
 msgid "Popular categories"
 msgstr "Popular categories"
 
@@ -506,7 +519,7 @@ msgstr "Popular categories"
 #~ msgid "Popular channels"
 #~ msgstr "Popular channels"
 
-#: pages/index.js:276
+#: pages/index.js:280
 msgid "Popular live channels"
 msgstr "Popular live channels"
 
@@ -538,19 +551,19 @@ msgstr "Private (don't show in categories, frontpage or search):"
 msgid "Profile"
 msgstr "Profile"
 
-#: components/BannerUpload.js:65
+#: components/BannerUpload.js:79
 msgid "Profile Banner for {0}"
 msgstr "Profile Banner for {0}"
 
-#: pages/[channel].js:431
+#: pages/[channel].js:438
 msgid "REPLAYS"
 msgstr "REPLAYS"
 
-#: pages/[channel].js:582
+#: pages/[channel].js:604
 msgid "Reason"
 msgstr "Reason"
 
-#: components/Chat/index.js:904
+#: components/Chat/index.js:905
 msgid "Reconnect"
 msgstr "Reconnect"
 
@@ -562,8 +575,8 @@ msgstr "Reconnect"
 msgid "Remove timeout for user"
 msgstr "Remove timeout for user"
 
-#: components/AvatarUpload.js:107
-#: components/BannerUpload.js:104
+#: components/AvatarUpload.js:115
+#: components/BannerUpload.js:120
 msgid "Save"
 msgstr "Save"
 
@@ -571,7 +584,7 @@ msgstr "Save"
 msgid "Search..."
 msgstr "Search..."
 
-#: components/Chat/index.js:692
+#: components/Chat/index.js:693
 msgid "Send a message"
 msgstr "Send a message"
 
@@ -579,7 +592,7 @@ msgstr "Send a message"
 msgid "Serious threats of harm to public and personal safety aren't allowed. This includes specific threats of physical harm as well as threats of theft, vandalism, and other financial harm.<0/>We don’t allow the glorification of self-harm."
 msgstr "Serious threats of harm to public and personal safety aren't allowed. This includes specific threats of physical harm as well as threats of theft, vandalism, and other financial harm.<0/>We don’t allow the glorification of self-harm."
 
-#: pages/_error.js:34
+#: pages/_error.js:35
 msgid "Server error"
 msgstr "Server error"
 
@@ -593,7 +606,7 @@ msgstr "Settings"
 msgid "Show help command"
 msgstr "Show help command"
 
-#: pages/channels.js:53
+#: pages/channels.js:51
 msgid "Show only live"
 msgstr "Show only live"
 
@@ -625,7 +638,7 @@ msgstr "Staff in chat:"
 msgid "Start date:"
 msgstr "Start date:"
 
-#: components/layout/Sidebar.js:53
+#: components/layout/Sidebar.js:59
 msgid "Start following your favorite streamers to find them quickly!"
 msgstr "Start following your favorite streamers to find them quickly!"
 
@@ -633,7 +646,7 @@ msgstr "Start following your favorite streamers to find them quickly!"
 msgid "Stream"
 msgstr "Stream"
 
-#: components/Chat/index.js:923
+#: components/Chat/index.js:924
 msgid "Stream Chat"
 msgstr "Stream Chat"
 
@@ -700,7 +713,7 @@ msgstr "Terms of use"
 msgid "The following content is <0>forbidden</0> on guac.live:"
 msgstr "The following content is <0>forbidden</0> on guac.live:"
 
-#: pages/[channel].js:624
+#: pages/[channel].js:646
 msgid "The page you were looking for does not exist."
 msgstr "The page you were looking for does not exist."
 
@@ -728,7 +741,7 @@ msgstr "This verification token is not valid."
 msgid "Threats, Violence & Harm"
 msgstr "Threats, Violence & Harm"
 
-#: pages/[channel].js:576
+#: pages/[channel].js:598
 msgid "Time of ban"
 msgstr "Time of ban"
 
@@ -740,14 +753,14 @@ msgstr "Time out user for x seconds"
 msgid "Timestamps"
 msgstr "Timestamps"
 
-#: pages/[channel].js:487
-#: pages/[channel].js:488
-#: pages/[channel].js:508
 #: pages/[channel].js:509
+#: pages/[channel].js:510
+#: pages/[channel].js:548
+#: pages/[channel].js:549
 msgid "Title"
 msgstr "Title"
 
-#: pages/[channel].js:623
+#: pages/[channel].js:645
 msgid "Uh Ohhh..."
 msgstr "Uh Ohhh..."
 
@@ -759,27 +772,27 @@ msgstr "Unban user"
 #~ msgid "Unfollow"
 #~ msgstr "Unfollow"
 
-#: pages/[channel].js:634
-#: pages/_error.js:41
+#: pages/[channel].js:656
+#: pages/_error.js:42
 msgid "Unknown error"
 msgstr "Unknown error"
 
-#: components/BannerUpload.js:75
+#: components/BannerUpload.js:91
 msgid "Up to 2MB"
 msgstr "Up to 2MB"
 
-#: components/AvatarUpload.js:78
+#: components/AvatarUpload.js:86
 msgid "Update avatar"
 msgstr "Update avatar"
 
-#: components/AvatarUpload.js:59
-#: components/AvatarUpload.js:97
+#: components/AvatarUpload.js:67
+#: components/AvatarUpload.js:105
 msgid "Upload Avatar"
 msgstr "Upload Avatar"
 
-#: components/BannerUpload.js:60
-#: components/BannerUpload.js:82
-#: components/BannerUpload.js:101
+#: components/BannerUpload.js:74
+#: components/BannerUpload.js:98
+#: components/BannerUpload.js:117
 msgid "Upload Profile Banner"
 msgstr "Upload Profile Banner"
 
@@ -787,7 +800,7 @@ msgstr "Upload Profile Banner"
 msgid "User"
 msgstr "User"
 
-#: pages/[channel].js:568
+#: pages/[channel].js:590
 msgid "User has been banned"
 msgstr "User has been banned"
 
@@ -816,7 +829,7 @@ msgstr "Users in chat:"
 msgid "Verify"
 msgstr "Verify"
 
-#: pages/channels.js:75
+#: pages/channels.js:74
 msgid "View offline channels"
 msgstr "View offline channels"
 
@@ -824,12 +837,13 @@ msgstr "View offline channels"
 msgid "Want to customize your color? <0>Join our Patreon!</0>"
 msgstr "Want to customize your color? <0>Join our Patreon!</0>"
 
-#: pages/category/[id].js:93
-#: pages/index.js:164
+#: pages/category/[id].js:95
+#: pages/channels.js:98
+#: pages/index.js:168
 msgid "Watch"
 msgstr "Watch"
 
-#: pages/channels.js:69
+#: pages/channels.js:68
 msgid "We can't find anyone live atm :("
 msgstr "We can't find anyone live atm :("
 
@@ -841,7 +855,7 @@ msgstr "We will review every reported user on a case-by-case basis, and give <0>
 msgid "Welcome to"
 msgstr "Welcome to"
 
-#: pages/index.js:237
+#: pages/index.js:241
 msgid "Welcome to guac.live"
 msgstr "Welcome to guac.live"
 
@@ -849,7 +863,7 @@ msgstr "Welcome to guac.live"
 msgid "When you choose to connect your Patreon account, the profile information connected to your Patreon account, including your name, may be used by guac.live.<0/>You will be able to use patreon specific perks depending on which tier you pledged. guac.live will not publicly display your Patreon account information."
 msgstr "When you choose to connect your Patreon account, the profile information connected to your Patreon account, including your name, may be used by guac.live.<0/>You will be able to use patreon specific perks depending on which tier you pledged. guac.live will not publicly display your Patreon account information."
 
-#: components/Dashboard/Brand.js:28
+#: components/Dashboard/Brand.js:16
 #: components/Dashboard/Stream.js:92
 msgid "You do not have permission to stream"
 msgstr "You do not have permission to stream"
@@ -878,11 +892,11 @@ msgstr "Your account is now registered. Please check your e-mail to verify your 
 msgid "Your e-mail has been verified."
 msgstr "Your e-mail has been verified."
 
-#: components/Chat/index.js:337
+#: components/Chat/index.js:338
 msgid "by"
 msgstr "by"
 
-#: pages/[channel].js:570
+#: pages/[channel].js:592
 msgid "has been banned from the site."
 msgstr "has been banned from the site."
 
@@ -890,7 +904,7 @@ msgstr "has been banned from the site."
 #~ msgid "is live"
 #~ msgstr "is live"
 
-#: pages/category/[id].js:87
+#: pages/category/[id].js:89
 msgid "is playing"
 msgstr "is playing"
 
@@ -898,7 +912,7 @@ msgstr "is playing"
 msgid "message"
 msgstr "message"
 
-#: pages/index.js:136
+#: pages/index.js:140
 msgid "no streams are online"
 msgstr "no streams are online"
 
