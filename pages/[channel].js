@@ -409,7 +409,7 @@ function ChannelPage(props){
 				</div>
 				{showSub && <SubscriptionDialog />}
 				{showModal && <div className="db pa2 bg-black-50 primary"><EditStreamPanel /></div>}
-				<div className="site-component-profile__tabs flex items-center ph3 overflow-y-scroll" style={{height:'48px'}}>
+				<div className="site-component-profile__tabs flex items-center ph3" style={{height:'48px'}}>
 					<a 
 						href="#"
 						onClick={(e) => {setTab(-1);e&&e.preventDefault();return true;}}
@@ -464,7 +464,10 @@ function ChannelPage(props){
 				}
 				{
 					tab == 0 &&
-					<div className="site-component-panels flex flex-wrap justify-center w-100">
+					<div className="site-component-panels grid ga3 mh4 mv3 pb5"
+					style={{
+						'gridTemplateColumns': 'repeat(auto-fit, minmax(290px, 1fr))'
+					}}>
 						{
 							isMe
 							&&
@@ -490,14 +493,16 @@ function ChannelPage(props){
 							&&
 							isMe
 							&&
-							<form onSubmit={e => e.preventDefault()} className="db w-100 w-third-ns mr1 mb1 word-wrap">
-								<label htmlFor="title" className="primary"><Trans>Title</Trans>:</label>
-								<input ref={newPanelTitle} name="title" type="text" className="input-reset bn pa3 w-100 bg-white br2" placeholder={i18n._(t`Title`)} />
+							<form onSubmit={e => e.preventDefault()} className="relative w-100 h-100 flex flex-column">
+								<div className="pa2 flex-grow-1">
+									<label htmlFor="title" className="primary"><Trans>Title</Trans>:</label>
+									<input ref={newPanelTitle} name="title" type="text" className="input-reset bn pa3 w-100 bg-white br2" placeholder={i18n._(t`Title`)} />
 
-								<label htmlFor="description" className="primary"><Trans>Description</Trans>:</label>
-								<textarea ref={newPanelDescription} name="description" rows="10" className="input-reset bn pa3 w-100 bg-white br2" placeholder={i18n._(t`Description`)} />
+									<label htmlFor="description" className="primary"><Trans>Description</Trans>:</label>
+									<textarea ref={newPanelDescription} name="description" rows="10" className="input-reset bn pa3 w-100 bg-white br2" placeholder={i18n._(t`Description`)} />
 
-								<input type="submit" value={i18n._(t`Add panel`)} onClick={() => addPanel(newPanelTitle.current.value, newPanelDescription.current.value)} className="link color-inherit db pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" />
+									<input type="submit" value={i18n._(t`Add panel`)} onClick={() => addPanel(newPanelTitle.current.value, newPanelDescription.current.value)} className="link color-inherit db pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" />
+								</div>
 							</form>
 						}
 						{
@@ -511,17 +516,19 @@ function ChannelPage(props){
 							&&
 							stream.panels.map((panel, i) => {
 								return (
-									<form key={`editpanel_${panel.panel_id}_${i}`} ref={refs[i]} data-id={panel.panel_id} onSubmit={e => e.preventDefault()} className="db w-100 w-third-ns mr1 mb1 word-wrap">
-										<label htmlFor="title" className="primary"><Trans>Title</Trans>:</label>
-										<input name="title" type="text" className="input-reset bn pa3 w-100 bg-white br2" defaultValue={panel.title} placeholder={i18n._(t`Title`)} />
+									<form key={`editpanel_${panel.panel_id}_${i}`} ref={refs[i]} data-id={panel.panel_id} onSubmit={e => e.preventDefault()} className="relative w-100 h-100 flex flex-column">
+										<div className="pa2 flex-grow-1">
+											<label htmlFor="title" className="primary"><Trans>Title</Trans>:</label>
+											<input name="title" type="text" className="input-reset bn pa3 w-100 bg-white br2" defaultValue={panel.title} placeholder={i18n._(t`Title`)} />
 
-										<label htmlFor="description" className="primary"><Trans>Description</Trans>:</label>
-										<textarea name="description" rows="10" className="input-reset bn pa3 w-100 bg-white br2" defaultValue={panel.description} placeholder={i18n._(t`Description`)} />
+											<label htmlFor="description" className="primary"><Trans>Description</Trans>:</label>
+											<textarea name="description" rows="10" className="input-reset bn pa3 w-100 bg-white br2" defaultValue={panel.description} placeholder={i18n._(t`Description`)} />
 
-										<label htmlFor="delete" className="primary"><Trans>Delete</Trans>:</label>
-										<input name="delete" type="checkbox" />
+											<label htmlFor="delete" className="primary"><Trans>Delete</Trans>:</label>
+											<input name="delete" type="checkbox" />
 
-										<input type="submit" value={i18n._(t`Edit panel`)} onClick={() => editPanel(i)} className="link color-inherit db pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" />
+											<input type="submit" value={i18n._(t`Edit panel`)} onClick={() => editPanel(i)} className="link color-inherit db pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" />
+										</div>
 									</form>
 								);
 							})
@@ -535,9 +542,11 @@ function ChannelPage(props){
 							&&
 							stream.panels.map((panel, i) => {
 								return (
-									<div key={`panel_${panel.panel_id}_${i}`} className="site-component-panels__panel db w-100 w5-l mr3 mb3">
-										<span className="f2 primary tracked word-wrap">{panel.title}</span>
-										<ReactMarkdown className="mt1 primary word-wrap" source={panel.description} />
+									<div key={`panel_${panel.panel_id}_${i}`} className="site-component-panels__panel relative w-100 h-100 flex flex-column">
+										<div className="pa2 flex-grow-1">
+											<span className="f2 primary tracked word-wrap">{panel.title}</span>
+											<ReactMarkdown className="mt1 primary word-wrap" source={panel.description} />
+										</div>
 									</div>
 								);
 							})

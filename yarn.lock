@@ -13133,6 +13133,11 @@ table@^6.0.4:
     slice-ansi "^4.0.0"
     string-width "^4.2.0"
 
+tachyons-grid-layout@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/tachyons-grid-layout/-/tachyons-grid-layout-0.1.0.tgz#32611b638c723a1a200c3229f9c2f8b8530ee857"
+  integrity sha512-uwrRt1N8XiyTxLyljxJVNIo0sc+CwzIKEjm3iCHElNZHeCw9BNc4v/Q/7k/kug+ZH+2k8MUSJ1AzW/nzKH+QOg==
+
 tapable@^1.0.0, tapable@^1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-1.1.3.tgz#a1fccc06b58db61fd7a45da2da44f5f3a3e67ba2"
