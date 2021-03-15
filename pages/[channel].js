@@ -175,8 +175,8 @@ function ChannelPage(props){
 					return p.panel_id !== panel_id;
 				})
 				showEditPanel(false);
-				dispatch(actions.fetchChannel(channel.data.name));
 			}
+			dispatch(actions.fetchChannel(channel.data.name));
 		})
 		.catch(error => console.error(error));
 	};
