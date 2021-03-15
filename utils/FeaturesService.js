@@ -89,4 +89,16 @@ export default class FeaturesService extends EventEmitter {
 			return this.features[e].config[t];
 		}
 	}
+	checkFeaturesDisabledOnChannel(e, t) {
+		return this.features &&
+			this.features[e] &&
+			this.features[e].disabledChannelIds &&
+			this.features[e].disabledChannelIds.indexOf(t) !== -1;
+	}
+	checkFeaturesEnabledOnChannel(e, t) {
+		return this.features &&
+			this.features[e] &&
+			this.features[e].enabledChannelIds &&
+			this.features[e].enabledChannelIds.indexOf(t) !== -1;
+	}
 }
