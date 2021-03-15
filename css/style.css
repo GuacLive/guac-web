@@ -1,4 +1,5 @@
 @import '@guaclive/tachyons/src/tachyons';
+@import 'tachyons-grid-layout';
 @import 'videojs-skin.css';
 
 @import 'react-tippy/dist/tippy.css';
