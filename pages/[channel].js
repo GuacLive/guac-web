@@ -215,12 +215,6 @@ function ChannelPage(props){
 		let liveAt = channel && channel.data && channel.data.liveAt ? new Date(channel.data.liveAt) : 0;
 		if(channel?.data?.live) setTimer(now - liveAt);
 	}, [channel, channel.data]);
-
-	useUpdateEffect(() => {
-		if(!showEditPanel){
-			dispatch(actions.fetchChannel(channel.data.name));
-		}
-	}, [showEditPanel])
 	
 	const editStream = async e => {
 		if(!channel || !channel.data || !channel.data.user) return false;
