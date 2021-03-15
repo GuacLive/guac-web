@@ -486,7 +486,7 @@ function ChannelPage(props){
 												showEditPanel(false);
 											}
 										}}>
-											<span className="flex items-center justify-center white" title={t`Edit panel`} alt={t`Edit panel`}>
+											<span className="flex items-center justify-center white" title={i18n._(t`Edit panel`)} alt={i18n._(t`Edit panel`)}>
 												<FontAwesomeIcon icon='edit' fixedWidth className="f5" />
 											</span>
 										</button>
