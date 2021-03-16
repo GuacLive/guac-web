@@ -47,6 +47,12 @@ function ReplayPage(props){
 		autoplay: true,
 		banner: replay.thumbnail,
 		controls: true,
+		controlBar: {
+            currentTimeDisplay : true,
+            timeDivider: true,
+            durationDisplay: true,
+            remainingTimeDisplay: false,
+        },
 		sources: [{
 			src: replay.stream,
 			type: 'application/x-mpegURL',
