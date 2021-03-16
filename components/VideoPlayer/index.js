@@ -75,7 +75,7 @@ function VideoPlayer(props) {
 		const canAutoplay = require('can-autoplay').default;
 		const videoJsOptions = {
 			errorDisplay: false,
-			liveui: true,
+			liveui: props.live ? true : false,
 			fluid: true,
 			responsive: true,
 			fill: props.fill,
