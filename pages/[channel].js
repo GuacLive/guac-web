@@ -1,7 +1,5 @@
 import React, {Component, Fragment, useEffect, useState, useMemo, useRef} from 'react'
 
-import {useUpdateEffect} from 'react-use';
-
 import Link from 'next/link'
 
 import NextHead from 'next/head'
@@ -175,8 +173,8 @@ function ChannelPage(props){
 					return p.panel_id !== panel_id;
 				})
 				showEditPanel(false);
-				dispatch(actions.fetchChannel(channel.data.name));
 			}
+			dispatch(actions.fetchChannel(channel.data.name));
 		})
 		.catch(error => console.error(error));
 	};

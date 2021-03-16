@@ -13,11 +13,11 @@
 	cursor: none
 }
 
-.video-js .vjs-progress-control {
+.video-js.vjs-liveui .vjs-progress-control {
 	visibility: hidden
 }
 
-.video-js .vjs-remaining-time-display {
+.video-js.vjs-liveui .vjs-remaining-time-display {
 	visibility: hidden
 }
 
