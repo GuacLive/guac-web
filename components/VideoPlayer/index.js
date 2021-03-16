@@ -29,7 +29,6 @@ function VideoPlayer(props) {
 	var channel = props.streamInfo && props.streamInfo.username;
 	
 	function connectToPlaybackAPI() {
-		if(!props.live) return;
 		if(!playbackAPISocket || !playbackAPISocket.connected){
 			playbackAPISocket = io(`${VIEWER_API_URL}/playback`, {
 				'timeout': 2000,
@@ -235,52 +234,50 @@ function VideoPlayer(props) {
 			});
 		}
 
-		if(props.live){
-			player.on('pause', () => {
-				if(playbackAPISocket) {
-					if(playbackAPISocket.connected) {
-						playbackAPISocket.emit('leave', {
-							name: channel
-						});
-					}
+		player.on('pause', () => {
+			if (playbackAPISocket) {
+				if (playbackAPISocket.connected) {
+					playbackAPISocket.emit('leave', {
+						name: channel
+					});
 				}
-			})
-			player.on('playing', () => {
-				if(playbackAPISocket == undefined){
-					connectToPlaybackAPI();
-				}else if(!playbackAPISocket.connected){
-					playbackAPISocket.connect();
-				}
-				playbackAPISocket.emit('join', {
-					name: channel
-				});
+			}
+		})
+		player.on('playing', () => {
+			if (playbackAPISocket == undefined) {
+				connectToPlaybackAPI();
+			} else if (!playbackAPISocket.connected) {
+				playbackAPISocket.connect();
+			}
+			playbackAPISocket.emit('join', {
+				name: channel
 			});
+		});
 
-			player.on('error', (e) => {
-				if(playbackAPISocket){
-					if(playbackAPISocket.connected){
-						playbackAPISocket.emit('leave', {
-							name: channel
-						});
-					}
+		player.on('error', (e) => {
+			if (playbackAPISocket) {
+				if (playbackAPISocket.connected) {
+					playbackAPISocket.emit('leave', {
+						name: channel
+					});
 				}
-				if(e.code != 3){
-					player.error(null);
-					if(props.live){
-						this.player.poster = videoJsOptions.poster;
-						this.player.play();
-					}
+			}
+			if (e.code != 3) {
+				player.error(null);
+				if (props.live) {
+					this.player.poster = videoJsOptions.poster;
+					this.player.play();
 				}
-			});
+			}
+		});
 
-			player.on('theaterMode', function (elm, data){
-				if(data.theaterModeIsOn){
-					player.fill(true);
-				}else{
-					player.fill(false);
-				}
-			});
-		}
+		player.on('theaterMode', function (elm, data) {
+			if (data.theaterModeIsOn) {
+				player.fill(true);
+			} else {
+				player.fill(false);
+			}
+		});
 
 		// Specify how to clean up after this effect:
 		return function cleanup() {
