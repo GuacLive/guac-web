@@ -81,7 +81,7 @@ function VideoPlayer(props) {
 			responsive: true,
 			fill: props.fill,
 			language: i18n.locale || 'en',
-			poster: !props.live ? (props.banner ? props.banner : DEFAULT_OFFLINE_POSTER) : '',
+			poster: props.banner ? props.banner : DEFAULT_OFFLINE_POSTER || '',
 			inactivityTimeout: 1000,
 			suppressNotSupportedError: true,
 			plugins: {
@@ -307,7 +307,7 @@ function VideoPlayer(props) {
 					ref={ node => videoNode = node }
 					id="streamplayer"
 					className={`player-video video-js vjs-default-skin vjs-big-play-centered ${props.fill ? 'vjs-fill' : 'vjs-16-9'}`} 
-					poster={!props.live ? (props.banner ? props.banner : DEFAULT_OFFLINE_POSTER) : ''}
+					poster={props.banner ? props.banner : DEFAULT_OFFLINE_POSTER || ''}
 					controls
 					playsInline
 					preload="auto"
