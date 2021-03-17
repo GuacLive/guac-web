@@ -111,6 +111,41 @@ export const setPrivate = (token, bool = false) => async (dispatch) => {
 	});
 };
 
+export const setArchive = (token, bool = false) => async (dispatch) => {
+	dispatch({
+		type: 'SET_PRIVATE_REQUEST'
+	});
+	return callApi('/channel/setArchiveStatus', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		accessToken: token,
+		body: JSON.stringify({
+			'archive': bool
+		})
+	})
+	.then(response => response.json())
+	.then((json) => {
+		if (json.statusCode == 200) {
+			dispatch(Object.assign({
+				type: 'SET_ARCHIVE_SUCCESS'
+			}, json));
+		} else {
+			dispatch({
+				type: 'SET_ARCHIVE_FAILURE',
+				error: new Error('Invalid status code in setArchive json: ' + JSON.stringify(json))
+			});
+		}
+	})
+	.catch(error => {
+        dispatch({
+          type: 'SET_ARCHIVE_FAILURE',
+          error
+        });
+	});
+};
+
 export const fetchStreaming = (token) => async (dispatch) => {
 	dispatch({
 		type: 'FETCH_STREAMING_REQUEST'

@@ -43,6 +43,11 @@ class EditStreamPanel extends Component {
 				actions.setPrivate(this.props.authentication.token, this.refs.private.checked)
 			);
 		}
+		if(streaming && streaming.archive !== this.refs.archive.checked){
+			this.props.dispatch(
+				actions.setArchive(this.props.authentication.token, this.refs.archive.checked)
+			);
+		}
     }
 
 	render(){
@@ -114,6 +119,22 @@ class EditStreamPanel extends Component {
                     defaultChecked={streaming.private}
                 >
                 </input>
+                <div>
+                    <label htmlFor="archive"><Trans>Archive stream:</Trans></label>
+                    <input
+                        name="archive"
+                        type="checkbox"
+                        className="pa3 br2"
+                        ref="archive"
+                        defaultChecked={streaming.archive}
+                    >
+                    </input>
+                    <div className="f7 primary">
+                            <p><Trans>Note: Archived streams are currently public and non-deletable.</Trans></p>
+                            <p><Trans>Remember to activate it before starting your stream.</Trans></p>
+                    </div>
+
+                </div>
                 <input type="submit" value="Edit stream" className="link color-inherit db pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" />
             </form>
 		)
