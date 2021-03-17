@@ -470,25 +470,29 @@ function ChannelPage(props){
 									<div key={`panel_${panel.panel_id}_${i}`} className="h-100 w-100 relative hide-child" style={{
 										minHeight: '2rem'
 									}}>
-									<div className="child mb2">
-										<button type="button" className="pa2 outline-0 br2 b--transparent outline-0 bg-green flex items-center justify-center z-3 right-0 top-0 absolute" onClick={() => {
-											if(editPanelState !== panel.panel_id){
-												showEditPanel(panel.panel_id)
-											}else{
-												showEditPanel(false);
-											}
-										}}>
-											<span className="flex items-center justify-center white" title={i18n._(t`Edit panel`)} alt={i18n._(t`Edit panel`)}>
-												<FontAwesomeIcon icon='edit' fixedWidth className="f5" />
-											</span>
-										</button>
-									</div>
+									{
+										isMe &&
+										<div className="child mb2">
+											<button type="button" className="pa2 outline-0 br2 b--transparent outline-0 bg-green flex items-center justify-center z-3 right-0 top-0 absolute" onClick={() => {
+												if(editPanelState !== panel.panel_id){
+													showEditPanel(panel.panel_id)
+												}else{
+													showEditPanel(false);
+												}
+											}}>
+												<span className="flex items-center justify-center white" title={i18n._(t`Edit panel`)} alt={i18n._(t`Edit panel`)}>
+													<FontAwesomeIcon icon='edit' fixedWidth className="f5" />
+												</span>
+											</button>
+										</div>
+									}
 									<div className="site-component-panels__panel relative w-100 h-100 flex flex-column">
 										<div className="pa2 flex-grow-1">
 											{
 												
 												(!editPanelState ||
 												editPanelState !== panel.panel_id) &&
+												isMe &&
 												<>
 													<span className="f2 primary tracked word-wrap">{panel.title}</span>
 													<ReactMarkdown className="mt1 primary word-wrap" source={panel.description} />
@@ -497,6 +501,7 @@ function ChannelPage(props){
 											{
 												editPanelState &&
 												editPanelState === panel.panel_id &&
+												isMe &&
 												<form key={`editpanel_${panel.panel_id}_${i}`} ref={refs[i]} data-id={panel.panel_id} onSubmit={e => e.preventDefault()}>
 													<label htmlFor="title" className="primary"><Trans>Title</Trans>:</label>
 													<input name="title" type="text" className="input-reset bn pa3 w-100 bg-white br2" defaultValue={panel.title} placeholder={i18n._(t`Title`)} />
