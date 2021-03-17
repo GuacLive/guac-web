@@ -10,7 +10,7 @@ import { fetchReplays, resetReplays } from './replays';
 
 import { fetchFeatured, resetFeatured } from './featured';
 
-import { setTitle, setPrivate, setCategory, fetchStreaming, resetStreaming } from './streaming';
+import { setTitle, setArchive, setPrivate, setCategory, fetchStreaming, resetStreaming } from './streaming';
 
 import { fetchEmotes } from './emotes';
 
@@ -36,6 +36,7 @@ export {
 	fetchFeatured,
 	resetFeatured,
 	setTitle,
+	setArchive,
 	setPrivate,
 	setCategory,
 	fetchStreaming,
