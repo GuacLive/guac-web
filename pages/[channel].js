@@ -401,7 +401,7 @@ function ChannelPage(props){
 				</div>
 				{showSub && <SubscriptionDialog />}
 				{showModal && <div className="db pa2 bg-black-50 primary"><EditStreamPanel /></div>}
-				<div className="site-component-profile__tabs flex items-center ph3 overflow-y-scroll overflow-y-hidden-ns" style={{height:'48px'}}>
+				<div className="site-component-profile__tabs flex items-center ph3 overflow-y-scroll overflow-y-visible-ns" style={{height:'48px'}}>
 					<a 
 						href="#"
 						onClick={(e) => {setTab(-1);e&&e.preventDefault();return true;}}
