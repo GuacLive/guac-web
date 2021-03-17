@@ -492,7 +492,6 @@ function ChannelPage(props){
 												
 												(!editPanelState ||
 												editPanelState !== panel.panel_id) &&
-												isMe &&
 												<>
 													<span className="f2 primary tracked word-wrap">{panel.title}</span>
 													<ReactMarkdown className="mt1 primary word-wrap" source={panel.description} />
