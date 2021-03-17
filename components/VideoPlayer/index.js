@@ -43,7 +43,7 @@ function VideoPlayer(props) {
 			});
 			playbackAPISocket.on('connect', () => {
 				log('info', 'PlaybackAPI', `connected to ${channel}`);
-				if(!player.paused() && props.streamInfo.live){
+				if(!player.paused() && props.live){
 					playbackAPISocket.emit('join', {
 						name: channel
 					});
