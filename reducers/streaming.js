@@ -104,11 +104,7 @@ export default function streamingReducer(state = initialState, action) {
 		case 'FETCH_STREAMING_SUCCESS':
 			return {
 				...state,
-				statusCode: action.statusCode,
-				key: action.key,
-				title: action.title,
-				category: action.category,
-				private: action.private,
+				...action,
 				loading: false,
 				error: false
 			};
