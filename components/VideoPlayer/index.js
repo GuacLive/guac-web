@@ -173,7 +173,7 @@ function VideoPlayer(props) {
 		require('../../videojs-persistvolume.js');
 		require('../../videojs-settings.js');
 		require('@guaclive/videojs-chromecast')(videojs, {
-			reloadWebComponents: true
+			preloadWebComponents: true
 		});
 		require('@silvermine/videojs-quality-selector')(videojs);
 		require('videojs-hotkeys');

@@ -1518,9 +1518,9 @@
   integrity sha512-ecFh2gJ8+GdqWX/VRW3hKjlrs260bb5f+GYteTv22uLH5M29L5yx8HIjsstwHrCf8Hr+ee3tACFvDbHD5SXxEg==
 
 "@guaclive/videojs-chromecast@^1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@guaclive/videojs-chromecast/-/videojs-chromecast-1.2.2.tgz#a8836e63c732406043a32649380c6816533868a6"
-  integrity sha512-pAYBs95MiX/unWnyl5QfteogspCrRL9kRfuKylSgA0wjD1/BhJZ0BNxHQEwsCV8GqGGFalsLERjO9g3apotEoQ==
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@guaclive/videojs-chromecast/-/videojs-chromecast-1.3.0.tgz#6b3690a32efd9bb9f68c95cae6d9bea80cb60733"
+  integrity sha512-o6nr0hJwWZqCpqfbH47cyj1Tdj5k703aBVrV5IXxLToKzaED3YLGrtrKuA+ZgvEAsZrr9FzQLuSJH9suQN77iA==
   dependencies:
     class.extend "0.9.1"
     underscore "1.9.1"
