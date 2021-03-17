@@ -54,6 +54,7 @@ module.exports = withTM(withOffline({
 					ignore: ['node_modules'],
 					stripPrefix: ['webpack://_N_E/'],
 					urlPrefix: '~/_next',
+					deleteAfterCompile: true,
 				})
 			);
 		}
