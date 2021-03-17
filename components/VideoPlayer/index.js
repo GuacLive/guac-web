@@ -172,12 +172,10 @@ function VideoPlayer(props) {
 		require('../../videojs-flvjs.js');
 		require('../../videojs-persistvolume.js');
 		require('../../videojs-settings.js');
-		require('@silvermine/videojs-chromecast')(videojs, {
+		require('@guaclive/videojs-chromecast')(videojs, {
 			reloadWebComponents: true
 		});
-		require('@silvermine/videojs-quality-selector')(videojs, {
-			reloadWebComponents: true
-		});
+		require('@silvermine/videojs-quality-selector')(videojs);
 		require('videojs-hotkeys');
 		require('../../public/videojs-landscape-fullscreen.min');
 		// instantiate Video.js
