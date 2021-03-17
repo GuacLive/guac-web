@@ -6,7 +6,8 @@ const initialState = {
 	key: null,
 	title: null,
 	category: null,
-	private: false
+	private: false,
+	archive: false
 };
 
 export default function streamingReducer(state = initialState, action) {
@@ -47,6 +48,25 @@ export default function streamingReducer(state = initialState, action) {
 				...state,
 				statusCode: action.statusCode,
 				title: action.title,
+				loading: false,
+				error: false
+			};
+		break;
+		case 'SET_ARCHIVE_REQUEST':
+			return Object.assign({}, state, {
+			});
+		break;
+		case 'SET_ARCHIVE_FAILURE':
+			return Object.assign({}, state, {
+				loading: false,
+				error: action.error
+			});
+		break;
+		case 'SET_ARCHIVE_SUCCESS':
+			return {
+				...state,
+				statusCode: action.statusCode,
+				archive: action.archive,
 				loading: false,
 				error: false
 			};
