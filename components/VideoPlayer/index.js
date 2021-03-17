@@ -43,7 +43,7 @@ function VideoPlayer(props) {
 			});
 			playbackAPISocket.on('connect', () => {
 				log('info', 'PlaybackAPI', `connected to ${channel}`);
-				if(!player.paused() && props.streamInfo.live){
+				if(!player.paused() && props.live){
 					playbackAPISocket.emit('join', {
 						name: channel
 					});
@@ -172,12 +172,10 @@ function VideoPlayer(props) {
 		require('../../videojs-flvjs.js');
 		require('../../videojs-persistvolume.js');
 		require('../../videojs-settings.js');
-		require('@silvermine/videojs-chromecast')(videojs, {
-			reloadWebComponents: true
+		require('@guaclive/videojs-chromecast')(videojs, {
+			preloadWebComponents: true
 		});
-		require('@silvermine/videojs-quality-selector')(videojs, {
-			reloadWebComponents: true
-		});
+		require('@silvermine/videojs-quality-selector')(videojs);
 		require('videojs-hotkeys');
 		require('../../public/videojs-landscape-fullscreen.min');
 		// instantiate Video.js
