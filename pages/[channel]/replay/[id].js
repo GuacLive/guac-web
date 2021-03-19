@@ -43,22 +43,24 @@ function ReplayPage(props){
 		fetchData();
 	}, []);
 
-	let videoJsOptions = { 
-		autoplay: true,
-		banner: replay.thumbnail,
-		controls: true,
-		sources: replay.stream ? [{
-			src: replay.stream + '?archive=true',
-			type: 'application/x-mpegURL',
-			label: 'HLS'
-		}] : [],
-		streamInfo: {
-			title: replay.streamName,
-			username: replay.username,
-			isChannel: false
-		}
-	};
-
+	let videoJsOptions = {};
+	if(replay){
+		videoJsOptions = { 
+			autoplay: true,
+			banner: replay.thumbnail,
+			controls: true,
+			sources: replay.stream ? [{
+				src: replay.stream + '?archive=true',
+				type: 'application/x-mpegURL',
+				label: 'HLS'
+			}] : [],
+			streamInfo: {
+				title: replay.streamName,
+				username: replay.username,
+				isChannel: false
+			}
+		};
+	}
 	return (
 		<>
 			{
