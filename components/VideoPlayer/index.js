@@ -157,6 +157,13 @@ function VideoPlayer(props) {
 				nativeAudioTracks: true,
 				nativeTextTracks: true
 			};
+			videojs.Vhs.xhr.beforeRequest = function (options) {
+				console.log('XHR', options.uri);
+				if(options.uri.includes('?archive=true')){
+					options.uri = `${options.uri}&xhr=true`;
+				}
+				return options
+			}
 		}
 
 		if(window){

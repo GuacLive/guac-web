@@ -48,7 +48,7 @@ function ReplayPage(props){
 		banner: replay.thumbnail,
 		controls: true,
 		sources: [{
-			src: replay.stream,
+			src: replay.stream + '?archive=true',
 			type: 'application/x-mpegURL',
 			label: 'HLS'
 		}],
