@@ -6,9 +6,18 @@ import { useRouter } from 'next/router'
 
 import {connect} from 'react-redux';
 
-import { Trans } from '@lingui/macro';
+import { Trans, t } from '@lingui/macro';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Link from 'next/link';
+
+import format from 'date-fns/format';
+import {
+	Tooltip,
+  } from 'react-tippy';
+  
+import { useLingui } from '@lingui/react';
 
 import { callApi } from 'services/api';
 
@@ -24,6 +33,7 @@ let VideoPlayer = dynamic(
 
 function ReplayPage(props){
 	const router = useRouter()
+	const { i18n } = useLingui();
 	const { id } = router.query;
 	const [replay, setReplay] = useState(false);
 	const [is404, setIs404] = useState(false);
@@ -78,22 +88,47 @@ function ReplayPage(props){
 										<VideoPlayer {...videoJsOptions} live={false}></VideoPlayer>
 									</div>
 									<div className="dn flex-ns content-between">
-											<div className="items-start flex flex-grow-1 flex-shrink-1 justify-start pa3">
+									<div className="items-start flex flex-grow-1 flex-shrink-1 justify-start pa3">
+												<Link href="/[channel]" as={`/${replay.user.name}`}>
+													<a className="justify-center items-center flex-shrink-0">
+														<div className="relative v-mid w3 h3">
+															<Image
+																src={replay.user.avatar || '//api.guac.live/avatars/unknown.png'}
+																alt={replay.user.name}
+																shape="squircle"
+																fit="cover"
+																className={`ba ${+replay.live ? 'b--red' : 'b--transparent'} v-mid`}
+															/>
+														</div>
+													</a>
+												</Link>
 												<div className="ml2">
 													<h2 className='f3 tracked ma0 dib primary items-center flex'>
-														<Link href="/[channel]" as={`/${replay.username}`}><a className="primary link">{replay.username}</a></Link>
+														<Link href="/[channel]" as={`/${replay.user.name}`}><a className="primary link">{replay.user.name}</a></Link>
+														{replay.type == 'PARTNER' &&
+															<Tooltip
+																// options
+																title={i18n._(t`Partnered`)}
+																position="right"
+																trigger="mouseenter"
+																theme="transparent"
+																style={{'display': 'flex !important'}}
+															>
+																<FontAwesomeIcon icon='check-circle' fixedWidth className="f5" />
+															</Tooltip>
+														}
 													</h2>
 													<div className="flex flex-column mb3 mt2">
 														<span className="f5 primary">
-															<span className="truncate b line-clamp-2" style={{wordWrap: 'break-word'}} title={replay.streamName}>{replay.streamName}</span>
+															<span className="truncate b line-clamp-2" style={{wordWrap: 'break-word'}} title={replay.title}>{replay.title}</span>
 															<div>
-																<span className="primary-50">{replay.time}</span>
+																<span className="primary-50">{format(new Date(replay.time), 'PPPP')}</span>
 															</div>
 														</span>
 													</div>
 												</div>
 											</div>
-										</div>
+									</div>
 								</div>
 								<span className="primary">{JSON.stringify(replay)}</span>
 							</div>
