@@ -9,6 +9,7 @@
   },
   "browserslist": "defaults, IE >= 11, EDGE >= 14, Safari >= 11, Chrome >= 41, Firefox >= 52",
   "scripts": {
+    "postbuild": "rimraf ~/_next/**/*.js.map",
     "vercel-build": "next build",
     "dev": "next",
     "deploy": "vercel",
