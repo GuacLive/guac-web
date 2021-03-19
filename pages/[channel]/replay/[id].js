@@ -8,6 +8,8 @@ import {connect} from 'react-redux';
 
 import { Trans } from '@lingui/macro';
 
+import Link from 'next/link';
+
 import { callApi } from 'services/api';
 
 import dynamic from 'next/dynamic';
