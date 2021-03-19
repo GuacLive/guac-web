@@ -24,6 +24,7 @@ function ReplayPage(props){
 	const router = useRouter()
 	const { id } = router.query;
 	const [replay, setReplay] = useState(false);
+	const [is404, setIs404] = useState(false);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -34,6 +35,7 @@ function ReplayPage(props){
 					setReplay(res.data);
 				}else{
 					setReplay(false);
+					setIs404(true);
 				}
 			})
 			.catch((err) => {
@@ -78,7 +80,7 @@ function ReplayPage(props){
 							</div>
 						</div>
 					</Fragment>
-				) : (
+				) : is404 ? (
 					<Fragment>
 						<NextHead>
 							<title>guac.live &middot; Replay not found</title>
@@ -96,7 +98,7 @@ function ReplayPage(props){
 							</a>
 						</div>
 					</Fragment>
-				)
+				) : (<span><Trans>Loading...</Trans></span>)
 			}
 		</>
 	);
