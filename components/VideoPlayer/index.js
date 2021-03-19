@@ -81,7 +81,7 @@ function VideoPlayer(props) {
 			responsive: true,
 			fill: props.fill,
 			language: i18n.locale || 'en',
-			poster: props.banner ? props.banner : DEFAULT_OFFLINE_POSTER || '',
+			poster: `${props.banner ? props.banner : DEFAULT_OFFLINE_POSTER || ''}?_player_js`,
 			inactivityTimeout: 1000,
 			suppressNotSupportedError: true,
 			plugins: {
@@ -307,7 +307,7 @@ function VideoPlayer(props) {
 					id="streamplayer"
 					crossOrigin="anonymous"
 					className={`player-video video-js vjs-default-skin vjs-big-play-centered ${props.fill ? 'vjs-fill' : 'vjs-16-9'}`} 
-					poster={props.banner ? props.banner : DEFAULT_OFFLINE_POSTER || ''}
+					poster={`${props.banner ? props.banner : DEFAULT_OFFLINE_POSTER || ''}/?_poster`}
 					controls
 					playsInline
 					preload="auto"
