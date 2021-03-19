@@ -23,7 +23,7 @@ let VideoPlayer = dynamic(
 function ReplayPage(props){
 	const router = useRouter()
 	const { id } = router.query;
-	const [replay, setReplay] = useState([]);
+	const [replay, setReplay] = useState(false);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -62,7 +62,7 @@ function ReplayPage(props){
 	return (
 		<>
 			{
-				replay 
+				replay
 				? (
 					<Fragment>
 						<div className={`w-100 min-vh-100 flex flex-nowrap black`}>			
