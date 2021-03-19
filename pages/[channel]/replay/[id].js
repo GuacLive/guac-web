@@ -12,6 +12,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Link from 'next/link';
 
+import Image from 'components/Image';
+
 import format from 'date-fns/format';
 import {
 	Tooltip,
