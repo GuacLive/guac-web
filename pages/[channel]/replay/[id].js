@@ -6,7 +6,20 @@ import { useRouter } from 'next/router'
 
 import {connect} from 'react-redux';
 
-import { Trans } from '@lingui/macro';
+import { Trans, t } from '@lingui/macro';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import Link from 'next/link';
+
+import Image from 'components/Image';
+
+import format from 'date-fns/format';
+import {
+	Tooltip,
+  } from 'react-tippy';
+  
+import { useLingui } from '@lingui/react';
 
 import { callApi } from 'services/api';
 
@@ -22,8 +35,10 @@ let VideoPlayer = dynamic(
 
 function ReplayPage(props){
 	const router = useRouter()
+	const { i18n } = useLingui();
 	const { id } = router.query;
-	const [replay, setReplay] = useState([]);
+	const [replay, setReplay] = useState(false);
+	const [is404, setIs404] = useState(false);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -34,6 +49,7 @@ function ReplayPage(props){
 					setReplay(res.data);
 				}else{
 					setReplay(false);
+					setIs404(true);
 				}
 			})
 			.catch((err) => {
@@ -43,26 +59,28 @@ function ReplayPage(props){
 		fetchData();
 	}, []);
 
-	let videoJsOptions = { 
-		autoplay: true,
-		banner: replay.thumbnail,
-		controls: true,
-		sources: [{
-			src: replay.stream,
-			type: 'application/x-mpegURL',
-			label: 'HLS'
-		}],
-		streamInfo: {
-			title: replay.streamName,
-			username: replay.username,
-			isChannel: false
-		}
-	};
-
+	let videoJsOptions = {};
+	if(replay){
+		videoJsOptions = { 
+			autoplay: true,
+			banner: replay.thumbnail,
+			controls: true,
+			sources: replay.stream ? [{
+				src: replay.stream + '?archive=true',
+				type: 'application/x-mpegURL',
+				label: 'HLS'
+			}] : [],
+			streamInfo: {
+				title: replay.streamName,
+				username: replay.username,
+				isChannel: false
+			}
+		};
+	}
 	return (
 		<>
 			{
-				replay 
+				replay
 				? (
 					<Fragment>
 						<div className={`w-100 min-vh-100 flex flex-nowrap black`}>			
@@ -71,12 +89,54 @@ function ReplayPage(props){
 									<div className="site-component-channel__player">
 										<VideoPlayer {...videoJsOptions} live={false}></VideoPlayer>
 									</div>
+									<div className="dn flex-ns content-between">
+									<div className="items-start flex flex-grow-1 flex-shrink-1 justify-start pa3">
+												<Link href="/[channel]" as={`/${replay.user.name}`}>
+													<a className="justify-center items-center flex-shrink-0">
+														<div className="relative v-mid w3 h3">
+															<Image
+																src={replay.user.avatar || '//api.guac.live/avatars/unknown.png'}
+																alt={replay.user.name}
+																shape="squircle"
+																fit="cover"
+																className={`ba ${+replay.live ? 'b--red' : 'b--transparent'} v-mid`}
+															/>
+														</div>
+													</a>
+												</Link>
+												<div className="ml2">
+													<h2 className='f3 tracked ma0 dib primary items-center flex'>
+														<Link href="/[channel]" as={`/${replay.user.name}`}><a className="primary link">{replay.user.name}</a></Link>
+														{replay.type == 'PARTNER' &&
+															<Tooltip
+																// options
+																title={i18n._(t`Partnered`)}
+																position="right"
+																trigger="mouseenter"
+																theme="transparent"
+																style={{'display': 'flex !important'}}
+															>
+																<FontAwesomeIcon icon='check-circle' fixedWidth className="f5" />
+															</Tooltip>
+														}
+													</h2>
+													<div className="flex flex-column mb3 mt2">
+														<span className="f5 primary">
+															<span className="truncate b line-clamp-2" style={{wordWrap: 'break-word'}} title={replay.title}>{replay.title}</span>
+															<div>
+																<span className="primary-50">{format(new Date(replay.time), 'PPPP')}</span>
+															</div>
+														</span>
+													</div>
+												</div>
+											</div>
+									</div>
 								</div>
-								{JSON.stringify(replay)}
+								<span className="primary">{JSON.stringify(replay)}</span>
 							</div>
 						</div>
 					</Fragment>
-				) : (
+				) : is404 ? (
 					<Fragment>
 						<NextHead>
 							<title>guac.live &middot; Replay not found</title>
@@ -94,7 +154,7 @@ function ReplayPage(props){
 							</a>
 						</div>
 					</Fragment>
-				)
+				) : (<span><Trans>Loading...</Trans></span>)
 			}
 		</>
 	);

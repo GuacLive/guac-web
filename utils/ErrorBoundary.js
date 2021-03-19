@@ -18,7 +18,7 @@ export default class ExampleBoundary extends Component {
 		if (this.state.error) {
 			return (
 				<div
-					className="snap"
+					className="snap primary min-vh-100 flex flex-column justify-center items-center w-100 h-100 tc"
 					onClick={() => Sentry.lastEventId() && Sentry.showReportDialog()}
 				>
 					<img src="/img/error.png" />

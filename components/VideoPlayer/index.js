@@ -144,7 +144,7 @@ function VideoPlayer(props) {
 		if(typeof window !== 'undefined'){
 			videoJsOptions.html5 = {
 				vhs: {
-					withCredentials: true,
+					withCredentials: false,
 					experimentalBufferBasedABR: true,
 					overrideNative: !videojs.browser.IS_SAFARI,
 					allowSeeksWithinUnsafeLiveWindow: true,
@@ -157,6 +157,13 @@ function VideoPlayer(props) {
 				nativeAudioTracks: true,
 				nativeTextTracks: true
 			};
+			videojs.Vhs.xhr.beforeRequest = function (options) {
+				console.log('XHR', options.uri);
+				if(options.uri.includes('?archive=true')){
+					options.uri = `${options.uri}&xhr=true`;
+				}
+				return options
+			}
 		}
 
 		if(window){
