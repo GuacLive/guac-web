@@ -47,11 +47,11 @@ function ReplayPage(props){
 		autoplay: true,
 		banner: replay.thumbnail,
 		controls: true,
-		sources: [{
+		sources: replay.stream ? [{
 			src: replay.stream + '?archive=true',
 			type: 'application/x-mpegURL',
 			label: 'HLS'
-		}],
+		}] : [],
 		streamInfo: {
 			title: replay.streamName,
 			username: replay.username,
