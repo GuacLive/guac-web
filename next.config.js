@@ -104,6 +104,7 @@ module.exports = withTM(withOffline({
 	images: {
 		domains: ['guac.live', 'api.guac.live', 'cdn.guac.live', 'emotes.guac.live', 'lon.stream.guac.live', 'stream.guac.live', 'media.rawg.io', 'cdn.frankerfacez.com', 'static-cdn.jtvnw.net', 'cdn.betterttv.net', 'ggpht.com', 'yt3.ggpht.com']
 	},
+	crossOrigin: 'anonymous',
 	productionBrowserSourceMaps: true,
 	experimental: {
 		sprFlushToDisk: true,

@@ -144,6 +144,7 @@ function VideoPlayer(props) {
 		if(typeof window !== 'undefined'){
 			videoJsOptions.html5 = {
 				vhs: {
+					withCredentials: true,
 					experimentalBufferBasedABR: true,
 					overrideNative: !videojs.browser.IS_SAFARI,
 					allowSeeksWithinUnsafeLiveWindow: true,
