@@ -81,13 +81,13 @@ function ReplayPage(props){
 											<div className="items-start flex flex-grow-1 flex-shrink-1 justify-start pa3">
 												<div className="ml2">
 													<h2 className='f3 tracked ma0 dib primary items-center flex'>
-														<Link href="/[channel]" as={`/${stream.user.name}`}><a className="primary link">{replay.username}</a></Link>
+														<Link href="/[channel]" as={`/${replay.username}`}><a className="primary link">{replay.username}</a></Link>
 													</h2>
 													<div className="flex flex-column mb3 mt2">
 														<span className="f5 primary">
 															<span className="truncate b line-clamp-2" style={{wordWrap: 'break-word'}} title={replay.streamName}>{replay.streamName}</span>
 															<div>
-																<span className="primary-50">{stream.time}</span>
+																<span className="primary-50">{replay.time}</span>
 															</div>
 														</span>
 													</div>
