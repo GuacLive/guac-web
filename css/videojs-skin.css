@@ -265,7 +265,9 @@
 .video-js .vjs-poster {
     /*background-size: cover !important;
     background-position: inherit !important;*/
-	background-repeat: no-repeat;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .video-js .vjs-chromecast-button .vjs-icon-placeholder
