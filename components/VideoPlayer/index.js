@@ -314,7 +314,7 @@ function VideoPlayer(props) {
 					id="streamplayer"
 					crossOrigin="anonymous"
 					className={`player-video video-js vjs-default-skin vjs-big-play-centered ${props.fill ? 'vjs-fill' : 'vjs-16-9'}`} 
-					poster={`${props.banner ? props.banner : DEFAULT_OFFLINE_POSTER || ''}/?_poster`}
+					poster={`${props.banner ? props.banner : DEFAULT_OFFLINE_POSTER || ''}?_poster`}
 					controls
 					playsInline
 					preload="auto"
