@@ -9364,7 +9364,7 @@ next-transpile-modules@^6:
     enhanced-resolve "^5.7.0"
     escalade "^3.1.1"
 
-next@^10.0.10-canary.2:
+next@^10.0.10-canary.7:
   version "10.0.10-canary.7"
   resolved "https://registry.yarnpkg.com/next/-/next-10.0.10-canary.7.tgz#388673c7f019ea32d3b4c7778ae6befe5a5eecb8"
   integrity sha512-H06Nq+zLUyYmiZUn90jOgE/NgHO5ILMnNrMIEWYaNBk8Ka689ZnjHjffIBidTFwX2D/UNHD9vNQb6YM+pe3twQ==
@@ -11385,14 +11385,14 @@ react-dev-utils@^11.0.3:
     strip-ansi "6.0.0"
     text-table "0.2.0"
 
-react-dom@^0.0.0-experimental-1fafac002:
-  version "0.0.0-experimental-1fafac002"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-0.0.0-experimental-1fafac002.tgz#48e5c5f49e928f28d707d46ad2ee2a0b020619a9"
-  integrity sha512-lSBXpXa1BCNXmdTWKeD1ln3LjQGtDspO5DpQYAEMfhW4lWcHk3Rr1wi+pN9XcJKjt0Gsxw4p8lMJXWaA7ENHJA==
+react-dom@17.0.2:
+  version "17.0.2"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
+  integrity sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
-    scheduler "0.0.0-experimental-1fafac002"
+    scheduler "^0.20.2"
 
 react-dropzone@^11.3.1:
   version "11.3.1"
@@ -11607,10 +11607,10 @@ react-use@^15.1.0:
     ts-easing "^0.2.0"
     tslib "^2.0.0"
 
-react@^0.0.0-experimental-1fafac002:
-  version "0.0.0-experimental-1fafac002"
-  resolved "https://registry.yarnpkg.com/react/-/react-0.0.0-experimental-1fafac002.tgz#79d01c6319de369bb09d99e711150864edf468d2"
-  integrity sha512-gwLPoURnJwC4GPxh4P4Y9if2BVxd0CvyQ9R2L/HQDEfscozLcFKujimaeRFo2VbsY/ILXCkg4Cw4fD4Wfh+c6A==
+react@17.0.2:
+  version "17.0.2"
+  resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
+  integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -12203,10 +12203,10 @@ saxes@^5.0.1:
   dependencies:
     xmlchars "^2.2.0"
 
-scheduler@0.0.0-experimental-1fafac002:
-  version "0.0.0-experimental-1fafac002"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.0.0-experimental-1fafac002.tgz#6674eb8d976ba56cbe6c4085263e06b7e33ed45d"
-  integrity sha512-4lFPvDPro5SYnAUlL3lDjbVJnabQ2JHyqhvpdvSSt1bvo0mBJYLCt+B3wKhsRGNzXhTGJw2Lmj8GVdDoRt/7rA==
+scheduler@^0.20.2:
+  version "0.20.2"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.20.2.tgz#4baee39436e34aa93b4874bddcbf0fe8b8b50e91"
+  integrity sha512-2eWfGgAqqWFGqtdMmcL5zCMK1U8KlXv8SQFGglL3CEtd0aDVDWgeF/YoCmvln55m5zSk3J/20hTaSBeSObsQDQ==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
