@@ -113,12 +113,10 @@
 	border-color: rgba(255, 255, 255, .7)
 }
 
-.video-js .vjs-control-bar2 {
-	background-color: transparent
-}
-
-.video-js .vjs-control-bar {
-	background-color: rgba(0, 0, 0, 0) !important;
+.video-js.vjs-default-skin .vjs-control-bar {
+	/*background-color: rgba(0, 0, 0, 0) !important;*/
+	background-color: unset;
+	background: linear-gradient(0deg, rgba(0, 0, 0, .8) 0, rgba(0, 0, 0,.35) 60%, transparent) !important;
 	color: #fff;
 	font-size: 14px
 }
