@@ -51,7 +51,7 @@
     "@silvermine/videojs-quality-selector": "^1.2.4",
     "@vercel/next": "^2.7.9",
     "@videojs/http-streaming": "^2.6.4",
-    "@videojs/vhs-utils": "^2",
+    "@videojs/vhs-utils": "^2.3.0",
     "@webscopeio/react-textarea-autocomplete": "^4.7.3",
     "abort-controller": "^3.0.0",
     "abortcontroller-polyfill": "^1.5.0",
@@ -118,7 +118,7 @@
     "vercel": "^21.3.4-canary.4",
     "video.js": "^7.11.8",
     "videojs-errors": "^4.3.2",
-    "videojs-hotkeys": "^0.2.25",
+    "videojs-hotkeys": "^0.2.27",
     "videojs-landscape-fullscreen": "^11.1.0",
     "videojs-theater-mode": "^1.0.0",
     "viewport-observer": "^2.3.0",
@@ -133,8 +133,6 @@
     "babel-plugin-inline-react-svg": "^2.0.1"
   },
   "resolutions": {
-    "@videojs/vhs-utils": "^2.3.0",
-    "@videojs/http-streaming": "^2.6.4",
     "webpack": "^5.28.0",
     "workbox-webpack-plugin": "^6.1.2"
   }
