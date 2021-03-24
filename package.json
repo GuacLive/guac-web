@@ -51,7 +51,7 @@
     "@silvermine/videojs-quality-selector": "^1.2.4",
     "@vercel/next": "^2.7.9",
     "@videojs/http-streaming": "^2.6.4",
-    "@videojs/vhs-utils": "^3.0.0",
+    "@videojs/vhs-utils": "^2",
     "@webscopeio/react-textarea-autocomplete": "^4.7.3",
     "abort-controller": "^3.0.0",
     "abortcontroller-polyfill": "^1.5.0",
