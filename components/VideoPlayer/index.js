@@ -82,7 +82,7 @@ function VideoPlayer(props) {
 			fill: props.fill,
 			language: i18n.locale || 'en',
 			poster: `${props.banner ? props.banner : DEFAULT_OFFLINE_POSTER || ''}?_player_js`,
-			inactivityTimeout: 1000,
+			inactivityTimeout: 2000,
 			suppressNotSupportedError: true,
 			plugins: {
 				chromecast: {
@@ -242,7 +242,31 @@ function VideoPlayer(props) {
 		}
 
 		if(props.live){
+			let infoComponent = document && document.querySelector('.site-component-channel__info');
+			// Prevent info bar autohide when cursor placed over it 
+			/*if(infoComponent){
+				infoComponent.on('mouseenter', event => {
+					player.cache_.inactivityTimeout = player.options_.inactivityTimeout;
+					player.options_.inactivityTimeout = 0;
+				});
+				infoComponent.on('mouseleave', event => {
+					player.options_.inactivityTimeout = player.cache_.inactivityTimeout;
+				});
+			}*/
+			player.on('useractive', () => {
+				if(infoComponent){
+					infoComponent.classList.add('active');
+				}
+			});
+			player.on('userinactive', () => {
+				if(!player.paused() && infoComponent){
+					infoComponent.classList.remove('active');
+				}
+			});
 			player.on('pause', () => {
+				if(infoComponent){
+					infoComponent.classList.add('active');
+				}
 				if(playbackAPISocket) {
 					if(playbackAPISocket.connected) {
 						playbackAPISocket.emit('leave', {
@@ -252,6 +276,11 @@ function VideoPlayer(props) {
 				}
 			})
 			player.on('playing', () => {
+				if(!player.userActive()){
+					if(infoComponent){
+						infoComponent.classList.remove('active');
+					}
+				}
 				if(playbackAPISocket == undefined){
 					connectToPlaybackAPI();
 				}else if(!playbackAPISocket.connected){

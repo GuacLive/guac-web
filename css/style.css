@@ -737,15 +737,17 @@ html.theater-mode .site-component-channel__info {
 	left: 0;
 	z-index: 1;
 	padding: 20px;
-	background: linear-gradient(180deg, rgba(14, 14, 14, .9) 50%, transparent);
+	/*background: linear-gradient(180deg, rgba(14, 14, 14, .9) 50%, transparent);*/
+    background: linear-gradient(180deg, rgba(0, 0, 0, .8) 0, rgba(0,0,0,.35) 60%, transparent);
 	width: 100%;
-	transition: opacity .3s ease-in-out;
+	transition: visibility 1s, opacity 1s;
 	opacity: 0;
 	color: var(--site-text);
 }
 
 html.theater-mode .site-component-channel__info.active {
-	opacity: .8
+	transition: visibility 0.1s, opacity 0.1s;
+	opacity: 1;
 }
 
 html.theater-mode .site-component-channel__info .guac-btn {

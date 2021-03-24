@@ -156,7 +156,7 @@ function IndexPage(props){
 									<div className="flex items-center">
 										<div className="w3 h3 mr3 ba bw1 b--green bg-center cover br-100" style={{'backgroundImage': `url(${channel.user.avatar}`}}></div>
 										<div className="flex flex-column">
-											<Link href="/c/[name]" as={`/c/${channel.name}`}>
+											<Link href="/[channel]" as={`/${channel.name}`}>
 												<a className="link white f4">{channel.name}</a>
 											</Link>
 											<Link href="/category/[id]" as={`/category/${channel.category_id}`}>
