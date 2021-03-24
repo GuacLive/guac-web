@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from 'next/link';
 // pages/404.js
 export default function Custom404() {
 	return (
@@ -11,7 +12,7 @@ export default function Custom404() {
 					<div className="a">
 							<div className="c">
 								<h2 className="f2">We could not find the page you were looking for.</h2>
-								<p><a className="link primary" href="/">Go to frontpage</a></p>
+								<p><Link className="link primary" href="/">Go to frontpage</Link></p>
 							</div>
 					</div>
 				</div>
