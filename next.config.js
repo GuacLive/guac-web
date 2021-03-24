@@ -119,7 +119,7 @@ module.exports = withTM(withOffline({
 		optimizeFonts: true,
 		optimizeImages: true,
 		optimizeCss: /*process.env.NODE_ENV === 'production' ? true :*/false,
-		scrollRestoration: true
+		scrollRestoration: false
 	},
 	future: {
 		excludeDefaultMomentLocales: true,

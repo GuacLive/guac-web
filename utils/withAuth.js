@@ -1,3 +1,4 @@
+import React from 'react';
 import Router from 'next/router';
 import { Trans } from '@lingui/macro';
 const requireAuth = Page => class SecurePage extends React.Component {
