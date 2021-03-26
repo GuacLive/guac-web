@@ -80,6 +80,7 @@ function ChannelPage(props){
 
 	const channel = useSelector(state => state.channel);
 	const site = useSelector(state => state.site);
+	const [panels, setPanels] = useState(channel?.data?.panels);
 
 	const channelAPISocket = useChannelSocket(channel);
 	
@@ -149,6 +150,8 @@ function ChannelPage(props){
 	const editPanel = async (i) => {
 		var p = refs[i] && refs[i].current;
 		var panel_id = p.dataset['id'];
+		var deleted = p.delete.checked;
+		console.log(p.delete, p.delete. checked);
 	
 		await fetch(API_URL + '/panels', {
 			headers: {
@@ -161,20 +164,30 @@ function ChannelPage(props){
 				panel_id,
 				title: p.title.value,
 				description: p.description.value,
-				delete: p.delete.checked
+				delete: deleted,
 			})
 		})
 		.then(response => response.json())
 		.then(r => {
 			console.log('editPanel', r);
-			// Remove panel
-			if(p.delete.checked){
-				props.channel.data.panels = props.channel.data.panels.filter(p => {
-					return p.panel_id !== panel_id;
-				})
-				showEditPanel(false);
-			}
-			dispatch(actions.fetchChannel(channel.data.name));
+			let panelsResult = panels.filter(o => {
+				console.log('setPanels filter', deleted, o, o.panel_id, panel_id);
+				if(deleted){
+					return parseInt(o.panel_id, 10) !== parseInt(panel_id, 10);
+				}
+				return true;
+			});
+			panelsResult.forEach(o => {
+				console.log('setPanels map', o.panel_id, panel_id, parseInt(o.panel_id, 10), parseInt(panel_id, 10));
+				if (parseInt(o.panel_id, 10) == parseInt(panel_id, 10)) {
+					o.title = p.title.value;
+					o.description = p.description.value;
+				}
+				return o;
+			});
+			setPanels(panelsResult);
+			showEditPanel(false);
+			//dispatch(actions.fetchChannel(channel.data.name));
 		})
 		.catch(error => console.error(error));
 	};
@@ -212,6 +225,7 @@ function ChannelPage(props){
 		let now = new Date().getTime();
 		let liveAt = channel && channel.data && channel.data.liveAt ? new Date(channel.data.liveAt) : 0;
 		if(channel?.data?.live) setTimer(now - liveAt);
+		if(channel?.data?.panels) setPanels(channel.data.panels);
 	}, [channel, channel.data]);
 	
 	const editStream = async e => {
@@ -242,7 +256,7 @@ function ChannelPage(props){
 				isChannel: true
 			}
 		};
-
+console.log(panels);
 		if(stream.live){
 			if(stream.urls){
 				// Prefer FLV if available, it has lower latency
@@ -461,11 +475,9 @@ function ChannelPage(props){
 						'gridTemplateColumns': 'repeat(auto-fit, minmax(290px, 1fr))'
 					}}>
 						{
-							stream
+							panels
 							&&
-							stream.panels
-							&&
-							stream.panels.map((panel, i) => {
+							panels.map((panel, i) => {
 								return (
 									<div key={`panel_${panel.panel_id}_${i}`} className="h-100 w-100 relative hide-child" style={{
 										minHeight: '2rem'
@@ -623,7 +635,7 @@ function ChannelPage(props){
 
 	var refs = useMemo(
 		() => Array.from({
-			length: channel.data && channel.data.panels ? channel.data.panels.length : 0
+			length: panels && panels.length ? panels.length : 0
 		}).map(() => React.createRef()),
 		[]
 	);

@@ -856,8 +856,8 @@ function ChatComponent(props){
 								},
 							}}
 						/>
-						<div className="chat-input__buttons absolute bottom-0 right-0 primary">
-							<div className="flex flex-row pr2 pb2">
+						<div className="chat-input__buttons absolute bottom-0 right-0 primary mr2 mb2">
+							<div className="flex flex-row">
 								<div className="relative">
 									{
 										customPickerEmotes &&
