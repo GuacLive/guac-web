@@ -256,7 +256,7 @@ function ChannelPage(props){
 				isChannel: true
 			}
 		};
-console.log(panels);
+
 		if(stream.live){
 			if(stream.urls){
 				// Prefer FLV if available, it has lower latency
