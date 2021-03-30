@@ -28,6 +28,20 @@ function VideoPlayer(props) {
 
 	var channel = props.streamInfo && props.streamInfo.username;
 	
+	function mouseEnter(event) {
+		/*player.cache_.inactivityTimeout = player.options_.inactivityTimeout;
+		player.options_.inactivityTimeout = 0;*/
+		if(!player.userActive()){
+			player.setActive(true);
+		}
+	}
+	function mouseLeave(event) {
+		/*player.options_.inactivityTimeout = player.cache_.inactivityTimeout;*/
+		if(player.userActive()){
+			player.setActive(false);
+		}
+	}
+
 	function connectToPlaybackAPI() {
 		if(!props.live) return;
 		if(!playbackAPISocket || !playbackAPISocket.connected){
@@ -245,19 +259,8 @@ function VideoPlayer(props) {
 			let infoComponent = document && document.querySelector('.site-component-channel__info');
 			// Prevent info bar autohide when cursor placed over it 
 			if(infoComponent){
-				infoComponent.onmouseenter = event => {
-					/*player.cache_.inactivityTimeout = player.options_.inactivityTimeout;
-					player.options_.inactivityTimeout = 0;*/
-					if(!player.userActive()){
-						player.setActive(true);
-					}
-				};
-				infoComponent.onmouseleave =  event => {
-					/*player.options_.inactivityTimeout = player.cache_.inactivityTimeout;*/
-					if(player.userActive()){
-						player.setActive(false);
-					}
-				};
+				infoComponent.addEventListener('mouseenter', mouseEnter);
+				infoComponent.addEventListener('mouseleave', mouseLeave);
 			}
 			player.on('useractive', () => {
 				if(infoComponent){
@@ -327,6 +330,11 @@ function VideoPlayer(props) {
 		return function cleanup() {
 			if(player){
 				player.dispose();
+			}
+			let infoComponent = document && document.querySelector('.site-component-channel__info');
+			if(infoComponent){
+				infoComponent.removeEventListener('mouseenter', mouseEnter);
+				infoComponent.removeEventListener('mouseleave', mouseLeave);
 			}
 			if(playbackAPISocket){
 				playbackAPISocket.disconnect();
