@@ -195,13 +195,13 @@ function VideoPlayer(props) {
 			/*player.cache_.inactivityTimeout = player.options_.inactivityTimeout;
 			player.options_.inactivityTimeout = 0;*/
 			if(!player.userActive()){
-				player.setActive(true);
+				player.userActive(true);
 			}
 		}
 		function mouseLeave(event) {
 			/*player.options_.inactivityTimeout = player.cache_.inactivityTimeout;*/
 			if(player.userActive()){
-				player.setActive(false);
+				player.userActive(false);
 			}
 		}
         canAutoplay.video().then((obj) => {
