@@ -245,19 +245,19 @@ function VideoPlayer(props) {
 			let infoComponent = document && document.querySelector('.site-component-channel__info');
 			// Prevent info bar autohide when cursor placed over it 
 			if(infoComponent){
-				player.on('mouseenter', event => {
+				infoComponent.onmouseenter = event => {
 					/*player.cache_.inactivityTimeout = player.options_.inactivityTimeout;
 					player.options_.inactivityTimeout = 0;*/
 					if(!player.userActive()){
-						infoComponent.classList.add('active');
+						player.setActive(true);
 					}
-				});
-				player.on('mouseleave', event => {
+				};
+				infoComponent.onmouseleave =  event => {
 					/*player.options_.inactivityTimeout = player.cache_.inactivityTimeout;*/
-					if(!player.userActive()){
-						infoComponent.classList.remove('active');
+					if(player.userActive()){
+						player.setActive(false);
 					}
-				});
+				};
 			}
 			player.on('useractive', () => {
 				if(infoComponent){
