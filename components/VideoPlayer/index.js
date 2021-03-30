@@ -27,20 +27,6 @@ function VideoPlayer(props) {
 	const [connectedStatus, setConnectedStatus] = useState(false);
 
 	var channel = props.streamInfo && props.streamInfo.username;
-	
-	function mouseEnter(event) {
-		/*player.cache_.inactivityTimeout = player.options_.inactivityTimeout;
-		player.options_.inactivityTimeout = 0;*/
-		if(!player.userActive()){
-			player.setActive(true);
-		}
-	}
-	function mouseLeave(event) {
-		/*player.options_.inactivityTimeout = player.cache_.inactivityTimeout;*/
-		if(player.userActive()){
-			player.setActive(false);
-		}
-	}
 
 	function connectToPlaybackAPI() {
 		if(!props.live) return;
@@ -204,7 +190,20 @@ function VideoPlayer(props) {
 		player = videojs(videoNode, videoJsOptions, function onPlayerReady() {
 			log('info', 'VideoPlayer', 'onPlayerReady', this);
 		});
-		
+			
+		function mouseEnter(event) {
+			/*player.cache_.inactivityTimeout = player.options_.inactivityTimeout;
+			player.options_.inactivityTimeout = 0;*/
+			if(!player.userActive()){
+				player.userActive(true);
+			}
+		}
+		function mouseLeave(event) {
+			/*player.options_.inactivityTimeout = player.cache_.inactivityTimeout;*/
+			if(player.userActive()){
+				player.userActive(false);
+			}
+		}
         canAutoplay.video().then((obj) => {
             if(obj.result === false){
                 if(player && typeof player.muted === 'function'){
