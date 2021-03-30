@@ -80,7 +80,7 @@ class ChannelsPage extends Component {
 
 						{channels.data && channels.data.map((channel) => {
 							return (
-								<div key={`channel_${channel.id}`} className="pa2 w-third-l w-100">
+								<div key={`channel_${channel.id}`} className="pa2">
 									<div className="w-100 flex flex-column bg-bar">
 										<div className="pa2 w-100 flex flex-row justify-between items-center">
 											<div className="flex items-center">

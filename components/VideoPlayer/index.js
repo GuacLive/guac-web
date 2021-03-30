@@ -28,6 +28,20 @@ function VideoPlayer(props) {
 
 	var channel = props.streamInfo && props.streamInfo.username;
 	
+	function mouseEnter(event) {
+		/*player.cache_.inactivityTimeout = player.options_.inactivityTimeout;
+		player.options_.inactivityTimeout = 0;*/
+		if(!player.userActive()){
+			player.setActive(true);
+		}
+	}
+	function mouseLeave(event) {
+		/*player.options_.inactivityTimeout = player.cache_.inactivityTimeout;*/
+		if(player.userActive()){
+			player.setActive(false);
+		}
+	}
+
 	function connectToPlaybackAPI() {
 		if(!props.live) return;
 		if(!playbackAPISocket || !playbackAPISocket.connected){
@@ -81,7 +95,7 @@ function VideoPlayer(props) {
 			responsive: true,
 			fill: props.fill,
 			language: i18n.locale || 'en',
-			poster: `${props.banner ? props.banner : DEFAULT_OFFLINE_POSTER || ''}?_player_js`,
+			poster: `${props.banner ? props.banner : (!props.live ? DEFAULT_OFFLINE_POSTER : '')}?_player_js`,
 			inactivityTimeout: 2000,
 			suppressNotSupportedError: true,
 			plugins: {
@@ -119,10 +133,10 @@ function VideoPlayer(props) {
 					  'playToggle': {},
 					  'muteToggle': {},
 					  'volumeControl': {},
-					  'currentTimeDisplay' : !props.live ? true : false,
-					  'timeDivider': !props.live ? true : false,
-					  'durationDisplay': !props.live ? true : false,
-					  'remainingTimeDisplay': !props.live ? true : false,
+					  'currentTimeDisplay' : props.replay ? true : false,
+					  'timeDivider': props.replay ? true : false,
+					  'durationDisplay': props.replay ? true : false,
+					  'remainingTimeDisplay': props.replay ? true : false,
 					  'liveDisplay': props.live ? {} : false,
 
 					  'flexibleWidthSpacer': {},
@@ -244,15 +258,10 @@ function VideoPlayer(props) {
 		if(props.live){
 			let infoComponent = document && document.querySelector('.site-component-channel__info');
 			// Prevent info bar autohide when cursor placed over it 
-			/*if(infoComponent){
-				infoComponent.on('mouseenter', event => {
-					player.cache_.inactivityTimeout = player.options_.inactivityTimeout;
-					player.options_.inactivityTimeout = 0;
-				});
-				infoComponent.on('mouseleave', event => {
-					player.options_.inactivityTimeout = player.cache_.inactivityTimeout;
-				});
-			}*/
+			if(infoComponent){
+				infoComponent.addEventListener('mouseenter', mouseEnter);
+				infoComponent.addEventListener('mouseleave', mouseLeave);
+			}
 			player.on('useractive', () => {
 				if(infoComponent){
 					infoComponent.classList.add('active');
@@ -322,6 +331,11 @@ function VideoPlayer(props) {
 			if(player){
 				player.dispose();
 			}
+			let infoComponent = document && document.querySelector('.site-component-channel__info');
+			if(infoComponent){
+				infoComponent.removeEventListener('mouseenter', mouseEnter);
+				infoComponent.removeEventListener('mouseleave', mouseLeave);
+			}
 			if(playbackAPISocket){
 				playbackAPISocket.disconnect();
 				playbackAPISocket.removeAllListeners();
@@ -343,7 +357,7 @@ function VideoPlayer(props) {
 					id="streamplayer"
 					crossOrigin="anonymous"
 					className={`player-video video-js vjs-default-skin vjs-big-play-centered ${props.fill ? 'vjs-fill' : 'vjs-16-9'}`} 
-					poster={`${props.banner ? props.banner : DEFAULT_OFFLINE_POSTER || ''}?_poster`}
+					poster={`${props.banner ? props.banner : (!props.live ? DEFAULT_OFFLINE_POSTER : '')}?_poster`}
 					controls
 					playsInline
 					preload="auto"

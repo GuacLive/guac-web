@@ -295,12 +295,6 @@ function ChannelPage(props){
 				</div>
 				<div
 					className="site-component-channel__info dib w-100 bt b--dark-gray"
-					onMouseEnter={(e) => {
-						if (e && e.target) e.target.classList.add('active');
-					}}
-					onMouseLeave={(e) => {
-						if (e && e.target) e.target.classList.remove('active');
-					}}
 				>
 					<div className="dn flex-ns content-between">
 						<div className="items-start flex flex-grow-1 flex-shrink-1 justify-start pa3">
