@@ -245,14 +245,14 @@ function VideoPlayer(props) {
 			let infoComponent = document && document.querySelector('.site-component-channel__info');
 			// Prevent info bar autohide when cursor placed over it 
 			if(infoComponent){
-				infoComponent.on('mouseenter', event => {
+				player.on('mouseenter', event => {
 					/*player.cache_.inactivityTimeout = player.options_.inactivityTimeout;
 					player.options_.inactivityTimeout = 0;*/
 					if(!player.userActive()){
 						infoComponent.classList.add('active');
 					}
 				});
-				infoComponent.on('mouseleave', event => {
+				player.on('mouseleave', event => {
 					/*player.options_.inactivityTimeout = player.cache_.inactivityTimeout;*/
 					if(!player.userActive()){
 						infoComponent.classList.remove('active');
