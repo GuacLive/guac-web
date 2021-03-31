@@ -55,7 +55,6 @@ const SubscriptionDialog = dynamic(() => import('components/SubscriptionDialog')
 const FollowersList = dynamic(() => import('components/FollowersList'));
 const FollowingList = dynamic(() => import('components/FollowingList'));
 
-const STREAMING_SERVER = 'eu';
 const API_URL = process.env.API_URL;
 function ChannelPage(props){
 	const router = useRouter();
