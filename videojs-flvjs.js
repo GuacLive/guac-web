@@ -58,7 +58,7 @@
       el.addEventListener('error', function(e) {
           var mediaError = e.currentTarget.error;
 
-          if (mediaError.code === mediaError.MEDIA_ERR_DECODE) {
+          if (mediaError && mediaError.code === mediaError.MEDIA_ERR_DECODE) {
               videoTagErrorHandler();
           } else {
               console.error('Error loading media: File could not be played');
