@@ -2729,18 +2729,18 @@
     mux.js "5.8.0"
     video.js "^6 || ^7"
 
-"@videojs/http-streaming@^2.6.4":
-  version "2.6.4"
-  resolved "https://registry.yarnpkg.com/@videojs/http-streaming/-/http-streaming-2.6.4.tgz#a3d9eb62b02c6e48439f033675ec3a6f5f8cdb25"
-  integrity sha512-sFVE0MVXhawAkET8EgiUSMvDDv6u3uGidtO0BvNXG0/qKWlze/zEzhvLsyPU4HmLFRnffKeHK5RE2XpO5vHY8Q==
+"@videojs/http-streaming@^2.7.0":
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/@videojs/http-streaming/-/http-streaming-2.7.0.tgz#3eb5ec7ca03e97208d493cd2da304bc4a36ea71b"
+  integrity sha512-wg/5vGeBS8LhXDjKbHbpewId5aZ/gyG2dJNCeu4+Ix6AympXSTlztHuRQWTS2Gyx/fQpce1/1gfqdJne9ZIJ8Q==
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@videojs/vhs-utils" "^3.0.0"
     aes-decrypter "3.1.2"
     global "^4.4.0"
-    m3u8-parser "4.5.2"
-    mpd-parser "0.15.4"
-    mux.js "5.10.0"
+    m3u8-parser "4.6.0"
+    mpd-parser "0.16.0"
+    mux.js "5.11.0"
     video.js "^6 || ^7"
 
 "@videojs/vhs-utils@^2.2.1", "@videojs/vhs-utils@^2.3.0":
@@ -9055,10 +9055,10 @@ m3u8-parser@4.5.0:
     "@videojs/vhs-utils" "^2.2.1"
     global "^4.3.2"
 
-m3u8-parser@4.5.2:
-  version "4.5.2"
-  resolved "https://registry.yarnpkg.com/m3u8-parser/-/m3u8-parser-4.5.2.tgz#f7d48a60112466e528324624c4e66d52ed341a75"
-  integrity sha512-sN/lu3TiRxmG2RFjZxo5c0/7Dr4RrEztl43jXrWwj5gFZ7vfa2iIxGfiPx485dm5QCazaIcKk+vNkUso8Aq0Ag==
+m3u8-parser@4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/m3u8-parser/-/m3u8-parser-4.6.0.tgz#a0e2f5dcf8391c9a6e59895a084fa38f27b52124"
+  integrity sha512-dKhhpMcPqDM/KzULVrNyDZ/z766peQjwUghDTcl6TE7DQKAt/vm74/IMUAxpO34f6LDpM+OH/dYGQwW1eM4yWw==
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@videojs/vhs-utils" "^3.0.0"
@@ -9382,15 +9382,15 @@ mpd-parser@0.15.0:
     global "^4.3.2"
     xmldom "^0.1.27"
 
-mpd-parser@0.15.4:
-  version "0.15.4"
-  resolved "https://registry.yarnpkg.com/mpd-parser/-/mpd-parser-0.15.4.tgz#e1b445d0dc2aab1389fde6420ca9cca7c999575d"
-  integrity sha512-YcOclxKc5gnT87UQYwRoPJpWOFvQORwN+bXYmTWCJ4U2pCSS7jjtPrIhoOLHFAyekj48CHTX4hjGBV/VSNsUsg==
+mpd-parser@0.16.0:
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/mpd-parser/-/mpd-parser-0.16.0.tgz#e015e3a46e4dac2f931f909db4552141721f11b5"
+  integrity sha512-/pOFsDbOxXFAla47rYMdIypBZVtsQ9q3OHNuKtW2CJMaCGtNDtUcLS+B2TToYmB20rgi3XIgkyc2EsIvIAS4NA==
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@videojs/vhs-utils" "^3.0.0"
     global "^4.4.0"
-    xmldom "^0.4.0"
+    xmldom "^0.5.0"
 
 ms@2.0.0:
   version "2.0.0"
@@ -9430,10 +9430,10 @@ mute-stream@0.0.8:
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.8.tgz#1630c42b2251ff81e2a283de96a5497ea92e5e0d"
   integrity sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==
 
-mux.js@5.10.0:
-  version "5.10.0"
-  resolved "https://registry.yarnpkg.com/mux.js/-/mux.js-5.10.0.tgz#80fb30f9233c7902cac5cc8e1ae5f19e91cf8477"
-  integrity sha512-kLzvYsHYBwNa+ckkmpxWV3eImwntJbrwd1KbN4WR0hLe+dK/KB82aCuC0fQzAI2hkjYszdlSGsAWFgYdiFBUuA==
+mux.js@5.11.0:
+  version "5.11.0"
+  resolved "https://registry.yarnpkg.com/mux.js/-/mux.js-5.11.0.tgz#3c2c1fbd9d30720af2a1b12c1f2a2840c63100f6"
+  integrity sha512-Q/iLfohHh5Pp6lW7EFtcxNuaCNJ3Ruywfy46pWLsY+yIxR1kXXImYY1wOhg8jLdBMs1kRaZqsiB4Zncsiw0a2Q==
   dependencies:
     "@babel/runtime" "^7.11.2"
 
@@ -14858,10 +14858,10 @@ xmldom@^0.1.27:
   resolved "https://registry.yarnpkg.com/xmldom/-/xmldom-0.1.31.tgz#b76c9a1bd9f0a9737e5a72dc37231cf38375e2ff"
   integrity sha512-yS2uJflVQs6n+CyjHoaBmVSqIDevTAWrzMmjG1Gc7h1qQ7uVozNhEPJAwZXWyGQ/Gafo3fCwrcaokezLPupVyQ==
 
-xmldom@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/xmldom/-/xmldom-0.4.0.tgz#8771e482a333af44587e30ce026f0998c23f3830"
-  integrity sha512-2E93k08T30Ugs+34HBSTQLVtpi6mCddaY8uO+pMNk1pqSjV5vElzn4mmh6KLxN3hki8rNcHSYzILoh3TEWORvA==
+xmldom@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/xmldom/-/xmldom-0.5.0.tgz#193cb96b84aa3486127ea6272c4596354cb4962e"
+  integrity sha512-Foaj5FXVzgn7xFzsKeNIde9g6aFBxTPi37iwsno8QvApmtg7KYrr+OPyRHcJF7dud2a5nGRBXK3n0dL62Gf7PA==
 
 xmlhttprequest-ssl@~1.5.4:
   version "1.5.5"
