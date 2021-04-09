@@ -271,7 +271,7 @@
 
 .video-js .vjs-chromecast-button .vjs-icon-placeholder
 {
-	height: 1.5em;
+	/*height: 1.5em;*/
 	width: 1.5em;
 	position: relative;
     text-align: center;
