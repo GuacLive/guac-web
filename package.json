@@ -1,6 +1,6 @@
 {
   "name": "guac-web",
-  "version": "1.15.12",
+  "version": "1.15.13",
   "description": "Main web ui for the Guac livestreaming platform",
   "repository": "GuacLive/guac-web",
   "author": {
@@ -50,7 +50,7 @@
     "@sentry/webpack-plugin": "^1.14.1",
     "@silvermine/videojs-quality-selector": "^1.2.4",
     "@vercel/next": "^2.7.9",
-    "@videojs/http-streaming": "^2.6.4",
+    "@videojs/http-streaming": "^2.7.0",
     "@webscopeio/react-textarea-autocomplete": "^4.7.3",
     "abort-controller": "^3.0.0",
     "abortcontroller-polyfill": "^1.5.0",
