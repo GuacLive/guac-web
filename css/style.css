@@ -695,6 +695,9 @@ input:focus {
 }
 
 /* Player mature warning */
+[data-blurred="0"] .mature-warning {
+	display: none;
+}
 [data-blurred="1"] .player-video {
     pointer-events: none;
     filter: blur(15px);
