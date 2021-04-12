@@ -204,15 +204,18 @@ function VideoPlayer(props) {
 				player.userActive(false);
 			}
 		}
-        canAutoplay.video().then((obj) => {
-            if(obj.result === false){
-                if(player && typeof player.muted === 'function'){
-					try{
-						player.muted(true);
-					}catch(e){}
+
+		if(!props.noAutoPlay){
+			canAutoplay.video().then((obj) => {
+				if(obj.result === false){
+					if(player && typeof player.muted === 'function'){
+						try{
+							player.muted(true);
+						}catch(e){}
+					}
 				}
-            }
-		});
+			});
+		}
 
 		// Hide theater mode if not on channel page
 		if(!props.streamInfo || !props.streamInfo.isChannel){
@@ -360,7 +363,7 @@ function VideoPlayer(props) {
 					controls
 					playsInline
 					preload="auto"
-					autoPlay="autoplay"
+					autoPlay={!props.noAutoPlay ? 'autoplay' : false}
 					style={{'width': '100%'}}
 				></video>
 			</div>

@@ -79,6 +79,8 @@ function ChannelPage(props){
 
 	const channel = useSelector(state => state.channel);
 	const site = useSelector(state => state.site);
+	
+	const [matureWarning, setMatureWarning] = useState(parseInt(channel?.data?.mature, 10));
 	const [panels, setPanels] = useState(channel?.data?.panels);
 
 	const channelAPISocket = useChannelSocket(channel);
@@ -225,6 +227,7 @@ function ChannelPage(props){
 		let liveAt = channel && channel.data && channel.data.liveAt ? new Date(channel.data.liveAt) : 0;
 		if(channel?.data?.live) setTimer(now - liveAt);
 		if(channel?.data?.panels) setPanels(channel.data.panels);
+		setMatureWarning(parseInt(channel?.data?.mature, 10));
 	}, [channel, channel.data]);
 	
 	const editStream = async e => {
@@ -289,8 +292,21 @@ function ChannelPage(props){
 		}
     	return (
     		<Fragment key={stream.user.id}>
-				<div className="site-component-channel__player">
-					<VideoPlayer { ...videoJsOptions } live={stream.live}></VideoPlayer>
+				<div className="site-component-channel__player relative overflow-hidden" data-blurred={matureWarning}>
+					<div className="mature-warning">
+						{
+							matureWarning ?
+							<>
+								<div className="f4 white"><Trans>The broadcaster has indicated that this channel is intended for mature audiences.</Trans></div>
+								<a className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" onClick={
+									() => {
+										setMatureWarning(false);
+									}
+								}><Trans>Watch</Trans></a>
+							</>: <></>
+						}
+					</div>
+					<VideoPlayer { ...videoJsOptions } live={stream.live} noAutoPlay={matureWarning} />
 				</div>
 				<div
 					className="site-component-channel__info dib w-100 bt b--dark-gray"

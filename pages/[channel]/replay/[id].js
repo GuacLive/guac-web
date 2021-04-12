@@ -86,7 +86,7 @@ function ReplayPage(props){
 						<div className={`w-100 min-vh-100 flex flex-nowrap black`}>			
 							<div className="site-component-channel w-100 h-100 flex flex-column flex-grow-1 relative">
 								<div>
-									<div className="site-component-channel__player">
+									<div className="site-component-channel__player relative overflow-hidden">
 										<VideoPlayer {...videoJsOptions} live={false} replay={true}></VideoPlayer>
 									</div>
 									<div className="dn flex-ns content-between">
