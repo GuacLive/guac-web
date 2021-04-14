@@ -65,8 +65,8 @@ export default class MyDocument extends Document {
 				<body className={bodyClassName}>
 					<Main />
 					<NextScript nonce={nonce} />
-					<script async defer src="https://cheese.guac.live/app.js" nonce={nonce}></script>
-					<noscript><img src="https://cheese.guac.live/image.gif" alt="" /></noscript>
+					
+					<script async defer data-domain="guac.live" src="https://cheese.guac.live/js/index.js" nonce={nonce}></script>
 				</body>
 			</Html>
 		)
