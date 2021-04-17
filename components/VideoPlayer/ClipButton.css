@@ -1,0 +1,36 @@
+.video-js .vjs-clip-button {
+  height: 100% !important;
+  width: 3.6em;
+  padding: 0;
+  opacity: .9;
+  transition: opacity .2s ease;
+}
+
+.video-js .vjs-clip-button .vjs-icon-placeholder:before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 600;
+  content: '\f0c4';
+}
+
+.video-js .vjs-clip-button:hover {
+  cursor: pointer;
+}
+
+.video-js .vjs-clip-button:before {
+  font-size: 1.8em;
+  line-height: 1.67;
+}
+
+.video-js .vjs-clip-button {
+  fill: #fff;
+  transform-origin: 50% 50%;
+  transition: transform .1s ease
+}
+
+.video-js .vjs-clip-button[aria-expanded=true] {
+  transform: rotate(30deg)
+}
+
+.video-js .vjs-clip-button:hover {
+  opacity: 1
+}

@@ -5,6 +5,7 @@
 
 @import './videojs-chromecast.css';
 @import './videojs-settings.css';
+@import '../components/VideoPlayer/ClipButton.css';
 .video-js .vjs-tech {
 	pointer-events: none;
 }
