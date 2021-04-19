@@ -16,6 +16,8 @@ if(typeof document !== 'undefined'){
 	require('!style-loader!css-loader!video.js/dist/video-js.css')
 }
 
+import ClipButton from './ClipButton';
+
 var playbackAPISocket;
 const DEFAULT_OFFLINE_POSTER = '//cdn.guac.live/offline-banners/offline-banner.png';
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
@@ -130,7 +132,8 @@ function VideoPlayer(props) {
 					  'pictureInPictureToggle': {},
 
 					  'chromecastButton': {},
-
+						
+					  'ClipButton': props.live ? {} : false,
 					  'TheaterModeToggle': {
 						  elementToToggle: 'guac',
 						  className: 'theater-mode'
@@ -192,14 +195,14 @@ function VideoPlayer(props) {
 			log('info', 'VideoPlayer', 'onPlayerReady', this);
 		});
 			
-		function mouseEnter(event) {
+		function mouseEnter() {
 			/*player.cache_.inactivityTimeout = player.options_.inactivityTimeout;
 			player.options_.inactivityTimeout = 0;*/
 			if(!player.userActive()){
 				player.userActive(true);
 			}
 		}
-		function mouseLeave(event) {
+		function mouseLeave() {
 			/*player.options_.inactivityTimeout = player.cache_.inactivityTimeout;*/
 			if(player.userActive()){
 				player.userActive(false);
@@ -241,6 +244,11 @@ function VideoPlayer(props) {
 				onReport: () => {window.open(`/report/${channel}` , '_blank');}
 			});
 		}
+
+		player.on('clip', () => {
+			if(props.onClip) props.onClip.bind(this)();
+		});
+		//if(props.onClip) player.on('clip', props.onClip.bind(this));
 
 		// Hotkeys
 		if(player.hotkeys){

@@ -13,7 +13,7 @@ export class ClipButton extends Button {
       return `vjs-clip-button ${super.buildCSSClass()}`;
     }
     handleClick(){
-		this.player().trigger('clip');
+      this.player().trigger('clip');
     }
 };
 Component.registerComponent('ClipButton', ClipButton);

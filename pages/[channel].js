@@ -65,6 +65,8 @@ function ChannelPage(props){
 	const [editPanelState, showEditPanel] = useState(false);
 	const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' && window.matchMedia ? window.matchMedia('screen and (max-width: 30em)').matches : false);
 
+	const [clipGenerating, setClipGenerating] = useState(false);
+
 	const [timer, setTimer] = useState(null);
 
 	const newPanelTitle = useRef('');
@@ -125,6 +127,37 @@ function ChannelPage(props){
 		const timeout = setTimeout(timerFunc, 1000);
 		return () => clearTimeout(timeout);
 	});
+
+
+	const createClip = async (title) => {
+		// Clip is already being generated
+		if(clipGenerating){
+			return;
+		}
+		setClipGenerating(true);
+		await fetch(API_URL + '/clip/' + channel.data.name, {
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${authentication.user.token}`,
+			},
+			method: 'POST',
+			body: JSON.stringify({
+				title
+			})
+		})
+		.then(response => response.json())
+		.then(r => {
+			console.log('createClip result', r);
+			if(r.uuid){
+				router.push(`${channel.data.name}/clips`);
+			}
+		})
+		.catch(error => console.error(error))
+		.finally(() => {
+			setClipGenerating(false);
+		});
+	};
 
 	const addPanel = async (title, description) => {
 		console.log('addPanel', title, description, newPanelTitle, newPanelDescription);
@@ -306,7 +339,7 @@ function ChannelPage(props){
 							</>: <></>
 						}
 					</div>
-					<VideoPlayer { ...videoJsOptions } live={stream.live} noAutoPlay={matureWarning} />
+					<VideoPlayer { ...videoJsOptions } live={stream.live} noAutoPlay={matureWarning} onClip={+stream.live ? createClip : null}/>
 				</div>
 				<div
 					className="site-component-channel__info dib w-100 bt b--dark-gray"
