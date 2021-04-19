@@ -221,9 +221,10 @@ function VideoPlayer(props) {
 			});
 		}
 
-		// Hide theater mode if not on channel page
+		// Hide theater mode and clip button if not on channel page
 		if(!props.streamInfo || !props.streamInfo.isChannel){
 			player.controlBar.removeChild('TheaterModeToggle');
+			player.controlBar.removeChild('ClipButton');
 		}
 
 		// Reload if the source fails (HLS-only)
