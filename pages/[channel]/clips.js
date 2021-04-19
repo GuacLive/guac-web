@@ -172,7 +172,7 @@ function ClipsPage(props) {
 									authentication.user &&
 									(
 										authentication.user.id === clip.clipper_id ||
-										authenication.user.name === channel?.data?.name
+										authentication.user.name === channel?.data?.name
 									) &&
 									<a
 										href="#"
