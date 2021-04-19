@@ -83,7 +83,7 @@ function ChannelPage(props){
 	const site = useSelector(state => state.site);
 	
 	const [matureWarning, setMatureWarning] = useState(parseInt(channel?.data?.mature, 10));
-	const [matureDismissed, setMmatureDismissed] = useState(false);
+	const [matureDismissed, setMatureDismissed] = useState(false);
 	const [panels, setPanels] = useState(channel?.data?.panels);
 
 	const channelAPISocket = useChannelSocket(channel);
