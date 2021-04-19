@@ -95,7 +95,7 @@ function ReplayPage(props){
 													<a className="justify-center items-center flex-shrink-0">
 														<div className="relative v-mid w3 h3">
 															<Image
-																src={replay.user.avatar || '//api.guac.live/avatars/unknown.png'}
+																src={replay.user.avatar}
 																alt={replay.user.name}
 																shape="squircle"
 																fit="cover"

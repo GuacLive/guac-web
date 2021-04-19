@@ -49,7 +49,7 @@ function ClipsPage(props) {
 			setVideoJsOptions({ 
 				autoplay: true,
 				controls: true,
-				banner: false,
+				banner: '/img/blank.png',
 				sources: clip.video_url ? [{
 					src: clip.video_url + '?clip=true',
 					type: 'video/mp4',
@@ -149,7 +149,7 @@ function ClipsPage(props) {
 						top: 0
 					}} onClick={() => setClipModalIsOpen(false)}>X</a>
 					<div className="flex items-center justify-center">
-						<VideoPlayer {...videoJsOptions} fill={true} live={false} />
+						<VideoPlayer {...videoJsOptions} fill={true} replay={true} live={false} />
 					</div>
 				</div>
 			</Modal>
