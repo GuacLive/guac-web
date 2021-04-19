@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 
-import Router from 'next/router';
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 
 import {useLingui} from "@lingui/react";
@@ -10,6 +10,7 @@ import {Trans, t} from '@lingui/macro';
 import * as actions from 'actions';
 
 function LoginComponent(props){
+	const router = useRouter();
 	const {i18n} = useLingui();
 	const dispatch = useDispatch();	
 	const auth = useSelector(state => state.authentication);
@@ -27,11 +28,11 @@ function LoginComponent(props){
 	useEffect(() => {
 		// Find out why auth.token is not always set
 		if(auth.token || auth.user.username){
-			//Router.push('/');
+			//router.push('/');
 			if(typeof window !== 'undefined'){
 				window.location.href = '/';
 			}else{
-				Router.push('/');
+				router.push('/');
 			}
 		}
 	}, [auth.token, auth.user.username])

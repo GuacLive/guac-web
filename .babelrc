@@ -3,12 +3,6 @@
 		"next/babel"
 	],
 	"plugins": [
-		[
-			"@babel/plugin-transform-react-jsx",
-			{
-				"runtime": "automatic"
-			}
-		],
 		"inline-react-svg",
 		"macros",
 		"@babel/plugin-proposal-object-rest-spread",

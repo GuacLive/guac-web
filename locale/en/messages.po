@@ -25,12 +25,12 @@ msgstr "1920 x 1080 is preferred"
 msgid "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 msgstr "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 
-#: pages/[channel].js:421
+#: pages/[channel].js:480
 msgid "ABOUT"
 msgstr "ABOUT"
 
-#: pages/[channel].js:537
-#: pages/[channel].js:550
+#: pages/[channel].js:594
+#: pages/[channel].js:607
 msgid "Add panel"
 msgstr "Add panel"
 
@@ -69,7 +69,7 @@ msgstr "Broadcaster:"
 msgid "Browse"
 msgstr "Browse"
 
-#: pages/[channel].js:412
+#: pages/[channel].js:471
 msgid "CHAT"
 msgstr "CHAT"
 
@@ -146,7 +146,7 @@ msgstr "Copyrighted Content"
 msgid "Counter-Notification"
 msgstr "Counter-Notification"
 
-#: pages/[channel].js:342
+#: pages/[channel].js:401
 msgid "Create an account to follow this user"
 msgstr "Create an account to follow this user"
 
@@ -167,14 +167,14 @@ msgstr "Dark Mode"
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: pages/[channel].js:511
+#: pages/[channel].js:568
 msgid "Delete"
 msgstr "Delete"
 
-#: pages/[channel].js:508
-#: pages/[channel].js:509
-#: pages/[channel].js:547
-#: pages/[channel].js:548
+#: pages/[channel].js:565
+#: pages/[channel].js:566
+#: pages/[channel].js:604
+#: pages/[channel].js:605
 msgid "Description"
 msgstr "Description"
 
@@ -202,7 +202,7 @@ msgstr "Do not engage, or encourage others to engage, in any targeted abuse or h
 msgid "Drag and drop image here<0/>Or<1/>Browse"
 msgstr "Drag and drop image here<0/>Or<1/>Browse"
 
-#: components/Auth.js:123
+#: components/Auth.js:124
 #: components/Settings/Profile.js:37
 msgid "E-mail"
 msgstr "E-mail"
@@ -211,9 +211,9 @@ msgstr "E-mail"
 #~ msgid "Edit"
 #~ msgstr "Edit"
 
-#: pages/[channel].js:483
-#: pages/[channel].js:483
-#: pages/[channel].js:514
+#: pages/[channel].js:540
+#: pages/[channel].js:540
+#: pages/[channel].js:571
 msgid "Edit panel"
 msgstr "Edit panel"
 
@@ -238,8 +238,8 @@ msgstr "End date:"
 msgid "English"
 msgstr "English"
 
-#: components/Auth.js:93
-#: components/Auth.js:116
+#: components/Auth.js:94
+#: components/Auth.js:117
 #: components/Settings/Profile.js:33
 msgid "Error"
 msgstr "Error"
@@ -248,11 +248,11 @@ msgstr "Error"
 msgid "Expand"
 msgstr "Expand"
 
-#: pages/[channel].js:439
+#: pages/[channel].js:498
 msgid "FOLLOWERS"
 msgstr "FOLLOWERS"
 
-#: pages/[channel].js:448
+#: pages/[channel].js:507
 msgid "FOLLOWING"
 msgstr "FOLLOWING"
 
@@ -264,8 +264,8 @@ msgstr "Failed to verify"
 msgid "First, choose the streaming server closest to you:"
 msgstr "First, choose the streaming server closest to you:"
 
-#: pages/[channel].js:335
-#: pages/[channel].js:348
+#: pages/[channel].js:394
+#: pages/[channel].js:407
 msgid "Follow"
 msgstr "Follow"
 
@@ -289,7 +289,7 @@ msgstr "Followed Channels"
 msgid "Followers:"
 msgstr "Followers:"
 
-#: pages/[channel].js:334
+#: pages/[channel].js:393
 msgid "Following"
 msgstr "Following"
 
@@ -301,7 +301,7 @@ msgstr "Following"
 msgid "Following:"
 msgstr "Following:"
 
-#: components/Auth.js:102
+#: components/Auth.js:103
 msgid "Forgot your password?"
 msgstr "Forgot your password?"
 
@@ -316,8 +316,8 @@ msgstr "Forgot your password?"
 msgid "Get started with streaming"
 msgstr "Get started with streaming"
 
-#: pages/[channel]/replay/[id].js:93
-#: pages/[channel].js:646
+#: pages/[channel]/replay/[id].js:153
+#: pages/[channel].js:703
 msgid "Go back"
 msgstr "Go back"
 
@@ -377,11 +377,12 @@ msgstr "Loading"
 
 #: components/Chat/index.js:697
 #: components/Search/SearchBar.js:81
-#: pages/[channel].js:630
+#: pages/[channel]/replay/[id].js:157
+#: pages/[channel].js:687
 msgid "Loading..."
 msgstr "Loading..."
 
-#: components/Auth.js:77
+#: components/Auth.js:78
 #: components/layout/PageLayout.js:166
 #: components/layout/PageLayout.js:225
 #: components/layout/PageLayout.js:225
@@ -443,7 +444,7 @@ msgstr "Next"
 msgid "No channels live"
 msgstr "No channels live"
 
-#: components/Replays/ReplaysList.js:49
+#: components/Replays/ReplaysList.js:86
 msgid "No replays available."
 msgstr "No replays available."
 
@@ -493,13 +494,14 @@ msgstr "Page"
 msgid "Page not found"
 msgstr "Page not found"
 
-#: pages/[channel].js:312
+#: pages/[channel]/replay/[id].js:113
+#: pages/[channel].js:371
 #: pages/index.js:106
 msgid "Partnered"
 msgstr "Partnered"
 
-#: components/Auth.js:100
-#: components/Auth.js:127
+#: components/Auth.js:101
+#: components/Auth.js:128
 #: components/Settings/Profile.js:42
 msgid "Password"
 msgstr "Password"
@@ -564,11 +566,11 @@ msgstr "Profile"
 msgid "Profile Banner for {0}"
 msgstr "Profile Banner for {0}"
 
-#: pages/[channel].js:430
+#: pages/[channel].js:489
 msgid "REPLAYS"
 msgstr "REPLAYS"
 
-#: pages/[channel].js:600
+#: pages/[channel].js:657
 msgid "Reason"
 msgstr "Reason"
 
@@ -627,12 +629,12 @@ msgstr "Show only live"
 msgid "Show user list"
 msgstr "Show user list"
 
-#: components/Auth.js:108
+#: components/Auth.js:109
 msgid "Sign in"
 msgstr "Sign in"
 
-#: components/Auth.js:86
-#: components/Auth.js:134
+#: components/Auth.js:87
+#: components/Auth.js:135
 #: components/layout/PageLayout.js:232
 #: components/layout/PageLayout.js:232
 #: components/layout/PageLayout.js:233
@@ -687,7 +689,7 @@ msgstr "Streaming permissions"
 msgid "Subbed to:"
 msgstr "Subbed to:"
 
-#: pages/[channel].js:351
+#: pages/[channel].js:410
 msgid "Subscribe"
 msgstr "Subscribe"
 
@@ -722,15 +724,19 @@ msgstr "Terms"
 msgid "Terms of use"
 msgstr "Terms of use"
 
+#: pages/[channel].js:336
+msgid "The broadcaster has indicated that this channel is intended for mature audiences."
+msgstr "The broadcaster has indicated that this channel is intended for mature audiences."
+
 #: pages/terms.js:14
 msgid "The following content is <0>forbidden</0> on guac.live:"
 msgstr "The following content is <0>forbidden</0> on guac.live:"
 
-#: pages/[channel].js:642
+#: pages/[channel].js:699
 msgid "The page you were looking for does not exist."
 msgstr "The page you were looking for does not exist."
 
-#: pages/[channel]/replay/[id].js:89
+#: pages/[channel]/replay/[id].js:149
 msgid "The replay you were looking for does not exist."
 msgstr "The replay you were looking for does not exist."
 
@@ -738,7 +744,7 @@ msgstr "The replay you were looking for does not exist."
 msgid "This page is scuffed and incomplete LOL"
 msgstr "This page is scuffed and incomplete LOL"
 
-#: utils/withAuth.js:32
+#: utils/withAuth.js:33
 msgid "This page requires you to be logged in."
 msgstr "This page requires you to be logged in."
 
@@ -758,7 +764,7 @@ msgstr "This verification token is not valid."
 msgid "Threats, Violence & Harm"
 msgstr "Threats, Violence & Harm"
 
-#: pages/[channel].js:594
+#: pages/[channel].js:651
 msgid "Time of ban"
 msgstr "Time of ban"
 
@@ -770,15 +776,15 @@ msgstr "Time out user for x seconds"
 msgid "Timestamps"
 msgstr "Timestamps"
 
-#: pages/[channel].js:505
-#: pages/[channel].js:506
-#: pages/[channel].js:544
-#: pages/[channel].js:545
+#: pages/[channel].js:562
+#: pages/[channel].js:563
+#: pages/[channel].js:601
+#: pages/[channel].js:602
 msgid "Title"
 msgstr "Title"
 
-#: pages/[channel]/replay/[id].js:88
-#: pages/[channel].js:641
+#: pages/[channel]/replay/[id].js:148
+#: pages/[channel].js:698
 msgid "Uh Ohhh..."
 msgstr "Uh Ohhh..."
 
@@ -790,7 +796,7 @@ msgstr "Unban user"
 #~ msgid "Unfollow"
 #~ msgstr "Unfollow"
 
-#: pages/[channel].js:652
+#: pages/[channel].js:709
 #: pages/_error.js:42
 msgid "Unknown error"
 msgstr "Unknown error"
@@ -818,7 +824,7 @@ msgstr "Upload Profile Banner"
 msgid "User"
 msgstr "User"
 
-#: pages/[channel].js:586
+#: pages/[channel].js:643
 msgid "User has been banned"
 msgstr "User has been banned"
 
@@ -826,8 +832,8 @@ msgstr "User has been banned"
 #~ msgid "User settings"
 #~ msgstr "User settings"
 
-#: components/Auth.js:96
-#: components/Auth.js:119
+#: components/Auth.js:97
+#: components/Auth.js:120
 msgid "Username"
 msgstr "Username"
 
@@ -855,6 +861,7 @@ msgstr "View offline channels"
 msgid "Want to customize your color? <0>Join our Patreon!</0>"
 msgstr "Want to customize your color? <0>Join our Patreon!</0>"
 
+#: pages/[channel].js:341
 #: pages/category/[id].js:95
 #: pages/channels.js:98
 #: pages/index.js:168
@@ -869,7 +876,7 @@ msgstr "We can't find anyone live atm :("
 msgid "We will review every reported user on a case-by-case basis, and give <0>warnings</0> or <1>temporary/permanent bans</1> depending on the severity of the case."
 msgstr "We will review every reported user on a case-by-case basis, and give <0>warnings</0> or <1>temporary/permanent bans</1> depending on the severity of the case."
 
-#: components/Auth.js:141
+#: components/Auth.js:142
 msgid "Welcome to"
 msgstr "Welcome to"
 
@@ -902,7 +909,7 @@ msgstr "You must respect all applicable local, national, and international laws 
 msgid "Your Patreon account is connected."
 msgstr "Your Patreon account is connected."
 
-#: components/Auth.js:61
+#: components/Auth.js:62
 msgid "Your account is now registered. Please check your e-mail to verify your account."
 msgstr "Your account is now registered. Please check your e-mail to verify your account."
 
@@ -914,7 +921,7 @@ msgstr "Your e-mail has been verified."
 msgid "by"
 msgstr "by"
 
-#: pages/[channel].js:588
+#: pages/[channel].js:645
 msgid "has been banned from the site."
 msgstr "has been banned from the site."
 
@@ -959,3 +966,7 @@ msgstr "seconds"
 #: components/Dashboard/Stream.js:149
 msgid "user"
 msgstr "user"
+
+#: pages/[channel]/clips.js:157
+msgid "{0}'s Clips"
+msgstr "{0}'s Clips"

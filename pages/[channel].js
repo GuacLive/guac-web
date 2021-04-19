@@ -65,6 +65,8 @@ function ChannelPage(props){
 	const [editPanelState, showEditPanel] = useState(false);
 	const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' && window.matchMedia ? window.matchMedia('screen and (max-width: 30em)').matches : false);
 
+	const [clipGenerating, setClipGenerating] = useState(false);
+
 	const [timer, setTimer] = useState(null);
 
 	const newPanelTitle = useRef('');
@@ -81,6 +83,7 @@ function ChannelPage(props){
 	const site = useSelector(state => state.site);
 	
 	const [matureWarning, setMatureWarning] = useState(parseInt(channel?.data?.mature, 10));
+	const [matureDismissed, setMatureDismissed] = useState(false);
 	const [panels, setPanels] = useState(channel?.data?.panels);
 
 	const channelAPISocket = useChannelSocket(channel);
@@ -125,6 +128,37 @@ function ChannelPage(props){
 		const timeout = setTimeout(timerFunc, 1000);
 		return () => clearTimeout(timeout);
 	});
+
+
+	const createClip = async (title) => {
+		// Clip is already being generated
+		if(clipGenerating){
+			return;
+		}
+		setClipGenerating(true);
+		await fetch(API_URL + '/clip/' + channel.data.name, {
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${authentication.user.token}`,
+			},
+			method: 'POST',
+			body: JSON.stringify({
+				title
+			})
+		})
+		.then(response => response.json())
+		.then(r => {
+			console.log('createClip result', r);
+			if(r.uuid){
+				router.push(`${channel.data.name}/clips`);
+			}
+		})
+		.catch(error => console.error(error))
+		.finally(() => {
+			setClipGenerating(false);
+		});
+	};
 
 	const addPanel = async (title, description) => {
 		console.log('addPanel', title, description, newPanelTitle, newPanelDescription);
@@ -292,21 +326,23 @@ function ChannelPage(props){
 		}
     	return (
     		<Fragment key={stream.user.id}>
-				<div className="site-component-channel__player relative overflow-hidden" data-blurred={matureWarning}>
+				<div className="site-component-channel__player relative overflow-hidden" data-blurred={matureWarning && !matureDismissed}>
 					<div className="mature-warning">
 						{
-							matureWarning ?
+							matureWarning
+							&& !matureDismissed
+							?
 							<>
 								<div className="f4 white"><Trans>The broadcaster has indicated that this channel is intended for mature audiences.</Trans></div>
 								<a className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" onClick={
 									() => {
-										setMatureWarning(false);
+										setMatureDismissed(true);
 									}
 								}><Trans>Watch</Trans></a>
 							</>: <></>
 						}
 					</div>
-					<VideoPlayer { ...videoJsOptions } live={stream.live} noAutoPlay={matureWarning} />
+					<VideoPlayer { ...videoJsOptions } live={stream.live} noAutoPlay={matureWarning && !matureDismissed} onClip={+stream.live ? createClip : null}/>
 				</div>
 				<div
 					className="site-component-channel__info dib w-100 bt b--dark-gray"
