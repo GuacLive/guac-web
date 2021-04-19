@@ -49,7 +49,7 @@ function ClipsPage(props) {
 			setVideoJsOptions({ 
 				autoplay: true,
 				controls: true,
-				banner: '',
+				banner: '/img/blank.png',
 				sources: clip.video_url ? [{
 					src: clip.video_url + '?clip=true',
 					type: 'video/mp4',
