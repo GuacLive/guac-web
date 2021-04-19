@@ -326,7 +326,7 @@ function ChannelPage(props){
 		}
     	return (
     		<Fragment key={stream.user.id}>
-				<div className="site-component-channel__player relative overflow-hidden" data-blurred={matureWarning}>
+				<div className="site-component-channel__player relative overflow-hidden" data-blurred={matureWarning && !matureDismissed}>
 					<div className="mature-warning">
 						{
 							matureWarning
