@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react'
+import React, {Component, Fragment, useState} from 'react'
 import dynamic from 'next/dynamic'
 
 let VideoPlayer = dynamic(
@@ -76,20 +76,22 @@ function EmbedPage(props){
 
 		return (
 		<div className="player-embed" data-blurred={matureWarning}>
-			<div className="mature-warning">
-				{
-					matureWarning ?
-					<>
-						<div className="f4 white"><Trans>The broadcaster has indicated that this channel is intended for mature audiences.</Trans></div>
-						<a className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" onClick={
-							() => {
-								setMatureWarning(false);
-							}
-						}><Trans>Watch</Trans></a>
-					</>: <></>
-				}
-			</div>
-			<VideoPlayer {...videoJsOptions} live={stream.live} fill={true}></VideoPlayer>
+				<div className="mature-warning">
+					{
+						matureWarning
+						&& !matureDismissed
+							?
+							<>
+								<div className="f4 white"><Trans>The broadcaster has indicated that this channel is intended for mature audiences.</Trans></div>
+								<a className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" onClick={
+									() => {
+										setMatureDismissed(true);
+									}
+								}><Trans>Watch</Trans></a>
+							</> : <></>
+					}
+				</div>
+			<VideoPlayer {...videoJsOptions} live={stream.live} fill={true} noAutoPlay={matureWarning && !matureDismissed}></VideoPlayer>
 		</div>
 		);
 	}
@@ -99,6 +101,7 @@ function EmbedPage(props){
 	} = props;
 
 	const [matureWarning, setMatureWarning] = useState(parseInt(channel?.data?.mature, 10));
+	const [matureDismissed, setMatureDismissed] = useState(false);
 
 	if(channel.loading) return null;
 	if(!channel.data) return null;
