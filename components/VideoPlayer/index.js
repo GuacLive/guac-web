@@ -134,10 +134,10 @@ function VideoPlayer(props) {
 					  'chromecastButton': {},
 						
 					  'ClipButton': props.live ? {} : false,
-					  'TheaterModeToggle': {
+					  'TheaterModeToggle': props.live ? {
 						  elementToToggle: 'guac',
 						  className: 'theater-mode'
-					  },
+					  } : false,
 					  'fullscreenToggle': {}
 				}
 			},
