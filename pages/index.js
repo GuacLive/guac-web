@@ -88,7 +88,7 @@ function IndexPage(props){
 								<a className="justify-center items-center flex-shrink-0">
 									<div className="relative v-mid w3 h3">
 										<Image
-											src={stream.user.avatar || '//api.guac.live/avatars/unknown.png'}
+											src={stream.user.avatar}
 											alt={stream.name}
 											shape="squircle"
 											fit="cover"
@@ -261,7 +261,7 @@ function IndexPage(props){
 							</div>
 						</div>
 						<div className="ph3 ph4-ns flex flex-row justify-end self-start h-100 v-mid">
-							<a href="https://discord.gg/k6MJSAj">
+							<a href="https://discord.gg/k6MJSAj" title="Discord server invite">
 								<img src="https://discordapp.com/api/guilds/564909420199411732/widget.png?style=banner3" alt="Discord server invite image" />
 								<span className="dn">Discord server invite</span>
 							</a>
@@ -277,11 +277,11 @@ function IndexPage(props){
 				</div>
 			: null}
 			<div className="site-component-popular w-100 pa2 relative bg-black-20">
-				<h3 className="ma0 pa3"><Trans>Popular live channels</Trans> <Link href="/channels"><a className="ml3 ph3 pv1 link primary-80 bg-black-30 20"><Trans>More</Trans> <small className="fa fa-chevron-right"></small></a></Link></h3>
+				<h3 className="ma0 pa3"><Trans>Popular live channels</Trans> <Link href="/channels"><a className="ml3 ph3 pv1 link primary-80 bg-black-30 20" title={t`More channels`}><Trans>More</Trans> <small className="fa fa-chevron-right"></small></a></Link></h3>
 				{renderStreams(featured)}
 			</div>
 			<div className="site-component-popular w-100 pa2 relative">
-				<h3 className="ma0 pa3"><Trans>Popular categories</Trans> <Link href="/categories"><a className="ml3 ph3 pv1 link primary-80 bg-black-30 20"><Trans>More</Trans> <small className="fa fa-chevron-right"></small></a></Link></h3>
+				<h3 className="ma0 pa3"><Trans>Popular categories</Trans> <Link href="/categories"><a className="ml3 ph3 pv1 link primary-80 bg-black-30 20" title={t`More categories`}><Trans>More</Trans> <small className="fa fa-chevron-right"></small></a></Link></h3>
 				{renderCategories(categories)}
 			</div>
 		</Fragment>

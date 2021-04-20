@@ -199,7 +199,7 @@ function PageLayout(props) {
 								<FontAwesomeIcon icon="bars" fixedWidth />
 							</div>
 							<Link href="/">
-								<a className="inline-flex pa2 content-box" alt="Logo">
+								<a className="inline-flex pa2 content-box" title="Logo">
 									<GuacLogo className="guac-logo green h2" alt="guac.live" />
 								</a>
 							</Link>

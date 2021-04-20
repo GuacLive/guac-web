@@ -1,0 +1,7 @@
+User-Agent: *
+Allow: /
+Allow: /channels
+Allow: /categories
+Allow: /category/*
+Allow: /clips
+Disallow: /admin/*
