@@ -143,6 +143,7 @@ MyApp.getInitialProps = async appContext => {
 				ctx.res.setHeader('content-security-policy', csp);
 				ctx.res.setHeader('Cache-Control', 'public, max-age=0, s-maxage=0, must-revalidate');
 				ctx.res.setHeader('Referrer-Policy', 'no-referrer-when-downgrade');
+				ctx.res.setHeader('permissions-policy', 'sync-xhr=(),document-domain=(),interest-cohort=()');
 				ctx.res.setHeader('X-Content-Type-Options', 'nosniff');
 				ctx.res.setHeader('X-Powered-By', 'tacos');
 				// Only allow framing embeds
