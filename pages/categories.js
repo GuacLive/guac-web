@@ -73,15 +73,15 @@ function CategoriesPage(props) {
 		<Fragment>
 			<div className="w-100 pv3 ph3-l">
 				<h2 className="f2 tracked mt0 mb3"><Trans>Browse</Trans></h2>
-				<div className="site-component-categories flex flex-row flex-wrap w-100" style={{flexGrow: 1}}>
+				<div className="site-component-categories grid ga2 ga3-l flex-grow-1 overflow-hidden grid-columns-2 grid-columns-2-m grid-columns-4-l grid-columns-5-xl h-100" style={{flexGrow: 1}}>
 					{categories.data && categories.data.map((category) => {
 						return (
 							<Link href={`/category/[id}`} href={`/category/${category.category_id}`} key={`category_${category.category_id}`}>
-								<a className="site-component-categories_category flex flex-column flex-grow-0 flex-shrink-0 overflow-hidden w-20-l w-80-m w-100 pa2 no-underline">
+								<a className="site-component-categories_category flex flex-column flex-grow-1 flex-shrink-0 overflow-hidden w-100 pa2 no-underline">
 									<div className="item-preview aspect-ratio aspect-ratio--16x9 z-1">
 										<Image alt={category.name} priority={currentPage == 1} src={category.cover ? category.cover : `/img/categories/${category.category_id}.jpg`} className="aspect-ratio--object" shape="rounded" fit="cover" />
 									</div>
-									<div className="flex flex-grow-1 flex-shrink-1 mt2">
+									<div className="flex flex-grow-1 flex-shrink-0 justify-between mt2">
 										<span className="f3 db link green truncate">{category.name}</span>
 									</div>
 								</a>

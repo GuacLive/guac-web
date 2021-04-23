@@ -9,10 +9,12 @@ import { Trans, t } from '@lingui/macro';
 import Link from 'next/link';
 
 import GuacButton from '../../components/GuacButton';
-import Image from '../../components/Image';
+
 import {i18n} from '@lingui/core';
 
 const API_URL = process.env.API_URL;
+const DEFAULT_OFFLINE_POSTER = '//cdn.guac.live/offline-banners/offline-banner.png';
+
 class CategoryPage extends Component {
 	static async getInitialProps({store, query}) {
 		const { categories } = store.getState()
@@ -65,34 +67,40 @@ class CategoryPage extends Component {
 						}
 						</h2>
 					</div>
-					<div className="site-component-channels flex flex-row flex-wrap w-80" style={{flexGrow: 1}}>
+					<div className="site-component-channels grid ga2 flex-grow-1 overflow-hidden grid-columns-2 grid-columns-3-xl h-100">
 					{channels.data && channels.data.map((channel) => {
 						return (
-							<div className="site-component-channels__channel w-100 w-third-l pa2" key={`channel_${channel.id}`}>
-								<div className="item-preview aspect-ratio aspect-ratio--16x9 z-1">
-									<Link href={`/[channel]`} as={`/${channel.name}`}>
-										<a><Image src={channel.thumbnail} className="aspect-ratio--object" shape="rounded" fit="cover" /></a>
-									</Link>
-								</div>
-								<div className="pa2">
-									<span className="f5 db link green">
-										<Link href={`/[channel]`} as={`/${channel.name}`}>
-											<a className="link color-inherit">{channel.title}</a>
-										</Link>
-									</span>
-									<span className="f6 gray mv1">
-										<p>
-												<Link href={`/[channel]`} as={`/${channel.name}`}>
-													<a className="link color-inherit b">{channel.name}</a>
-												</Link>
-												<br />
-												<Trans>is playing</Trans>&nbsp;
-												<Link href={`/category/${channel.category_id}`}>
-												<a className="link color-inherit b">{channel.category_name}</a>
+							<div key={`channel_${channel.id}`} className="relative pointer flex flex-column items-center">
+								<div className="pa2 w-100 flex flex-row justify-between items-center bg-bar">
+									<div className="flex items-center">
+										<div className={`w3 h3 mr3 ba bw1 ${+channel.live ? 'b--green' : 'b--red'} bg-center cover br-100`} style={{'backgroundImage': `url(${channel.avatar}`}}></div>
+										<div className="flex flex-column">
+											<Link href={`/[channel]`} as={`/${channel.name}`}>
+												<a className="link white f4">{channel.name}</a>
 											</Link>
-										</p>
-									</span>
-									<GuacButton url={`/${channel.name}`} color="dark-green"><Trans>Watch</Trans></GuacButton>
+											<Link href="/category/[id]" as={`/category/${channel.category_id}`}>
+												<a className="link white f5 mt2"><i className="fa fa-gamepad"></i> {channel.category_name}</a>
+											</Link>
+										</div>
+									</div>
+									<div className="flex flex-column">
+										<GuacButton color="green" url={`/${channel.name}`}><Trans>Watch</Trans></GuacButton>
+									</div>
+								</div>
+								<div className="w-100">
+									<div className="aspect-ratio aspect-ratio--16x9">
+										<Link href="/[channel]" as={`/${channel.name}`}>
+											<a className="link flex flex-column justify-between aspect-ratio--object bg-center cover" style={{'backgroundImage': +channel.live ? `url(${channel.streamServer}/live/${channel.name}/thumbnail.jpg)` : `url(${channel.banner || DEFAULT_OFFLINE_POSTER})`}}>
+												<span className="link white pa2 w-100 flex justify-between f4 bg-black-70">{channel.title || t`No stream title`}</span>
+												<div className="w-100 flex justify-between ph2 pt4 pb2 f5 grad-bot">
+													{+channel.live ?
+														<span className="pv1 ph2 bg-black white br2"><i className="fa fa-circle red"></i> <Trans>Live</Trans></span> : <span className="pv1 ph2 bg-black white br2"><Trans>Offline</Trans></span>
+													}
+													{+channel.live ? <span className="pv1 ph2 bg-black white br2"><i className="fa fa-eye"></i> {channel.viewers}</span> : <></>}
+												</div>
+											</a>
+										</Link>
+									</div>
 								</div>
 							</div>
 						);
