@@ -37,7 +37,7 @@ function ClipPage(props){
 	const router = useRouter()
 	const { i18n } = useLingui();
 	const { uuid } = router.query;
-	const [clip, setclip] = useState(false);
+	const [clip, setClip] = useState(false);
 	const [is404, setIs404] = useState(false);
 
 	useEffect(() => {
@@ -46,9 +46,9 @@ function ClipPage(props){
 			.then(response => response.json())
 			.then((res) => {
 				if(res && res.data){
-					setclip(res.data);
+					setClip(res.data);
 				}else{
-					setclip(false);
+					setClip(false);
 					setIs404(true);
 				}
 			})
@@ -94,7 +94,7 @@ function ClipPage(props){
 													<a className="justify-center items-center flex-shrink-0">
 														<div className="relative v-mid w3 h3">
 															<Image
-																src={clip.stream.avatar}
+																src={clip.stream_avatar}
 																alt={clip.stream_name}
 																shape="squircle"
 																fit="cover"
