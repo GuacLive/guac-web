@@ -64,14 +64,15 @@ function ClipPage(props){
 		videoJsOptions = { 
 			autoplay: true,
 			controls: true,
+			banner: '/img/blank.png',
 			sources: clip.video_url ? [{
-				src: clip.video_url,
-				type: 'application/x-mpegURL',
-				label: 'HLS'
+				src: clip.video_url + '?clip=true',
+				type: 'video/mp4',
+				label: 'MP4'
 			}] : [],
 			streamInfo: {
 				title: clip.clip_name,
-				username: clip.clip_name,
+				username: clip.clipper_name,
 				isChannel: false
 			}
 		};
@@ -86,7 +87,7 @@ function ClipPage(props){
 							<div className="site-component-channel w-100 h-100 flex flex-column flex-grow-1 relative">
 								<div>
 									<div className="site-component-channel__player relative overflow-hidden">
-										<VideoPlayer {...videoJsOptions} live={false} clip={true}></VideoPlayer>
+										<VideoPlayer {...videoJsOptions} fill={true} replay={true} live={false} />
 									</div>
 									<div className="dn flex-ns content-between">
 									<div className="items-start flex flex-grow-1 flex-shrink-1 justify-start pa3">
