@@ -123,10 +123,8 @@ function ClipPage(props){
 													<div className="flex flex-column mb3 mt2">
 														<span className="f5 primary">
 															<span className="truncate b line-clamp-2" style={{wordWrap: 'break-word'}} title={clip.clip_name}>{clip.clip_name}</span>
-															<div>
-																<span className="primary-50"><Trans>Clipped by {clip.clipper_name}</Trans></span>
-																<span className="primary-50">{format(new Date(clip.time), 'PPPP')}</span>
-															</div>
+															<div className="primary-50"><Trans>Clipped by {clip.clipper_name}</Trans></div>
+															<div className="primary-50">{format(new Date(clip.time), 'PPPP')}</div>
 														</span>
 													</div>
 												</div>
