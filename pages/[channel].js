@@ -151,7 +151,7 @@ function ChannelPage(props){
 		.then(r => {
 			console.log('createClip result', r);
 			if(r.uuid){
-				router.push(`${channel.data.name}/clips`);
+				router.push(`/clip/${r.uuid}`);
 			}
 		})
 		.catch(error => console.error(error))

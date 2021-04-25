@@ -73,11 +73,11 @@ msgstr "Browse"
 msgid "CHAT"
 msgstr "CHAT"
 
-#: pages/category/[id].js:64
+#: pages/category/[id].js:66
 msgid "Category"
 msgstr "Category"
 
-#: pages/category/[id].js:48
+#: pages/category/[id].js:50
 msgid "Category not found"
 msgstr "Category not found"
 
@@ -111,6 +111,10 @@ msgstr "Chat commands:"
 #: pages/_error.js:19
 msgid "Client error"
 msgstr "Client error"
+
+#: pages/clip/[uuid].js:126
+msgid "Clipped by {0}"
+msgstr "Clipped by {0}"
 
 #: components/Chat/UserCard.js:72
 msgid "Close"
@@ -318,6 +322,7 @@ msgstr "Get started with streaming"
 
 #: pages/[channel]/replay/[id].js:153
 #: pages/[channel].js:703
+#: pages/clip/[uuid].js:151
 msgid "Go back"
 msgstr "Go back"
 
@@ -363,7 +368,8 @@ msgstr "Join"
 #~ msgid "Length:"
 #~ msgstr "Length:"
 
-#: pages/channels.js:108
+#: pages/category/[id].js:97
+#: pages/channels.js:106
 msgid "Live"
 msgstr "Live"
 
@@ -379,6 +385,7 @@ msgstr "Loading"
 #: components/Search/SearchBar.js:81
 #: pages/[channel]/replay/[id].js:157
 #: pages/[channel].js:687
+#: pages/clip/[uuid].js:155
 msgid "Loading..."
 msgstr "Loading..."
 
@@ -416,6 +423,14 @@ msgstr "Moderators in chat:"
 msgid "More"
 msgstr "More"
 
+#: pages/index.js:284
+msgid "More categories"
+msgstr "More categories"
+
+#: pages/index.js:280
+msgid "More channels"
+msgstr "More channels"
+
 #: components/Chat/index.js:984
 msgid "More messages below."
 msgstr "More messages below."
@@ -449,7 +464,8 @@ msgid "No replays available."
 msgstr "No replays available."
 
 #: components/layout/Sidebar.js:76
-#: pages/channels.js:105
+#: pages/category/[id].js:94
+#: pages/channels.js:103
 msgid "No stream title"
 msgstr "No stream title"
 
@@ -481,7 +497,8 @@ msgstr "Notification of Infringement"
 msgid "Now, use the following stream key:"
 msgstr "Now, use the following stream key:"
 
-#: pages/channels.js:108
+#: pages/category/[id].js:97
+#: pages/channels.js:106
 msgid "Offline"
 msgstr "Offline"
 
@@ -496,6 +513,7 @@ msgstr "Page not found"
 
 #: pages/[channel]/replay/[id].js:113
 #: pages/[channel].js:371
+#: pages/clip/[uuid].js:113
 #: pages/index.js:106
 msgid "Partnered"
 msgstr "Partnered"
@@ -728,6 +746,10 @@ msgstr "Terms of use"
 msgid "The broadcaster has indicated that this channel is intended for mature audiences."
 msgstr "The broadcaster has indicated that this channel is intended for mature audiences."
 
+#: pages/clip/[uuid].js:147
+msgid "The clip you were looking for does not exist."
+msgstr "The clip you were looking for does not exist."
+
 #: pages/terms.js:14
 msgid "The following content is <0>forbidden</0> on guac.live:"
 msgstr "The following content is <0>forbidden</0> on guac.live:"
@@ -785,6 +807,7 @@ msgstr "Title"
 
 #: pages/[channel]/replay/[id].js:148
 #: pages/[channel].js:698
+#: pages/clip/[uuid].js:146
 msgid "Uh Ohhh..."
 msgstr "Uh Ohhh..."
 
@@ -862,8 +885,8 @@ msgid "Want to customize your color? <0>Join our Patreon!</0>"
 msgstr "Want to customize your color? <0>Join our Patreon!</0>"
 
 #: pages/[channel].js:341
-#: pages/category/[id].js:95
-#: pages/channels.js:98
+#: pages/category/[id].js:87
+#: pages/channels.js:96
 #: pages/index.js:168
 msgid "Watch"
 msgstr "Watch"
@@ -930,8 +953,8 @@ msgstr "has been banned from the site."
 #~ msgstr "is live"
 
 #: pages/category/[id].js:89
-msgid "is playing"
-msgstr "is playing"
+#~ msgid "is playing"
+#~ msgstr "is playing"
 
 #: components/Dashboard/Stream.js:148
 msgid "message"
