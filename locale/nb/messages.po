@@ -69,11 +69,11 @@ msgstr "Utforsk"
 msgid "CHAT"
 msgstr "CHAT"
 
-#: pages/category/[id].js:64
+#: pages/category/[id].js:66
 msgid "Category"
 msgstr "Kategori"
 
-#: pages/category/[id].js:48
+#: pages/category/[id].js:50
 msgid "Category not found"
 msgstr "Kategori ikke funnet"
 
@@ -107,6 +107,10 @@ msgstr "Chat-kommandoer:"
 #: pages/_error.js:19
 msgid "Client error"
 msgstr "Klient-feil"
+
+#: pages/clip/[uuid].js:126
+msgid "Clipped by {0}"
+msgstr "Klippet av {0}"
 
 #: components/Chat/UserCard.js:72
 msgid "Close"
@@ -302,6 +306,7 @@ msgstr "Start med strømming"
 
 #: pages/[channel]/replay/[id].js:153
 #: pages/[channel].js:703
+#: pages/clip/[uuid].js:151
 msgid "Go back"
 msgstr "Gå tilbake"
 
@@ -339,7 +344,8 @@ msgstr "Bli med"
 #~ msgid "Length:"
 #~ msgstr "Lengde:"
 
-#: pages/channels.js:108
+#: pages/category/[id].js:97
+#: pages/channels.js:106
 msgid "Live"
 msgstr "Live"
 
@@ -355,6 +361,7 @@ msgstr "Laster"
 #: components/Search/SearchBar.js:81
 #: pages/[channel]/replay/[id].js:157
 #: pages/[channel].js:687
+#: pages/clip/[uuid].js:155
 msgid "Loading..."
 msgstr "Laster..."
 
@@ -392,6 +399,14 @@ msgstr "Moderatorer i chat:"
 msgid "More"
 msgstr "Flere"
 
+#: pages/index.js:284
+msgid "More categories"
+msgstr "Flere kategorier"
+
+#: pages/index.js:280
+msgid "More channels"
+msgstr "Flere kanaler"
+
 #: components/Chat/index.js:984
 msgid "More messages below."
 msgstr "Flere meldinger under."
@@ -425,7 +440,8 @@ msgid "No replays available."
 msgstr "Ingen arkiverte videoer tilgjengelig."
 
 #: components/layout/Sidebar.js:76
-#: pages/channels.js:105
+#: pages/category/[id].js:94
+#: pages/channels.js:103
 msgid "No stream title"
 msgstr "Ingen strømmetittel"
 
@@ -457,7 +473,8 @@ msgstr "Varsel om krenkelse"
 msgid "Now, use the following stream key:"
 msgstr "Nå, bruk følgende strømmenøkkel:"
 
-#: pages/channels.js:108
+#: pages/category/[id].js:97
+#: pages/channels.js:106
 msgid "Offline"
 msgstr "Offline"
 
@@ -472,6 +489,7 @@ msgstr "Side ikke funnet"
 
 #: pages/[channel]/replay/[id].js:113
 #: pages/[channel].js:371
+#: pages/clip/[uuid].js:113
 #: pages/index.js:106
 msgid "Partnered"
 msgstr "Partner"
@@ -696,6 +714,10 @@ msgstr "Vilkår for bruk"
 msgid "The broadcaster has indicated that this channel is intended for mature audiences."
 msgstr "Kringkasteren har antydet at denne kanalen er ment for modne publikum"
 
+#: pages/clip/[uuid].js:147
+msgid "The clip you were looking for does not exist."
+msgstr "Klippet du leter etter, eksisterer ikke."
+
 #: pages/terms.js:14
 msgid "The following content is <0>forbidden</0> on guac.live:"
 msgstr "Følgende innhold er <0>forbudt</0> på guac.live:"
@@ -753,6 +775,7 @@ msgstr "Tittel"
 
 #: pages/[channel]/replay/[id].js:148
 #: pages/[channel].js:698
+#: pages/clip/[uuid].js:146
 msgid "Uh Ohhh..."
 msgstr "Uh Ohhh..."
 
@@ -826,8 +849,8 @@ msgid "Want to customize your color? <0>Join our Patreon!</0>"
 msgstr "Vil du endre fargen din? <0>Join vår Patreon!</0>"
 
 #: pages/[channel].js:341
-#: pages/category/[id].js:95
-#: pages/channels.js:98
+#: pages/category/[id].js:87
+#: pages/channels.js:96
 #: pages/index.js:168
 msgid "Watch"
 msgstr "Se"
@@ -894,8 +917,8 @@ msgstr "har blitt utestengt fra dette nettstedet."
 #~ msgstr "sender direkte"
 
 #: pages/category/[id].js:89
-msgid "is playing"
-msgstr "spiller"
+#~ msgid "is playing"
+#~ msgstr "spiller"
 
 #: components/Dashboard/Stream.js:148
 msgid "message"
