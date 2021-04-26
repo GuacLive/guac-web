@@ -29,8 +29,8 @@ msgstr "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are curre
 msgid "ABOUT"
 msgstr "ABOUT"
 
-#: pages/[channel].js:594
-#: pages/[channel].js:607
+#: pages/[channel].js:602
+#: pages/[channel].js:615
 msgid "Add panel"
 msgstr "Add panel"
 
@@ -72,6 +72,10 @@ msgstr "Browse"
 #: pages/[channel].js:471
 msgid "CHAT"
 msgstr "CHAT"
+
+#: pages/[channel].js:515
+msgid "CLIPS"
+msgstr "CLIPS"
 
 #: pages/category/[id].js:66
 msgid "Category"
@@ -171,14 +175,14 @@ msgstr "Dark Mode"
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: pages/[channel].js:568
+#: pages/[channel].js:576
 msgid "Delete"
 msgstr "Delete"
 
-#: pages/[channel].js:565
-#: pages/[channel].js:566
-#: pages/[channel].js:604
-#: pages/[channel].js:605
+#: pages/[channel].js:573
+#: pages/[channel].js:574
+#: pages/[channel].js:612
+#: pages/[channel].js:613
 msgid "Description"
 msgstr "Description"
 
@@ -215,9 +219,9 @@ msgstr "E-mail"
 #~ msgid "Edit"
 #~ msgstr "Edit"
 
-#: pages/[channel].js:540
-#: pages/[channel].js:540
-#: pages/[channel].js:571
+#: pages/[channel].js:548
+#: pages/[channel].js:548
+#: pages/[channel].js:579
 msgid "Edit panel"
 msgstr "Edit panel"
 
@@ -321,7 +325,7 @@ msgid "Get started with streaming"
 msgstr "Get started with streaming"
 
 #: pages/[channel]/replay/[id].js:153
-#: pages/[channel].js:703
+#: pages/[channel].js:711
 #: pages/clip/[uuid].js:151
 msgid "Go back"
 msgstr "Go back"
@@ -384,7 +388,7 @@ msgstr "Loading"
 #: components/Chat/index.js:697
 #: components/Search/SearchBar.js:81
 #: pages/[channel]/replay/[id].js:157
-#: pages/[channel].js:687
+#: pages/[channel].js:695
 #: pages/clip/[uuid].js:155
 msgid "Loading..."
 msgstr "Loading..."
@@ -588,7 +592,7 @@ msgstr "Profile Banner for {0}"
 msgid "REPLAYS"
 msgstr "REPLAYS"
 
-#: pages/[channel].js:657
+#: pages/[channel].js:665
 msgid "Reason"
 msgstr "Reason"
 
@@ -754,7 +758,7 @@ msgstr "The clip you were looking for does not exist."
 msgid "The following content is <0>forbidden</0> on guac.live:"
 msgstr "The following content is <0>forbidden</0> on guac.live:"
 
-#: pages/[channel].js:699
+#: pages/[channel].js:707
 msgid "The page you were looking for does not exist."
 msgstr "The page you were looking for does not exist."
 
@@ -786,7 +790,7 @@ msgstr "This verification token is not valid."
 msgid "Threats, Violence & Harm"
 msgstr "Threats, Violence & Harm"
 
-#: pages/[channel].js:651
+#: pages/[channel].js:659
 msgid "Time of ban"
 msgstr "Time of ban"
 
@@ -798,15 +802,15 @@ msgstr "Time out user for x seconds"
 msgid "Timestamps"
 msgstr "Timestamps"
 
-#: pages/[channel].js:562
-#: pages/[channel].js:563
-#: pages/[channel].js:601
-#: pages/[channel].js:602
+#: pages/[channel].js:570
+#: pages/[channel].js:571
+#: pages/[channel].js:609
+#: pages/[channel].js:610
 msgid "Title"
 msgstr "Title"
 
 #: pages/[channel]/replay/[id].js:148
-#: pages/[channel].js:698
+#: pages/[channel].js:706
 #: pages/clip/[uuid].js:146
 msgid "Uh Ohhh..."
 msgstr "Uh Ohhh..."
@@ -819,7 +823,7 @@ msgstr "Unban user"
 #~ msgid "Unfollow"
 #~ msgstr "Unfollow"
 
-#: pages/[channel].js:709
+#: pages/[channel].js:717
 #: pages/_error.js:42
 msgid "Unknown error"
 msgstr "Unknown error"
@@ -847,7 +851,7 @@ msgstr "Upload Profile Banner"
 msgid "User"
 msgstr "User"
 
-#: pages/[channel].js:643
+#: pages/[channel].js:651
 msgid "User has been banned"
 msgstr "User has been banned"
 
@@ -944,7 +948,7 @@ msgstr "Your e-mail has been verified."
 msgid "by"
 msgstr "by"
 
-#: pages/[channel].js:645
+#: pages/[channel].js:653
 msgid "has been banned from the site."
 msgstr "has been banned from the site."
 

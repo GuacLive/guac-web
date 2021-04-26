@@ -506,6 +506,14 @@ function ChannelPage(props){
 					>
 						<span className="truncate"><Trans>FOLLOWING</Trans></span>
 					</a>
+					<Link
+						href={`${stream.user.name}/clips`}
+					>
+						<a
+						className={
+							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb primary b--transparent hover-dark-green link`
+						}><span className="truncate"><Trans>CLIPS</Trans></span></a>
+					</Link>
 				</div>
 				{
 					tab == -1 &&
