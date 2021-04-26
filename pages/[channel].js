@@ -512,7 +512,7 @@ function ChannelPage(props){
 							`flex items-center site-component-profile__tab ttu mr4 h-100 no-underline pointer bb primary b--transparent hover-dark-green link`
 						}
 					>
-						<span className="truncate"><Trans>CLIPS</Trans></span>
+						<a><span className="truncate"><Trans>CLIPS</Trans></span></a>
 					</Link>
 				</div>
 				{
