@@ -25,8 +25,8 @@ msgstr "<0>Hi,<1/>Velkommen til guac.live — direktestrømming-platformen. Vi e
 msgid "ABOUT"
 msgstr "OM"
 
-#: pages/[channel].js:594
-#: pages/[channel].js:607
+#: pages/[channel].js:602
+#: pages/[channel].js:615
 msgid "Add panel"
 msgstr "Legg til panel"
 
@@ -68,6 +68,10 @@ msgstr "Utforsk"
 #: pages/[channel].js:471
 msgid "CHAT"
 msgstr "CHAT"
+
+#: pages/[channel].js:515
+msgid "CLIPS"
+msgstr "KLIPP"
 
 #: pages/category/[id].js:66
 msgid "Category"
@@ -167,14 +171,14 @@ msgstr "Mørk modus"
 msgid "Dashboard"
 msgstr "Kontrollpanel"
 
-#: pages/[channel].js:568
+#: pages/[channel].js:576
 msgid "Delete"
 msgstr "Slett"
 
-#: pages/[channel].js:565
-#: pages/[channel].js:566
-#: pages/[channel].js:604
-#: pages/[channel].js:605
+#: pages/[channel].js:573
+#: pages/[channel].js:574
+#: pages/[channel].js:612
+#: pages/[channel].js:613
 msgid "Description"
 msgstr "Beskrivelse"
 
@@ -211,9 +215,9 @@ msgstr "E-post"
 #~ msgid "Edit"
 #~ msgstr "Endre"
 
-#: pages/[channel].js:540
-#: pages/[channel].js:540
-#: pages/[channel].js:571
+#: pages/[channel].js:548
+#: pages/[channel].js:548
+#: pages/[channel].js:579
 msgid "Edit panel"
 msgstr "Endre panel"
 
@@ -305,7 +309,7 @@ msgid "Get started with streaming"
 msgstr "Start med strømming"
 
 #: pages/[channel]/replay/[id].js:153
-#: pages/[channel].js:703
+#: pages/[channel].js:711
 #: pages/clip/[uuid].js:151
 msgid "Go back"
 msgstr "Gå tilbake"
@@ -360,7 +364,7 @@ msgstr "Laster"
 #: components/Chat/index.js:697
 #: components/Search/SearchBar.js:81
 #: pages/[channel]/replay/[id].js:157
-#: pages/[channel].js:687
+#: pages/[channel].js:695
 #: pages/clip/[uuid].js:155
 msgid "Loading..."
 msgstr "Laster..."
@@ -560,7 +564,7 @@ msgstr "Profilbanner for {0}"
 msgid "REPLAYS"
 msgstr "ARKIV"
 
-#: pages/[channel].js:657
+#: pages/[channel].js:665
 msgid "Reason"
 msgstr "Grunnlag"
 
@@ -722,7 +726,7 @@ msgstr "Klippet du leter etter, eksisterer ikke."
 msgid "The following content is <0>forbidden</0> on guac.live:"
 msgstr "Følgende innhold er <0>forbudt</0> på guac.live:"
 
-#: pages/[channel].js:699
+#: pages/[channel].js:707
 msgid "The page you were looking for does not exist."
 msgstr "Siden du leter etter, eksisterer ikke."
 
@@ -754,7 +758,7 @@ msgstr "Denne verifiseringskoden er ikke gyldig."
 msgid "Threats, Violence & Harm"
 msgstr "Trusler, vold og skade"
 
-#: pages/[channel].js:651
+#: pages/[channel].js:659
 msgid "Time of ban"
 msgstr "Tidspunkt for utestengelse"
 
@@ -766,15 +770,15 @@ msgstr "Time ut brukeren i x sekunder"
 msgid "Timestamps"
 msgstr "Tidsmerking"
 
-#: pages/[channel].js:562
-#: pages/[channel].js:563
-#: pages/[channel].js:601
-#: pages/[channel].js:602
+#: pages/[channel].js:570
+#: pages/[channel].js:571
+#: pages/[channel].js:609
+#: pages/[channel].js:610
 msgid "Title"
 msgstr "Tittel"
 
 #: pages/[channel]/replay/[id].js:148
-#: pages/[channel].js:698
+#: pages/[channel].js:706
 #: pages/clip/[uuid].js:146
 msgid "Uh Ohhh..."
 msgstr "Uh Ohhh..."
@@ -783,7 +787,7 @@ msgstr "Uh Ohhh..."
 msgid "Unban user"
 msgstr "Fjern utestenging av bruker"
 
-#: pages/[channel].js:709
+#: pages/[channel].js:717
 #: pages/_error.js:42
 msgid "Unknown error"
 msgstr "Ukjent feil"
@@ -811,7 +815,7 @@ msgstr "Last opp profilbanner"
 msgid "User"
 msgstr "Bruker"
 
-#: pages/[channel].js:643
+#: pages/[channel].js:651
 msgid "User has been banned"
 msgstr "Brukeren har blitt utestengt"
 
@@ -908,7 +912,7 @@ msgstr "E-posten din har blitt verifisert."
 msgid "by"
 msgstr "av"
 
-#: pages/[channel].js:645
+#: pages/[channel].js:653
 msgid "has been banned from the site."
 msgstr "har blitt utestengt fra dette nettstedet."
 
