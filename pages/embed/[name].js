@@ -13,12 +13,13 @@ import {connect} from 'react-redux';
 
 import NextHead from 'next/head';
 
+import { Trans, t } from '@lingui/macro';
+
 import * as actions from '../../actions';
 
 import log from '../../utils/log';
 import useChannelSocket from 'hooks/useChannelSocket';
 
-const STREAMING_SERVER = 'eu';
 function EmbedPage(props){
 	const renderStream = () => {
 		const {
