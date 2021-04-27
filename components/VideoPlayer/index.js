@@ -79,7 +79,7 @@ function VideoPlayer(props) {
 		const videoJsOptions = {
 			errorDisplay: false,
 			liveui: props.live ? true : false,
-			fluid: true,
+			fluid: !props.fill,
 			responsive: true,
 			fill: props.fill,
 			language: i18n.locale || 'en',
