@@ -151,7 +151,11 @@ function ChannelPage(props){
 		.then(r => {
 			console.log('createClip result', r);
 			if(r.uuid){
-				router.push(`/clip/${r.uuid}`);
+				// Open clip in new tab
+				if(typeof window !== 'undefined'){
+					window.open(`${window.location.origin}/clip/${r.uuid}`, '_blank');
+				}
+				//router.push(`/clip/${r.uuid}`);
 			}
 		})
 		.catch(error => console.error(error))
