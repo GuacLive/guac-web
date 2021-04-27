@@ -27,6 +27,10 @@ function EmbedPage(props){
 			authentication
 		} = props;
 		let stream = channel.data;
+
+		const [matureWarning, setMatureWarning] = useState(parseInt(channel?.data?.mature, 10));
+		const [matureDismissed, setMatureDismissed] = useState(false);		
+
 		const channelAPISocket = useChannelSocket(channel);
 
 		let videoJsOptions = {
@@ -96,13 +100,6 @@ function EmbedPage(props){
 		</div>
 		);
 	}
-
-	const {
-		channel
-	} = props;
-
-	const [matureWarning, setMatureWarning] = useState(parseInt(channel?.data?.mature, 10));
-	const [matureDismissed, setMatureDismissed] = useState(false);
 
 	if(channel.loading) return null;
 	if(!channel.data) return null;
