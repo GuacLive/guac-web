@@ -149,7 +149,7 @@ function ClipsPage(props) {
 						top: 0
 					}} onClick={() => setClipModalIsOpen(false)}>X</a>
 					<div className="flex items-center justify-center">
-						<VideoPlayer {...videoJsOptions} fill={true} replay={true} live={false} />
+						<VideoPlayer {...videoJsOptions} replay={true} live={false} />
 					</div>
 				</div>
 			</Modal>
