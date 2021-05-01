@@ -330,22 +330,22 @@ function ChannelPage(props){
 		}
     	return (
     		<Fragment key={stream.user.id}>
-				<div className="site-component-channel__player relative overflow-hidden" data-blurred={matureWarning && !matureDismissed}>
-					<div className="mature-warning">
-						{
-							matureWarning
+				<div className="site-component-channel__player relative" data-blurred={matureWarning && !matureDismissed}>
+					{
+						matureWarning
 							&& !matureDismissed
-							?
-							<>
-								<div className="f4 white"><Trans>The broadcaster has indicated that this channel is intended for mature audiences.</Trans></div>
-								<a className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" onClick={
-									() => {
-										setMatureDismissed(true);
-									}
-								}><Trans>Watch</Trans></a>
-							</>: <></>
-						}
-					</div>
+							? <div className="mature-warning">
+
+								<>
+									<div className="f4 white"><Trans>The broadcaster has indicated that this channel is intended for mature audiences.</Trans></div>
+									<a className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" onClick={
+										() => {
+											setMatureDismissed(true);
+										}
+									}><Trans>Watch</Trans></a>
+								</>
+
+							</div> : <></>}
 					<VideoPlayer { ...videoJsOptions } live={stream.live} noAutoPlay={matureWarning && !matureDismissed} onClip={+stream.live ? createClip : null}/>
 				</div>
 				<div
