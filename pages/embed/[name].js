@@ -78,21 +78,21 @@ function EmbedPage(props){
 
 		return (
 		<div className="player-embed" data-blurred={matureWarning}>
-				<div className="mature-warning">
-					{
+			{
 						matureWarning
-						&& !matureDismissed
-							?
-							<>
-								<div className="f4 white"><Trans>The broadcaster has indicated that this channel is intended for mature audiences.</Trans></div>
-								<a className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" onClick={
-									() => {
-										setMatureDismissed(true);
-									}
-								}><Trans>Watch</Trans></a>
-							</> : <></>
-					}
-				</div>
+							&& !matureDismissed
+							? <div className="mature-warning">
+
+								<>
+									<div className="f4 white"><Trans>The broadcaster has indicated that this channel is intended for mature audiences.</Trans></div>
+									<a className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" onClick={
+										() => {
+											setMatureDismissed(true);
+										}
+									}><Trans>Watch</Trans></a>
+								</>
+
+							</div> : <></>}
 			<VideoPlayer {...videoJsOptions} live={stream.live} fill={true} noAutoPlay={matureWarning && !matureDismissed}></VideoPlayer>
 		</div>
 		);

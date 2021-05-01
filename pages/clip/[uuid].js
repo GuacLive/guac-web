@@ -86,7 +86,7 @@ function ClipPage(props){
 						<div className={`w-100 min-vh-100 flex flex-nowrap black`}>			
 							<div className="site-component-channel w-100 h-100 flex flex-column flex-grow-1 relative">
 								<div>
-									<div className="site-component-channel__player relative overflow-hidden">
+									<div className="site-component-channel__player relative">
 										<VideoPlayer {...videoJsOptions} fill={true} replay={true} live={false} />
 									</div>
 									<div className="dn flex-ns content-between">
