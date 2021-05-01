@@ -147,12 +147,12 @@ function IndexPage(props){
 			&& streams.data.length > 0){
 			console.log('renderStreams', streams);
 			return (
-				<div className="w-100 flex flex-wrap">
+				<div className="site-component-channels grid ga2 flex-grow-1 overflow-hidden grid-columns-2 grid-columns-3-xl h-100">
 					{streams.data.map((channel) => {
 						return (
-						<div key={`featured_streams_${channel.user.id}`} className="pa2 w-third-l w-100">
-							<div className="w-100 flex flex-column bg-bar">
-								<div className="pa2 w-100 flex flex-row justify-between items-center">
+						<div key={`featured_streams_${channel.user.id}`} className="relative pointer flex flex-column items-center">
+									<div className="pa2 w-100 flex flex-row justify-between items-center bg-bar">
+
 									<div className="flex items-center">
 										<div className="w3 h3 mr3 ba bw1 b--green bg-center cover br-100" style={{'backgroundImage': `url(${channel.user.avatar}`}}></div>
 										<div className="flex flex-column">
@@ -197,11 +197,11 @@ function IndexPage(props){
 			&& categories.data.length > 0){
 				categories.data = categories.data.slice(0, 6);
 			return (
-				<div className="w-100 flex flex-wrap">
+				<div className="site-component-categories grid ga2 ga3-l flex-grow-1 overflow-hidden grid-columns-2 grid-columns-2-m grid-columns-4-l grid-columns-5-xl h-100" style={{flexGrow: 1}}>
 					{categories.data.map((category) => {
 						return (
-							<Link key={`category_${category.category_id}`} href={`/category/[id}`} href={`/category/${category.category_id}`}>
-								<a className="flex flex-column flex-grow-0 flex-shrink-0 overflow-hidden w5 pa2 no-underline" key={`category_${category.category_id}`}>
+							<Link href={`/category/[id}`} href={`/category/${category.category_id}`} key={`category_${category.category_id}`}>
+								<a className="site-component-categories_category flex flex-column flex-grow-1 flex-shrink-0 overflow-hidden w-100 pa2 no-underline">
 									<div className="item-preview aspect-ratio aspect-ratio--16x9 z-1">
 										<Image alt={category.name} src={category.cover ? category.cover : `/img/categories/${category.category_id}.jpg`} width={600} height={400} className="aspect-ratio--object" shape="rounded" fit="cover" priority={true} />
 									</div>
