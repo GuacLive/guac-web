@@ -150,9 +150,8 @@ function IndexPage(props){
 				<div className="site-component-channels grid ga2 flex-grow-1 overflow-hidden grid-columns-2 grid-columns-3-xl h-100">
 					{streams.data.map((channel) => {
 						return (
-						<div key={`featured_streams_${channel.user.id}`} className="relative pointer flex flex-column items-center">
-									<div className="pa2 w-100 flex flex-row justify-between items-center bg-bar">
-
+							<div key={`featured_streams_${channel.user.id}`} className="relative pointer flex flex-column items-center">
+								<div className="pa2 w-100 flex flex-row justify-between items-center bg-bar">
 									<div className="flex items-center">
 										<div className="w3 h3 mr3 ba bw1 b--green bg-center cover br-100" style={{'backgroundImage': `url(${channel.user.avatar}`}}></div>
 										<div className="flex flex-column">
@@ -182,7 +181,6 @@ function IndexPage(props){
 									</div>
 								</div>
 							</div>
-						</div>
 						);
 					})}
 				</div>
