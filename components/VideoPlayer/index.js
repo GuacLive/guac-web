@@ -79,9 +79,9 @@ function VideoPlayer(props) {
 		const videoJsOptions = {
 			errorDisplay: false,
 			liveui: props.live ? true : false,
-			fluid: !props.fill,
+			fluid: props.fill ? false : true,
 			responsive: true,
-			fill: props.fill,
+			fill: props.fill ? true : false,
 			language: i18n.locale || 'en',
 			poster: `${props.banner ? props.banner : (!props.live ? DEFAULT_OFFLINE_POSTER : '')}?_player_js`,
 			inactivityTimeout: 2000,
@@ -368,7 +368,7 @@ function VideoPlayer(props) {
 					ref={ node => videoNode = node }
 					id="streamplayer"
 					crossOrigin="anonymous"
-					className={`player-video video-js vjs-default-skin vjs-big-play-centered ${props.fill ? 'vjs-fill' : 'vjs-16-9'}`} 
+					className={`player-video video-js vjs-default-skin vjs-big-play-centered vjs-16-9`} 
 					poster={`${props.banner ? props.banner : (!props.live ? DEFAULT_OFFLINE_POSTER : '')}?_poster`}
 					controls
 					playsInline
