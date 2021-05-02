@@ -357,7 +357,7 @@ function ChannelPage(props){
 								<a className="justify-center items-center flex-shrink-0">
 									<div className="relative v-mid w3 h3">
 									<Image
-										src={stream.user.avatar || '//api.guac.live/avatars/unknown.png'}
+										src={stream.user.avatar || '//cdn.guac.live/profile-avatars/offline-avatar.png'}
 										alt={stream.name}
 										shape="squircle"
 										fit="cover"
