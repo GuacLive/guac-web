@@ -83,7 +83,7 @@ function Sidebar(props){
                                                 >
                                                     <div className="items-center flex-shrink-0 relative w2 h2 mr2">
                                                         <Image
-                                                            src={u.avatar || 'https://api.guac.live/avatars/unknown.png'}
+                                                            src={u.avatar || '//cdn.guac.live/profile-avatars/offline-avatar.png'}
                                                             alt={u.username}
                                                             width={70}
                                                             height={70}
