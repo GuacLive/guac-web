@@ -1141,3 +1141,7 @@ html.theater-mode .site-component-channel__info .guac-btn {
         grid-row-end: 6;
     }
 }
+
+.__react-svg-spinner_circle { /* Make svg spinner great again*/
+	transform-origin: unset;
+}

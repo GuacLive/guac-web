@@ -192,7 +192,9 @@ function ClipsPage(props) {
 						<div style={{
 							'width': '100%',
 							'height': '70px',
-							'textAlign': 'center'
+							'display': 'flex',
+							'justify-content': 'center',
+							'align-items': 'center',
 						}} ref={loader}>{isFetching && <Spinner color="white" size="64px" thickness={2}/>}</div>
 					}
 				</div>
