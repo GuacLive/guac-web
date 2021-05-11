@@ -1,5 +1,6 @@
 import Document, {Html, Head, Main, NextScript} from 'next/document';
 import * as Sentry from '@sentry/node';
+import Script from 'next/experimental-script'
 
 process.on('unhandledRejection', (err) => {
 	Sentry.captureException(err);
@@ -54,11 +55,11 @@ export default class MyDocument extends Document {
 					<meta name="apple-touch-fullscreen" content="yes" />
 					<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-					<script type="text/javascript" dangerouslySetInnerHTML={{__html: shouldSkipQuant}} nonce={nonce}></script>
-					<script type="text/javascript" dangerouslySetInnerHTML={{__html: quant}} nonce={nonce} async={true}></script>
-					<script type="text/javascript" dangerouslySetInnerHTML={{__html: event}} nonce={nonce}></script>
-					<script type="text/javascript" dangerouslySetInnerHTML={{__html: darkMode}} nonce={nonce}></script>
-					<script data-ad-client="ca-pub-4396633769039638" async defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" nonce={nonce}></script>
+					<Script dangerouslySetInnerHTML={{__html: shouldSkipQuant}} nonce={nonce} />
+					<Script dangerouslySetInnerHTML={{__html: quant}} nonce={nonce} strategy="lazy" />
+					<Script dangerouslySetInnerHTML={{__html: event}} nonce={nonce} />
+					<Script dangerouslySetInnerHTML={{__html: darkMode}} nonce={nonce} />
+					<Script data-ad-client="ca-pub-4396633769039638" async strategy="lazy" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" nonce={nonce}></script>
 					<script type="application/ld+json" dangerouslySetInnerHTML={{__html: '[{"@context":"http://schema.org","@graph":{"sameAs":["https://www.facebook.com/guaclive/","https://twitter.com/guaclive"],"@type":"Organization","@id":"https://guac.live/","name":"guac.live","url":"https://guac.live/"}}]'}}></script>
 					<style type="text/css" nonce={nonce} dangerouslySetInnerHTML={{__html: quantCSS}}></style>
 				</Head>
