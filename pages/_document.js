@@ -59,7 +59,7 @@ export default class MyDocument extends Document {
 					<Script dangerouslySetInnerHTML={{__html: quant}} nonce={nonce} strategy="lazy" />
 					<Script dangerouslySetInnerHTML={{__html: event}} nonce={nonce} />
 					<Script dangerouslySetInnerHTML={{__html: darkMode}} nonce={nonce} />
-					<Script data-ad-client="ca-pub-4396633769039638" async strategy="lazy" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" nonce={nonce}></script>
+					<Script data-ad-client="ca-pub-4396633769039638" async strategy="lazy" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" nonce={nonce} />
 					<script type="application/ld+json" dangerouslySetInnerHTML={{__html: '[{"@context":"http://schema.org","@graph":{"sameAs":["https://www.facebook.com/guaclive/","https://twitter.com/guaclive"],"@type":"Organization","@id":"https://guac.live/","name":"guac.live","url":"https://guac.live/"}}]'}}></script>
 					<style type="text/css" nonce={nonce} dangerouslySetInnerHTML={{__html: quantCSS}}></style>
 				</Head>
