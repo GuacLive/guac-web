@@ -10,6 +10,7 @@ const t = typeof window !== 'undefined' && new window.Image;
 export default class Image extends React.Component {
     static propTypes = { 
         src: PropTypes.string,
+        sizes: PropTypes.string,
         width: PropTypes.number,
         height: PropTypes.number,
         className: PropTypes.string,
@@ -49,6 +50,7 @@ export default class Image extends React.Component {
                     objectFit={this.props.fit || 'contain'}
                     data-emote-code={this.props['data-emote-code']}
                     src={this.state.src}
+                    sizes={this.state.sizes || '100vw'}
                     width={this.props.width}
                     height={this.props.height}
                     alt={this.props.alt}
@@ -67,6 +69,7 @@ export default class Image extends React.Component {
                 objectFit={this.props.fit || 'contain'}
                 data-emote-code={this.props['data-emote-code']}
                 src={this.state.src}
+                sizes={this.state.sizes || '100vw'}
                 width={this.props.width}
                 height={this.props.height}
                 alt={this.props.alt}
