@@ -113,6 +113,7 @@ module.exports = withTM(withOffline({
 		pageEnv: true,
 		scrollRestoration: true,
 		scriptLoader: true,
+		disableOptimizedLoading: false,
 		optimizeFonts: true,
 		optimizeImages: true,
 		optimizeCss: /*process.env.NODE_ENV === 'production' ? true :*/false,
