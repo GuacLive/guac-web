@@ -108,18 +108,18 @@ module.exports = withTM(withOffline({
 	productionBrowserSourceMaps: true,
 	experimental: {
 		sprFlushToDisk: true,
-		conformance: true,
-		reactMode: 'concurrent',
+		reactRoot: true,
 		workerThreads: true,
 		pageEnv: true,
-		optimizeImages: true,
 		scrollRestoration: true,
-		topLevelAwait: true,
 		scriptLoader: true,
+		disableOptimizedLoading: false,
 		optimizeFonts: true,
 		optimizeImages: true,
 		optimizeCss: /*process.env.NODE_ENV === 'production' ? true :*/false,
-		scrollRestoration: false
+		scrollRestoration: false,
+		turboMode: true,
+		enableBlurryPlaceholder: true
 	},
 	future: {
 		excludeDefaultMomentLocales: true,

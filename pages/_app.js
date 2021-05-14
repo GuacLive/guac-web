@@ -62,9 +62,9 @@ const skipLayoutDestinations = ['/embed/[name]', '/chat/[name]', '/overlay/[name
 const MyApp = (props) => {
 	const dispatch = useDispatch();
 	const authentication = useSelector(state => state.authentication);
+	// Load initial catalog based on locale
+	activate(props.locale);
 	useEffect(() => {
-		// Load initial catalog based on locale
-		activate(props.locale);
 
 		if(typeof window !== 'undefined'){
 			// Initialize firebase messaging for current user
