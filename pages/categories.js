@@ -82,7 +82,7 @@ function CategoriesPage(props) {
 										<Image alt={category.name} priority={currentPage == 1} src={category.cover ? category.cover : `/img/categories/${category.category_id}.jpg`} className="aspect-ratio--object" shape="rounded" fit="cover" />
 									</div>
 									<div className="flex flex-grow-1 flex-shrink-0 justify-between mt2">
-										<span className="f3 db link green truncate">{category.name}</span>
+										<span className="f4 db link primary b truncate">{category.name}</span>
 									</div>
 								</a>
 							</Link>

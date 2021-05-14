@@ -204,7 +204,7 @@ function IndexPage(props){
 										<Image alt={category.name} src={category.cover ? category.cover : `/img/categories/${category.category_id}.jpg`} width={600} height={400} className="aspect-ratio--object" shape="rounded" fit="cover" priority={true} />
 									</div>
 									<div className="flex flex-grow-1 flex-shrink-1 mt2">
-										<span className="f3 db link green truncate">{category.name}</span>
+										<span className="f4 db link primary b truncate">{category.name}</span>
 									</div>
 								</a>
 							</Link>
@@ -275,11 +275,11 @@ function IndexPage(props){
 				</div>
 			: null}
 			<div className="site-component-popular w-100 pa2 relative bg-black-20">
-				<h3 className="ma0 pa3"><Trans>Popular live channels</Trans> <Link href="/channels"><a className="ml3 ph3 pv1 link primary-80 bg-black-30 20" title={t`More channels`}><Trans>More</Trans> <small className="fa fa-chevron-right"></small></a></Link></h3>
+				<h3 className="f3 ma0 pa3"><Trans>Popular live channels</Trans> <Link href="/channels"><a className="ml3 ph3 pv1 link primary-80 bg-black-30 20" title={t`More channels`}><Trans>More</Trans> <small className="fa fa-chevron-right"></small></a></Link></h3>
 				{renderStreams(featured)}
 			</div>
 			<div className="site-component-popular w-100 pa2 relative">
-				<h3 className="ma0 pa3"><Trans>Popular categories</Trans> <Link href="/categories"><a className="ml3 ph3 pv1 link primary-80 bg-black-30 20" title={t`More categories`}><Trans>More</Trans> <small className="fa fa-chevron-right"></small></a></Link></h3>
+				<h3 className="f3 ma0 pa3"><Trans>Popular categories</Trans> <Link href="/categories"><a className="ml3 ph3 pv1 link primary-80 bg-black-30 20" title={t`More categories`}><Trans>More</Trans> <small className="fa fa-chevron-right"></small></a></Link></h3>
 				{renderCategories(categories)}
 			</div>
 		</Fragment>
