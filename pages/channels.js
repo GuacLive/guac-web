@@ -79,7 +79,7 @@ class ChannelsPage extends Component {
 					<div className="site-component-channels grid ga2 flex-grow-1 overflow-hidden grid-columns-2 grid-columns-3-xl h-100">
 						{channels.data && channels.data.map((channel) => {
 							return (
-								<div key={`channel_${channel.id}`} className="relative pointer flex flex-column items-center">
+								<div key={`channel_${channel.id}`} className="relative pointer flex flex-column items-center z-1">
 									<div className="pa2 w-100 flex flex-row justify-between items-center bg-bar">
 										<div className="flex items-center">
 											<div className={`w3 h3 mr3 ba bw1 ${+channel.live ? 'b--green' : 'b--red'} bg-center cover br-100`} style={{'backgroundImage': `url(${channel.avatar}`}}></div>
