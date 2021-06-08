@@ -373,7 +373,7 @@ function ChannelPage(props){
 										<Tooltip
 											// options
 											title={i18n._(t`Partnered`)}
-											position="right"
+											placement="right"
 											trigger="mouseenter"
 											theme="transparent"
 											style={{'display': 'flex !important'}}
@@ -403,7 +403,7 @@ function ChannelPage(props){
 									<Tooltip
 										// options
 										title={i18n._(t`Create an account to follow this user`)}
-										position="top"
+										placement="top"
 										trigger="mouseenter"
 										theme="transparent"
 										style={{'display': 'flex !important'}}
