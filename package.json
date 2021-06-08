@@ -9,6 +9,7 @@
   },
   "browserslist": "defaults, IE >= 11, EDGE >= 14, Safari >= 11, Chrome >= 41, Firefox >= 52",
   "scripts": {
+    "postinstall": "patch-package",
     "postbuild": "rimraf ~/_next/**/*.js.map",
     "vercel-build": "next build",
     "dev": "next",
@@ -119,7 +120,7 @@
     "videojs-hotkeys": "^0.2.27",
     "videojs-landscape-fullscreen": "^11.1.0",
     "videojs-theater-mode": "^1.0.0",
-    "webpack": "^5.37.0",
+    "webpack": "^5.38.1",
     "workbox-webpack-plugin": "^6.1.5"
   },
   "devDependencies": {
@@ -130,7 +131,7 @@
     "babel-plugin-inline-react-svg": "^2.0.1"
   },
   "resolutions": {
-    "webpack": "^5.37.0",
+    "webpack": "^5.38.1",
     "workbox-webpack-plugin": "^6.1.5"
   }
 }

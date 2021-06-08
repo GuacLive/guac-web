@@ -12,10 +12,10 @@ module.exports = withTM(withOffline({
 			config.resolve.alias['@sentry/node'] = '@sentry/browser'
 		}
 
-		config.module.rules.push({
+		/*config.module.rules.push({
 			test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
 			type: 'asset/resource'
-		});
+		});*/
 		config.module.rules.push({
 			test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
 			type: 'asset/inline'
@@ -117,8 +117,7 @@ module.exports = withTM(withOffline({
 		optimizeFonts: true,
 		optimizeImages: true,
 		optimizeCss: /*process.env.NODE_ENV === 'production' ? true :*/false,
-		scrollRestoration: false,
-		turboMode: true
+		scrollRestoration: false
 	},
 	future: {
 		excludeDefaultMomentLocales: true
