@@ -1,0 +1,13 @@
+diff --git a/node_modules/next-transpile-modules/src/next-transpile-modules.js b/node_modules/next-transpile-modules/src/next-transpile-modules.js
+index 7256fa5..5ab8228 100644
+--- a/node_modules/next-transpile-modules/src/next-transpile-modules.js
++++ b/node_modules/next-transpile-modules/src/next-transpile-modules.js
+@@ -88,7 +88,7 @@ const withTmInitializer = (modules = [], options = {}) => {
+     if (modules.length === 0) return nextConfig;
+ 
+     const resolveSymlinks = 'resolveSymlinks' in options ? options.resolveSymlinks : true;
+-    const isWebpack5 = (nextConfig.future && nextConfig.future.webpack5) || false;
++    const isWebpack5 = true;
+     const debug = options.debug || false;
+ 
+     const logger = createLogger(debug);
