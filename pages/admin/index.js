@@ -62,8 +62,8 @@ function AdminIndexPage(props){
 						<div className="flex flex-column flex-grow-1 flex-nowrap ph1">
 							<div className="flex h-100-l flex-grow-1 pa2">
 								<div className="flex-column">
-									<h3 className="f3 tracked primary"><Trans>Information</Trans></h3>
-									<Trans>This page is scuffed and incomplete LOL</Trans>
+									<h3 className="f3 tracked primary"><Trans>Ban Manager</Trans></h3>
+									<GuacButton color="blue" url="/admin/ban"><Trans>Manage</Trans></GuacButton>
 								</div>
 							</div>
 						</div>

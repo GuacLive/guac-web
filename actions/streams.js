@@ -104,6 +104,41 @@ export const banUser = (token, user = '', reason = '') => async (dispatch) => {
 	});
 };
 
+export const unbanUser = (token, user = '') => async (dispatch) => {
+	dispatch({
+		type: 'UNBAN_USER_REQUEST'
+	});
+	return callApi('/admin/user/unban', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		accessToken: token,
+		body: JSON.stringify({
+			user_id: user
+		})
+	})
+	.then(response => response.json())
+	.then((json) => {
+		if (json.statusCode == 200) {
+			dispatch(Object.assign({
+				type: 'UNBAN_USER_SUCCESS'
+			}, json));
+		} else {
+			dispatch({
+				type: 'UNBAN_USER_FAILURE',
+				error: new Error('Invalid status code in unban user json: ' + JSON.stringify(json))
+			});
+		}
+	})
+	.catch(error => {
+        dispatch({
+          type: 'UNBAN_USER_FAILURE',
+          error
+        });
+	});
+};
+
 export const giveStreamPermission = (token, username = '') => async (dispatch) => {
 	dispatch({
 		type: 'GIVE_PERMISSION_REQUEST'

@@ -43,7 +43,7 @@ class AdminStreamPage extends Component {
 		return (
 			<>
 				<div className="w-100">
-					<h2 className="f2 tracked mt0 mb3"><Link href="/admin"><a className="link underline primary">Admin</a></Link> &middot; Stream Manager</h2>
+					<h2 className="f2 tracked mt0 mb3"><Link href="/admin"><a className="link underline primary">Admin</a></Link> &middot; <Trans>Stream Manager</Trans></h2>
 					<div className="pa1">
 						<div className="h-100">
 							<table className="f6 w-100 mw8" cellSpacing="0">
