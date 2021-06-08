@@ -108,7 +108,7 @@ module.exports = withTM(withOffline({
 	productionBrowserSourceMaps: true,
 	experimental: {
 		sprFlushToDisk: true,
-		reactRoot: true,
+		//reactRoot: true,
 		workerThreads: true,
 		pageEnv: true,
 		scrollRestoration: true,
