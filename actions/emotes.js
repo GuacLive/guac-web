@@ -10,7 +10,7 @@ export const fetchEmotes = (channel) => async (dispatch) => {
 				.then(async response => {
 					const data = await response.json();
 					for(const emote of Object.values(data)){
-						let url = emoteList.directory !== 'twitch' ? `//emotes.guac.live/${emoteList.directory}/${emote.id}.${emote.animated ? 'gif': 'png'}` : `//static-cdn.jtvnw.net/emoticons/v1/${emote.id}/3.0`
+						let url = emoteList.directory !== 'twitch' ? `//emotes.guac.live/${emoteList.directory}/${emote.id}.${emote.animated ? 'gif': 'png'}` : `//static-cdn.jtvnw.net/emoticons/v2/${emote.id}/default/dark/3.0`
 						result[emote.code] = {
 							provider: emoteList.name,
 							url,
