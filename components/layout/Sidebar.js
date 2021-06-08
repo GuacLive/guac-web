@@ -74,6 +74,7 @@ function Sidebar(props){
                                                 <Tooltip
                                                     // options
                                                     title={u.title || i18n._(t`No stream title`)}
+                                                    placement="right"
                                                     trigger="mouseenter"
                                                     theme="transparent"
                                                     unmountHTMLWhenHide={true}
