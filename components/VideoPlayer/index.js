@@ -155,7 +155,8 @@ function VideoPlayer(props) {
 					smoothQualityChange: true,
 					handlePartialData: true,
 					handleManifestRedirects: true,
-					experimentalLLHLS: true
+					experimentalLLHLS: true,
+					maxPlaylistRetries: 5
 				},
 				nativeVideoTracks: true,
 				nativeAudioTracks: true,
