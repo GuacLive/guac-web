@@ -1,6 +1,6 @@
 {
   "name": "guac-web",
-  "version": "1.16.9",
+  "version": "1.16.10",
   "description": "Main web ui for the Guac livestreaming platform",
   "repository": "GuacLive/guac-web",
   "author": {
@@ -63,7 +63,7 @@
     "css-loader": "^5.0.1",
     "date-fns": "^2.14.0",
     "element-remove": "^1.0.4",
-    "emoji-mart": "^3.0.1",
+    "emoji-mart": "github:GuacLive/emoji-mart#build",
     "file-loader": "^6.0.0",
     "firebase": "^8.3.1-canary.bce35ced7",
     "invariant": "^2.2.4",
@@ -75,7 +75,7 @@
     "next": "^10.2.4-canary.7",
     "next-offline": "^5",
     "next-redux-wrapper": "^6",
-    "next-transpile-modules": "^7.0.0",
+    "next-transpile-modules": "^8",
     "nuka-carousel": "^4.7.4",
     "patch-package": "^6.2.2",
     "path-match": "^1.2.4",
