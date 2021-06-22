@@ -115,7 +115,7 @@
     "typescript": "^4.3.0-dev.20210324",
     "url-loader": "^4.1.0",
     "vercel": "^22.0.1",
-    "video.js": "^7.11.8",
+    "video.js": "^7.13.1",
     "videojs-errors": "^4.3.2",
     "videojs-hotkeys": "^0.2.27",
     "videojs-landscape-fullscreen": "^11.1.0",
