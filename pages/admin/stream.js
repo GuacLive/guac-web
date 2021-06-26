@@ -10,6 +10,7 @@ import * as actions from '../../actions';
 
 import prettyMilliseconds from 'pretty-ms';
 
+import { Trans } from '@lingui/macro';
 class AdminStreamPage extends Component {
 	constructor(props){
 		super(props);
