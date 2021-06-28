@@ -751,21 +751,37 @@ function ChannelPage(props){
 	if(channel.isFollowing == null) channel.isFollowing = followed && followed.to_id === channel.data.user.id;
 	channel.data.isMe = isMe;
 
+	const json = `[{
+		"@type": "VideoObject",
+		"@context": "https://schema.org",
+		"description": "${props?.channel.data?.title}",
+		"embedUrl": "https://guac.live/embed/${props?.channel?.data?.name}",
+		"name": "${props?.channel?.data?.name} · guac.live",
+		"thumbnailUrl": ["${props?.channel?.data?.thumbnail}"],
+		"uploadDate": "${props?.channel?.data?.liveAt}",
+		"publication": {
+			"@type": "BroadcastEvent",
+			"startDate": "${props?.channel?.data?.liveAt}",
+			"isLiveBroadcast": ${props?.channel?.data?.live}
+		}
+	}]`;
+
 	return (
 		<Fragment>
 			<NextHead>
 				<title>{channel.data.name} &middot; guac.live</title>
-				{ meta && meta.map((m, i) => {
-					return m.name ? 
-					(
-						<meta name={m.name} content={m.content} key={m.name} />
-					) :
-					(
-						<meta property={m.property} content={m.content} key={m.property} />
-					);
+				{meta && meta.map((m, i) => {
+					return m.name ?
+						(
+							<meta name={m.name} content={m.content} key={m.name} />
+						) :
+						(
+							<meta property={m.property} content={m.content} key={m.property} />
+						);
 				})}
 				<link rel='alternate' type='application/activity+json' href={`${process.env.API_URL}/actor/${channel.data.name}`} />
 				<link rel="alternate" type="application/json+oembed" href={`/api/oembed?format=json&url=https%3A%2F%guac.live%2Fc%2F${channel.data.name}`} title={channel.data.name} />
+				<script type="application/ld+json" dangerouslySetInnerHTML={{__html: json}}></script>
 			</NextHead>
 			<div className={`w-100 ${isMobile ? 'vh-100 max-vh-100' : 'min-vh-100'} flex flex-nowrap black`}>			
 				<div className="site-component-channel w-100 w-70-ns h-100 flex flex-column flex-grow-1 relative">
