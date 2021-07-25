@@ -17,16 +17,16 @@ msgstr ""
 msgid "1920 x 1080 is preferred"
 msgstr "1920 x 1080 er foretrukket"
 
-#: pages/index.js:243
+#: pages/index.js:241
 msgid "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 msgstr "<0>Hi,<1/>Velkommen til guac.live — direktestrømming-platformen. Vi er for tiden i beta.</0><2>Mens vi er i beta, så vil strømmeprivilegier bli gitt på invitasjonsbasis.<3/>Men, lag gjerne en konto og delta i chatten og det generelle fellesskapet!</2>"
 
-#: pages/[channel].js:480
+#: pages/[channel].js:484
 msgid "ABOUT"
 msgstr "OM"
 
-#: pages/[channel].js:602
-#: pages/[channel].js:615
+#: pages/[channel].js:606
+#: pages/[channel].js:619
 msgid "Add panel"
 msgstr "Legg til panel"
 
@@ -46,6 +46,18 @@ msgstr "Til slutt, sørg for at keyframe interval er satt til <0>1</0>."
 #~ msgid "At last, make sure keyframe interval is set to <0>2</0>."
 #~ msgstr "Til slutt, sørg for at keyframe interval er satt til <0>2</0>"
 
+#: pages/admin/ban.js:68
+msgid "Ban"
+msgstr "Utesteng"
+
+#: pages/admin/index.js:65
+msgid "Ban Manager"
+msgstr "Håndter utestengelser"
+
+#: pages/admin/ban.js:82
+msgid "Bans"
+msgstr "Utestengelser"
+
 #: pages/dashboard.js:27
 msgid "Brand"
 msgstr "Merke"
@@ -58,18 +70,17 @@ msgstr "Å bryte loven"
 msgid "Broadcaster:"
 msgstr "Direktestrømmer:"
 
-#: components/layout/Sidebar.js:43
-#: components/layout/Sidebar.js:44
+#: components/layout/Sidebar.js:42
 #: components/layout/Sidebar.js:44
 #: pages/categories.js:75
 msgid "Browse"
 msgstr "Utforsk"
 
-#: pages/[channel].js:471
+#: pages/[channel].js:475
 msgid "CHAT"
 msgstr "CHAT"
 
-#: pages/[channel].js:515
+#: pages/[channel].js:519
 msgid "CLIPS"
 msgstr "KLIPP"
 
@@ -93,8 +104,7 @@ msgstr "Kanal"
 #~ msgid "Channel not found"
 #~ msgstr "Kanal ikke funnet"
 
-#: components/layout/Sidebar.js:35
-#: components/layout/Sidebar.js:36
+#: components/layout/Sidebar.js:33
 #: components/layout/Sidebar.js:36
 #: pages/channels.js:48
 msgid "Channels"
@@ -130,8 +140,8 @@ msgid "Color"
 msgstr "Farge"
 
 #: components/layout/NotificationsMenu.js:25
-msgid "Coming soon."
-msgstr "Kommer snart."
+#~ msgid "Coming soon."
+#~ msgstr "Kommer snart."
 
 #: components/Settings/Connections.js:109
 msgid "Connect"
@@ -150,7 +160,7 @@ msgstr "Opphavsrettsbeskyttet innhold"
 msgid "Counter-Notification"
 msgstr "Innsigelse"
 
-#: pages/[channel].js:401
+#: pages/[channel].js:405
 msgid "Create an account to follow this user"
 msgstr "Opprett en konto for å følge denne brukeren"
 
@@ -171,14 +181,14 @@ msgstr "Mørk modus"
 msgid "Dashboard"
 msgstr "Kontrollpanel"
 
-#: pages/[channel].js:576
+#: pages/[channel].js:580
 msgid "Delete"
 msgstr "Slett"
 
-#: pages/[channel].js:573
-#: pages/[channel].js:574
-#: pages/[channel].js:612
-#: pages/[channel].js:613
+#: pages/[channel].js:577
+#: pages/[channel].js:578
+#: pages/[channel].js:616
+#: pages/[channel].js:617
 msgid "Description"
 msgstr "Beskrivelse"
 
@@ -215,9 +225,9 @@ msgstr "E-post"
 #~ msgid "Edit"
 #~ msgstr "Endre"
 
-#: pages/[channel].js:548
-#: pages/[channel].js:548
-#: pages/[channel].js:579
+#: pages/[channel].js:552
+#: pages/[channel].js:552
+#: pages/[channel].js:583
 msgid "Edit panel"
 msgstr "Endre panel"
 
@@ -252,11 +262,11 @@ msgstr "Feil"
 msgid "Expand"
 msgstr "Utvid"
 
-#: pages/[channel].js:498
+#: pages/[channel].js:502
 msgid "FOLLOWERS"
 msgstr "FØLGERE"
 
-#: pages/[channel].js:507
+#: pages/[channel].js:511
 msgid "FOLLOWING"
 msgstr "FØLGER"
 
@@ -268,8 +278,8 @@ msgstr "Feilet verifisering"
 msgid "First, choose the streaming server closest to you:"
 msgstr "Først, velg strømmeserveren som er nærmest deg:"
 
-#: pages/[channel].js:394
-#: pages/[channel].js:407
+#: pages/[channel].js:398
+#: pages/[channel].js:411
 msgid "Follow"
 msgstr "Følg"
 
@@ -285,7 +295,7 @@ msgstr "Fulgte kanaler"
 msgid "Followers:"
 msgstr "Følgere:"
 
-#: pages/[channel].js:393
+#: pages/[channel].js:397
 msgid "Following"
 msgstr "Følger"
 
@@ -309,7 +319,7 @@ msgid "Get started with streaming"
 msgstr "Start med strømming"
 
 #: pages/[channel]/replay/[id].js:153
-#: pages/[channel].js:711
+#: pages/[channel].js:715
 #: pages/clip/[uuid].js:151
 msgid "Go back"
 msgstr "Gå tilbake"
@@ -326,6 +336,7 @@ msgstr "Hatprat"
 msgid "Hi! Welcome to {0}'s channel~"
 msgstr "Hei! Velkommen til {0} sin kanal~"
 
+#: components/layout/Sidebar.js:25
 #: components/layout/Sidebar.js:27
 #: components/layout/Sidebar.js:28
 #: components/layout/Sidebar.js:28
@@ -333,14 +344,14 @@ msgid "Home"
 msgstr "Hjem"
 
 #: pages/admin/index.js:65
-msgid "Information"
-msgstr "Informasjon"
+#~ msgid "Information"
+#~ msgstr "Informasjon"
 
 #: pages/dmca.js:13
 msgid "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be \"repeat infringers\". If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (\"DMCA\") by providing Guac.lives Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
 msgstr "Det er vår policy å svare på klare merknader om påstått brudd på opphavsretten som er i samsvar med Digital Millennium Copyright Act. I tillegg vil vi straks avslutte uten varsel kontoene til de som bestemmes av oss å være \"gjentatte krenkere\". Hvis du er opphavsrettseier eller en agent derav, og du tror at at innhold som ligger på nettstedet vårt (www.guac.live) krenker opphavsretten din, kan du sende inn et varsel i henhold til Digital Millennium Copyright Act (\"DMCA\") ved å gi Guac.live sin utpekte copyrightagent følgende informasjon skriftlig (vennligst kontakt din advokat eller se 17 USC Seksjon 512 (c) (3) for å bekrefte disse kravene):"
 
-#: pages/index.js:258
+#: pages/index.js:256
 msgid "Join"
 msgstr "Bli med"
 
@@ -364,7 +375,7 @@ msgstr "Laster"
 #: components/Chat/index.js:697
 #: components/Search/SearchBar.js:81
 #: pages/[channel]/replay/[id].js:157
-#: pages/[channel].js:695
+#: pages/[channel].js:699
 #: pages/clip/[uuid].js:155
 msgid "Loading..."
 msgstr "Laster..."
@@ -383,6 +394,7 @@ msgid "Log out"
 msgstr "Logg ut"
 
 #: pages/admin/index.js:48
+#: pages/admin/index.js:66
 msgid "Manage"
 msgstr "Håndter"
 
@@ -398,16 +410,16 @@ msgstr "Nevn"
 msgid "Moderators in chat:"
 msgstr "Moderatorer i chat:"
 
-#: pages/index.js:280
-#: pages/index.js:284
+#: pages/index.js:278
+#: pages/index.js:282
 msgid "More"
 msgstr "Flere"
 
-#: pages/index.js:284
+#: pages/index.js:282
 msgid "More categories"
 msgstr "Flere kategorier"
 
-#: pages/index.js:280
+#: pages/index.js:278
 msgid "More channels"
 msgstr "Flere kanaler"
 
@@ -438,6 +450,10 @@ msgstr "Neste"
 #: pages/channels.js:67
 msgid "No channels live"
 msgstr "Ingen kanaler live"
+
+#: components/layout/NotificationsMenu.js:54
+msgid "No notifications yet."
+msgstr "Ingen varsler enda."
 
 #: components/Replays/ReplaysList.js:86
 msgid "No replays available."
@@ -473,6 +489,10 @@ msgstr "Merk: Arkiverte streams er foreløpig offentlig og ikke-slettbare"
 msgid "Notification of Infringement"
 msgstr "Varsel om krenkelse"
 
+#: components/layout/NotificationsMenu.js:49
+msgid "Notifications"
+msgstr "Varsler"
+
 #: components/Dashboard/Stream.js:118
 msgid "Now, use the following stream key:"
 msgstr "Nå, bruk følgende strømmenøkkel:"
@@ -492,7 +512,7 @@ msgid "Page not found"
 msgstr "Side ikke funnet"
 
 #: pages/[channel]/replay/[id].js:113
-#: pages/[channel].js:371
+#: pages/[channel].js:375
 #: pages/clip/[uuid].js:113
 #: pages/index.js:106
 msgid "Partnered"
@@ -520,11 +540,11 @@ msgstr "Utesteng brukeren permanent"
 msgid "Pop-out chat"
 msgstr "Popp-ut chat"
 
-#: pages/index.js:284
+#: pages/index.js:282
 msgid "Popular categories"
 msgstr "Populære kategorier"
 
-#: pages/index.js:280
+#: pages/index.js:278
 msgid "Popular live channels"
 msgstr "Populære direkte kanaler"
 
@@ -560,13 +580,17 @@ msgstr "Profil"
 msgid "Profile Banner for {0}"
 msgstr "Profilbanner for {0}"
 
-#: pages/[channel].js:489
+#: pages/[channel].js:493
 msgid "REPLAYS"
 msgstr "ARKIV"
 
-#: pages/[channel].js:665
+#: pages/[channel].js:669
 msgid "Reason"
 msgstr "Grunnlag"
+
+#: pages/admin/ban.js:76
+msgid "Reason:"
+msgstr "Grunnlag:"
 
 #: components/Chat/index.js:905
 msgid "Reconnect"
@@ -660,6 +684,7 @@ msgid "Stream Chat"
 msgstr "Strømmechat"
 
 #: pages/admin/index.js:47
+#: pages/admin/stream.js:47
 msgid "Stream Manager"
 msgstr "Strømming-håndtering"
 
@@ -683,7 +708,7 @@ msgstr "Strømmetillatelse"
 msgid "Subbed to:"
 msgstr "Abonnert til:"
 
-#: pages/[channel].js:410
+#: pages/[channel].js:414
 msgid "Subscribe"
 msgstr "Abonnér"
 
@@ -714,7 +739,8 @@ msgstr "Vilkår"
 msgid "Terms of use"
 msgstr "Vilkår for bruk"
 
-#: pages/[channel].js:336
+#: pages/[channel].js:340
+#: pages/embed/[name].js:87
 msgid "The broadcaster has indicated that this channel is intended for mature audiences."
 msgstr "Kringkasteren har antydet at denne kanalen er ment for modne publikum"
 
@@ -726,7 +752,7 @@ msgstr "Klippet du leter etter, eksisterer ikke."
 msgid "The following content is <0>forbidden</0> on guac.live:"
 msgstr "Følgende innhold er <0>forbudt</0> på guac.live:"
 
-#: pages/[channel].js:707
+#: pages/[channel].js:711
 msgid "The page you were looking for does not exist."
 msgstr "Siden du leter etter, eksisterer ikke."
 
@@ -735,8 +761,8 @@ msgid "The replay you were looking for does not exist."
 msgstr "Reprisen du leter etter, eksisterer ikke."
 
 #: pages/admin/index.js:66
-msgid "This page is scuffed and incomplete LOL"
-msgstr "Denne siden er scuffed og uferdig LOL"
+#~ msgid "This page is scuffed and incomplete LOL"
+#~ msgstr "Denne siden er scuffed og uferdig LOL"
 
 #: utils/withAuth.js:33
 msgid "This page requires you to be logged in."
@@ -758,7 +784,7 @@ msgstr "Denne verifiseringskoden er ikke gyldig."
 msgid "Threats, Violence & Harm"
 msgstr "Trusler, vold og skade"
 
-#: pages/[channel].js:659
+#: pages/[channel].js:663
 msgid "Time of ban"
 msgstr "Tidspunkt for utestengelse"
 
@@ -770,15 +796,15 @@ msgstr "Time ut brukeren i x sekunder"
 msgid "Timestamps"
 msgstr "Tidsmerking"
 
-#: pages/[channel].js:570
-#: pages/[channel].js:571
-#: pages/[channel].js:609
-#: pages/[channel].js:610
+#: pages/[channel].js:574
+#: pages/[channel].js:575
+#: pages/[channel].js:613
+#: pages/[channel].js:614
 msgid "Title"
 msgstr "Tittel"
 
 #: pages/[channel]/replay/[id].js:148
-#: pages/[channel].js:706
+#: pages/[channel].js:710
 #: pages/clip/[uuid].js:146
 msgid "Uh Ohhh..."
 msgstr "Uh Ohhh..."
@@ -787,7 +813,7 @@ msgstr "Uh Ohhh..."
 msgid "Unban user"
 msgstr "Fjern utestenging av bruker"
 
-#: pages/[channel].js:717
+#: pages/[channel].js:721
 #: pages/_error.js:42
 msgid "Unknown error"
 msgstr "Ukjent feil"
@@ -812,10 +838,11 @@ msgid "Upload Profile Banner"
 msgstr "Last opp profilbanner"
 
 #: components/layout/AccountMenu.js:42
+#: pages/admin/ban.js:72
 msgid "User"
 msgstr "Bruker"
 
-#: pages/[channel].js:651
+#: pages/[channel].js:655
 msgid "User has been banned"
 msgstr "Brukeren har blitt utestengt"
 
@@ -828,6 +855,7 @@ msgstr "Brukeren har blitt utestengt"
 msgid "Username"
 msgstr "Brukernavn"
 
+#: pages/admin/ban.js:74
 #: pages/admin/index.js:55
 msgid "Username:"
 msgstr "Brukernavn:"
@@ -852,10 +880,11 @@ msgstr "Vis offline kanaler"
 msgid "Want to customize your color? <0>Join our Patreon!</0>"
 msgstr "Vil du endre fargen din? <0>Join vår Patreon!</0>"
 
-#: pages/[channel].js:341
+#: pages/[channel].js:345
 #: pages/category/[id].js:87
 #: pages/channels.js:96
-#: pages/index.js:168
+#: pages/embed/[name].js:92
+#: pages/index.js:167
 msgid "Watch"
 msgstr "Se"
 
@@ -871,7 +900,7 @@ msgstr "Vi vil gjennomgå alle rapporterte brukere fra sak til sak, og gi <0>adv
 msgid "Welcome to"
 msgstr "Velkommen til"
 
-#: pages/index.js:241
+#: pages/index.js:239
 msgid "Welcome to guac.live"
 msgstr "Velkommen til guac.live"
 
@@ -912,7 +941,7 @@ msgstr "E-posten din har blitt verifisert."
 msgid "by"
 msgstr "av"
 
-#: pages/[channel].js:653
+#: pages/[channel].js:657
 msgid "has been banned from the site."
 msgstr "har blitt utestengt fra dette nettstedet."
 
