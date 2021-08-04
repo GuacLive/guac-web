@@ -21,16 +21,16 @@ msgstr "1920 x 1080 is preferred"
 #~ msgid "<0>Hi,<1/>Welcome to guac.live &mdash; live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 #~ msgstr "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 
-#: pages/index.js:243
+#: pages/index.js:241
 msgid "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 msgstr "<0>Hi,<1/>Welcome to guac.live — live streaming platform. We are currently in beta.</0><2>While we are in beta, streaming privileges will be given on a invite-only basis.<3/>But, feel free to make an account and participate in the chat and general community!</2>"
 
-#: pages/[channel].js:480
+#: pages/[channel].js:484
 msgid "ABOUT"
 msgstr "ABOUT"
 
-#: pages/[channel].js:602
-#: pages/[channel].js:615
+#: pages/[channel].js:606
+#: pages/[channel].js:619
 msgid "Add panel"
 msgstr "Add panel"
 
@@ -50,6 +50,18 @@ msgstr "At last, make sure keyframe interval is set to <0>1</0>."
 #~ msgid "At last, make sure keyframe interval is set to <0>2</0>."
 #~ msgstr "At last, make sure keyframe interval is set to <0>2</0>."
 
+#: pages/admin/ban.js:68
+msgid "Ban"
+msgstr "Ban"
+
+#: pages/admin/index.js:65
+msgid "Ban Manager"
+msgstr "Ban Manager"
+
+#: pages/admin/ban.js:82
+msgid "Bans"
+msgstr "Bans"
+
 #: pages/dashboard.js:27
 msgid "Brand"
 msgstr "Brand"
@@ -62,18 +74,17 @@ msgstr "Breaking the law"
 msgid "Broadcaster:"
 msgstr "Broadcaster:"
 
-#: components/layout/Sidebar.js:43
-#: components/layout/Sidebar.js:44
+#: components/layout/Sidebar.js:42
 #: components/layout/Sidebar.js:44
 #: pages/categories.js:75
 msgid "Browse"
 msgstr "Browse"
 
-#: pages/[channel].js:471
+#: pages/[channel].js:475
 msgid "CHAT"
 msgstr "CHAT"
 
-#: pages/[channel].js:515
+#: pages/[channel].js:519
 msgid "CLIPS"
 msgstr "CLIPS"
 
@@ -97,8 +108,7 @@ msgstr "Channel"
 #~ msgid "Channel not found"
 #~ msgstr "Channel not found"
 
-#: components/layout/Sidebar.js:35
-#: components/layout/Sidebar.js:36
+#: components/layout/Sidebar.js:33
 #: components/layout/Sidebar.js:36
 #: pages/channels.js:48
 msgid "Channels"
@@ -134,8 +144,8 @@ msgid "Color"
 msgstr "Color"
 
 #: components/layout/NotificationsMenu.js:25
-msgid "Coming soon."
-msgstr "Coming soon."
+#~ msgid "Coming soon."
+#~ msgstr "Coming soon."
 
 #: components/Settings/Connections.js:109
 msgid "Connect"
@@ -154,7 +164,7 @@ msgstr "Copyrighted Content"
 msgid "Counter-Notification"
 msgstr "Counter-Notification"
 
-#: pages/[channel].js:401
+#: pages/[channel].js:405
 msgid "Create an account to follow this user"
 msgstr "Create an account to follow this user"
 
@@ -175,14 +185,14 @@ msgstr "Dark Mode"
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: pages/[channel].js:576
+#: pages/[channel].js:580
 msgid "Delete"
 msgstr "Delete"
 
-#: pages/[channel].js:573
-#: pages/[channel].js:574
-#: pages/[channel].js:612
-#: pages/[channel].js:613
+#: pages/[channel].js:577
+#: pages/[channel].js:578
+#: pages/[channel].js:616
+#: pages/[channel].js:617
 msgid "Description"
 msgstr "Description"
 
@@ -219,9 +229,9 @@ msgstr "E-mail"
 #~ msgid "Edit"
 #~ msgstr "Edit"
 
-#: pages/[channel].js:548
-#: pages/[channel].js:548
-#: pages/[channel].js:579
+#: pages/[channel].js:552
+#: pages/[channel].js:552
+#: pages/[channel].js:583
 msgid "Edit panel"
 msgstr "Edit panel"
 
@@ -256,11 +266,11 @@ msgstr "Error"
 msgid "Expand"
 msgstr "Expand"
 
-#: pages/[channel].js:498
+#: pages/[channel].js:502
 msgid "FOLLOWERS"
 msgstr "FOLLOWERS"
 
-#: pages/[channel].js:507
+#: pages/[channel].js:511
 msgid "FOLLOWING"
 msgstr "FOLLOWING"
 
@@ -272,8 +282,8 @@ msgstr "Failed to verify"
 msgid "First, choose the streaming server closest to you:"
 msgstr "First, choose the streaming server closest to you:"
 
-#: pages/[channel].js:394
-#: pages/[channel].js:407
+#: pages/[channel].js:398
+#: pages/[channel].js:411
 msgid "Follow"
 msgstr "Follow"
 
@@ -297,7 +307,7 @@ msgstr "Followed Channels"
 msgid "Followers:"
 msgstr "Followers:"
 
-#: pages/[channel].js:393
+#: pages/[channel].js:397
 msgid "Following"
 msgstr "Following"
 
@@ -325,7 +335,7 @@ msgid "Get started with streaming"
 msgstr "Get started with streaming"
 
 #: pages/[channel]/replay/[id].js:153
-#: pages/[channel].js:711
+#: pages/[channel].js:715
 #: pages/clip/[uuid].js:151
 msgid "Go back"
 msgstr "Go back"
@@ -342,6 +352,7 @@ msgstr "Hate Speech"
 msgid "Hi! Welcome to {0}'s channel~"
 msgstr "Hi! Welcome to {0}'s channel~"
 
+#: components/layout/Sidebar.js:25
 #: components/layout/Sidebar.js:27
 #: components/layout/Sidebar.js:28
 #: components/layout/Sidebar.js:28
@@ -349,8 +360,8 @@ msgid "Home"
 msgstr "Home"
 
 #: pages/admin/index.js:65
-msgid "Information"
-msgstr "Information"
+#~ msgid "Information"
+#~ msgstr "Information"
 
 #: pages/dmca.js:13
 #~ msgid "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be \"repeat infringers\". If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (\"DMCA\") by providing Guac.live's Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
@@ -364,7 +375,7 @@ msgstr "It is our policy to respond to clear notices of alleged copyright infrin
 #~ msgid "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be &quot;repeat infringers&quot;. If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (&quot;DMCA&quot;) by providing Guac.live&#039;s Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
 #~ msgstr "It is our policy to respond to clear notices of alleged copyright infringement that comply with the Digital Millennium Copyright Act. In addition, we will promptly terminate without notice the accounts of those determined by us to be &quot;repeat infringers&quot;. If you are a copyright owner or an agent thereof, and you believe that any content hosted on our web site (www.guac.live) infringes your copyrights, then you may submit a notification pursuant to the Digital Millennium Copyright Act (&quot;DMCA&quot;) by providing Guac.live&#039;s Designated Copyright Agent with the following information in writing (please consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to confirm these requirements):"
 
-#: pages/index.js:258
+#: pages/index.js:256
 msgid "Join"
 msgstr "Join"
 
@@ -388,7 +399,7 @@ msgstr "Loading"
 #: components/Chat/index.js:697
 #: components/Search/SearchBar.js:81
 #: pages/[channel]/replay/[id].js:157
-#: pages/[channel].js:695
+#: pages/[channel].js:699
 #: pages/clip/[uuid].js:155
 msgid "Loading..."
 msgstr "Loading..."
@@ -407,6 +418,7 @@ msgid "Log out"
 msgstr "Log out"
 
 #: pages/admin/index.js:48
+#: pages/admin/index.js:66
 msgid "Manage"
 msgstr "Manage"
 
@@ -422,16 +434,16 @@ msgstr "Mention"
 msgid "Moderators in chat:"
 msgstr "Moderators in chat:"
 
-#: pages/index.js:280
-#: pages/index.js:284
+#: pages/index.js:278
+#: pages/index.js:282
 msgid "More"
 msgstr "More"
 
-#: pages/index.js:284
+#: pages/index.js:282
 msgid "More categories"
 msgstr "More categories"
 
-#: pages/index.js:280
+#: pages/index.js:278
 msgid "More channels"
 msgstr "More channels"
 
@@ -462,6 +474,10 @@ msgstr "Next"
 #: pages/channels.js:67
 msgid "No channels live"
 msgstr "No channels live"
+
+#: components/layout/NotificationsMenu.js:54
+msgid "No notifications yet."
+msgstr "No notifications yet."
 
 #: components/Replays/ReplaysList.js:86
 msgid "No replays available."
@@ -497,6 +513,10 @@ msgstr "Note: Archived streams are currently public and non-deletable."
 msgid "Notification of Infringement"
 msgstr "Notification of Infringement"
 
+#: components/layout/NotificationsMenu.js:49
+msgid "Notifications"
+msgstr "Notifications"
+
 #: components/Dashboard/Stream.js:118
 msgid "Now, use the following stream key:"
 msgstr "Now, use the following stream key:"
@@ -516,7 +536,7 @@ msgid "Page not found"
 msgstr "Page not found"
 
 #: pages/[channel]/replay/[id].js:113
-#: pages/[channel].js:371
+#: pages/[channel].js:375
 #: pages/clip/[uuid].js:113
 #: pages/index.js:106
 msgid "Partnered"
@@ -544,7 +564,7 @@ msgstr "Permanently ban user"
 msgid "Pop-out chat"
 msgstr "Pop-out chat"
 
-#: pages/index.js:284
+#: pages/index.js:282
 msgid "Popular categories"
 msgstr "Popular categories"
 
@@ -552,7 +572,7 @@ msgstr "Popular categories"
 #~ msgid "Popular channels"
 #~ msgstr "Popular channels"
 
-#: pages/index.js:280
+#: pages/index.js:278
 msgid "Popular live channels"
 msgstr "Popular live channels"
 
@@ -588,13 +608,17 @@ msgstr "Profile"
 msgid "Profile Banner for {0}"
 msgstr "Profile Banner for {0}"
 
-#: pages/[channel].js:489
+#: pages/[channel].js:493
 msgid "REPLAYS"
 msgstr "REPLAYS"
 
-#: pages/[channel].js:665
+#: pages/[channel].js:669
 msgid "Reason"
 msgstr "Reason"
+
+#: pages/admin/ban.js:76
+msgid "Reason:"
+msgstr "Reason:"
 
 #: components/Chat/index.js:905
 msgid "Reconnect"
@@ -688,6 +712,7 @@ msgid "Stream Chat"
 msgstr "Stream Chat"
 
 #: pages/admin/index.js:47
+#: pages/admin/stream.js:47
 msgid "Stream Manager"
 msgstr "Stream Manager"
 
@@ -711,7 +736,7 @@ msgstr "Streaming permissions"
 msgid "Subbed to:"
 msgstr "Subbed to:"
 
-#: pages/[channel].js:410
+#: pages/[channel].js:414
 msgid "Subscribe"
 msgstr "Subscribe"
 
@@ -746,7 +771,8 @@ msgstr "Terms"
 msgid "Terms of use"
 msgstr "Terms of use"
 
-#: pages/[channel].js:336
+#: pages/[channel].js:340
+#: pages/embed/[name].js:87
 msgid "The broadcaster has indicated that this channel is intended for mature audiences."
 msgstr "The broadcaster has indicated that this channel is intended for mature audiences."
 
@@ -758,7 +784,7 @@ msgstr "The clip you were looking for does not exist."
 msgid "The following content is <0>forbidden</0> on guac.live:"
 msgstr "The following content is <0>forbidden</0> on guac.live:"
 
-#: pages/[channel].js:707
+#: pages/[channel].js:711
 msgid "The page you were looking for does not exist."
 msgstr "The page you were looking for does not exist."
 
@@ -767,8 +793,8 @@ msgid "The replay you were looking for does not exist."
 msgstr "The replay you were looking for does not exist."
 
 #: pages/admin/index.js:66
-msgid "This page is scuffed and incomplete LOL"
-msgstr "This page is scuffed and incomplete LOL"
+#~ msgid "This page is scuffed and incomplete LOL"
+#~ msgstr "This page is scuffed and incomplete LOL"
 
 #: utils/withAuth.js:33
 msgid "This page requires you to be logged in."
@@ -790,7 +816,7 @@ msgstr "This verification token is not valid."
 msgid "Threats, Violence & Harm"
 msgstr "Threats, Violence & Harm"
 
-#: pages/[channel].js:659
+#: pages/[channel].js:663
 msgid "Time of ban"
 msgstr "Time of ban"
 
@@ -802,15 +828,15 @@ msgstr "Time out user for x seconds"
 msgid "Timestamps"
 msgstr "Timestamps"
 
-#: pages/[channel].js:570
-#: pages/[channel].js:571
-#: pages/[channel].js:609
-#: pages/[channel].js:610
+#: pages/[channel].js:574
+#: pages/[channel].js:575
+#: pages/[channel].js:613
+#: pages/[channel].js:614
 msgid "Title"
 msgstr "Title"
 
 #: pages/[channel]/replay/[id].js:148
-#: pages/[channel].js:706
+#: pages/[channel].js:710
 #: pages/clip/[uuid].js:146
 msgid "Uh Ohhh..."
 msgstr "Uh Ohhh..."
@@ -823,7 +849,7 @@ msgstr "Unban user"
 #~ msgid "Unfollow"
 #~ msgstr "Unfollow"
 
-#: pages/[channel].js:717
+#: pages/[channel].js:721
 #: pages/_error.js:42
 msgid "Unknown error"
 msgstr "Unknown error"
@@ -848,10 +874,11 @@ msgid "Upload Profile Banner"
 msgstr "Upload Profile Banner"
 
 #: components/layout/AccountMenu.js:42
+#: pages/admin/ban.js:72
 msgid "User"
 msgstr "User"
 
-#: pages/[channel].js:651
+#: pages/[channel].js:655
 msgid "User has been banned"
 msgstr "User has been banned"
 
@@ -864,6 +891,7 @@ msgstr "User has been banned"
 msgid "Username"
 msgstr "Username"
 
+#: pages/admin/ban.js:74
 #: pages/admin/index.js:55
 msgid "Username:"
 msgstr "Username:"
@@ -888,10 +916,11 @@ msgstr "View offline channels"
 msgid "Want to customize your color? <0>Join our Patreon!</0>"
 msgstr "Want to customize your color? <0>Join our Patreon!</0>"
 
-#: pages/[channel].js:341
+#: pages/[channel].js:345
 #: pages/category/[id].js:87
 #: pages/channels.js:96
-#: pages/index.js:168
+#: pages/embed/[name].js:92
+#: pages/index.js:167
 msgid "Watch"
 msgstr "Watch"
 
@@ -907,7 +936,7 @@ msgstr "We will review every reported user on a case-by-case basis, and give <0>
 msgid "Welcome to"
 msgstr "Welcome to"
 
-#: pages/index.js:241
+#: pages/index.js:239
 msgid "Welcome to guac.live"
 msgstr "Welcome to guac.live"
 
@@ -948,7 +977,7 @@ msgstr "Your e-mail has been verified."
 msgid "by"
 msgstr "by"
 
-#: pages/[channel].js:653
+#: pages/[channel].js:657
 msgid "has been banned from the site."
 msgstr "has been banned from the site."
 

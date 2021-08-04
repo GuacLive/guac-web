@@ -267,6 +267,12 @@ function ChannelPage(props){
 		if(channel?.data?.panels) setPanels(channel.data.panels);
 		setMatureWarning(parseInt(channel?.data?.mature, 10));
 	}, [channel, channel.data]);
+
+	useEffect(() => {
+		if(!isMe){
+			setShowModal(false);
+		}
+	}, [isMe, showModal])
 	
 	const editStream = async e => {
 		if(!channel || !channel.data || !channel.data.user) return false;

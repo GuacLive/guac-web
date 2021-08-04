@@ -51,10 +51,10 @@ module.exports = withTM(withOffline({
 				new SentryWebpackPlugin({
 					release: pkg.version,
 					include: '.next',
-					ignore: ['node_modules'],
+					ignore: ['.next/cache', 'server/ssr-module-cache.js', 'static/*/_ssgManifest.js', 'static/*/_buildManifest.js', 'node_modules'],
 					stripPrefix: ['webpack://_N_E/'],
 					urlPrefix: '~/_next',
-					deleteAfterCompile: true,
+					cleanArtifacts: true
 				})
 			);
 		}
