@@ -60,9 +60,8 @@ class CategoryPage extends Component {
 						<h2 className="f2 tracked mt0 mb3 white">
 						{
 							thisCategory
-							&& thisCategory[0]
 							?
-							thisCategory[0].name
+							thisCategory.name
 							: `${i18n._(t`Category`)}${category_id}`
 						}
 						</h2>

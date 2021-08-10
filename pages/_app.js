@@ -32,7 +32,7 @@ import ErrorBoundary from 'utils/ErrorBoundary';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 
-import { faBan, faBars, faBell, faCheck, faCheckCircle, faClock, faCaretSquareLeft, faCaretSquareRight, faHourglass, faHome, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog, faMinusCircle, faTrash, faEdit, faVideo, faEye, faEyeSlash, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faBan, faBars, faBell, faCheck, faCheckCircle, faClock, faCaretSquareLeft, faCaretSquareRight, faHourglass, faHome, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog, faMinusCircle, faTrash, faEdit, faVideo, faEye, faEyeSlash, faPlus, faUserCog, faStar, faHammer, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
 import { faSmileWink, faImage, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 
@@ -42,7 +42,7 @@ import FeaturesService from 'utils/FeaturesService';
 import '../css/style.css';
 import 'simplebar-react/dist/simplebar.min.css';
 import '../css/select-search.css';
-library.add(faBan, faBars, faBell, faCheck, faCheckCircle, faClock, faCaretSquareLeft, faCaretSquareRight, faHourglass, faHome, faImage, faPaperPlane, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog, faMinusCircle, faTrash, faEdit, faVideo, faEye, faEyeSlash, faPlus);
+library.add(faBan, faBars, faBell, faCheck, faCheckCircle, faClock, faCaretSquareLeft, faCaretSquareRight, faHourglass, faHome, faImage, faPaperPlane, faSmileWink, faUser, faUserPlus, faSignInAlt, faSearch, faGamepad, faCog, faMinusCircle, faTrash, faEdit, faVideo, faEye, faEyeSlash, faPlus, faUserCog, faStar, faHammer, faSignOutAlt);
 
 // Polyfill (browser-only)
 if(typeof window !== 'undefined'){

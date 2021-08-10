@@ -11,6 +11,9 @@ import Image from '../Image';
 
 import DarkModeToggle from '../DarkModeToggle';
 import LangSwitcher from 'components/LangSwitcher';
+
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+
 function AccountMenu(props){
 	const { i18n } = useLingui();
 	const [isOpen, setIsOpen] = useState(false);
@@ -52,7 +55,7 @@ function AccountMenu(props){
 									<a className="flex items-center tw-relative pa2 relative w-100 link b hover-green white ph3">
 										<div className="items-center flex flex-shrink-0 pr2">
 											<div className="items-center inline-flex">
-												<i className="fa fa-user"></i>
+												<FontAwesomeIcon icon="user" />
 											</div>
 										</div>
 										<div className="flex-grow-1"><Trans>My Channel</Trans></div>
@@ -64,7 +67,7 @@ function AccountMenu(props){
 									<a className="flex items-center tw-relative pa2 relative w-100 link b hover-green white ph3">
 										<div className="items-center flex flex-shrink-0 pr2">
 											<div className="items-center inline-flex">
-												<i className="fas fa-fw fa-user-cog"></i>
+												<FontAwesomeIcon icon="user-cog" fixedWidth />
 											</div>
 										</div>
 										<div className="flex-grow-1"><Trans>Settings</Trans></div>
@@ -76,7 +79,7 @@ function AccountMenu(props){
 									<a className="flex items-center tw-relative pa2 relative w-100 link b hover-green white ph3">
 										<div className="items-center flex flex-shrink-0 pr2">
 											<div className="items-center inline-flex">
-												<i className="fas fa-fw fa-video"></i>
+												<FontAwesomeIcon icon={['fas', 'video']} fixedWidth />
 											</div>
 										</div>
 										<div className="flex-grow-1"><Trans>Dashboard</Trans></div>
@@ -93,7 +96,7 @@ function AccountMenu(props){
 								<a className="flex items-center tw-relative pa2 relative w-100 link b hover-blue white ph3">
 									<div className="items-center flex flex-shrink-0 pr2">
 										<div className="items-center inline-flex">
-											<i className="fas fa-fw fa-star"></i>
+											<FontAwesomeIcon icon="star" fixedWidth />
 										</div>
 									</div>
 									<div className="flex-grow-1"><Trans>Subscriptions</Trans></div>
@@ -109,7 +112,7 @@ function AccountMenu(props){
 								<a className="flex items-center tw-relative pa2 relative w-100 link b hover-blue white ph3">
 									<div className="items-center flex flex-shrink-0 pr2">
 										<div className="items-center inline-flex">
-											<i className="fas fa-fw fa-hammer"></i>
+											<FontAwesomeIcon icon="hammer" fixedWidth />
 										</div>
 									</div>
 									<div className="flex-grow-1"><Trans>Admin</Trans></div>
@@ -130,7 +133,7 @@ function AccountMenu(props){
 								<a className="flex items-center tw-relative pa2 relative w-100 link b hover-red white ph3">
 									<div className="items-center flex flex-shrink-0 pr2">
 										<div className="items-center inline-flex">
-											<i className="fas fa-fw fa-sign-out-alt"></i>
+											<FontAwesomeIcon icon={['fas', 'sign-out-alt']} fixedWidth />
 										</div>
 									</div>
 									<div className="flex-grow-1"><Trans>Log out</Trans></div>
