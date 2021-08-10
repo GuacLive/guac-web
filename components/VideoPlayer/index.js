@@ -101,7 +101,7 @@ function VideoPlayer(props) {
 				alwaysInLandscapeMode: true,
 				iOS: true
 			},
-			flvjsConfig: {
+			mpegtsConfig: {
 				mediaDataSource: {
 					isLive: true,
 					cors: true,
@@ -111,6 +111,7 @@ function VideoPlayer(props) {
 				stashInitialSize: 1024 * 64, // 64KB
 				enableWorker: true,
 				lazyLoad: false,
+				liveBufferLatencyChasing: true,
 				autoCleanupSourceBuffer: true,
 				autoCleanupMaxBackwardDuration: 2,
 				autoCleanupMinBackwardDuration: 1,
@@ -172,7 +173,7 @@ function VideoPlayer(props) {
 		}
 
 		if(window){
-			window.flvjs = require('@guaclive/flv.js').default;
+			window.mpegts = require('mpegts.js');
 			window.videojs = videojs;
 			try{
 				require(`video.js/dist/lang/${i18n.locale || 'en'}.js`);
@@ -182,7 +183,7 @@ function VideoPlayer(props) {
 		}
 
 		require('videojs-theater-mode/dist/videojs.theaterMode.js');
-		require('../../videojs-flvjs.js');
+		require('../../videojs-mpegts.js');
 		require('../../videojs-persistvolume.js');
 		require('../../videojs-settings.js');
 		require('@guaclive/videojs-chromecast')(videojs, {
