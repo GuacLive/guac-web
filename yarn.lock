@@ -59,7 +59,7 @@
     semver "^5.4.1"
     source-map "^0.5.0"
 
-"@babel/core@^7.1.0", "@babel/core@^7.11.1", "@babel/core@^7.12.10", "@babel/core@^7.12.3", "@babel/core@^7.7.5", "@babel/core@^7.8.3":
+"@babel/core@^7.1.0", "@babel/core@^7.11.1", "@babel/core@^7.12.10", "@babel/core@^7.12.3", "@babel/core@^7.7.5":
   version "7.14.8"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.14.8.tgz#20cdf7c84b5d86d83fac8710a8bc605a7ba3f010"
   integrity sha512-/AtaeEhT6ErpDhInbXmjHcUQXH0L0TEgscfcxk1qbOvLuKCa5aZT0SOOtDKFY96/CLROwbLSKyFor6idgNaU4Q==
@@ -1580,15 +1580,6 @@
     long "^4.0.0"
     protobufjs "^6.10.0"
     yargs "^16.1.1"
-
-"@guaclive/flv.js@^1.7.2":
-  version "1.7.2"
-  resolved "https://registry.yarnpkg.com/@guaclive/flv.js/-/flv.js-1.7.2.tgz#143e91c8e61fcac4399182dbc88889cbd2759ff2"
-  integrity sha512-y7yFiFG7P/YEOns+WL1b6TaRKW6WsNGMCmt0cxcDvcpPfkj8mtCbsegKJp0EF7UBPKECMe/IAlYlW2m/qz268w==
-  dependencies:
-    "@babel/core" "^7.8.3"
-    es6-promise "^4.2.5"
-    webworkify "^1.5.0"
 
 "@guaclive/tachyons@^4.12.1":
   version "4.12.1"
@@ -9156,6 +9147,14 @@ mpd-parser@0.17.0:
     global "^4.4.0"
     xmldom "^0.5.0"
 
+mpegts.js@^1.6.7:
+  version "1.6.7"
+  resolved "https://registry.yarnpkg.com/mpegts.js/-/mpegts.js-1.6.7.tgz#e14e98239d5262ebdcda3972353f6cef6df209da"
+  integrity sha512-oitxvRZVBJtEkfWMG6sLJ89D6WbtcqlRjmh1TMKDJ7fqwvO9hVSFI9T1g2h4wFrFSib5S9e4Qc/e98Yj6rOZ5w==
+  dependencies:
+    es6-promise "^4.2.5"
+    webworkify-webpack "^2.1.5"
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -14167,10 +14166,10 @@ websocket-extensions@>=0.1.1:
   resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.4.tgz#7f8473bc839dfd87608adb95d7eb075211578a42"
   integrity sha512-OqedPIGOfsDlo31UNwYbCFMSaO9m9G/0faIHj5/dZFDMFqPTcx6UwqyOy3COEaEOg/9VsGIpdqn62W5KhoKSpg==
 
-webworkify@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/webworkify/-/webworkify-1.5.0.tgz#734ad87a774de6ebdd546e1d3e027da5b8f4a42c"
-  integrity sha512-AMcUeyXAhbACL8S2hqqdqOLqvJ8ylmIbNwUIqQujRSouf4+eUFaXbG6F1Rbu+srlJMmxQWsiU7mOJi0nMBfM1g==
+webworkify-webpack@^2.1.5:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/webworkify-webpack/-/webworkify-webpack-2.1.5.tgz#bf4336624c0626cbe85cf1ffde157f7aa90b1d1c"
+  integrity sha512-2akF8FIyUvbiBBdD+RoHpoTbHMQF2HwjcxfDvgztAX5YwbZNyrtfUMgvfgFVsgDhDPVTlkbb5vyasqDHfIDPQw==
 
 whatwg-encoding@^1.0.5:
   version "1.0.5"

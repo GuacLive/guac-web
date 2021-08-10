@@ -52,23 +52,30 @@ function Stream(props){
 		if (stream.live) {
 			if (stream.urls) {
 				// Prefer FLV if available, it has lower latency
-				let flvUrl = stream.servers[STREAMING_SERVER] + stream.urls.flv;
+				let flvUrl = `${stream.streamServer}${stream.urls.flv}`;
 				if (stream.urls.flv) {
 					videoJsOptions.sources.push({
 						src: typeof window === 'object' && 'WebSocket' in window
-							? `${window.location.protocol === 'https:' ? 'wss' : 'ws'}:${flvUrl}`
+							? `wss:${flvUrl}`
 							: flvUrl,
 						type: 'video/x-flv',
-						label: STREAMING_SERVER + `(FLV)`
+						label: 'Source (FLV)'
+					});
+				}
+				if (stream.urls.hls) {
+					videoJsOptions.sources.push({
+						src: `${stream.streamServer}${stream.urls.hls}`,
+						type: 'application/x-mpegURL',
+						label: 'Auto (HLS)'
 					});
 				}
 				// Only HLS has quality options
 				Object.keys(stream.qualities).forEach((key) => {
 					let urlKey = stream.qualities[key];
 					videoJsOptions.sources.push({
-						src: stream.servers[STREAMING_SERVER] + `/live/${stream.user.name}/index${urlKey}.m3u8`,
+						src: stream.streamServer + `/live/${stream.user.name}/index${urlKey}.m3u8`,
 						type: 'application/x-mpegURL',
-						label: STREAMING_SERVER + `(${key})`
+						label: `${key} (HLS)`
 					});
 				});
 			}
