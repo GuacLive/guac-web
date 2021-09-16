@@ -79,7 +79,33 @@ export const fetchEmotes = (channel) => async (dispatch) => {
 	})
 	.catch(() => {});
 
-	//twitchemotes.com/api_cache/v3/global.json
+	await fetch('https://api.7tv.app/v2/emotes/global')
+	.then(async response => {
+		const data = await response.json();
+
+		for(const emote of data){
+			result[emote.name] = {
+				provider: '7TV',
+				url: emote.urls[2],
+			};
+		}
+	})
+	.catch(() => {});
+
+
+	await fetch('https://api.7tv.app/v2/users/datagutt/emotes')
+	.then(async response => {
+		const data = await response.json();
+
+		for(const emote of data){
+			result[emote.name] = {
+				provider: '7TV',
+				url: emote.urls[2],
+			};
+		}
+	})
+	.catch(() => {});
+
 	dispatch({
 		type: 'FETCH_EMOTES_SUCCESS',
 		data: result
