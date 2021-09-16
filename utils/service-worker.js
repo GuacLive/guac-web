@@ -91,6 +91,42 @@ registerRoute(
     'GET'
 );
 
+registerRoute(
+    'https://cdn.7tv.app/emote(.*)$',
+    new CacheFirst({
+        cacheName: '7tv-emotes',
+        plugins: [
+            new ExpirationPlugin({
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
+                purgeOnQuotaError: true
+            }),
+            new CacheableResponse({
+                statuses: [200]
+            })
+        ]
+    }),
+    'GET'
+);
+
+registerRoute(
+    'https://cdn.frankerfacez.com/emote(.*)$',
+    new CacheFirst({
+        cacheName: 'ffz-emotes',
+        plugins: [
+            new ExpirationPlugin({
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
+                purgeOnQuotaError: true
+            }),
+            new CacheableResponse({
+                statuses: [200]
+            })
+        ]
+    }),
+    'GET'
+);
+
 self.addEventListener('install', function(event) {
   event.waitUntil(self.skipWaiting());
 });
