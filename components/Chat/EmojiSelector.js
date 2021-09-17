@@ -63,7 +63,7 @@ function EmojiSelector(props){
 							'flags',
 						]}
 						title={''}
-						emoji={''}
+						emoji={'avocado'}
 						emojiTooltip={true}
 						showPreview={true}
 					/>

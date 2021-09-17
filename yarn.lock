@@ -5578,8 +5578,8 @@ emittery@^0.7.1:
   integrity sha512-A8OG5SR/ij3SsJdWDJdkkSYUjQdCUx6APQXem0SaEePBSRg4eymGYwBkKo1Y6DU+af/Jn2dBQqDBvjnr9Vi8nQ==
 
 "emoji-mart@github:GuacLive/emoji-mart#build":
-  version "3.1.3"
-  resolved "https://codeload.github.com/GuacLive/emoji-mart/tar.gz/adb7f0ef917be36704e21b5e511a50f5714baaed"
+  version "3.1.4"
+  resolved "https://codeload.github.com/GuacLive/emoji-mart/tar.gz/527a128dcbcbdcf0369c4338cbd8b2f6f912e2dd"
   dependencies:
     "@babel/runtime" "^7.0.0"
     prop-types "^15.6.0"
