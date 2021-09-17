@@ -62,7 +62,7 @@ function EmojiSelector(props){
 							'symbols',
 							'flags',
 						]}
-						title={}
+						title={''}
 						emojiTooltip={true}
 						showPreview={true}
 					/>
