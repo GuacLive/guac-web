@@ -494,6 +494,9 @@ input:focus {
 }
 .chat-message-content__emote-only .chat-message-content__emote {
 	max-height: 48px;
+	
+    vertical-align: baseline;
+    padding-top: 5px;
 }
 /* Set max height if the message also has text, or if in emote picker */
 .chat-message-content__with-text .chat-message-content__emote,
