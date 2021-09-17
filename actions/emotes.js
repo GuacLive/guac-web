@@ -86,7 +86,7 @@ export const fetchEmotes = (channel) => async (dispatch) => {
 		for(const emote of data){
 			result[emote.name] = {
 				provider: '7TV',
-				url: emote.urls[2],
+				url: emote.urls[2][1],
 			};
 		}
 	})
@@ -100,7 +100,7 @@ export const fetchEmotes = (channel) => async (dispatch) => {
 		for(const emote of data){
 			result[emote.name] = {
 				provider: '7TV',
-				url: emote.urls[2],
+				url: emote.urls[2][1],
 			};
 		}
 	})
