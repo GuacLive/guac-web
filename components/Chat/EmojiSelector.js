@@ -37,9 +37,9 @@ function EmojiSelector(props){
 			}}>
 				{isOpen &&
 					<NimblePicker
-						perLine={8}
-						emojiSize={24}
-						sheetSize={20}
+						perLine={6}
+						emojiSize={38}
+						sheetSize={64}
 						set="twitter"
 						custom={emotes}
 						onSelect={props.onSelect}
