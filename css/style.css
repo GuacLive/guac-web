@@ -507,11 +507,16 @@ input:focus {
 	max-height: 38px;
 
 	vertical-align: baseline;
-	padding-top: 5px;
+    margin-top: var(--spacing-extra-small);
 }
 
 /* Set max height if the message also has text, or if in emote picker */
-.chat-message-content__with-text .chat-message-content__emote,
+.chat-message-content__with-text .chat-message-content__emote {
+	height: 28px;
+	
+	vertical-align: baseline;
+    margin-top: var(--spacing-extra-small);
+}
 .chat-input .rta__entity img {
 	height: 28px;
 }
