@@ -37,7 +37,7 @@ function EmojiSelector(props){
 			}}>
 				{isOpen &&
 					<NimblePicker
-						perLine={7}
+						perLine={9}
 						emojiSize={38}
 						sheetSize={64}
 						set="twitter"
@@ -62,7 +62,7 @@ function EmojiSelector(props){
 							'symbols',
 							'flags',
 						]}
-						title={''}
+						title={'guac.live'}
 						emoji={'avocado'}
 						emojiTooltip={true}
 						showPreview={true}
