@@ -66,6 +66,7 @@ function EmojiSelector(props){
 						emoji={'avocado'}
 						emojiTooltip={true}
 						showPreview={true}
+						enableFrequentEmojiSort={true}
 					/>
 				}
 			</span>
