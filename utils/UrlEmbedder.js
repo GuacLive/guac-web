@@ -1,5 +1,5 @@
 import processString from 'react-process-string';
-import Linkify from 'linkifyjs/react';
+import Linkify from 'linkify-react';
 
 import {
 	Tooltip
