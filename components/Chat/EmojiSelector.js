@@ -37,7 +37,7 @@ function EmojiSelector(props){
 			}}>
 				{isOpen &&
 					<NimblePicker
-						perLine={9}
+						perLine={8}
 						emojiSize={38}
 						sheetSize={64}
 						set="twitter"
