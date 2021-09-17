@@ -52,6 +52,7 @@ function EmojiSelector(props){
 							'custom-Twitch',
 							'custom-BetterTTV',
 							'custom-FrankerfaceZ',
+							'custom-7TV',
 							'people',
 							'nature',
 							'foods',
