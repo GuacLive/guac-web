@@ -1,6 +1,6 @@
 // pages/_app.js
 import React from 'react';
-import { Fragment, useEffect } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 
 import App from "next/app";
 // Polyfill
