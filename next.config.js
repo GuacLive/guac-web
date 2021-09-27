@@ -1,11 +1,11 @@
 // Use the SentryWebpack plugin to upload the source maps during build step
 const webpack = require('webpack');
 const SentryWebpackPlugin = require('@sentry/webpack-plugin')
-const { SENTRY_DSN, SENTRY_ORG, SENTRY_PROJECT, SENTRY_AUTH_TOKEN } = process.env
+const {SENTRY_DSN, SENTRY_ORG, SENTRY_PROJECT, SENTRY_AUTH_TOKEN} = process.env
 
 const withOffline = require('next-offline');
 const pkg = require('./package.json');
-const withTM = require('next-transpile-modules')(['react-giphy-searchbox', 'abort-controller', 'simplebar-react'], { unstable_webpack5: true });
+const withTM = require('next-transpile-modules')(['react-giphy-searchbox', 'abort-controller', 'simplebar-react'], {unstable_webpack5: true});
 module.exports = withTM(withOffline({
 	webpack(config, {isServer, buildId, dev}) {
 		if (!isServer) {
@@ -18,7 +18,14 @@ module.exports = withTM(withOffline({
 		});*/
 		config.module.rules.push({
 			test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
-			type: 'asset/inline'
+			use: [
+				{
+					loader: "url-loader",
+					options: {
+						limit: 100000,
+					},
+				},
+			],
 		});
 
 		config.module.rules.push({
@@ -29,7 +36,7 @@ module.exports = withTM(withOffline({
 				}
 			]
 		});
-		
+
 		config.plugins.push(
 			new webpack.DefinePlugin({
 				'process.env.SENTRY_RELEASE': JSON.stringify(buildId),
@@ -46,7 +53,7 @@ module.exports = withTM(withOffline({
 			})
 		)
 
-		if(SENTRY_DSN && SENTRY_ORG && SENTRY_PROJECT && SENTRY_AUTH_TOKEN && process.env.NODE_ENV !== 'development'){
+		if (SENTRY_DSN && SENTRY_ORG && SENTRY_PROJECT && SENTRY_AUTH_TOKEN && process.env.NODE_ENV !== 'development') {
 			config.plugins.push(
 				new SentryWebpackPlugin({
 					release: pkg.version,
@@ -58,8 +65,8 @@ module.exports = withTM(withOffline({
 				})
 			);
 		}
-		
-		if(!dev){
+
+		if (!dev) {
 			//config.devtool = false;
 		}
 
@@ -71,7 +78,7 @@ module.exports = withTM(withOffline({
 	env: {
 		// DEBUG is used in socket.io
 		//DEBUG: process.env.NODE_ENV === 'development',
-		SSR_TIMEOUT: parseInt( process.env.SSR_TIMEOUT ) || 10 * 1000,
+		SSR_TIMEOUT: parseInt(process.env.SSR_TIMEOUT) || 10 * 1000,
 		STATIC_URL: process.env.STATIC_URL || 'http://static.guac.live',
 		API_URL: process.env.API_URL || 'http://api.local.guac.live',
 		CHAT_URL: process.env.CHAT_URL || 'http://chat.local.guac.live',
@@ -92,7 +99,7 @@ module.exports = withTM(withOffline({
 	dontAutoRegisterSw: true,
 	generateSw: false,
 	workboxOpts: {
-        exclude: [
+		exclude: [
 			/build-manifest\.json$/,
 			/react-loadable-manifest\.json$/
 		],
@@ -102,7 +109,7 @@ module.exports = withTM(withOffline({
 	},
 	reactStrictMode: true,
 	images: {
-		domains: ['guac.live', 'api.guac.live', 'cdn.guac.live', 'emotes.guac.live', 'lon.stream.guac.live', 'stream.guac.live', 'media.rawg.io', 'cdn.frankerfacez.com', 'static-cdn.jtvnw.net', 'cdn.betterttv.net', 'ggpht.com', 'yt3.ggpht.com']
+		domains: ['guac.live', 'api.guac.live', 'cdn.guac.live', 'emotes.guac.live', 'lon.stream.guac.live', 'stream.guac.live', 'media.rawg.io', 'cdn.frankerfacez.com', 'static-cdn.jtvnw.net', 'cdn.betterttv.net', 'ggpht.com', 'yt3.ggpht.com', 'discordapp.com', 'cdn.betterttv.net', 'cdn.7tv.app', 'cdn.frankerfacez.com']
 	},
 	crossOrigin: 'anonymous',
 	productionBrowserSourceMaps: true,

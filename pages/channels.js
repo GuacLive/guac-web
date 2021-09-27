@@ -8,6 +8,8 @@ import { Trans, t } from '@lingui/macro';
 
 import Link from 'next/link';
 
+import Image from 'next/image';
+
 import Switch from 'react-switch';
 
 import GuacButton from '../components/GuacButton';
@@ -63,9 +65,9 @@ class ChannelsPage extends Component {
 							flex: '1',
 							minHeight: '220px'
 						}}>
-							<img src="/img/sadge.png" className="flex pv3" />
+							<Image src="/img/sadge.png" alt={t`We can't find anyone live atm :(`} className="flex pv3" width="112px" height="86px" layout="fixed" quality="100" />
 							<em className="lh-title primary w5 f3 fw7 fs-normal"><Trans>No channels live</Trans></em>
-							<p className="lh-copy primary-80 f5 tc pv2"><Trans>We can't find anyone live atm :(</Trans></p>
+							<p className="lh-copy primary-80 f5 tc pv2"><Trans>We can&apos;t find anyone live atm :(</Trans></p>
 							{
 								this.state.onlyLive &&
 								<a className="link white inline-flex items-center justify-center tc pv2 ph3 nowrap lh-solid pointer br2 ba b--transparent bg-dark-gray guac-btn"

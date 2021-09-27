@@ -37,6 +37,7 @@ function PageLayout(props) {
 	const {i18n} = useLingui();
 	const [showSidebar, setShowSidebar] = useState(true);
 	const [followingTimer, toggleFollowingTimer] = useBoolean(true);
+	const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect
 
 	const updateViewport = () => {
 		if (
@@ -46,53 +47,54 @@ function PageLayout(props) {
 			document.documentElement.style.setProperty('--vh', `${vh}px`);
 		}
 	};
-
-	const updateDimensions = (evt) => {
-		let ssb = evt && evt.matches;
-		// If media query is now matching, reset overriden sidebar
-		if (showSidebar === true && showSidebar !== ssb) {
-			ssb = false;
-		}
-		console.log('updateDimensions', evt);
-		if (
-			typeof document !== 'undefined'
-			&& document.documentElement
-			&& document.documentElement.classList
-		) {
-			if (showSidebar) {
-				document.documentElement.classList.add('toggled-sidebar');
-			} else {
-				document.documentElement.classList.remove('toggled-sidebar');
+	useIsomorphicLayoutEffect(() => {
+		const updateDimensions = (evt) => {
+			let ssb = evt && evt.matches;
+			// If media query is now matching, reset overriden sidebar
+			if (showSidebar === true && showSidebar !== ssb) {
+				ssb = false;
 			}
-		}
-		setShowSidebar(ssb);
-	};
+			console.log('updateDimensions', evt);
+			if (
+				typeof document !== 'undefined'
+				&& document.documentElement
+				&& document.documentElement.classList
+			) {
+				if (showSidebar) {
+					document.documentElement.classList.add('toggled-sidebar');
+				} else {
+					document.documentElement.classList.remove('toggled-sidebar');
+				}
+			}
+			setShowSidebar(ssb);
+		};
 
-	if (process.browser) {
-		useLayoutEffect(() => {
+		if (process.browser) {
 			// This a hack to fix vh
 			updateViewport();
 			window.addEventListener('resize', updateViewport);
 
 			// This is the logic that handles sidebar
 			if (mediaQueryList) {
-				if(mediaQueryList.addEventListener){
+				if (mediaQueryList.addEventListener) {
 					mediaQueryList.addEventListener('change', updateDimensions);
-				}else if(mediaQueryList.addListener){
+				} else if (mediaQueryList.addListener) {
 					mediaQueryList.addListener(updateDimensions);
 				}
 			}
 			updateDimensions(mediaQueryList);
-			return () => {
+		}
+		return () => {
+			if (process.browser) {
 				window.removeEventListener('resize', updateViewport);
-				if(mediaQueryList.removeEventListener){
+				if (mediaQueryList.removeEventListener) {
 					mediaQueryList.removeEventListener('change', updateDimensions);
-				}else if(mediaQueryList.removeListener){
+				} else if (mediaQueryList.removeListener) {
 					mediaQueryList.removeListener(updateDimensions);
 				}
-			};
-		}, []);
-	}
+			}
+		};
+	}, [showSidebar]);
 
 	useEffect(() => {
 		if (props.mode) {
@@ -104,23 +106,19 @@ function PageLayout(props) {
 	let title = props.title ? props.title : '';
 
 	useEffect(() => {
-		toggleFollowingTimer(true);
-	}, [user && user.token])
+		if (user && user.token) toggleFollowingTimer(true);
+	}, [user, user.token, toggleFollowingTimer])
 
 	// Refetch following list every 60 seconds
 	useInterval(
 		async () => {
 			if (!user || !user.token) return;
-			await dispatch(actions.fetchMyFollowed(
+			dispatch(actions.fetchMyFollowed(
 				user.token
 			));
 		},
 		followingTimer ? 60 * 1000 : null
 	);
-
-	if (props.skip) {
-		return <Fragment>{children}</Fragment>;
-	}
 
 	const [authModalIsOpen, setAuthModalIsOpen] = useState(false);
 	const [authModalType, setAuthModalType] = useState(false);
@@ -131,6 +129,10 @@ function PageLayout(props) {
     
 	function closeAuthModal(){
 		setAuthModalIsOpen(false);
+	}
+
+	if (props.skip) {
+		return <Fragment>{children}</Fragment>;
 	}
 
 	return (

@@ -57,7 +57,7 @@ function ReplayPage(props){
 			});
 		}
 		fetchData();
-	}, []);
+	}, [id]);
 
 	let videoJsOptions = {};
 	if(replay){

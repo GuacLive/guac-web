@@ -13,29 +13,31 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 const API_URL = process.env.API_URL;
 function NotificationsMenu(props){
 	const auth = useSelector(state => state.authentication);
-	const { i18n } = useLingui();
 	const [isOpen, setIsOpen] = useState(false);
 	const [notifications, setNotifications] = useState({});
-	let notificationMaxId = 0;
+	let notificationMaxId = useRef();
 	
 	const ref = useRef(null);
 	useClickAway(ref, () => {
 	  setIsOpen(false);
 	});
 
-	useEffect(async () => {
-		const res = await fetch(API_URL + '/notifications', {
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json',
-				Authorization: `Bearer ${auth.user.token}`,
-			}
-		}).then(response => response.json());
-		let data = res.data;
-		let ids = res.data.map(n => n.id);
-		notificationMaxId = Math.min(...ids);
-		setNotifications(data);
-	}, []);
+	useEffect(() => {
+		async function fetchData() {
+			const res = await fetch(API_URL + '/notifications', {
+				headers: {
+					Accept: 'application/json',
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${auth.user.token}`,
+				}
+			}).then(response => response.json());
+			let data = res.data;
+			let ids = res.data.map(n => n.id);
+			notificationMaxId.current = Math.min(...ids);
+			setNotifications(data);
+		}
+		fetchData();
+	}, [auth.user.token]);
 
 	return (
 		<div className="items-stretch flex flex-grow-1 h-100 relative">

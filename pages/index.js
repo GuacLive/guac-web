@@ -14,6 +14,7 @@ import { Trans, t } from '@lingui/macro'
 
 import Link from 'next/link';
 import Image from '../components/Image';
+import NextImage from 'next/image';
 
 import FeaturesService from 'utils/FeaturesService';
 
@@ -198,7 +199,7 @@ function IndexPage(props){
 				<div className="site-component-categories grid ga2 ga3-l flex-grow-1 overflow-hidden grid-columns-2 grid-columns-2-m grid-columns-4-l grid-columns-5-xl h-100" style={{flexGrow: 1}}>
 					{categories.data.map((category) => {
 						return (
-							<Link href={`/category/[id}`} href={`/category/${category.category_id}`} key={`category_${category.category_id}`}>
+							<Link href={`/category/${category.category_id}`} key={`category_${category.category_id}`}>
 								<a className="site-component-categories_category flex flex-column flex-grow-1 flex-shrink-0 overflow-hidden w-100 no-underline">
 									<div className="item-preview aspect-ratio aspect-ratio--16x9 z-1">
 										<Image alt={category.name} src={category.cover ? category.cover : `/img/categories/${category.category_id}.jpg`} width={600} height={400} className="aspect-ratio--object" shape="rounded" fit="cover" priority={true} />
@@ -260,7 +261,7 @@ function IndexPage(props){
 						</div>
 						<div className="ph3 ph4-ns flex flex-row justify-end self-start h-100 v-mid">
 							<a href="https://discord.gg/k6MJSAj" title="Discord server invite">
-								<img src="https://discordapp.com/api/guilds/564909420199411732/widget.png?style=banner3" alt="Discord server invite image" />
+								<NextImage src="https://discordapp.com/api/guilds/564909420199411732/widget.png?style=banner3" alt="Discord server invite image" width="320px" height="140px" />
 								<span className="dn">Discord server invite</span>
 							</a>
 						</div>

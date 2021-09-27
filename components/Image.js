@@ -46,7 +46,6 @@ export default class Image extends React.Component {
             <div className={`GuacImage -flexible${this.props.shape ? ` -${this.props.shape}` : ''} ${this.state.error ? 'is-error' : ''}`} data-emote-code={this.props['data-emote-code']}            >
                 <NextImage
                     key={this.state.src}
-                    className={this.props.className}
                     objectFit={this.props.fit || 'contain'}
                     data-emote-code={this.props['data-emote-code']}
                     src={this.state.src}
@@ -56,7 +55,7 @@ export default class Image extends React.Component {
                     alt={this.props.alt}
                     title={this.props.title}
                     onError={this.onError}
-                    className={`fit-${this.props.fit || 'contain'}`}
+                    className={`fit-${this.props.fit || 'contain'} ${this.props.className}`}
                     loading={isLoadingSupported ? (this.props.lazyload ? 'lazy' : 'eager') : undefined}
                     layout={!this.props.width && ! this.props.height ? 'fill' : this.props.layout}
                     unoptimized={this.props.unoptimized || (!this.state.src || this.state.src === BLANK_IMAGE)}

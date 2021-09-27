@@ -24,15 +24,15 @@ const STREAMING_SERVER = 'eu';
 const handleFocus = (event) => event.target.select();
 
 function Stream(props){
-	const dispatch  = useDispatch();
+	const {authentication} = props;
+	const dispatch = useDispatch();
 	const [showStreamkey, setShowStreamkey] = useState(false);
 
 	useEffect(() => {
-		const {authentication} = props;
 		dispatch(actions.fetchCategories());
 		dispatch(actions.fetchStreaming(authentication.token));
 		dispatch(actions.fetchChannel(authentication.user.name));
-	}, []);
+	}, [dispatch, authentication.token, authentication.user.name]);
 
 	function renderStream(){
 		const {

@@ -19,7 +19,7 @@ class PrivacyPage extends Component {
 <h2><a className="link primary" href="#use">What do we use your information for?</a></h2>
 <p>Any of the information we collect from you may be used in one of the following ways:</p>
 <ul>
-<li>To provide the core functionality of Guac. You can only interact with other people’s content and post your own content when you are logged in. For example, you may follow other people to see when they're live, or write in their chat.</li>
+<li>To provide the core functionality of Guac. You can only interact with other people’s content and post your own content when you are logged in. For example, you may follow other people to see when they&apos;re live, or write in their chat.</li>
 <li>To aid moderation of the community, for example comparing your IP address with other known ones to determine ban evasion or other violations.</li>
 <li>The email address you provide may be used to send you information, notifications about other people interacting with your content or sending you messages, and to respond to inquiries, and/or other requests or questions.</li>
 </ul>

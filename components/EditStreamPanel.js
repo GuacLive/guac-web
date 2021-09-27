@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component, createRef} from 'react'
 import {connect} from 'react-redux';
 
 import { Trans } from '@lingui/macro';
@@ -11,6 +11,9 @@ class EditStreamPanel extends Component {
 	constructor(props){
 		super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.titleRef = createRef();
+        this.privateRef = createRef();
+        this.archiveRef = createRef();
 	}
 
 	async componentDidMount(){
@@ -27,25 +30,24 @@ class EditStreamPanel extends Component {
 		const {streaming} = this.props;
 		e.preventDefault();
 		// yay uncontrolled forms!
-		console.log(this.refs);
 		if(this.state && this.state.category && streaming && streaming.category !== this.state.category){
 			this.props.dispatch(
 				actions.setCategory(this.props.authentication.token, this.state.category)
 			);
 		}
-		if(streaming && streaming.title !== this.refs.title.value){
+		if(streaming && streaming.title !== this.titleRef.current.value){
 			this.props.dispatch(
-				actions.setTitle(this.props.authentication.token, this.refs.title.value)
+				actions.setTitle(this.props.authentication.token, this.titleRef.current.value)
 			);
 		}
-		if(streaming && streaming.private !== this.refs.private.checked){
+		if(streaming && streaming.private !== this.privateRef.current.checked){
 			this.props.dispatch(
-				actions.setPrivate(this.props.authentication.token, this.refs.private.checked)
+				actions.setPrivate(this.props.authentication.token, this.privateRef.current.checked)
 			);
 		}
-		if(streaming && streaming.archive !== this.refs.archive.checked){
+		if(streaming && streaming.archive !== this.archiveRef.current.checked){
 			this.props.dispatch(
-				actions.setArchive(this.props.authentication.token, this.refs.archive.checked)
+				actions.setArchive(this.props.authentication.token, this.archiveRef.current.checked)
 			);
 		}
     }
@@ -61,7 +63,7 @@ class EditStreamPanel extends Component {
 		return (
             <form className="measure" onSubmit={this.handleSubmit}>
                 <label htmlFor="title">Title:</label>
-                <input name="title" type="text" className="input-reset bn pa3 w-100 bg-white br2" ref="title" defaultValue={streaming.title} placeholder="Title" />
+                <input name="title" type="text" className="input-reset bn pa3 w-100 bg-white br2" ref={this.titleRef} defaultValue={streaming.title} placeholder="Title" />
                 {
                     categories.data &&
                     <>
@@ -110,12 +112,12 @@ class EditStreamPanel extends Component {
                         />
                     </>
                 }
-                <label htmlFor="private"><Trans>Private (don't show in categories, frontpage or search):</Trans></label>
+                <label htmlFor="private"><Trans>Private (don&apos;t show in categories, frontpage or search):</Trans></label>
                 <input
                     name="private"
                     type="checkbox"
                     className="pa3 br2"
-                    ref="private"
+                    ref={this.privateRef}
                     defaultChecked={streaming.private}
                 >
                 </input>
@@ -125,7 +127,7 @@ class EditStreamPanel extends Component {
                         name="archive"
                         type="checkbox"
                         className="pa3 br2"
-                        ref="archive"
+                        ref={this.archiveRef}
                         defaultChecked={streaming.archive}
                     >
                     </input>

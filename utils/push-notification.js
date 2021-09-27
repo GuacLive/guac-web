@@ -19,14 +19,19 @@ export const initializeFirebase = (callback) => {
 		});
 	}
 	if(navigator.serviceWorker){
-		return navigator.serviceWorker
-		.register(`/service-worker.js?${__NEXT_DATA__.buildId}`)
-		.then((registration) => {
-			console.log('registration', registration);
-			firebase.messaging().useServiceWorker(registration);
-		})
-		.then(typeof callback === 'function' ? callback : () => {})
-		.catch(console.error);
+		navigator.serviceWorker.getRegistrations().then((registrations) => {
+			if (registrations.length === 0) {
+				return navigator.serviceWorker
+				.register(`/service-worker.js?${__NEXT_DATA__.buildId}`)
+				.then((registration) => {
+					console.log('registration', registration);
+					if (typeof callback == 'function') callback(registration);
+				})
+				.catch(console.error);
+			} else {
+				if (typeof callback == 'function') callback(registrations[0]);
+			}
+		});
 	}
 };
 
@@ -62,7 +67,7 @@ const sendTokenToServer = (fcmToken, jwtToken) => {
 	}
 };
 
-export const initializePush = async(jwtToken) => {
+export const initializePush = async(jwtToken, registration) => {
 	const messaging = firebase.messaging();
 	console.log('whoopwhoop', messaging);
 	if(typeof Notification === 'undefined') return;
@@ -79,7 +84,9 @@ export const initializePush = async(jwtToken) => {
 			}
 		});
 		try{
-			const fcmToken = await messaging.getToken();
+			const fcmToken = await messaging.getToken({
+				serviceWorkerRegistration: registration,
+			});
 			if(
 				typeof localStorage !== 'undefined'
 				&& localStorage.getItem

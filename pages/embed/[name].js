@@ -20,84 +20,85 @@ import * as actions from '../../actions';
 import log from '../../utils/log';
 import useChannelSocket from 'hooks/useChannelSocket';
 
-function EmbedPage(props){
-	const renderStream = () => {
-		const {
-			channel,
-			authentication
-		} = props;
-		let stream = channel.data;
 
-		const channelAPISocket = useChannelSocket(channel);
+const renderStream = (props) => {
+	const {
+		channel,
+		authentication
+	} = props;
+	let stream = channel.data;
 
-		let videoJsOptions = {
-			autoplay: true,
-			banner: stream.banner,
-			controls: true,
-			sources: [],
-			streamInfo: {
-				viewer_user_id: authentication.user && authentication.user.id,
-				title: stream.title,
-				username: stream.user.name,
-				isChannel: true
-			}
-		};
+	// eslint-disable-next-line react-hooks/rules-of-hooks
+	const channelAPISocket = useChannelSocket(channel);
+
+	let videoJsOptions = {
+		autoplay: true,
+		banner: stream.banner,
+		controls: true,
+		sources: [],
+		streamInfo: {
+			viewer_user_id: authentication.user && authentication.user.id,
+			title: stream.title,
+			username: stream.user.name,
+			isChannel: true
+		}
+	};
 
 
-		if(stream.live){
-			if(stream.urls){
-				// Prefer FLV if available, it has lower latency
-				let flvUrl = `${stream.streamServer}${stream.urls.flv}`;
-				if(stream.urls.flv){
-					videoJsOptions.sources.push({
-						src: typeof window === 'object' && 'WebSocket' in window
-							? `wss:${flvUrl}`
-							: flvUrl,
-						type: 'video/x-flv',
-						label: 'Source (FLV)'
-					});
-				}
-				if(stream.urls.hls){
-					videoJsOptions.sources.push({
-						src: `${stream.streamServer}${stream.urls.hls}`,
-						type: 'application/x-mpegURL',
-						label: 'Auto (HLS)'
-					});
-				}
-				// Only HLS has quality options
-				Object.keys(stream.qualities).forEach((key) => {
-					let urlKey = stream.qualities[key];
-					videoJsOptions.sources.push({
-						src: stream.streamServer + `/live/${stream.user.name}/index${urlKey}.m3u8`,
-						type: 'application/x-mpegURL',
-						label: `${key} (HLS)`
-					});
+	if(stream.live){
+		if(stream.urls){
+			// Prefer FLV if available, it has lower latency
+			let flvUrl = `${stream.streamServer}${stream.urls.flv}`;
+			if(stream.urls.flv){
+				videoJsOptions.sources.push({
+					src: typeof window === 'object' && 'WebSocket' in window
+						? `wss:${flvUrl}`
+						: flvUrl,
+					type: 'video/x-flv',
+					label: 'Source (FLV)'
 				});
 			}
+			if(stream.urls.hls){
+				videoJsOptions.sources.push({
+					src: `${stream.streamServer}${stream.urls.hls}`,
+					type: 'application/x-mpegURL',
+					label: 'Auto (HLS)'
+				});
+			}
+			// Only HLS has quality options
+			Object.keys(stream.qualities).forEach((key) => {
+				let urlKey = stream.qualities[key];
+				videoJsOptions.sources.push({
+					src: stream.streamServer + `/live/${stream.user.name}/index${urlKey}.m3u8`,
+					type: 'application/x-mpegURL',
+					label: `${key} (HLS)`
+				});
+			});
 		}
-
-		return (
-		<div className="player-embed" data-blurred={matureWarning}>
-			{
-						matureWarning
-							&& !matureDismissed
-							? <div className="mature-warning">
-
-								<>
-									<div className="f4 white"><Trans>The broadcaster has indicated that this channel is intended for mature audiences.</Trans></div>
-									<a className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" onClick={
-										() => {
-											setMatureDismissed(true);
-										}
-									}><Trans>Watch</Trans></a>
-								</>
-
-							</div> : <></>}
-			<VideoPlayer {...videoJsOptions} live={stream.live} fill={true} noAutoPlay={matureWarning && !matureDismissed}></VideoPlayer>
-		</div>
-		);
 	}
 
+	return (
+	<div className="player-embed" data-blurred={matureWarning}>
+		{
+					matureWarning
+						&& !matureDismissed
+						? <div className="mature-warning">
+
+							<>
+								<div className="f4 white"><Trans>The broadcaster has indicated that this channel is intended for mature audiences.</Trans></div>
+								<a className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" onClick={
+									() => {
+										setMatureDismissed(true);
+									}
+								}><Trans>Watch</Trans></a>
+							</>
+
+						</div> : <></>}
+		<VideoPlayer {...videoJsOptions} live={stream.live} fill={true} noAutoPlay={matureWarning && !matureDismissed}></VideoPlayer>
+	</div>
+	);
+}
+function EmbedPage(props){
 	const {
 		channel
 	} = props;

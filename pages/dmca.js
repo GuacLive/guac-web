@@ -13,12 +13,12 @@ class DMCAPage extends Component {
 				<p><Trans>It is our policy to respond to clear notices of
 	alleged copyright infringement that comply with the Digital Millennium
 	Copyright Act. In addition, we will promptly terminate without notice
-	the accounts of those determined by us to be "repeat
-	infringers". If you are a copyright owner or an agent thereof, and
+	the accounts of those determined by us to be &quot;repeat
+	infringers&quot;. If you are a copyright owner or an agent thereof, and
 	you believe that any content hosted on our web site
 	(www.guac.live) infringes your copyrights, then you may submit a
 	notification pursuant to the Digital Millennium Copyright Act
-	("DMCA") by providing Guac.lives Designated
+	(&quot;DMCA&quot;) by providing Guac.lives Designated
 	Copyright Agent with the following information in writing (please
 	consult your legal counsel or see 17 U.S.C. Section 512(c)(3) to
 	confirm these requirements):</Trans></p>
@@ -39,7 +39,7 @@ class DMCAPage extends Component {
 					be the subject of infringing activity and that is to be removed or
 					access to which is to be disabled, and information reasonably
 					sufficient to permit Guac.live to locate the material. Providing a
-					broadcaster's feed and the time on such feed at which you believe there
+					broadcaster&apos;s feed and the time on such feed at which you believe there
 					has been an infringement is the best way to help us locate content
 					quickly.
 				</li>
@@ -69,7 +69,7 @@ class DMCAPage extends Component {
 	Please note that Guac.live may, at our discretion, send a copy of
 	such notices to a third-party for publication. As such, your letter
 	(with personal information removed) may be forwarded to Chilling
-	Effects (<a href="http://www.chillingeffects.org" rel="nofollow"
+	Effects (<a href="http://www.chillingeffects.org" rel="nofollow noreferrer"
 	target="_blank" className="primary">www.chillingeffects.org</a>) for publication.
 			</p>
 			<h3 className="f3 tracked mt0 mb3"><Trans>Counter-Notification</Trans></h3>
@@ -85,14 +85,14 @@ class DMCAPage extends Component {
 		A statement under penalty of perjury that you have a good faith belief that the material was removed or disabled as a result of mistake or misidentification of the material to be removed or disabled.
 	  </li>
 	  <li className="list">
-		The subscriber's name, address, and telephone number, and a statement that you consent to the jurisdiction of Federal District Court for the judicial district in which the address is located, or if your address is outside of the United States, for any judicial district in which Guac.live may be found, and that you will accept service of process from the person who provided notification under subsection (c)(1)(C) or an agent of such person.
+		The subscriber&apos;s name, address, and telephone number, and a statement that you consent to the jurisdiction of Federal District Court for the judicial district in which the address is located, or if your address is outside of the United States, for any judicial district in which Guac.live may be found, and that you will accept service of process from the person who provided notification under subsection (c)(1)(C) or an agent of such person.
 	  </li>
 	  <br />
 	  Please note that under Section 512(f) of the Copyright Act, any person who knowingly materially misrepresents that material or activity was removed or disabled by mistake or misidentification may be subject to liability.
 	</ul></p>
 	
 	<h3 className="f3 tracked mt0 mb3"><Trans>Designated Copyright Agent</Trans></h3>
-	<p>Guac.live's Designated Copyright Agent to receive notifications and counter-notifications of claimed infringement can be reached by email: contact@guac.live</p>
+	<p>Guac.live&apos;s Designated Copyright Agent to receive notifications and counter-notifications of claimed infringement can be reached by email: contact@guac.live</p>
 			</div>
 		);
 	}

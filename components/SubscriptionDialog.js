@@ -18,14 +18,6 @@ function SubscriptionDialog(props){
 	}else{
 		paypal_link = 'https://www.paypal.com/cgi-bin/webscr/?';
 	}
-
-	if(!auth || !auth.user || !auth.user.email){
-		return (
-			<div className="flex w-100 flex-grow-1 flex-nowrap pa1 bg-black-50 primary">
-				<Trans>You must be logged in, and have an email attached to your user, to subscribe.</Trans>
-			</div>
-		);
-	}
    
 	useEffect(() => {
 		const fetchData = async () => {
@@ -69,8 +61,17 @@ function SubscriptionDialog(props){
 				console.error(err);
 			});
 		}
-		fetchData();
-	}, []);
+		if(auth?.user?.email) fetchData();
+	}, [auth.user.email, channel.data.name, paypal_link, plans]);
+
+	if(!auth || !auth.user || !auth.user.email){
+		return (
+			<div className="flex w-100 flex-grow-1 flex-nowrap pa1 bg-black-50 primary">
+				<Trans>You must be logged in, and have an email attached to your user, to subscribe.</Trans>
+			</div>
+		);
+	}
+
 	console.log('plans', plans);
 	return (
 		<div className="w-100">

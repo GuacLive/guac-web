@@ -19,8 +19,8 @@ function ReplaysList(props){
 	const replays = useSelector(state => state.replays);
 
 	useEffect(() => {
-		dispatch(actions.fetchReplays(channel && channel.data && channel.data.name));
-	}, []);
+		dispatch(actions.fetchReplays(channel?.data?.name));
+	}, [channel, dispatch]);
 
 	const removeReplay = async (archive_id) => {	
 		await fetch(API_URL + '/archive', {
@@ -60,7 +60,7 @@ function ReplaysList(props){
 					return (
 					<div key={`replay_${replay.archive_id}_${i}`} className={`flex w-33 flex-grow-1 flex-nowrap pa1 ${darkMode ? 'bg-near-black' : 'bg-white'} white`}>
 						<a href={`/${channel.data.name}/replay/${replay.archive_id}`}>
-							<Image src={replay.thumbnail} shape="rounded" fit="contain" flexible lazyload />
+							<Image src={replay.thumbnail} alt="Replay" shape="rounded" fit="contain" flexible lazyload />
 						</a>
 						<div className="pa2">
 							<span className="f6 db link primary-50">
