@@ -61,19 +61,22 @@ function I18nWatchLocale({children}) {
 const skipLayoutDestinations = ['/embed/[name]', '/chat/[name]', '/overlay/[name]'];
 const MyApp = (props) => {
 	const dispatch = useDispatch();
+	const [registered, setRegistered] = useState(false);
 	const authentication = useSelector(state => state.authentication);
 	// Load initial catalog based on locale
 	activate(props.locale);
 	useEffect(() => {
-
 		if(typeof window !== 'undefined'){
 			// Initialize firebase messaging for current user
-			initializeFirebase(() => {
-				console.log('hi');
-				if(authentication && authentication.token){
-					initializePush(authentication.token);
-				}
-			});
+			if (!registered) {
+				initializeFirebase(() => {
+					console.log('hi');
+					if(authentication && authentication.token){
+						initializePush(authentication.token);
+					}
+					setRegistered(true);
+				});
+			}
 			if(window.matchMedia){
 				// Do not use system theme if overridden with cookie
 				if(props.hasThemeCookie) return;
@@ -91,7 +94,7 @@ const MyApp = (props) => {
 				}
 			}
 		}
-	}, [authentication, dispatch, props.hasThemeCookie, props.pageProps]);
+	}, [authentication, dispatch, registered, props.hasThemeCookie, props.pageProps]);
 
 	const { Component, pageProps, featuresService } = props;
 
