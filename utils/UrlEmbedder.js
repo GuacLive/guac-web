@@ -79,7 +79,6 @@ export default class UrlEmbedder {
 		// Process giphy regex and replace with JSX img element
 		str = processString(config)(str);
 		return <Linkify
-			tagName="span"
 			options={{
 				className: 'linkify',
 				target: (href, type) => type === 'url' && '_blank'
