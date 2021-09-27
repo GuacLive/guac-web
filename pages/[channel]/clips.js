@@ -31,7 +31,7 @@ const API_URL = process.env.API_URL;
 Modal.setAppElement('#__next');
 function ClipsPage(props) {
 	var clips = props.clips;
-	var currentPage = 1;
+	var currentPage = useRef(1);
 	var lastPage = clips?.pagination?.lastPage;
 
 	const [isFetching, setIsFetching] = useState(false);
@@ -68,13 +68,13 @@ function ClipsPage(props) {
     // Create ref to attach to the loader component
     const loader = useRef(null);
 
-	const fetchClips = async () => {
+	const fetchClips = useCallback(async () => {
 		setIsFetching(true);
-		currentPage = clips.pagination.currentPage + 1;
-		if(currentPage > lastPage){
+		currentPage.current = clips.pagination.currentPage + 1;
+		if(currentPage.current > lastPage){
 			return null;
 		}
-		await fetch(`${API_URL}/clips/${channel.data.name}?page=${currentPage}`, {
+		await fetch(`${API_URL}/clips/${channel.data.name}?page=${currentPage.current}`, {
 			Accept: 'application/json',
 			'Content-Type': 'application/json'
 		})
@@ -86,16 +86,17 @@ function ClipsPage(props) {
 			})
 			setIsFetching(false);
 		});
-	};
+	}, [clips, channel.data.name, lastPage]);
 
     const loadMore = useCallback((entries) => {
         const target = entries[0];
         if (target.isIntersecting && nextClips) {
             !isFetching && debounce(fetchClips, 700)()
         }
-    }, [isFetching, clips.data, fetchClips]);
+    }, [isFetching, nextClips, fetchClips]);
 
     useEffect(() => {
+		const l = loader;
         const options = {
             root: null, // window by default
             rootMargin: '0px',
@@ -111,7 +112,7 @@ function ClipsPage(props) {
         }
 
         // clean up on willUnMount
-        return () => {if(loader && loader.current) observer.unobserve(loader.current);}
+        return () => {if(l && l.current) observer.unobserve(l.current);}
     }, [loader, loadMore]);
 
 	return (
@@ -154,7 +155,7 @@ function ClipsPage(props) {
 				</div>
 			</Modal>
 			<div className="w-100 pv3 ph3-l">
-				<h2 className="f2 tracked mt0 mb3"><Trans>{channel.data.name}'s Clips</Trans></h2>
+				<h2 className="f2 tracked mt0 mb3"><Trans>{channel.data.name}&apos;s Clips</Trans></h2>
 				<div className="site-component-clips flex flex-row flex-wrap w-100" style={{flexGrow: 1}}>
 					{clips.data && clips.data.map(clip => {
 						return (
@@ -187,7 +188,7 @@ function ClipsPage(props) {
 					{
 						clips.pagination
 						&&
-						lastPage !== currentPage
+						lastPage !== currentPage.current
 						&&
 						<div style={{
 							'width': '100%',

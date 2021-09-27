@@ -116,7 +116,7 @@ function ChannelPage(props){
 		if(!isMobile && tab === -1){
 			setTab(0);
 		}
-	}, [isMobile])
+	}, [isMobile, tab])
 
 	
 	useEffect(() => {
@@ -659,7 +659,7 @@ function ChannelPage(props){
 				<div className="site-component-banned flex flex-column flex-wrap center-l br2 ba b--transparent bg-black-40 ">
 					<div className="pa3 pa4-ns db v-mid">
 						<h3 className="f3 tracked mt0 mb3 red"><Trans>User has been banned</Trans></h3>
-						<img src="/img/coffindance.gif" className="db w5" />
+						<Image src="/img/coffindance.gif" alt={t`User has been banned`} className="db w5" />
 						<h4 className="f4 primary">{stream.user.name}&nbsp;<Trans>has been banned from the site.</Trans></h4>
 						<p className="primary ma0">
 							{
@@ -700,7 +700,7 @@ function ChannelPage(props){
 		() => Array.from({
 			length: panels && panels.length ? panels.length : 0
 		}).map(() => React.createRef()),
-		[]
+		[panels]
 	);
 	if(channel.loading) return (<Trans>Loading...</Trans>);
 	if(!channel.data){
@@ -830,7 +830,7 @@ ChannelPage.getInitialProps = async ({store, query}) => {
 	}
 	log('info', 'Channel', query.channel);
 	await store.dispatch(actions.fetchChannel(query.channel));
-	return {...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})};
+	return {channel: query.channel, ...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})};
 };
 
 export default connect(state => state)(ChannelPage)

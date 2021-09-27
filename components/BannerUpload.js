@@ -25,7 +25,7 @@ export default function BannerUpload(props){
 
 	useEffect(() => {
 		dispatch(actions.fetchStreaming(props.user.token));
-	}, []);
+	}, [dispatch, props.user.token]);
 	
 	useEffect(() => {
         if(streaming.banner) setCurrentBanner(streaming.banner);

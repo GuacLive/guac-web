@@ -15,38 +15,37 @@ function FollowersList(props){
     const [followers, setFollowers] = useState([]);
     const [pagination, setPagination] = useState({});
 
-    var users = [];
-
-    const fetchFollowers = async (name, page = 1) => {
+    async function fetchFollowers(name, page = 1) {
+        var users = [];
         await callApi(`/channel/follows/${name}?page=${page}`)
-        .then(response => response.json())
-        .then((res) => {
-            if(res.data){
-                res.data.forEach((user, i) => {
-                    users.push({
-                        ...user
-                    });
+            .then(response => response.json())
+            .then((res) => {
+                if (res.data) {
+                    res.data.forEach((user, i) => {
+                        users.push({
+                            ...user
+                        });
 
-                    if(i == res.data.length - 1){
-                        setPagination(res.pagination);
-                        setFollowers(users);
+                        if (i == res.data.length - 1) {
+                            setPagination(res.pagination);
+                            setFollowers(users);
+                            setLoading(false);
+                        }
+                    });
+                    if (res.data.length === 0) {
                         setLoading(false);
                     }
-                });
-                if(res.data.length === 0){
-                    setLoading(false);
                 }
-            }
-        })
-        .catch((err) => {
-            console.error(err);
-        });
+            })
+            .catch((err) => {
+                console.error(err);
+            });
     }
 
 	useEffect(() => {
 		if(channel && channel.data && channel.data.name) fetchFollowers(channel.data.name);
 		//
-	}, []);
+	}, [channel]);
 
 	return loading
             ?

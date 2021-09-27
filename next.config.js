@@ -109,7 +109,7 @@ module.exports = withTM(withOffline({
 	},
 	reactStrictMode: true,
 	images: {
-		domains: ['guac.live', 'api.guac.live', 'cdn.guac.live', 'emotes.guac.live', 'lon.stream.guac.live', 'stream.guac.live', 'media.rawg.io', 'cdn.frankerfacez.com', 'static-cdn.jtvnw.net', 'cdn.betterttv.net', 'ggpht.com', 'yt3.ggpht.com']
+		domains: ['guac.live', 'api.guac.live', 'cdn.guac.live', 'emotes.guac.live', 'lon.stream.guac.live', 'stream.guac.live', 'media.rawg.io', 'cdn.frankerfacez.com', 'static-cdn.jtvnw.net', 'cdn.betterttv.net', 'ggpht.com', 'yt3.ggpht.com', 'discordapp.com', 'cdn.betterttv.net', 'cdn.7tv.app', 'cdn.frankerfacez.com']
 	},
 	crossOrigin: 'anonymous',
 	productionBrowserSourceMaps: true,

@@ -57,7 +57,7 @@ function ClipPage(props){
 			});
 		}
 		fetchData();
-	}, []);
+	}, [uuid]);
 
 	let videoJsOptions = {};
 	if(clip){

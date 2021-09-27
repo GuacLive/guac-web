@@ -37,7 +37,7 @@ function ProfileComponent(props) {
 				<div className="primary"><span className="b"><Trans>E-mail</Trans></span>: {auth.user.email || 'None'}</div>
 				<label htmlFor="color" className="b"><Trans>Color</Trans>:</label>
 				<input name="color" type="color" disabled={auth.user.patreon ? false : true} className="input-reset bg-white br2" ref={color} placeholder={i18n._(t`Color`)} defaultValue={auth.user.color ? `#${auth.user.color}` : null} />
-				<div className="primary f7"><Trans>Want to customize your color? <a target="_blank" href="https://www.patreon.com/join/guaclive" className="primary b"><Trans>Join our Patreon!</Trans></a></Trans></div>
+				<div className="primary f7"><Trans>Want to customize your color? <a target="_blank" rel="noreferrer" href="https://www.patreon.com/join/guaclive" className="primary b"><Trans>Join our Patreon!</Trans></a></Trans></div>
 				<label htmlFor="password" className="b"><Trans>New password:</Trans></label>
 				<input name="password" type="password" className="input-reset bn pa3 w-100 bg-white br2" ref={password} placeholder={i18n._(t`Password`)} />
 				<input type="submit" value={i18n._(t`Edit user`)} className="link color-inherit dib pv2 ph3 nowrap lh-solid pointer br2 ba b--green bg-green ml1" />

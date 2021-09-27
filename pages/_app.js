@@ -91,7 +91,7 @@ const MyApp = (props) => {
 				}
 			}
 		}
-	}, []);
+	}, [authentication, dispatch, props.hasThemeCookie, props.pageProps]);
 
 	const { Component, pageProps, featuresService } = props;
 

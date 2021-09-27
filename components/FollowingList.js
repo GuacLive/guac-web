@@ -12,9 +12,8 @@ function FollowingList(props){
     const [loading, setLoading] = useState(true);
     const [following, setFollowing] = useState([]);
 
-    var users = [];
-
-    const fetchFollowing = async (id) => {
+    async function fetchFollowing(id) {
+        var users = [];
         await callApi(`/follows`, {
             method: 'POST',
             headers: {
@@ -24,33 +23,33 @@ function FollowingList(props){
                 from_id: id
             })
         })
-        .then(response => response.json())
-        .then((res) => {
-            if(res.data){
-                res.data.forEach((user, i) => {
-                    users.push({
-                        ...user
-                    });
+            .then(response => response.json())
+            .then((res) => {
+                if (res.data) {
+                    res.data.forEach((user, i) => {
+                        users.push({
+                            ...user
+                        });
 
-                    if(i == res.data.length - 1){
-                        setFollowing(users);
+                        if (i == res.data.length - 1) {
+                            setFollowing(users);
+                            setLoading(false);
+                        }
+                    });
+                    if (res.data.length === 0) {
                         setLoading(false);
                     }
-                });
-                if(res.data.length === 0){
-                    setLoading(false);
                 }
-            }
-        })
-        .catch((err) => {
-            console.error(err);
-        });
+            })
+            .catch((err) => {
+                console.error(err);
+            });
     }
 
 	useEffect(() => {
 		if(channel && channel.data && channel.data.user) fetchFollowing(channel.data.user.id);
 		//
-	}, []);
+	}, [channel]);
 
 	return loading
             ?

@@ -1,4 +1,4 @@
-import { Fragment, useState, useRef, useEffect, useCallback } from 'react';
+import { Fragment, useState, useRef, useEffect, useCallback, useMemo} from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import useUpdateEffect from 'react-use/lib/useUpdateEffect';
@@ -67,7 +67,7 @@ function ChatComponent(props){
 	const messageContainerRef = useRef();
 
 	// CC0 public domain sound from http://www.freesound.org/people/pan14/sounds/263133/
-	const notificationSound = typeof Audio == 'undefined' ? null : new Audio();
+	const notificationSound = useMemo(() => {return typeof Audio == 'undefined' ? null : new Audio()}, []);
 	  
 	const [users, setUsers] = useState(new Map());
 
@@ -112,7 +112,7 @@ function ChatComponent(props){
 				setShowFAB(true);
 			}
 		}
-	}, [messages, lastMessageRef]);
+	}, [lastMessageRef, goToBottom]);
 
 	const onScroll = useCallback(() => {
 		if(!messageContainerRef || !messageContainerRef.current) return;
@@ -124,7 +124,7 @@ function ChatComponent(props){
 		}else{
 			setShowFAB(true);
 		}
-	}, [messages]);
+	}, [messageContainerRef]);
 
 	useEffect(() => {
 		if(notificationSound){
@@ -132,18 +132,21 @@ function ChatComponent(props){
 			notificationSound.volume = 1;
 			notificationSound.muted = false;
 		}
-	}, []);
-	if(process.browser){
-		useEffect(() => {
-			if(messageContainerRef && messageContainerRef.current){
+	}, [notificationSound]);
+
+	useEffect(() => {
+		if(process.browser){
+			if (messageContainerRef && messageContainerRef.current) {
 				messageContainerRef.current.getScrollElement().addEventListener('scroll', onScroll);
 			}
+		}
 
-			return () => {
-				window.removeEventListener('scroll', onScroll)
+		return () => {
+			if(process.browser){
+				window.removeEventListener('scroll', onScroll);
 			}
-		}, [messageContainerRef]);
-	}
+		}
+	}, [messageContainerRef, onScroll]);
 
 	const setLastMessageRef = (r, i) => {
 		if(!r){
@@ -271,6 +274,13 @@ function ChatComponent(props){
 		text && text.length > MAX_MESSAGE_LENGTH ? setMessage(text.slice(0, MAX_MESSAGE_LENGTH)) : setMessage(text);
 	};	
 
+	const cleanup = useCallback(() => {
+		const lines = messages;
+		if(lines.length >= maxlines){
+            setMessages(lines.slice(-maxlines));
+		}
+	}, [messages, maxlines]);
+
 	const handleSys = (msg) => {
 		let entry = {
 			user: null,
@@ -297,7 +307,7 @@ function ChatComponent(props){
 				<>
 					<span className="chat-message-user"></span>
 					<span className="chat-message-content green">
-						<Trans>Hi! Welcome to {channel?.data?.user?.name}'s channel~</Trans>
+						<Trans>Hi! Welcome to {channel?.data?.user?.name}&apos;s channel~</Trans>
 					</span>
 				</>
 			)
@@ -310,7 +320,7 @@ function ChatComponent(props){
 		log('info', 'Chat', 'Chatters: ' + viewers);
 	}
 
-	const handleMessage = (user, msgID, messages) => {
+	const handleMessage = useCallback((user, msgID, messages) => {
 		let self = this;
 		let entry;
 		let writeMessage = ((message) => {
@@ -339,7 +349,7 @@ function ChatComponent(props){
 								position="top"
 								trigger="mouseenter"
 							>
-									<img className="GuacImage chat-message-content__emote dib" data-emote-code={msg.content} src={emote.url} alt={'Emote: ' + msg.content} />
+								<img className="GuacImage chat-message-content__emote dib" data-emote-code={msg.content} src={emote.url} alt={'Emote: ' + msg.content} />
 							</Tooltip>
 							{i !== messages.length -1 && '\u00A0'}
 						</Fragment>
@@ -503,7 +513,7 @@ function ChatComponent(props){
 		};
 		setMessages(messages => messages.concat(entry));
 		cleanup();
-	}
+	}, [authentication.user, channel.data.user.id, chatSettings.showTimestamps, cleanup, emotes, hydrated, i18n, message, notificationSound, notifySound, users]);
 
 	const writeMessage = (event) => {
 		setFormattedMessage(event.target.value);
@@ -554,18 +564,11 @@ function ChatComponent(props){
 		cleanup();
 	}
 
-	const cleanup = () => {
-		const lines = messages;
-		if(lines.length >= maxlines){
-            setMessages(lines.slice(-maxlines));
-		}
-	}
-
 	useEffect(() => {
 		//if(!emotesStatus){
 			dispatch(actions.fetchEmotes(props.channel)).then(() => setEmotesStatus(true));
 		//}
-	}, [channel.data]);
+	}, [channel.data, dispatch, props.channel]);
 
 	useEffect(() => {
 		if(!emotesStatus) return;
@@ -617,12 +620,12 @@ function ChatComponent(props){
 				setHydrated(true);
 			}).catch(()=>{setHydrated(true);});
 		}
-	}, [emotesStatus]);
+	}, [emotesStatus, authentication.user, channel, emotes, hydrated, useChatHydration, channel.data]);
 
 	// If chat has just been hydrated, go to bottom
 	useEffect(() => {
 		goToBottom();
-	}, [hydrated]);
+	}, [hydrated, goToBottom]);
 
 	// Handle chat connection
 	useUpdateEffect(() => {
@@ -683,7 +686,7 @@ function ChatComponent(props){
 		if(socket && connectedStatus) socket.emit('join', authentication.token || null, channel.data && channel.data.user && channel.data.user.name);
 	};
 	// If token or connected status changes, join with the new one
-	useEffect(connect, [authentication.token, connectedStatus]);
+	useEffect(connect, [channel.data, authentication.token, connectedStatus]);
 
 	const ChatInput = (
 		<>
@@ -692,7 +695,6 @@ function ChatComponent(props){
 						<ReactTextareaAutocomplete
 							placeholder={i18n._(t`Send a message`)}
 							value={message}
-							onChange={writeMessage}
 							className="w-100 pa2 br2 input-reset ba db outline-transparent bg-transparent primary"
 							loadingComponent={() => <Trans>Loading...</Trans>}
 							style={{

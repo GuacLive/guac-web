@@ -10,7 +10,7 @@ export const fetchEmotes = (channel) => async (dispatch) => {
 				.then(async response => {
 					const data = await response.json();
 					for(const emote of Object.values(data)){
-						let url = emoteList.directory !== 'twitch' ? `//emotes.guac.live/${emoteList.directory}/${emote.id}.${emote.animated ? 'gif': 'png'}` : `//static-cdn.jtvnw.net/emoticons/v2/${emote.id}/default/dark/3.0`
+						let url = emoteList.directory !== 'twitch' ? `https://emotes.guac.live/${emoteList.directory}/${emote.id}.${emote.animated ? 'gif': 'png'}` : `https://static-cdn.jtvnw.net/emoticons/v2/${emote.id}/default/dark/3.0`
 						result[emote.code] = {
 							provider: emoteList.name,
 							url,
@@ -30,7 +30,7 @@ export const fetchEmotes = (channel) => async (dispatch) => {
 		for(const emote of e){
 			result[emote.code] = {
 				provider: 'BetterTTV',
-				url: `//cdn.betterttv.net/emote/${emote.id}/3x`,
+				url: `https://cdn.betterttv.net/emote/${emote.id}/3x`,
 			};
 		}
 	})
@@ -43,7 +43,7 @@ export const fetchEmotes = (channel) => async (dispatch) => {
 		for(const emote of data){
 			result[emote.code] = {
 				provider: 'BetterTTV',
-				url: `//cdn.betterttv.net/emote/${emote.id}/3x`,
+				url: `https://cdn.betterttv.net/emote/${emote.id}/3x`,
 			};
 		}
 	})
@@ -57,7 +57,7 @@ export const fetchEmotes = (channel) => async (dispatch) => {
 			for(const emote of set.emoticons){
 				result[emote.name] = {
 					provider: 'FrankerfaceZ',
-					url: `${emote.urls['2'] || emote.urls['1']}`,
+					url: `https:${emote.urls['2'] || emote.urls['1']}`,
 				};
 			}
 		}
@@ -72,7 +72,7 @@ export const fetchEmotes = (channel) => async (dispatch) => {
 			for(const emote of set.emoticons){
 				result[emote.name] = {
 					provider: 'FrankerfaceZ',
-					url: `${emote.urls['2'] || emote.urls['1']}`,
+					url: `https:${emote.urls['2'] || emote.urls['1']}`,
 				};
 			}
 		}

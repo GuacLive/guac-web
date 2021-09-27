@@ -35,7 +35,7 @@ function LoginComponent(props){
 				router.push('/');
 			}
 		}
-	}, [auth.token, auth.user.username])
+	}, [auth.token, auth.user.username, router])
 
 	const handleLoginSubmit = (e) => {
 		e.preventDefault();

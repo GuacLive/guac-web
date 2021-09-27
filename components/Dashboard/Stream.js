@@ -32,7 +32,7 @@ function Stream(props){
 		dispatch(actions.fetchCategories());
 		dispatch(actions.fetchStreaming(authentication.token));
 		dispatch(actions.fetchChannel(authentication.user.name));
-	}, []);
+	}, [dispatch, props]);
 
 	function renderStream(){
 		const {

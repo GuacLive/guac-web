@@ -2,6 +2,8 @@ const videojs = require('video.js').default;
 import '@videojs/http-streaming';
 import 'videojs-errors';
 
+import {useCallback} from 'react';
+
 import {useLingui} from '@lingui/react';
 
 import io from 'socket.io-client';
@@ -22,7 +24,6 @@ var playbackAPISocket;
 const DEFAULT_OFFLINE_POSTER = '//cdn.guac.live/offline-banners/offline-banner.png';
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
 function VideoPlayer(props) {
-	let player;
 	let videoNode;
 	const dispatch = useDispatch();
 	const { i18n } = useLingui();
@@ -30,7 +31,7 @@ function VideoPlayer(props) {
 
 	var channel = props.streamInfo && props.streamInfo.username;
 
-	function connectToPlaybackAPI() {
+	const connectToPlaybackAPI = useCallback(() => {
 		if(!props.live) return;
 		if(!playbackAPISocket || !playbackAPISocket.connected){
 			playbackAPISocket = io(`${VIEWER_API_URL}/playback`, {
@@ -72,9 +73,10 @@ function VideoPlayer(props) {
 				}
 			});
 		}
-	};
+	}, [props.live, channel, dispatch]);
 
 	useEffect(() => {
+		let player;
 		const canAutoplay = require('can-autoplay').default;
 		const videoJsOptions = {
 			errorDisplay: false,
@@ -358,7 +360,7 @@ function VideoPlayer(props) {
 				setConnectedStatus(false);
 			}
 		};
-	  }, []);
+	  }, [channel, connectToPlaybackAPI, i18n.locale, videoNode]);
 
 	// wrap the player in a div with a `data-vjs-player` attribute
 	// so videojs won't create additional wrapper in the DOM
