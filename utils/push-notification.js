@@ -28,6 +28,8 @@ export const initializeFirebase = (callback) => {
 					if (typeof callback == 'function') callback(registration);
 				})
 				.catch(console.error);
+			} else {
+				if (typeof callback == 'function') callback(registrations[0]);
 			}
 		});
 	}
