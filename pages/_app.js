@@ -69,10 +69,10 @@ const MyApp = (props) => {
 		if(typeof window !== 'undefined'){
 			// Initialize firebase messaging for current user
 			if (!registered) {
-				initializeFirebase(() => {
+				initializeFirebase((reg) => {
 					console.log('hi');
 					if(authentication && authentication.token){
-						initializePush(authentication.token);
+						initializePush(authentication.token, reg);
 					}
 					setRegistered(true);
 				});
