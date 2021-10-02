@@ -75,7 +75,7 @@ function SearchBar(props){
 				{
 					(loading || error || (results && results.length > 0))
 					&&
-						<div className="w5 pa1 ba b--gray br2 bg-white near-black site-component-search__results">
+						<div className="w5 pa1 ba b--gray br2 bg-white near-black site-component-search__results w-100">
 						{
 							loading && (
 								<div className="dib i ml8"><Trans>Loading...</Trans></div>
