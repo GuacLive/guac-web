@@ -65,7 +65,7 @@ function Sidebar(props){
                                 .sort((a, b) => {
                                     if(a.live === b.live)
                                         return a.viewers-b.viewers;
-                                    return !a.live ? -1 : 1;
+                                    return a.live ? -1 : 1;
                                 })
                                 .map((u) => {
                                     return (
