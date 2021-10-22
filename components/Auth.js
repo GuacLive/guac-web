@@ -100,7 +100,7 @@ function LoginComponent(props){
 							<div className="mv3">
 								<label className="db fw6 lh-copy f6" htmlFor="password"><Trans>Password</Trans></label>
 								<input ref={password} className="fl f6 f5-l pa2 ba br2 input-reset w-100" type="password" name="password" id="password" />
-								<Link prefetch href=""><a href="" className="f6 link dim green db"><Trans>Forgot your password?</Trans></a></Link>
+								<a href="#" className="f6 link dim green db"><Trans>Forgot your password?</Trans></a>
 							</div>
 							{/*<div className="mv3">
 								<label className="pa0 ma0 lh-copy f6 pointer"><input type="checkbox" /> <Trans>Remember me</Trans></label>
