@@ -32,7 +32,10 @@ function NotificationsMenu(props){
 				}
 			}).then(response => response.json());
 			let data = res.data;
-			let ids = res.data.map(n => n.id);
+			let ids = [null];
+			if (res?.data) {
+				ids = res.data.map(n => n.id);
+			}
 			notificationMaxId.current = Math.min(...ids);
 			setNotifications(data);
 		}
