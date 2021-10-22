@@ -24,7 +24,8 @@ var playbackAPISocket;
 const DEFAULT_OFFLINE_POSTER = '//cdn.guac.live/offline-banners/offline-banner.png';
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
 function VideoPlayer(props) {
-	let videoNode;
+	var videoNode;
+	var player;
 	const dispatch = useDispatch();
 	const { i18n } = useLingui();
 	const [connectedStatus, setConnectedStatus] = useState(false);
@@ -76,7 +77,6 @@ function VideoPlayer(props) {
 	}, [props.live, channel, dispatch]);
 
 	useEffect(() => {
-		let player;
 		const canAutoplay = require('can-autoplay').default;
 		const videoJsOptions = {
 			errorDisplay: false,
