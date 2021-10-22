@@ -116,7 +116,7 @@ function ChannelPage(props){
 		if(!isMobile && tab === -1){
 			setTab(0);
 		}
-	}, [isMobile, tab])
+	}, [isMobile])
 
 	
 	useEffect(() => {
