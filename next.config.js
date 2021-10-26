@@ -9,7 +9,8 @@ const sentryWebpackPluginOptions = {
 
 const withOffline = require('next-offline');
 const pkg = require('./package.json');
-module.exports = withSentryConfig(withOffline({
+const withTM = require('next-transpile-modules')(['react-giphy-searchbox', 'abort-controller', 'simplebar-react']);
+module.exports = withTM(withSentryConfig(withOffline({
 	swcMinify: true,
 	webpack(config, {isServer, buildId}) {
 		config.resolve.fallback = {
@@ -114,4 +115,4 @@ module.exports = withSentryConfig(withOffline({
 	future: {
 		excludeDefaultMomentLocales: true
 	},
-}), sentryWebpackPluginOptions)
+}), sentryWebpackPluginOptions))
