@@ -1,0 +1,12 @@
+diff --git a/node_modules/@sentry/nextjs/dist/index.server.js b/node_modules/@sentry/nextjs/dist/index.server.js
+index 4518433..1736f77 100644
+--- a/node_modules/@sentry/nextjs/dist/index.server.js
++++ b/node_modules/@sentry/nextjs/dist/index.server.js
+@@ -67,5 +67,5 @@ exports.withSentryConfig = config_1.withSentryConfig;
+ var withSentry_1 = require("./utils/withSentry");
+ exports.withSentry = withSentry_1.withSentry;
+ // wrap various server methods to enable error monitoring and tracing
+-instrumentServer_1.instrumentServer();
++//instrumentServer_1.instrumentServer();
+ //# sourceMappingURL=index.server.js.map
+\ No newline at end of file
