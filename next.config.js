@@ -12,10 +12,8 @@ module.exports = withOffline({
 			config.resolve.alias['@sentry/node'] = '@sentry/browser'
 		}
 
-		config.node = {
-			fs: 'empty',
-			net: 'empty'
-		};
+
+		config.resolve.fallback = { fs: false, net: false };
 
 		/*config.module.rules.push({
 			test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
