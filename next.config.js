@@ -12,6 +12,11 @@ module.exports = withOffline({
 			config.resolve.alias['@sentry/node'] = '@sentry/browser'
 		}
 
+		config.node = {
+			fs: 'empty',
+			net: 'empty'
+		};
+
 		/*config.module.rules.push({
 			test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
 			type: 'asset/resource'
