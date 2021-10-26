@@ -7,6 +7,7 @@ const withOffline = require('next-offline');
 const pkg = require('./package.json');
 const withTM = require('next-transpile-modules')(['react-giphy-searchbox', 'abort-controller', 'simplebar-react'], {unstable_webpack5: true});
 module.exports = withTM(withOffline({
+	swcMinify: true,
 	webpack(config, {isServer, buildId, dev}) {
 		if (!isServer) {
 			config.resolve.alias['@sentry/node'] = '@sentry/browser'
@@ -72,7 +73,6 @@ module.exports = withTM(withOffline({
 
 		return config;
 	},
-	target: 'serverless',
 	generateBuildId: async () => pkg.version,
 	poweredByHeader: false,
 	env: {
@@ -115,7 +115,7 @@ module.exports = withTM(withOffline({
 	productionBrowserSourceMaps: true,
 	experimental: {
 		sprFlushToDisk: true,
-		//reactRoot: true,
+		concurrentFeatures: true,
 		workerThreads: true,
 		pageEnv: true,
 		scrollRestoration: true,
@@ -123,7 +123,8 @@ module.exports = withTM(withOffline({
 		disableOptimizedLoading: false,
 		optimizeFonts: true,
 		optimizeImages: true,
-		optimizeCss: /*process.env.NODE_ENV === 'production' ? true :*/false,
+
+
 		scrollRestoration: false
 	},
 	future: {
