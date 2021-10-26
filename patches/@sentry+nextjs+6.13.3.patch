@@ -10,3 +10,57 @@ index 4518433..1736f77 100644
 +//instrumentServer_1.instrumentServer();
  //# sourceMappingURL=index.server.js.map
 \ No newline at end of file
+diff --git a/node_modules/@sentry/nextjs/esm/index.server.js b/node_modules/@sentry/nextjs/esm/index.server.js
+index 5b10206..42f4976 100644
+--- a/node_modules/@sentry/nextjs/esm/index.server.js
++++ b/node_modules/@sentry/nextjs/esm/index.server.js
+@@ -60,5 +60,5 @@ function addServerIntegrations(options) {
+ export { withSentryConfig } from './config';
+ export { withSentry } from './utils/withSentry';
+ // wrap various server methods to enable error monitoring and tracing
+-instrumentServer();
++//instrumentServer();
+ //# sourceMappingURL=index.server.js.map
+\ No newline at end of file
+diff --git a/node_modules/@sentry/nextjs/src/index.server.ts b/node_modules/@sentry/nextjs/src/index.server.ts
+index e8c096b..a26c858 100644
+--- a/node_modules/@sentry/nextjs/src/index.server.ts
++++ b/node_modules/@sentry/nextjs/src/index.server.ts
+@@ -1,17 +1,18 @@
+-import { RewriteFrames } from '@sentry/integrations';
+-import { configureScope, getCurrentHub, init as nodeInit, Integrations } from '@sentry/node';
+-import { logger } from '@sentry/utils';
++import {RewriteFrames} from '@sentry/integrations';
++import {configureScope, getCurrentHub, init as nodeInit, Integrations} from '@sentry/node';
++import {logger} from '@sentry/utils';
++import {MetadataBuilder} from './utils/metadataBuilder';
++import {NextjsOptions} from './utils/nextjsOptions';
++import {addIntegration} from './utils/userIntegrations';
+ 
+-import { instrumentServer } from './utils/instrumentServer';
+-import { MetadataBuilder } from './utils/metadataBuilder';
+-import { NextjsOptions } from './utils/nextjsOptions';
+-import { addIntegration } from './utils/userIntegrations';
+ 
+ export * from '@sentry/node';
+-
+ // Here we want to make sure to only include what doesn't have browser specifics
+ // because or SSR of next.js we can only use this.
+-export { ErrorBoundary, withErrorBoundary } from '@sentry/react';
++export {ErrorBoundary, withErrorBoundary} from '@sentry/react';
++export {withSentryConfig} from './config';
++export {withSentry} from './utils/withSentry';
++
+ 
+ /** Inits the Sentry NextJS SDK on node. */
+ export function init(options: NextjsOptions): void {
+@@ -72,8 +73,6 @@ function addServerIntegrations(options: NextjsOptions): void {
+   }
+ }
+ 
+-export { withSentryConfig } from './config';
+-export { withSentry } from './utils/withSentry';
+ 
+ // wrap various server methods to enable error monitoring and tracing
+-instrumentServer();
++//instrumentServer();
