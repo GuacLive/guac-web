@@ -2,6 +2,8 @@ import NextErrorComponent from 'next/error';
 
 import * as Sentry from '@sentry/nextjs';
 
+import { Trans } from '@lingui/macro';
+
 const MyError = ({statusCode, hasGetInitialPropsRun, err}) => {
 	if (!hasGetInitialPropsRun && err) {
 		// getInitialProps is not called in case of
