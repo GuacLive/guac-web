@@ -5,9 +5,8 @@ const {SENTRY_DSN, SENTRY_ORG, SENTRY_PROJECT, SENTRY_AUTH_TOKEN} = process.env
 
 const withOffline = require('next-offline');
 const pkg = require('./package.json');
-const withTM = require('next-transpile-modules')(['react-giphy-searchbox', 'abort-controller', 'simplebar-react'], {unstable_webpack5: true});
-module.exports = withTM(withOffline({
-	swcMinify: false,
+module.exports = withOffline({
+	swcMinify: true,
 	webpack(config, {isServer, buildId, dev}) {
 		if (!isServer) {
 			config.resolve.alias['@sentry/node'] = '@sentry/browser'
@@ -128,4 +127,4 @@ module.exports = withTM(withOffline({
 	future: {
 		excludeDefaultMomentLocales: true
 	},
-}))
+})
