@@ -1,21 +1,19 @@
 diff --git a/node_modules/@sentry/nextjs/dist/index.server.js b/node_modules/@sentry/nextjs/dist/index.server.js
-index 4518433..2470162 100644
+index 4518433..9ac8646 100644
 --- a/node_modules/@sentry/nextjs/dist/index.server.js
 +++ b/node_modules/@sentry/nextjs/dist/index.server.js
-@@ -3,7 +3,7 @@ var tslib_1 = require("tslib");
+@@ -3,7 +3,6 @@ var tslib_1 = require("tslib");
  var integrations_1 = require("@sentry/integrations");
  var node_1 = require("@sentry/node");
  var utils_1 = require("@sentry/utils");
 -var instrumentServer_1 = require("./utils/instrumentServer");
-+//var instrumentServer_1 = require("./utils/instrumentServer");
  var metadataBuilder_1 = require("./utils/metadataBuilder");
  var userIntegrations_1 = require("./utils/userIntegrations");
  tslib_1.__exportStar(require("@sentry/node"), exports);
-@@ -67,5 +67,5 @@ exports.withSentryConfig = config_1.withSentryConfig;
+@@ -67,5 +66,4 @@ exports.withSentryConfig = config_1.withSentryConfig;
  var withSentry_1 = require("./utils/withSentry");
  exports.withSentry = withSentry_1.withSentry;
  // wrap various server methods to enable error monitoring and tracing
 -instrumentServer_1.instrumentServer();
-+//instrumentServer_1.instrumentServer();
  //# sourceMappingURL=index.server.js.map
 \ No newline at end of file
