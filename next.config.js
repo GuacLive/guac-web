@@ -1,19 +1,23 @@
-// Use the SentryWebpack plugin to upload the source maps during build step
 const webpack = require('webpack');
-const SentryWebpackPlugin = require('@sentry/webpack-plugin')
-const {SENTRY_DSN, SENTRY_ORG, SENTRY_PROJECT, SENTRY_AUTH_TOKEN} = process.env
+
+const {withSentryConfig} = require('@sentry/nextjs');
+
+const sentryWebpackPluginOptions = {
+	silent: false,
+  };
+  
 
 const withOffline = require('next-offline');
 const pkg = require('./package.json');
-module.exports = withOffline({
+module.exports = withSentryConfig(withOffline({
 	swcMinify: true,
-	webpack(config, {isServer, buildId, dev}) {
-		if (!isServer) {
-			config.resolve.alias['@sentry/node'] = '@sentry/browser'
-		}
-
-
-		config.resolve.fallback = { fs: false, net: false };
+	webpack(config, {isServer, buildId}) {
+		config.resolve.fallback = {
+			fs: false,
+			net: false,
+			domain: require.resolve('domain-browser'),
+			os: require.resolve('os-browserify/browser')
+		};
 
 		/*config.module.rules.push({
 			test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
@@ -56,23 +60,6 @@ module.exports = withOffline({
 			})
 		)
 
-		if (SENTRY_DSN && SENTRY_ORG && SENTRY_PROJECT && SENTRY_AUTH_TOKEN && process.env.NODE_ENV !== 'development') {
-			config.plugins.push(
-				new SentryWebpackPlugin({
-					release: pkg.version,
-					include: '.next',
-					ignore: ['.next/cache', 'server/ssr-module-cache.js', 'static/*/_ssgManifest.js', 'static/*/_buildManifest.js', 'node_modules'],
-					stripPrefix: ['webpack://_N_E/'],
-					urlPrefix: '~/_next',
-					cleanArtifacts: true
-				})
-			);
-		}
-
-		if (!dev) {
-			//config.devtool = false;
-		}
-
 		return config;
 	},
 	generateBuildId: async () => pkg.version,
@@ -87,10 +74,6 @@ module.exports = withOffline({
 		VIEWER_API_URL: process.env.VIEWER_API_URL || 'http://viewer-api.local.guac.live',
 		GIPHY_API_KEY: process.env.GIPHY_API_KEY,
 		NEXT_PUBLIC_SENTRY_SERVER_ROOT_DIR: '/var/task',
-		SENTRY_DSN: process.env.SENTRY_DSN,
-		SENTRY_ORG: process.env.SENTRY_ORG,
-		SENTRY_PROJECT: process.env.SENTRY_PROJECT,
-		SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
 		SPLIT_IO_KEY: process.env.SPLIT_IO_KEY,
 		PATREON_CLIENT_ID: process.env.PATREON_CLIENT_ID,
 		PATREON_REDIRECT_URI: process.env.PATREON_REDIRECT_URI,
@@ -130,4 +113,4 @@ module.exports = withOffline({
 	future: {
 		excludeDefaultMomentLocales: true
 	},
-})
+}), sentryWebpackPluginOptions)

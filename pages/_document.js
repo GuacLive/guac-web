@@ -1,14 +1,5 @@
 // eslint-disable-next-line @next/next/no-document-import-in-page
 import Document, {Html, Head, Main, NextScript} from 'next/document';
-import * as Sentry from '@sentry/node';
-
-process.on('unhandledRejection', (err) => {
-	Sentry.captureException(err);
-});
-
-process.on('uncaughtException', (err) => {
-	Sentry.captureException(err);
-});
 
 import {getCookie} from '../utils/cookie';
 export default class MyDocument extends Document {

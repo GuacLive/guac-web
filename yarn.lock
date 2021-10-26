@@ -2161,7 +2161,7 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.0.8.tgz#be3e914e84eacf16dbebd311c0d0b44aa1174c64"
   integrity sha512-ZK5v4bJwgXldAUA8r3q9YKfCwOqoHTK/ZqRjSeRXQrBXWouoPnS4MQtgC4AXGiiBuUu5wxrRgTlv0ktmM4P1Aw==
 
-"@sentry/browser@^6.3.0-beta.4":
+"@sentry/browser@6.13.3", "@sentry/browser@^6.3.0-beta.4":
   version "6.13.3"
   resolved "https://registry.yarnpkg.com/@sentry/browser/-/browser-6.13.3.tgz#d4511791b1e484ad48785eba3bce291fdf115c1e"
   integrity sha512-jwlpsk2/u1cofvfYsjmqcnx50JJtf/T6HTgdW+ih8+rqWC5ABEZf4IiB/H+KAyjJ3wVzCOugMq5irL83XDCfqQ==
@@ -2171,7 +2171,7 @@
     "@sentry/utils" "6.13.3"
     tslib "^1.9.3"
 
-"@sentry/cli@^1.70.1":
+"@sentry/cli@^1.68.0", "@sentry/cli@^1.70.1":
   version "1.70.1"
   resolved "https://registry.yarnpkg.com/@sentry/cli/-/cli-1.70.1.tgz#908517b699c0714eff88bedb68c6ea72e94945e8"
   integrity sha512-pab3nU3rNsq1HKKmJP2ITDl5cGi+QbQ5eLX6ELaeAbN2eAzfndHu2rTqlnjJAKcYQg6l9gFBn8vvY2xAeRJb6Q==
@@ -2203,7 +2203,7 @@
     "@sentry/utils" "6.13.3"
     tslib "^1.9.3"
 
-"@sentry/integrations@^6.3.0-beta.4":
+"@sentry/integrations@6.13.3", "@sentry/integrations@^6.3.0-beta.4":
   version "6.13.3"
   resolved "https://registry.yarnpkg.com/@sentry/integrations/-/integrations-6.13.3.tgz#9d80229de6e815c53fa52ca2422a0d13820b8d4e"
   integrity sha512-iC8LkbBTxlRo9FNxRqFfEm85FrELltc3E9gFsFSBkCnf7S/3nDCDW+mJX92KpRk97Wqid6/JwlXttKz8lsdF2A==
@@ -2222,7 +2222,21 @@
     "@sentry/types" "6.13.3"
     tslib "^1.9.3"
 
-"@sentry/node@^6.3.0-beta.4":
+"@sentry/nextjs@^6.13.3":
+  version "6.13.3"
+  resolved "https://registry.yarnpkg.com/@sentry/nextjs/-/nextjs-6.13.3.tgz#03ae3e1ad0f6cd3fa66fdb644f89aa173b6db247"
+  integrity sha512-Om9jdOX9TSOyfEcogF5v6r3SpNJMeMdeeE4RON3Aui6W3dfV/vpt60rMVliVyAHlWSAfbYzkcFaWm1at76/JEg==
+  dependencies:
+    "@sentry/core" "6.13.3"
+    "@sentry/integrations" "6.13.3"
+    "@sentry/node" "6.13.3"
+    "@sentry/react" "6.13.3"
+    "@sentry/tracing" "6.13.3"
+    "@sentry/utils" "6.13.3"
+    "@sentry/webpack-plugin" "1.17.1"
+    tslib "^1.9.3"
+
+"@sentry/node@6.13.3", "@sentry/node@^6.3.0-beta.4":
   version "6.13.3"
   resolved "https://registry.yarnpkg.com/@sentry/node/-/node-6.13.3.tgz#94c646c31fd240ab68ee8b85aa663e65eb499d06"
   integrity sha512-ZeZSw+TcPcf4e0j7iEqNMtoVmz+WFW/TEoGokXIwysZqSgchKdAXDHqn+CqUqFan7d76JcJmzztAUK2JruQ2Kg==
@@ -2235,6 +2249,18 @@
     cookie "^0.4.1"
     https-proxy-agent "^5.0.0"
     lru_map "^0.3.3"
+    tslib "^1.9.3"
+
+"@sentry/react@6.13.3":
+  version "6.13.3"
+  resolved "https://registry.yarnpkg.com/@sentry/react/-/react-6.13.3.tgz#f9607e0a60d52efd0baa96a14e694b6059f9379a"
+  integrity sha512-fdfmD9XNpGDwdkeLyd+iq+kqtNeghpH3wiez2rD81ZBvrn70uKaO2/yYDE71AXC6fUOwQuJmdfAuqBcNJkYIEw==
+  dependencies:
+    "@sentry/browser" "6.13.3"
+    "@sentry/minimal" "6.13.3"
+    "@sentry/types" "6.13.3"
+    "@sentry/utils" "6.13.3"
+    hoist-non-react-statics "^3.3.2"
     tslib "^1.9.3"
 
 "@sentry/tracing@6.13.3":
@@ -2260,6 +2286,13 @@
   dependencies:
     "@sentry/types" "6.13.3"
     tslib "^1.9.3"
+
+"@sentry/webpack-plugin@1.17.1":
+  version "1.17.1"
+  resolved "https://registry.yarnpkg.com/@sentry/webpack-plugin/-/webpack-plugin-1.17.1.tgz#1b3ebbe9991e4d77125ace2b24594059a088268a"
+  integrity sha512-L47a0hxano4a+9jbvQSBzHCT1Ph8fYAvGGUvFg8qc69yXS9si5lXRNIH/pavN6mqJjhQjAcEsEp+vxgvT4xZDQ==
+  dependencies:
+    "@sentry/cli" "^1.68.0"
 
 "@sentry/webpack-plugin@^1.14.1":
   version "1.18.3"
@@ -5470,6 +5503,11 @@ domain-browser@4.19.0:
   version "4.19.0"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-4.19.0.tgz#1093e17c0a17dbd521182fe90d49ac1370054af1"
   integrity sha512-fRA+BaAWOR/yr/t7T9E9GJztHPeFjj8U35ajyAjCDtAAnTn1Rc1f6W6VGPJrO1tkQv9zWu+JRof7z6oQtiYVFQ==
+
+domain-browser@^4.22.0:
+  version "4.22.0"
+  resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-4.22.0.tgz#6ddd34220ec281f9a65d3386d267ddd35c491f9f"
+  integrity sha512-IGBwjF7tNk3cwypFNH/7bfzBcgSCbaMOD3GsaY1AU/JRrnHnYgEM0+9kQt52iZxjNsjBtJYtao146V+f8jFZNw==
 
 domelementtype@1:
   version "1.3.1"
@@ -9949,7 +9987,7 @@ original@^1.0.0:
   dependencies:
     url-parse "^1.4.3"
 
-os-browserify@0.3.0:
+os-browserify@0.3.0, os-browserify@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/os-browserify/-/os-browserify-0.3.0.tgz#854373c7f5c2315914fc9bfc6bd8238fdda1ec27"
   integrity sha1-hUNzx/XCMVkU/Jv8a9gjj92h7Cc=

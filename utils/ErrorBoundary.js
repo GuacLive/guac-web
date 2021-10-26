@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import * as Sentry from '@sentry/node';
+import * as Sentry from "@sentry/nextjs";
 export default class ExampleBoundary extends Component {
 	constructor(props) {
 		super(props);
