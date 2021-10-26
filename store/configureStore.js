@@ -9,7 +9,7 @@ import rootReducer from '../reducers';
 
 import logger from 'redux-logger';
 
-import * as Sentry from '@sentry/node';
+import * as Sentry from '@sentry/nextjs';
 import { RewriteFrames } from '@sentry/integrations';
 
 const integrations = []
