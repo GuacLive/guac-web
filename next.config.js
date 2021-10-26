@@ -13,6 +13,7 @@ module.exports = withSentryConfig(withOffline({
 	swcMinify: true,
 	webpack(config, {isServer, buildId}) {
 		config.resolve.fallback = {
+			...config.resolve.fallback,
 			fs: false,
 			net: false,
 			domain: require.resolve('domain-browser'),
