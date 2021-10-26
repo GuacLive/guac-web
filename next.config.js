@@ -123,8 +123,6 @@ module.exports = withTM(withOffline({
 		disableOptimizedLoading: false,
 		optimizeFonts: true,
 		optimizeImages: true,
-
-
 		scrollRestoration: false
 	},
 	future: {
