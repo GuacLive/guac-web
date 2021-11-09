@@ -262,7 +262,11 @@ function ChannelPage(props){
 
 	useEffect(() => {
 		let now = new Date().getTime();
-		let liveAt = channel && channel.data && channel.data.liveAt ? new Date(channel.data.liveAt) : 0;
+		let liveAt = 0;
+		if (channel && channel.data && channel.data.liveAt){
+			let current = new Date(channel.data.liveAt);
+			liveAt = new Date(current.getTime() + current.getTimezoneOffset() * 60000);
+		}
 		if(channel?.data?.live) setTimer(now - liveAt);
 		if(channel?.data?.panels) setPanels(channel.data.panels);
 		setMatureWarning(parseInt(channel?.data?.mature, 10));
