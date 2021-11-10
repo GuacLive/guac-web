@@ -105,12 +105,14 @@ function VideoPlayer(props) {
 						env_key: 'nttpf0l7a8eq71c8oqmhd5r3a', // required
 						// Metadata
 						player_name: 'guac.live player', // ex: 'My Main Player'
+						player_version: process.env.npm_package_version,
 						player_init_time: playerInitTime, // ex: 1451606400000
 	
 						// Video Metadata (cleared with 'videochange' event)
 						video_id: props.streamInfo.username, // ex: 'abcd123'
 						video_title: props.streamInfo.title, // ex: 'My Great Video'
-						video_stream_type: props.live ? 'live' : 'on-demand', // 'live' or 'on-demand'
+						video_stream_type: props.streamInfo && props.streamInfo.isChannel ? 'live' : 'on-demand', // 'live' or 'on-demand'
+						video_cdn: 'guac',
 					},
 				},
 			},
