@@ -3,6 +3,7 @@ import '@videojs/http-streaming';
 import 'videojs-errors';
 
 import {useCallback} from 'react';
+import mux from 'videojs-mux';
 
 import {useLingui} from '@lingui/react';
 
@@ -95,7 +96,22 @@ function VideoPlayer(props) {
 				},
 				persistvolume: {
 					namespace: 'guac-live'
-				}
+				},
+				mux: {
+					debug: true,
+					data: {
+						viewer_user_id: props.streamInfo.viewer_user_id,
+						env_key: 'nttpf0l7a8eq71c8oqmhd5r3a', // required
+						// Metadata
+						player_name: 'guac.live player', // ex: 'My Main Player'
+						player_init_time: playerInitTime, // ex: 1451606400000
+	
+						// Video Metadata (cleared with 'videochange' event)
+						video_id: props.streamInfo.username, // ex: 'abcd123'
+						video_title: props.streamInfo.title, // ex: 'My Great Video'
+						video_stream_type: props.live ? 'live' : 'on-demand', // 'live' or 'on-demand'
+					},
+				},
 			},
 			techOrder: ['chromecast', 'html5'],
 			fullscreen: {
