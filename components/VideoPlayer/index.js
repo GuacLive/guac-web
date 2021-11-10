@@ -25,6 +25,7 @@ var playbackAPISocket;
 const DEFAULT_OFFLINE_POSTER = '//cdn.guac.live/offline-banners/offline-banner.png';
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
 function VideoPlayer(props) {
+	const playerInitTime = Date.now();
 	var videoNode;
 	var player;
 	const dispatch = useDispatch();
