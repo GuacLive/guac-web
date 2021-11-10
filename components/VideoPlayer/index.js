@@ -3,6 +3,7 @@ import '@videojs/http-streaming';
 import 'videojs-errors';
 
 import {useCallback} from 'react';
+import mux from 'videojs-mux';
 
 import {useLingui} from '@lingui/react';
 
@@ -24,6 +25,7 @@ var playbackAPISocket;
 const DEFAULT_OFFLINE_POSTER = '//cdn.guac.live/offline-banners/offline-banner.png';
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
 function VideoPlayer(props) {
+	const playerInitTime = Date.now();
 	var videoNode;
 	var player;
 	const dispatch = useDispatch();
@@ -95,7 +97,24 @@ function VideoPlayer(props) {
 				},
 				persistvolume: {
 					namespace: 'guac-live'
-				}
+				},
+				mux: {
+					debug: true,
+					data: {
+						viewer_user_id: props.streamInfo.viewer_user_id,
+						env_key: 'nttpf0l7a8eq71c8oqmhd5r3a', // required
+						// Metadata
+						player_name: 'guac.live player', // ex: 'My Main Player'
+						player_version: process.env.npm_package_version,
+						player_init_time: playerInitTime, // ex: 1451606400000
+	
+						// Video Metadata (cleared with 'videochange' event)
+						video_id: props.streamInfo.username, // ex: 'abcd123'
+						video_title: props.streamInfo.title, // ex: 'My Great Video'
+						video_stream_type: props.streamInfo && props.streamInfo.isChannel ? 'live' : 'on-demand', // 'live' or 'on-demand'
+						video_cdn: 'guac',
+					},
+				},
 			},
 			techOrder: ['chromecast', 'html5'],
 			fullscreen: {
