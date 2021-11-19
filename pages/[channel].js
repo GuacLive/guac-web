@@ -663,7 +663,7 @@ function ChannelPage(props){
 				<div className="site-component-banned flex flex-column flex-wrap center-l br2 ba b--transparent bg-black-40 ">
 					<div className="pa3 pa4-ns db v-mid">
 						<h3 className="f3 tracked mt0 mb3 red"><Trans>User has been banned</Trans></h3>
-						<Image src="/img/coffindance.gif" alt={t`User has been banned`} className="db w5" />
+						<Image width={300} height={300} src="/img/coffindance.gif" alt={t`User has been banned`} className="db w5" />
 						<h4 className="f4 primary">{stream.user.name}&nbsp;<Trans>has been banned from the site.</Trans></h4>
 						<p className="primary ma0">
 							{
