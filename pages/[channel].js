@@ -265,7 +265,7 @@ function ChannelPage(props){
 		let liveAt = 0;
 		if (channel && channel.data && channel.data.liveAt){
 			let current = new Date(channel.data.liveAt);
-			liveAt = new Date(current.getTime() + current.getTimezoneOffset() * 60000);
+			liveAt = new Date(current.getTime());
 		}
 		if(channel?.data?.live) setTimer(now - liveAt);
 		if(channel?.data?.panels) setPanels(channel.data.panels);
