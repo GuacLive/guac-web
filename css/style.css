@@ -648,6 +648,13 @@ input:focus {
 	content: "\f005";
 }
 
+.chat-message-badges__badge[data-badge='birthday']::before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 400;
+	/* Birthday hat */
+	content: "\f1fd";
+}
+
 /* Chat input */
 .chat-input textarea {
 	resize: vertical;
