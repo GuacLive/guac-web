@@ -134,7 +134,7 @@ class AdminStreamPage extends Component {
 													<td className="pa3">{publisher.app}</td>
 													<td className="pa3">{publisher.stream}</td>
 													<td className="pa3">{publisher.clientId}</td>
-													<td className="pa3">{publisher.ip}</td>
+													<td className="pa3">{publisher.ip ?? 'Hidden'}</td>
 													<td className="pa3">{publisher.audio.codec}</td>
 													<td className="pa3">{publisher.audio.samplerate}</td>
 													<td className="pa3">{publisher.audio.channels}</td>
