@@ -114,7 +114,7 @@ const MyApp = (props) => {
 };
 MyApp.getInitialProps = async appContext => {
 	const { ctx }  = appContext;
-	const uuidv4 = require('uuid/v4');
+	const { v4: uuidv4 } = require('uuid');
 	const nonce = uuidv4();
 
 	// Locale
