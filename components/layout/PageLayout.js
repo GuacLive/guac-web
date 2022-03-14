@@ -106,8 +106,8 @@ function PageLayout(props) {
 	let title = props.title ? props.title : '';
 
 	useEffect(() => {
-		if (user && user.token) toggleFollowingTimer(true);
-	}, [user, user.token, toggleFollowingTimer])
+		if (user?.token) toggleFollowingTimer(true);
+	}, [user, user?.token, toggleFollowingTimer])
 
 	// Refetch following list every 60 seconds
 	useInterval(
