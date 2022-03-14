@@ -20,7 +20,7 @@ if(typeof document !== 'undefined'){
 }
 
 import ClipButton from './ClipButton';
-
+import videojsChromecast from '../../silvermine-videojs-chromecast.js';
 var playbackAPISocket;
 const DEFAULT_OFFLINE_POSTER = '//cdn.guac.live/offline-banners/offline-banner.png';
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
@@ -207,7 +207,7 @@ function VideoPlayer(props) {
 		require('../../videojs-mpegts.js');
 		require('../../videojs-persistvolume.js');
 		require('../../videojs-settings.js');
-		require('../../silvermine-videojs-chromecast.js')(videojs, {
+		videojsChromecast(videojs, {
 			preloadWebComponents: true
 		});
 		require('@silvermine/videojs-quality-selector')(videojs);
