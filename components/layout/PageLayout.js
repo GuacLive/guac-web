@@ -94,7 +94,7 @@ function PageLayout(props) {
 				}
 			}
 		};
-	}, [showSidebar]);
+	}, []);
 
 	useEffect(() => {
 		if (props.mode) {
@@ -106,8 +106,8 @@ function PageLayout(props) {
 	let title = props.title ? props.title : '';
 
 	useEffect(() => {
-		if (user && user.token) toggleFollowingTimer(true);
-	}, [user, user.token, toggleFollowingTimer])
+		if (user?.token) toggleFollowingTimer(true);
+	}, [user, user?.token, toggleFollowingTimer])
 
 	// Refetch following list every 60 seconds
 	useInterval(
@@ -129,6 +129,10 @@ function PageLayout(props) {
     
 	function closeAuthModal(){
 		setAuthModalIsOpen(false);
+	}
+
+	function toggleSidebar() {
+		setShowSidebar((curVal) => !curVal);
 	}
 
 	if (props.skip) {
@@ -193,11 +197,7 @@ function PageLayout(props) {
 				<header className="site-component-header z-5 w-100 fixed ph3 pv2 bg-bar ml-auto flex-shrink-0">
 					<div className="h-100 flex items-stretch flex-nowrap">
 						<div className="flex flex-shrink-0 items-center pointer w-33-l">
-							<div className="dib v-mid tc flex-shrink-0 pointer pa2 transition-transform white" onClick={
-								() => {
-									setShowSidebar(!showSidebar)
-								}
-							}>
+							<div className="dib v-mid tc flex-shrink-0 pointer pa2 transition-transform white" onClick={toggleSidebar}>
 								<FontAwesomeIcon icon="bars" fixedWidth />
 							</div>
 							<Link href="/">
@@ -252,13 +252,7 @@ function PageLayout(props) {
 					</div>
 				</header>
 				<div className="w-100 min-vh-100 flex flex-row items-start">
-					{
-						(showSidebar)
-							?
-							<SidebarComponent followed={props.followed} />
-							:
-							null
-					}
+					{showSidebar && <SidebarComponent followed={props.followed} />}
 					<div className={`w-100 flex flex-column items-start ${showSidebar ? 'pl7-l' : 'pl2-l'} site-component-main`}>
 						{children}
 					</div>
