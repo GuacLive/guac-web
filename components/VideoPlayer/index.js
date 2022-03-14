@@ -207,7 +207,7 @@ function VideoPlayer(props) {
 		require('../../videojs-mpegts.js');
 		require('../../videojs-persistvolume.js');
 		require('../../videojs-settings.js');
-		require('@guaclive/videojs-chromecast')(videojs, {
+		require('../../silvermine-videojs-chromecast.js')(videojs, {
 			preloadWebComponents: true
 		});
 		require('@silvermine/videojs-quality-selector')(videojs);

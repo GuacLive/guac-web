@@ -12,7 +12,6 @@ const pkg = require('./package.json');
 const withTM = require('next-transpile-modules')(['react-giphy-searchbox', 'abort-controller', 'simplebar-react']);
 module.exports = withTM(withSentryConfig(withOffline({
 	swcMinify: true,
-	outputFileTracing: false,
 	webpack(config, {isServer, buildId}) {
 		config.resolve.fallback = {
 			...config.resolve.fallback,
