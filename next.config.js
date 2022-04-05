@@ -101,7 +101,7 @@ module.exports = withTM(withSentryConfig(withOffline({
 	crossOrigin: 'anonymous',
 	productionBrowserSourceMaps: true,
 	experimental: {
-		reactRoot: true,
+		reactRoot: false,
 		externalDir: true,
 		pageEnv: true,
 		scrollRestoration: false
