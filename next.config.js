@@ -100,18 +100,6 @@ module.exports = withTM(withSentryConfig(withOffline({
 	},
 	crossOrigin: 'anonymous',
 	productionBrowserSourceMaps: true,
-	experimental: {
-		sprFlushToDisk: true,
-		concurrentFeatures: true,
-		workerThreads: true,
-		pageEnv: true,
-		scrollRestoration: true,
-		scriptLoader: true,
-		disableOptimizedLoading: false,
-		optimizeFonts: true,
-		optimizeImages: true,
-		scrollRestoration: false
-	},
 	future: {
 		excludeDefaultMomentLocales: true
 	},
