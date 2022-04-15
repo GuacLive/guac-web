@@ -90,15 +90,15 @@ function VideoPlayer(props) {
 			inactivityTimeout: 2000,
 			suppressNotSupportedError: true,
 			plugins: {
-				/*chromecast: {
+				chromecast: {
 					appId: '9FCAFA48',
 					addButtonToControlBar: false, // Defaults to true
-				},*/
+				},
 				persistvolume: {
 					namespace: 'guac-live'
 				},
 				mux: {
-					debug: true,
+					debug: false,
 					data: {
 						viewer_user_id: props.streamInfo.viewer_user_id,
 						env_key: 'nttpf0l7a8eq71c8oqmhd5r3a', // required
