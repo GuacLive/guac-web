@@ -89,10 +89,10 @@ function VideoPlayer(props) {
 			inactivityTimeout: 2000,
 			suppressNotSupportedError: true,
 			plugins: {
-				chromecast: {
+				/*chromecast: {
 					appId: '9FCAFA48',
 					addButtonToControlBar: false, // Defaults to true
-				},
+				},*/
 				persistvolume: {
 					namespace: 'guac-live'
 				},
@@ -205,9 +205,7 @@ function VideoPlayer(props) {
 		require('../../videojs-mpegts.js');
 		require('../../videojs-persistvolume.js');
 		require('../../videojs-settings.js');
-		try{
-			require('@silvermine/videojs-chromecast')(videojs, { preloadWebComponents: true });
-		}catch{}
+		//require('@silvermine/videojs-chromecast')(videojs, { preloadWebComponents: true });
 		require('@silvermine/videojs-quality-selector')(videojs);
 		require('videojs-hotkeys');
 		require('../../public/videojs-landscape-fullscreen.min');
