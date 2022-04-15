@@ -1,4 +1,4 @@
-import videojs from "video.js";
+var videojs = require("video.js").default;
 import '@videojs/http-streaming';
 import 'videojs-errors';
 
