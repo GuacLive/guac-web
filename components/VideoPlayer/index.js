@@ -205,7 +205,9 @@ function VideoPlayer(props) {
 		require('../../videojs-mpegts.js');
 		require('../../videojs-persistvolume.js');
 		require('../../videojs-settings.js');
-		require('@guaclive/videojs-chromecast')(videojs, { preloadWebComponents: true });
+		try{
+			require('@silvermine/videojs-chromecast')(videojs, { preloadWebComponents: true });
+		}catch{}
 		require('@silvermine/videojs-quality-selector')(videojs);
 		require('videojs-hotkeys');
 		require('../../public/videojs-landscape-fullscreen.min');
