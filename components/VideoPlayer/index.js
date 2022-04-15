@@ -97,7 +97,7 @@ function VideoPlayer(props) {
 				persistvolume: {
 					namespace: 'guac-live'
 				},
-				mux: {
+				/*mux: {
 					debug: false,
 					data: {
 						viewer_user_id: props.streamInfo.viewer_user_id,
@@ -113,7 +113,7 @@ function VideoPlayer(props) {
 						video_stream_type: props.streamInfo && props.streamInfo.isChannel ? 'live' : 'on-demand', // 'live' or 'on-demand'
 						video_cdn: 'guac',
 					},
-				},
+				},*/
 			},
 			techOrder: ['chromecast', 'html5'],
 			fullscreen: {
