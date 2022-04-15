@@ -1,5 +1,6 @@
 // eslint-disable-next-line @next/next/no-document-import-in-page
 import Document, {Html, Head, Main, NextScript} from 'next/document';
+import Script from 'next/script'
 
 import {getCookie} from '../utils/cookie';
 export default class MyDocument extends Document {
@@ -26,7 +27,7 @@ export default class MyDocument extends Document {
 			<Html lang={this.props.locale} data-cast-api-enabled="true" id="guac" className={this.props.mode === 'dark' ? 'guac-skin-dark' : 'guac-skin-light'}>
 				<Head nonce={nonce}>
 					<script async defer type="text/javascript" src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1" nonce={this.props.nonce}></script>
-					<script src="https://kit.fontawesome.com/ee5f5e67f4.js" crossorigin="anonymous"></script>
+					<Script src="https://kit.fontawesome.com/ee5f5e67f4.js" crossOrigin="anonymous"></Script>
 
 					<link rel="manifest" href="/manifest.json" />
 					<link rel="preconnect" href="https://static.cloudflareinsights.com/" />
