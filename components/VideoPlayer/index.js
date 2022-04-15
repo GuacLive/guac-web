@@ -90,10 +90,10 @@ function VideoPlayer(props) {
 			inactivityTimeout: 2000,
 			suppressNotSupportedError: true,
 			plugins: {
-				chromecast: {
+				/*chromecast: {
 					appId: '9FCAFA48',
 					addButtonToControlBar: false, // Defaults to true
-				},
+				},*/
 				persistvolume: {
 					namespace: 'guac-live'
 				},
