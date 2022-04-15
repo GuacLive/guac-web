@@ -12,7 +12,6 @@ const pkg = require('./package.json');
 const withTM = require('next-transpile-modules')(['react-giphy-searchbox', 'abort-controller', 'simplebar-react']);
 module.exports = withTM(withSentryConfig(withOffline({
 	swcMinify: true,
-	outputFileTracing: false,
 	webpack(config, {isServer, buildId}) {
 		config.resolve.fallback = {
 			...config.resolve.fallback,
@@ -102,15 +101,9 @@ module.exports = withTM(withSentryConfig(withOffline({
 	crossOrigin: 'anonymous',
 	productionBrowserSourceMaps: true,
 	experimental: {
-		sprFlushToDisk: true,
-		concurrentFeatures: true,
-		workerThreads: true,
+		reactRoot: false,
+		externalDir: true,
 		pageEnv: true,
-		scrollRestoration: true,
-		scriptLoader: true,
-		disableOptimizedLoading: false,
-		optimizeFonts: true,
-		optimizeImages: true,
 		scrollRestoration: false
 	},
 	future: {

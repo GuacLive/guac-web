@@ -26,6 +26,7 @@ import {useInterval, useBoolean} from 'react-use';
 import SidebarComponent from 'components/layout/Sidebar';
 
 import LoginComponent from 'components/Auth';
+import Script from 'next/script';
 
 const mediaQueryList = typeof window !== 'undefined'
 	&& window.matchMedia('screen and (min-width: 960px)');
@@ -193,6 +194,8 @@ function PageLayout(props) {
 				}} onClick={closeAuthModal}>X</a>
 				<LoginComponent tab={authModalType == 'login' ? 0 : 1} />
 			</Modal>
+			<Script strategy="beforeInteractive" src="https://kit.fontawesome.com/ee5f5e67f4.js" crossOrigin="anonymous"></Script>
+
 			<main className="w-100 h-100 flex flex-column flex-nowrap justify-between items-start page-wrapper">
 				<header className="site-component-header z-5 w-100 fixed ph3 pv2 bg-bar ml-auto flex-shrink-0">
 					<div className="h-100 flex items-stretch flex-nowrap">

@@ -21,17 +21,10 @@ import log from '../../utils/log';
 import useChannelSocket from 'hooks/useChannelSocket';
 
 
-const renderStream = (props) => {
-	const {
-		channel,
-		authentication
-	} = props;
-	let stream = channel.data;
+const renderStream = () => {
+	let stream = props.channel.data;
 
-	// eslint-disable-next-line react-hooks/rules-of-hooks
-	const channelAPISocket = useChannelSocket(channel);
-
-	let videoJsOptions = {
+	let videoJsOptions = { 
 		autoplay: true,
 		banner: stream.banner,
 		controls: true,
@@ -43,7 +36,6 @@ const renderStream = (props) => {
 			isChannel: true
 		}
 	};
-
 
 	if(stream.live){
 		if(stream.urls){
