@@ -83,7 +83,7 @@
     "postcss-css-variables": "^0.18.0",
     "postcss-import": "^14.0.0",
     "postcss-nested": "^5.0.3",
-    "postcss-preset-env": "^6.7.0",
+    "postcss-preset-env": "^7.4.3",
     "postcss-url": "^10.1.1",
     "postinstall-postinstall": "^2.1.0",
     "pretty-ms": "^7.0.0",
@@ -120,7 +120,7 @@
     "videojs-errors": "^4.5.0",
     "videojs-hotkeys": "^0.2.27",
     "videojs-landscape-fullscreen": "^11.1.0",
-    "videojs-mux": "4.2.0",
+    "videojs-mux": "^4.6.0",
     "videojs-theater-mode": "^1.0.0",
     "webpack": "^5.54.0",
     "workbox-webpack-plugin": "^6.2.0-alpha.0"
