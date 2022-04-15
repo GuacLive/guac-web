@@ -606,51 +606,44 @@ input:focus {
 }
 
 .chat-message-badges__badge[data-badge='broadcaster']::before {
-	font-family: "Font Awesome 5 Free";
-	font-weight: 400;
+    font: var(--fa-font-solid);
 	/* Video */
 	content: "\f03d";
 }
 
 .chat-message-badges__badge[data-badge='moderator']::before {
-	font-family: "Font Awesome 5 Free";
-	font-weight: 400;
+    font: var(--fa-font-solid);
 	/* Shield-alt */
 	content: "\f3ed";
 }
 
 .chat-message-badges__badge[data-badge='staff']::before {
-	font-family: "Font Awesome 5 Free";
-	font-weight: 400;
+    font: var(--fa-font-solid);
 	/* Wrench */
 	content: "\f0ad";
 }
 
 /* Currently same as staff icon */
 .chat-message-badges__badge[data-badge='admin']::before {
-	font-family: "Font Awesome 5 Free";
-	font-weight: 400;
+    font: var(--fa-font-solid);
 	/* Wrench */
 	content: "\f0ad";
 }
 
 .chat-message-badges__badge[data-badge='patron']::before {
-	font-family: "Font Awesome 5 Brands";
-	font-weight: 400;
+    font: var(--fa-font-brands);
 	/* Patreon logo */
 	content: "\f3d9";
 }
 
 .chat-message-badges__badge[data-badge='subscriber']::before {
-	font-family: "Font Awesome 5 Free";
-	font-weight: 400;
+    font: var(--fa-font-solid);
 	/* Patreon logo */
 	content: "\f005";
 }
 
 .chat-message-badges__badge[data-badge='birthday']::before {
-	font-family: "Font Awesome 5 Free";
-	font-weight: 400;
+    font: var(--fa-font-solid);
 	/* Birthday hat */
 	content: "\f1fd";
 }
