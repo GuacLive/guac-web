@@ -2129,7 +2129,7 @@
     class.extend "0.9.1"
     webcomponents.js "git+https://git@github.com/webcomponents/webcomponentsjs.git#v0.7.24"
 
-"@silvermine/videojs-quality-selector@^1.2.4":
+"@silvermine/videojs-quality-selector@^1.2.5":
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/@silvermine/videojs-quality-selector/-/videojs-quality-selector-1.2.5.tgz#da48b6437bad5f8def2922cbf3d77c8c5e411a28"
   integrity sha512-cielchUzL8r2EX01S7PfR54tTbxDZR53xIDJoUi9Wg6pM2X+ftdJD6XiIDVOjPlBoG94iuG9LJwUtjX5IhrWZQ==
@@ -2711,7 +2711,21 @@
     mux.js "6.0.1"
     video.js "^6 || ^7"
 
-"@videojs/http-streaming@^2.7.1":
+"@videojs/http-streaming@2.14.0":
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/@videojs/http-streaming/-/http-streaming-2.14.0.tgz#dcb786296a640c67e77f7bb7488251bc243eb005"
+  integrity sha512-hsCy9QBsC753AEfy1AUKSv9MuztkAKKofGhSfXj+ToHFlqyutNMYk5B8PUkz2M21sOufuYpMMq5G3bwy4KAnxQ==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    "@videojs/vhs-utils" "3.0.4"
+    aes-decrypter "3.1.2"
+    global "^4.4.0"
+    m3u8-parser "4.7.0"
+    mpd-parser "0.21.0"
+    mux.js "6.0.1"
+    video.js "^6 || ^7"
+
+"@videojs/http-streaming@^2.14.0":
   version "2.14.2"
   resolved "https://registry.yarnpkg.com/@videojs/http-streaming/-/http-streaming-2.14.2.tgz#c083c106b13c7cc59ee441fdb46a94169e19a50b"
   integrity sha512-K1raSfO/pq5r8iUas3OSYni0kXOj91n8ealIpV02khghzGv9LQ6O3YUqYd/eAhJ1HIrmZWOnrYpK/P+mhUExXQ==
@@ -8845,7 +8859,7 @@ mpd-parser@0.21.1:
     "@xmldom/xmldom" "^0.7.2"
     global "^4.4.0"
 
-mpegts.js@^1.6.7:
+mpegts.js@^1.6.10:
   version "1.6.10"
   resolved "https://registry.yarnpkg.com/mpegts.js/-/mpegts.js-1.6.10.tgz#a2ff64039283e62a9e50223f4ce02adea1ffd132"
   integrity sha512-ZgX4b93cWk+EazOFRV4lekLqmc4rV7P+WMisG8N0F2M4/EiluPMNNWjuaurQfitak++AIc/ZVQ3IgM3cBcH7WA==
@@ -8885,11 +8899,6 @@ mute-stream@0.0.8:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.8.tgz#1630c42b2251ff81e2a283de96a5497ea92e5e0d"
   integrity sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==
-
-mux-embed@4.8.0:
-  version "4.8.0"
-  resolved "https://registry.yarnpkg.com/mux-embed/-/mux-embed-4.8.0.tgz#ddc45a2e4835b32ea076f0ad28e13204aa221479"
-  integrity sha512-8uFfGlY14Hpi6mTRTry6KmEV/SNUt3rSeCIayopPa9hv0V1IhPqMl0tMiwMt+Z7BW3pFfsbeqvyQqLqSGh+PBg==
 
 mux.js@6.0.1:
   version "6.0.1"
@@ -13259,7 +13268,7 @@ video.js@^5.2.1:
     videojs-vtt.js "0.12.6"
     xhr "2.2.2"
 
-"video.js@^6 || ^7", video.js@^7.18:
+"video.js@^6 || ^7":
   version "7.18.1"
   resolved "https://registry.yarnpkg.com/video.js/-/video.js-7.18.1.tgz#d93cd4992710d4d95574a00e7d29a2518f9b30f7"
   integrity sha512-mnXdmkVcD5qQdKMZafDjqdhrnKGettZaGSVkExjACiylSB4r2Yt5W1bchsKmjFpfuNfszsMjTUnnoIWSSqoe/Q==
@@ -13278,7 +13287,26 @@ video.js@^5.2.1:
     videojs-font "3.2.0"
     videojs-vtt.js "^0.15.3"
 
-videojs-errors@^4.3.2:
+video.js@^7.19.0:
+  version "7.19.1"
+  resolved "https://registry.yarnpkg.com/video.js/-/video.js-7.19.1.tgz#a91f1ca7aeddac4b051c76a6678e98f9f34c84d6"
+  integrity sha512-Apx46ts0rdJbPs26kLFEfT0oyhVwidcQiQZDS87D3UPCFYs23BQlFiuvfVQ4kjo7qus+hp9orCEfr/Zsz70Ihg==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    "@videojs/http-streaming" "2.14.0"
+    "@videojs/vhs-utils" "^3.0.4"
+    "@videojs/xhr" "2.6.0"
+    aes-decrypter "3.1.2"
+    global "^4.4.0"
+    keycode "^2.2.0"
+    m3u8-parser "4.7.0"
+    mpd-parser "0.21.0"
+    mux.js "6.0.1"
+    safe-json-parse "4.0.0"
+    videojs-font "3.2.0"
+    videojs-vtt.js "^0.15.3"
+
+videojs-errors@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/videojs-errors/-/videojs-errors-4.5.0.tgz#95d25e2b23468a1e43fc6066359f4f3d12cc5d28"
   integrity sha512-FIs2a+LGEy3RNhgei7UY0vCmh80NPZfLFyjQNLBmw4jpt4pD03Udu3o3F7j2Li8OOrtXLmAt/hK5mz8wO20+Gw==
@@ -13315,12 +13343,10 @@ videojs-landscape-fullscreen@^11.1.0:
   dependencies:
     global "^4.4.0"
 
-videojs-mux@^4.2.0:
-  version "4.6.4"
-  resolved "https://registry.yarnpkg.com/videojs-mux/-/videojs-mux-4.6.4.tgz#2009df2ce0c862e873481e09b283f3a7e8fdb5f0"
-  integrity sha512-VzMc4PP5H409ZFKzP3YyB7a58jaUBnoCEuu1iIUPw7BN2UoAB3CbF14VNBnIeIVjWpH4z1BnYSnceTLUfSEPpw==
-  dependencies:
-    mux-embed "4.8.0"
+videojs-mux@4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/videojs-mux/-/videojs-mux-4.2.0.tgz#0ce329856b340983ee577e328646ccb50ae3c8cd"
+  integrity sha512-7x5/85RDiWihL+iZSgSR7g+l3xMHX9PXybuXmqT01rkNO6meyi7wTV7mHteuy3fKWECwZCWNAvPzdaP34hYSng==
 
 videojs-swf@5.4.1:
   version "5.4.1"
