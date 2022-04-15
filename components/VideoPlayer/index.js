@@ -1,9 +1,9 @@
-const videojs = require('video.js').default;
+import videojs from "video.js";
 import '@videojs/http-streaming';
 import 'videojs-errors';
 
 import {useCallback} from 'react';
-import mux from 'videojs-mux';
+import 'videojs-mux';
 
 import {useLingui} from '@lingui/react';
 
@@ -19,7 +19,7 @@ if(typeof document !== 'undefined'){
 	require('!style-loader!css-loader!video.js/dist/video-js.css')
 }
 
-import ClipButton from './ClipButton';
+import './ClipButton';
 var playbackAPISocket;
 const DEFAULT_OFFLINE_POSTER = '//cdn.guac.live/offline-banners/offline-banner.png';
 const VIEWER_API_URL = process.env.VIEWER_API_URL;
@@ -207,6 +207,7 @@ function VideoPlayer(props) {
 		require('../../videojs-persistvolume.js');
 		require('../../videojs-settings.js');
 		require('@silvermine/videojs-quality-selector')(videojs);
+		require('@silvermine/videojs-chromecast')(videojs, { preloadWebComponents: true });
 		require('videojs-hotkeys');
 		require('../../public/videojs-landscape-fullscreen.min');
 		// instantiate Video.js
