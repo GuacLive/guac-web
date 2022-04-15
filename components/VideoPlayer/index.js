@@ -3,7 +3,6 @@ import '@videojs/http-streaming';
 import 'videojs-errors';
 
 import {useCallback} from 'react';
-import 'videojs-mux';
 
 import {useLingui} from '@lingui/react';
 
