@@ -15,6 +15,10 @@ import log from '../../utils/log';
 import useChannelSocket from 'hooks/useChannelSocket';
 
 function EmbedPage(props) {
+	const {
+		authentication
+	} = props;
+
 	const renderStream = () => {
 		let stream = props.channel.data;
 
@@ -24,7 +28,7 @@ function EmbedPage(props) {
 			controls: true,
 			sources: [],
 			streamInfo: {
-				viewer_user_id: authentication.user && authentication.user.id,
+				viewer_user_id: authentication?.user && authentication?.user.id,
 				title: stream.title,
 				username: stream.user.name,
 				isChannel: true
