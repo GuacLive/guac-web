@@ -1,4 +1,4 @@
-import marked from 'marked';
+import {marked} from 'marked';
 function renderMarkdown(data) {
 	const renderer = new marked.Renderer();
 	const linkRenderer = renderer.link;

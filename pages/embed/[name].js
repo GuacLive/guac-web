@@ -1,77 +1,71 @@
 import React, {Component, Fragment, useState} from 'react'
 import dynamic from 'next/dynamic'
 
-let VideoPlayer = dynamic(
-	() => /* webpackChunkName: 'VideoPlayer' */import('../../components/VideoPlayer'),
-	{
-		ssr: false,
-		loading: () => <div className="w-100 h-100 bg-black white content-box" style={{'paddingTop': '56.25%'}} />
-	}
-);
+import VideoPlayer from 'components/VideoPlayer';
 
 import {connect} from 'react-redux';
 
 import NextHead from 'next/head';
 
-import { Trans, t } from '@lingui/macro';
+import {Trans, t} from '@lingui/macro';
 
 import * as actions from '../../actions';
 
 import log from '../../utils/log';
 import useChannelSocket from 'hooks/useChannelSocket';
 
+function EmbedPage(props) {
+	const renderStream = () => {
+		let stream = props.channel.data;
 
-const renderStream = () => {
-	let stream = props.channel.data;
+		let videoJsOptions = {
+			autoplay: true,
+			banner: stream.banner,
+			controls: true,
+			sources: [],
+			streamInfo: {
+				viewer_user_id: authentication.user && authentication.user.id,
+				title: stream.title,
+				username: stream.user.name,
+				isChannel: true
+			}
+		};
 
-	let videoJsOptions = { 
-		autoplay: true,
-		banner: stream.banner,
-		controls: true,
-		sources: [],
-		streamInfo: {
-			viewer_user_id: authentication.user && authentication.user.id,
-			title: stream.title,
-			username: stream.user.name,
-			isChannel: true
-		}
-	};
-
-	if(stream.live){
-		if(stream.urls){
-			// Prefer FLV if available, it has lower latency
-			let flvUrl = `${stream.streamServer}${stream.urls.flv}`;
-			if(stream.urls.flv){
-				videoJsOptions.sources.push({
-					src: typeof window === 'object' && 'WebSocket' in window
-						? `wss:${flvUrl}`
-						: flvUrl,
-					type: 'video/x-flv',
-					label: 'Source (FLV)'
+		if (stream.live) {
+			if (stream.urls) {
+				// Prefer FLV if available, it has lower latency
+				let flvUrl = `${stream.streamServer}${stream.urls.flv}`;
+				if (stream.urls.flv) {
+					videoJsOptions.sources.push({
+						src: typeof window === 'object' && 'WebSocket' in window
+							? `wss:${flvUrl}`
+							: flvUrl,
+						type: 'video/x-flv',
+						label: 'Source (FLV)'
+					});
+				}
+				if (stream.urls.hls) {
+					videoJsOptions.sources.push({
+						src: `${stream.streamServer}${stream.urls.hls}`,
+						type: 'application/x-mpegURL',
+						label: 'Auto (HLS)'
+					});
+				}
+				// Only HLS has quality options
+				Object.keys(stream.qualities).forEach((key) => {
+					let urlKey = stream.qualities[key];
+					videoJsOptions.sources.push({
+						src: stream.streamServer + `/live/${stream.user.name}/index${urlKey}.m3u8`,
+						type: 'application/x-mpegURL',
+						label: `${key} (HLS)`
+					});
 				});
 			}
-			if(stream.urls.hls){
-				videoJsOptions.sources.push({
-					src: `${stream.streamServer}${stream.urls.hls}`,
-					type: 'application/x-mpegURL',
-					label: 'Auto (HLS)'
-				});
-			}
-			// Only HLS has quality options
-			Object.keys(stream.qualities).forEach((key) => {
-				let urlKey = stream.qualities[key];
-				videoJsOptions.sources.push({
-					src: stream.streamServer + `/live/${stream.user.name}/index${urlKey}.m3u8`,
-					type: 'application/x-mpegURL',
-					label: `${key} (HLS)`
-				});
-			});
 		}
-	}
 
-	return (
-	<div className="player-embed" data-blurred={matureWarning}>
-		{
+		return (
+			<div className="player-embed" data-blurred={matureWarning}>
+				{
 					matureWarning
 						&& !matureDismissed
 						? <div className="mature-warning">
@@ -86,21 +80,21 @@ const renderStream = () => {
 							</>
 
 						</div> : <></>}
-		<VideoPlayer {...videoJsOptions} live={stream.live} fill={true} noAutoPlay={matureWarning && !matureDismissed}></VideoPlayer>
-	</div>
-	);
-}
-function EmbedPage(props){
+				<VideoPlayer {...videoJsOptions} live={stream.live} fill={true} noAutoPlay={matureWarning && !matureDismissed}></VideoPlayer>
+			</div>
+		);
+	}
+
 	const {
 		channel
 	} = props;
 
 	const [matureWarning, setMatureWarning] = useState(parseInt(channel?.data?.mature, 10));
-	const [matureDismissed, setMatureDismissed] = useState(false);		
+	const [matureDismissed, setMatureDismissed] = useState(false);
 
-	if(channel.loading) return null;
-	if(!channel.data) return null;
-	if(channel.error) throw channel.error;
+	if (channel.loading) return null;
+	if (!channel.data) return null;
+	if (channel.error) throw channel.error;
 
 	const meta = [
 		{property: 'og:title', hid: 'og:title', content: `${channel.data.name} &middot; guac.live`},
