@@ -39,8 +39,8 @@ function NotificationsMenu(props){
 			notificationMaxId.current = Math.min(...ids);
 			setNotifications(data);
 		}
-		fetchData();
-	}, [auth.user.token]);
+		if (auth?.user?.token) fetchData();
+	}, [auth?.user?.token]);
 
 	return (
 		<div className="items-stretch flex flex-grow-1 h-100 relative">
