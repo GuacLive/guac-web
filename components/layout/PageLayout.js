@@ -166,6 +166,9 @@ function PageLayout(props) {
 				<meta name="description" content="guac is a live streaming platform." key="description" />
 				<meta name="theme-color" key="theme-color" content="#19a974" />
 				{/*<meta name="color-scheme" key="color-scheme" content="light dark" />*/}
+
+				<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+				<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
 			</Head>
 			<Modal
 				isOpen={authModalIsOpen}
